@@ -43,9 +43,9 @@ const config: Config = {
           200: "#121212",
         },
         gold: {
-          DEFAULT: "#c5a059",
-          bright: "#d4af37",
-          dark: "#8a6f3d",
+          DEFAULT: "#d4bc96",
+          bright: "#e2cfb0",
+          dark: "#b89a72",
         },
         muted: {
           DEFAULT: "#cccccc",
