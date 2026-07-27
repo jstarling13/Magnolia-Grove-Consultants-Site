@@ -8,7 +8,10 @@ export const isTurnstileEnabled = Boolean(process.env.TURNSTILE_SECRET_KEY);
  * true — the widget is also hidden client-side in that case, so this only
  * ever happens in environments that haven't opted into CAPTCHA yet.
  */
-export async function verifyTurnstileToken(token: string | undefined, ip?: string): Promise<boolean> {
+export async function verifyTurnstileToken(
+  token: string | undefined,
+  ip?: string
+): Promise<boolean> {
   if (!isTurnstileEnabled) return true;
   if (!token) return false;
 

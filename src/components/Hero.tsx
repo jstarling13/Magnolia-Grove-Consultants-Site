@@ -36,10 +36,7 @@ export default function Hero() {
               className="group inline-flex w-full items-center justify-center gap-2 rounded-md bg-gold px-8 py-4 text-sm font-semibold text-onyx shadow-card transition-all hover:bg-gold-bright hover:shadow-card-hover sm:w-auto"
             >
               {hero.primaryCta}
-              <ArrowRight
-                size={18}
-                className="transition-transform group-hover:translate-x-1"
-              />
+              <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
               href={hero.secondaryCtaHref}

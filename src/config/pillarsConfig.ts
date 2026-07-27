@@ -30,8 +30,7 @@ export const pillars: Pillar[] = [
     navLabel: "Field Execution",
     icon: Target,
     heroTitle: "FIELD EXECUTION & GROUND OPERATIONS",
-    heroSubheadline:
-      "Data-driven turf strategy, managed deployment, and live field intelligence.",
+    heroSubheadline: "Data-driven turf strategy, managed deployment, and live field intelligence.",
     image: "/images/pillar-1-field-ops.webp",
     imageAlt: "Tactical district map with compass, voter density and turf status legend",
     cards: [
@@ -181,7 +180,8 @@ export const pillars: Pillar[] = [
 
 export const caseStudiesPage = {
   heroTitle: "TRACK RECORD",
-  heroSubheadline: "Verifiable performance metrics and district shifting results across competitive races.",
+  heroSubheadline:
+    "Verifiable performance metrics and district shifting results across competitive races.",
   heroImage: "/images/hero-aerial-map.webp",
   heroImageAlt: "Aerial night map of a district with illuminated roads",
   confidentialityNote:

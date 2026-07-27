@@ -33,7 +33,9 @@
   }
 
   .glow-gold {
-    box-shadow: 0 0 0 1px rgba(197, 160, 89, 0.25), 0 12px 32px -8px rgba(197, 160, 89, 0.18);
+    box-shadow:
+      0 0 0 1px rgba(197, 160, 89, 0.25),
+      0 12px 32px -8px rgba(197, 160, 89, 0.18);
   }
 }
 

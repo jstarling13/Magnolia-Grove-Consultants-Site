@@ -28,7 +28,7 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full border-b transition-all motion-reduce:transition-none duration-300 ${
+      className={`sticky top-0 z-50 w-full border-b transition-all duration-300 motion-reduce:transition-none ${
         isScrolled
           ? "border-gold/20 bg-onyx/95 backdrop-blur-sm"
           : "border-transparent bg-onyx/70 backdrop-blur-sm"
@@ -51,7 +51,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-muted-light transition-colors motion-reduce:transition-none hover:text-gold-bright"
+              className="text-sm font-medium text-muted-light transition-colors hover:text-gold-bright motion-reduce:transition-none"
             >
               {link.label}
             </Link>
@@ -61,7 +61,7 @@ export default function Header() {
         <div className="hidden md:block">
           <Link
             href={nav.primaryCtaHref}
-            className="inline-flex items-center rounded-md bg-gold px-5 py-2.5 text-sm font-semibold text-onyx transition-all motion-reduce:transition-none hover:bg-gold-bright lg:px-6 lg:py-3"
+            className="inline-flex items-center rounded-md bg-gold px-5 py-2.5 text-sm font-semibold text-onyx transition-all hover:bg-gold-bright motion-reduce:transition-none lg:px-6 lg:py-3"
           >
             {nav.primaryCta}
           </Link>
@@ -100,7 +100,7 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="rounded-md px-3 py-3 text-base font-medium text-muted-light transition-colors motion-reduce:transition-none hover:bg-white/5 hover:text-gold-bright"
+                className="rounded-md px-3 py-3 text-base font-medium text-muted-light transition-colors hover:bg-white/5 hover:text-gold-bright motion-reduce:transition-none"
               >
                 {link.label}
               </Link>

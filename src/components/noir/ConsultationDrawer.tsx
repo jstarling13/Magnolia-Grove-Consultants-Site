@@ -3,10 +3,7 @@
 import { useEffect, useState } from "react";
 import { FocusTrap } from "focus-trap-react";
 import { X } from "lucide-react";
-import {
-  CONSULTATION_DRAWER_EVENT,
-  type ConsultationDrawerDetail,
-} from "@/lib/consultationDrawer";
+import { CONSULTATION_DRAWER_EVENT, type ConsultationDrawerDetail } from "@/lib/consultationDrawer";
 import StrategySessionForm from "./StrategySessionForm";
 
 export default function ConsultationDrawer() {
@@ -33,7 +30,7 @@ export default function ConsultationDrawer() {
 
   return (
     <div
-      className={`fixed inset-0 z-[60] transition-opacity motion-reduce:transition-none duration-300 ${
+      className={`fixed inset-0 z-[60] transition-opacity duration-300 motion-reduce:transition-none ${
         isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
       }`}
       aria-hidden={!isOpen}
@@ -57,7 +54,7 @@ export default function ConsultationDrawer() {
           role="dialog"
           aria-modal="true"
           aria-label="Request a strategy session"
-          className={`absolute right-0 top-0 flex h-full w-full max-w-lg flex-col overflow-y-auto border-l border-gold/25 bg-onyx-200 shadow-2xl transition-transform motion-reduce:transition-none duration-300 ease-out ${
+          className={`absolute right-0 top-0 flex h-full w-full max-w-lg flex-col overflow-y-auto border-l border-gold/25 bg-onyx-200 shadow-2xl transition-transform duration-300 ease-out motion-reduce:transition-none ${
             isOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >

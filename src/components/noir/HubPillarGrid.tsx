@@ -34,7 +34,10 @@ export default function HubPillarGrid() {
 
                 <span className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-gold-bright">
                   {pillar.ctaLabel}
-                  <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+                  <ArrowRight
+                    size={14}
+                    className="transition-transform group-hover:translate-x-1"
+                  />
                 </span>
               </Link>
             );

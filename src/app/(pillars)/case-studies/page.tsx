@@ -45,9 +45,7 @@ export default function CaseStudiesPage() {
                   {study.summary}
                 </p>
                 <div className="mt-6 border-t border-gold/15 pt-6">
-                  <span className="font-heading text-3xl font-bold text-white">
-                    {study.metric}
-                  </span>
+                  <span className="font-heading text-3xl font-bold text-white">{study.metric}</span>
                   <p className="mt-1 text-xs uppercase tracking-wide text-muted">
                     {study.metricLabel}
                   </p>

@@ -1,7 +1,8 @@
 import { Resend } from "resend";
 import type { LeadFormPayload, StrategySessionPayload } from "./validation";
 
-const hasResendConfig = Boolean(process.env.RESEND_API_KEY) && Boolean(process.env.CONTACT_EMAIL_FROM);
+const hasResendConfig =
+  Boolean(process.env.RESEND_API_KEY) && Boolean(process.env.CONTACT_EMAIL_FROM);
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
@@ -38,7 +39,9 @@ interface SendResult {
 
 export async function sendLeadNotification(payload: LeadFormPayload): Promise<SendResult> {
   if (!resend || !hasResendConfig) {
-    console.warn("[email] RESEND_API_KEY / CONTACT_EMAIL_FROM not set — skipping admin notification.");
+    console.warn(
+      "[email] RESEND_API_KEY / CONTACT_EMAIL_FROM not set — skipping admin notification."
+    );
     return { sent: false, reason: "not_configured" };
   }
 
@@ -87,7 +90,9 @@ export async function sendStrategySessionNotification(
   payload: StrategySessionPayload
 ): Promise<SendResult> {
   if (!resend || !hasResendConfig) {
-    console.warn("[email] RESEND_API_KEY / CONTACT_EMAIL_FROM not set — skipping admin notification.");
+    console.warn(
+      "[email] RESEND_API_KEY / CONTACT_EMAIL_FROM not set — skipping admin notification."
+    );
     return { sent: false, reason: "not_configured" };
   }
 

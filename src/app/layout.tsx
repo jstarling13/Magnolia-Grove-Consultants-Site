@@ -1,7 +1,29 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Montserrat } from "next/font/google";
-import { brand } from "@/config/siteConfig";
+import { brand, contactDetails } from "@/config/siteConfig";
 import "./globals.css";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://magnolia-grove-consultants.vercel.app";
+
+const phone = contactDetails.find((detail) => detail.label === "Phone")?.value;
+const email = contactDetails.find((detail) => detail.label === "Email")?.value;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: brand.name,
+  description: brand.tagline,
+  url: siteUrl,
+  image: `${siteUrl}${brand.logoImage}`,
+  telephone: phone,
+  email,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Columbus",
+    addressRegion: "GA",
+    addressCountry: "US",
+  },
+};
 
 const inter = Inter({
   subsets: ["latin"],
@@ -17,8 +39,21 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: `${brand.name} | ${brand.tagline}`,
   description: brand.tagline,
+  openGraph: {
+    title: `${brand.name} | ${brand.tagline}`,
+    description: brand.tagline,
+    url: siteUrl,
+    siteName: brand.name,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${brand.name} | ${brand.tagline}`,
+    description: brand.tagline,
+  },
 };
 
 export const viewport: Viewport = {
@@ -37,7 +72,13 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       className={`${inter.variable} ${montserrat.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

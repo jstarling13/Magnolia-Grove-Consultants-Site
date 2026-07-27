@@ -1,14 +1,15 @@
 import Header from "@/components/global/Header";
-import Hero from "@/components/Hero";
 import Footer from "@/components/global/Footer";
 
-export default function Home() {
+export default function MarketingLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <>
       <Header />
-      <main>
-        <Hero />
-      </main>
+      <main>{children}</main>
       <Footer />
     </>
   );

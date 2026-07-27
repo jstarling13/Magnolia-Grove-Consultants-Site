@@ -43,9 +43,7 @@ export default function Services() {
 
                   <div className="flex flex-1 flex-col p-8">
                     <h3 className="text-xl text-white">{pillar.title}</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-muted">
-                      {pillar.description}
-                    </p>
+                    <p className="mt-3 text-sm leading-relaxed text-muted">{pillar.description}</p>
 
                     <ul className="mt-6 flex flex-1 flex-col gap-3 border-t border-gold/15 pt-6">
                       {pillar.subItems.map((item) => (

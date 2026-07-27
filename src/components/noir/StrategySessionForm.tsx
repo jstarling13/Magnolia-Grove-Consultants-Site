@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { bookingPage } from "@/config/pillarsConfig";
+import { useContactForm } from "@/hooks/useContactForm";
 import Turnstile from "@/components/Turnstile";
 
 interface FormFields {
@@ -18,26 +18,23 @@ interface FormFields {
   company_website: string;
 }
 
-const initialFields: FormFields = {
+const buildInitialFields = (initialPillar?: string): FormFields => ({
   orgName: "",
   contactName: "",
   role: "",
   email: "",
   phone: "",
-  pillar: "",
+  pillar: initialPillar ?? "",
   budget: "",
   timeline: "",
   message: "",
   company_website: "",
-};
-
-type FormErrors = Partial<Record<keyof FormFields, string>>;
-type SubmitStatus = "idle" | "submitting" | "success" | "error";
+});
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-function validate(fields: FormFields): FormErrors {
-  const errors: FormErrors = {};
+function validate(fields: FormFields): Partial<Record<keyof FormFields, string>> {
+  const errors: Partial<Record<keyof FormFields, string>> = {};
 
   if (!fields.orgName.trim()) errors.orgName = "Organization name is required.";
   if (!fields.contactName.trim()) errors.contactName = "Full name is required.";
@@ -66,57 +63,21 @@ interface StrategySessionFormProps {
 }
 
 export default function StrategySessionForm({ initialPillar }: StrategySessionFormProps) {
-  const [fields, setFields] = useState<FormFields>(() => ({
-    ...initialFields,
-    pillar: initialPillar ?? "",
-  }));
-  const [errors, setErrors] = useState<FormErrors>({});
-  const [status, setStatus] = useState<SubmitStatus>("idle");
-  const [submitError, setSubmitError] = useState<string>("");
-  const [turnstileToken, setTurnstileToken] = useState<string>("");
-
-  const handleChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = event.target;
-    setFields((prev) => ({ ...prev, [name]: value }));
-    setErrors((prev) => ({ ...prev, [name]: undefined }));
-  };
-
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const validationErrors = validate(fields);
-
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      return;
-    }
-
-    setStatus("submitting");
-    setSubmitError("");
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ formType: "strategy", ...fields, turnstileToken }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok || !data.success) {
-        setSubmitError(data.error || bookingPage.errorMessage);
-        setStatus("error");
-        return;
-      }
-
-      setStatus("success");
-      setFields(initialFields);
-    } catch {
-      setSubmitError(bookingPage.errorMessage);
-      setStatus("error");
-    }
-  };
+  const {
+    fields,
+    errors,
+    status,
+    submitError,
+    setTurnstileToken,
+    handleChange,
+    handleSubmit,
+    resetToIdle,
+  } = useContactForm<FormFields>({
+    formType: "strategy",
+    initialFields: buildInitialFields(initialPillar),
+    validate,
+    defaultErrorMessage: bookingPage.errorMessage,
+  });
 
   if (status === "success") {
     return (
@@ -132,7 +93,7 @@ export default function StrategySessionForm({ initialPillar }: StrategySessionFo
         </p>
         <button
           type="button"
-          onClick={() => setStatus("idle")}
+          onClick={resetToIdle}
           className="mt-8 inline-flex items-center rounded-md border border-gold/60 px-6 py-3 text-xs font-semibold uppercase tracking-wider text-gold-bright transition-colors hover:bg-gold/10"
         >
           Submit another request

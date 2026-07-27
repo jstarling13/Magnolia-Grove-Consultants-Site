@@ -21,9 +21,7 @@ export default function About() {
         <Reveal className="max-w-2xl text-left">
           <span className="eyebrow">{about.eyebrow}</span>
           <h2 className="mt-3 text-3xl sm:text-4xl">{about.headline}</h2>
-          <p className="mt-5 text-base leading-relaxed text-muted-light sm:text-lg">
-            {about.body}
-          </p>
+          <p className="mt-5 text-base leading-relaxed text-muted-light sm:text-lg">{about.body}</p>
 
           <ul className="mt-8 flex flex-col gap-4">
             {about.bullets.map((bullet) => (

@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import Header from "@/components/global/Header";
 import Services from "@/components/Services";
-import Footer from "@/components/global/Footer";
 import { servicesIntro } from "@/config/siteConfig";
 
 export const metadata: Metadata = {
@@ -10,13 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function ServicesPage() {
-  return (
-    <>
-      <Header />
-      <main>
-        <Services />
-      </main>
-      <Footer />
-    </>
-  );
+  return <Services />;
 }

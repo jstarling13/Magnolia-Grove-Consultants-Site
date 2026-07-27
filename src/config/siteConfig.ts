@@ -8,16 +8,7 @@
  * ============================================================================
  */
 
-import {
-  Target,
-  Megaphone,
-  Printer,
-  Globe,
-  MapPin,
-  Phone,
-  Mail,
-  Linkedin,
-} from "lucide-react";
+import { Target, Megaphone, Printer, Globe, MapPin, Phone, Mail, Linkedin } from "lucide-react";
 import type {
   NavLink,
   ServicePillar,
@@ -105,7 +96,11 @@ export const servicePillars: ServicePillar[] = [
     title: "Digital Marketing",
     description:
       "Precision digital ad placement, high-production video, and rapid-response positioning across streaming and social channels.",
-    subItems: ["OTT & Connected TV Ads", "Rapid-Response Messaging", "High-Donor Conversion Funnels"],
+    subItems: [
+      "OTT & Connected TV Ads",
+      "Rapid-Response Messaging",
+      "High-Donor Conversion Funnels",
+    ],
     image: "/images/pillar-2-media.webp",
     imageAlt: "Cinema camera lens with live data and analytics overlay",
     pillarSlug: "digital-marketing",
@@ -127,7 +122,11 @@ export const servicePillars: ServicePillar[] = [
     title: "Web Development & Digital",
     description:
       "High-speed, mobile-optimized web portals, secure payment/donation funnels, and automated CRM pipeline routing.",
-    subItems: ["Sub-Second Load Times", "Stripe & Anedot Payment Processing", "Automated SMS & Email Drip Workflows"],
+    subItems: [
+      "Sub-Second Load Times",
+      "Stripe & Anedot Payment Processing",
+      "Automated SMS & Email Drip Workflows",
+    ],
     image: "/images/pillar-4-web.webp",
     imageAlt: "Laptop displaying campaign strategy code and a donor network dashboard",
     pillarSlug: "web-development",
@@ -187,7 +186,8 @@ export const leadForm = {
   subtitle:
     "Connect directly with our senior advisors to discuss district scope, field logistics, and media timelines.",
   serviceOptions: servicePillars.map((pillar) => pillar.title),
-  messagePlaceholder: "Briefly outline your campaign district, target race, or consulting objectives...",
+  messagePlaceholder:
+    "Briefly outline your campaign district, target race, or consulting objectives...",
   submitLabel: "Submit Request",
   submittingLabel: "Submitting...",
   successTitle: "Request Received",
@@ -195,7 +195,8 @@ export const leadForm = {
     "Strategy request received. A senior advisor will contact you within 12 hours under strict confidentiality.",
   errorMessage:
     "Transmission failed. Please verify your contact information or reach out directly via contact@magnoliagrovega.com.",
-  privacyNote: "All inquiries are bound by strict non-disclosure and client confidentiality standards.",
+  privacyNote:
+    "All inquiries are bound by strict non-disclosure and client confidentiality standards.",
 };
 
 /* ----------------------------------------------------------------------- */
@@ -252,5 +253,10 @@ export const footer = {
 };
 
 export const socialLinks: SocialLink[] = [
-  { id: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/company/magnolia-grove-consultants", icon: Linkedin },
+  {
+    id: "linkedin",
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/magnolia-grove-consultants",
+    icon: Linkedin,
+  },
 ];

@@ -9,9 +9,7 @@ export default function Contact() {
         <Reveal>
           <span className="eyebrow">{leadForm.eyebrow}</span>
           <h2 className="mt-3 text-3xl sm:text-4xl">{leadForm.headline}</h2>
-          <p className="mt-4 max-w-md text-base leading-relaxed text-muted">
-            {leadForm.subtitle}
-          </p>
+          <p className="mt-4 max-w-md text-base leading-relaxed text-muted">{leadForm.subtitle}</p>
 
           <div className="mt-10 flex flex-col gap-5">
             {contactDetails.map((detail) => {

@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { leadForm } from "@/config/siteConfig";
+import { useContactForm } from "@/hooks/useContactForm";
 import Turnstile from "./Turnstile";
 
 interface FormFields {
@@ -25,13 +25,10 @@ const initialFields: FormFields = {
   company_website: "",
 };
 
-type FormErrors = Partial<Record<keyof FormFields, string>>;
-type SubmitStatus = "idle" | "submitting" | "success" | "error";
-
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-function validate(fields: FormFields): FormErrors {
-  const errors: FormErrors = {};
+function validate(fields: FormFields): Partial<Record<keyof FormFields, string>> {
+  const errors: Partial<Record<keyof FormFields, string>> = {};
 
   if (!fields.firstName.trim()) errors.firstName = "First name is required.";
   if (!fields.lastName.trim()) errors.lastName = "Last name is required.";
@@ -53,54 +50,21 @@ const inputClasses =
   "w-full rounded-md border bg-onyx px-4 py-3 text-sm text-white placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-gold/60 transition-colors";
 
 export default function LeadForm() {
-  const [fields, setFields] = useState<FormFields>(initialFields);
-  const [errors, setErrors] = useState<FormErrors>({});
-  const [status, setStatus] = useState<SubmitStatus>("idle");
-  const [submitError, setSubmitError] = useState<string>("");
-  const [turnstileToken, setTurnstileToken] = useState<string>("");
-
-  const handleChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = event.target;
-    setFields((prev) => ({ ...prev, [name]: value }));
-    setErrors((prev) => ({ ...prev, [name]: undefined }));
-  };
-
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const validationErrors = validate(fields);
-
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      return;
-    }
-
-    setStatus("submitting");
-    setSubmitError("");
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ formType: "lead", ...fields, turnstileToken }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok || !data.success) {
-        setSubmitError(data.error || leadForm.errorMessage);
-        setStatus("error");
-        return;
-      }
-
-      setStatus("success");
-      setFields(initialFields);
-    } catch {
-      setSubmitError(leadForm.errorMessage);
-      setStatus("error");
-    }
-  };
+  const {
+    fields,
+    errors,
+    status,
+    submitError,
+    setTurnstileToken,
+    handleChange,
+    handleSubmit,
+    resetToIdle,
+  } = useContactForm<FormFields>({
+    formType: "lead",
+    initialFields,
+    validate,
+    defaultErrorMessage: leadForm.errorMessage,
+  });
 
   if (status === "success") {
     return (
@@ -114,7 +78,7 @@ export default function LeadForm() {
         </p>
         <button
           type="button"
-          onClick={() => setStatus("idle")}
+          onClick={resetToIdle}
           className="mt-8 inline-flex items-center rounded-md border border-gold/60 px-6 py-3 text-sm font-semibold text-gold-bright transition-colors hover:bg-gold/10"
         >
           Submit another request
@@ -156,9 +120,7 @@ export default function LeadForm() {
             placeholder="Jane"
             aria-invalid={Boolean(errors.firstName)}
             aria-describedby={errors.firstName ? "firstName-error" : undefined}
-            className={`${inputClasses} ${
-              errors.firstName ? "border-red-500" : "border-gold/25"
-            }`}
+            className={`${inputClasses} ${errors.firstName ? "border-red-500" : "border-gold/25"}`}
           />
           {errors.firstName && (
             <p id="firstName-error" className="mt-1.5 text-xs text-red-500">
@@ -181,9 +143,7 @@ export default function LeadForm() {
             placeholder="Doe"
             aria-invalid={Boolean(errors.lastName)}
             aria-describedby={errors.lastName ? "lastName-error" : undefined}
-            className={`${inputClasses} ${
-              errors.lastName ? "border-red-500" : "border-gold/25"
-            }`}
+            className={`${inputClasses} ${errors.lastName ? "border-red-500" : "border-gold/25"}`}
           />
           {errors.lastName && (
             <p id="lastName-error" className="mt-1.5 text-xs text-red-500">
@@ -249,9 +209,7 @@ export default function LeadForm() {
             onChange={handleChange}
             aria-invalid={Boolean(errors.service)}
             aria-describedby={errors.service ? "service-error" : undefined}
-            className={`${inputClasses} ${
-              errors.service ? "border-red-500" : "border-gold/25"
-            }`}
+            className={`${inputClasses} ${errors.service ? "border-red-500" : "border-gold/25"}`}
           >
             <option value="" disabled>
               Select a service
@@ -322,9 +280,7 @@ export default function LeadForm() {
         )}
       </button>
 
-      <p className="mt-4 text-xs leading-relaxed text-muted">
-        {leadForm.privacyNote}
-      </p>
+      <p className="mt-4 text-xs leading-relaxed text-muted">{leadForm.privacyNote}</p>
     </form>
   );
 }

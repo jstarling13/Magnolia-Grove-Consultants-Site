@@ -6,11 +6,7 @@ import { z } from "zod";
  * authoritative source of truth — never trust client validation alone.
  */
 
-const honeypotField = z
-  .string()
-  .max(0, "Bot detected")
-  .optional()
-  .or(z.literal(""));
+const honeypotField = z.string().max(0, "Bot detected").optional().or(z.literal(""));
 
 export const leadFormSchema = z.object({
   formType: z.literal("lead"),

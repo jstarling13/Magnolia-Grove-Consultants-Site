@@ -53,13 +53,7 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: [
-          "var(--font-sans)",
-          "-apple-system",
-          "BlinkMacSystemFont",
-          "Segoe UI",
-          "sans-serif",
-        ],
+        sans: ["var(--font-sans)", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
         heading: [
           "var(--font-heading)",
           "-apple-system",

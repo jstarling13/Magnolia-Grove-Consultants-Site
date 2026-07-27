@@ -75,9 +75,7 @@ export default function PillarCardGrid({ cards }: PillarCardGridProps) {
               <span className="font-heading text-sm font-bold tracking-wider text-gold-bright">
                 {card.index}
               </span>
-              <h3 className="mt-3 font-heading text-xl font-semibold text-white">
-                {card.title}
-              </h3>
+              <h3 className="mt-3 font-heading text-xl font-semibold text-white">{card.title}</h3>
               <p className="mt-3 text-left text-sm leading-relaxed text-muted">
                 {card.description}
               </p>

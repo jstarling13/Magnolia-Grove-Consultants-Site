@@ -28,7 +28,7 @@ export default function Footer() {
                     key={social.id}
                     href={social.href}
                     aria-label={social.label}
-                    className="flex h-9 w-9 items-center justify-center rounded-full border border-gold/30 text-muted transition-colors motion-reduce:transition-none hover:border-gold-bright hover:text-gold-bright"
+                    className="flex h-9 w-9 items-center justify-center rounded-full border border-gold/30 text-muted transition-colors hover:border-gold-bright hover:text-gold-bright motion-reduce:transition-none"
                   >
                     <Icon size={16} />
                   </a>
@@ -47,7 +47,7 @@ export default function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm transition-colors motion-reduce:transition-none hover:text-gold-bright"
+                      className="text-sm transition-colors hover:text-gold-bright motion-reduce:transition-none"
                     >
                       {link.label}
                     </Link>
@@ -65,7 +65,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/pillars"
-                  className="text-sm transition-colors motion-reduce:transition-none hover:text-gold-bright"
+                  className="text-sm transition-colors hover:text-gold-bright motion-reduce:transition-none"
                 >
                   All Pillars
                 </Link>
@@ -74,7 +74,7 @@ export default function Footer() {
                 <li key={pillar.slug}>
                   <Link
                     href={`/pillars/${pillar.slug}`}
-                    className="text-sm transition-colors motion-reduce:transition-none hover:text-gold-bright"
+                    className="text-sm transition-colors hover:text-gold-bright motion-reduce:transition-none"
                   >
                     {pillar.navLabel}
                   </Link>
@@ -93,7 +93,7 @@ export default function Footer() {
                   {detail.href ? (
                     <a
                       href={detail.href}
-                      className="transition-colors motion-reduce:transition-none hover:text-gold-bright"
+                      className="transition-colors hover:text-gold-bright motion-reduce:transition-none"
                     >
                       {detail.value}
                     </a>
@@ -105,7 +105,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/booking"
-                  className="text-sm font-semibold text-gold-bright transition-colors motion-reduce:transition-none hover:text-white"
+                  className="text-sm font-semibold text-gold-bright transition-colors hover:text-white motion-reduce:transition-none"
                 >
                   Request a Strategy Session →
                 </Link>
