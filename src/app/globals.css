@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-onyx text-muted-light antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading font-semibold tracking-tight text-white;
+  }
+}
+
+@layer utilities {
+  .section-padding {
+    @apply px-6 py-20 sm:px-8 lg:px-12 lg:py-28;
+  }
+
+  .container-grove {
+    @apply mx-auto w-full max-w-8xl;
+  }
+
+  .eyebrow {
+    @apply text-sm font-semibold uppercase tracking-[0.18em] text-gold-bright;
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 0 1px rgba(197, 160, 89, 0.25), 0 12px 32px -8px rgba(197, 160, 89, 0.18);
+  }
+}
+
+.animate-in {
+  opacity: 0;
+}
+
+.animate-in.is-visible {
+  animation: fadeUp 0.7s ease-out forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-tab-fade {
+  animation: tabFade 0.4s ease-out;
+}
+
+@keyframes tabFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
