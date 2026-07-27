@@ -28,8 +28,11 @@ export default function PillarTabSwitcher() {
   return (
     <section className="bg-onyx px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
       <div className="mx-auto max-w-8xl">
-        <span className="eyebrow">Explore Instantly</span>
-        <h2 className="mt-3 text-3xl sm:text-4xl">Toggle Between Pillars</h2>
+        <span className="eyebrow">Compare Mode</span>
+        <h2 className="mt-3 text-3xl sm:text-4xl">Deep-Dive Process Methodology</h2>
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
+          Toggle between pillars to compare execution steps side by side, without leaving the page.
+        </p>
 
         <div className="relative mt-10 flex flex-wrap gap-x-2 gap-y-3 border-b border-gold/15">
           {pillars.map((pillar, index) => (

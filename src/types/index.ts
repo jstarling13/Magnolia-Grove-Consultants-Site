@@ -13,6 +13,7 @@ export interface ServicePillar {
   subItems: string[];
   image: string;
   imageAlt: string;
+  pillarSlug: string;
 }
 
 export interface Metric {

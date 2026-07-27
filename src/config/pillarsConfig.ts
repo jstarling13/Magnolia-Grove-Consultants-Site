@@ -15,8 +15,6 @@ export const pillarsHub = {
   heroSubheadline: "Comprehensive Strategy & Execution for Campaigns & Institutions",
   heroImage: "/images/hero-columns.webp",
   heroImageAlt: "Low-angle view of classical stone columns",
-  secondaryImage: "/images/hero-aerial-map.webp",
-  secondaryImageAlt: "Aerial night map of a district with illuminated roads",
 };
 
 export const statStrip: StatItem[] = [
@@ -187,7 +185,7 @@ export const caseStudiesPage = {
   heroImage: "/images/hero-aerial-map.webp",
   heroImageAlt: "Aerial night map of a district with illuminated roads",
   confidentialityNote:
-    "Due to client non-disclosure agreements, specific candidate names and district numbers have been anonymized to protect tactical intelligence.",
+    "Due to client non-disclosure agreements, specific candidate names and district numbers have been anonymized to protect tactical intelligence. All metric data anonymized to preserve client confidentiality.",
   studies: [
     {
       id: "case-1",

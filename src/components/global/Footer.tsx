@@ -1,15 +1,15 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { brand, contactDetails, footer, socialLinks } from "@/config/siteConfig";
 import { pillars } from "@/config/pillarsConfig";
 
-export default function NoirFooter() {
+export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-gold/15 bg-onyx text-muted">
-      <div className="mx-auto max-w-8xl px-6 py-16 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr]">
+    <footer className="border-t border-gold/40 bg-onyx text-muted">
+      <div className="container-grove px-6 py-16 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1fr_1fr]">
           <div>
             <Image
               src={brand.logoImage}
@@ -28,7 +28,7 @@ export default function NoirFooter() {
                     key={social.id}
                     href={social.href}
                     aria-label={social.label}
-                    className="flex h-9 w-9 items-center justify-center rounded-full border border-gold/30 text-muted transition-colors hover:border-gold-bright hover:text-gold-bright"
+                    className="flex h-9 w-9 items-center justify-center rounded-full border border-gold/30 text-muted transition-colors motion-reduce:transition-none hover:border-gold-bright hover:text-gold-bright"
                   >
                     <Icon size={16} />
                   </a>
@@ -37,13 +37,36 @@ export default function NoirFooter() {
             </div>
           </div>
 
+          {footer.columns.map((column) => (
+            <div key={column.title}>
+              <h4 className="font-heading text-sm font-semibold uppercase tracking-wide text-white">
+                {column.title}
+              </h4>
+              <ul className="mt-4 flex flex-col gap-3">
+                {column.links.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-sm transition-colors motion-reduce:transition-none hover:text-gold-bright"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+
           <div>
             <h4 className="font-heading text-sm font-semibold uppercase tracking-wide text-white">
               4 Pillars
             </h4>
             <ul className="mt-4 flex flex-col gap-3">
               <li>
-                <Link href="/pillars" className="text-sm transition-colors hover:text-gold-bright">
+                <Link
+                  href="/pillars"
+                  className="text-sm transition-colors motion-reduce:transition-none hover:text-gold-bright"
+                >
                   All Pillars
                 </Link>
               </li>
@@ -51,7 +74,7 @@ export default function NoirFooter() {
                 <li key={pillar.slug}>
                   <Link
                     href={`/pillars/${pillar.slug}`}
-                    className="text-sm transition-colors hover:text-gold-bright"
+                    className="text-sm transition-colors motion-reduce:transition-none hover:text-gold-bright"
                   >
                     {pillar.navLabel}
                   </Link>
@@ -68,7 +91,10 @@ export default function NoirFooter() {
               {contactDetails.map((detail) => (
                 <li key={detail.label} className="text-sm leading-relaxed">
                   {detail.href ? (
-                    <a href={detail.href} className="transition-colors hover:text-gold-bright">
+                    <a
+                      href={detail.href}
+                      className="transition-colors motion-reduce:transition-none hover:text-gold-bright"
+                    >
                       {detail.value}
                     </a>
                   ) : (
@@ -79,7 +105,7 @@ export default function NoirFooter() {
               <li>
                 <Link
                   href="/booking"
-                  className="text-sm font-semibold text-gold-bright transition-colors hover:text-white"
+                  className="text-sm font-semibold text-gold-bright transition-colors motion-reduce:transition-none hover:text-white"
                 >
                   Request a Strategy Session →
                 </Link>
@@ -92,7 +118,15 @@ export default function NoirFooter() {
           <p>
             &copy; {year} {footer.copyrightName}. All rights reserved.
           </p>
-          <p>{footer.legalDisclaimer}</p>
+          <div className="flex items-center gap-4">
+            <Link href="/privacy" className="transition-colors hover:text-gold-bright">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="transition-colors hover:text-gold-bright">
+              Terms of Service
+            </Link>
+            <p>{footer.legalDisclaimer}</p>
+          </div>
         </div>
       </div>
     </footer>

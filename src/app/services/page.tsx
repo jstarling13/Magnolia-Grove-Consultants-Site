@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Header from "@/components/Header";
+import Header from "@/components/global/Header";
 import Services from "@/components/Services";
-import Footer from "@/components/Footer";
+import Footer from "@/components/global/Footer";
 import { servicesIntro } from "@/config/siteConfig";
 
 export const metadata: Metadata = {

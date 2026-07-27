@@ -46,11 +46,11 @@ export const brand = {
 /* ----------------------------------------------------------------------- */
 
 export const navLinks: NavLink[] = [
-  { label: "Services", href: "/services" },
-  { label: "4 Pillars", href: "/pillars" },
-  { label: "Track Record", href: "/case-studies" },
-  { label: "Results", href: "/results" },
-  { label: "Contact", href: "/contact" },
+  { label: "Home", href: "/" },
+  { label: "Services / 4 Pillars", href: "/pillars" },
+  { label: "About", href: "/about" },
+  { label: "Results / Track Record", href: "/case-studies" },
+  { label: "Contact / Booking", href: "/booking" },
 ];
 
 export const nav = {
@@ -97,6 +97,7 @@ export const servicePillars: ServicePillar[] = [
     subItems: ["Micro-Targeted Turf Maps", "Voss-Style Canvass Scripts", "Daily Contact Analytics"],
     image: "/images/pillar-1-field-ops.webp",
     imageAlt: "Tactical district map with compass, voter density and turf status legend",
+    pillarSlug: "field-execution",
   },
   {
     id: "digital-marketing",
@@ -107,6 +108,7 @@ export const servicePillars: ServicePillar[] = [
     subItems: ["OTT & Connected TV Ads", "Rapid-Response Messaging", "High-Donor Conversion Funnels"],
     image: "/images/pillar-2-media.webp",
     imageAlt: "Cinema camera lens with live data and analytics overlay",
+    pillarSlug: "digital-marketing",
   },
   {
     id: "printing-media",
@@ -117,6 +119,7 @@ export const servicePillars: ServicePillar[] = [
     subItems: ["Variable-Data Direct Mail", "QR Code Tracking", "District-Wide Yard Signage"],
     image: "/images/pillar-3-print.webp",
     imageAlt: "Offset printing press running a paper feed",
+    pillarSlug: "print-media",
   },
   {
     id: "web-development",
@@ -127,6 +130,7 @@ export const servicePillars: ServicePillar[] = [
     subItems: ["Sub-Second Load Times", "Stripe & Anedot Payment Processing", "Automated SMS & Email Drip Workflows"],
     image: "/images/pillar-4-web.webp",
     imageAlt: "Laptop displaying campaign strategy code and a donor network dashboard",
+    pillarSlug: "web-development",
   },
 ];
 

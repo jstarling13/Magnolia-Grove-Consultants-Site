@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { Check } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Check } from "lucide-react";
 import { servicePillars, servicesIntro } from "@/config/siteConfig";
 import Reveal from "./Reveal";
 
@@ -29,6 +30,7 @@ export default function Services() {
                       src={pillar.image}
                       alt={pillar.imageAlt}
                       fill
+                      priority={index === 0}
                       sizes="(min-width: 640px) 50vw, 100vw"
                       className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
                     />
@@ -57,6 +59,17 @@ export default function Services() {
                         </li>
                       ))}
                     </ul>
+
+                    <Link
+                      href={`/pillars/${pillar.pillarSlug}`}
+                      className="group/link mt-6 inline-flex items-center gap-2 text-sm font-semibold text-gold-bright transition-colors hover:text-white"
+                    >
+                      View Pillar Details
+                      <ArrowRight
+                        size={16}
+                        className="transition-transform group-hover/link:translate-x-1"
+                      />
+                    </Link>
                   </div>
                 </div>
               </Reveal>

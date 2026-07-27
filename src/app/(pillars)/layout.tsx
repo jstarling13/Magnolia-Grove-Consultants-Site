@@ -1,5 +1,5 @@
-import NoirHeader from "@/components/noir/NoirHeader";
-import NoirFooter from "@/components/noir/NoirFooter";
+import Header from "@/components/global/Header";
+import Footer from "@/components/global/Footer";
 import ConsultationDrawer from "@/components/noir/ConsultationDrawer";
 
 export default function PillarsLayout({
@@ -9,9 +9,9 @@ export default function PillarsLayout({
 }>) {
   return (
     <div className="flex min-h-screen flex-col bg-onyx font-sans text-muted-light">
-      <NoirHeader />
+      <Header />
       <main className="flex-1">{children}</main>
-      <NoirFooter />
+      <Footer />
       <ConsultationDrawer />
     </div>
   );

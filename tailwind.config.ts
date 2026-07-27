@@ -48,8 +48,8 @@ const config: Config = {
           dark: "#8a6f3d",
         },
         muted: {
-          DEFAULT: "#a1a1a1",
-          light: "#cccccc",
+          DEFAULT: "#cccccc",
+          light: "#e5e5e5",
         },
       },
       fontFamily: {

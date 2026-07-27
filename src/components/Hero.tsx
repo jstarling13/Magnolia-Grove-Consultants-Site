@@ -20,9 +20,7 @@ export default function Hero() {
 
       <div className="container-grove relative px-6 pb-20 pt-16 sm:px-8 sm:pb-28 sm:pt-20 lg:px-12 lg:pb-36 lg:pt-24">
         <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-          <span className="mb-6 inline-flex items-center rounded-md border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-gold-bright">
-            {hero.eyebrow}
-          </span>
+          <span className="eyebrow mb-6">{hero.eyebrow}</span>
 
           <h1 className="text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl lg:leading-tight">
             {hero.headline}

@@ -44,11 +44,7 @@ export default function PillarHero({
       <div className="absolute inset-0 bg-gradient-to-t from-onyx via-onyx/40 to-transparent" />
 
       <div className="relative mx-auto w-full max-w-8xl px-6 pb-16 pt-32 sm:px-8 lg:px-12 lg:pb-24">
-        {eyebrow && (
-          <span className="mb-5 inline-flex items-center rounded-md border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-gold-bright">
-            {eyebrow}
-          </span>
-        )}
+        {eyebrow && <span className="eyebrow mb-5 block">{eyebrow}</span>}
         <h1 className="max-w-4xl font-heading text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
           {title}
         </h1>

@@ -14,6 +14,7 @@ export default function PillarsHubPage() {
   return (
     <>
       <PillarHero
+        eyebrow="Institutional & Campaign Frameworks"
         title={pillarsHub.heroTitle}
         subheadline={pillarsHub.heroSubheadline}
         image={pillarsHub.heroImage}

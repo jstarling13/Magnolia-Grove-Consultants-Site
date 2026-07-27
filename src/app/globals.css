@@ -70,3 +70,17 @@
     transform: translateY(0);
   }
 }
+
+/* WCAG 2.3.3 — collapse all animation/transition durations to near-zero
+   instead of removing them outright, so elements still land on their final
+   state (e.g. .animate-in reaching opacity:1) rather than freezing hidden. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
