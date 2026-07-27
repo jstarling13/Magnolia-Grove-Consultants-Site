@@ -81,7 +81,8 @@ export const teamSection = {
       name: "Ben Garcia",
       role: "Founder & Principal",
       bio: "Ben Garcia founded Magnolia Grove Consultants in 2024 to solve the fragmentation he witnessed across both the political consulting and enterprise services industries. A veteran of numerous high-stakes campaigns and institutional initiatives, his expertise lies in building institutional-grade operational frameworks that deliver total domain dominance — from the war room to the boardroom. Under his leadership, the firm has grown into a premier force for political campaigns, non-profit organizations, PACs, and enterprise leaders who demand unified, results-driven execution.",
-      // photo: "/images/ben-garcia-headshot.jpg", // swap in once the headshot file is added to public/images/
+      photo: "/images/ben-garcia-headshot.jpg",
+      photoAlt: "Ben Garcia, Founder & Principal of Magnolia Grove Consultants",
     },
   ] as TeamMember[],
 };
