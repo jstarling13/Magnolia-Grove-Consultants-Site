@@ -13,9 +13,9 @@ import type { Pillar, StatItem } from "@/types";
 export const pillarsHub = {
   heroTitle: "OUR 4 CORE PILLARS",
   heroSubheadline: "Comprehensive Strategy & Execution for Campaigns & Institutions",
-  heroImage: "/images/hero-columns.png",
+  heroImage: "/images/hero-columns.webp",
   heroImageAlt: "Low-angle view of classical stone columns",
-  secondaryImage: "/images/hero-aerial-map.png",
+  secondaryImage: "/images/hero-aerial-map.webp",
   secondaryImageAlt: "Aerial night map of a district with illuminated roads",
 };
 
@@ -34,7 +34,7 @@ export const pillars: Pillar[] = [
     heroTitle: "FIELD EXECUTION & GROUND OPERATIONS",
     heroSubheadline:
       "Data-driven turf strategy, managed deployment, and live field intelligence.",
-    image: "/images/pillar-1-field-ops.png",
+    image: "/images/pillar-1-field-ops.webp",
     imageAlt: "Tactical district map with compass, voter density and turf status legend",
     cards: [
       {
@@ -72,7 +72,7 @@ export const pillars: Pillar[] = [
     heroTitle: "DIGITAL MARKETING & MEDIA STRATEGY",
     heroSubheadline:
       "Precision ad targeting, high-impact media production, and rapid-response positioning.",
-    image: "/images/pillar-2-media.png",
+    image: "/images/pillar-2-media.webp",
     imageAlt: "Cinema camera lens with live data and analytics overlay",
     cards: [
       {
@@ -110,7 +110,7 @@ export const pillars: Pillar[] = [
     heroTitle: "PRINT MEDIA & LOGISTICAL INFRASTRUCTURE",
     heroSubheadline:
       "Precision collateral production, variable-data mail, and rapid physical distribution.",
-    image: "/images/pillar-3-print.png",
+    image: "/images/pillar-3-print.webp",
     imageAlt: "Offset printing press running a paper feed",
     cards: [
       {
@@ -148,7 +148,7 @@ export const pillars: Pillar[] = [
     heroTitle: "WEB DEVELOPMENT & DIGITAL AUTOMATION",
     heroSubheadline:
       "High-speed web architecture, frictionless payment funnels, and automated CRM integration.",
-    image: "/images/pillar-4-web.png",
+    image: "/images/pillar-4-web.webp",
     imageAlt: "Laptop displaying campaign strategy code and a donor network dashboard",
     cards: [
       {
@@ -184,7 +184,7 @@ export const pillars: Pillar[] = [
 export const caseStudiesPage = {
   heroTitle: "TRACK RECORD",
   heroSubheadline: "Verifiable performance metrics and district shifting results across competitive races.",
-  heroImage: "/images/hero-aerial-map.png",
+  heroImage: "/images/hero-aerial-map.webp",
   heroImageAlt: "Aerial night map of a district with illuminated roads",
   confidentialityNote:
     "Due to client non-disclosure agreements, specific candidate names and district numbers have been anonymized to protect tactical intelligence.",
@@ -225,7 +225,7 @@ export const bookingPage = {
   heroTitle: "STRATEGY SESSION",
   heroSubheadline:
     "Select your project timeline and request a direct intake consultation with our leadership team.",
-  heroImage: "/images/hero-columns.png",
+  heroImage: "/images/hero-columns.webp",
   heroImageAlt: "Low-angle view of classical stone columns",
   formIntro:
     "Complete the form below to lock in strategy availability for your upcoming election cycle or corporate push.",

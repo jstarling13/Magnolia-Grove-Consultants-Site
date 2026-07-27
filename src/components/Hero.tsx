@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section id="top" className="relative overflow-hidden bg-onyx">
       <Image
-        src="/images/hero-columns.png"
+        src="/images/hero-columns.webp"
         alt={hero.imageAlt}
         fill
         priority

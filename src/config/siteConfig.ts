@@ -95,7 +95,7 @@ export const servicePillars: ServicePillar[] = [
     description:
       "Data-driven voter targeting, managed canvassing deployment, and real-time field command engineered for ground supremacy.",
     subItems: ["Micro-Targeted Turf Maps", "Voss-Style Canvass Scripts", "Daily Contact Analytics"],
-    image: "/images/pillar-1-field-ops.png",
+    image: "/images/pillar-1-field-ops.webp",
     imageAlt: "Tactical district map with compass, voter density and turf status legend",
   },
   {
@@ -105,7 +105,7 @@ export const servicePillars: ServicePillar[] = [
     description:
       "Precision digital ad placement, high-production video, and rapid-response positioning across streaming and social channels.",
     subItems: ["OTT & Connected TV Ads", "Rapid-Response Messaging", "High-Donor Conversion Funnels"],
-    image: "/images/pillar-2-media.png",
+    image: "/images/pillar-2-media.webp",
     imageAlt: "Cinema camera lens with live data and analytics overlay",
   },
   {
@@ -115,7 +115,7 @@ export const servicePillars: ServicePillar[] = [
     description:
       "Bulk collateral production, variable-data direct mail, and district-wide signage delivered on tight operational schedules.",
     subItems: ["Variable-Data Direct Mail", "QR Code Tracking", "District-Wide Yard Signage"],
-    image: "/images/pillar-3-print.png",
+    image: "/images/pillar-3-print.webp",
     imageAlt: "Offset printing press running a paper feed",
   },
   {
@@ -125,7 +125,7 @@ export const servicePillars: ServicePillar[] = [
     description:
       "High-speed, mobile-optimized web portals, secure payment/donation funnels, and automated CRM pipeline routing.",
     subItems: ["Sub-Second Load Times", "Stripe & Anedot Payment Processing", "Automated SMS & Email Drip Workflows"],
-    image: "/images/pillar-4-web.png",
+    image: "/images/pillar-4-web.webp",
     imageAlt: "Laptop displaying campaign strategy code and a donor network dashboard",
   },
 ];

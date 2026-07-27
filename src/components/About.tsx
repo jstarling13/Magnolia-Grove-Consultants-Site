@@ -7,7 +7,7 @@ export default function About() {
   return (
     <section id="about" className="relative overflow-hidden bg-onyx py-24 sm:py-32">
       <Image
-        src="/images/hero-aerial-map.png"
+        src="/images/hero-aerial-map.webp"
         alt="High-contrast aerial night map of a district with illuminated roads"
         fill
         sizes="100vw"
