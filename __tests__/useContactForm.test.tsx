@@ -2,6 +2,11 @@ import { act, renderHook, waitFor } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { useContactForm } from "@/hooks/useContactForm";
 
+const mockPush = vi.fn();
+vi.mock("next/navigation", () => ({
+  useRouter: () => ({ push: mockPush }),
+}));
+
 interface FormFields {
   email: string;
   message: string;
@@ -30,6 +35,7 @@ function setup() {
 afterEach(() => {
   vi.unstubAllGlobals();
   vi.restoreAllMocks();
+  mockPush.mockClear();
 });
 
 describe("useContactForm", () => {
@@ -83,6 +89,7 @@ describe("useContactForm", () => {
     );
     await waitFor(() => expect(result.current.status).toBe("success"));
     expect(result.current.fields).toEqual(initialFields);
+    expect(mockPush).toHaveBeenCalledWith("/thank-you?source=lead");
   });
 
   it("surfaces a server error message on a failed submission", async () => {
@@ -110,5 +117,6 @@ describe("useContactForm", () => {
 
     await waitFor(() => expect(result.current.status).toBe("error"));
     expect(result.current.submitError).toBe("Rate limited.");
+    expect(mockPush).not.toHaveBeenCalled();
   });
 });

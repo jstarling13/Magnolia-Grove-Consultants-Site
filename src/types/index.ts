@@ -124,3 +124,16 @@ export interface TeamMember {
   photo?: string;
   photoAlt?: string;
 }
+
+export interface CaseStudy {
+  id: string;
+  district: string;
+  pillar: string;
+  challenge: string;
+  execution: string;
+  result: string;
+  metric: string;
+  metricLabel: string;
+  quote: string;
+  quoteAttribution: string;
+}

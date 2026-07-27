@@ -8,7 +8,7 @@
  */
 
 import { Target, Megaphone, Printer, Globe } from "lucide-react";
-import type { Pillar, StatItem } from "@/types";
+import type { Pillar, StatItem, CaseStudy } from "@/types";
 
 export const pillarsHub = {
   heroTitle: "OUR 4 CORE PILLARS",
@@ -399,32 +399,67 @@ export const caseStudiesPage = {
   studies: [
     {
       id: "case-1",
-      district: "State Senate District — Competitive Suburb",
+      district: "State Senate District — High-Growth Suburb",
       pillar: "Field Execution & Ground Operations",
-      summary:
-        "Deployed targeted door-to-door turf operations alongside daily variable-data mailers to swing undecided voters.",
-      metric: "+7.4 pts",
+      challenge:
+        "Trailing by 4.2 points 30 days out, with fragmented, inconsistent voter outreach across the district.",
+      execution:
+        "Micro-targeted 14,000 undecided households via managed door-to-door canvassing, paired with a daily variable-data mail sequence.",
+      result:
+        "Turnout in target precincts outpaced the district average by double digits, delivering a decisive swing on election night.",
+      metric: "+7.4 PTS",
       metricLabel: "Margin Shift",
+      quote: "Magnolia Grove delivered total domain dominance when our ground war was on the line.",
+      quoteAttribution: "— Campaign Manager, State Senate Race",
     },
     {
       id: "case-2",
       district: "Congressional PAC — Multi-County Media Push",
       pillar: "Digital Marketing & Media Strategy",
-      summary:
-        "Executed a geotargeted OTT streaming and digital ad campaign with integrated high-friction donor landing pages.",
+      challenge:
+        "Fragmented ad spend across multiple counties was producing low-quality donor leads and inconsistent messaging.",
+      execution:
+        "Executed a geotargeted OTT streaming and digital ad campaign integrated with high-conversion donor landing pages across the full media mix.",
+      result:
+        "Donor conversion rates nearly tripled within the first flight cycle, extending the PAC's fundraising runway heading into the final stretch.",
       metric: "3.2x ROI",
       metricLabel: "Donor Conversion",
+      quote:
+        "Their media buy was more disciplined than agencies twice their size — every dollar had a job.",
+      quoteAttribution: "— PAC Director, Multi-County Media Program",
     },
     {
       id: "case-3",
       district: "Municipal Ballot Initiative — Urban Center",
       pillar: "Web Development & Digital Automation",
-      summary:
-        "Built a sub-second custom web application with automated Twilio SMS routing and rapid voter registration funnels.",
+      challenge:
+        "An outdated web presence was losing registration traffic and donor conversions to slow load times and a broken mobile funnel.",
+      execution:
+        "Built a sub-second custom web application with automated SMS routing and rapid voter registration funnels engineered for mobile-first turnout.",
+      result:
+        "Targeted voter reach hit turnout levels rarely seen in municipal ballot initiatives, validating the platform rebuild under a hard election-day deadline.",
       metric: "89% Turnout",
       metricLabel: "Targeted Voter Reach",
+      quote:
+        "We went from an embarrassing website to our single best organizing tool in six weeks.",
+      quoteAttribution: "— Campaign Digital Director, Municipal Initiative",
     },
-  ],
+    {
+      id: "case-4",
+      district: "County Commission Race — Multi-Precinct Mail Program",
+      pillar: "Print Media & Logistical Infrastructure",
+      challenge:
+        "A late entry into a crowded county commission race left no time for a traditional field program to build name ID.",
+      execution:
+        "Executed a 12-cycle variable-data direct mail sequence integrated with matching yard sign saturation across target precincts.",
+      result:
+        "Name recognition and favorability climbed steadily through each mail cycle, culminating in a margin shift that outpaced every internal poll.",
+      metric: "+5.1 PTS",
+      metricLabel: "Margin Shift via Mail",
+      quote: "Our mail program did more to move the numbers than anything else on the ballot.",
+      quoteAttribution: "— County Commission Candidate",
+    },
+  ] as CaseStudy[],
   ctaLabel: "REQUEST A STRATEGY SESSION",
   ctaHref: "/booking",
 };
@@ -466,4 +501,27 @@ export const bookingPage = {
     "Transmission failed. Please verify your contact information or reach out directly via contact@magnoliagrovega.com.",
   privacyNote:
     "All consultations and project briefs are held under absolute client-advisor confidentiality.",
+  whatHappensNext: {
+    eyebrow: "What Happens Next",
+    steps: [
+      {
+        step: "01",
+        title: "Immediate NDA & Intel Audit",
+        detail:
+          "Within 2 hours of submission, our team issues an NDA and begins an initial audit of your race or initiative.",
+      },
+      {
+        step: "02",
+        title: "Direct Advisory Call",
+        detail:
+          "A 30-minute strategy call with senior leadership — not a sales rep — to scope your objectives and timeline.",
+      },
+      {
+        step: "03",
+        title: "Custom Execution Deck",
+        detail:
+          "A tailored district execution deck and proposal delivered directly, outlining scope, timeline, and investment.",
+      },
+    ],
+  },
 };

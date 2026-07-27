@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, ShieldCheck } from "lucide-react";
+import { ArrowRight, ShieldCheck, Quote } from "lucide-react";
 import PillarHero from "@/components/noir/PillarHero";
 import { caseStudiesPage } from "@/config/pillarsConfig";
 
@@ -29,24 +29,65 @@ export default function CaseStudiesPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+          <div className="flex flex-col gap-6">
             {caseStudiesPage.studies.map((study) => (
               <div
                 key={study.id}
-                className="flex h-full flex-col rounded-lg border border-gold/25 bg-onyx/85 p-8 transition-colors hover:border-gold/60"
+                className="grid grid-cols-1 gap-8 rounded-lg border border-gold/25 bg-onyx/85 p-8 transition-colors hover:border-gold/60 lg:grid-cols-[minmax(0,1fr)_260px] lg:p-10"
               >
-                <span className="text-xs font-semibold uppercase tracking-wider text-gold-bright">
-                  {study.pillar}
-                </span>
-                <h3 className="mt-3 font-heading text-lg font-semibold text-white">
-                  {study.district}
-                </h3>
-                <p className="mt-3 flex-1 text-left text-sm leading-relaxed text-muted">
-                  {study.summary}
-                </p>
-                <div className="mt-6 border-t border-gold/15 pt-6">
-                  <span className="font-heading text-3xl font-bold text-white">{study.metric}</span>
-                  <p className="mt-1 text-xs uppercase tracking-wide text-muted">
+                <div>
+                  <span className="text-xs font-semibold uppercase tracking-wider text-gold-bright">
+                    {study.pillar}
+                  </span>
+                  <h3 className="mt-3 font-heading text-xl font-semibold text-white sm:text-2xl">
+                    {study.district}
+                  </h3>
+
+                  <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-3">
+                    <div>
+                      <span className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">
+                        The Challenge
+                      </span>
+                      <p className="mt-2 text-left text-sm leading-relaxed text-muted-light">
+                        {study.challenge}
+                      </p>
+                    </div>
+                    <div>
+                      <span className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">
+                        What We Executed
+                      </span>
+                      <p className="mt-2 text-left text-sm leading-relaxed text-muted-light">
+                        {study.execution}
+                      </p>
+                    </div>
+                    <div>
+                      <span className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">
+                        The Result
+                      </span>
+                      <p className="mt-2 text-left text-sm leading-relaxed text-muted-light">
+                        {study.result}
+                      </p>
+                    </div>
+                  </div>
+
+                  <blockquote className="mt-8 flex items-start gap-3 border-t border-gold/15 pt-6">
+                    <Quote size={20} className="mt-0.5 shrink-0 text-gold/40" />
+                    <div>
+                      <p className="text-left text-sm italic leading-relaxed text-muted-light sm:text-base">
+                        &ldquo;{study.quote}&rdquo;
+                      </p>
+                      <cite className="mt-2 block text-xs uppercase not-italic tracking-wide text-muted">
+                        {study.quoteAttribution}
+                      </cite>
+                    </div>
+                  </blockquote>
+                </div>
+
+                <div className="flex flex-col items-start justify-center rounded-lg border border-gold/20 bg-onyx-200 p-6 lg:items-center lg:text-center">
+                  <span className="font-heading text-4xl font-bold text-gold-bright sm:text-5xl">
+                    {study.metric}
+                  </span>
+                  <p className="mt-2 text-xs font-semibold uppercase tracking-[0.16em] text-muted">
                     {study.metricLabel}
                   </p>
                 </div>

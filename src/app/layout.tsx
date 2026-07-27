@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import { brand, contactDetails } from "@/config/siteConfig";
+import Analytics from "@/components/Analytics";
 import "./globals.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://magnolia-grove-consultants.vercel.app";
@@ -78,6 +79,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
+        <Analytics />
       </body>
     </html>
   );

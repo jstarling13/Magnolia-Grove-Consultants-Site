@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { pillars } from "@/config/pillarsConfig";
+import { trackEvent } from "@/lib/gtag";
 import type { CrossSellItem } from "@/types";
 
 interface CrossSellCalloutProps {
@@ -28,6 +31,7 @@ export default function CrossSellCallout({ items }: CrossSellCalloutProps) {
             <Link
               key={pillar.slug}
               href={`/pillars/${pillar.slug}`}
+              onClick={() => trackEvent("pillar_cross_sell_click", { target_pillar: pillar.slug })}
               className="group flex flex-col justify-between rounded-lg border border-gold/25 bg-onyx p-8 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:shadow-[0_16px_40px_-12px_rgba(197,160,89,0.35)]"
             >
               <div>

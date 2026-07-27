@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, type ChangeEvent, type FormEvent } from "react";
+import { useRouter } from "next/navigation";
+import { trackEvent } from "@/lib/gtag";
 
 export type ContactFormType = "lead" | "strategy";
 export type SubmitStatus = "idle" | "submitting" | "success" | "error";
@@ -38,6 +40,7 @@ export function useContactForm<T extends object>({
   validate,
   defaultErrorMessage,
 }: UseContactFormOptions<T>): UseContactFormReturn<T> {
+  const router = useRouter();
   const [fields, setFields] = useState<T>(initialFields);
   const [errors, setErrors] = useState<Partial<Record<keyof T, string>>>({});
   const [status, setStatus] = useState<SubmitStatus>("idle");
@@ -83,6 +86,8 @@ export function useContactForm<T extends object>({
 
       setStatus("success");
       setFields(initialFields);
+      trackEvent(formType === "lead" ? "form_submission_lead" : "form_submission_booking");
+      router.push(`/thank-you?source=${formType}`);
     } catch {
       setSubmitError(defaultErrorMessage);
       setStatus("error");
