@@ -37,7 +37,7 @@ export const brand = {
   shortName: "Magnolia Grove",
   tagline: "Strategic Campaign Operations & High-Stakes Advisory | Magnolia Grove",
   logoText: "Magnolia Grove",
-  logoImage: "/images/logo-magnolia-grove-white.avif",
+  logoImage: "/images/logo-magnolia-grove-white.png",
   logoImageAlt: "Magnolia Grove Consultants",
 };
 

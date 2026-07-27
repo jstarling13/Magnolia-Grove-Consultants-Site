@@ -39,10 +39,10 @@ export default function Header() {
           <Image
             src={brand.logoImage}
             alt={brand.logoImageAlt}
-            width={160}
-            height={40}
+            width={342}
+            height={272}
             priority
-            className="h-8 w-auto"
+            className="h-16 w-auto sm:h-20"
           />
         </Link>
 

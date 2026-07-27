@@ -14,9 +14,9 @@ export default function Footer() {
             <Image
               src={brand.logoImage}
               alt={brand.logoImageAlt}
-              width={160}
-              height={40}
-              className="h-8 w-auto"
+              width={342}
+              height={272}
+              className="h-10 w-auto"
             />
             <p className="mt-4 max-w-xs text-sm leading-relaxed">{footer.description}</p>
 
