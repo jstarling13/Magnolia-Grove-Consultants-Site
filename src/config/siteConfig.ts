@@ -194,7 +194,7 @@ export const leadForm = {
   successMessage:
     "Strategy request received. A senior advisor will contact you within 12 hours under strict confidentiality.",
   errorMessage:
-    "Transmission failed. Please verify your contact information or reach out directly via contact@magnoliagrovega.com.",
+    "Transmission failed. Please verify your contact information or reach out directly via ben@magnoliagrovega.com.",
   privacyNote:
     "All inquiries are bound by strict non-disclosure and client confidentiality standards.",
 };
@@ -218,8 +218,8 @@ export const contactDetails: ContactDetail[] = [
   {
     icon: Mail,
     label: "Email",
-    value: "contact@magnoliagrovega.com",
-    href: "mailto:contact@magnoliagrovega.com",
+    value: "ben@magnoliagrovega.com",
+    href: "mailto:ben@magnoliagrovega.com",
   },
 ];
 

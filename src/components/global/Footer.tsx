@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-gold/40 bg-onyx text-muted">
       <div className="container-grove px-6 py-16 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1fr_1fr]">
+        <div className="grid grid-cols-1 items-start gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[1.3fr_0.85fr_0.85fr_0.85fr_0.85fr] lg:gap-8">
           <div>
             <Image
               src={brand.logoImage}

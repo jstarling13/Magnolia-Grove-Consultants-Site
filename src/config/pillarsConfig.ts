@@ -498,7 +498,7 @@ export const bookingPage = {
   successMessage:
     "Consultation booked. You will receive an invitation with encrypted meeting details shortly.",
   errorMessage:
-    "Transmission failed. Please verify your contact information or reach out directly via contact@magnoliagrovega.com.",
+    "Transmission failed. Please verify your contact information or reach out directly via ben@magnoliagrovega.com.",
   privacyNote:
     "All consultations and project briefs are held under absolute client-advisor confidentiality.",
   whatHappensNext: {

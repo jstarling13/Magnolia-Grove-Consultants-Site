@@ -58,7 +58,7 @@ export async function sendLeadNotification(payload: LeadFormPayload): Promise<Se
 
   await resend.emails.send({
     from: process.env.CONTACT_EMAIL_FROM!,
-    to: process.env.CONTACT_EMAIL_TO || "contact@magnoliagrovega.com",
+    to: process.env.CONTACT_EMAIL_TO || "ben@magnoliagrovega.com",
     replyTo: payload.email,
     subject: `New Strategy Call Request — ${payload.firstName} ${payload.lastName}`,
     html,
@@ -112,7 +112,7 @@ export async function sendStrategySessionNotification(
 
   await resend.emails.send({
     from: process.env.CONTACT_EMAIL_FROM!,
-    to: process.env.CONTACT_EMAIL_TO || "contact@magnoliagrovega.com",
+    to: process.env.CONTACT_EMAIL_TO || "ben@magnoliagrovega.com",
     replyTo: payload.email,
     subject: `New Strategy Session Intake — ${payload.orgName}`,
     html,
