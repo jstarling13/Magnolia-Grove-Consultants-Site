@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { bookingPage } from "@/config/pillarsConfig";
+import Turnstile from "@/components/Turnstile";
 
 interface FormFields {
   orgName: string;
@@ -14,6 +15,7 @@ interface FormFields {
   budget: string;
   timeline: string;
   message: string;
+  company_website: string;
 }
 
 const initialFields: FormFields = {
@@ -26,6 +28,7 @@ const initialFields: FormFields = {
   budget: "",
   timeline: "",
   message: "",
+  company_website: "",
 };
 
 type FormErrors = Partial<Record<keyof FormFields, string>>;
@@ -69,6 +72,8 @@ export default function StrategySessionForm({ initialPillar }: StrategySessionFo
   }));
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<SubmitStatus>("idle");
+  const [submitError, setSubmitError] = useState<string>("");
+  const [turnstileToken, setTurnstileToken] = useState<string>("");
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -88,13 +93,27 @@ export default function StrategySessionForm({ initialPillar }: StrategySessionFo
     }
 
     setStatus("submitting");
+    setSubmitError("");
 
     try {
-      // TODO: Wire this up to your intake handler / CRM endpoint.
-      await new Promise((resolve) => setTimeout(resolve, 1200));
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ formType: "strategy", ...fields, turnstileToken }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        setSubmitError(data.error || bookingPage.errorMessage);
+        setStatus("error");
+        return;
+      }
+
       setStatus("success");
       setFields(initialFields);
     } catch {
+      setSubmitError(bookingPage.errorMessage);
       setStatus("error");
     }
   };
@@ -126,8 +145,20 @@ export default function StrategySessionForm({ initialPillar }: StrategySessionFo
     <form
       noValidate
       onSubmit={handleSubmit}
-      className="rounded-lg border border-gold/25 bg-onyx/85 p-6 sm:p-10"
+      className="relative rounded-lg border border-gold/25 bg-onyx/85 p-6 sm:p-10"
     >
+      {/* Honeypot — hidden from real users, catches naive bots */}
+      <input
+        type="text"
+        name="company_website"
+        value={fields.company_website}
+        onChange={handleChange}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="absolute left-[-9999px] h-0 w-0 opacity-0"
+      />
+
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         <div className="sm:col-span-2">
           <label htmlFor="orgName" className="mb-2 block text-sm font-medium text-muted-light">
@@ -311,9 +342,13 @@ export default function StrategySessionForm({ initialPillar }: StrategySessionFo
         </div>
       </div>
 
+      <div className="mt-6">
+        <Turnstile onToken={setTurnstileToken} />
+      </div>
+
       {status === "error" && (
         <p className="mt-6 rounded-md border border-red-500/40 bg-red-500/10 px-4 py-3 text-sm text-red-300">
-          {bookingPage.errorMessage}
+          {submitError || bookingPage.errorMessage}
         </p>
       )}
 

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import { brand } from "@/config/siteConfig";
 import "./globals.css";
@@ -19,6 +19,11 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: `${brand.name} | ${brand.tagline}`,
   description: brand.tagline,
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0d0d0d",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({
