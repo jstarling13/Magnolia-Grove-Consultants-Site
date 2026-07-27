@@ -75,3 +75,23 @@ export interface Pillar {
   ctaLabel: string;
   ctaHref: string;
 }
+
+export interface TimelineMilestone {
+  year: string;
+  title: string;
+  description: string;
+}
+
+export interface ValueCard {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+}
+
+export interface TeamMember {
+  name: string;
+  role: string;
+  bio: string;
+  photo?: string;
+  photoAlt?: string;
+}

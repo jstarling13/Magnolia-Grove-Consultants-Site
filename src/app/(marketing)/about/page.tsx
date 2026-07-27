@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import About from "@/components/About";
+import HistoryTimeline from "@/components/about/HistoryTimeline";
+import CoreValues from "@/components/about/CoreValues";
+import LeadershipTeam from "@/components/about/LeadershipTeam";
+import AboutClosingCta from "@/components/about/AboutClosingCta";
 import { about } from "@/config/siteConfig";
 
 export const metadata: Metadata = {
@@ -8,5 +12,13 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  return <About />;
+  return (
+    <>
+      <About />
+      <HistoryTimeline />
+      <CoreValues />
+      <LeadershipTeam />
+      <AboutClosingCta />
+    </>
+  );
 }

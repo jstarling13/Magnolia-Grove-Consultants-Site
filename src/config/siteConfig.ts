@@ -212,8 +212,8 @@ export const contactDetails: ContactDetail[] = [
   {
     icon: Phone,
     label: "Phone",
-    value: "(706) 555-0199",
-    href: "tel:+17065550199",
+    value: "(706) 573-1719",
+    href: "tel:+17065731719",
   },
   {
     icon: Mail,
