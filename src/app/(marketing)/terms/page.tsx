@@ -1,75 +1,101 @@
 import type { Metadata } from "next";
-import { brand } from "@/config/siteConfig";
+import { brand, contactDetails } from "@/config/siteConfig";
+import LegalLayout, { type LegalSection as LegalSectionType } from "@/components/legal/LegalLayout";
+import LegalSection from "@/components/legal/LegalSection";
 
 export const metadata: Metadata = {
   title: "Terms of Service | Magnolia Grove Consultants",
-  description: "Terms governing engagement with Magnolia Grove Consultants.",
+  description: "Terms governing use of the Magnolia Grove Consultants, LLC website and services.",
 };
 
-// NOTE: Placeholder legal copy — have counsel review before public launch.
+const sections: LegalSectionType[] = [
+  { id: "scope-of-service", label: "Scope of Service" },
+  { id: "intellectual-property", label: "Intellectual Property" },
+  { id: "limitation-of-liability", label: "Limitation of Liability" },
+  { id: "acceptable-use", label: "Acceptable Use" },
+  { id: "governing-law", label: "Governing Law" },
+  { id: "contact", label: "Contact" },
+];
+
 export default function TermsPage() {
+  const email = contactDetails.find((detail) => detail.label === "Email")?.value;
+
   return (
-    <main className="bg-onyx px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
-      <div className="mx-auto max-w-3xl">
-        <span className="eyebrow">Legal</span>
-        <h1 className="mt-3 text-3xl sm:text-4xl">Terms of Service</h1>
-        <p className="mt-4 text-sm text-muted">Last updated: {new Date().getFullYear()}</p>
+    <LegalLayout title="Terms of Service" lastUpdated="July 27, 2026" sections={sections}>
+      <LegalSection id="scope-of-service" index="01" title="Scope of Service">
+        <p>
+          This website and its content are provided for informational purposes and to facilitate
+          consultation booking with {brand.name}, LLC (&quot;Magnolia Grove,&quot; &quot;we,&quot;
+          &quot;us,&quot; or &quot;our&quot;). Submitting an intake form or booking a strategy
+          session does not itself create a client, agency, or fiduciary relationship. Formal
+          consulting services, deliverables, and any associated obligations begin only upon
+          execution of a separate master services agreement (MSA) or statement of work (SOW) between
+          you and Magnolia Grove.
+        </p>
+      </LegalSection>
 
-        <div className="mt-10 flex flex-col gap-8 text-left text-sm leading-relaxed text-muted-light">
-          <section>
-            <h2 className="text-xl text-white">Engagement Scope</h2>
-            <p className="mt-3">
-              These Terms govern any strategy session, proposal, or engagement initiated through{" "}
-              {brand.name}&apos;s website. Submitting an inquiry does not itself create a client
-              relationship — formal engagement begins only upon signed agreement between the client
-              and {brand.name}.
-            </p>
-          </section>
+      <LegalSection id="intellectual-property" index="02" title="Intellectual Property">
+        <p>
+          All proprietary code, process frameworks, strategic methodologies, branding assets, copy,
+          and design elements appearing on this website are the exclusive property of Magnolia Grove
+          Consultants, LLC and are protected under applicable intellectual property law. No license
+          is granted to reproduce, distribute, modify, or create derivative works from this content
+          without our express written consent.
+        </p>
+      </LegalSection>
 
-          <section>
-            <h2 className="text-xl text-white">Confidentiality</h2>
-            <p className="mt-3">
-              Both parties agree to treat all shared campaign strategy, financial data, voter data,
-              and related materials as strictly confidential, disclosed only to personnel directly
-              involved in delivering the engagement.
-            </p>
-          </section>
+      <LegalSection id="limitation-of-liability" index="03" title="Limitation of Liability">
+        <p>
+          This website and its content are provided &quot;as is&quot; without warranties of any
+          kind, express or implied, including warranties of merchantability, fitness for a
+          particular purpose, or non-infringement. Case studies, performance metrics, and past
+          campaign results referenced on this site are illustrative of prior engagements only and do
+          not constitute a guarantee of any future electoral, fundraising, or business outcome. To
+          the fullest extent permitted by law, Magnolia Grove disclaims liability for any direct,
+          indirect, incidental, or consequential damages arising from your use of this website.
+        </p>
+      </LegalSection>
 
-          <section>
-            <h2 className="text-xl text-white">Client Responsibilities</h2>
-            <p className="mt-3">
-              Clients are responsible for the accuracy of information provided and for securing all
-              necessary rights, consents, and regulatory compliance (including applicable campaign
-              finance and communications law) related to their own campaign or organization.
-            </p>
-          </section>
+      <LegalSection id="acceptable-use" index="04" title="Acceptable Use">
+        <p>You agree not to:</p>
+        <ul className="flex flex-col gap-2 pl-5">
+          <li className="list-disc">
+            Reverse engineer, decompile, or attempt to extract the source code of this website;
+          </li>
+          <li className="list-disc">
+            Submit fraudulent, automated, or spam entries through our intake or booking forms;
+          </li>
+          <li className="list-disc">
+            Scrape, harvest, or systematically extract content or data from this website without our
+            express written authorization; or
+          </li>
+          <li className="list-disc">
+            Use this website in any manner that could disable, overburden, damage, or impair its
+            operation.
+          </li>
+        </ul>
+      </LegalSection>
 
-          <section>
-            <h2 className="text-xl text-white">Limitation of Liability</h2>
-            <p className="mt-3">
-              {brand.name} provides strategic, operational, and creative services on a best-efforts
-              basis. Except as otherwise agreed in a signed engagement contract, we do not guarantee
-              specific electoral, fundraising, or business outcomes.
-            </p>
-          </section>
+      <LegalSection id="governing-law" index="05" title="Governing Law">
+        <p>
+          These Terms are governed by and construed in accordance with the laws of the State of
+          Georgia, without regard to its conflict of laws principles. Any dispute arising under
+          these Terms shall be subject to the exclusive jurisdiction of the state and federal courts
+          located in Georgia.
+        </p>
+      </LegalSection>
 
-          <section>
-            <h2 className="text-xl text-white">Changes to These Terms</h2>
-            <p className="mt-3">
-              We may update these Terms from time to time. Continued use of this site after changes
-              are posted constitutes acceptance of the revised Terms.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-xl text-white">Contact</h2>
-            <p className="mt-3">
-              Questions about these Terms can be directed to {brand.name} using the contact details
-              in our website footer.
-            </p>
-          </section>
-        </div>
-      </div>
-    </main>
+      <LegalSection id="contact" index="06" title="Contact">
+        <p>
+          Questions about these Terms can be directed to{" "}
+          {email && (
+            <a href={`mailto:${email}`} className="text-gold-bright hover:text-white">
+              {email}
+            </a>
+          )}
+          .
+        </p>
+      </LegalSection>
+    </LegalLayout>
   );
 }
