@@ -4,6 +4,12 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import PillarHero from "@/components/noir/PillarHero";
 import PillarCardGrid from "@/components/noir/PillarCardGrid";
+import DeliverablesChecklist from "@/components/noir/DeliverablesChecklist";
+import TechStackGrid from "@/components/noir/TechStackGrid";
+import PillarCaseStudySpotlight from "@/components/noir/PillarCaseStudySpotlight";
+import EngagementScope from "@/components/noir/EngagementScope";
+import PillarFAQAccordion from "@/components/noir/PillarFAQAccordion";
+import CrossSellCallout from "@/components/noir/CrossSellCallout";
 import { pillars } from "@/config/pillarsConfig";
 
 interface PillarPageProps {
@@ -38,6 +44,7 @@ export default async function PillarPage({ params }: PillarPageProps) {
         eyebrow={`Pillar 0${currentIndex + 1} of ${pillars.length}`}
         title={pillar.heroTitle}
         subheadline={pillar.heroSubheadline}
+        stat={pillar.heroStat}
         image={pillar.image}
         imageAlt={pillar.imageAlt}
         ctaLabel={pillar.ctaLabel}
@@ -45,7 +52,20 @@ export default async function PillarPage({ params }: PillarPageProps) {
         pillarTitle={pillar.heroTitle}
         priority
       />
-      <PillarCardGrid cards={pillar.cards} />
+
+      <DeliverablesChecklist items={pillar.deliverables} />
+
+      <PillarCardGrid eyebrow="Our Process" title="From Intake to Execution" cards={pillar.cards} />
+
+      <TechStackGrid items={pillar.techStack} />
+
+      <PillarCaseStudySpotlight caseStudy={pillar.caseStudy} />
+
+      <EngagementScope options={pillar.engagementScope} />
+
+      <PillarFAQAccordion faqs={pillar.faqs} />
+
+      <CrossSellCallout items={pillar.crossSell} />
 
       <section className="border-t border-gold/15 bg-onyx px-6 py-16 sm:px-8 lg:px-12">
         <div className="mx-auto flex max-w-8xl flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">

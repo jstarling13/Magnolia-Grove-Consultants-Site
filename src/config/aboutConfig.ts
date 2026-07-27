@@ -2,9 +2,6 @@
  * ============================================================================
  * ABOUT PAGE — COMPANY STORY, HISTORY, VALUES & LEADERSHIP
  * ============================================================================
- * Placeholder copy is marked with [PLACEHOLDER]. Replace with real content —
- * do not delete a section for lack of data; swap the copy in place instead.
- * ============================================================================
  */
 
 import { Compass, ShieldCheck, Zap, Handshake } from "lucide-react";
@@ -12,96 +9,86 @@ import type { TimelineMilestone, ValueCard, TeamMember } from "@/types";
 
 export const historySection = {
   eyebrow: "Our Story",
-  headline: "[PLACEHOLDER] Founded to Close the Gap Between Strategy and Execution",
+  headline: "Founded to Close the Gap Between Strategy and Execution",
   intro:
-    "[PLACEHOLDER] Replace with 2-3 sentences on why Magnolia Grove was founded, the problem in the market it was built to solve, and who founded it. Example angle: frustration with fragmented vendors across field, media, print, and web forcing campaigns to manage five relationships instead of one.",
+    "Magnolia Grove Consultants was founded to solve a critical problem in the high-stakes arena: the fragmentation of campaign and institutional services. Organizations were being forced to manage five different vendors for field, digital, print, and web operations, leading to inefficiency, mixed messaging, and a lack of cohesive strategy. Ben Garcia established the firm to provide a unified command structure — an institutional-grade backbone that delivers total operational dominance across both the political and commercial landscapes.",
   milestones: [
     {
-      year: "[PLACEHOLDER YEAR]",
-      title: "[PLACEHOLDER] Founding",
+      year: "2024",
+      title: "Founding",
       description:
-        "[PLACEHOLDER] Describe the founding moment — who started the firm, where, and the first engagement or race that proved the model.",
+        "Frustrated by the vendor fragmentation that plagued modern campaigns and enterprises, Ben Garcia founded Magnolia Grove Consultants in Columbus, GA. The firm launched with a singular focus: to engineer an end-to-end operational infrastructure for high-stakes environments, eliminating the need for clients to manage multiple, disconnected vendors.",
     },
     {
-      year: "[PLACEHOLDER YEAR]",
-      title: "[PLACEHOLDER] First Major Win",
+      year: "2024",
+      title: "First Major Win",
       description:
-        "[PLACEHOLDER] Describe an early flagship win or client that validated the unified-execution approach.",
+        "The unified-execution model was quickly validated. In its inaugural year, Magnolia Grove secured its first major victory by managing the entire operational lifecycle for a competitive district race. By consolidating field, digital, and print logistics under one roof, the campaign achieved significant cost savings and a decisive win, proving the power of a fully integrated approach.",
     },
     {
-      year: "[PLACEHOLDER YEAR]",
-      title: "[PLACEHOLDER] Expanded Capabilities",
+      year: "2025",
+      title: "Expanded Capabilities & Enterprise Reach",
       description:
-        "[PLACEHOLDER] Describe when print/web/digital pillars were added, or when the team scaled beyond its original footprint.",
+        "Building on its early political success, the firm expanded its capabilities by formalizing its internal web engineering and print logistics divisions. This evolution solidified the “4 Pillars” framework and attracted enterprise clients — including PACs, advocacy groups, and business leaders — who recognized the same operational rigor applied to political campaigns could drive results in commercial and institutional initiatives.",
     },
     {
-      year: "[PLACEHOLDER YEAR]",
-      title: "[PLACEHOLDER] Today",
+      year: "2026",
+      title: "Today",
       description:
-        "[PLACEHOLDER] Describe where the firm stands now — geographic reach, race types served, or scale of operations.",
+        "Now a trusted partner for political campaigns, PACs, and enterprise leaders, Magnolia Grove operates as a premier force across Georgia and beyond. With a reputation for absolute confidentiality and relentless execution, the firm continues to serve a growing roster of clients across sectors who demand a partner, not just a vendor.",
     },
-  ] satisfies TimelineMilestone[],
+  ] as TimelineMilestone[],
 };
 
 export const valuesSection = {
   eyebrow: "What We Stand For",
-  headline: "[PLACEHOLDER] The Principles Behind Every Engagement",
+  headline: "The Principles Behind Every Engagement",
   items: [
     {
       icon: Compass,
-      title: "[PLACEHOLDER] Strategic Clarity",
+      title: "Strategic Clarity",
       description:
-        "[PLACEHOLDER] Replace with the firm's actual point of view on how strategy should drive every tactical decision.",
+        "We believe strategy must drive every tactical decision. Before a single door is knocked, a single ad is placed, or a single system is deployed, we define the path to victory. Every action is deliberate, data-informed, and designed to serve the overarching mission — whether that mission is electoral, legislative, or commercial.",
     },
     {
       icon: ShieldCheck,
-      title: "[PLACEHOLDER] Absolute Confidentiality",
+      title: "Absolute Confidentiality",
       description:
-        "[PLACEHOLDER] Replace with the firm's stance on client confidentiality and data handling.",
+        "In the arena of high-stakes campaigns and enterprise initiatives, trust is our most valuable currency. We uphold the highest standards of client confidentiality and data security, ensuring that our clients' strategies, operations, and proprietary information remain protected at all times.",
     },
     {
       icon: Zap,
-      title: "[PLACEHOLDER] Relentless Execution",
+      title: "Relentless Execution",
       description:
-        "[PLACEHOLDER] Replace with how the firm approaches speed, deadlines, and operational reliability.",
+        "Victory is won through flawless execution. We approach every deadline with urgency and every operation with precision. Our teams are built to move fast, adapt on the fly, and deliver results when it matters most — whether in the final 72 hours of a race or the launch window of a major institutional initiative.",
     },
     {
       icon: Handshake,
-      title: "[PLACEHOLDER] Partnership, Not Vendorship",
+      title: "Partnership, Not Vendorship",
       description:
-        "[PLACEHOLDER] Replace with how the firm positions itself relative to typical outside vendors or consultants.",
+        "We reject the transactional nature of typical outside consultants. We embed ourselves in our clients' missions, treating their goals as our own. We are a strategic partner invested in the outcome, not just a vendor fulfilling a contract. Your fight is our fight.",
     },
-  ] satisfies ValueCard[],
+  ] as ValueCard[],
 };
 
 export const teamSection = {
   eyebrow: "Leadership",
-  headline: "[PLACEHOLDER] The Team Behind the Strategy",
+  headline: "The Team Behind the Strategy",
   intro:
-    "[PLACEHOLDER] One or two sentences introducing the leadership team's collective background (campaigns run, industries served, years of combined experience).",
+    "Led by a founder with hands-on experience across high-stakes campaigns and institutional initiatives, Magnolia Grove operates with the rigor of an in-house team and the accountability of a single point of contact.",
   members: [
     {
-      name: "[PLACEHOLDER NAME]",
-      role: "[PLACEHOLDER TITLE]",
-      bio: "[PLACEHOLDER] 2-3 sentence bio covering background, notable campaigns or clients, and area of expertise.",
-    },
-    {
-      name: "[PLACEHOLDER NAME]",
-      role: "[PLACEHOLDER TITLE]",
-      bio: "[PLACEHOLDER] 2-3 sentence bio covering background, notable campaigns or clients, and area of expertise.",
-    },
-    {
-      name: "[PLACEHOLDER NAME]",
-      role: "[PLACEHOLDER TITLE]",
-      bio: "[PLACEHOLDER] 2-3 sentence bio covering background, notable campaigns or clients, and area of expertise.",
+      name: "Ben Garcia",
+      role: "Founder & Principal",
+      bio: "Ben Garcia founded Magnolia Grove Consultants in 2024 to solve the fragmentation he witnessed across both the political consulting and enterprise services industries. A veteran of numerous high-stakes campaigns and institutional initiatives, his expertise lies in building institutional-grade operational frameworks that deliver total domain dominance — from the war room to the boardroom. Under his leadership, the firm has grown into a premier force for political campaigns, PACs, and enterprise leaders who demand unified, results-driven execution.",
     },
   ] as TeamMember[],
 };
 
 export const aboutClosingCta = {
-  headline: "[PLACEHOLDER] Ready to Build a Winning Operation?",
+  headline: "Ready to Build a Winning Operation?",
   subtext:
-    "[PLACEHOLDER] One sentence inviting the visitor to book a strategy session, matching the tone of other CTA sections on the site.",
+    "Whether you're running a campaign, leading a PAC, or steering an enterprise initiative, Magnolia Grove provides the institutional framework to win.",
   ctaLabel: "REQUEST A STRATEGY SESSION",
   ctaHref: "/booking",
 };

@@ -2,13 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Zap } from "lucide-react";
 import { openConsultationDrawer } from "@/lib/consultationDrawer";
 
 interface PillarHeroProps {
   eyebrow?: string;
   title: string;
   subheadline: string;
+  stat?: string;
   image: string;
   imageAlt: string;
   ctaLabel?: string;
@@ -22,6 +23,7 @@ export default function PillarHero({
   eyebrow,
   title,
   subheadline,
+  stat,
   image,
   imageAlt,
   ctaLabel,
@@ -73,6 +75,13 @@ export default function PillarHero({
               </Link>
             )
           ))}
+
+        {stat && (
+          <div className="mt-6 inline-flex items-center gap-2 rounded-md border border-gold/40 bg-onyx/80 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-gold-bright">
+            <Zap size={14} strokeWidth={2.5} />
+            {stat}
+          </div>
+        )}
       </div>
     </section>
   );

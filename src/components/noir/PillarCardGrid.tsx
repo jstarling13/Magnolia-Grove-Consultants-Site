@@ -5,9 +5,11 @@ import type { PillarCard } from "@/types";
 
 interface PillarCardGridProps {
   cards: PillarCard[];
+  eyebrow?: string;
+  title?: string;
 }
 
-export default function PillarCardGrid({ cards }: PillarCardGridProps) {
+export default function PillarCardGrid({ cards, eyebrow, title }: PillarCardGridProps) {
   const [litCount, setLitCount] = useState(0);
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
   const cardRefs = useRef<Array<HTMLDivElement | null>>([]);
@@ -37,6 +39,12 @@ export default function PillarCardGrid({ cards }: PillarCardGridProps) {
   return (
     <section className="bg-onyx-100 px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
       <div className="mx-auto max-w-8xl">
+        {(eyebrow || title) && (
+          <div className="mb-10">
+            {eyebrow && <span className="eyebrow">{eyebrow}</span>}
+            {title && <h2 className="mt-3 text-2xl text-white sm:text-3xl">{title}</h2>}
+          </div>
+        )}
         {/* Horizontal step-indicator connector — lights up gold as cards enter view */}
         <div className="mb-10 hidden items-center lg:flex">
           {cards.map((card, index) => (

@@ -168,7 +168,7 @@ export const clientLogos: ClientLogo[] = [
 export const about = {
   eyebrow: "Why Magnolia Grove",
   headline: "Engineered for the War Room. Built for Victory.",
-  body: "Magnolia Grove Consultants bridges the gap between high-level political advisory and boots-on-the-ground operational execution. We eliminate vendor fragmentation by providing a unified, institutional-grade infrastructure across field operations, digital media, print logistics, and custom web engineering. When the stakes are non-negotiable, our frameworks ensure total domain dominance.",
+  body: "Magnolia Grove Consultants bridges the gap between high-level strategic advisory and boots-on-the-ground operational execution. Whether serving political campaigns, PACs, or enterprise leaders, we eliminate vendor fragmentation by providing a unified, institutional-grade infrastructure across field operations, digital media, print logistics, and custom web engineering. When the stakes are non-negotiable, our frameworks ensure total domain dominance.",
   bullets: [
     "Fully Unified Execution: One point of contact across ground, print, digital, and web operations.",
     "Data-Centric Targeting: Zero wasted spend on non-voters or unvetted lead channels.",

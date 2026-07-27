@@ -63,17 +63,46 @@ export interface StatItem {
   raw?: string;
 }
 
+export interface CaseStudySpotlight {
+  context: string;
+  description: string;
+  metric: string;
+  metricLabel: string;
+}
+
+export interface EngagementOption {
+  label: string;
+  duration: string;
+}
+
+export interface PillarFAQItem {
+  question: string;
+  answer: string;
+}
+
+export interface CrossSellItem {
+  slug: string;
+  blurb: string;
+}
+
 export interface Pillar {
   slug: string;
   navLabel: string;
   icon: LucideIcon;
   heroTitle: string;
   heroSubheadline: string;
+  heroStat: string;
   image: string;
   imageAlt: string;
   cards: PillarCard[];
   ctaLabel: string;
   ctaHref: string;
+  deliverables: string[];
+  techStack: string[];
+  caseStudy: CaseStudySpotlight;
+  engagementScope: EngagementOption[];
+  faqs: PillarFAQItem[];
+  crossSell: CrossSellItem[];
 }
 
 export interface TimelineMilestone {
