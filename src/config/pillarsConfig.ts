@@ -3,7 +3,8 @@
  * 4 PILLARS — HUB + SUB-PAGE CONTENT
  * ============================================================================
  * Dark/gold system content for /pillars and its four sub-pages, plus
- * /case-studies and /booking. Copy is exact per brief — edit here only.
+ * /case-studies and /booking. Written in plain English — avoid re-adding
+ * industry jargon or acronyms a first-time visitor wouldn't recognize.
  * ============================================================================
  */
 
@@ -12,16 +13,16 @@ import type { Pillar, StatItem, CaseStudy } from "@/types";
 
 export const pillarsHub = {
   heroTitle: "OUR 4 CORE PILLARS",
-  heroSubheadline: "Comprehensive Strategy & Execution for Campaigns & Institutions",
+  heroSubheadline: "Complete Strategy and Execution for Campaigns and Organizations",
   heroImage: "/images/hero-columns.webp",
   heroImageAlt: "Low-angle view of classical stone columns",
 };
 
 export const statStrip: StatItem[] = [
-  { id: "coverage", value: 100, suffix: "%", label: "Turf Coverage" },
-  { id: "load-time", raw: "Sub-Second", label: "Load Times" },
-  { id: "analytics", raw: "24/7", label: "Command Analytics" },
-  { id: "friction", value: 0, label: "Operational Friction" },
+  { id: "coverage", value: 100, suffix: "%", label: "Voter Coverage" },
+  { id: "load-time", raw: "Under 1 Second", label: "Website Load Times" },
+  { id: "analytics", raw: "24/7", label: "Real-Time Reporting" },
+  { id: "friction", value: 0, label: "Extra Vendors to Manage" },
 ];
 
 export const pillars: Pillar[] = [
@@ -30,84 +31,90 @@ export const pillars: Pillar[] = [
     navLabel: "Field Execution",
     icon: Target,
     heroTitle: "FIELD EXECUTION & GROUND OPERATIONS",
-    heroSubheadline: "Dominating the turf. Winning the ground war.",
-    heroStat: "72-Hour Emergency Deployment",
+    heroSubheadline: "Reaching voters where they live, one door at a time.",
+    heroStat: "Canvassers on the Ground Within 72 Hours",
     image: "/images/pillar-1-field-ops.webp",
     imageAlt: "Tactical district map with compass, voter density and turf status legend",
     cards: [
       {
         index: "01",
-        title: "Voter File Micro-Targeting",
+        title: "Finding the Right Voters",
         description:
-          "We segment the voter file down to the household level, isolating high-value blocks so every door knocked yields maximum ROI.",
+          "We use voter data to figure out exactly which households are worth visiting, so every door we knock on counts.",
       },
       {
         index: "02",
-        title: "Turf & Precinct Mapping",
+        title: "Mapping Out Routes",
         description:
-          "Precinct-level GIS mapping assigns every canvasser a data-optimized route built around density, access, and priority contact windows.",
+          "We map out the most efficient route for each canvasser, based on where voters live and when they're most likely to be home.",
       },
       {
         index: "03",
-        title: "Managed Team Deployment",
+        title: "A Canvassing Team You Don't Have to Manage",
         description:
-          "Vetted, uniformed canvassing teams are recruited, trained, and deployed directly into target districts with zero operational friction.",
+          "We recruit, train, and send a background-checked, uniformed canvassing team straight to your district — you don't have to manage a thing.",
       },
       {
         index: "04",
-        title: "Live Command Telemetry",
+        title: "Daily Progress You Can See",
         description:
-          "GPS-verified door-knock data streams into a live command dashboard so leadership can track contact rates in real time.",
+          "Every door knock is GPS-verified and shows up on a live dashboard, so you can see exactly how outreach is going, in real time.",
       },
     ],
     ctaLabel: "SCHEDULE STRATEGY SESSION",
     ctaHref: "/booking",
     deliverables: [
-      "Daily Door-Knock Telemetry Reports",
-      "Custom Scripting & Objection Guides",
-      "Managed Canvasser Fleet",
-      "Precinct Turf Heatmaps",
-      "Voter Contact List Exports",
-      "Weekly Field Briefings",
+      "Daily Door-Knock Reports",
+      "Custom Talking Points & Answers to Tough Questions",
+      "A Fully Managed Canvassing Team",
+      "Maps Showing Where We've Knocked",
+      "Exportable Voter Contact Lists",
+      "Weekly Progress Updates",
     ],
-    techStack: ["L2 Voter Data", "TargetSmart", "NGP VAN", "Aristotle", "Custom GPS Dashboards"],
+    techStack: ["L2 Voter Data", "TargetSmart", "NGP VAN", "Aristotle", "Custom GPS Tracking"],
     caseStudy: {
       context: "State Senate District — Competitive Suburb",
       description:
-        "Deployed targeted door-to-door turf operations alongside daily variable-data mailers to swing undecided voters in a single-digit race.",
+        "Ran targeted door-to-door canvassing alongside daily personalized mailers to win over undecided voters in a close race.",
       metric: "+7.4 PTS",
       metricLabel: "Margin Shift",
     },
     engagementScope: [
-      { label: "Emergency Turf Deployment", duration: "72 Hours" },
-      { label: "Primary Cycle Sprint", duration: "30 Days" },
-      { label: "Full Season Flight", duration: "90 Days" },
+      { label: "Emergency Canvassing", duration: "72 Hours" },
+      { label: "Primary Season Push", duration: "30 Days" },
+      { label: "Full Campaign Season", duration: "90 Days" },
     ],
     faqs: [
       {
         question: "How quickly can canvassers be deployed to our district?",
         answer:
-          "Our managed fleet can mobilize on 72 hours' notice for emergency turf deployment, including scripting and route assignment.",
+          "We can have a canvassing team in your district within 72 hours, fully briefed with talking points and routes.",
       },
       {
         question: "How do you verify door knocks were actually performed?",
         answer:
-          "Every canvasser is GPS-verified through geo-fencing, with real-time data logs confirming each contact attempt.",
+          "Every canvasser's location is GPS-tracked, so we can confirm each door was actually knocked on.",
       },
       {
         question: "Do you provide bilingual or multilingual canvassing teams?",
         answer:
-          "Yes. Canvasser fleets and scripting can be staffed for target-language precincts on request.",
+          "Yes — we can staff canvassing teams and prepare materials in the languages your voters speak.",
       },
       {
         question: "What geographic radius do you cover?",
         answer:
-          "We deploy statewide, with expedited coverage available for competitive districts across Georgia and neighboring states.",
+          "We work statewide, with faster turnaround for competitive districts across Georgia and neighboring states.",
       },
     ],
     crossSell: [
-      { slug: "print-media", blurb: "Pair turf routes with push cards and walk sheets." },
-      { slug: "web-development", blurb: "Sync field-collected contacts directly to your CRM." },
+      {
+        slug: "print-media",
+        blurb: "Pair your canvassing routes with push cards and walk sheets.",
+      },
+      {
+        slug: "web-development",
+        blurb: "Send the contacts your canvassers collect straight into your contact list.",
+      },
     ],
   },
   {
@@ -115,89 +122,94 @@ export const pillars: Pillar[] = [
     navLabel: "Digital Marketing",
     icon: Megaphone,
     heroTitle: "DIGITAL MARKETING & MEDIA STRATEGY",
-    heroSubheadline: "Saturating the digital airwaves with surgical precision.",
-    heroStat: "Sub-6-Hour Rapid Response",
+    heroSubheadline: "Getting your message in front of the right people, fast.",
+    heroStat: "Live Ads in Under 6 Hours",
     image: "/images/pillar-2-media.webp",
     imageAlt: "Cinema camera lens with live data and analytics overlay",
     cards: [
       {
         index: "01",
-        title: "Audience Modeling & Micro-Segmentation",
+        title: "Finding Your Audience",
         description:
-          "We build precision audience models from voter and consumer data to eliminate wasted spend before a single ad goes live.",
+          "We use voter and consumer data to figure out exactly who to target, so your budget isn't wasted before an ad even goes live.",
       },
       {
         index: "02",
-        title: "High-Impact Media Production",
+        title: "Professional Video & Design",
         description:
-          "Cinematic video, motion graphics, and copywriting produced in-house and built to command attention and convey authority.",
+          "We produce professional video, graphics, and copy in-house — built to grab attention and build trust.",
       },
       {
         index: "03",
-        title: "Multi-Channel Ad Placement",
+        title: "Ads Everywhere Your Audience Is",
         description:
-          "Coordinated placement across Meta, Google, OTT, and connected TV keeps your message everywhere your audience already is.",
+          "We place your ads across Facebook, Instagram, Google, and streaming TV, so your message shows up everywhere your audience already spends time.",
       },
       {
         index: "04",
-        title: "Rapid-Response Optimization",
+        title: "Fast Adjustments When Things Change",
         description:
-          "Live performance monitoring and message control let us counter narratives and reallocate spend within hours, not days.",
+          "We watch how your ads are performing in real time, so we can respond to the news, shift your message, or move budget within hours — not days.",
       },
     ],
     ctaLabel: "SCHEDULE STRATEGY SESSION",
     ctaHref: "/booking",
     deliverables: [
-      "HD Video & Audio Ads",
-      "Static & Animated Graphic Sets",
-      "Multi-Platform Ad Account Setup",
-      "Weekly Attribution & Impression Reports",
-      "Custom Crisis Response Playbook",
-      "Creative A/B Testing Logs",
+      "Professional Video & Audio Ads",
+      "Custom Graphics & Animations",
+      "Ad Accounts Set Up on Every Platform You Need",
+      "Weekly Performance Reports",
+      "A Plan for Handling Bad News Fast",
+      "Test Results Showing What's Working",
     ],
     techStack: [
       "Meta Ads Manager",
       "Google Ads & YouTube",
-      "OTT / Connected TV",
+      "Streaming & Smart TV Ads",
       "StackAdapt",
       "LiveRamp",
     ],
     caseStudy: {
       context: "Congressional PAC — Multi-County Media Push",
       description:
-        "Executed a geotargeted OTT streaming and digital ad campaign with integrated high-conversion donor landing pages.",
+        "Ran a location-targeted streaming and digital ad campaign paired with donor pages built to turn visitors into givers.",
       metric: "3.2x ROI",
       metricLabel: "Donor Conversion",
     },
     engagementScope: [
-      { label: "Rapid-Response Sprint", duration: "48 Hours" },
-      { label: "Primary Cycle Push", duration: "30 Days" },
-      { label: "Full Cycle Flight", duration: "90 Days" },
+      { label: "Rapid Response", duration: "48 Hours" },
+      { label: "Primary Season Push", duration: "30 Days" },
+      { label: "Full Campaign Season", duration: "90 Days" },
     ],
     faqs: [
       {
         question: "How do you ensure ad budget isn't wasted on non-voters?",
         answer:
-          "Every placement uses geo-fencing and IP matching tied directly to verified voter file data, not broad demographic guessing.",
+          "Every ad is targeted using verified voter data, not broad guesswork — so your budget reaches real, confirmed voters.",
       },
       {
         question: "What is your turnaround time for a rapid-response ad?",
-        answer: "Under 6 hours from script approval to live deployment across our ad network.",
+        answer: "Under 6 hours from an approved script to a live ad.",
       },
       {
         question: "Can you produce content for multiple audience segments?",
         answer:
-          "Yes. Our production team builds parallel creative tracks tailored to each distinct audience segment in your model.",
+          "Yes — we build different versions of your ads tailored to each audience group you're trying to reach.",
       },
       {
         question: "Do you handle compliant ad disclaimers?",
-        answer:
-          "Yes. Every placement includes compliant disclosure language reviewed prior to launch.",
+        answer: "Yes — every ad includes the required disclaimers, reviewed before it goes live.",
       },
     ],
     crossSell: [
-      { slug: "web-development", blurb: "Route ad traffic into frictionless donation funnels." },
-      { slug: "field-execution", blurb: "Warm turf targets with matching digital ad exposure." },
+      {
+        slug: "web-development",
+        blurb: "Send ad clicks straight to an easy, high-converting donation page.",
+      },
+      {
+        slug: "field-execution",
+        blurb: "Reach the same voters your canvassers are visiting with matching digital ads.",
+      },
     ],
   },
   {
@@ -205,56 +217,55 @@ export const pillars: Pillar[] = [
     navLabel: "Print & Logistics",
     icon: Printer,
     heroTitle: "PRINT MEDIA & LOGISTICAL INFRASTRUCTURE",
-    heroSubheadline: "Tangible touchpoints. Uncompromising physical scale.",
-    heroStat: "250,000+ Units / Day Capacity",
+    heroSubheadline: "Materials people can hold, delivered at scale.",
+    heroStat: "Able to Print 250,000+ Pieces a Day",
     image: "/images/pillar-3-print.webp",
     imageAlt: "Offset printing press running a paper feed",
     cards: [
       {
         index: "01",
-        title: "Variable-Data Voter File Match",
+        title: "Personalized to Every Household",
         description:
-          "Every mail piece is matched to voter file data, enabling household-level personalization at production scale.",
+          "Every mail piece can be personalized to the household it's going to — at full production scale.",
       },
       {
         index: "02",
-        title: "High-Speed Print Production",
+        title: "Fast, High-Volume Printing",
         description:
-          "Enterprise offset and digital press lines produce collateral, mailers, and signage without sacrificing turnaround time.",
+          "Our print lines produce mailers, signage, and campaign materials quickly, without sacrificing quality.",
       },
       {
         index: "03",
-        title: "Postal Sorting & Clearing",
+        title: "Getting It Into the Mail",
         description:
-          "Full USPS Postal One processing and Intelligent Mail Barcode clearing keep every drop compliant and on schedule.",
+          "We handle all the USPS paperwork and sorting so your mail goes out on time and by the book.",
       },
       {
         index: "04",
-        title: "In-Home Mail Drop Tracking",
-        description:
-          "Real-time Intelligent Mail Barcode tracking confirms exactly when pieces land in target mailboxes.",
+        title: "Tracking When It Arrives",
+        description: "We can tell you exactly when your mail lands in voters' mailboxes.",
       },
     ],
     ctaLabel: "SCHEDULE STRATEGY SESSION",
     ctaHref: "/booking",
     deliverables: [
-      "Micro-Targeted Direct Mailers",
-      "Field Push Cards & Walk Sheets",
-      "District Yard Signs & Banners",
-      "Branded Campaign Apparel",
-      "Postage Clearing & Tracking Receipts",
-      "Custom QR Analytics Integration",
+      "Personalized Direct Mail",
+      "Push Cards & Walk Sheets for Canvassers",
+      "Yard Signs & Banners",
+      "Branded Campaign Merchandise",
+      "Postage Handling & Delivery Tracking",
+      "Trackable QR Codes on Your Mail",
     ],
     techStack: [
-      "Enterprise Offset & Digital Press",
-      "USPS Postal One",
-      "Intelligent Mail Barcode (IMb)",
-      "Variable Data Matrix Engines",
+      "High-Volume Printing Equipment",
+      "USPS Mail Processing",
+      "Delivery Tracking",
+      "Personalized Printing at Scale",
     ],
     caseStudy: {
       context: "County Commission Race — Multi-Precinct Mail Program",
       description:
-        "Executed a 12-cycle variable-data direct mail sequence integrated with matching yard sign saturation across target precincts.",
+        "Sent 12 rounds of personalized direct mail alongside a matching yard sign campaign across key precincts.",
       metric: "+5.1 PTS",
       metricLabel: "Margin Shift via Mail",
     },
@@ -267,26 +278,33 @@ export const pillars: Pillar[] = [
       {
         question: "What is your standard turnaround time on direct mail drops?",
         answer:
-          "48 hours from proof approval to USPS dock drop, with 24-hour emergency runs available.",
+          "48 hours from an approved proof to being handed off to USPS, with 24-hour rush jobs available.",
       },
       {
         question: "Can we track when mailers hit voter mailboxes?",
-        answer: "Yes, via real-time USPS Intelligent Mail Barcode tracking on every drop.",
+        answer:
+          "Yes — every mail piece is trackable, so we can tell you when it lands in mailboxes.",
       },
       {
         question: "What is your minimum order volume?",
         answer:
-          "We scale from targeted single-precinct runs to statewide volume with no minimum order penalty.",
+          "We scale from a single targeted precinct to statewide volume, with no minimum order penalty.",
       },
       {
         question: "Do you handle both design and physical production in-house?",
         answer:
-          "Yes. Design, proofing, printing, and postal sortation are managed under one unified production line.",
+          "Yes. Design, proofing, printing, and mailing are all handled in-house, start to finish.",
       },
     ],
     crossSell: [
-      { slug: "field-execution", blurb: "Arm canvassers with matching walk cards and push cards." },
-      { slug: "digital-marketing", blurb: "Retarget QR-code mail respondents with digital ads." },
+      {
+        slug: "field-execution",
+        blurb: "Give your canvassers matching walk cards and push cards.",
+      },
+      {
+        slug: "digital-marketing",
+        blurb: "Follow up with digital ads for anyone who scans a QR code on your mail.",
+      },
     ],
   },
   {
@@ -294,45 +312,45 @@ export const pillars: Pillar[] = [
     navLabel: "Web & Automation",
     icon: Globe,
     heroTitle: "WEB DEVELOPMENT & DIGITAL AUTOMATION",
-    heroSubheadline: "High-speed digital infrastructure engineered for conversion.",
-    heroStat: "<0.8s Load Time · 100/100 Lighthouse",
+    heroSubheadline: "A fast, reliable website that turns visitors into supporters.",
+    heroStat: "Loads in Under 1 Second",
     image: "/images/pillar-4-web.webp",
     imageAlt: "Laptop displaying campaign strategy code and a donor network dashboard",
     cards: [
       {
         index: "01",
-        title: "UX Architecture & Security Audit",
+        title: "Planning & Security Check",
         description:
-          "We map your funnel and audit for security gaps before a single line of production code is written.",
+          "Before we write any code, we map out the visitor's experience and check for security gaps.",
       },
       {
         index: "02",
-        title: "High-Conversion Funnel Build",
+        title: "A Site Built to Convert Visitors",
         description:
-          "Custom, mobile-optimized pages engineered around a single objective: turning visitors into supporters and donors.",
+          "We build custom, mobile-friendly pages with one goal: turning visitors into supporters and donors.",
       },
       {
         index: "03",
-        title: "CRM & Payment Gateway Integration",
+        title: "Connected to Your Contact List & Payments",
         description:
-          "Direct integration with your donation processor and CRM keeps every entry point synced to a single source of truth.",
+          "We connect your website directly to your donation processor and contact list, so every signup and gift is captured in one place.",
       },
       {
         index: "04",
-        title: "Stress Testing & Launch",
+        title: "Testing Before We Launch",
         description:
-          "Load and security testing under simulated traffic spikes before launch, backed by enterprise edge protection.",
+          "We test the site under heavy traffic and check for security issues before launch, backed by strong protection against attacks.",
       },
     ],
     ctaLabel: "SCHEDULE STRATEGY SESSION",
     ctaHref: "/booking",
     deliverables: [
-      "Custom Next.js Mobile-Optimized Website",
-      "Frictionless Donation Funnel Integration",
-      "Automated SMS & Email Drip Workflows",
-      "Centralized CRM Data Pipeline",
-      "Web Accessibility & Security Defense Package",
-      "Real-Time Analytics Dashboard",
+      "A Custom, Mobile-Friendly Website",
+      "A Simple, Secure Donation Page",
+      "Automatic Text & Email Follow-Ups",
+      "Everything Synced to One Contact List",
+      "Accessibility & Security Built In",
+      "A Live Dashboard Showing Visitor Activity",
     ],
     techStack: [
       "Next.js / React",
@@ -340,30 +358,30 @@ export const pillars: Pillar[] = [
       "Stripe / Anedot",
       "Resend",
       "Cloudflare Turnstile",
-      "HubSpot / NGP VAN API",
+      "HubSpot / NGP VAN",
     ],
     caseStudy: {
       context: "Municipal Ballot Initiative — Urban Center",
       description:
-        "Built a sub-second custom web application with automated SMS routing and rapid voter registration funnels.",
+        "Built a fast, custom website with automatic text messaging and a quick, simple voter registration process.",
       metric: "89% Turnout",
       metricLabel: "Targeted Voter Reach",
     },
     engagementScope: [
       { label: "Rapid Launch", duration: "2 Weeks" },
       { label: "Full Build", duration: "6 Weeks" },
-      { label: "Enterprise Integration", duration: "90 Days" },
+      { label: "Full System Integration", duration: "90 Days" },
     ],
     faqs: [
       {
         question: "Which donation processors do you support?",
         answer:
-          "Seamless integration with Anedot, WinRed, ActBlue, Stripe, and custom merchant accounts.",
+          "Seamless setup with Anedot, WinRed, ActBlue, Stripe, and custom merchant accounts.",
       },
       {
         question: "Is the website protected against traffic spikes or malicious attacks?",
         answer:
-          "Yes. Every build is protected by enterprise Cloudflare edge security and DDoS mitigation.",
+          "Yes. Every site we build includes strong protection against attacks and traffic spikes.",
       },
       {
         question: "Do you provide ongoing maintenance after launch?",
@@ -372,17 +390,17 @@ export const pillars: Pillar[] = [
       {
         question: "Can the site integrate with our existing voter file or CRM?",
         answer:
-          "Yes. We build custom API integrations with NGP VAN, HubSpot, and most standard CRM and voter file platforms.",
+          "Yes. We can connect your site to NGP VAN, HubSpot, and most standard contact-list or voter-file systems.",
       },
     ],
     crossSell: [
       {
         slug: "digital-marketing",
-        blurb: "Send paid traffic straight into a built-to-convert landing page.",
+        blurb: "Send ad traffic straight to a page built to turn visitors into supporters.",
       },
       {
         slug: "field-execution",
-        blurb: "Sync web-collected leads directly into field canvassing lists.",
+        blurb: "Send new signups from your website straight into your canvassing lists.",
       },
     ],
   },
@@ -390,26 +408,25 @@ export const pillars: Pillar[] = [
 
 export const caseStudiesPage = {
   heroTitle: "TRACK RECORD",
-  heroSubheadline:
-    "Verifiable performance metrics and district shifting results across competitive races.",
+  heroSubheadline: "Real results from competitive races, with numbers you can verify.",
   heroImage: "/images/hero-aerial-map.webp",
   heroImageAlt: "Aerial night map of a district with illuminated roads",
   confidentialityNote:
-    "Due to client non-disclosure agreements, specific candidate names and district numbers have been anonymized to protect tactical intelligence. All metric data anonymized to preserve client confidentiality.",
+    "To protect our clients' privacy, we've removed specific names and district numbers from these examples. All figures are real — just not tied to a specific race.",
   studies: [
     {
       id: "case-1",
       district: "State Senate District — High-Growth Suburb",
       pillar: "Field Execution & Ground Operations",
       challenge:
-        "Trailing by 4.2 points 30 days out, with fragmented, inconsistent voter outreach across the district.",
+        "Trailing by 4.2 points 30 days out, with inconsistent voter outreach across the district.",
       execution:
-        "Micro-targeted 14,000 undecided households via managed door-to-door canvassing, paired with a daily variable-data mail sequence.",
+        "Reached 14,000 undecided households through door-to-door canvassing, paired with daily personalized mail.",
       result:
         "Turnout in target precincts outpaced the district average by double digits, delivering a decisive swing on election night.",
       metric: "+7.4 PTS",
       metricLabel: "Margin Shift",
-      quote: "Magnolia Grove delivered total domain dominance when our ground war was on the line.",
+      quote: "Magnolia Grove came through when it mattered most in our ground game.",
       quoteAttribution: "— Campaign Manager, State Senate Race",
     },
     {
@@ -417,15 +434,15 @@ export const caseStudiesPage = {
       district: "Congressional PAC — Multi-County Media Push",
       pillar: "Digital Marketing & Media Strategy",
       challenge:
-        "Fragmented ad spend across multiple counties was producing low-quality donor leads and inconsistent messaging.",
+        "Ad spend spread across multiple counties was producing low-quality donor leads and inconsistent messaging.",
       execution:
-        "Executed a geotargeted OTT streaming and digital ad campaign integrated with high-conversion donor landing pages across the full media mix.",
+        "Ran a location-targeted streaming and digital ad campaign, paired with donor pages built to convert visitors into givers.",
       result:
-        "Donor conversion rates nearly tripled within the first flight cycle, extending the PAC's fundraising runway heading into the final stretch.",
+        "Donor conversion rates nearly tripled within the first month, extending the PAC's fundraising runway heading into the final stretch.",
       metric: "3.2x ROI",
       metricLabel: "Donor Conversion",
       quote:
-        "Their media buy was more disciplined than agencies twice their size — every dollar had a job.",
+        "Their ad spend was more disciplined than agencies twice their size — every dollar had a job.",
       quoteAttribution: "— PAC Director, Multi-County Media Program",
     },
     {
@@ -433,11 +450,11 @@ export const caseStudiesPage = {
       district: "Municipal Ballot Initiative — Urban Center",
       pillar: "Web Development & Digital Automation",
       challenge:
-        "An outdated web presence was losing registration traffic and donor conversions to slow load times and a broken mobile funnel.",
+        "An outdated website was losing registration traffic and donor conversions to slow load times and a broken mobile experience.",
       execution:
-        "Built a sub-second custom web application with automated SMS routing and rapid voter registration funnels engineered for mobile-first turnout.",
+        "Built a fast, custom website with automatic text messaging and a simple, mobile-friendly voter registration process.",
       result:
-        "Targeted voter reach hit turnout levels rarely seen in municipal ballot initiatives, validating the platform rebuild under a hard election-day deadline.",
+        "Targeted voter reach hit turnout levels rarely seen in municipal ballot initiatives, validating the rebuild ahead of a hard election-day deadline.",
       metric: "89% Turnout",
       metricLabel: "Targeted Voter Reach",
       quote:
@@ -449,9 +466,9 @@ export const caseStudiesPage = {
       district: "County Commission Race — Multi-Precinct Mail Program",
       pillar: "Print Media & Logistical Infrastructure",
       challenge:
-        "A late entry into a crowded county commission race left no time for a traditional field program to build name ID.",
+        "A late entry into a crowded county commission race left no time for a traditional canvassing program to build name recognition.",
       execution:
-        "Executed a 12-cycle variable-data direct mail sequence integrated with matching yard sign saturation across target precincts.",
+        "Sent 12 rounds of personalized direct mail alongside a matching yard sign campaign across target precincts.",
       result:
         "Name recognition and favorability climbed steadily through each mail cycle, culminating in a margin shift that outpaced every internal poll.",
       metric: "+5.1 PTS",
@@ -467,11 +484,11 @@ export const caseStudiesPage = {
 export const bookingPage = {
   heroTitle: "STRATEGY SESSION",
   heroSubheadline:
-    "Select your project timeline and request a direct intake consultation with our leadership team.",
+    "Pick your timeline and request a consultation directly with our leadership team.",
   heroImage: "/images/hero-columns.webp",
   heroImageAlt: "Low-angle view of classical stone columns",
   formIntro:
-    "Complete the form below to lock in strategy availability for your upcoming election cycle or corporate push.",
+    "Fill out the form below to reserve time with our team for your upcoming campaign or initiative.",
   serviceOptions: pillars.map((pillar) => pillar.heroTitle),
   fields: {
     orgName: "Organization / Campaign Name",
@@ -481,7 +498,7 @@ export const bookingPage = {
     phone: "Phone Number",
     pillar: "Primary Area of Interest",
     budget: "Estimated Budget Range",
-    timeline: "Engagement Timeline",
+    timeline: "Timeline",
     message: "Tell Us About Your Race or Initiative",
   },
   budgetOptions: ["Under $10K", "$10K – $25K", "$25K – $50K", "$50K – $100K", "$100K+"],
@@ -491,36 +508,34 @@ export const bookingPage = {
     "General Election / Long-Term",
   ],
   messagePlaceholder:
-    "Outline your district, current polling position, and key strategic objectives for this engagement...",
+    "Tell us about your district, where things currently stand, and what you're hoping to achieve...",
   submitLabel: "REQUEST STRATEGY SESSION",
   submittingLabel: "SUBMITTING...",
   successTitle: "REQUEST RECEIVED",
   successMessage:
-    "Consultation booked. You will receive an invitation with encrypted meeting details shortly.",
+    "Consultation booked. You'll receive a calendar invite with meeting details shortly.",
   errorMessage:
-    "Transmission failed. Please verify your contact information or reach out directly via ben@magnoliagrovega.com.",
-  privacyNote:
-    "All consultations and project briefs are held under absolute client-advisor confidentiality.",
+    "Something went wrong. Please double-check your contact information or reach out directly via ben@magnoliagrovega.com.",
+  privacyNote: "Everything you share with us stays confidential.",
   whatHappensNext: {
     eyebrow: "What Happens Next",
     steps: [
       {
         step: "01",
-        title: "Immediate NDA & Intel Audit",
+        title: "We Review Your Situation",
         detail:
-          "Within 2 hours of submission, our team issues an NDA and begins an initial audit of your race or initiative.",
+          "Within 2 hours, we send over a confidentiality agreement and start reviewing your race or project.",
       },
       {
         step: "02",
         title: "Direct Advisory Call",
         detail:
-          "A 30-minute strategy call with senior leadership — not a sales rep — to scope your objectives and timeline.",
+          "A 30-minute strategy call with senior leadership — not a sales rep — to talk through your goals and timeline.",
       },
       {
         step: "03",
-        title: "Custom Execution Deck",
-        detail:
-          "A tailored district execution deck and proposal delivered directly, outlining scope, timeline, and investment.",
+        title: "A Custom Plan & Proposal",
+        detail: "We put together a tailored plan and proposal covering scope, timeline, and cost.",
       },
     ],
   },

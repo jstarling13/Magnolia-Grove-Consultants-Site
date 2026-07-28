@@ -11,13 +11,13 @@ export const historySection = {
   eyebrow: "Our Story",
   headline: "Founded to Close the Gap Between Strategy and Execution",
   intro:
-    "Magnolia Grove Consultants was founded to solve a critical problem in the high-stakes arena: the fragmentation of campaign and institutional services. Organizations were being forced to manage five different vendors for social media, digital, print, and web operations, leading to inefficiency, mixed messaging, and a lack of cohesive strategy. Ben Garcia established the firm to provide a unified command structure — an institutional-grade backbone that delivers total operational dominance across political, non-profit, and commercial landscapes.",
+    "Magnolia Grove Consultants was founded to solve a common problem: campaigns and organizations were being forced to manage five different vendors for social media, digital, print, and web work, leading to wasted time, mixed messaging, and no cohesive strategy. Ben Garcia started the firm to give clients one unified team instead of five separate vendors — whether they're running a political campaign, a non-profit, or a business.",
   milestones: [
     {
       year: "2024",
       title: "Founding",
       description:
-        "Frustrated by the vendor fragmentation that plagued modern campaigns, non-profits, and enterprises, Ben Garcia founded Magnolia Grove Consultants in Columbus, GA. The firm launched with a singular focus: to engineer an end-to-end operational infrastructure for high-stakes environments, eliminating the need for clients to manage multiple, disconnected vendors.",
+        "Frustrated by the vendor fragmentation that plagued modern campaigns, non-profits, and enterprises, Ben Garcia founded Magnolia Grove Consultants in Columbus, GA. The firm launched with a singular focus: build one complete operation for high-stakes campaigns and organizations, so clients don't have to manage multiple, disconnected vendors.",
     },
     {
       year: "2024",
@@ -29,7 +29,7 @@ export const historySection = {
       year: "2025",
       title: "Expanded Capabilities & Enterprise Reach",
       description:
-        "Building on its early political success, the firm expanded its capabilities by formalizing its web engineering and print logistics divisions. This evolution solidified the “4 Pillars” framework and attracted non-profit organizations and enterprise clients who recognized the same operational rigor applied to political campaigns could drive results in commercial and institutional initiatives.",
+        "Building on its early political success, the firm expanded its capabilities by formalizing its web engineering and print logistics divisions. This evolution solidified the “4 Pillars” framework and attracted non-profit organizations and business clients who recognized the same discipline applied to political campaigns could drive results for their organizations too.",
     },
     {
       year: "2026",
@@ -80,7 +80,7 @@ export const teamSection = {
     {
       name: "Ben Garcia",
       role: "Founder & Principal",
-      bio: "Ben Garcia founded Magnolia Grove Consultants in 2024 to solve the fragmentation he witnessed across both the political consulting and enterprise services industries. A veteran of numerous high-stakes campaigns and institutional initiatives, his expertise lies in building institutional-grade operational frameworks that deliver total domain dominance — from the war room to the boardroom. Under his leadership, the firm has grown into a premier force for political campaigns, non-profit organizations, PACs, and enterprise leaders who demand unified, results-driven execution.",
+      bio: "Ben Garcia founded Magnolia Grove Consultants in 2024 to solve the fragmentation he witnessed across both the political consulting and enterprise services industries. A veteran of numerous high-stakes campaigns and institutional initiatives, his expertise lies in building operations that get real results — from a campaign headquarters to a boardroom. Under his leadership, the firm has grown into a trusted partner for political campaigns, non-profit organizations, PACs, and businesses who want one team handling everything, done well.",
       photo: "/images/ben-garcia-headshot.jpg",
       photoAlt: "Ben Garcia, Founder & Principal of Magnolia Grove Consultants",
     },

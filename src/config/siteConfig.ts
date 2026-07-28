@@ -54,15 +54,19 @@ export const nav = {
 /* ----------------------------------------------------------------------- */
 
 export const hero = {
-  eyebrow: "DATA-DRIVEN CAMPAIGN & CONSULTING INFRASTRUCTURE",
+  eyebrow: "STRATEGY AND EXECUTION FOR CAMPAIGNS & ORGANIZATIONS",
   headline: "Comprehensive Strategy & Execution for High-Stakes Victories.",
   subtitle:
-    "We deliver turnkey field operations, precision media targeting, variable-data print logistics, and high-speed web architecture for campaigns and corporate leaders.",
+    "We handle canvassing, advertising, printed materials, and your website — all in one place, for campaigns and organizations alike.",
   primaryCta: "Schedule Strategy Call",
   primaryCtaHref: "/contact",
   secondaryCta: "View All Services",
   secondaryCtaHref: "/services",
-  proofPoints: ["Turnkey Field Ops", "Omnichannel Precision", "Sub-Second Web Tech"],
+  proofPoints: [
+    "Boots-on-the-Ground Canvassing",
+    "Ads That Reach the Right People",
+    "Fast, Reliable Websites",
+  ],
   imageAlt:
     "Classic white marble government columns standing under high-contrast dark twilight, symbolizing institutional strength and political strategy.",
 };
@@ -75,7 +79,7 @@ export const servicesIntro = {
   eyebrow: "What We Do",
   headline: "Four Pillars of a Winning Campaign",
   subtitle:
-    "One unified infrastructure across field, media, print, and web — engineered for institutional-grade execution.",
+    "One team handling canvassing, media, print, and your website — so nothing falls through the cracks.",
 };
 
 export const servicePillars: ServicePillar[] = [
@@ -84,8 +88,12 @@ export const servicePillars: ServicePillar[] = [
     icon: Target,
     title: "Strategy & Sales",
     description:
-      "Data-driven voter targeting, managed canvassing deployment, and real-time field command engineered for ground supremacy.",
-    subItems: ["Micro-Targeted Turf Maps", "Voss-Style Canvass Scripts", "Daily Contact Analytics"],
+      "We identify the right voters, manage a canvassing team to knock on doors, and track progress every day.",
+    subItems: [
+      "Targeted Door-Knocking Routes",
+      "Proven Conversation Scripts",
+      "Daily Progress Reports",
+    ],
     image: "/images/pillar-1-field-ops.webp",
     imageAlt: "Tactical district map with compass, voter density and turf status legend",
     pillarSlug: "field-execution",
@@ -95,11 +103,11 @@ export const servicePillars: ServicePillar[] = [
     icon: Megaphone,
     title: "Digital Marketing",
     description:
-      "Precision digital ad placement, high-production video, and rapid-response positioning across streaming and social channels.",
+      "We place ads where your audience is actually watching, produce professional video, and respond fast when the conversation shifts.",
     subItems: [
-      "OTT & Connected TV Ads",
-      "Rapid-Response Messaging",
-      "High-Donor Conversion Funnels",
+      "Streaming & TV Ads",
+      "Fast-Turnaround Messaging",
+      "Pages Built to Turn Visitors into Donors",
     ],
     image: "/images/pillar-2-media.webp",
     imageAlt: "Cinema camera lens with live data and analytics overlay",
@@ -110,8 +118,8 @@ export const servicePillars: ServicePillar[] = [
     icon: Printer,
     title: "Printing & Media Collateral",
     description:
-      "Bulk collateral production, variable-data direct mail, and district-wide signage delivered on tight operational schedules.",
-    subItems: ["Variable-Data Direct Mail", "QR Code Tracking", "District-Wide Yard Signage"],
+      "We design and print mailers, yard signs, and campaign materials — personalized where it counts, delivered on time.",
+    subItems: ["Personalized Direct Mail", "Trackable QR Codes", "Yard Signs & Banners"],
     image: "/images/pillar-3-print.webp",
     imageAlt: "Offset printing press running a paper feed",
     pillarSlug: "print-media",
@@ -121,11 +129,11 @@ export const servicePillars: ServicePillar[] = [
     icon: Globe,
     title: "Web Development & Digital",
     description:
-      "High-speed, mobile-optimized web portals, secure payment/donation funnels, and automated CRM pipeline routing.",
+      "We build fast, mobile-friendly websites with secure donation pages, and connect everything to your contact list automatically.",
     subItems: [
-      "Sub-Second Load Times",
-      "Stripe & Anedot Payment Processing",
-      "Automated SMS & Email Drip Workflows",
+      "Fast-Loading Pages",
+      "Secure Online Donations",
+      "Automatic Text & Email Follow-Ups",
     ],
     image: "/images/pillar-4-web.webp",
     imageAlt: "Laptop displaying campaign strategy code and a donor network dashboard",
@@ -139,7 +147,7 @@ export const servicePillars: ServicePillar[] = [
 
 export const metricsIntro = {
   eyebrow: "Track Record",
-  headline: "Proven Impact Across High-Stakes Campaign Districts",
+  headline: "A Track Record You Can Count On",
 };
 
 export const metrics: Metric[] = [
@@ -150,7 +158,7 @@ export const metrics: Metric[] = [
 ];
 
 export const logoStripLabel =
-  "Trusted by political candidates, PAC directors, and enterprise consulting leaders nationwide.";
+  "Trusted by political candidates, non-profit leaders, and businesses nationwide.";
 
 export const clientLogos: ClientLogo[] = [
   { id: "logo-1", label: "Congressional Victory PAC" },
@@ -168,11 +176,11 @@ export const clientLogos: ClientLogo[] = [
 export const about = {
   eyebrow: "Why Magnolia Grove",
   headline: "Engineered for the War Room. Built for Victory.",
-  body: "Magnolia Grove Consultants bridges the gap between high-level strategic advisory and boots-on-the-ground operational execution. Whether serving political campaigns, PACs, non-profit organizations, or enterprise leaders, we eliminate vendor fragmentation by providing a unified, institutional-grade infrastructure across social media, digital marketing, print logistics, and custom web engineering. When the stakes are non-negotiable, our frameworks ensure total domain dominance.",
+  body: "Magnolia Grove Consultants brings strategy and hands-on execution together under one roof. Whether you're running a political campaign, a PAC, a non-profit, or a business, we handle social media, digital marketing, print, and your website — so you're not juggling five different vendors. When it matters most, we make sure everything works together.",
   bullets: [
-    "Fully Unified Execution: One point of contact across ground, print, digital, and web operations.",
-    "Data-Centric Targeting: Zero wasted spend on non-voters or unvetted lead channels.",
-    "Agile Rapid-Response: Real-time message control built to command the news cycle instantly.",
+    "One Team, Every Channel: A single point of contact for canvassing, print, digital, and your website.",
+    "Smart Targeting: We focus your budget on the people most likely to respond — not wasted on the wrong audience.",
+    "Fast Response: When something happens in the news, we help you respond quickly and clearly.",
   ],
 };
 
@@ -184,19 +192,17 @@ export const leadForm = {
   eyebrow: "Get Started",
   headline: "Schedule a Private Strategy Session",
   subtitle:
-    "Connect directly with our senior advisors to discuss district scope, field logistics, and media timelines.",
+    "Connect directly with our senior advisors to talk through your goals, timeline, and budget.",
   serviceOptions: servicePillars.map((pillar) => pillar.title),
-  messagePlaceholder:
-    "Briefly outline your campaign district, target race, or consulting objectives...",
+  messagePlaceholder: "Briefly tell us about your campaign, race, or project...",
   submitLabel: "Submit Request",
   submittingLabel: "Submitting...",
   successTitle: "Request Received",
   successMessage:
-    "Strategy request received. A senior advisor will contact you within 12 hours under strict confidentiality.",
+    "Request received. A senior advisor will reach out within 12 hours — everything you share stays confidential.",
   errorMessage:
-    "Transmission failed. Please verify your contact information or reach out directly via ben@magnoliagrovega.com.",
-  privacyNote:
-    "All inquiries are bound by strict non-disclosure and client confidentiality standards.",
+    "Something went wrong. Please double-check your contact information or reach out directly via ben@magnoliagrovega.com.",
+  privacyNote: "Everything you share with us is kept strictly confidential.",
 };
 
 /* ----------------------------------------------------------------------- */
@@ -229,7 +235,7 @@ export const contactDetails: ContactDetail[] = [
 
 export const footer = {
   description:
-    "Magnolia Grove Consultants provides institutional strategy, field operations, digital media, and web automation for political campaigns, PACs, non-profit organizations, and enterprise leaders.",
+    "Magnolia Grove Consultants provides strategy, canvassing, digital media, and website support for political campaigns, PACs, non-profit organizations, and businesses.",
   legalDisclaimer: "Magnolia Grove Consultants, LLC. All rights reserved.",
   columns: [
     {
