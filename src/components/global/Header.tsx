@@ -58,7 +58,13 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-3 md:flex">
+          <Link
+            href="/payment"
+            className="inline-flex items-center rounded-md border border-gold/40 px-4 py-2.5 text-sm font-semibold text-gold-bright transition-all hover:bg-gold/10 motion-reduce:transition-none lg:px-5 lg:py-3"
+          >
+            Pay an Invoice
+          </Link>
           <Link
             href={nav.primaryCtaHref}
             className="inline-flex items-center rounded-md bg-gold px-5 py-2.5 text-sm font-semibold text-onyx transition-all hover:bg-gold-bright motion-reduce:transition-none lg:px-6 lg:py-3"
@@ -105,6 +111,13 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
+            <Link
+              href="/payment"
+              onClick={() => setIsOpen(false)}
+              className="mt-3 inline-flex items-center justify-center rounded-md border border-gold/40 px-6 py-3 text-sm font-semibold text-gold-bright"
+            >
+              Pay an Invoice
+            </Link>
             <Link
               href={nav.primaryCtaHref}
               onClick={() => setIsOpen(false)}

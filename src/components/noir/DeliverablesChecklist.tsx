@@ -1,5 +1,3 @@
-import { Check } from "lucide-react";
-
 interface DeliverablesChecklistProps {
   items: string[];
 }
@@ -17,7 +15,7 @@ export default function DeliverablesChecklist({ items }: DeliverablesChecklistPr
               key={item}
               className="flex items-start gap-3 rounded-lg border border-gold/20 bg-onyx-200 p-5"
             >
-              <Check size={18} strokeWidth={2.5} className="mt-0.5 shrink-0 text-gold-bright" />
+              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-bright" />
               <span className="text-sm text-muted-light sm:text-base">{item}</span>
             </div>
           ))}

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { servicePillars, servicesIntro } from "@/config/siteConfig";
 import Reveal from "./Reveal";
 
@@ -48,11 +48,7 @@ export default function Services() {
                     <ul className="mt-6 flex flex-1 flex-col gap-3 border-t border-gold/15 pt-6">
                       {pillar.subItems.map((item) => (
                         <li key={item} className="flex items-start gap-3 text-sm text-muted-light">
-                          <Check
-                            size={16}
-                            strokeWidth={2.5}
-                            className="mt-0.5 shrink-0 text-gold-bright"
-                          />
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-bright" />
                           <span>{item}</span>
                         </li>
                       ))}

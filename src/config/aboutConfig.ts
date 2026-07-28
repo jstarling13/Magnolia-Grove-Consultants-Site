@@ -138,6 +138,59 @@ export const servicesPricing = {
   ],
 };
 
+/**
+ * Flattened, fixed-price view of servicesPricing for the /payment page
+ * selector. Keep amounts in sync with servicesPricing above if pricing
+ * changes. amount is null where there's no single fixed price to prefill.
+ */
+export const paymentPackageOptions = [
+  {
+    label: "Social Media Management — Base ($2,000/mo.)",
+    amount: 2000,
+    memo: "Social Media Management — Base Package",
+  },
+  {
+    label: "Social Media Management — Silver ($3,500/mo.)",
+    amount: 3500,
+    memo: "Social Media Management — Silver Package",
+  },
+  {
+    label: "Social Media Management — Platinum ($5,000/mo.)",
+    amount: 5000,
+    memo: "Social Media Management — Platinum Package",
+  },
+  {
+    label: "Social Media Account Setup ($2,000 one-time)",
+    amount: 2000,
+    memo: "Social Media Account Setup",
+  },
+  {
+    label: "Website Management ($350/mo.)",
+    amount: 350,
+    memo: "Website Management (Monthly)",
+  },
+  {
+    label: "Website Creation ($3,000 one-time)",
+    amount: 3000,
+    memo: "Website Creation",
+  },
+  {
+    label: "Donation Page — Generic Landing Page ($1,000 one-time)",
+    amount: 1000,
+    memo: "Donation Page — Generic Landing Page",
+  },
+  {
+    label: "Donation Page — Custom Donation Page ($2,500 one-time)",
+    amount: 2500,
+    memo: "Donation Page — Custom Donation Page",
+  },
+  {
+    label: "Other / Custom Invoice",
+    amount: null,
+    memo: "",
+  },
+];
+
 export const candidatesSection = {
   eyebrow: "Client Roster",
   headline: "Candidates & Clients We've Worked With",

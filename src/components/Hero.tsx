@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { hero } from "@/config/siteConfig";
 
 export default function Hero() {
@@ -52,7 +52,7 @@ export default function Hero() {
                 key={point}
                 className="flex items-center gap-2 text-sm font-medium text-muted-light"
               >
-                <CheckCircle2 size={16} className="text-gold-bright" />
+                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gold-bright" />
                 {point}
               </div>
             ))}
