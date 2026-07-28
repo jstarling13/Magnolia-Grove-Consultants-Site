@@ -539,4 +539,36 @@ export const bookingPage = {
       },
     ],
   },
+  faqs: [
+    {
+      question: "Is there a minimum engagement or contract length?",
+      answer:
+        "No set minimum — most engagements are scoped around your election cycle or campaign timeline, whether that's a 30-day sprint or a full season.",
+    },
+    {
+      question: "How do you handle confidentiality?",
+      answer:
+        "Every engagement is confidential from the first conversation. We never disclose who we're working with or share campaign details without your written consent.",
+    },
+    {
+      question: "What's a typical project timeline?",
+      answer:
+        "It depends on scope — some services launch within days (emergency canvassing, rapid-response ads), others take a few weeks to build (a new website). You'll get a real timeline on your strategy call, not a guess.",
+    },
+    {
+      question: "What areas do you serve?",
+      answer:
+        "We're based in Columbus, Georgia and work statewide, with the ability to support campaigns and organizations nationwide.",
+    },
+    {
+      question: "How does pricing work?",
+      answer:
+        "Pricing depends on scope, timeline, and which pillars you need. We'll walk through real numbers on your strategy call rather than quote blind.",
+    },
+    {
+      question: "What if we need to pause or change scope mid-engagement?",
+      answer:
+        "Just tell us. We build change orders into every agreement so scope can flex without starting over.",
+    },
+  ],
 };
