@@ -59,7 +59,7 @@ export const hero = {
   subtitle:
     "We handle canvassing, advertising, printed materials, and your website — all in one place, for campaigns and organizations alike.",
   primaryCta: "Schedule Strategy Call",
-  primaryCtaHref: "/contact",
+  primaryCtaHref: "/booking",
   secondaryCta: "View All Services",
   secondaryCtaHref: "/services",
   proofPoints: [
@@ -139,6 +139,19 @@ export const servicePillars: ServicePillar[] = [
     imageAlt: "Laptop displaying campaign strategy code and a donor network dashboard",
     pillarSlug: "web-development",
   },
+];
+
+/* ----------------------------------------------------------------------- */
+/*  TRUST BADGES                                                           */
+/* ----------------------------------------------------------------------- */
+
+export const trustBadgesLabel = "Trusted By";
+
+export const trustBadges = [
+  { id: "campaigns", label: "Political Campaigns" },
+  { id: "pacs", label: "PACs" },
+  { id: "nonprofits", label: "Non-Profits" },
+  { id: "enterprise", label: "Enterprise Leaders" },
 ];
 
 /* ----------------------------------------------------------------------- */
