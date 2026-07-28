@@ -8,7 +8,7 @@
  * ============================================================================
  */
 
-import { Target, Megaphone, Printer, Globe, MapPin, Phone, Mail, Linkedin } from "lucide-react";
+import { Target, Megaphone, Printer, Globe, MapPin, Phone, Mail, Instagram } from "lucide-react";
 import type {
   NavLink,
   ServicePillar,
@@ -273,9 +273,9 @@ export const footer = {
 
 export const socialLinks: SocialLink[] = [
   {
-    id: "linkedin",
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/company/magnolia-grove-consultants",
-    icon: Linkedin,
+    id: "instagram",
+    label: "Instagram",
+    href: "https://www.instagram.com/magnoliagrovega",
+    icon: Instagram,
   },
 ];
