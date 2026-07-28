@@ -1,20 +1,7 @@
-import { Users, Megaphone, Printer, Code, MessageSquare, Target, Globe } from "lucide-react";
 import Reveal from "./Reveal";
 
-const oldWayVendors = [
-  { icon: Users, label: "Field Team" },
-  { icon: Megaphone, label: "Ad Agency" },
-  { icon: Printer, label: "Print Shop" },
-  { icon: Code, label: "Web Developer" },
-  { icon: MessageSquare, label: "PR Firm" },
-];
-
-const pillars = [
-  { icon: Target, label: "Field" },
-  { icon: Megaphone, label: "Digital" },
-  { icon: Printer, label: "Print" },
-  { icon: Globe, label: "Web" },
-];
+const oldWayVendors = ["Field Team", "Ad Agency", "Print Shop", "Web Developer", "PR Firm"];
+const pillars = ["Field", "Digital", "Print", "Web"];
 
 export default function VendorComparison() {
   return (
@@ -31,21 +18,18 @@ export default function VendorComparison() {
               <span className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
                 The Old Way
               </span>
-              <div className="mt-6 grid flex-1 grid-cols-2 gap-3 sm:grid-cols-3">
-                {oldWayVendors.map((vendor, index) => {
-                  const Icon = vendor.icon;
-                  return (
-                    <div
-                      key={vendor.label}
-                      className={`flex flex-col items-center gap-2 rounded-lg border border-dashed border-white/15 bg-onyx/50 p-4 text-center opacity-70 ${
-                        index === 4 ? "col-span-2 sm:col-span-1" : ""
-                      }`}
-                    >
-                      <Icon size={20} strokeWidth={1.5} className="text-muted" />
-                      <span className="text-xs text-muted-light">{vendor.label}</span>
-                    </div>
-                  );
-                })}
+              <div className="mt-6 flex flex-1 flex-col">
+                {oldWayVendors.map((vendor) => (
+                  <div
+                    key={vendor}
+                    className="flex items-center justify-between border-b border-dashed border-white/15 py-3 first:pt-0 last:border-b-0"
+                  >
+                    <span className="text-sm text-muted-light">{vendor}</span>
+                    <span className="text-xs uppercase tracking-wide text-muted/70">
+                      Separate Invoice
+                    </span>
+                  </div>
+                ))}
               </div>
               <p className="mt-6 text-sm leading-relaxed text-muted">
                 5 vendors. 5 invoices. 5 points of failure — and nobody owns the whole picture.
@@ -58,20 +42,20 @@ export default function VendorComparison() {
               <span className="text-xs font-semibold uppercase tracking-[0.16em] text-gold-bright">
                 The Magnolia Grove Way
               </span>
-              <div className="mt-6 flex flex-1 items-center justify-center rounded-lg border border-gold/30 bg-onyx p-6">
-                <div className="grid grid-cols-4 gap-4">
-                  {pillars.map((pillar) => {
-                    const Icon = pillar.icon;
-                    return (
-                      <div key={pillar.label} className="flex flex-col items-center gap-2">
-                        <div className="flex h-11 w-11 items-center justify-center rounded-md border border-gold/40 bg-onyx-200 text-gold-bright">
-                          <Icon size={18} strokeWidth={1.75} />
-                        </div>
-                        <span className="text-xs text-muted-light">{pillar.label}</span>
-                      </div>
-                    );
-                  })}
+              <div className="mt-6 flex flex-1 flex-col items-center justify-center rounded-lg border border-gold/30 bg-onyx px-6 py-10 text-center">
+                <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
+                  {pillars.map((pillar, index) => (
+                    <span key={pillar} className="flex items-center gap-3">
+                      <span className="text-lg font-semibold text-white sm:text-xl">{pillar}</span>
+                      {index < pillars.length - 1 && (
+                        <span className="text-lg text-gold-bright">+</span>
+                      )}
+                    </span>
+                  ))}
                 </div>
+                <span className="mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-gold-bright">
+                  One Invoice. One Team.
+                </span>
               </div>
               <p className="mt-6 text-sm leading-relaxed text-white">
                 1 team. 1 point of contact. Everything connected — so nothing falls through the
