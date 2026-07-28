@@ -441,14 +441,28 @@ export default function TermsPage() {
           objection based on inconvenient forum.
         </p>
         <p>
-          <strong className="text-white">8.3 Attorneys&apos; Fees.</strong> In any action to enforce
-          this Agreement, the prevailing Party shall be entitled to recover its reasonable
-          attorneys&apos; fees and costs, in addition to any other relief awarded.
+          <strong className="text-white">8.3 Arbitration.</strong> Except as set forth below, any
+          dispute arising out of or relating to this Agreement shall be resolved by binding
+          arbitration administered by the American Arbitration Association (&quot;AAA&quot;) under
+          its Commercial Arbitration Rules, seated in Muscogee County, Georgia, before a single
+          arbitrator, with judgment on the award enforceable in any court of competent jurisdiction.
+          Notwithstanding the foregoing: (a) either Party may seek injunctive or other equitable
+          relief in court for an actual or threatened breach of Section 6 (Confidentiality) or
+          Section 3 (Intellectual Property Rights), without first resorting to arbitration; and (b)
+          Magnolia Grove may, at its election, pursue collection of undisputed amounts owed under
+          Section 4 in small claims court or the courts identified in Section 8.2, rather than
+          arbitration.
+        </p>
+        <p>
+          <strong className="text-white">8.4 Attorneys&apos; Fees.</strong> In any action or
+          arbitration to enforce this Agreement, the prevailing Party shall be entitled to recover
+          its reasonable attorneys&apos; fees and costs, in addition to any other relief awarded.
         </p>
         <p className="font-semibold text-white">
-          8.4 Waiver of Jury Trial. To the extent permitted by law, each Party knowingly,
-          voluntarily, and intentionally waives its right to a trial by jury in any litigation
-          arising out of or relating to this Agreement.
+          8.5 Waiver of Jury Trial. To the extent permitted by law, and to the extent any dispute is
+          not subject to arbitration under Section 8.3, each Party knowingly, voluntarily, and
+          intentionally waives its right to a trial by jury in any litigation arising out of or
+          relating to this Agreement.
         </p>
       </LegalSection>
 
