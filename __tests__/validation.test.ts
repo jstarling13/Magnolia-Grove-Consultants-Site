@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { contactSubmissionSchema } from "@/lib/validation";
+import { contactSubmissionSchema, paymentRequestSchema } from "@/lib/validation";
 
 const validLead = {
   formType: "lead" as const,
@@ -68,6 +68,49 @@ describe("contactSubmissionSchema", () => {
     const result = contactSubmissionSchema.safeParse({
       ...validLead,
       formType: "unknown",
+    });
+    expect(result.success).toBe(false);
+  });
+});
+
+const validPayment = {
+  organizationName: "Doe for Congress",
+  firstName: "Jane",
+  lastName: "Doe",
+  email: "jane@example.com",
+  memo: "Invoice #1042",
+  amount: "500",
+  company_website: "",
+};
+
+describe("paymentRequestSchema", () => {
+  it("accepts a valid payment request", () => {
+    const result = paymentRequestSchema.safeParse(validPayment);
+    expect(result.success).toBe(true);
+  });
+
+  it("coerces a numeric string amount to a number", () => {
+    const result = paymentRequestSchema.safeParse(validPayment);
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data.amount).toBe(500);
+    }
+  });
+
+  it("rejects a zero or negative amount", () => {
+    const result = paymentRequestSchema.safeParse({ ...validPayment, amount: "0" });
+    expect(result.success).toBe(false);
+  });
+
+  it("rejects a missing organization name", () => {
+    const result = paymentRequestSchema.safeParse({ ...validPayment, organizationName: "" });
+    expect(result.success).toBe(false);
+  });
+
+  it("rejects submissions with a filled-in honeypot field", () => {
+    const result = paymentRequestSchema.safeParse({
+      ...validPayment,
+      company_website: "http://spam.example.com",
     });
     expect(result.success).toBe(false);
   });

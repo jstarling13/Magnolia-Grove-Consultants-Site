@@ -1,5 +1,5 @@
 import { Resend } from "resend";
-import type { LeadFormPayload, StrategySessionPayload } from "./validation";
+import type { LeadFormPayload, StrategySessionPayload, PaymentRequestPayload } from "./validation";
 
 const hasResendConfig =
   Boolean(process.env.RESEND_API_KEY) && Boolean(process.env.CONTACT_EMAIL_FROM);
@@ -137,6 +137,38 @@ export async function sendStrategySessionAutoResponder(
     from: process.env.CONTACT_EMAIL_FROM!,
     to: payload.email,
     subject: "Strategy Session Confirmed — Magnolia Grove Consultants",
+    html,
+  });
+
+  return { sent: true };
+}
+
+export async function sendPaymentRequestNotification(
+  payload: PaymentRequestPayload
+): Promise<SendResult> {
+  if (!resend || !hasResendConfig) {
+    console.warn(
+      "[email] RESEND_API_KEY / CONTACT_EMAIL_FROM not set — skipping payment notification."
+    );
+    return { sent: false, reason: "not_configured" };
+  }
+
+  const html = emailShell(
+    "New Payment Request",
+    [
+      row("Organization", payload.organizationName),
+      row("Contact", `${payload.firstName} ${payload.lastName}`),
+      row("Email", payload.email),
+      row("Amount", `$${payload.amount.toFixed(2)}`),
+      row("Note / Invoice Reference", payload.memo),
+    ].join("")
+  );
+
+  await resend.emails.send({
+    from: process.env.CONTACT_EMAIL_FROM!,
+    to: process.env.CONTACT_EMAIL_TO || "ben@magnoliagrovega.com",
+    replyTo: payload.email,
+    subject: `New Payment Request — ${payload.organizationName} ($${payload.amount.toFixed(2)})`,
     html,
   });
 

@@ -43,3 +43,22 @@ export const contactSubmissionSchema = z.discriminatedUnion("formType", [
 export type LeadFormPayload = z.infer<typeof leadFormSchema>;
 export type StrategySessionPayload = z.infer<typeof strategySessionSchema>;
 export type ContactSubmission = z.infer<typeof contactSubmissionSchema>;
+
+/**
+ * Client invoice payments (Square-hosted checkout). This is not a political
+ * contribution form — no FEC fields (occupation, employer, etc.) apply here.
+ */
+export const paymentRequestSchema = z.object({
+  organizationName: z.string().trim().min(1, "Organization name is required.").max(200),
+  firstName: z.string().trim().min(1, "First name is required.").max(100),
+  lastName: z.string().trim().min(1, "Last name is required.").max(100),
+  email: z.string().trim().email("Enter a valid email address.").max(200),
+  memo: z.string().trim().min(1, "Please add a note or invoice reference.").max(300),
+  amount: z.coerce
+    .number()
+    .positive("Enter an amount greater than $0.")
+    .max(1_000_000, "Amount is too large."),
+  company_website: honeypotField,
+});
+
+export type PaymentRequestPayload = z.infer<typeof paymentRequestSchema>;

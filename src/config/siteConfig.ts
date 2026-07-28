@@ -258,6 +258,7 @@ export const footer = {
         { label: "Services", href: "/services" },
         { label: "Results", href: "/results" },
         { label: "Contact", href: "/contact" },
+        { label: "Pay an Invoice", href: "/payment" },
       ],
     },
     {
