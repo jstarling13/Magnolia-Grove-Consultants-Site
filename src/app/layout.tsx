@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Anton } from "next/font/google";
+import { Inter, Montserrat } from "next/font/google";
 import { brand, contactDetails } from "@/config/siteConfig";
 import Analytics from "@/components/Analytics";
 import "./globals.css";
@@ -32,10 +32,10 @@ const inter = Inter({
   display: "swap",
 });
 
-const anton = Anton({
+const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-heading",
-  weight: "400",
+  weight: ["600", "700", "800"],
   display: "swap",
 });
 
@@ -68,7 +68,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-scroll-behavior="smooth" className={`${inter.variable} ${anton.variable}`}>
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className={`${inter.variable} ${montserrat.variable}`}
+    >
       <body>
         <script
           type="application/ld+json"
