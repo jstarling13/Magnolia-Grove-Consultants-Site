@@ -6,6 +6,7 @@ import { Loader2, Lock } from "lucide-react";
 
 export default function AdminLoginPage() {
   const router = useRouter();
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
@@ -19,7 +20,7 @@ export default function AdminLoginPage() {
       const response = await fetch("/api/admin/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password }),
+        body: JSON.stringify({ username, password }),
       });
 
       if (!response.ok) {
@@ -49,14 +50,26 @@ export default function AdminLoginPage() {
         <h1 className="mt-6 text-xl font-semibold text-white">Admin Login</h1>
         <p className="mt-2 text-sm text-muted">Magnolia Grove Consultants</p>
 
-        <label htmlFor="password" className="mt-6 block text-sm font-medium text-muted-light">
+        <label htmlFor="username" className="mt-6 block text-sm font-medium text-muted-light">
+          Username
+        </label>
+        <input
+          id="username"
+          type="text"
+          autoComplete="username"
+          autoFocus
+          value={username}
+          onChange={(event) => setUsername(event.target.value)}
+          className="mt-2 w-full rounded-md border border-gold/25 bg-onyx px-4 py-3 text-sm text-white placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-gold/60"
+        />
+
+        <label htmlFor="password" className="mt-4 block text-sm font-medium text-muted-light">
           Password
         </label>
         <input
           id="password"
           type="password"
           autoComplete="current-password"
-          autoFocus
           value={password}
           onChange={(event) => setPassword(event.target.value)}
           className="mt-2 w-full rounded-md border border-gold/25 bg-onyx px-4 py-3 text-sm text-white placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-gold/60"
@@ -70,7 +83,7 @@ export default function AdminLoginPage() {
 
         <button
           type="submit"
-          disabled={submitting || !password}
+          disabled={submitting || !username || !password}
           className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-md bg-gold px-6 py-3 text-sm font-semibold text-onyx transition-all hover:bg-gold-bright disabled:cursor-not-allowed disabled:opacity-70"
         >
           {submitting ? <Loader2 size={18} className="animate-spin" /> : "Log In"}

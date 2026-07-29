@@ -47,7 +47,13 @@ function formatDate(iso: string): string {
   });
 }
 
-export default function Dashboard({ submissions }: { submissions: SubmissionRow[] }) {
+export default function Dashboard({
+  submissions,
+  username,
+}: {
+  submissions: SubmissionRow[];
+  username: string;
+}) {
   const router = useRouter();
   const [filter, setFilter] = useState<"all" | SubmissionRow["type"]>("all");
   const [expandedId, setExpandedId] = useState<number | null>(null);
@@ -90,13 +96,16 @@ export default function Dashboard({ submissions }: { submissions: SubmissionRow[
           <h1 className="text-2xl font-semibold text-white">Admin Dashboard</h1>
           <p className="mt-1 text-sm text-muted">Magnolia Grove Consultants</p>
         </div>
-        <button
-          onClick={handleLogout}
-          className="inline-flex items-center gap-2 rounded-md border border-gold/25 px-4 py-2 text-sm text-muted-light transition-colors hover:border-gold/50 hover:text-white"
-        >
-          <LogOut size={16} />
-          Log Out
-        </button>
+        <div className="flex items-center gap-4">
+          {username && <span className="text-sm text-muted-light">Logged in as {username}</span>}
+          <button
+            onClick={handleLogout}
+            className="inline-flex items-center gap-2 rounded-md border border-gold/25 px-4 py-2 text-sm text-muted-light transition-colors hover:border-gold/50 hover:text-white"
+          >
+            <LogOut size={16} />
+            Log Out
+          </button>
+        </div>
       </div>
 
       <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">

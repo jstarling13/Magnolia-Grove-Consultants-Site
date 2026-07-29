@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { checkRateLimit } from "@/lib/ratelimit";
-import { ADMIN_SESSION_COOKIE, createSessionToken, verifyPassword } from "@/lib/adminAuth";
+import { ADMIN_SESSION_COOKIE, createSessionToken } from "@/lib/adminAuth";
+import { verifyUserCredentials } from "@/lib/adminUsers";
 
 export const runtime = "nodejs";
 
@@ -28,13 +29,24 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: false, error: "Invalid request body." }, { status: 400 });
   }
 
-  const password = (body as { password?: unknown }).password;
-  if (typeof password !== "string" || !verifyPassword(password)) {
-    return NextResponse.json({ success: false, error: "Incorrect password." }, { status: 401 });
+  const { username, password } = body as { username?: unknown; password?: unknown };
+  if (typeof username !== "string" || typeof password !== "string") {
+    return NextResponse.json(
+      { success: false, error: "Username and password are required." },
+      { status: 400 }
+    );
+  }
+
+  const verifiedUsername = await verifyUserCredentials(username, password);
+  if (!verifiedUsername) {
+    return NextResponse.json(
+      { success: false, error: "Incorrect username or password." },
+      { status: 401 }
+    );
   }
 
   const response = NextResponse.json({ success: true });
-  response.cookies.set(ADMIN_SESSION_COOKIE, createSessionToken(), {
+  response.cookies.set(ADMIN_SESSION_COOKIE, createSessionToken(verifiedUsername), {
     httpOnly: true,
     secure: true,
     sameSite: "lax",
