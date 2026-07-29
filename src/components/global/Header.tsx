@@ -60,8 +60,8 @@ export default function Header() {
 
         <div className="hidden items-center gap-3 md:flex">
           <Link
-            href="/account"
-            aria-label="My Account"
+            href="/login"
+            aria-label="Log In"
             className="inline-flex items-center justify-center rounded-md p-2.5 text-muted-light transition-colors hover:text-gold-bright motion-reduce:transition-none"
           >
             <User size={20} />
@@ -119,11 +119,11 @@ export default function Header() {
               </Link>
             ))}
             <Link
-              href="/account"
+              href="/login"
               onClick={() => setIsOpen(false)}
               className="rounded-md px-3 py-3 text-base font-medium text-muted-light transition-colors hover:bg-white/5 hover:text-gold-bright motion-reduce:transition-none"
             >
-              My Account
+              Log In
             </Link>
             <Link
               href="/payment"
