@@ -1,8 +1,10 @@
 "use client";
 
+import { useEffect } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { leadForm } from "@/config/siteConfig";
 import { useContactForm } from "@/hooks/useContactForm";
+import { useClientProfile } from "@/hooks/useClientProfile";
 import Turnstile from "./Turnstile";
 
 interface FormFields {
@@ -52,6 +54,7 @@ const inputClasses =
 export default function LeadForm() {
   const {
     fields,
+    setFields,
     errors,
     status,
     submitError,
@@ -65,6 +68,18 @@ export default function LeadForm() {
     validate,
     defaultErrorMessage: leadForm.errorMessage,
   });
+
+  const clientProfile = useClientProfile();
+  useEffect(() => {
+    if (!clientProfile) return;
+    setFields((prev) => ({
+      ...prev,
+      firstName: prev.firstName || clientProfile.firstName,
+      lastName: prev.lastName || clientProfile.lastName,
+      email: prev.email || clientProfile.email,
+      phone: prev.phone || clientProfile.phone,
+    }));
+  }, [clientProfile, setFields]);
 
   if (status === "success") {
     return (

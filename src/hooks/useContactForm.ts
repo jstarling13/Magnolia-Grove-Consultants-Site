@@ -16,6 +16,7 @@ export interface UseContactFormOptions<T extends object> {
 
 export interface UseContactFormReturn<T extends object> {
   fields: T;
+  setFields: (update: (prev: T) => T) => void;
   errors: Partial<Record<keyof T, string>>;
   status: SubmitStatus;
   submitError: string;
@@ -85,9 +86,12 @@ export function useContactForm<T extends object>({
       }
 
       setStatus("success");
+      const submittedEmail =
+        "email" in fields ? String((fields as { email?: unknown }).email ?? "") : "";
       setFields(initialFields);
       trackEvent(formType === "lead" ? "form_submission_lead" : "form_submission_booking");
-      router.push(`/thank-you?source=${formType}`);
+      const emailParam = submittedEmail ? `&email=${encodeURIComponent(submittedEmail)}` : "";
+      router.push(`/thank-you?source=${formType}${emailParam}`);
     } catch {
       setSubmitError(defaultErrorMessage);
       setStatus("error");
@@ -101,6 +105,7 @@ export function useContactForm<T extends object>({
 
   return {
     fields,
+    setFields,
     errors,
     status,
     submitError,

@@ -1,8 +1,10 @@
 "use client";
 
+import { useEffect } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { bookingPage } from "@/config/pillarsConfig";
 import { useContactForm } from "@/hooks/useContactForm";
+import { useClientProfile } from "@/hooks/useClientProfile";
 import Turnstile from "@/components/Turnstile";
 
 interface FormFields {
@@ -65,6 +67,7 @@ interface StrategySessionFormProps {
 export default function StrategySessionForm({ initialPillar }: StrategySessionFormProps) {
   const {
     fields,
+    setFields,
     errors,
     status,
     submitError,
@@ -78,6 +81,19 @@ export default function StrategySessionForm({ initialPillar }: StrategySessionFo
     validate,
     defaultErrorMessage: bookingPage.errorMessage,
   });
+
+  const clientProfile = useClientProfile();
+  useEffect(() => {
+    if (!clientProfile) return;
+    setFields((prev) => ({
+      ...prev,
+      orgName: prev.orgName || clientProfile.orgName,
+      contactName:
+        prev.contactName || `${clientProfile.firstName} ${clientProfile.lastName}`.trim(),
+      email: prev.email || clientProfile.email,
+      phone: prev.phone || clientProfile.phone,
+    }));
+  }, [clientProfile, setFields]);
 
   if (status === "success") {
     return (

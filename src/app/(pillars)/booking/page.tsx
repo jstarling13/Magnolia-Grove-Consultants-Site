@@ -3,14 +3,21 @@ import PillarHero from "@/components/noir/PillarHero";
 import StrategySessionForm from "@/components/noir/StrategySessionForm";
 import BookingTimeline from "@/components/noir/BookingTimeline";
 import PillarFAQAccordion from "@/components/noir/PillarFAQAccordion";
-import { bookingPage } from "@/config/pillarsConfig";
+import { bookingPage, pillars } from "@/config/pillarsConfig";
 
 export const metadata: Metadata = {
   title: "Strategy Session | Magnolia Grove Consultants",
   description: bookingPage.heroSubheadline,
 };
 
-export default function BookingPage() {
+interface BookingPageProps {
+  searchParams: Promise<{ pillar?: string }>;
+}
+
+export default async function BookingPage({ searchParams }: BookingPageProps) {
+  const { pillar } = await searchParams;
+  const matchedPillar = pillars.find((p) => p.slug === pillar);
+
   return (
     <>
       <PillarHero
@@ -28,7 +35,7 @@ export default function BookingPage() {
           <p className="mb-10 text-left text-sm leading-relaxed text-muted">
             {bookingPage.formIntro}
           </p>
-          <StrategySessionForm />
+          <StrategySessionForm initialPillar={matchedPillar?.heroTitle} />
         </div>
       </section>
 

@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, type ChangeEvent, type FormEvent } from "react";
+import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
 import { Loader2, ShieldCheck, ArrowRight } from "lucide-react";
 import { paymentPackageOptions } from "@/config/aboutConfig";
+import { useClientProfile } from "@/hooks/useClientProfile";
 
 interface FormFields {
   packageSelection: string;
@@ -62,6 +63,18 @@ export default function PaymentForm() {
   const [errors, setErrors] = useState<Partial<Record<keyof FormFields, string>>>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "error">("idle");
   const [submitError, setSubmitError] = useState("");
+
+  const clientProfile = useClientProfile();
+  useEffect(() => {
+    if (!clientProfile) return;
+    setFields((prev) => ({
+      ...prev,
+      organizationName: prev.organizationName || clientProfile.orgName,
+      firstName: prev.firstName || clientProfile.firstName,
+      lastName: prev.lastName || clientProfile.lastName,
+      email: prev.email || clientProfile.email,
+    }));
+  }, [clientProfile]);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = event.target;

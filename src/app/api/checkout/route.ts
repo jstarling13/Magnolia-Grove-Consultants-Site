@@ -65,7 +65,11 @@ export async function POST(request: NextRequest) {
   }
 
   // Internal record of the request — best-effort, doesn't block checkout.
-  recordSubmission("payment_request", { ...payload, checkoutUrl: checkout.url });
+  recordSubmission("payment_request", {
+    ...payload,
+    checkoutUrl: checkout.url,
+    paymentLinkId: checkout.id,
+  });
   sendPaymentRequestNotification(payload).catch((error) => {
     console.error("[api/checkout] notification email failed:", error);
   });

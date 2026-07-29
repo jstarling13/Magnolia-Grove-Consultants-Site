@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FocusTrap } from "focus-trap-react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, User } from "lucide-react";
 import { brand, nav, navLinks } from "@/config/siteConfig";
 
 export default function Header() {
@@ -60,6 +60,13 @@ export default function Header() {
 
         <div className="hidden items-center gap-3 md:flex">
           <Link
+            href="/account"
+            aria-label="My Account"
+            className="inline-flex items-center justify-center rounded-md p-2.5 text-muted-light transition-colors hover:text-gold-bright motion-reduce:transition-none"
+          >
+            <User size={20} />
+          </Link>
+          <Link
             href="/payment"
             className="inline-flex items-center rounded-md border border-gold/40 px-4 py-2.5 text-sm font-semibold text-gold-bright transition-all hover:bg-gold/10 motion-reduce:transition-none lg:px-5 lg:py-3"
           >
@@ -111,6 +118,13 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
+            <Link
+              href="/account"
+              onClick={() => setIsOpen(false)}
+              className="rounded-md px-3 py-3 text-base font-medium text-muted-light transition-colors hover:bg-white/5 hover:text-gold-bright motion-reduce:transition-none"
+            >
+              My Account
+            </Link>
             <Link
               href="/payment"
               onClick={() => setIsOpen(false)}

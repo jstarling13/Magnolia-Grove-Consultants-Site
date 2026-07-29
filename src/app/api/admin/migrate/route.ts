@@ -34,6 +34,19 @@ export async function POST(request: NextRequest) {
     )
   `;
 
+  await sql`
+    CREATE TABLE IF NOT EXISTS client_users (
+      id SERIAL PRIMARY KEY,
+      email TEXT UNIQUE NOT NULL,
+      password_hash TEXT NOT NULL,
+      first_name TEXT NOT NULL DEFAULT '',
+      last_name TEXT NOT NULL DEFAULT '',
+      phone TEXT NOT NULL DEFAULT '',
+      org_name TEXT NOT NULL DEFAULT '',
+      created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    )
+  `;
+
   const resetPassword = (body as { resetPassword?: unknown } | null)?.resetPassword;
   if (typeof resetPassword === "string" && resetPassword.length > 0) {
     for (const username of ADMIN_USERNAMES) {

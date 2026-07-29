@@ -3,6 +3,7 @@ import Link from "next/link";
 import { CheckCircle2, CalendarClock, ArrowRight } from "lucide-react";
 import { leadForm } from "@/config/siteConfig";
 import { bookingPage } from "@/config/pillarsConfig";
+import CreateAccountPrompt from "@/components/CreateAccountPrompt";
 
 export const metadata: Metadata = {
   title: "Thank You | Magnolia Grove Consultants",
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 interface ThankYouPageProps {
-  searchParams: Promise<{ source?: string }>;
+  searchParams: Promise<{ source?: string; email?: string }>;
 }
 
 const copyBySource = {
@@ -32,7 +33,7 @@ const copyBySource = {
 } as const;
 
 export default async function ThankYouPage({ searchParams }: ThankYouPageProps) {
-  const { source } = await searchParams;
+  const { source, email } = await searchParams;
   const copy =
     source === "lead" || source === "strategy" ? copyBySource[source] : copyBySource.default;
 
@@ -53,6 +54,8 @@ export default async function ThankYouPage({ searchParams }: ThankYouPageProps) 
           A calendar invite with your advisory call details will arrive in your inbox shortly.
         </p>
       </div>
+
+      <CreateAccountPrompt email={email} />
 
       <div className="mt-10 flex flex-col gap-4 sm:flex-row">
         <Link
