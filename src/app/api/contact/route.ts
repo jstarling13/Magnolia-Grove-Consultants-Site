@@ -8,6 +8,7 @@ import {
   sendStrategySessionNotification,
   sendStrategySessionAutoResponder,
 } from "@/lib/email";
+import { recordSubmission } from "@/lib/submissions";
 
 export const runtime = "nodejs";
 
@@ -63,6 +64,7 @@ export async function POST(request: NextRequest) {
 
   try {
     if (payload.formType === "lead") {
+      await recordSubmission("lead", payload);
       const notification = await sendLeadNotification(payload);
       await sendLeadAutoResponder(payload);
       if (!notification.sent) {
@@ -72,6 +74,7 @@ export async function POST(request: NextRequest) {
         );
       }
     } else {
+      await recordSubmission("strategy_session", payload);
       const notification = await sendStrategySessionNotification(payload);
       await sendStrategySessionAutoResponder(payload);
       if (!notification.sent) {

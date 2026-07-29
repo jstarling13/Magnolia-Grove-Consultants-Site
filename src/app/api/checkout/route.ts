@@ -3,6 +3,7 @@ import { paymentRequestSchema } from "@/lib/validation";
 import { checkRateLimit } from "@/lib/ratelimit";
 import { createPaymentLink } from "@/lib/square";
 import { sendPaymentRequestNotification } from "@/lib/email";
+import { recordSubmission } from "@/lib/submissions";
 
 export const runtime = "nodejs";
 
@@ -64,6 +65,7 @@ export async function POST(request: NextRequest) {
   }
 
   // Internal record of the request — best-effort, doesn't block checkout.
+  recordSubmission("payment_request", { ...payload, checkoutUrl: checkout.url });
   sendPaymentRequestNotification(payload).catch((error) => {
     console.error("[api/checkout] notification email failed:", error);
   });
