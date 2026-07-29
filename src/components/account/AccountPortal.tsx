@@ -170,8 +170,8 @@ export default function AccountPortal({
             More Ways We Can Help
           </h2>
           <p className="mt-2 text-sm text-muted">
-            You haven&apos;t worked with us yet on these — a lot of clients pair{" "}
-            {submissions.length > 0 ? "this with" : "these with each other"} for a bigger impact.
+            You haven&apos;t worked with us yet on these — a lot of clients pair multiple services
+            together for a bigger impact.
           </p>
 
           <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
