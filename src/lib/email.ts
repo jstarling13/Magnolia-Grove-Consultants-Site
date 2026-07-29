@@ -56,13 +56,18 @@ export async function sendLeadNotification(payload: LeadFormPayload): Promise<Se
     ].join("")
   );
 
-  await resend.emails.send({
+  const { error } = await resend.emails.send({
     from: process.env.CONTACT_EMAIL_FROM!,
     to: process.env.CONTACT_EMAIL_TO || "ben@magnoliagrovega.com",
     replyTo: payload.email,
     subject: `New Strategy Call Request — ${payload.firstName} ${payload.lastName}`,
     html,
   });
+
+  if (error) {
+    console.error("[email] Resend rejected sendLeadNotification:", error);
+    return { sent: false, reason: error.message };
+  }
 
   return { sent: true };
 }
@@ -76,12 +81,17 @@ export async function sendLeadAutoResponder(payload: LeadFormPayload): Promise<S
      <p style="color:#e5e5e5;font-size:14px;line-height:1.6;">Strategy request received. A senior advisor will contact you within 12 hours under strict confidentiality.</p>`
   );
 
-  await resend.emails.send({
+  const { error } = await resend.emails.send({
     from: process.env.CONTACT_EMAIL_FROM!,
     to: payload.email,
     subject: "We've received your strategy request — Magnolia Grove Consultants",
     html,
   });
+
+  if (error) {
+    console.error("[email] Resend rejected sendLeadAutoResponder:", error);
+    return { sent: false, reason: error.message };
+  }
 
   return { sent: true };
 }
@@ -110,13 +120,18 @@ export async function sendStrategySessionNotification(
     ].join("")
   );
 
-  await resend.emails.send({
+  const { error } = await resend.emails.send({
     from: process.env.CONTACT_EMAIL_FROM!,
     to: process.env.CONTACT_EMAIL_TO || "ben@magnoliagrovega.com",
     replyTo: payload.email,
     subject: `New Strategy Session Intake — ${payload.orgName}`,
     html,
   });
+
+  if (error) {
+    console.error("[email] Resend rejected sendStrategySessionNotification:", error);
+    return { sent: false, reason: error.message };
+  }
 
   return { sent: true };
 }
@@ -133,12 +148,17 @@ export async function sendStrategySessionAutoResponder(
      <p style="color:#e5e5e5;font-size:14px;line-height:1.6;">All consultations and project briefs are held under absolute client-advisor confidentiality.</p>`
   );
 
-  await resend.emails.send({
+  const { error } = await resend.emails.send({
     from: process.env.CONTACT_EMAIL_FROM!,
     to: payload.email,
     subject: "Strategy Session Confirmed — Magnolia Grove Consultants",
     html,
   });
+
+  if (error) {
+    console.error("[email] Resend rejected sendStrategySessionAutoResponder:", error);
+    return { sent: false, reason: error.message };
+  }
 
   return { sent: true };
 }
@@ -164,13 +184,18 @@ export async function sendPaymentRequestNotification(
     ].join("")
   );
 
-  await resend.emails.send({
+  const { error } = await resend.emails.send({
     from: process.env.CONTACT_EMAIL_FROM!,
     to: process.env.CONTACT_EMAIL_TO || "ben@magnoliagrovega.com",
     replyTo: payload.email,
     subject: `New Payment Request — ${payload.organizationName} ($${payload.amount.toFixed(2)})`,
     html,
   });
+
+  if (error) {
+    console.error("[email] Resend rejected sendPaymentRequestNotification:", error);
+    return { sent: false, reason: error.message };
+  }
 
   return { sent: true };
 }
