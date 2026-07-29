@@ -165,8 +165,8 @@ export const metricsIntro = {
 
 export const metrics: Metric[] = [
   { id: "years", value: 14, suffix: "+", prefix: "", label: "Years Experience" },
-  { id: "campaigns", value: 50, suffix: "+", prefix: "", label: "Campaigns Served" },
-  { id: "raised", value: 10, suffix: "M+", prefix: "$", label: "Raised for Clients" },
+  { id: "campaigns", value: 5, suffix: "+", prefix: "", label: "Campaigns Served" },
+  { id: "raised", value: 500, suffix: "K+", prefix: "$", label: "Raised for Clients" },
   { id: "execution", value: 100, suffix: "%", prefix: "", label: "Execution Rate" },
 ];
 
