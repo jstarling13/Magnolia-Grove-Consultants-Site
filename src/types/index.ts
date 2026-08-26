@@ -24,11 +24,6 @@ export interface Metric {
   label: string;
 }
 
-export interface ClientLogo {
-  id: string;
-  label: string;
-}
-
 export interface SocialLink {
   id: string;
   label: string;

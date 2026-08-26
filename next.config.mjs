@@ -42,6 +42,13 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      // /results predates the full Track Record page and is now a thin
+      // subset of it — consolidate SEO authority onto /case-studies.
+      { source: "/results", destination: "/case-studies", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

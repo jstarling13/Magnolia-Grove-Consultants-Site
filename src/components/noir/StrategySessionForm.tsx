@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
-import { CheckCircle2, Loader2, Send } from "lucide-react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
+import { ArrowLeft, ArrowRight, CheckCircle2, Loader2, Send } from "lucide-react";
 import { bookingPage } from "@/config/pillarsConfig";
 import { useContactForm } from "@/hooks/useContactForm";
 import { useClientProfile } from "@/hooks/useClientProfile";
@@ -20,6 +20,8 @@ interface FormFields {
   company_website: string;
 }
 
+type FieldKey = keyof FormFields;
+
 const buildInitialFields = (initialPillar?: string): FormFields => ({
   orgName: "",
   contactName: "",
@@ -35,30 +37,48 @@ const buildInitialFields = (initialPillar?: string): FormFields => ({
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-function validate(fields: FormFields): Partial<Record<keyof FormFields, string>> {
-  const errors: Partial<Record<keyof FormFields, string>> = {};
+function validate(fields: FormFields): Partial<Record<FieldKey, string>> {
+  const errors: Partial<Record<FieldKey, string>> = {};
 
-  if (!fields.orgName.trim()) errors.orgName = "Organization name is required.";
   if (!fields.contactName.trim()) errors.contactName = "Full name is required.";
   if (!fields.role.trim()) errors.role = "Title / role is required.";
-
   if (!fields.email.trim()) {
     errors.email = "Email is required.";
   } else if (!EMAIL_PATTERN.test(fields.email)) {
     errors.email = "Enter a valid email address.";
   }
-
   if (!fields.phone.trim()) errors.phone = "Phone number is required.";
+
+  if (!fields.orgName.trim()) errors.orgName = "Organization name is required.";
+  if (!fields.message.trim()) errors.message = "Tell us about your race or initiative.";
+
   if (!fields.pillar) errors.pillar = "Please select an area of interest.";
+
   if (!fields.budget) errors.budget = "Please select an estimated budget range.";
   if (!fields.timeline) errors.timeline = "Please select a timeline.";
-  if (!fields.message.trim()) errors.message = "Tell us about your race or initiative.";
 
   return errors;
 }
 
+interface Step {
+  id: string;
+  label: string;
+  fields: FieldKey[];
+}
+
+const STEPS: Step[] = [
+  { id: "about-you", label: "About You", fields: ["contactName", "role", "email", "phone"] },
+  { id: "your-race", label: "Your Race", fields: ["orgName", "message"] },
+  { id: "what-you-need", label: "What You Need", fields: ["pillar"] },
+  { id: "timeline-budget", label: "Timeline & Budget", fields: ["budget", "timeline"] },
+];
+
 const inputClasses =
   "w-full rounded-md border bg-onyx px-4 py-3 text-sm text-white placeholder:text-muted/60 focus:outline-none focus:ring-2 focus:ring-gold/60 transition-colors";
+
+function fieldError(errors: Partial<Record<FieldKey, string>>, key: FieldKey): string | undefined {
+  return errors[key];
+}
 
 interface StrategySessionFormProps {
   initialPillar?: string;
@@ -68,7 +88,6 @@ export default function StrategySessionForm({ initialPillar }: StrategySessionFo
   const {
     fields,
     setFields,
-    errors,
     status,
     submitError,
     setTurnstileToken,
@@ -81,6 +100,10 @@ export default function StrategySessionForm({ initialPillar }: StrategySessionFo
     validate,
     defaultErrorMessage: bookingPage.errorMessage,
   });
+
+  const [step, setStep] = useState(0);
+  const [stepErrors, setStepErrors] = useState<Partial<Record<FieldKey, string>>>({});
+  const formRef = useRef<HTMLFormElement>(null);
 
   const clientProfile = useClientProfile();
   useEffect(() => {
@@ -118,10 +141,49 @@ export default function StrategySessionForm({ initialPillar }: StrategySessionFo
     );
   }
 
+  const currentStep = STEPS[step];
+  const isLastStep = step === STEPS.length - 1;
+
+  const goNext = () => {
+    const validationErrors = validate(fields);
+    const blocking = Object.fromEntries(
+      currentStep.fields
+        .filter((key) => validationErrors[key])
+        .map((key) => [key, validationErrors[key]])
+    ) as Partial<Record<FieldKey, string>>;
+
+    if (Object.keys(blocking).length > 0) {
+      setStepErrors(blocking);
+      return;
+    }
+    setStepErrors({});
+    setStep((current) => Math.min(current + 1, STEPS.length - 1));
+  };
+
+  const goBack = () => {
+    setStepErrors({});
+    setStep((current) => Math.max(current - 1, 0));
+  };
+
+  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+    const validationErrors = validate(fields);
+    if (Object.keys(validationErrors).length > 0) {
+      event.preventDefault();
+      setStepErrors(validationErrors);
+      const firstInvalidStep = STEPS.findIndex((candidate) =>
+        candidate.fields.some((key) => validationErrors[key])
+      );
+      if (firstInvalidStep !== -1) setStep(firstInvalidStep);
+      return;
+    }
+    handleSubmit(event);
+  };
+
   return (
     <form
+      ref={formRef}
       noValidate
-      onSubmit={handleSubmit}
+      onSubmit={onSubmit}
       className="relative rounded-lg border border-gold/25 bg-onyx/85 p-6 sm:p-10"
     >
       {/* Honeypot — hidden from real users, catches naive bots */}
@@ -136,192 +198,262 @@ export default function StrategySessionForm({ initialPillar }: StrategySessionFo
         className="absolute left-[-9999px] h-0 w-0 opacity-0"
       />
 
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-        <div className="sm:col-span-2">
-          <label htmlFor="orgName" className="mb-2 block text-sm font-medium text-muted-light">
-            {bookingPage.fields.orgName}
-          </label>
-          <input
-            id="orgName"
-            name="orgName"
-            type="text"
-            value={fields.orgName}
-            onChange={handleChange}
-            placeholder="[Organization / Campaign Name]"
-            aria-invalid={Boolean(errors.orgName)}
-            className={`${inputClasses} ${errors.orgName ? "border-red-500" : "border-gold/25"}`}
-          />
-          {errors.orgName && <p className="mt-1.5 text-xs text-red-400">{errors.orgName}</p>}
+      <div className="mb-8">
+        <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-wide text-muted">
+          <span>
+            Step {step + 1} of {STEPS.length}
+          </span>
+          <span className="text-gold-bright">{currentStep.label}</span>
         </div>
+        <div className="mt-3 flex gap-1.5">
+          {STEPS.map((s, index) => (
+            <div
+              key={s.id}
+              className={`h-1 flex-1 rounded-full transition-colors ${
+                index <= step ? "bg-gold" : "bg-white/10"
+              }`}
+            />
+          ))}
+        </div>
+      </div>
 
+      {currentStep.id === "about-you" && (
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <div>
+            <label
+              htmlFor="contactName"
+              className="mb-2 block text-sm font-medium text-muted-light"
+            >
+              {bookingPage.fields.contactName}
+            </label>
+            <input
+              id="contactName"
+              name="contactName"
+              type="text"
+              autoComplete="name"
+              value={fields.contactName}
+              onChange={handleChange}
+              placeholder="Jane Doe"
+              aria-invalid={Boolean(fieldError(stepErrors, "contactName"))}
+              className={`${inputClasses} ${
+                fieldError(stepErrors, "contactName") ? "border-red-500" : "border-gold/25"
+              }`}
+            />
+            {fieldError(stepErrors, "contactName") && (
+              <p className="mt-1.5 text-xs text-red-400">{stepErrors.contactName}</p>
+            )}
+          </div>
+
+          <div>
+            <label htmlFor="role" className="mb-2 block text-sm font-medium text-muted-light">
+              {bookingPage.fields.role}
+            </label>
+            <input
+              id="role"
+              name="role"
+              type="text"
+              value={fields.role}
+              onChange={handleChange}
+              placeholder="[Candidate / PAC Director / Chief of Staff]"
+              aria-invalid={Boolean(fieldError(stepErrors, "role"))}
+              className={`${inputClasses} ${
+                fieldError(stepErrors, "role") ? "border-red-500" : "border-gold/25"
+              }`}
+            />
+            {fieldError(stepErrors, "role") && (
+              <p className="mt-1.5 text-xs text-red-400">{stepErrors.role}</p>
+            )}
+          </div>
+
+          <div>
+            <label htmlFor="email" className="mb-2 block text-sm font-medium text-muted-light">
+              {bookingPage.fields.email}
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autoComplete="email"
+              value={fields.email}
+              onChange={handleChange}
+              placeholder="jane@example.com"
+              aria-invalid={Boolean(fieldError(stepErrors, "email"))}
+              className={`${inputClasses} ${
+                fieldError(stepErrors, "email") ? "border-red-500" : "border-gold/25"
+              }`}
+            />
+            {fieldError(stepErrors, "email") && (
+              <p className="mt-1.5 text-xs text-red-400">{stepErrors.email}</p>
+            )}
+          </div>
+
+          <div>
+            <label htmlFor="phone" className="mb-2 block text-sm font-medium text-muted-light">
+              {bookingPage.fields.phone}
+            </label>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              autoComplete="tel"
+              value={fields.phone}
+              onChange={handleChange}
+              placeholder="(555) 123-4567"
+              aria-invalid={Boolean(fieldError(stepErrors, "phone"))}
+              className={`${inputClasses} ${
+                fieldError(stepErrors, "phone") ? "border-red-500" : "border-gold/25"
+              }`}
+            />
+            {fieldError(stepErrors, "phone") && (
+              <p className="mt-1.5 text-xs text-red-400">{stepErrors.phone}</p>
+            )}
+          </div>
+        </div>
+      )}
+
+      {currentStep.id === "your-race" && (
+        <div className="grid grid-cols-1 gap-6">
+          <div>
+            <label htmlFor="orgName" className="mb-2 block text-sm font-medium text-muted-light">
+              {bookingPage.fields.orgName}
+            </label>
+            <input
+              id="orgName"
+              name="orgName"
+              type="text"
+              value={fields.orgName}
+              onChange={handleChange}
+              placeholder="[Organization / Campaign Name]"
+              aria-invalid={Boolean(fieldError(stepErrors, "orgName"))}
+              className={`${inputClasses} ${
+                fieldError(stepErrors, "orgName") ? "border-red-500" : "border-gold/25"
+              }`}
+            />
+            {fieldError(stepErrors, "orgName") && (
+              <p className="mt-1.5 text-xs text-red-400">{stepErrors.orgName}</p>
+            )}
+          </div>
+
+          <div>
+            <label htmlFor="message" className="mb-2 block text-sm font-medium text-muted-light">
+              {bookingPage.fields.message}
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows={5}
+              value={fields.message}
+              onChange={handleChange}
+              placeholder={bookingPage.messagePlaceholder}
+              aria-invalid={Boolean(fieldError(stepErrors, "message"))}
+              className={`${inputClasses} resize-none ${
+                fieldError(stepErrors, "message") ? "border-red-500" : "border-gold/25"
+              }`}
+            />
+            {fieldError(stepErrors, "message") && (
+              <p className="mt-1.5 text-xs text-red-400">{stepErrors.message}</p>
+            )}
+          </div>
+        </div>
+      )}
+
+      {currentStep.id === "what-you-need" && (
         <div>
-          <label htmlFor="contactName" className="mb-2 block text-sm font-medium text-muted-light">
-            {bookingPage.fields.contactName}
-          </label>
-          <input
-            id="contactName"
-            name="contactName"
-            type="text"
-            autoComplete="name"
-            value={fields.contactName}
-            onChange={handleChange}
-            placeholder="Jane Doe"
-            aria-invalid={Boolean(errors.contactName)}
-            className={`${inputClasses} ${errors.contactName ? "border-red-500" : "border-gold/25"}`}
-          />
-          {errors.contactName && (
-            <p className="mt-1.5 text-xs text-red-400">{errors.contactName}</p>
+          <span className="mb-3 block text-sm font-medium text-muted-light">
+            {bookingPage.fields.pillar}
+          </span>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {bookingPage.serviceOptions.map((option) => {
+              const selected = fields.pillar === option;
+              return (
+                <button
+                  key={option}
+                  type="button"
+                  onClick={() => {
+                    setFields((prev) => ({ ...prev, pillar: option }));
+                    setStepErrors((prev) => ({ ...prev, pillar: undefined }));
+                  }}
+                  aria-pressed={selected}
+                  className={`rounded-md border px-5 py-4 text-left text-sm font-medium transition-colors ${
+                    selected
+                      ? "border-gold bg-gold/10 text-white"
+                      : "border-gold/25 text-muted-light hover:border-gold/50"
+                  }`}
+                >
+                  {option}
+                </button>
+              );
+            })}
+          </div>
+          {fieldError(stepErrors, "pillar") && (
+            <p className="mt-3 text-xs text-red-400">{stepErrors.pillar}</p>
           )}
         </div>
+      )}
 
-        <div>
-          <label htmlFor="role" className="mb-2 block text-sm font-medium text-muted-light">
-            {bookingPage.fields.role}
-          </label>
-          <input
-            id="role"
-            name="role"
-            type="text"
-            value={fields.role}
-            onChange={handleChange}
-            placeholder="[Candidate / PAC Director / Chief of Staff]"
-            aria-invalid={Boolean(errors.role)}
-            className={`${inputClasses} ${errors.role ? "border-red-500" : "border-gold/25"}`}
-          />
-          {errors.role && <p className="mt-1.5 text-xs text-red-400">{errors.role}</p>}
-        </div>
-
-        <div>
-          <label htmlFor="email" className="mb-2 block text-sm font-medium text-muted-light">
-            {bookingPage.fields.email}
-          </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            autoComplete="email"
-            value={fields.email}
-            onChange={handleChange}
-            placeholder="jane@example.com"
-            aria-invalid={Boolean(errors.email)}
-            className={`${inputClasses} ${errors.email ? "border-red-500" : "border-gold/25"}`}
-          />
-          {errors.email && <p className="mt-1.5 text-xs text-red-400">{errors.email}</p>}
-        </div>
-
-        <div>
-          <label htmlFor="phone" className="mb-2 block text-sm font-medium text-muted-light">
-            {bookingPage.fields.phone}
-          </label>
-          <input
-            id="phone"
-            name="phone"
-            type="tel"
-            autoComplete="tel"
-            value={fields.phone}
-            onChange={handleChange}
-            placeholder="(555) 123-4567"
-            aria-invalid={Boolean(errors.phone)}
-            className={`${inputClasses} ${errors.phone ? "border-red-500" : "border-gold/25"}`}
-          />
-          {errors.phone && <p className="mt-1.5 text-xs text-red-400">{errors.phone}</p>}
-        </div>
-
-        <div>
-          <label htmlFor="pillar" className="mb-2 block text-sm font-medium text-muted-light">
-            {bookingPage.fields.pillar}
-          </label>
-          <select
-            id="pillar"
-            name="pillar"
-            value={fields.pillar}
-            onChange={handleChange}
-            aria-invalid={Boolean(errors.pillar)}
-            className={`${inputClasses} ${errors.pillar ? "border-red-500" : "border-gold/25"}`}
-          >
-            <option value="" disabled>
-              Select an area of interest
-            </option>
-            {bookingPage.serviceOptions.map((option) => (
-              <option key={option} value={option}>
-                {option}
+      {currentStep.id === "timeline-budget" && (
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <div>
+            <label htmlFor="budget" className="mb-2 block text-sm font-medium text-muted-light">
+              {bookingPage.fields.budget}
+            </label>
+            <select
+              id="budget"
+              name="budget"
+              value={fields.budget}
+              onChange={handleChange}
+              aria-invalid={Boolean(fieldError(stepErrors, "budget"))}
+              className={`${inputClasses} ${
+                fieldError(stepErrors, "budget") ? "border-red-500" : "border-gold/25"
+              }`}
+            >
+              <option value="" disabled>
+                Select a budget range
               </option>
-            ))}
-          </select>
-          {errors.pillar && <p className="mt-1.5 text-xs text-red-400">{errors.pillar}</p>}
-        </div>
+              {bookingPage.budgetOptions.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+            {fieldError(stepErrors, "budget") && (
+              <p className="mt-1.5 text-xs text-red-400">{stepErrors.budget}</p>
+            )}
+          </div>
 
-        <div>
-          <label htmlFor="budget" className="mb-2 block text-sm font-medium text-muted-light">
-            {bookingPage.fields.budget}
-          </label>
-          <select
-            id="budget"
-            name="budget"
-            value={fields.budget}
-            onChange={handleChange}
-            aria-invalid={Boolean(errors.budget)}
-            className={`${inputClasses} ${errors.budget ? "border-red-500" : "border-gold/25"}`}
-          >
-            <option value="" disabled>
-              Select a budget range
-            </option>
-            {bookingPage.budgetOptions.map((option) => (
-              <option key={option} value={option}>
-                {option}
+          <div>
+            <label htmlFor="timeline" className="mb-2 block text-sm font-medium text-muted-light">
+              {bookingPage.fields.timeline}
+            </label>
+            <select
+              id="timeline"
+              name="timeline"
+              value={fields.timeline}
+              onChange={handleChange}
+              aria-invalid={Boolean(fieldError(stepErrors, "timeline"))}
+              className={`${inputClasses} ${
+                fieldError(stepErrors, "timeline") ? "border-red-500" : "border-gold/25"
+              }`}
+            >
+              <option value="" disabled>
+                Select an engagement timeline
               </option>
-            ))}
-          </select>
-          {errors.budget && <p className="mt-1.5 text-xs text-red-400">{errors.budget}</p>}
-        </div>
+              {bookingPage.timelineOptions.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+            {fieldError(stepErrors, "timeline") && (
+              <p className="mt-1.5 text-xs text-red-400">{stepErrors.timeline}</p>
+            )}
+          </div>
 
-        <div className="sm:col-span-2">
-          <label htmlFor="timeline" className="mb-2 block text-sm font-medium text-muted-light">
-            {bookingPage.fields.timeline}
-          </label>
-          <select
-            id="timeline"
-            name="timeline"
-            value={fields.timeline}
-            onChange={handleChange}
-            aria-invalid={Boolean(errors.timeline)}
-            className={`${inputClasses} ${errors.timeline ? "border-red-500" : "border-gold/25"}`}
-          >
-            <option value="" disabled>
-              Select an engagement timeline
-            </option>
-            {bookingPage.timelineOptions.map((option) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
-          {errors.timeline && <p className="mt-1.5 text-xs text-red-400">{errors.timeline}</p>}
+          <div className="sm:col-span-2">
+            <Turnstile onToken={setTurnstileToken} />
+          </div>
         </div>
-
-        <div className="sm:col-span-2">
-          <label htmlFor="message" className="mb-2 block text-sm font-medium text-muted-light">
-            {bookingPage.fields.message}
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            rows={5}
-            value={fields.message}
-            onChange={handleChange}
-            placeholder={bookingPage.messagePlaceholder}
-            aria-invalid={Boolean(errors.message)}
-            className={`${inputClasses} resize-none ${
-              errors.message ? "border-red-500" : "border-gold/25"
-            }`}
-          />
-          {errors.message && <p className="mt-1.5 text-xs text-red-400">{errors.message}</p>}
-        </div>
-      </div>
-
-      <div className="mt-6">
-        <Turnstile onToken={setTurnstileToken} />
-      </div>
+      )}
 
       {status === "error" && (
         <p className="mt-6 rounded-md border border-red-500/40 bg-red-500/10 px-4 py-3 text-sm text-red-300">
@@ -329,23 +461,50 @@ export default function StrategySessionForm({ initialPillar }: StrategySessionFo
         </p>
       )}
 
-      <button
-        type="submit"
-        disabled={status === "submitting"}
-        className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-md bg-gold px-6 py-4 text-xs font-semibold uppercase tracking-wider text-onyx transition-all hover:bg-gold-bright disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
-      >
-        {status === "submitting" ? (
-          <>
-            <Loader2 size={18} className="animate-spin" />
-            {bookingPage.submittingLabel}
-          </>
+      <div className="mt-8 flex items-center justify-between gap-4">
+        {step > 0 ? (
+          <button
+            type="button"
+            onClick={goBack}
+            className="inline-flex items-center gap-2 rounded-md border border-gold/40 px-6 py-4 text-xs font-semibold uppercase tracking-wider text-muted-light transition-all hover:bg-white/5"
+          >
+            <ArrowLeft size={16} />
+            Back
+          </button>
         ) : (
-          <>
-            <Send size={18} />
-            {bookingPage.submitLabel}
-          </>
+          <span />
         )}
-      </button>
+
+        {isLastStep ? (
+          <button
+            type="button"
+            disabled={status === "submitting"}
+            onClick={() => formRef.current?.requestSubmit()}
+            className="inline-flex items-center justify-center gap-2 rounded-md bg-gold px-6 py-4 text-xs font-semibold uppercase tracking-wider text-onyx transition-all hover:bg-gold-bright disabled:cursor-not-allowed disabled:opacity-70"
+          >
+            {status === "submitting" ? (
+              <>
+                <Loader2 size={18} className="animate-spin" />
+                {bookingPage.submittingLabel}
+              </>
+            ) : (
+              <>
+                <Send size={18} />
+                {bookingPage.submitLabel}
+              </>
+            )}
+          </button>
+        ) : (
+          <button
+            type="button"
+            onClick={goNext}
+            className="group inline-flex items-center gap-2 rounded-md bg-gold px-6 py-4 text-xs font-semibold uppercase tracking-wider text-onyx transition-all hover:bg-gold-bright"
+          >
+            Next
+            <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+          </button>
+        )}
+      </div>
 
       <p className="mt-4 text-xs leading-relaxed text-muted">{bookingPage.privacyNote}</p>
     </form>

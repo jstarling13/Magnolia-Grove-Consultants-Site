@@ -13,7 +13,6 @@ import type {
   NavLink,
   ServicePillar,
   Metric,
-  ClientLogo,
   SocialLink,
   ContactDetail,
   FooterColumn,
@@ -26,7 +25,7 @@ import type {
 export const brand = {
   name: "Magnolia Grove Consultants",
   shortName: "Magnolia Grove",
-  tagline: "Strategic Campaign Operations & High-Stakes Advisory | Magnolia Grove",
+  tagline: "Political Campaign Consulting Built to Execute | Magnolia Grove",
   logoText: "Magnolia Grove",
   logoImage: "/images/logo-magnolia-grove-white.png",
   logoImageAlt: "Magnolia Grove Consultants",
@@ -54,19 +53,15 @@ export const nav = {
 /* ----------------------------------------------------------------------- */
 
 export const hero = {
-  eyebrow: "STRATEGY AND EXECUTION FOR CAMPAIGNS & ORGANIZATIONS",
-  headline: "Comprehensive Strategy & Execution for High-Stakes Victories.",
+  eyebrow: "CAMPAIGN STRATEGY & EXECUTION",
+  headline: "One Team. Every Part of the Campaign.",
   subtitle:
-    "We handle canvassing, advertising, printed materials, and your website — all in one place, for campaigns and organizations alike.",
-  primaryCta: "Schedule Strategy Call",
+    "Field, digital, print, and web — coordinated under one roof for campaigns and political organizations who can't afford a dropped ball.",
+  primaryCta: "Request a Strategy Session",
   primaryCtaHref: "/booking",
-  secondaryCta: "View All Services",
-  secondaryCtaHref: "/services",
-  proofPoints: [
-    "Boots-on-the-Ground Canvassing",
-    "Ads That Reach the Right People",
-    "Fast, Reliable Websites",
-  ],
+  secondaryCta: "See Our Track Record",
+  secondaryCtaHref: "/case-studies",
+  proofPoints: ["Field", "Digital", "Print", "Web"],
   imageAlt:
     "Classic white marble government columns standing under high-contrast dark twilight, symbolizing institutional strength and political strategy.",
 };
@@ -77,9 +72,8 @@ export const hero = {
 
 export const servicesIntro = {
   eyebrow: "What We Do",
-  headline: "Four Pillars of a Winning Campaign",
-  subtitle:
-    "One team handling canvassing, media, print, and your website — so nothing falls through the cracks.",
+  headline: "Four Pillars. One Team.",
+  subtitle: "Field, digital, print, and web — run by one team instead of five vendors.",
 };
 
 export const servicePillars: ServicePillar[] = [
@@ -145,41 +139,24 @@ export const servicePillars: ServicePillar[] = [
 /*  TRUST BADGES                                                           */
 /* ----------------------------------------------------------------------- */
 
-export const trustBadgesLabel = "Trusted By";
+export const trustBadgesLabel = "Built For";
 
 export const trustBadges = [
-  { id: "campaigns", label: "Political Campaigns" },
-  { id: "pacs", label: "PACs" },
-  { id: "nonprofits", label: "Non-Profits" },
-  { id: "enterprise", label: "Enterprise Leaders" },
+  { id: "campaigns", label: "Campaigns & Candidates" },
+  { id: "pacs", label: "PACs & Political Organizations" },
+  { id: "nonprofits", label: "Advocacy & Nonprofits" },
+  { id: "enterprise", label: "Organizations & Enterprise" },
 ];
 
 /* ----------------------------------------------------------------------- */
 /*  METRICS / SOCIAL PROOF                                                 */
 /* ----------------------------------------------------------------------- */
 
-export const metricsIntro = {
-  eyebrow: "Track Record",
-  headline: "A Track Record You Can Count On",
-};
-
 export const metrics: Metric[] = [
   { id: "years", value: 14, suffix: "+", prefix: "", label: "Years Experience" },
   { id: "campaigns", value: 5, suffix: "+", prefix: "", label: "Campaigns Served" },
   { id: "raised", value: 500, suffix: "K+", prefix: "$", label: "Raised for Clients" },
   { id: "execution", value: 100, suffix: "%", prefix: "", label: "Execution Rate" },
-];
-
-export const logoStripLabel =
-  "Trusted by political candidates, non-profit leaders, and businesses nationwide.";
-
-export const clientLogos: ClientLogo[] = [
-  { id: "logo-1", label: "Congressional Victory PAC" },
-  { id: "logo-2", label: "Southeastern Leadership Alliance" },
-  { id: "logo-3", label: "Civic Ground Strategy Group" },
-  { id: "logo-4", label: "Apex Enterprise Advisory" },
-  { id: "logo-5", label: "Statewide Policy Institute" },
-  { id: "logo-6", label: "National Voter Initiative" },
 ];
 
 /* ----------------------------------------------------------------------- */
@@ -189,11 +166,11 @@ export const clientLogos: ClientLogo[] = [
 export const about = {
   eyebrow: "Why Magnolia Grove",
   headline: "Engineered for the War Room. Built for Victory.",
-  body: "Magnolia Grove Consultants brings strategy and hands-on execution together under one roof. Whether you're running a political campaign, a PAC, a non-profit, or a business, we handle social media, digital marketing, print, and your website — so you're not juggling five different vendors. When it matters most, we make sure everything works together.",
+  body: "Magnolia Grove Consultants brings strategy and hands-on execution together under one roof for campaigns, PACs, and political organizations — so you're not juggling five vendors when it matters most.",
   bullets: [
-    "One Team, Every Channel: A single point of contact for canvassing, print, digital, and your website.",
-    "Smart Targeting: We focus your budget on the people most likely to respond — not wasted on the wrong audience.",
-    "Fast Response: When something happens in the news, we help you respond quickly and clearly.",
+    "One Team, Every Channel: A single point of contact for field, print, digital, and your website.",
+    "Smart Targeting: Budget goes toward the voters most likely to respond, not wasted reach.",
+    "Fast Response: When the news cycle turns, we help you respond within hours, not days.",
   ],
 };
 
@@ -248,7 +225,7 @@ export const contactDetails: ContactDetail[] = [
 
 export const footer = {
   description:
-    "Magnolia Grove Consultants provides strategy, canvassing, digital media, and website support for political campaigns, PACs, non-profit organizations, and businesses.",
+    "Magnolia Grove Consultants provides field, digital, print, and web strategy for political campaigns and PACs — with capacity for advocacy organizations and enterprise clients.",
   legalDisclaimer: "Magnolia Grove Consultants, LLC. All rights reserved.",
   columns: [
     {
@@ -256,7 +233,7 @@ export const footer = {
       links: [
         { label: "About", href: "/about" },
         { label: "Services", href: "/services" },
-        { label: "Results", href: "/results" },
+        { label: "Track Record", href: "/case-studies" },
         { label: "Contact", href: "/contact" },
         { label: "Pay an Invoice", href: "/payment" },
       ],

@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Montserrat } from "next/font/google";
-import { brand, contactDetails } from "@/config/siteConfig";
+import { brand, contactDetails, socialLinks } from "@/config/siteConfig";
 import Analytics from "@/components/Analytics";
 import "./globals.css";
 
@@ -11,7 +11,8 @@ const email = contactDetails.find((detail) => detail.label === "Email")?.value;
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "ProfessionalService",
+  "@id": siteUrl,
   name: brand.name,
   description: brand.tagline,
   url: siteUrl,
@@ -24,6 +25,16 @@ const jsonLd = {
     addressRegion: "GA",
     addressCountry: "US",
   },
+  areaServed: [
+    { "@type": "State", name: "Georgia" },
+    { "@type": "Country", name: "United States" },
+  ],
+  founder: {
+    "@type": "Person",
+    name: "Ben Garcia",
+    jobTitle: "Founder & Principal",
+  },
+  sameAs: socialLinks.map((link) => link.href),
 };
 
 const inter = Inter({

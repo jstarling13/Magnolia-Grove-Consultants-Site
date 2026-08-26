@@ -16,7 +16,10 @@ export default function Counter({
   durationMs = 1400,
 }: CounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const [display, setDisplay] = useState(0);
+  // Start at the real value so the server-rendered HTML (and anything reading
+  // it without running JS) always shows the true number — the count-up is a
+  // purely visual flourish layered on top after hydration.
+  const [display, setDisplay] = useState(value);
   const hasAnimated = useRef(false);
 
   useEffect(() => {
@@ -27,6 +30,16 @@ export default function Counter({
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated.current) {
           hasAnimated.current = true;
+
+          const prefersReducedMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+          ).matches;
+          if (prefersReducedMotion) {
+            observer.disconnect();
+            return;
+          }
+
+          setDisplay(0);
           const start = performance.now();
 
           const tick = (now: number) => {
