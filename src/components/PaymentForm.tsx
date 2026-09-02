@@ -2,11 +2,9 @@
 
 import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
 import { Loader2, ShieldCheck, ArrowRight } from "lucide-react";
-import { paymentPackageOptions } from "@/config/aboutConfig";
 import { useClientProfile } from "@/hooks/useClientProfile";
 
 interface FormFields {
-  packageSelection: string;
   organizationName: string;
   firstName: string;
   lastName: string;
@@ -17,7 +15,6 @@ interface FormFields {
 }
 
 const initialFields: FormFields = {
-  packageSelection: "",
   organizationName: "",
   firstName: "",
   lastName: "",
@@ -82,19 +79,6 @@ export default function PaymentForm() {
     setErrors((prev) => ({ ...prev, [name]: undefined }));
   };
 
-  const handlePackageChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    const label = event.target.value;
-    const selected = paymentPackageOptions.find((option) => option.label === label);
-
-    setFields((prev) => ({
-      ...prev,
-      packageSelection: label,
-      amount: selected?.amount != null ? String(selected.amount) : "",
-      memo: selected?.memo || "",
-    }));
-    setErrors((prev) => ({ ...prev, amount: undefined, memo: undefined }));
-  };
-
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const validationErrors = validate(fields);
@@ -154,34 +138,6 @@ export default function PaymentForm() {
       />
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-        <div className="sm:col-span-2">
-          <label
-            htmlFor="packageSelection"
-            className="mb-2 block text-sm font-medium text-muted-light"
-          >
-            What Are You Paying For?
-          </label>
-          <select
-            id="packageSelection"
-            name="packageSelection"
-            value={fields.packageSelection}
-            onChange={handlePackageChange}
-            className={`${inputClasses} border-gold/25`}
-          >
-            <option value="" disabled>
-              Select a package or invoice type
-            </option>
-            {paymentPackageOptions.map((option) => (
-              <option key={option.label} value={option.label}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-          <p className="mt-1.5 text-xs text-muted">
-            Choosing a package fills in the amount and note below — feel free to adjust either.
-          </p>
-        </div>
-
         <div className="sm:col-span-2">
           <label
             htmlFor="organizationName"
