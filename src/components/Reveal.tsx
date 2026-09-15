@@ -6,9 +6,10 @@ interface RevealProps {
   children: React.ReactNode;
   className?: string;
   delayMs?: number;
+  variant?: "scale-up" | "fade-left" | "fade-right";
 }
 
-export default function Reveal({ children, className = "", delayMs = 0 }: RevealProps) {
+export default function Reveal({ children, className = "", delayMs = 0, variant }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -33,6 +34,7 @@ export default function Reveal({ children, className = "", delayMs = 0 }: Reveal
   return (
     <div
       ref={ref}
+      data-variant={variant}
       className={`animate-in ${visible ? "is-visible" : ""} ${className}`}
       style={{ animationDelay: `${delayMs}ms` }}
     >

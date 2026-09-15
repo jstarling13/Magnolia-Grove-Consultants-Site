@@ -40,12 +40,12 @@ export default async function AccountPage() {
   const submissions: ClientSubmissionRow[] = await Promise.all(
     typedSubmissions.map(async (row) => {
       if (row.type !== "payment_request") {
-        return { ...row, paymentStatus: null as PaymentStatus | null };
+        return { ...row, paymentStatus: null as PaymentStatus | null, deliverables: [] };
       }
       const paymentLinkId = row.data.paymentLinkId;
       const paymentStatus =
         typeof paymentLinkId === "string" ? await getPaymentLinkStatus(paymentLinkId) : "unknown";
-      return { ...row, paymentStatus };
+      return { ...row, paymentStatus, deliverables: [] };
     })
   );
 

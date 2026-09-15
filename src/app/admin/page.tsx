@@ -16,5 +16,11 @@ export default async function AdminPage() {
     LIMIT 200
   `) as SubmissionRow[];
 
-  return <Dashboard submissions={submissions} username={session?.username ?? ""} />;
+  return (
+    <Dashboard
+      submissions={submissions}
+      username={session?.username ?? ""}
+      deliverablesBySubmission={{}}
+    />
+  );
 }
