@@ -49,7 +49,7 @@ function validate(fields: FormFields): Partial<Record<keyof FormFields, string>>
 }
 
 const inputClasses =
-  "w-full rounded-md border bg-onyx px-4 py-3 text-sm text-white placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-gold/60 transition-colors";
+  "w-full rounded-md border bg-cream px-4 py-3 text-sm text-onyx placeholder:text-onyx/50 focus:outline-none focus:ring-2 focus:ring-gold/60 transition-colors";
 
 export default function LeadForm() {
   const {
@@ -83,18 +83,18 @@ export default function LeadForm() {
 
   if (status === "success") {
     return (
-      <div className="flex flex-col items-center justify-center rounded-lg border border-gold/25 bg-onyx/85 px-8 py-16 text-center">
-        <div className="flex h-16 w-16 items-center justify-center rounded-full border border-gold/40 bg-gold/10 text-gold-bright">
+      <div className="flex flex-col items-center justify-center rounded-lg border border-gold/25 bg-cream/85 px-8 py-16 text-center shadow-card">
+        <div className="flex h-16 w-16 items-center justify-center rounded-full border border-gold/40 bg-gold/10 text-gold-dark">
           <CheckCircle2 size={32} />
         </div>
-        <h3 className="mt-6 text-2xl text-white">{leadForm.successTitle}</h3>
-        <p className="mt-3 max-w-md text-sm leading-relaxed text-muted">
+        <h3 className="mt-6 text-2xl text-onyx">{leadForm.successTitle}</h3>
+        <p className="mt-3 max-w-md text-sm leading-relaxed text-onyx/60">
           {leadForm.successMessage}
         </p>
         <button
           type="button"
           onClick={resetToIdle}
-          className="mt-8 inline-flex items-center rounded-md border border-gold/60 px-6 py-3 text-sm font-semibold text-gold-bright transition-colors hover:bg-gold/10"
+          className="mt-8 inline-flex items-center rounded-md border border-gold/60 px-6 py-3 text-sm font-semibold text-gold-dark transition-colors hover:bg-gold/10"
         >
           Submit another request
         </button>
@@ -106,7 +106,7 @@ export default function LeadForm() {
     <form
       noValidate
       onSubmit={handleSubmit}
-      className="relative rounded-lg border border-gold/25 bg-onyx/85 p-6 sm:p-10"
+      className="relative rounded-lg border border-gold/25 bg-cream/85 p-6 shadow-card sm:p-10"
     >
       {/* Honeypot — hidden from real users, catches naive bots */}
       <input
@@ -122,7 +122,7 @@ export default function LeadForm() {
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         <div>
-          <label htmlFor="firstName" className="mb-2 block text-sm font-medium text-muted-light">
+          <label htmlFor="firstName" className="mb-2 block text-sm font-medium text-onyx/80">
             First Name
           </label>
           <input
@@ -145,7 +145,7 @@ export default function LeadForm() {
         </div>
 
         <div>
-          <label htmlFor="lastName" className="mb-2 block text-sm font-medium text-muted-light">
+          <label htmlFor="lastName" className="mb-2 block text-sm font-medium text-onyx/80">
             Last Name
           </label>
           <input
@@ -168,7 +168,7 @@ export default function LeadForm() {
         </div>
 
         <div>
-          <label htmlFor="email" className="mb-2 block text-sm font-medium text-muted-light">
+          <label htmlFor="email" className="mb-2 block text-sm font-medium text-onyx/80">
             Email
           </label>
           <input
@@ -191,7 +191,7 @@ export default function LeadForm() {
         </div>
 
         <div>
-          <label htmlFor="phone" className="mb-2 block text-sm font-medium text-muted-light">
+          <label htmlFor="phone" className="mb-2 block text-sm font-medium text-onyx/80">
             Phone
           </label>
           <input
@@ -214,7 +214,7 @@ export default function LeadForm() {
         </div>
 
         <div className="sm:col-span-2">
-          <label htmlFor="service" className="mb-2 block text-sm font-medium text-muted-light">
+          <label htmlFor="service" className="mb-2 block text-sm font-medium text-onyx/80">
             Service Interested In
           </label>
           <select
@@ -243,7 +243,7 @@ export default function LeadForm() {
         </div>
 
         <div className="sm:col-span-2">
-          <label htmlFor="message" className="mb-2 block text-sm font-medium text-muted-light">
+          <label htmlFor="message" className="mb-2 block text-sm font-medium text-onyx/80">
             Message
           </label>
           <textarea
@@ -295,7 +295,7 @@ export default function LeadForm() {
         )}
       </button>
 
-      <p className="mt-4 text-xs leading-relaxed text-muted">{leadForm.privacyNote}</p>
+      <p className="mt-4 text-xs leading-relaxed text-onyx/60">{leadForm.privacyNote}</p>
     </form>
   );
 }

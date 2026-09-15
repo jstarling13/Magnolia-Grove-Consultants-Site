@@ -54,16 +54,16 @@ export default function ConsultationDrawer() {
           role="dialog"
           aria-modal="true"
           aria-label="Request a strategy session"
-          className={`absolute right-0 top-0 flex h-full w-full max-w-lg flex-col overflow-y-auto border-l border-gold/25 bg-onyx-200 shadow-2xl transition-transform duration-300 ease-out motion-reduce:transition-none ${
+          className={`absolute right-0 top-0 flex h-full w-full max-w-lg flex-col overflow-y-auto border-l border-gold/25 bg-cream-200 shadow-2xl transition-transform duration-300 ease-out motion-reduce:transition-none ${
             isOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
           <div className="flex items-center justify-between border-b border-gold/15 px-6 py-5 sm:px-8">
             <div>
-              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-bright">
+              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-dark">
                 High-Intent Intake
               </span>
-              <h2 className="mt-1 font-heading text-xl font-semibold text-white">
+              <h2 className="mt-1 font-heading text-xl font-semibold text-onyx">
                 Request a Strategy Session
               </h2>
             </div>
@@ -72,7 +72,7 @@ export default function ConsultationDrawer() {
               type="button"
               aria-label="Close"
               onClick={() => setIsOpen(false)}
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-gold/25 text-muted transition-colors hover:border-gold/60 hover:text-white"
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-gold/25 text-onyx/60 transition-colors hover:border-gold/60 hover:text-onyx"
             >
               <X size={18} />
             </button>

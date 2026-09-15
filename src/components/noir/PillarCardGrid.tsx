@@ -37,12 +37,12 @@ export default function PillarCardGrid({ cards, eyebrow, title }: PillarCardGrid
   const activeCount = hoverIndex !== null ? hoverIndex + 1 : litCount;
 
   return (
-    <section className="bg-onyx-100 px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
+    <section className="bg-cream-100 px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
       <div className="mx-auto max-w-8xl">
         {(eyebrow || title) && (
           <div className="mb-10">
             {eyebrow && <span className="eyebrow">{eyebrow}</span>}
-            {title && <h2 className="mt-3 text-2xl text-white sm:text-3xl">{title}</h2>}
+            {title && <h2 className="mt-3 text-2xl text-onyx sm:text-3xl">{title}</h2>}
           </div>
         )}
         {/* Horizontal step-indicator connector — lights up gold as cards enter view */}
@@ -53,7 +53,7 @@ export default function PillarCardGrid({ cards, eyebrow, title }: PillarCardGrid
                 className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border font-heading text-xs font-bold transition-colors duration-500 ${
                   index < activeCount
                     ? "border-gold-bright bg-gold text-onyx"
-                    : "border-gold/25 bg-onyx text-muted"
+                    : "border-gold/25 bg-cream text-onyx/60"
                 }`}
               >
                 {card.index}
@@ -78,13 +78,13 @@ export default function PillarCardGrid({ cards, eyebrow, title }: PillarCardGrid
               }}
               onMouseEnter={() => setHoverIndex(index)}
               onMouseLeave={() => setHoverIndex(null)}
-              className="group rounded-lg border border-gold/25 bg-onyx/70 p-8 backdrop-blur-sm transition-all duration-300 will-change-transform hover:-translate-y-1 hover:border-gold/50 hover:shadow-[0_16px_40px_-12px_rgba(197,160,89,0.35)]"
+              className="group rounded-lg border border-gold/25 bg-cream/70 p-8 shadow-card backdrop-blur-sm transition-all duration-300 will-change-transform hover:-translate-y-1 hover:border-gold/50 hover:shadow-[0_16px_40px_-12px_rgba(197,160,89,0.35)]"
             >
-              <span className="font-heading text-sm font-bold tracking-wider text-gold-bright">
+              <span className="font-heading text-sm font-bold tracking-wider text-gold-dark">
                 {card.index}
               </span>
-              <h3 className="mt-3 font-heading text-xl font-semibold text-white">{card.title}</h3>
-              <p className="mt-3 text-left text-sm leading-relaxed text-muted">
+              <h3 className="mt-3 font-heading text-xl font-semibold text-onyx">{card.title}</h3>
+              <p className="mt-3 text-left text-sm leading-relaxed text-onyx/60">
                 {card.description}
               </p>
             </div>

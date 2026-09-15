@@ -24,9 +24,9 @@ const sections: LegalSectionType[] = [
 export default function PrivacyPage() {
   return (
     <LegalLayout title="Privacy Policy" lastUpdated="July 28, 2026" sections={sections}>
-      <p className="text-sm text-muted">Effective Date: July 28, 2026</p>
+      <p className="text-sm text-onyx/60">Effective Date: July 28, 2026</p>
 
-      <p className="mt-6 text-sm leading-relaxed text-muted-light sm:text-base">
+      <p className="mt-6 text-sm leading-relaxed text-onyx/80 sm:text-base">
         Magnolia Grove Consultants, LLC (&quot;Magnolia Grove,&quot; &quot;we,&quot; &quot;us,&quot;
         or &quot;our&quot;) provides integrated political strategy, creative marketing, print
         production, and digital web/automation infrastructure services to political campaigns,
@@ -36,7 +36,7 @@ export default function PrivacyPage() {
         &quot;Site&quot;), submit a booking or contact form, or otherwise engage with our services.
       </p>
 
-      <p className="mt-4 text-sm leading-relaxed text-muted-light sm:text-base">
+      <p className="mt-4 text-sm leading-relaxed text-onyx/80 sm:text-base">
         By using the Site, you agree to the terms of this Privacy Policy. If you do not agree with
         these terms, please do not use the Site.
       </p>
@@ -47,7 +47,7 @@ export default function PrivacyPage() {
           and information collected automatically through your use of the Site.
         </p>
 
-        <h3 className="mt-2 text-base font-semibold text-white">
+        <h3 className="mt-2 text-base font-semibold text-onyx">
           1.1 Information You Provide Directly
         </h3>
         <p>
@@ -56,26 +56,26 @@ export default function PrivacyPage() {
         </p>
         <ul className="flex flex-col gap-2 pl-5">
           <li className="list-disc">
-            <strong className="text-white">Personal identifiers:</strong> full name, email address,
+            <strong className="text-onyx">Personal identifiers:</strong> full name, email address,
             phone number, and job title.
           </li>
           <li className="list-disc">
-            <strong className="text-white">Organizational information:</strong> company, campaign,
+            <strong className="text-onyx">Organizational information:</strong> company, campaign,
             PAC, or non-profit name; organization type; and role within the organization.
           </li>
           <li className="list-disc">
-            <strong className="text-white">Project and engagement details:</strong> project scope,
+            <strong className="text-onyx">Project and engagement details:</strong> project scope,
             service interests (political strategy, creative marketing, print production,
             web/automation infrastructure), budget ranges, timelines, and any other information you
             choose to share regarding your objectives.
           </li>
           <li className="list-disc">
-            <strong className="text-white">Correspondence:</strong> the content of emails, messages,
+            <strong className="text-onyx">Correspondence:</strong> the content of emails, messages,
             and other communications you send us, including any attachments.
           </li>
         </ul>
 
-        <h3 className="mt-4 text-base font-semibold text-white">
+        <h3 className="mt-4 text-base font-semibold text-onyx">
           1.2 Information Collected Automatically
         </h3>
         <p>
@@ -84,17 +84,17 @@ export default function PrivacyPage() {
         </p>
         <ul className="flex flex-col gap-2 pl-5">
           <li className="list-disc">
-            <strong className="text-white">Device and usage data:</strong> IP address, browser type
+            <strong className="text-onyx">Device and usage data:</strong> IP address, browser type
             and version, operating system, referring/exit pages, pages viewed, time and date of
             visit, and time spent on pages.
           </li>
           <li className="list-disc">
-            <strong className="text-white">Cookies and similar technologies:</strong> small data
+            <strong className="text-onyx">Cookies and similar technologies:</strong> small data
             files stored on your device to support Site functionality, remember preferences, and
             analyze traffic patterns.
           </li>
           <li className="list-disc">
-            <strong className="text-white">Analytics and hosting telemetry:</strong> aggregated and
+            <strong className="text-onyx">Analytics and hosting telemetry:</strong> aggregated and
             individual usage analytics collected through our hosting and analytics infrastructure
             (Vercel for hosting, and Google Analytics 4 for traffic analytics), which may include
             page load performance, geographic region (derived from IP address), and traffic source
@@ -139,7 +139,7 @@ export default function PrivacyPage() {
             rights, property, and safety of Magnolia Grove, our Clients, and others.
           </li>
         </ul>
-        <p className="font-semibold text-white">
+        <p className="font-semibold text-onyx">
           We do not use information submitted through our forms to build political profiles, engage
           in political targeting of individuals, or share it with third parties for their own
           political messaging purposes.
@@ -147,7 +147,7 @@ export default function PrivacyPage() {
       </LegalSection>
 
       <LegalSection id="data-sharing" index="03" title="Data Sharing & Third Parties">
-        <p className="font-semibold text-white">
+        <p className="font-semibold text-onyx">
           We do not sell client data. Magnolia Grove does not sell, rent, or trade personal
           information collected through the Site to third parties for their own marketing or
           commercial purposes.
@@ -158,38 +158,38 @@ export default function PrivacyPage() {
         </p>
         <ul className="flex flex-col gap-2 pl-5">
           <li className="list-disc">
-            <strong className="text-white">Hosting and infrastructure providers</strong> (Vercel),
+            <strong className="text-onyx">Hosting and infrastructure providers</strong> (Vercel),
             which host the Site, process web traffic, and provide performance/analytics telemetry.
           </li>
           <li className="list-disc">
-            <strong className="text-white">Transactional email delivery</strong> (Resend), used to
+            <strong className="text-onyx">Transactional email delivery</strong> (Resend), used to
             deliver contact and booking form notifications and confirmations.
           </li>
           <li className="list-disc">
-            <strong className="text-white">Bot detection and spam prevention</strong> (Cloudflare
+            <strong className="text-onyx">Bot detection and spam prevention</strong> (Cloudflare
             Turnstile), used to protect our forms from automated abuse.
           </li>
           <li className="list-disc">
-            <strong className="text-white">Email and productivity/communication tools</strong>{" "}
-            (e.g., Google Workspace), which we use to send and receive correspondence, manage
-            calendars, and store project-related documentation.
+            <strong className="text-onyx">Email and productivity/communication tools</strong> (e.g.,
+            Google Workspace), which we use to send and receive correspondence, manage calendars,
+            and store project-related documentation.
           </li>
           <li className="list-disc">
-            <strong className="text-white">
+            <strong className="text-onyx">
               Scheduling, project management, and payment processing tools
             </strong>{" "}
             (including Square for invoice payments) used to coordinate strategy sessions and
             administer client engagements.
           </li>
           <li className="list-disc">
-            <strong className="text-white">Professional advisors</strong>, including legal,
+            <strong className="text-onyx">Professional advisors</strong>, including legal,
             accounting, and compliance consultants, where necessary to operate our business or
             comply with applicable law.
           </li>
           <li className="list-disc">
-            <strong className="text-white">Successors in interest</strong>, in the event of a
-            merger, acquisition, financing, or sale of all or a portion of our business assets,
-            subject to standard confidentiality protections.
+            <strong className="text-onyx">Successors in interest</strong>, in the event of a merger,
+            acquisition, financing, or sale of all or a portion of our business assets, subject to
+            standard confidentiality protections.
           </li>
         </ul>
         <p>
@@ -213,19 +213,19 @@ export default function PrivacyPage() {
         </p>
         <ul className="flex flex-col gap-2 pl-5">
           <li className="list-disc">
-            <strong className="text-white">Administrative safeguards:</strong> internal access
+            <strong className="text-onyx">Administrative safeguards:</strong> internal access
             controls limiting data access to personnel who need it to perform their job functions,
             confidentiality obligations for staff and contractors, and periodic review of
             data-handling practices.
           </li>
           <li className="list-disc">
-            <strong className="text-white">Technical safeguards:</strong> encrypted data
-            transmission (HTTPS/TLS), secure hosting infrastructure, access-controlled email and
-            file storage systems, and routine monitoring for suspicious activity.
+            <strong className="text-onyx">Technical safeguards:</strong> encrypted data transmission
+            (HTTPS/TLS), secure hosting infrastructure, access-controlled email and file storage
+            systems, and routine monitoring for suspicious activity.
           </li>
           <li className="list-disc">
-            <strong className="text-white">Physical safeguards:</strong> restricted access to
-            devices and systems used to store or process client information.
+            <strong className="text-onyx">Physical safeguards:</strong> restricted access to devices
+            and systems used to store or process client information.
           </li>
         </ul>
         <p>
@@ -236,7 +236,7 @@ export default function PrivacyPage() {
       </LegalSection>
 
       <LegalSection id="user-rights" index="05" title="User Rights & Choices">
-        <h3 className="text-base font-semibold text-white">5.1 Marketing Communications</h3>
+        <h3 className="text-base font-semibold text-onyx">5.1 Marketing Communications</h3>
         <p>
           If you receive marketing or promotional communications from us, you may opt out at any
           time by:
@@ -255,7 +255,7 @@ export default function PrivacyPage() {
           project updates, invoices, or scheduling confirmations).
         </p>
 
-        <h3 className="mt-4 text-base font-semibold text-white">
+        <h3 className="mt-4 text-base font-semibold text-onyx">
           5.2 Access, Correction, and Deletion Requests
         </h3>
         <p>You may request to:</p>
@@ -273,14 +273,14 @@ export default function PrivacyPage() {
           respond to verified requests within a reasonable timeframe consistent with applicable law.
         </p>
 
-        <h3 className="mt-4 text-base font-semibold text-white">5.3 Cookie Choices</h3>
+        <h3 className="mt-4 text-base font-semibold text-onyx">5.3 Cookie Choices</h3>
         <p>
           Most browsers allow you to control cookies through their settings, including blocking or
           deleting cookies. Please note that disabling cookies may affect the functionality of
           certain features on the Site.
         </p>
 
-        <h3 className="mt-4 text-base font-semibold text-white">5.4 Do Not Track</h3>
+        <h3 className="mt-4 text-base font-semibold text-onyx">5.4 Do Not Track</h3>
         <p>The Site does not currently respond to &quot;Do Not Track&quot; browser signals.</p>
       </LegalSection>
 
@@ -309,17 +309,17 @@ export default function PrivacyPage() {
           practices, please contact us at:
         </p>
         <p>
-          <strong className="text-white">Magnolia Grove Consultants</strong>
+          <strong className="text-onyx">Magnolia Grove Consultants</strong>
           <br />
           Email:{" "}
-          <a href="mailto:ben@magnoliagrovega.com" className="text-gold-bright hover:text-white">
+          <a href="mailto:ben@magnoliagrovega.com" className="text-gold-dark hover:text-onyx">
             ben@magnoliagrovega.com
           </a>
           <br />
           Website:{" "}
           <a
             href="https://magnoliagrovega.com"
-            className="text-gold-bright hover:text-white"
+            className="text-gold-dark hover:text-onyx"
             target="_blank"
             rel="noopener noreferrer"
           >

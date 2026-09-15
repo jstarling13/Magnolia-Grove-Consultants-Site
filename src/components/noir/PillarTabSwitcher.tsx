@@ -26,11 +26,11 @@ export default function PillarTabSwitcher() {
   const Icon = activePillar.icon;
 
   return (
-    <section className="bg-onyx px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
+    <section className="bg-cream px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
       <div className="mx-auto max-w-8xl">
         <span className="eyebrow">Compare Mode</span>
         <h2 className="mt-3 text-3xl sm:text-4xl">Deep-Dive Process Methodology</h2>
-        <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-onyx/60">
           Toggle between pillars to compare execution steps side by side, without leaving the page.
         </p>
 
@@ -45,7 +45,7 @@ export default function PillarTabSwitcher() {
               onClick={() => setActiveIndex(index)}
               aria-pressed={index === activeIndex}
               className={`px-5 py-3 text-sm font-semibold uppercase tracking-wide transition-colors ${
-                index === activeIndex ? "text-gold-bright" : "text-muted hover:text-white"
+                index === activeIndex ? "text-gold-dark" : "text-onyx/60 hover:text-onyx"
               }`}
             >
               {pillar.navLabel}
@@ -61,15 +61,15 @@ export default function PillarTabSwitcher() {
           key={activePillar.slug}
           className="animate-tab-fade mt-10 grid grid-cols-1 gap-8 lg:grid-cols-[auto_1fr] lg:gap-10"
         >
-          <div className="flex h-16 w-16 items-center justify-center rounded-md border border-gold/40 bg-gold/10 text-gold-bright">
+          <div className="flex h-16 w-16 items-center justify-center rounded-md border border-gold/40 bg-gold/10 text-gold-dark">
             <Icon size={28} strokeWidth={1.75} />
           </div>
 
           <div>
-            <h3 className="font-heading text-2xl font-semibold text-white sm:text-3xl">
+            <h3 className="font-heading text-2xl font-semibold text-onyx sm:text-3xl">
               {activePillar.heroTitle}
             </h3>
-            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-onyx/60 sm:text-base">
               {activePillar.heroSubheadline}
             </p>
 
@@ -77,9 +77,9 @@ export default function PillarTabSwitcher() {
               {activePillar.cards.map((card) => (
                 <li
                   key={card.index}
-                  className="flex items-start gap-3 rounded-md border border-gold/15 bg-onyx-100/60 p-4 text-sm text-muted-light"
+                  className="flex items-start gap-3 rounded-md border border-gold/15 bg-cream-100/60 p-4 text-sm text-onyx/80"
                 >
-                  <span className="font-heading text-xs font-bold text-gold-bright">
+                  <span className="font-heading text-xs font-bold text-gold-dark">
                     {card.index}
                   </span>
                   <span>{card.title}</span>
@@ -89,7 +89,7 @@ export default function PillarTabSwitcher() {
 
             <Link
               href={`/pillars/${activePillar.slug}`}
-              className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-gold-bright transition-colors hover:text-white"
+              className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-gold-dark transition-colors hover:text-onyx"
             >
               {activePillar.ctaLabel}
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />

@@ -8,7 +8,7 @@ export default function PillarsLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex min-h-screen flex-col bg-onyx font-sans text-muted-light">
+    <div className="flex min-h-screen flex-col bg-cream font-sans text-onyx/80">
       <Header />
       <main className="flex-1">{children}</main>
       <Footer />

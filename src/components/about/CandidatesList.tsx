@@ -5,7 +5,7 @@ export default function CandidatesList() {
   const { clients } = candidatesSection;
 
   return (
-    <section className="border-t border-gold/15 bg-onyx-100 px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
+    <section className="border-t border-gold/15 bg-cream-100 px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
       <div className="mx-auto max-w-4xl text-center">
         <Reveal>
           <span className="eyebrow">{candidatesSection.eyebrow}</span>
@@ -16,14 +16,14 @@ export default function CandidatesList() {
               {clients.map((client) => (
                 <span
                   key={client}
-                  className="text-sm font-semibold uppercase tracking-[0.14em] text-muted-light"
+                  className="text-sm font-semibold uppercase tracking-[0.14em] text-onyx/80"
                 >
                   {client}
                 </span>
               ))}
             </div>
           ) : (
-            <p className="mx-auto mt-6 max-w-lg rounded-lg border border-dashed border-gold/25 px-6 py-5 text-sm leading-relaxed text-muted">
+            <p className="mx-auto mt-6 max-w-lg rounded-lg border border-dashed border-gold/25 px-6 py-5 text-sm leading-relaxed text-onyx/60">
               {candidatesSection.note}
             </p>
           )}

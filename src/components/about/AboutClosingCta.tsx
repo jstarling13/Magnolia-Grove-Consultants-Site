@@ -7,7 +7,7 @@ export default function AboutClosingCta() {
   return (
     <section className="border-t border-gold/15 bg-onyx px-6 py-20 text-center sm:px-8 lg:px-12 lg:py-28">
       <Reveal className="mx-auto max-w-2xl">
-        <h2 className="text-3xl sm:text-4xl">{aboutClosingCta.headline}</h2>
+        <h2 className="text-3xl text-white sm:text-4xl">{aboutClosingCta.headline}</h2>
         <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
           {aboutClosingCta.subtext}
         </p>

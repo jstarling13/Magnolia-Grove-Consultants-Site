@@ -2,8 +2,8 @@
 
 import { useMemo, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { LogOut, ChevronDown } from "lucide-react";
-import { markSubmissionRead } from "@/app/admin/actions";
+import { LogOut, ChevronDown, Plus, Trash2, CheckCircle2, Clock, Loader2 } from "lucide-react";
+import { markSubmissionRead, addDeliverable, deleteDeliverable } from "@/app/admin/actions";
 
 export interface SubmissionRow {
   id: number;
@@ -11,6 +11,13 @@ export interface SubmissionRow {
   data: Record<string, unknown>;
   created_at: string;
   read_at: string | null;
+}
+
+export interface DeliverableDTO {
+  id: number;
+  label: string;
+  url: string;
+  notifiedAt: string | null;
 }
 
 const TYPE_LABELS: Record<SubmissionRow["type"], string> = {
@@ -47,12 +54,138 @@ function formatDate(iso: string): string {
   });
 }
 
+function DeliverablesPanel({
+  submissionId,
+  submissionType,
+  deliverables,
+  onChanged,
+}: {
+  submissionId: number;
+  submissionType: SubmissionRow["type"];
+  deliverables: DeliverableDTO[];
+  onChanged: () => void;
+}) {
+  const [label, setLabel] = useState("");
+  const [url, setUrl] = useState("");
+  const [error, setError] = useState("");
+  const [isPending, startTransition] = useTransition();
+
+  function handleAdd() {
+    setError("");
+    startTransition(async () => {
+      const result = await addDeliverable(submissionId, submissionType, label, url);
+      if (!result.ok) {
+        setError(result.error);
+        return;
+      }
+      setLabel("");
+      setUrl("");
+      onChanged();
+    });
+  }
+
+  function handleDelete(id: number) {
+    startTransition(async () => {
+      await deleteDeliverable(id);
+      onChanged();
+    });
+  }
+
+  return (
+    <div className="mt-4 border-t border-gold/15 pt-4">
+      <span className="text-xs font-semibold uppercase tracking-wide text-gold-dark">
+        Deliverables
+      </span>
+
+      {deliverables.length === 0 && (
+        <p className="mt-2 text-xs text-onyx/60">
+          Nothing attached yet — add a link below (a shared Drive link, hosted file, etc.). The
+          client is emailed automatically once it&apos;s attached and the invoice is paid.
+        </p>
+      )}
+
+      {deliverables.length > 0 && (
+        <div className="mt-2 space-y-2">
+          {deliverables.map((d) => (
+            <div
+              key={d.id}
+              className="flex items-center justify-between gap-3 rounded-md border border-gold/15 bg-cream px-3 py-2"
+            >
+              <a
+                href={d.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="truncate text-sm text-gold-dark hover:underline"
+              >
+                {d.label}
+              </a>
+              <div className="flex shrink-0 items-center gap-2">
+                {d.notifiedAt ? (
+                  <span
+                    className="inline-flex items-center gap-1 text-xs text-green-400"
+                    title={`Client notified ${formatDate(d.notifiedAt)}`}
+                  >
+                    <CheckCircle2 size={12} /> Notified
+                  </span>
+                ) : (
+                  <span
+                    className="inline-flex items-center gap-1 text-xs text-gold-dark"
+                    title="Client will be emailed automatically once the invoice is marked paid"
+                  >
+                    <Clock size={12} /> Staged
+                  </span>
+                )}
+                <button
+                  onClick={() => handleDelete(d.id)}
+                  disabled={isPending}
+                  className="text-onyx/60 transition-colors hover:text-red-400"
+                  aria-label="Remove deliverable"
+                >
+                  <Trash2 size={14} />
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      <div className="mt-3 flex flex-col gap-2 sm:flex-row">
+        <input
+          type="text"
+          value={label}
+          onChange={(e) => setLabel(e.target.value)}
+          placeholder="Label (e.g. Final Website Files)"
+          className="flex-1 rounded-md border border-gold/25 bg-cream px-3 py-2 text-sm text-onyx placeholder:text-onyx/50 focus:outline-none focus:ring-2 focus:ring-gold/60"
+        />
+        <input
+          type="url"
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
+          placeholder="https://drive.google.com/…"
+          className="flex-1 rounded-md border border-gold/25 bg-cream px-3 py-2 text-sm text-onyx placeholder:text-onyx/50 focus:outline-none focus:ring-2 focus:ring-gold/60"
+        />
+        <button
+          onClick={handleAdd}
+          disabled={isPending || !label.trim() || !url.trim()}
+          className="inline-flex items-center justify-center gap-1.5 rounded-md bg-gold px-4 py-2 text-xs font-semibold text-onyx transition-colors hover:bg-gold-bright disabled:cursor-not-allowed disabled:opacity-60"
+        >
+          {isPending ? <Loader2 size={14} className="animate-spin" /> : <Plus size={14} />}
+          Add
+        </button>
+      </div>
+      {error && <p className="mt-1.5 text-xs text-red-400">{error}</p>}
+    </div>
+  );
+}
+
 export default function Dashboard({
   submissions,
   username,
+  deliverablesBySubmission,
 }: {
   submissions: SubmissionRow[];
   username: string;
+  deliverablesBySubmission: Record<number, DeliverableDTO[]>;
 }) {
   const router = useRouter();
   const [filter, setFilter] = useState<"all" | SubmissionRow["type"]>("all");
@@ -93,14 +226,14 @@ export default function Dashboard({
     <div className="mx-auto max-w-5xl px-6 py-10 sm:px-8">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-semibold text-white">Admin Dashboard</h1>
-          <p className="mt-1 text-sm text-muted">Magnolia Grove Consultants</p>
+          <h1 className="text-2xl font-semibold text-onyx">Admin Dashboard</h1>
+          <p className="mt-1 text-sm text-onyx/60">Magnolia Grove Consultants</p>
         </div>
         <div className="flex items-center gap-4">
-          {username && <span className="text-sm text-muted-light">Logged in as {username}</span>}
+          {username && <span className="text-sm text-onyx/80">Logged in as {username}</span>}
           <button
             onClick={handleLogout}
-            className="inline-flex items-center gap-2 rounded-md border border-gold/25 px-4 py-2 text-sm text-muted-light transition-colors hover:border-gold/50 hover:text-white"
+            className="inline-flex items-center gap-2 rounded-md border border-gold/25 px-4 py-2 text-sm text-onyx/80 transition-colors hover:border-gold/50 hover:text-onyx"
           >
             <LogOut size={16} />
             Log Out
@@ -115,9 +248,9 @@ export default function Dashboard({
           { label: "This Week", value: stats.thisWeek },
           { label: "This Month", value: stats.thisMonth },
         ].map((stat) => (
-          <div key={stat.label} className="rounded-lg border border-gold/25 bg-onyx-100 p-4">
-            <div className="text-2xl font-semibold text-gold-bright">{stat.value}</div>
-            <div className="mt-1 text-xs uppercase tracking-wide text-muted">{stat.label}</div>
+          <div key={stat.label} className="rounded-lg border border-gold/25 bg-cream-100 p-4">
+            <div className="text-2xl font-semibold text-gold-dark">{stat.value}</div>
+            <div className="mt-1 text-xs uppercase tracking-wide text-onyx/60">{stat.label}</div>
           </div>
         ))}
       </div>
@@ -130,7 +263,7 @@ export default function Dashboard({
             className={`rounded-full border px-4 py-1.5 text-xs font-medium transition-colors ${
               filter === type
                 ? "border-gold bg-gold text-onyx"
-                : "border-gold/25 text-muted-light hover:border-gold/50"
+                : "border-gold/25 text-onyx/80 hover:border-gold/50"
             }`}
           >
             {type === "all" ? "All" : TYPE_LABELS[type]}
@@ -140,7 +273,7 @@ export default function Dashboard({
 
       <div className="mt-6 space-y-3">
         {filtered.length === 0 && (
-          <p className="rounded-lg border border-gold/15 bg-onyx-100 p-8 text-center text-sm text-muted">
+          <p className="rounded-lg border border-gold/15 bg-cream-100 p-8 text-center text-sm text-onyx/60">
             No submissions yet.
           </p>
         )}
@@ -152,7 +285,7 @@ export default function Dashboard({
           return (
             <div
               key={row.id}
-              className={`rounded-lg border bg-onyx-100 transition-colors ${
+              className={`rounded-lg border bg-cream-100 transition-colors ${
                 isUnread ? "border-gold/50" : "border-gold/15"
               }`}
             >
@@ -168,13 +301,13 @@ export default function Dashboard({
                         aria-label="Unread"
                       />
                     )}
-                    <span className="text-xs font-semibold uppercase tracking-wide text-gold-bright">
+                    <span className="text-xs font-semibold uppercase tracking-wide text-gold-dark">
                       {TYPE_LABELS[row.type]}
                     </span>
                   </div>
-                  <p className="mt-1 truncate text-sm text-white">{summarize(row)}</p>
+                  <p className="mt-1 truncate text-sm text-onyx">{summarize(row)}</p>
                 </div>
-                <div className="flex shrink-0 items-center gap-3 text-xs text-muted">
+                <div className="flex shrink-0 items-center gap-3 text-xs text-onyx/60">
                   {formatDate(row.created_at)}
                   <ChevronDown
                     size={16}
@@ -190,22 +323,29 @@ export default function Dashboard({
                       .filter(([key]) => !HIDDEN_FIELDS.has(key))
                       .map(([key, value]) => (
                         <div key={key}>
-                          <dt className="text-xs uppercase tracking-wide text-muted">
+                          <dt className="text-xs uppercase tracking-wide text-onyx/60">
                             {fieldLabel(key)}
                           </dt>
-                          <dd className="mt-0.5 whitespace-pre-wrap text-sm text-white">
+                          <dd className="mt-0.5 whitespace-pre-wrap text-sm text-onyx">
                             {String(value)}
                           </dd>
                         </div>
                       ))}
                   </dl>
+
+                  <DeliverablesPanel
+                    submissionId={row.id}
+                    submissionType={row.type}
+                    deliverables={deliverablesBySubmission[row.id] ?? []}
+                    onChanged={() => router.refresh()}
+                  />
                 </div>
               )}
             </div>
           );
         })}
       </div>
-      {isPending && <p className="mt-4 text-xs text-muted">Updating…</p>}
+      {isPending && <p className="mt-4 text-xs text-onyx/60">Updating…</p>}
     </div>
   );
 }

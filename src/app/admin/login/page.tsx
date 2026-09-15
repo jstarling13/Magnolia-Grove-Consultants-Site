@@ -42,15 +42,15 @@ export default function AdminLoginPage() {
     <div className="flex min-h-screen items-center justify-center px-6">
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-sm rounded-lg border border-gold/25 bg-onyx-100 p-8"
+        className="w-full max-w-sm rounded-lg border border-gold/25 bg-cream-100 p-8 shadow-card"
       >
-        <div className="flex h-12 w-12 items-center justify-center rounded-full border border-gold/40 bg-gold/10 text-gold-bright">
+        <div className="flex h-12 w-12 items-center justify-center rounded-full border border-gold/40 bg-gold/10 text-gold-dark">
           <Lock size={20} />
         </div>
-        <h1 className="mt-6 text-xl font-semibold text-white">Admin Login</h1>
-        <p className="mt-2 text-sm text-muted">Magnolia Grove Consultants</p>
+        <h1 className="mt-6 text-xl font-semibold text-onyx">Admin Login</h1>
+        <p className="mt-2 text-sm text-onyx/60">Magnolia Grove Consultants</p>
 
-        <label htmlFor="username" className="mt-6 block text-sm font-medium text-muted-light">
+        <label htmlFor="username" className="mt-6 block text-sm font-medium text-onyx/80">
           Username
         </label>
         <input
@@ -60,10 +60,10 @@ export default function AdminLoginPage() {
           autoFocus
           value={username}
           onChange={(event) => setUsername(event.target.value)}
-          className="mt-2 w-full rounded-md border border-gold/25 bg-onyx px-4 py-3 text-sm text-white placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-gold/60"
+          className="mt-2 w-full rounded-md border border-gold/25 bg-cream px-4 py-3 text-sm text-onyx placeholder:text-onyx/50 focus:outline-none focus:ring-2 focus:ring-gold/60"
         />
 
-        <label htmlFor="password" className="mt-4 block text-sm font-medium text-muted-light">
+        <label htmlFor="password" className="mt-4 block text-sm font-medium text-onyx/80">
           Password
         </label>
         <input
@@ -72,7 +72,7 @@ export default function AdminLoginPage() {
           autoComplete="current-password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
-          className="mt-2 w-full rounded-md border border-gold/25 bg-onyx px-4 py-3 text-sm text-white placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-gold/60"
+          className="mt-2 w-full rounded-md border border-gold/25 bg-cream px-4 py-3 text-sm text-onyx placeholder:text-onyx/50 focus:outline-none focus:ring-2 focus:ring-gold/60"
         />
 
         {error && (

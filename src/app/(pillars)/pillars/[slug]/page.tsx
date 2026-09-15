@@ -67,19 +67,19 @@ export default async function PillarPage({ params }: PillarPageProps) {
 
       <CrossSellCallout items={pillar.crossSell} />
 
-      <section className="border-t border-gold/15 bg-onyx px-6 py-16 sm:px-8 lg:px-12">
+      <section className="border-t border-gold/15 bg-cream px-6 py-16 sm:px-8 lg:px-12">
         <div className="mx-auto flex max-w-8xl flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
           <div>
-            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
+            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-onyx/60">
               Next Pillar
             </span>
-            <h3 className="mt-2 font-heading text-2xl font-semibold text-white">
+            <h3 className="mt-2 font-heading text-2xl font-semibold text-onyx">
               {nextPillar.heroTitle}
             </h3>
           </div>
           <Link
             href={`/pillars/${nextPillar.slug}`}
-            className="group inline-flex items-center gap-2 rounded-md border border-gold/40 px-6 py-3 text-xs font-semibold uppercase tracking-wider text-gold-bright transition-all hover:bg-gold hover:text-onyx"
+            className="group inline-flex items-center gap-2 rounded-md border border-gold/40 px-6 py-3 text-xs font-semibold uppercase tracking-wider text-gold-dark transition-all hover:bg-gold hover:text-onyx"
           >
             Continue
             <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />

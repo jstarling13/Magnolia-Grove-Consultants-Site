@@ -38,19 +38,19 @@ export default async function ThankYouPage({ searchParams }: ThankYouPageProps) 
     source === "lead" || source === "strategy" ? copyBySource[source] : copyBySource.default;
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-onyx px-6 py-24 text-center">
-      <CheckCircle2 size={48} strokeWidth={1.5} className="text-gold-bright" />
+    <main className="flex min-h-screen flex-col items-center justify-center bg-cream px-6 py-24 text-center">
+      <CheckCircle2 size={48} strokeWidth={1.5} className="text-gold-dark" />
       <span className="eyebrow mt-6">{copy.eyebrow}</span>
-      <h1 className="mt-4 max-w-2xl text-4xl font-semibold text-white sm:text-5xl">
+      <h1 className="mt-4 max-w-2xl text-4xl font-semibold text-onyx sm:text-5xl">
         {copy.headline}
       </h1>
-      <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-light sm:text-base">
+      <p className="mt-4 max-w-md text-sm leading-relaxed text-onyx/80 sm:text-base">
         {copy.message}
       </p>
 
-      <div className="mt-8 flex max-w-md items-start gap-3 rounded-lg border border-gold/20 bg-onyx-200 px-5 py-4 text-left">
-        <CalendarClock size={18} className="mt-0.5 shrink-0 text-gold-bright" />
-        <p className="text-xs leading-relaxed text-muted">
+      <div className="mt-8 flex max-w-md items-start gap-3 rounded-lg border border-gold/20 bg-cream-200 px-5 py-4 text-left shadow-card">
+        <CalendarClock size={18} className="mt-0.5 shrink-0 text-gold-dark" />
+        <p className="text-xs leading-relaxed text-onyx/60">
           A calendar invite with your advisory call details will arrive in your inbox shortly.
         </p>
       </div>
@@ -67,7 +67,7 @@ export default async function ThankYouPage({ searchParams }: ThankYouPageProps) 
         </Link>
         <Link
           href="/"
-          className="inline-flex items-center justify-center gap-2 rounded-full border border-gold/40 px-8 py-3 text-sm font-semibold uppercase tracking-wide text-gold-bright transition hover:bg-gold hover:text-onyx"
+          className="inline-flex items-center justify-center gap-2 rounded-full border border-gold/40 px-8 py-3 text-sm font-semibold uppercase tracking-wide text-gold-dark transition hover:bg-gold hover:text-onyx"
         >
           Return to War Room
         </Link>

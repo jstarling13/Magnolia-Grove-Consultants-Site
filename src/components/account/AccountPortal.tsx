@@ -3,9 +3,15 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { LogOut, ChevronDown, ArrowRight, CheckCircle2, Clock } from "lucide-react";
+import { LogOut, ChevronDown, ArrowRight, CheckCircle2, Clock, FileDown } from "lucide-react";
 import type { ClientProfile } from "@/lib/clientUsers";
 import type { PaymentStatus } from "@/lib/square";
+
+export interface ClientDeliverable {
+  id: number;
+  label: string;
+  url: string;
+}
 
 export interface ClientSubmissionRow {
   id: number;
@@ -13,6 +19,7 @@ export interface ClientSubmissionRow {
   data: Record<string, unknown>;
   created_at: string;
   paymentStatus: PaymentStatus | null;
+  deliverables: ClientDeliverable[];
 }
 
 interface UpsellPillar {
@@ -53,7 +60,7 @@ function StatusBadge({ status }: { status: PaymentStatus | null }) {
   }
   if (status === "pending") {
     return (
-      <span className="inline-flex items-center gap-1 rounded-full border border-gold/40 bg-gold/10 px-3 py-1 text-xs font-medium text-gold-bright">
+      <span className="inline-flex items-center gap-1 rounded-full border border-gold/40 bg-gold/10 px-3 py-1 text-xs font-medium text-gold-dark">
         <Clock size={12} /> Pending
       </span>
     );
@@ -83,14 +90,14 @@ export default function AccountPortal({
     <div className="mx-auto max-w-4xl px-6 py-16 sm:px-8">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-semibold text-white sm:text-3xl">
+          <h1 className="text-2xl font-semibold text-onyx sm:text-3xl">
             Welcome back{profile?.firstName ? `, ${profile.firstName}` : ""}
           </h1>
-          <p className="mt-1 text-sm text-muted">{profile?.email}</p>
+          <p className="mt-1 text-sm text-onyx/60">{profile?.email}</p>
         </div>
         <button
           onClick={handleLogout}
-          className="inline-flex items-center gap-2 rounded-md border border-gold/25 px-4 py-2 text-sm text-muted-light transition-colors hover:border-gold/50 hover:text-white"
+          className="inline-flex items-center gap-2 rounded-md border border-gold/25 px-4 py-2 text-sm text-onyx/80 transition-colors hover:border-gold/50 hover:text-onyx"
         >
           <LogOut size={16} />
           Log Out
@@ -98,13 +105,13 @@ export default function AccountPortal({
       </div>
 
       <section className="mt-10">
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-gold-bright">
+        <h2 className="text-sm font-semibold uppercase tracking-wide text-gold-dark">
           Your Activity
         </h2>
 
         <div className="mt-4 space-y-3">
           {submissions.length === 0 && (
-            <p className="rounded-lg border border-gold/15 bg-onyx-100 p-8 text-center text-sm text-muted">
+            <p className="rounded-lg border border-gold/15 bg-cream-100 p-8 text-center text-sm text-onyx/60">
               No requests yet — submit a form and it&apos;ll show up here.
             </p>
           )}
@@ -112,18 +119,24 @@ export default function AccountPortal({
           {submissions.map((row) => {
             const isExpanded = expandedId === row.id;
             return (
-              <div key={row.id} className="rounded-lg border border-gold/15 bg-onyx-100">
+              <div key={row.id} className="rounded-lg border border-gold/15 bg-cream-100">
                 <button
                   onClick={() => setExpandedId(isExpanded ? null : row.id)}
                   className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
                 >
                   <div className="min-w-0 flex-1">
-                    <span className="text-xs font-semibold uppercase tracking-wide text-gold-bright">
+                    <span className="text-xs font-semibold uppercase tracking-wide text-gold-dark">
                       {TYPE_LABELS[row.type]}
                     </span>
-                    <p className="mt-1 truncate text-sm text-white">{summarize(row)}</p>
+                    <p className="mt-1 truncate text-sm text-onyx">{summarize(row)}</p>
                   </div>
-                  <div className="flex shrink-0 items-center gap-3 text-xs text-muted">
+                  <div className="flex shrink-0 items-center gap-3 text-xs text-onyx/60">
+                    {row.deliverables.length > 0 && (
+                      <span className="inline-flex items-center gap-1 rounded-full border border-gold/40 bg-gold/10 px-3 py-1 text-xs font-medium text-gold-dark">
+                        <FileDown size={12} /> {row.deliverables.length} File
+                        {row.deliverables.length === 1 ? "" : "s"}
+                      </span>
+                    )}
                     <StatusBadge status={row.paymentStatus} />
                     {formatDate(row.created_at)}
                     <ChevronDown
@@ -135,6 +148,28 @@ export default function AccountPortal({
 
                 {isExpanded && (
                   <div className="border-t border-gold/15 px-5 py-4">
+                    {row.deliverables.length > 0 && (
+                      <div className="mb-5">
+                        <span className="text-xs font-semibold uppercase tracking-wide text-gold-dark">
+                          Your Files
+                        </span>
+                        <div className="mt-2 space-y-2">
+                          {row.deliverables.map((d) => (
+                            <a
+                              key={d.id}
+                              href={d.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center justify-between gap-3 rounded-md border border-gold/25 bg-cream px-4 py-3 text-sm text-onyx transition-colors hover:border-gold/50"
+                            >
+                              <span className="truncate">{d.label}</span>
+                              <FileDown size={16} className="shrink-0 text-gold-dark" />
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
                     <dl className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                       {Object.entries(row.data)
                         .filter(
@@ -149,8 +184,8 @@ export default function AccountPortal({
                         )
                         .map(([key, value]) => (
                           <div key={key}>
-                            <dt className="text-xs uppercase tracking-wide text-muted">{key}</dt>
-                            <dd className="mt-0.5 whitespace-pre-wrap text-sm text-white">
+                            <dt className="text-xs uppercase tracking-wide text-onyx/60">{key}</dt>
+                            <dd className="mt-0.5 whitespace-pre-wrap text-sm text-onyx">
                               {String(value)}
                             </dd>
                           </div>
@@ -166,10 +201,10 @@ export default function AccountPortal({
 
       {unusedPillars.length > 0 && (
         <section className="mt-12">
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-gold-bright">
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-gold-dark">
             More Ways We Can Help
           </h2>
-          <p className="mt-2 text-sm text-muted">
+          <p className="mt-2 text-sm text-onyx/60">
             You haven&apos;t worked with us yet on these — a lot of clients pair multiple services
             together for a bigger impact.
           </p>
@@ -179,12 +214,12 @@ export default function AccountPortal({
               <Link
                 key={pillar.slug}
                 href={`/booking?pillar=${pillar.slug}`}
-                className="group flex items-center justify-between rounded-lg border border-gold/25 bg-onyx-100 px-5 py-4 transition-colors hover:border-gold/50"
+                className="group flex items-center justify-between rounded-lg border border-gold/25 bg-cream-100 px-5 py-4 transition-colors hover:border-gold/50"
               >
-                <span className="text-sm font-medium text-white">{pillar.navLabel}</span>
+                <span className="text-sm font-medium text-onyx">{pillar.navLabel}</span>
                 <ArrowRight
                   size={16}
-                  className="text-gold-bright transition-transform group-hover:translate-x-1"
+                  className="text-gold-dark transition-transform group-hover:translate-x-1"
                 />
               </Link>
             ))}

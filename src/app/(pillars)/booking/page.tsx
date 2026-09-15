@@ -30,9 +30,9 @@ export default async function BookingPage({ searchParams }: BookingPageProps) {
 
       <BookingTimeline />
 
-      <section className="bg-onyx-100 px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
+      <section className="bg-cream-100 px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
         <div className="mx-auto max-w-3xl">
-          <p className="mb-10 text-left text-sm leading-relaxed text-muted">
+          <p className="mb-10 text-left text-sm leading-relaxed text-onyx/60">
             {bookingPage.formIntro}
           </p>
           <StrategySessionForm initialPillar={matchedPillar?.heroTitle} />

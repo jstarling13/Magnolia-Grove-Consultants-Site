@@ -6,7 +6,7 @@ export default function FinalCta() {
   return (
     <section className="border-t border-gold/15 bg-onyx-200 px-6 py-20 text-center sm:px-8 lg:px-12 lg:py-28">
       <Reveal className="mx-auto max-w-2xl">
-        <h2 className="text-3xl sm:text-4xl">Let&apos;s Talk About Your Race.</h2>
+        <h2 className="text-3xl text-white sm:text-4xl">Let&apos;s Talk About Your Race.</h2>
         <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
           Tell us where things stand. We&apos;ll tell you what it takes to win.
         </p>

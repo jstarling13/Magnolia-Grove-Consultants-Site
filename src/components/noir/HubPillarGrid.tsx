@@ -4,11 +4,11 @@ import { pillars } from "@/config/pillarsConfig";
 
 export default function HubPillarGrid() {
   return (
-    <section className="bg-onyx-100 px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
+    <section className="bg-cream-100 px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
       <div className="mx-auto max-w-8xl">
         <span className="eyebrow">Browse Mode</span>
         <h2 className="mt-3 text-3xl sm:text-4xl">At-a-Glance Capability Overview</h2>
-        <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-onyx/60">
           A quick survey of all four pillars — click through to any one for the full breakdown.
         </p>
 
@@ -19,20 +19,20 @@ export default function HubPillarGrid() {
               <Link
                 key={pillar.slug}
                 href={`/pillars/${pillar.slug}`}
-                className="group flex h-full flex-col rounded-lg border border-gold/25 bg-onyx/85 p-8 transition-all hover:border-gold/70 hover:bg-onyx"
+                className="group flex h-full flex-col rounded-lg border border-gold/25 bg-cream/85 p-8 shadow-card transition-all hover:border-gold/70 hover:bg-cream hover:shadow-card-hover"
               >
-                <div className="flex h-14 w-14 items-center justify-center rounded-md border border-gold/40 bg-gold/10 text-gold-bright transition-colors group-hover:bg-gold group-hover:text-onyx">
+                <div className="flex h-14 w-14 items-center justify-center rounded-md border border-gold/40 bg-gold/10 text-gold-dark transition-colors group-hover:bg-gold group-hover:text-onyx">
                   <Icon size={24} strokeWidth={1.75} />
                 </div>
 
-                <h3 className="mt-6 font-heading text-lg font-semibold leading-snug text-white">
+                <h3 className="mt-6 font-heading text-lg font-semibold leading-snug text-onyx">
                   {pillar.heroTitle}
                 </h3>
-                <p className="mt-3 flex-1 text-left text-sm leading-relaxed text-muted">
+                <p className="mt-3 flex-1 text-left text-sm leading-relaxed text-onyx/60">
                   {pillar.heroSubheadline}
                 </p>
 
-                <span className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-gold-bright">
+                <span className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-gold-dark">
                   {pillar.ctaLabel}
                   <ArrowRight
                     size={14}

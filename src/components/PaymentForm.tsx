@@ -50,7 +50,7 @@ function validate(fields: FormFields): Partial<Record<keyof FormFields, string>>
 }
 
 const inputClasses =
-  "w-full rounded-md border bg-onyx px-4 py-3 text-sm text-white placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-gold/60 transition-colors";
+  "w-full rounded-md border bg-cream px-4 py-3 text-sm text-onyx placeholder:text-onyx/50 focus:outline-none focus:ring-2 focus:ring-gold/60 transition-colors";
 
 const DEFAULT_ERROR_MESSAGE =
   "Something went wrong creating your payment link. Please try again or contact us directly.";
@@ -123,7 +123,7 @@ export default function PaymentForm() {
     <form
       noValidate
       onSubmit={handleSubmit}
-      className="relative rounded-lg border border-gold/25 bg-onyx/85 p-6 sm:p-10"
+      className="relative rounded-lg border border-gold/25 bg-cream/85 p-6 shadow-card sm:p-10"
     >
       {/* Honeypot — hidden from real users, catches naive bots */}
       <input
@@ -139,10 +139,7 @@ export default function PaymentForm() {
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         <div className="sm:col-span-2">
-          <label
-            htmlFor="organizationName"
-            className="mb-2 block text-sm font-medium text-muted-light"
-          >
+          <label htmlFor="organizationName" className="mb-2 block text-sm font-medium text-onyx/80">
             Organization / Company Name
           </label>
           <input
@@ -167,7 +164,7 @@ export default function PaymentForm() {
         </div>
 
         <div>
-          <label htmlFor="firstName" className="mb-2 block text-sm font-medium text-muted-light">
+          <label htmlFor="firstName" className="mb-2 block text-sm font-medium text-onyx/80">
             First Name
           </label>
           <input
@@ -190,7 +187,7 @@ export default function PaymentForm() {
         </div>
 
         <div>
-          <label htmlFor="lastName" className="mb-2 block text-sm font-medium text-muted-light">
+          <label htmlFor="lastName" className="mb-2 block text-sm font-medium text-onyx/80">
             Last Name
           </label>
           <input
@@ -213,7 +210,7 @@ export default function PaymentForm() {
         </div>
 
         <div className="sm:col-span-2">
-          <label htmlFor="email" className="mb-2 block text-sm font-medium text-muted-light">
+          <label htmlFor="email" className="mb-2 block text-sm font-medium text-onyx/80">
             Email
           </label>
           <input
@@ -236,7 +233,7 @@ export default function PaymentForm() {
         </div>
 
         <div>
-          <label htmlFor="amount" className="mb-2 block text-sm font-medium text-muted-light">
+          <label htmlFor="amount" className="mb-2 block text-sm font-medium text-onyx/80">
             Amount (USD)
           </label>
           <input
@@ -261,7 +258,7 @@ export default function PaymentForm() {
         </div>
 
         <div>
-          <label htmlFor="memo" className="mb-2 block text-sm font-medium text-muted-light">
+          <label htmlFor="memo" className="mb-2 block text-sm font-medium text-onyx/80">
             Memo / Invoice Reference
           </label>
           <input
@@ -307,8 +304,8 @@ export default function PaymentForm() {
         )}
       </button>
 
-      <p className="mt-4 flex items-center gap-2 text-xs leading-relaxed text-muted">
-        <ShieldCheck size={14} className="shrink-0 text-gold-bright" />
+      <p className="mt-4 flex items-center gap-2 text-xs leading-relaxed text-onyx/60">
+        <ShieldCheck size={14} className="shrink-0 text-gold-dark" />
         Payments are processed securely by Square. We never see or store your card details.
       </p>
     </form>

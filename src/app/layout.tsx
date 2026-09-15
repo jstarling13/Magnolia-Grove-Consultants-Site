@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Montserrat } from "next/font/google";
+import { Inter, Oswald } from "next/font/google";
 import { brand, contactDetails, socialLinks } from "@/config/siteConfig";
 import Analytics from "@/components/Analytics";
 import "./globals.css";
@@ -43,10 +43,10 @@ const inter = Inter({
   display: "swap",
 });
 
-const montserrat = Montserrat({
+const oswald = Oswald({
   subsets: ["latin"],
   variable: "--font-heading",
-  weight: ["600", "700", "800"],
+  weight: ["500", "600", "700"],
   display: "swap",
 });
 
@@ -69,8 +69,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0d0d0d",
-  colorScheme: "dark",
+  themeColor: "#faf8f2",
+  colorScheme: "light",
 };
 
 export default function RootLayout({
@@ -82,7 +82,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${inter.variable} ${montserrat.variable}`}
+      className={`${inter.variable} ${oswald.variable}`}
     >
       <body>
         <script

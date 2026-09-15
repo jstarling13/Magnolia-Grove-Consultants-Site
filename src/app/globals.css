@@ -8,14 +8,14 @@
   }
 
   body {
-    @apply bg-onyx text-muted-light antialiased;
+    @apply bg-cream text-onyx/80 antialiased;
   }
 
   h1,
   h2,
   h3,
   h4 {
-    @apply font-heading font-semibold tracking-tight text-white;
+    @apply font-heading font-bold tracking-tight text-onyx;
   }
 }
 
@@ -47,11 +47,72 @@
   animation: fadeUp 0.7s ease-out forwards;
 }
 
+.animate-in[data-variant="scale-up"].is-visible {
+  animation: scaleUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-in[data-variant="fade-left"].is-visible {
+  animation: fadeLeft 0.7s ease-out forwards;
+}
+
+.animate-in[data-variant="fade-right"].is-visible {
+  animation: fadeRight 0.7s ease-out forwards;
+}
+
 @keyframes fadeUp {
   from {
     opacity: 0;
     transform: translateY(18px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Hero headline — words fly in on load, staggered by --word-index. */
+.word-reveal .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.4em);
+  animation: wordUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--word-index, 0) * 70ms + 120ms);
+}
+
+@keyframes wordUp {
   to {
     opacity: 1;
     transform: translateY(0);

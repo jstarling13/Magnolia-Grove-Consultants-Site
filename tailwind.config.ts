@@ -27,8 +27,15 @@ const config: Config = {
           DEFAULT: "#26302c",
           light: "#4a5650",
         },
+        // Light system — the site's base surface. Mirrors the onyx tiers
+        // (DEFAULT = page bg, 100 = card/panel, 200 = deeper well) so the
+        // two systems can swap 1:1 in components that flip light/dark.
+        // Neutral off-whites, not cream/tan — depth comes from shadow and
+        // tonal steps, not warmth.
         cream: {
-          DEFAULT: "#f7f5f0",
+          DEFAULT: "#ffffff",
+          100: "#f6f5f3",
+          200: "#eae8e3",
           dark: "#eeece4",
         },
         accent: {
@@ -36,7 +43,9 @@ const config: Config = {
           light: "#e0c384",
           dark: "#a9832f",
         },
-        // Dark/gold system used by the 4 Pillars hub + sub-pages.
+        // Dark accent system — header, footer, hero bands, and closing CTAs.
+        // Also doubles as the site's ink color (text-onyx) for dark text on
+        // light/gold surfaces.
         onyx: {
           DEFAULT: "#000000",
           100: "#181818",
@@ -63,8 +72,8 @@ const config: Config = {
         ],
       },
       boxShadow: {
-        card: "0 4px 20px -4px rgba(27, 59, 43, 0.12)",
-        "card-hover": "0 12px 32px -8px rgba(27, 59, 43, 0.22)",
+        card: "0 1px 2px rgba(20, 17, 12, 0.04), 0 8px 24px -8px rgba(20, 17, 12, 0.12)",
+        "card-hover": "0 4px 8px rgba(20, 17, 12, 0.06), 0 16px 40px -10px rgba(20, 17, 12, 0.18)",
       },
       maxWidth: {
         "8xl": "90rem",

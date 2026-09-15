@@ -74,7 +74,7 @@ const STEPS: Step[] = [
 ];
 
 const inputClasses =
-  "w-full rounded-md border bg-onyx px-4 py-3 text-sm text-white placeholder:text-muted/60 focus:outline-none focus:ring-2 focus:ring-gold/60 transition-colors";
+  "w-full rounded-md border bg-cream px-4 py-3 text-sm text-onyx placeholder:text-onyx/60 focus:outline-none focus:ring-2 focus:ring-gold/60 transition-colors";
 
 function fieldError(errors: Partial<Record<FieldKey, string>>, key: FieldKey): string | undefined {
   return errors[key];
@@ -120,20 +120,20 @@ export default function StrategySessionForm({ initialPillar }: StrategySessionFo
 
   if (status === "success") {
     return (
-      <div className="flex flex-col items-center justify-center rounded-lg border border-gold/25 bg-onyx/85 px-8 py-16 text-center">
-        <div className="flex h-16 w-16 items-center justify-center rounded-full border border-gold/40 bg-gold/10 text-gold-bright">
+      <div className="flex flex-col items-center justify-center rounded-lg border border-gold/25 bg-cream/85 px-8 py-16 text-center">
+        <div className="flex h-16 w-16 items-center justify-center rounded-full border border-gold/40 bg-gold/10 text-gold-dark">
           <CheckCircle2 size={32} />
         </div>
-        <h3 className="mt-6 font-heading text-2xl font-semibold text-white">
+        <h3 className="mt-6 font-heading text-2xl font-semibold text-onyx">
           {bookingPage.successTitle}
         </h3>
-        <p className="mt-3 max-w-md text-sm leading-relaxed text-muted">
+        <p className="mt-3 max-w-md text-sm leading-relaxed text-onyx/60">
           {bookingPage.successMessage}
         </p>
         <button
           type="button"
           onClick={resetToIdle}
-          className="mt-8 inline-flex items-center rounded-md border border-gold/60 px-6 py-3 text-xs font-semibold uppercase tracking-wider text-gold-bright transition-colors hover:bg-gold/10"
+          className="mt-8 inline-flex items-center rounded-md border border-gold/60 px-6 py-3 text-xs font-semibold uppercase tracking-wider text-gold-dark transition-colors hover:bg-gold/10"
         >
           Submit another request
         </button>
@@ -184,7 +184,7 @@ export default function StrategySessionForm({ initialPillar }: StrategySessionFo
       ref={formRef}
       noValidate
       onSubmit={onSubmit}
-      className="relative rounded-lg border border-gold/25 bg-onyx/85 p-6 sm:p-10"
+      className="relative rounded-lg border border-gold/25 bg-cream/85 p-6 sm:p-10"
     >
       {/* Honeypot — hidden from real users, catches naive bots */}
       <input
@@ -199,18 +199,18 @@ export default function StrategySessionForm({ initialPillar }: StrategySessionFo
       />
 
       <div className="mb-8">
-        <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-wide text-muted">
+        <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-wide text-onyx/60">
           <span>
             Step {step + 1} of {STEPS.length}
           </span>
-          <span className="text-gold-bright">{currentStep.label}</span>
+          <span className="text-gold-dark">{currentStep.label}</span>
         </div>
         <div className="mt-3 flex gap-1.5">
           {STEPS.map((s, index) => (
             <div
               key={s.id}
               className={`h-1 flex-1 rounded-full transition-colors ${
-                index <= step ? "bg-gold" : "bg-white/10"
+                index <= step ? "bg-gold" : "bg-cream/10"
               }`}
             />
           ))}
@@ -220,10 +220,7 @@ export default function StrategySessionForm({ initialPillar }: StrategySessionFo
       {currentStep.id === "about-you" && (
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <div>
-            <label
-              htmlFor="contactName"
-              className="mb-2 block text-sm font-medium text-muted-light"
-            >
+            <label htmlFor="contactName" className="mb-2 block text-sm font-medium text-onyx/80">
               {bookingPage.fields.contactName}
             </label>
             <input
@@ -245,7 +242,7 @@ export default function StrategySessionForm({ initialPillar }: StrategySessionFo
           </div>
 
           <div>
-            <label htmlFor="role" className="mb-2 block text-sm font-medium text-muted-light">
+            <label htmlFor="role" className="mb-2 block text-sm font-medium text-onyx/80">
               {bookingPage.fields.role}
             </label>
             <input
@@ -266,7 +263,7 @@ export default function StrategySessionForm({ initialPillar }: StrategySessionFo
           </div>
 
           <div>
-            <label htmlFor="email" className="mb-2 block text-sm font-medium text-muted-light">
+            <label htmlFor="email" className="mb-2 block text-sm font-medium text-onyx/80">
               {bookingPage.fields.email}
             </label>
             <input
@@ -288,7 +285,7 @@ export default function StrategySessionForm({ initialPillar }: StrategySessionFo
           </div>
 
           <div>
-            <label htmlFor="phone" className="mb-2 block text-sm font-medium text-muted-light">
+            <label htmlFor="phone" className="mb-2 block text-sm font-medium text-onyx/80">
               {bookingPage.fields.phone}
             </label>
             <input
@@ -314,7 +311,7 @@ export default function StrategySessionForm({ initialPillar }: StrategySessionFo
       {currentStep.id === "your-race" && (
         <div className="grid grid-cols-1 gap-6">
           <div>
-            <label htmlFor="orgName" className="mb-2 block text-sm font-medium text-muted-light">
+            <label htmlFor="orgName" className="mb-2 block text-sm font-medium text-onyx/80">
               {bookingPage.fields.orgName}
             </label>
             <input
@@ -335,7 +332,7 @@ export default function StrategySessionForm({ initialPillar }: StrategySessionFo
           </div>
 
           <div>
-            <label htmlFor="message" className="mb-2 block text-sm font-medium text-muted-light">
+            <label htmlFor="message" className="mb-2 block text-sm font-medium text-onyx/80">
               {bookingPage.fields.message}
             </label>
             <textarea
@@ -359,7 +356,7 @@ export default function StrategySessionForm({ initialPillar }: StrategySessionFo
 
       {currentStep.id === "what-you-need" && (
         <div>
-          <span className="mb-3 block text-sm font-medium text-muted-light">
+          <span className="mb-3 block text-sm font-medium text-onyx/80">
             {bookingPage.fields.pillar}
           </span>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -376,8 +373,8 @@ export default function StrategySessionForm({ initialPillar }: StrategySessionFo
                   aria-pressed={selected}
                   className={`rounded-md border px-5 py-4 text-left text-sm font-medium transition-colors ${
                     selected
-                      ? "border-gold bg-gold/10 text-white"
-                      : "border-gold/25 text-muted-light hover:border-gold/50"
+                      ? "border-gold bg-gold/10 text-onyx"
+                      : "border-gold/25 text-onyx/80 hover:border-gold/50"
                   }`}
                 >
                   {option}
@@ -394,7 +391,7 @@ export default function StrategySessionForm({ initialPillar }: StrategySessionFo
       {currentStep.id === "timeline-budget" && (
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <div>
-            <label htmlFor="budget" className="mb-2 block text-sm font-medium text-muted-light">
+            <label htmlFor="budget" className="mb-2 block text-sm font-medium text-onyx/80">
               {bookingPage.fields.budget}
             </label>
             <select
@@ -422,7 +419,7 @@ export default function StrategySessionForm({ initialPillar }: StrategySessionFo
           </div>
 
           <div>
-            <label htmlFor="timeline" className="mb-2 block text-sm font-medium text-muted-light">
+            <label htmlFor="timeline" className="mb-2 block text-sm font-medium text-onyx/80">
               {bookingPage.fields.timeline}
             </label>
             <select
@@ -466,7 +463,7 @@ export default function StrategySessionForm({ initialPillar }: StrategySessionFo
           <button
             type="button"
             onClick={goBack}
-            className="inline-flex items-center gap-2 rounded-md border border-gold/40 px-6 py-4 text-xs font-semibold uppercase tracking-wider text-muted-light transition-all hover:bg-white/5"
+            className="inline-flex items-center gap-2 rounded-md border border-gold/40 px-6 py-4 text-xs font-semibold uppercase tracking-wider text-onyx/80 transition-all hover:bg-cream/5"
           >
             <ArrowLeft size={16} />
             Back
@@ -506,7 +503,7 @@ export default function StrategySessionForm({ initialPillar }: StrategySessionFo
         )}
       </div>
 
-      <p className="mt-4 text-xs leading-relaxed text-muted">{bookingPage.privacyNote}</p>
+      <p className="mt-4 text-xs leading-relaxed text-onyx/60">{bookingPage.privacyNote}</p>
     </form>
   );
 }

@@ -14,11 +14,11 @@ export default function CreateAccountPrompt({ email }: { email?: string }) {
     : "/account/signup";
 
   return (
-    <div className="mt-6 flex max-w-md items-start gap-3 rounded-lg border border-gold/20 bg-onyx-200 px-5 py-4 text-left">
-      <UserPlus size={18} className="mt-0.5 shrink-0 text-gold-bright" />
-      <p className="text-xs leading-relaxed text-muted">
+    <div className="mt-6 flex max-w-md items-start gap-3 rounded-lg border border-gold/20 bg-cream-200 px-5 py-4 text-left shadow-card">
+      <UserPlus size={18} className="mt-0.5 shrink-0 text-gold-dark" />
+      <p className="text-xs leading-relaxed text-onyx/60">
         Want to track this request and skip retyping your info next time?{" "}
-        <Link href={signupHref} className="text-gold-bright hover:underline">
+        <Link href={signupHref} className="text-gold-dark hover:underline">
           Create a free account
         </Link>{" "}
         — totally optional.

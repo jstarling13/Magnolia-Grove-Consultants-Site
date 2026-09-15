@@ -10,9 +10,9 @@ const icons = {
 
 export default function TrustBadges() {
   return (
-    <section className="border-y border-gold/15 bg-onyx-200 px-6 py-8 sm:px-8 lg:px-12">
+    <section className="border-y border-gold/15 bg-cream-200 px-6 py-8 sm:px-8 lg:px-12">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-5 sm:flex-row sm:justify-between">
-        <span className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
+        <span className="text-xs font-semibold uppercase tracking-[0.16em] text-onyx/60">
           {trustBadgesLabel}
         </span>
         <div className="flex flex-wrap items-center justify-center gap-3">
@@ -21,9 +21,9 @@ export default function TrustBadges() {
             return (
               <span
                 key={badge.id}
-                className="inline-flex items-center gap-2 rounded-full border border-gold/25 bg-onyx px-4 py-2 text-xs font-semibold uppercase tracking-wide text-muted-light"
+                className="inline-flex items-center gap-2 rounded-full border border-gold/25 bg-cream px-4 py-2 text-xs font-semibold uppercase tracking-wide text-onyx/80"
               >
-                <Icon size={14} className="text-gold-bright" />
+                <Icon size={14} className="text-gold-dark" />
                 {badge.label}
               </span>
             );
