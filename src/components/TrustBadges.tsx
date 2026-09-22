@@ -1,12 +1,4 @@
-import { Landmark, Users, HeartHandshake, Building2 } from "lucide-react";
 import { trustBadges, trustBadgesLabel } from "@/config/siteConfig";
-
-const icons = {
-  campaigns: Landmark,
-  pacs: Users,
-  nonprofits: HeartHandshake,
-  enterprise: Building2,
-} as const;
 
 export default function TrustBadges() {
   return (
@@ -16,18 +8,14 @@ export default function TrustBadges() {
           {trustBadgesLabel}
         </span>
         <div className="flex flex-wrap items-center justify-center gap-3">
-          {trustBadges.map((badge) => {
-            const Icon = icons[badge.id as keyof typeof icons];
-            return (
-              <span
-                key={badge.id}
-                className="inline-flex items-center gap-2 rounded-full border border-gold/25 bg-cream px-4 py-2 text-xs font-semibold uppercase tracking-wide text-onyx/80"
-              >
-                <Icon size={14} className="text-gold-dark" />
-                {badge.label}
-              </span>
-            );
-          })}
+          {trustBadges.map((badge) => (
+            <span
+              key={badge.id}
+              className="inline-flex items-center rounded-full border border-gold/25 bg-cream px-4 py-2 text-xs font-semibold uppercase tracking-wide text-onyx/80"
+            >
+              {badge.label}
+            </span>
+          ))}
         </div>
       </div>
     </section>

@@ -28,8 +28,10 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full border-b bg-onyx transition-all duration-300 motion-reduce:transition-none ${
-        isScrolled ? "border-gold/20 shadow-card" : "border-transparent"
+      className={`sticky top-0 z-50 w-full border-b transition-all duration-300 motion-reduce:transition-none ${
+        isScrolled
+          ? "border-gold/20 bg-onyx/95 backdrop-blur-sm"
+          : "border-transparent bg-onyx/70 backdrop-blur-sm"
       }`}
     >
       <div className="container-grove flex items-center justify-between px-6 py-4 sm:px-8 lg:px-12">
@@ -49,7 +51,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="font-heading text-sm font-medium text-muted-light transition-colors hover:text-gold-bright motion-reduce:transition-none"
+              className="font-heading text-base font-medium text-muted-light transition-colors hover:text-gold-bright motion-reduce:transition-none"
             >
               {link.label}
             </Link>

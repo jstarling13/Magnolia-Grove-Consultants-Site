@@ -51,7 +51,7 @@ export default function BusinessHeader() {
             <Link
               key={link.href}
               href={link.href}
-              className="font-heading text-sm font-medium text-muted-light transition-colors hover:text-gold-bright motion-reduce:transition-none"
+              className="font-heading text-base font-medium text-muted-light transition-colors hover:text-gold-bright motion-reduce:transition-none"
             >
               {link.label}
             </Link>

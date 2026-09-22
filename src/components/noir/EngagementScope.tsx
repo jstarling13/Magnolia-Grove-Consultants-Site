@@ -1,4 +1,3 @@
-import { Clock } from "lucide-react";
 import type { EngagementOption } from "@/types";
 
 interface EngagementScopeProps {
@@ -18,9 +17,6 @@ export default function EngagementScope({ options }: EngagementScopeProps) {
               key={option.label}
               className="flex flex-col items-start gap-3 rounded-lg border border-gold/25 bg-cream p-6"
             >
-              <div className="flex h-10 w-10 items-center justify-center rounded-md border border-gold/40 text-gold-dark">
-                <Clock size={18} strokeWidth={1.75} />
-              </div>
               <span className="text-xs font-semibold uppercase tracking-[0.16em] text-onyx/60">
                 {option.label}
               </span>

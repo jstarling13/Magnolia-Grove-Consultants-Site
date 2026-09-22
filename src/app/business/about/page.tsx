@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Compass, ShieldCheck, Zap, Handshake } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { businessAbout, businessNav } from "@/config/businessConfig";
 import Reveal from "@/components/Reveal";
 
@@ -11,25 +11,21 @@ export const metadata: Metadata = {
 
 const values = [
   {
-    icon: Compass,
     title: "Strategic Clarity",
     description:
       "Before a single ad is placed or a single call is made, we define a clear strategic path. Every action is deliberate and data-informed, in service of your goals.",
   },
   {
-    icon: ShieldCheck,
     title: "Absolute Confidentiality",
     description:
       "Trust is our most valuable currency. We hold client strategy, operations, and proprietary information to the highest standard of confidentiality and data security, always.",
   },
   {
-    icon: Zap,
     title: "Relentless Execution",
     description:
       "Execution is what separates a plan from a result. Our teams move fast, adapt on the fly, and deliver when it matters most.",
   },
   {
-    icon: Handshake,
     title: "Partnership, Not Vendorship",
     description:
       "We embed ourselves in our clients' goals and treat them as our own — a strategic partner invested in the outcome, not a vendor filling a contract.",
@@ -59,22 +55,19 @@ export default function BusinessAboutPage() {
           </Reveal>
 
           <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {values.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <Reveal key={item.title} delayMs={index * 100}>
-                  <div className="group h-full rounded-lg border border-gold/25 bg-cream-100/70 p-8 shadow-card backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:shadow-[0_16px_40px_-12px_rgba(197,160,89,0.35)]">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-md border border-gold/50 bg-cream text-gold-dark">
-                      <Icon size={22} strokeWidth={1.75} />
-                    </div>
-                    <h3 className="mt-5 font-heading text-lg font-semibold text-onyx">
-                      {item.title}
-                    </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-onyx/60">{item.description}</p>
-                  </div>
-                </Reveal>
-              );
-            })}
+            {values.map((item, index) => (
+              <Reveal key={item.title} delayMs={index * 100}>
+                <div className="group h-full rounded-lg border border-gold/25 bg-cream-100/70 p-8 shadow-card backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:shadow-[0_16px_40px_-12px_rgba(197,160,89,0.35)]">
+                  <span className="font-heading text-3xl font-bold text-gold-dark">
+                    0{index + 1}
+                  </span>
+                  <h3 className="mt-5 font-heading text-lg font-semibold text-onyx">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-onyx/60">{item.description}</p>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>

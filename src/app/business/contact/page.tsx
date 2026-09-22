@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { MapPin, Phone, Mail } from "lucide-react";
 import { businessLeadForm, businessContactDetails } from "@/config/businessConfig";
 import BusinessLeadForm from "@/components/business/LeadForm";
 
@@ -7,8 +6,6 @@ export const metadata: Metadata = {
   title: "Contact | Magnolia Grove Consultants",
   description: businessLeadForm.subtitle,
 };
-
-const icons = { Address: MapPin, Phone: Phone, Email: Mail } as const;
 
 export default function BusinessContactPage() {
   return (
@@ -21,24 +18,21 @@ export default function BusinessContactPage() {
             {businessLeadForm.subtitle}
           </p>
 
-          <ul className="mt-10 flex flex-col gap-6">
-            {businessContactDetails.map((detail) => {
-              const Icon = icons[detail.label as keyof typeof icons] ?? Mail;
-              return (
-                <li key={detail.label} className="flex items-center gap-4">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gold/40 bg-cream text-gold-dark">
-                    <Icon size={18} />
-                  </span>
-                  {detail.href ? (
-                    <a href={detail.href} className="text-sm font-semibold text-onyx">
-                      {detail.value}
-                    </a>
-                  ) : (
-                    <span className="text-sm font-semibold text-onyx">{detail.value}</span>
-                  )}
-                </li>
-              );
-            })}
+          <ul className="mt-10 flex flex-col gap-3">
+            {businessContactDetails.map((detail) => (
+              <li key={detail.label} className="flex items-baseline gap-3">
+                <span className="text-xs font-semibold uppercase tracking-[0.14em] text-onyx/50">
+                  {detail.label}
+                </span>
+                {detail.href ? (
+                  <a href={detail.href} className="text-sm font-semibold text-onyx">
+                    {detail.value}
+                  </a>
+                ) : (
+                  <span className="text-sm font-semibold text-onyx">{detail.value}</span>
+                )}
+              </li>
+            ))}
           </ul>
         </div>
 

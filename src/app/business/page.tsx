@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Landmark, HeartHandshake, Building2, Users } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import {
   businessHero,
   businessServicesIntro,
@@ -17,8 +17,6 @@ export const metadata: Metadata = {
   title: "Marketing & Growth Execution | Magnolia Grove Consultants",
   description: businessHero.subtitle,
 };
-
-const trustIcons = [Landmark, HeartHandshake, Building2, Users];
 
 export default function BusinessHome() {
   return (
@@ -84,18 +82,14 @@ export default function BusinessHome() {
             {businessTrustBadgesLabel}
           </span>
           <div className="flex flex-wrap items-center justify-center gap-3">
-            {businessTrustBadges.map((badge, index) => {
-              const Icon = trustIcons[index] ?? Building2;
-              return (
-                <span
-                  key={badge.id}
-                  className="inline-flex items-center gap-2 rounded-full border border-gold/25 bg-cream px-4 py-2 text-xs font-semibold uppercase tracking-wide text-onyx/80"
-                >
-                  <Icon size={14} className="text-gold-dark" />
-                  {badge.label}
-                </span>
-              );
-            })}
+            {businessTrustBadges.map((badge) => (
+              <span
+                key={badge.id}
+                className="inline-flex items-center rounded-full border border-gold/25 bg-cream px-4 py-2 text-xs font-semibold uppercase tracking-wide text-onyx/80"
+              >
+                {badge.label}
+              </span>
+            ))}
           </div>
         </div>
       </section>
@@ -111,39 +105,33 @@ export default function BusinessHome() {
           </Reveal>
 
           <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {businessServicePillars.map((pillar) => {
-              const Icon = pillar.icon;
-              return (
-                <Link
-                  key={pillar.id}
-                  href={`/business/pillars/${pillar.pillarSlug}`}
-                  className="group flex h-full flex-col rounded-lg border border-gold/25 bg-cream-200/70 p-8 shadow-card transition-all hover:border-gold/70 hover:bg-cream-200 hover:shadow-card-hover"
-                >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-md border border-gold/40 bg-gold/10 text-gold-dark transition-colors group-hover:bg-gold group-hover:text-onyx">
-                    <Icon size={24} strokeWidth={1.75} />
-                  </div>
-                  <h3 className="mt-6 text-xl text-onyx">{pillar.title}</h3>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-onyx/60">
-                    {pillar.description}
-                  </p>
-                  <ul className="mt-5 flex flex-col gap-2">
-                    {pillar.subItems.map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-xs text-onyx/60">
-                        <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-gold-bright" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                  <span className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-gold-dark">
-                    View Pillar Details
-                    <ArrowRight
-                      size={14}
-                      className="transition-transform group-hover:translate-x-1"
-                    />
-                  </span>
-                </Link>
-              );
-            })}
+            {businessServicePillars.map((pillar, index) => (
+              <Link
+                key={pillar.id}
+                href={`/business/pillars/${pillar.pillarSlug}`}
+                className="group flex h-full flex-col rounded-lg border border-gold/25 bg-cream-200/70 p-8 shadow-card transition-all hover:border-gold/70 hover:bg-cream-200 hover:shadow-card-hover"
+              >
+                <span className="font-heading text-3xl font-bold text-gold-dark">
+                  0{index + 1}
+                </span>
+                <h3 className="mt-6 text-xl text-onyx">{pillar.title}</h3>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-onyx/60">
+                  {pillar.description}
+                </p>
+                <ul className="mt-5 flex flex-col gap-2">
+                  {pillar.subItems.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-xs text-onyx/60">
+                      <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-gold-bright" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <span className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-gold-dark">
+                  View Pillar Details
+                  <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

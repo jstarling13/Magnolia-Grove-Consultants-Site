@@ -18,7 +18,6 @@ export default function Services() {
 
         <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2">
           {servicePillars.map((pillar, index) => {
-            const Icon = pillar.icon;
             return (
               <Reveal key={pillar.id} delayMs={index * 100} variant="scale-up">
                 <div
@@ -36,9 +35,9 @@ export default function Services() {
                     />
                     <div className="absolute inset-0 bg-cream/70" />
                     <div className="absolute inset-0 bg-gradient-to-t from-cream via-cream/10 to-transparent" />
-                    <div className="absolute bottom-4 left-4 flex h-12 w-12 items-center justify-center rounded-md border border-gold/50 bg-cream/80 text-gold-dark">
-                      <Icon size={22} strokeWidth={1.75} />
-                    </div>
+                    <span className="absolute bottom-4 left-4 font-heading text-3xl font-bold text-gold-dark drop-shadow-[0_1px_2px_rgba(255,255,255,0.6)]">
+                      0{index + 1}
+                    </span>
                   </div>
 
                   <div className="flex flex-1 flex-col p-8">

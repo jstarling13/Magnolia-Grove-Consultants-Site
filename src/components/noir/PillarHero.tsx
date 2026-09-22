@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Zap } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { openConsultationDrawer } from "@/lib/consultationDrawer";
 
 interface PillarHeroProps {
@@ -47,7 +47,7 @@ export default function PillarHero({
 
       <div className="relative mx-auto w-full max-w-8xl px-6 pb-16 pt-32 sm:px-8 lg:px-12 lg:pb-24">
         {eyebrow && <span className="eyebrow mb-5 block">{eyebrow}</span>}
-        <h1 className="max-w-4xl font-heading text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+        <h1 className="max-w-4xl text-4xl uppercase leading-[0.95] text-white sm:text-5xl lg:text-6xl">
           {title}
         </h1>
         <p className="mt-6 max-w-2xl text-left text-base leading-relaxed text-muted-light sm:text-lg">
@@ -77,8 +77,7 @@ export default function PillarHero({
           ))}
 
         {stat && (
-          <div className="mt-6 inline-flex items-center gap-2 rounded-md border border-gold/40 bg-onyx/80 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-gold-bright">
-            <Zap size={14} strokeWidth={2.5} />
+          <div className="mt-6 inline-flex items-center rounded-md border border-gold/40 bg-onyx/80 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-gold-bright">
             {stat}
           </div>
         )}

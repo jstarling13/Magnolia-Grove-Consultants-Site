@@ -23,7 +23,6 @@ export default function PillarTabSwitcher() {
   }, [activeIndex]);
 
   const activePillar = pillars[activeIndex];
-  const Icon = activePillar.icon;
 
   return (
     <section className="bg-cream px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
@@ -61,8 +60,8 @@ export default function PillarTabSwitcher() {
           key={activePillar.slug}
           className="animate-tab-fade mt-10 grid grid-cols-1 gap-8 lg:grid-cols-[auto_1fr] lg:gap-10"
         >
-          <div className="flex h-16 w-16 items-center justify-center rounded-md border border-gold/40 bg-gold/10 text-gold-dark">
-            <Icon size={28} strokeWidth={1.75} />
+          <div className="flex h-16 w-16 items-center justify-center rounded-md border border-gold/40 bg-gold/10 font-heading text-2xl font-bold text-gold-dark">
+            0{activeIndex + 1}
           </div>
 
           <div>

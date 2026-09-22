@@ -9,24 +9,16 @@ export default function Contact() {
         <Reveal>
           <span className="eyebrow">{leadForm.eyebrow}</span>
           <h2 className="mt-3 text-3xl sm:text-4xl">{leadForm.headline}</h2>
-          <p className="mt-4 max-w-md text-base leading-relaxed text-onyx/60">
-            {leadForm.subtitle}
-          </p>
+          <p className="mt-4 max-w-md text-base leading-relaxed text-onyx/60">{leadForm.subtitle}</p>
 
           <div className="mt-10 flex flex-col gap-5">
             {contactDetails.map((detail) => {
-              const Icon = detail.icon;
               const content = (
-                <div className="flex items-start gap-4">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-gold/40 bg-gold/10 text-gold-dark">
-                    <Icon size={18} />
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-wide text-onyx/60">
-                      {detail.label}
-                    </p>
-                    <p className="mt-1 text-sm font-medium text-onyx">{detail.value}</p>
-                  </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-onyx/60">
+                    {detail.label}
+                  </p>
+                  <p className="mt-1 text-sm font-medium text-onyx">{detail.value}</p>
                 </div>
               );
 
