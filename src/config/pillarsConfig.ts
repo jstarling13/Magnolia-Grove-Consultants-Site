@@ -423,7 +423,7 @@ export const caseStudiesPage = {
       execution:
         "Reached 14,000 undecided households through door-to-door canvassing, paired with daily personalized mail.",
       result:
-        "Turnout in target precincts outpaced the district average by double digits, delivering a decisive swing on election night.",
+        "Turnout in target precincts outpaced the district average by double digits, delivering a meaningful swing on election night.",
       metric: "+7.4 PTS",
       metricLabel: "Margin Shift",
       quote: "Magnolia Grove came through when it mattered most in our ground game.",
@@ -442,7 +442,7 @@ export const caseStudiesPage = {
       metric: "3.2x ROI",
       metricLabel: "Donor Conversion",
       quote:
-        "Their ad spend was more disciplined than agencies twice their size — every dollar had a job.",
+        "Their ad spend was more disciplined than the larger agencies we'd worked with before — every dollar had a job.",
       quoteAttribution: "— PAC Director, Multi-County Media Program",
     },
     {
@@ -458,7 +458,7 @@ export const caseStudiesPage = {
       metric: "89% Turnout",
       metricLabel: "Targeted Voter Reach",
       quote:
-        "We went from an embarrassing website to our single best organizing tool in six weeks.",
+        "We went from an outdated website to one of our most effective organizing tools in six weeks.",
       quoteAttribution: "— Campaign Digital Director, Municipal Initiative",
     },
     {
@@ -470,10 +470,10 @@ export const caseStudiesPage = {
       execution:
         "Sent 12 rounds of personalized direct mail alongside a matching yard sign campaign across target precincts.",
       result:
-        "Name recognition and favorability climbed steadily through each mail cycle, culminating in a margin shift that outpaced every internal poll.",
+        "Name recognition and favorability climbed steadily through each mail cycle, culminating in a margin shift that outpaced internal polling.",
       metric: "+5.1 PTS",
       metricLabel: "Margin Shift via Mail",
-      quote: "Our mail program did more to move the numbers than anything else on the ballot.",
+      quote: "Our mail program was one of the biggest factors in moving the numbers.",
       quoteAttribution: "— County Commission Candidate",
     },
   ] as CaseStudy[],
