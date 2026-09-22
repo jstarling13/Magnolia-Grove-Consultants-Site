@@ -48,7 +48,7 @@ export const valuesSection = {
       icon: Compass,
       title: "Strategic Clarity",
       description:
-        "Before a single ad is placed or a single door is knocked, we define the path to victory. Every action is deliberate and data-informed, in service of the campaign's mission.",
+        "Before a single ad is placed or a single door is knocked, we define a clear strategic path. Every action is deliberate and data-informed, in service of the campaign's mission.",
     },
     {
       icon: ShieldCheck,
@@ -60,7 +60,7 @@ export const valuesSection = {
       icon: Zap,
       title: "Relentless Execution",
       description:
-        "Victory is won through flawless execution. Our teams move fast, adapt on the fly, and deliver when it matters most — including the final 72 hours of a race.",
+        "Execution is what separates a plan from a result. Our teams move fast, adapt on the fly, and deliver when it matters most — including the final 72 hours of a race.",
     },
     {
       icon: Handshake,
@@ -95,8 +95,8 @@ export const candidatesSection = {
 };
 
 export const aboutClosingCta = {
-  headline: "Ready to Build a Winning Operation?",
-  subtext: "Magnolia Grove provides the institutional framework to win your race.",
+  headline: "Ready to Get Started?",
+  subtext: "Magnolia Grove provides the strategic and operational framework campaigns rely on.",
   ctaLabel: "REQUEST A STRATEGY SESSION",
   ctaHref: "/booking",
 };

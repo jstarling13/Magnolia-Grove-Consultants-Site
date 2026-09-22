@@ -38,8 +38,8 @@ export const brand = {
 export const navLinks: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "Services / 4 Pillars", href: "/pillars" },
-  { label: "About", href: "/about" },
   { label: "Results / Track Record", href: "/case-studies" },
+  { label: "About", href: "/about" },
   { label: "Contact / Booking", href: "/booking" },
 ];
 
@@ -154,7 +154,7 @@ export const trustBadges = [
 
 export const metrics: Metric[] = [
   { id: "years", value: 14, suffix: "+", prefix: "", label: "Years Experience" },
-  { id: "campaigns", value: 5, suffix: "+", prefix: "", label: "Campaigns Served" },
+  { id: "campaigns", value: 15, suffix: "", prefix: "", label: "Campaigns Served" },
   { id: "raised", value: 500, suffix: "K+", prefix: "$", label: "Raised for Clients" },
   { id: "execution", value: 100, suffix: "%", prefix: "", label: "Execution Rate" },
 ];
@@ -165,7 +165,7 @@ export const metrics: Metric[] = [
 
 export const about = {
   eyebrow: "Why Magnolia Grove",
-  headline: "Engineered for the War Room. Built for Victory.",
+  headline: "Strategy and Execution, Under One Roof.",
   body: "Magnolia Grove Consultants brings strategy and hands-on execution together under one roof for campaigns, PACs, and political organizations — so you're not juggling five vendors when it matters most.",
   bullets: [
     "One Team, Every Channel: A single point of contact for field, print, digital, and your website.",
