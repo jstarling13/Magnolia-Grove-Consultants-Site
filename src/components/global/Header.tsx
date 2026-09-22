@@ -30,8 +30,8 @@ export default function Header() {
     <header
       className={`sticky top-0 z-50 w-full border-b transition-all duration-300 motion-reduce:transition-none ${
         isScrolled
-          ? "border-gold/20 bg-onyx/95 backdrop-blur-sm"
-          : "border-transparent bg-onyx/70 backdrop-blur-sm"
+          ? "border-gold/20 bg-onyx"
+          : "border-transparent bg-onyx"
       }`}
     >
       <div className="container-grove flex items-center justify-between px-6 py-4 sm:px-8 lg:px-12">
