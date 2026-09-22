@@ -53,7 +53,7 @@ export default function VerticalGate() {
           className="mx-auto h-16 w-auto"
         />
         <h1 className="mt-6 text-2xl text-white sm:text-3xl">Welcome to Magnolia Grove</h1>
-        <p className="mt-3 text-sm leading-relaxed text-muted-light sm:text-base">
+        <p className="mt-3 text-base leading-relaxed text-muted-light sm:text-base">
           We work with two kinds of clients. Which one is you?
         </p>
 

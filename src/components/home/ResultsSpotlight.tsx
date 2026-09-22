@@ -16,7 +16,7 @@ export default function ResultsSpotlight() {
       <div className="container-grove">
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="eyebrow">Results Under Pressure</span>
-          <h2 className="mt-3 text-3xl sm:text-4xl">Real Races. Real Numbers.</h2>
+          <h2 className="mt-3 text-4xl sm:text-5xl">Real Races. Real Numbers.</h2>
           <p className="mt-4 text-base leading-relaxed text-onyx/60 sm:text-lg">
             Names and district numbers are withheld for client confidentiality — every figure below
             is real.

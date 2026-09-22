@@ -13,7 +13,7 @@ export default function BusinessContactPage() {
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-start gap-12 lg:grid-cols-2">
         <div>
           <span className="eyebrow">{businessLeadForm.eyebrow}</span>
-          <h1 className="mt-3 text-3xl sm:text-4xl">{businessLeadForm.headline}</h1>
+          <h1 className="mt-3 text-4xl sm:text-5xl">{businessLeadForm.headline}</h1>
           <p className="mt-4 max-w-md text-base leading-relaxed text-onyx/60">
             {businessLeadForm.subtitle}
           </p>

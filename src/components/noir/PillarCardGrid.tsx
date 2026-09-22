@@ -84,7 +84,7 @@ export default function PillarCardGrid({ cards, eyebrow, title }: PillarCardGrid
                 {card.index}
               </span>
               <h3 className="mt-3 font-heading text-xl font-semibold text-onyx">{card.title}</h3>
-              <p className="mt-3 text-left text-sm leading-relaxed text-onyx/60">
+              <p className="mt-3 text-left text-base leading-relaxed text-onyx/60">
                 {card.description}
               </p>
             </div>

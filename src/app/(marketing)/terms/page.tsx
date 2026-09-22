@@ -24,7 +24,7 @@ export default function TermsPage() {
     <LegalLayout title="Terms of Service" lastUpdated="July 28, 2026" sections={sections}>
       <p className="text-sm text-onyx/60">Effective Date: July 28, 2026</p>
 
-      <p className="mt-6 text-sm leading-relaxed text-onyx/80 sm:text-base">
+      <p className="mt-6 text-base leading-relaxed text-onyx/80 sm:text-base">
         These Terms of Service, together with any applicable Statement of Work, Master Services
         Agreement, invoice, or order form (collectively, this &quot;
         <strong className="text-onyx">Agreement</strong>&quot;), constitute a legally binding
@@ -534,7 +534,7 @@ export default function TermsPage() {
           accessing magnoliagrovega.com, Client acknowledges that it has read and understood this
           Agreement and agrees to be bound by its terms.
         </p>
-        <p className="mt-6 text-sm leading-relaxed text-onyx/80">
+        <p className="mt-6 text-base leading-relaxed text-onyx/80">
           <strong className="text-onyx">Magnolia Grove Consultants, LLC</strong>
           <br />
           Columbus, Georgia

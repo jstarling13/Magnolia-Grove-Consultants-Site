@@ -22,7 +22,7 @@ export default function Leadership() {
           </div>
           <div>
             <span className="eyebrow">Leadership</span>
-            <h2 className="mt-3 text-3xl sm:text-4xl">Not Handed Off to an Account Manager.</h2>
+            <h2 className="mt-3 text-4xl sm:text-5xl">Not Handed Off to an Account Manager.</h2>
             <p className="mt-4 text-base leading-relaxed text-onyx/60">
               Every engagement is led directly by founder and principal{" "}
               <span className="font-semibold text-onyx">{ben.name}</span>, with one team

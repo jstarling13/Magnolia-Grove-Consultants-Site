@@ -9,7 +9,7 @@ export default function CandidatesList() {
       <div className="mx-auto max-w-4xl text-center">
         <Reveal>
           <span className="eyebrow">{candidatesSection.eyebrow}</span>
-          <h2 className="mt-3 text-3xl sm:text-4xl">{candidatesSection.headline}</h2>
+          <h2 className="mt-3 text-4xl sm:text-5xl">{candidatesSection.headline}</h2>
 
           {clients.length > 0 ? (
             <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
@@ -23,7 +23,7 @@ export default function CandidatesList() {
               ))}
             </div>
           ) : (
-            <p className="mx-auto mt-6 max-w-lg rounded-lg border border-dashed border-gold/25 px-6 py-5 text-sm leading-relaxed text-onyx/60">
+            <p className="mx-auto mt-6 max-w-lg rounded-lg border border-dashed border-gold/25 px-6 py-5 text-base leading-relaxed text-onyx/60">
               {candidatesSection.note}
             </p>
           )}

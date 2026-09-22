@@ -7,7 +7,7 @@ export default function HistoryTimeline() {
       <div className="mx-auto max-w-4xl">
         <Reveal className="text-left">
           <span className="eyebrow">{historySection.eyebrow}</span>
-          <h2 className="mt-3 text-3xl sm:text-4xl">{historySection.headline}</h2>
+          <h2 className="mt-3 text-4xl sm:text-5xl">{historySection.headline}</h2>
           <p className="mt-5 text-base leading-relaxed text-onyx/80 sm:text-lg">
             {historySection.intro}
           </p>
@@ -23,7 +23,7 @@ export default function HistoryTimeline() {
               <h3 className="mt-2 font-heading text-xl font-semibold text-onyx">
                 {milestone.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-onyx/60 sm:text-base">
+              <p className="mt-2 text-base leading-relaxed text-onyx/60 sm:text-base">
                 {milestone.description}
               </p>
             </Reveal>

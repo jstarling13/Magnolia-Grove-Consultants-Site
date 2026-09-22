@@ -11,7 +11,7 @@ export default function FeaturedCaseStudy() {
       <div className="container-grove">
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="eyebrow">Featured Race</span>
-          <h2 className="mt-3 text-3xl sm:text-4xl">What One Team Looks Like in Practice</h2>
+          <h2 className="mt-3 text-4xl sm:text-5xl">What One Team Looks Like in Practice</h2>
         </Reveal>
 
         <Reveal delayMs={100} className="mt-14">

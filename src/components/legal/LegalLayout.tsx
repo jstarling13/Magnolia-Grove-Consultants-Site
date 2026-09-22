@@ -27,7 +27,7 @@ export default function LegalLayout({ title, lastUpdated, sections, children }: 
 
         <div className="mt-8">
           <span className="eyebrow">Legal</span>
-          <h1 className="mt-3 text-3xl sm:text-4xl">{title}</h1>
+          <h1 className="mt-3 text-4xl sm:text-5xl">{title}</h1>
           <p className="mt-3 text-sm text-onyx/60">Last updated: {lastUpdated}</p>
         </div>
 

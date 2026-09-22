@@ -7,7 +7,7 @@ export default function HubPillarGrid() {
     <section className="bg-cream-100 px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
       <div className="mx-auto max-w-8xl">
         <span className="eyebrow">Browse Mode</span>
-        <h2 className="mt-3 text-3xl sm:text-4xl">At-a-Glance Capability Overview</h2>
+        <h2 className="mt-3 text-4xl sm:text-5xl">At-a-Glance Capability Overview</h2>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-onyx/60">
           A quick survey of all four pillars — click through to any one for the full breakdown.
         </p>
@@ -23,10 +23,10 @@ export default function HubPillarGrid() {
                 0{index + 1}
               </span>
 
-              <h3 className="mt-6 font-heading text-lg font-semibold leading-snug text-onyx">
+              <h3 className="mt-6 font-heading text-xl font-semibold leading-snug text-onyx">
                 {pillar.heroTitle}
               </h3>
-              <p className="mt-3 flex-1 text-left text-sm leading-relaxed text-onyx/60">
+              <p className="mt-3 flex-1 text-left text-base leading-relaxed text-onyx/60">
                 {pillar.heroSubheadline}
               </p>
 

@@ -24,7 +24,7 @@ export default function CaseStudiesPage() {
         <div className="mx-auto max-w-8xl">
           <div className="mb-14 flex items-start gap-3 rounded-lg border border-gold/25 bg-cream/85 px-6 py-5 shadow-card">
             <ShieldCheck size={20} className="mt-0.5 shrink-0 text-gold-dark" />
-            <p className="text-left text-sm leading-relaxed text-onyx/60">
+            <p className="text-left text-base leading-relaxed text-onyx/60">
               {caseStudiesPage.confidentialityNote}
             </p>
           </div>
@@ -48,7 +48,7 @@ export default function CaseStudiesPage() {
                       <span className="text-xs font-semibold uppercase tracking-[0.14em] text-onyx/60">
                         The Challenge
                       </span>
-                      <p className="mt-2 text-left text-sm leading-relaxed text-onyx/80">
+                      <p className="mt-2 text-left text-base leading-relaxed text-onyx/80">
                         {study.challenge}
                       </p>
                     </div>
@@ -56,7 +56,7 @@ export default function CaseStudiesPage() {
                       <span className="text-xs font-semibold uppercase tracking-[0.14em] text-onyx/60">
                         What We Executed
                       </span>
-                      <p className="mt-2 text-left text-sm leading-relaxed text-onyx/80">
+                      <p className="mt-2 text-left text-base leading-relaxed text-onyx/80">
                         {study.execution}
                       </p>
                     </div>
@@ -64,7 +64,7 @@ export default function CaseStudiesPage() {
                       <span className="text-xs font-semibold uppercase tracking-[0.14em] text-onyx/60">
                         The Result
                       </span>
-                      <p className="mt-2 text-left text-sm leading-relaxed text-onyx/80">
+                      <p className="mt-2 text-left text-base leading-relaxed text-onyx/80">
                         {study.result}
                       </p>
                     </div>

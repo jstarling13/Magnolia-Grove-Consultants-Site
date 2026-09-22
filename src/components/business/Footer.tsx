@@ -18,7 +18,7 @@ export default function BusinessFooter() {
               height={272}
               className="h-10 w-auto"
             />
-            <p className="mt-4 max-w-xs text-sm leading-relaxed">{businessFooter.description}</p>
+            <p className="mt-4 max-w-xs text-base leading-relaxed">{businessFooter.description}</p>
           </div>
 
           {businessFooter.columns.map((column) => (
@@ -73,7 +73,7 @@ export default function BusinessFooter() {
             </h4>
             <ul className="mt-4 flex flex-col gap-3">
               {businessContactDetails.map((detail) => (
-                <li key={detail.label} className="text-sm leading-relaxed">
+                <li key={detail.label} className="text-base leading-relaxed">
                   {detail.href ? (
                     <a
                       href={detail.href}

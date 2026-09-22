@@ -42,7 +42,7 @@ export default function PillarFAQAccordion({ faqs }: PillarFAQAccordionProps) {
                   />
                 </button>
                 {isOpen && (
-                  <p className="px-6 pb-5 text-sm leading-relaxed text-onyx/80 sm:text-base">
+                  <p className="px-6 pb-5 text-base leading-relaxed text-onyx/80 sm:text-base">
                     {faq.answer}
                   </p>
                 )}

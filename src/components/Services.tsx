@@ -10,7 +10,7 @@ export default function Services() {
       <div className="container-grove">
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="eyebrow">{servicesIntro.eyebrow}</span>
-          <h2 className="mt-3 text-3xl sm:text-4xl">{servicesIntro.headline}</h2>
+          <h2 className="mt-3 text-4xl sm:text-5xl">{servicesIntro.headline}</h2>
           <p className="mt-4 text-base leading-relaxed text-onyx/60 sm:text-lg">
             {servicesIntro.subtitle}
           </p>
@@ -42,7 +42,7 @@ export default function Services() {
 
                   <div className="flex flex-1 flex-col p-8">
                     <h3 className="text-xl text-onyx">{pillar.title}</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-onyx/60">
+                    <p className="mt-3 text-base leading-relaxed text-onyx/60">
                       {pillar.description}
                     </p>
 

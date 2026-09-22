@@ -19,7 +19,7 @@ export default function About() {
       <div className="container-grove relative px-6 sm:px-8 lg:px-12">
         <Reveal className="max-w-2xl text-left">
           <span className="eyebrow">{about.eyebrow}</span>
-          <h2 className="mt-3 text-3xl sm:text-4xl">{about.headline}</h2>
+          <h2 className="mt-3 text-4xl sm:text-5xl">{about.headline}</h2>
           <p className="mt-5 text-base leading-relaxed text-onyx/80 sm:text-lg">{about.body}</p>
 
           <ul className="mt-8 flex flex-col gap-4">

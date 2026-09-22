@@ -40,6 +40,7 @@ export const navLinks: NavLink[] = [
   { label: "Services / 4 Pillars", href: "/pillars" },
   { label: "Results / Track Record", href: "/case-studies" },
   { label: "About", href: "/about" },
+  { label: "Merchant", href: "/merchandise" },
   { label: "Contact / Booking", href: "/booking" },
 ];
 

@@ -7,7 +7,7 @@ export default function CoreValues() {
       <div className="mx-auto max-w-6xl">
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="eyebrow">{valuesSection.eyebrow}</span>
-          <h2 className="mt-3 text-3xl sm:text-4xl">{valuesSection.headline}</h2>
+          <h2 className="mt-3 text-4xl sm:text-5xl">{valuesSection.headline}</h2>
         </Reveal>
 
         <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -17,10 +17,10 @@ export default function CoreValues() {
                 <span className="font-heading text-3xl font-bold text-gold-dark">
                   0{index + 1}
                 </span>
-                <h3 className="mt-5 font-heading text-lg font-semibold text-onyx">
+                <h3 className="mt-5 font-heading text-xl font-semibold text-onyx">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-onyx/60">{item.description}</p>
+                <p className="mt-3 text-base leading-relaxed text-onyx/60">{item.description}</p>
               </div>
             </Reveal>
           ))}

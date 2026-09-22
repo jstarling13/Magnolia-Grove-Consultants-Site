@@ -73,7 +73,7 @@ export default function BusinessLeadForm() {
           <CheckCircle2 size={32} />
         </div>
         <h3 className="mt-6 text-2xl text-onyx">{businessLeadForm.successTitle}</h3>
-        <p className="mt-3 max-w-md text-sm leading-relaxed text-onyx/60">
+        <p className="mt-3 max-w-md text-base leading-relaxed text-onyx/60">
           {businessLeadForm.successMessage}
         </p>
         <button

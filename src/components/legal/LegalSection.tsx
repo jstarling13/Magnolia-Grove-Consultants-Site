@@ -17,7 +17,7 @@ export default function LegalSection({ id, index, title, children }: LegalSectio
         </span>
         <h2 className="text-xl text-onyx sm:text-2xl">{title}</h2>
       </div>
-      <div className="mt-4 flex flex-col gap-4 text-left text-sm leading-relaxed text-onyx/80 sm:text-base">
+      <div className="mt-4 flex flex-col gap-4 text-left text-base leading-relaxed text-onyx/80 sm:text-base">
         {children}
       </div>
     </section>

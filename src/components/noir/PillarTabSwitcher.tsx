@@ -28,7 +28,7 @@ export default function PillarTabSwitcher() {
     <section className="bg-cream px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
       <div className="mx-auto max-w-8xl">
         <span className="eyebrow">Compare Mode</span>
-        <h2 className="mt-3 text-3xl sm:text-4xl">Deep-Dive Process Methodology</h2>
+        <h2 className="mt-3 text-4xl sm:text-5xl">Deep-Dive Process Methodology</h2>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-onyx/60">
           Toggle between pillars to compare execution steps side by side, without leaving the page.
         </p>
@@ -68,7 +68,7 @@ export default function PillarTabSwitcher() {
             <h3 className="font-heading text-2xl font-semibold text-onyx sm:text-3xl">
               {activePillar.heroTitle}
             </h3>
-            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-onyx/60 sm:text-base">
+            <p className="mt-3 max-w-2xl text-base leading-relaxed text-onyx/60 sm:text-base">
               {activePillar.heroSubheadline}
             </p>
 

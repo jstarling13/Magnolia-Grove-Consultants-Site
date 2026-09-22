@@ -43,7 +43,7 @@ export default function BusinessCrossSellCallout({ items }: BusinessCrossSellCal
                 <span className="text-xs font-semibold uppercase tracking-[0.16em] text-gold-dark">
                   {pillar.navLabel}
                 </span>
-                <p className="mt-3 text-sm leading-relaxed text-onyx/80 sm:text-base">{blurb}</p>
+                <p className="mt-3 text-base leading-relaxed text-onyx/80 sm:text-base">{blurb}</p>
               </div>
               <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-onyx transition-colors group-hover:text-gold-dark">
                 Explore Pillar

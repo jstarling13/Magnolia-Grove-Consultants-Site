@@ -9,7 +9,7 @@ export default function VendorComparison() {
       <div className="container-grove">
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="eyebrow">The Difference</span>
-          <h2 className="mt-3 text-3xl sm:text-4xl">One Team Instead of Five</h2>
+          <h2 className="mt-3 text-4xl sm:text-5xl">One Team Instead of Five</h2>
         </Reveal>
 
         <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-6">
@@ -31,7 +31,7 @@ export default function VendorComparison() {
                   </div>
                 ))}
               </div>
-              <p className="mt-6 text-sm leading-relaxed text-onyx/60">
+              <p className="mt-6 text-base leading-relaxed text-onyx/60">
                 5 vendors. 5 invoices. 5 points of failure — and nobody owns the whole picture.
               </p>
             </div>
@@ -57,7 +57,7 @@ export default function VendorComparison() {
                   One Invoice. One Team.
                 </span>
               </div>
-              <p className="mt-6 text-sm leading-relaxed text-onyx">
+              <p className="mt-6 text-base leading-relaxed text-onyx">
                 1 team. 1 point of contact. Everything connected — so nothing falls through the
                 cracks.
               </p>

@@ -26,7 +26,7 @@ export default function PrivacyPage() {
     <LegalLayout title="Privacy Policy" lastUpdated="July 28, 2026" sections={sections}>
       <p className="text-sm text-onyx/60">Effective Date: July 28, 2026</p>
 
-      <p className="mt-6 text-sm leading-relaxed text-onyx/80 sm:text-base">
+      <p className="mt-6 text-base leading-relaxed text-onyx/80 sm:text-base">
         Magnolia Grove Consultants, LLC (&quot;Magnolia Grove,&quot; &quot;we,&quot; &quot;us,&quot;
         or &quot;our&quot;) provides integrated political strategy, creative marketing, print
         production, and digital web/automation infrastructure services to political campaigns,
@@ -36,7 +36,7 @@ export default function PrivacyPage() {
         &quot;Site&quot;), submit a booking or contact form, or otherwise engage with our services.
       </p>
 
-      <p className="mt-4 text-sm leading-relaxed text-onyx/80 sm:text-base">
+      <p className="mt-4 text-base leading-relaxed text-onyx/80 sm:text-base">
         By using the Site, you agree to the terms of this Privacy Policy. If you do not agree with
         these terms, please do not use the Site.
       </p>

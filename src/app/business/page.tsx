@@ -98,7 +98,7 @@ export default function BusinessHome() {
         <div className="mx-auto max-w-8xl">
           <Reveal className="max-w-2xl">
             <span className="eyebrow">{businessServicesIntro.eyebrow}</span>
-            <h2 className="mt-3 text-3xl sm:text-4xl">{businessServicesIntro.headline}</h2>
+            <h2 className="mt-3 text-4xl sm:text-5xl">{businessServicesIntro.headline}</h2>
             <p className="mt-4 text-base leading-relaxed text-onyx/60">
               {businessServicesIntro.subtitle}
             </p>
@@ -115,7 +115,7 @@ export default function BusinessHome() {
                   0{index + 1}
                 </span>
                 <h3 className="mt-6 text-xl text-onyx">{pillar.title}</h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-onyx/60">
+                <p className="mt-3 flex-1 text-base leading-relaxed text-onyx/60">
                   {pillar.description}
                 </p>
                 <ul className="mt-5 flex flex-col gap-2">
@@ -140,7 +140,7 @@ export default function BusinessHome() {
         <div className="container-grove relative px-6 sm:px-8 lg:px-12">
           <Reveal className="mx-auto max-w-2xl text-left">
             <span className="eyebrow">{businessAbout.eyebrow}</span>
-            <h2 className="mt-3 text-3xl sm:text-4xl">{businessAbout.headline}</h2>
+            <h2 className="mt-3 text-4xl sm:text-5xl">{businessAbout.headline}</h2>
             <p className="mt-5 text-base leading-relaxed text-onyx/80 sm:text-lg">
               {businessAbout.body}
             </p>

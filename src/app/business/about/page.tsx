@@ -39,7 +39,7 @@ export default function BusinessAboutPage() {
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
             <span className="eyebrow">{businessAbout.eyebrow}</span>
-            <h1 className="mt-3 text-3xl sm:text-4xl">{businessAbout.headline}</h1>
+            <h1 className="mt-3 text-4xl sm:text-5xl">{businessAbout.headline}</h1>
             <p className="mt-5 text-base leading-relaxed text-onyx/80 sm:text-lg">
               {businessAbout.body}
             </p>
@@ -51,7 +51,7 @@ export default function BusinessAboutPage() {
         <div className="mx-auto max-w-6xl">
           <Reveal className="mx-auto max-w-2xl text-center">
             <span className="eyebrow">What We Stand For</span>
-            <h2 className="mt-3 text-3xl sm:text-4xl">The Principles Behind Every Engagement</h2>
+            <h2 className="mt-3 text-4xl sm:text-5xl">The Principles Behind Every Engagement</h2>
           </Reveal>
 
           <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -61,10 +61,10 @@ export default function BusinessAboutPage() {
                   <span className="font-heading text-3xl font-bold text-gold-dark">
                     0{index + 1}
                   </span>
-                  <h3 className="mt-5 font-heading text-lg font-semibold text-onyx">
+                  <h3 className="mt-5 font-heading text-xl font-semibold text-onyx">
                     {item.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-onyx/60">{item.description}</p>
+                  <p className="mt-3 text-base leading-relaxed text-onyx/60">{item.description}</p>
                 </div>
               </Reveal>
             ))}
@@ -76,7 +76,7 @@ export default function BusinessAboutPage() {
         <div className="mx-auto max-w-6xl">
           <Reveal className="mx-auto max-w-2xl text-center">
             <span className="eyebrow">Leadership</span>
-            <h2 className="mt-3 text-3xl sm:text-4xl">The Team Behind the Strategy</h2>
+            <h2 className="mt-3 text-4xl sm:text-5xl">The Team Behind the Strategy</h2>
             <p className="mt-4 text-base leading-relaxed text-onyx/60 sm:text-lg">
               Strategy doesn&apos;t get handed off to an account manager. Every engagement is led
               directly by Magnolia Grove&apos;s founder, with one team coordinating execution
@@ -94,7 +94,7 @@ export default function BusinessAboutPage() {
                 <span className="mt-1 block text-xs font-semibold uppercase tracking-[0.16em] text-gold-dark">
                   Founder & Principal
                 </span>
-                <p className="mt-4 text-sm leading-relaxed text-onyx/60 sm:text-base">
+                <p className="mt-4 text-base leading-relaxed text-onyx/60 sm:text-base">
                   Ben Garcia founded Magnolia Grove Consultants in 2024 to solve the vendor
                   fragmentation he saw across marketing and outreach work — clients juggling a
                   field team, an ad agency, a print shop, and a web developer, with no one owning

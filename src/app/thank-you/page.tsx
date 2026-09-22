@@ -44,7 +44,7 @@ export default async function ThankYouPage({ searchParams }: ThankYouPageProps) 
       <h1 className="mt-4 max-w-2xl text-4xl font-semibold text-onyx sm:text-5xl">
         {copy.headline}
       </h1>
-      <p className="mt-4 max-w-md text-sm leading-relaxed text-onyx/80 sm:text-base">
+      <p className="mt-4 max-w-md text-base leading-relaxed text-onyx/80 sm:text-base">
         {copy.message}
       </p>
 

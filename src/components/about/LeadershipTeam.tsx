@@ -40,7 +40,7 @@ export default function LeadershipTeam() {
       <div className="mx-auto max-w-6xl">
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="eyebrow">{teamSection.eyebrow}</span>
-          <h2 className="mt-3 text-3xl sm:text-4xl">{teamSection.headline}</h2>
+          <h2 className="mt-3 text-4xl sm:text-5xl">{teamSection.headline}</h2>
           <p className="mt-4 text-base leading-relaxed text-onyx/60 sm:text-lg">
             {teamSection.intro}
           </p>
@@ -59,7 +59,7 @@ export default function LeadershipTeam() {
                   <span className="mt-1 block text-xs font-semibold uppercase tracking-[0.16em] text-gold-dark">
                     {member.role}
                   </span>
-                  <p className="mt-4 text-sm leading-relaxed text-onyx/60 sm:text-base">
+                  <p className="mt-4 text-base leading-relaxed text-onyx/60 sm:text-base">
                     {member.bio}
                   </p>
                 </div>
@@ -72,13 +72,13 @@ export default function LeadershipTeam() {
               <Reveal key={member.name} delayMs={index * 100}>
                 <div className="flex h-full flex-col items-center rounded-lg border border-gold/25 bg-cream/70 p-8 text-center shadow-card backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:shadow-[0_16px_40px_-12px_rgba(197,160,89,0.35)]">
                   <MemberAvatar member={member} />
-                  <h3 className="mt-5 font-heading text-lg font-semibold text-onyx">
+                  <h3 className="mt-5 font-heading text-xl font-semibold text-onyx">
                     {member.name}
                   </h3>
                   <span className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-gold-dark">
                     {member.role}
                   </span>
-                  <p className="mt-4 text-sm leading-relaxed text-onyx/60">{member.bio}</p>
+                  <p className="mt-4 text-base leading-relaxed text-onyx/60">{member.bio}</p>
                 </div>
               </Reveal>
             ))}
