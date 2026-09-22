@@ -132,3 +132,16 @@ export interface CaseStudy {
   quote: string;
   quoteAttribution: string;
 }
+
+export interface MerchProduct {
+  id: string;
+  name: string;
+  category: string;
+  description: string;
+  /** What we pay our supplier — never shown to the client. */
+  cost: number;
+  /** cost + markup, what the client actually sees. */
+  price: number;
+  image?: string;
+  imageAlt?: string;
+}
