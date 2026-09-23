@@ -138,9 +138,13 @@ export interface MerchProduct {
   name: string;
   category: string;
   description: string;
-  /** What we pay our supplier — never shown to the client. */
-  cost: number;
-  /** cost + markup, what the client actually sees. */
+  /**
+   * What we'd pay ASI/ESP for this item — already includes ASI's own markup
+   * over the raw supplier cost. This, not raw supplier cost, is the base the
+   * 5% business surcharge is calculated on. Never shown to the client.
+   */
+  espPrice: number;
+  /** espPrice * (1 + MARKUP_RATE), rounded to cents — what the client sees. */
   price: number;
   image?: string;
   imageAlt?: string;

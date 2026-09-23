@@ -2,16 +2,26 @@
  * ============================================================================
  * MERCHANDISE — CATALOG + REQUEST FORM CONFIG
  * ============================================================================
- * Products are added here one at a time as real items (with real ASI/supplier
- * cost) are provided — never fabricate a product, price, or image. `price`
- * is always cost * MARKUP_MULTIPLIER, computed once at data-entry time so
- * the number displayed to clients never has to be recalculated in the UI.
+ * Products are added here one at a time as real items are provided — never
+ * fabricate a product, price, or image. `price` is always
+ * espPrice * (1 + MARKUP_RATE), rounded to the cent.
+ *
+ * Pricing model (verified): the 5% surcharge applies to the ESP selling
+ * price, NOT raw supplier cost — the ESP price already has ASI's own markup
+ * baked in. Example: supplier cost $0.60, ESP price $1.00 -> client pays
+ * $1.05. There is no revenue split beyond that; see src/lib/asi/pricing.ts
+ * for the full order-time quote logic (quantity, setup, decoration,
+ * shipping) once real SmartLink data is wired in.
  * ============================================================================
  */
 
 import type { MerchProduct } from "@/types";
 
 export const MARKUP_RATE = 0.05;
+
+function clientPrice(espPrice: number): number {
+  return Math.round(espPrice * (1 + MARKUP_RATE) * 100) / 100;
+}
 
 export const merchandisePage = {
   eyebrow: "Merchandise",
