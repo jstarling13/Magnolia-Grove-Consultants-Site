@@ -1,6 +1,6 @@
 import { sql } from "./db";
 
-export type SubmissionType = "lead" | "strategy_session" | "payment_request";
+export type SubmissionType = "lead" | "strategy_session" | "payment_request" | "merch_order";
 
 export async function recordSubmission(
   type: SubmissionType,

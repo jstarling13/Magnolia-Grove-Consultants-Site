@@ -1,8 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
+import { useState, type ChangeEvent, type FormEvent } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
-import { useContactForm } from "@/hooks/useContactForm";
 import Turnstile from "@/components/Turnstile";
 
 interface FormFields {
@@ -15,14 +14,6 @@ interface FormFields {
   budget: string;
   deadline: string;
   notes: string;
-  // Fixed, non-editable — satisfy the shared lead-form schema so this
-  // reuses the existing email pipeline instead of needing its own.
-  service: string;
-  requesterType: string;
-  // Derived from product/quantity/budget/deadline/notes below, so the
-  // notification email always has the full picture even if a visitor
-  // leaves "anything else" blank.
-  message: string;
   company_website: string;
 }
 
@@ -36,13 +27,11 @@ const initialFields: FormFields = {
   budget: "",
   deadline: "",
   notes: "",
-  service: "Merchandise",
-  requesterType: "Merchandise Client",
-  message: "",
   company_website: "",
 };
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const DEFAULT_ERROR = "Something went wrong. Please double-check your info or email ben@magnoliagrovega.com.";
 
 function validate(fields: FormFields): Partial<Record<keyof FormFields, string>> {
   const errors: Partial<Record<keyof FormFields, string>> = {};
@@ -66,43 +55,57 @@ function validate(fields: FormFields): Partial<Record<keyof FormFields, string>>
 const inputClasses =
   "w-full rounded-md border bg-cream px-4 py-3 text-sm text-onyx placeholder:text-onyx/50 focus:outline-none focus:ring-2 focus:ring-gold/60 transition-colors";
 
+type Status = "idle" | "submitting" | "success" | "error";
+
 export default function MerchRequestForm() {
-  const {
-    fields,
-    setFields,
-    errors,
-    status,
-    submitError,
-    setTurnstileToken,
-    handleChange,
-    handleSubmit,
-    resetToIdle,
-  } = useContactForm<FormFields>({
-    formType: "lead",
-    initialFields,
-    validate,
-    defaultErrorMessage: "Something went wrong. Please double-check your info or email ben@magnoliagrovega.com.",
-  });
+  const [fields, setFields] = useState<FormFields>(initialFields);
+  const [errors, setErrors] = useState<Partial<Record<keyof FormFields, string>>>({});
+  const [status, setStatus] = useState<Status>("idle");
+  const [submitError, setSubmitError] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
 
-  // Keep the required `message` field in sync with the structured fields so
-  // the notification email always has the full request, even though the
-  // visitor never types into "message" directly.
-  useEffect(() => {
-    const composed = [
-      `Product: ${fields.product || "(not specified)"}`,
-      `Quantity: ${fields.quantity || "(not specified)"}`,
-      fields.budget && `Budget: ${fields.budget}`,
-      fields.deadline && `Deadline: ${fields.deadline}`,
-      fields.notes && `Notes: ${fields.notes}`,
-    ]
-      .filter(Boolean)
-      .join("\n");
+  function handleChange(
+    event: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) {
+    const { name, value } = event.target;
+    setFields((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: undefined }));
+  }
 
-    if (composed !== fields.message) {
-      setFields((prev) => ({ ...prev, message: composed }));
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const validationErrors = validate(fields);
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [fields.product, fields.quantity, fields.budget, fields.deadline, fields.notes]);
+
+    setStatus("submitting");
+    setSubmitError("");
+
+    try {
+      const response = await fetch("/api/merchant/order-request", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...fields, turnstileToken }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        setSubmitError(data.error || DEFAULT_ERROR);
+        setStatus("error");
+        return;
+      }
+
+      setStatus("success");
+      setFields(initialFields);
+    } catch {
+      setSubmitError(DEFAULT_ERROR);
+      setStatus("error");
+    }
+  }
 
   if (status === "success") {
     return (
@@ -116,7 +119,7 @@ export default function MerchRequestForm() {
         </p>
         <button
           type="button"
-          onClick={resetToIdle}
+          onClick={() => setStatus("idle")}
           className="mt-8 inline-flex items-center rounded-md border border-gold/60 px-6 py-3 text-sm font-semibold text-gold-bright transition-colors hover:bg-gold/10"
         >
           Submit another request
@@ -297,7 +300,7 @@ export default function MerchRequestForm() {
 
       {status === "error" && (
         <p className="mt-6 rounded-md border border-red-500/40 bg-red-500/10 px-4 py-3 text-sm text-red-300">
-          {submitError || "Something went wrong. Please try again."}
+          {submitError || DEFAULT_ERROR}
         </p>
       )}
 

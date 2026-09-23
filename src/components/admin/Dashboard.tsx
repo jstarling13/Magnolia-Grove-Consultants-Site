@@ -1,13 +1,19 @@
 "use client";
 
-import { useMemo, useState, useTransition } from "react";
+import { useMemo, useState, useTransition, type ChangeEvent } from "react";
 import { useRouter } from "next/navigation";
 import { LogOut, ChevronDown, Plus, Trash2, CheckCircle2, Clock, Loader2 } from "lucide-react";
-import { markSubmissionRead, addDeliverable, deleteDeliverable } from "@/app/admin/actions";
+import {
+  markSubmissionRead,
+  addDeliverable,
+  deleteDeliverable,
+  updateMerchOrderStatus,
+} from "@/app/admin/actions";
+import { MERCH_ORDER_STATUSES, MERCH_ORDER_STATUS_LABELS } from "@/lib/merchOrders";
 
 export interface SubmissionRow {
   id: number;
-  type: "lead" | "strategy_session" | "payment_request";
+  type: "lead" | "strategy_session" | "payment_request" | "merch_order";
   data: Record<string, unknown>;
   created_at: string;
   read_at: string | null;
@@ -24,9 +30,10 @@ const TYPE_LABELS: Record<SubmissionRow["type"], string> = {
   lead: "Strategy Call Request",
   strategy_session: "Strategy Session Booking",
   payment_request: "Payment Request",
+  merch_order: "Merchandise Order",
 };
 
-const HIDDEN_FIELDS = new Set(["company_website", "turnstileToken", "formType"]);
+const HIDDEN_FIELDS = new Set(["company_website", "turnstileToken", "formType", "status"]);
 
 function summarize(row: SubmissionRow): string {
   const d = row.data;
@@ -37,6 +44,11 @@ function summarize(row: SubmissionRow): string {
       return `${d.orgName ?? "Unknown Org"} — ${d.contactName ?? ""}`;
     case "payment_request":
       return `${d.organizationName ?? "Unknown Org"} — $${Number(d.amount ?? 0).toFixed(2)}`;
+    case "merch_order": {
+      const statusLabel =
+        MERCH_ORDER_STATUS_LABELS[d.status as keyof typeof MERCH_ORDER_STATUS_LABELS] ?? "New";
+      return `${d.product ?? "Unknown Product"} — Qty ${d.quantity ?? "?"} (${statusLabel})`;
+    }
   }
 }
 
@@ -178,6 +190,49 @@ function DeliverablesPanel({
   );
 }
 
+function MerchOrderStatusControl({
+  submissionId,
+  currentStatus,
+}: {
+  submissionId: number;
+  currentStatus: string;
+}) {
+  const router = useRouter();
+  const [isPending, startTransition] = useTransition();
+
+  function handleChange(event: ChangeEvent<HTMLSelectElement>) {
+    const status = event.target.value;
+    startTransition(async () => {
+      await updateMerchOrderStatus(submissionId, status);
+      router.refresh();
+    });
+  }
+
+  return (
+    <div className="mt-4 border-t border-gold/15 pt-4">
+      <label className="text-xs font-semibold uppercase tracking-wide text-gold-dark">
+        Order Status
+      </label>
+      <p className="mt-1 text-xs text-onyx/60">
+        No order is placed with ESP automatically — update this after you manually order it.
+      </p>
+      <select
+        value={currentStatus || "new"}
+        onChange={handleChange}
+        disabled={isPending}
+        className="mt-2 rounded-md border border-gold/25 bg-cream px-3 py-2 text-sm text-onyx focus:outline-none focus:ring-2 focus:ring-gold/60 disabled:opacity-60"
+      >
+        {MERCH_ORDER_STATUSES.map((status) => (
+          <option key={status} value={status}>
+            {MERCH_ORDER_STATUS_LABELS[status]}
+          </option>
+        ))}
+      </select>
+      {isPending && <span className="ml-2 text-xs text-onyx/60">Saving…</span>}
+    </div>
+  );
+}
+
 export default function Dashboard({
   submissions,
   username,
@@ -256,7 +311,7 @@ export default function Dashboard({
       </div>
 
       <div className="mt-8 flex flex-wrap gap-2">
-        {(["all", "lead", "strategy_session", "payment_request"] as const).map((type) => (
+        {(["all", "lead", "strategy_session", "payment_request", "merch_order"] as const).map((type) => (
           <button
             key={type}
             onClick={() => setFilter(type)}
@@ -332,6 +387,13 @@ export default function Dashboard({
                         </div>
                       ))}
                   </dl>
+
+                  {row.type === "merch_order" && (
+                    <MerchOrderStatusControl
+                      submissionId={row.id}
+                      currentStatus={String(row.data.status ?? "new")}
+                    />
+                  )}
 
                   <DeliverablesPanel
                     submissionId={row.id}

@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 import type { LeadFormPayload, StrategySessionPayload, PaymentRequestPayload } from "./validation";
+import type { MerchOrderRequestPayload } from "./merchOrders";
 
 const hasResendConfig =
   Boolean(process.env.RESEND_API_KEY) && Boolean(process.env.CONTACT_EMAIL_FROM);
@@ -194,6 +195,46 @@ export async function sendPaymentRequestNotification(
 
   if (error) {
     console.error("[email] Resend rejected sendPaymentRequestNotification:", error);
+    return { sent: false, reason: error.message };
+  }
+
+  return { sent: true };
+}
+
+export async function sendMerchOrderNotification(
+  payload: MerchOrderRequestPayload
+): Promise<SendResult> {
+  if (!resend || !hasResendConfig) {
+    console.warn(
+      "[email] RESEND_API_KEY / CONTACT_EMAIL_FROM not set — skipping merch order notification."
+    );
+    return { sent: false, reason: "not_configured" };
+  }
+
+  const html = emailShell(
+    "New Merchandise Order Request",
+    [
+      row("Name", `${payload.firstName} ${payload.lastName}`),
+      row("Email", payload.email),
+      row("Phone", payload.phone),
+      row("Product", payload.product),
+      row("Quantity", payload.quantity),
+      payload.budget ? row("Budget", payload.budget) : "",
+      payload.deadline ? row("Deadline", payload.deadline) : "",
+      payload.notes ? row("Notes", payload.notes) : "",
+    ].join("")
+  );
+
+  const { error } = await resend.emails.send({
+    from: process.env.CONTACT_EMAIL_FROM!,
+    to: process.env.CONTACT_EMAIL_TO || "ben@magnoliagrovega.com",
+    replyTo: payload.email,
+    subject: `New Merch Order Request — ${payload.firstName} ${payload.lastName} (${payload.product})`,
+    html,
+  });
+
+  if (error) {
+    console.error("[email] Resend rejected sendMerchOrderNotification:", error);
     return { sent: false, reason: error.message };
   }
 
