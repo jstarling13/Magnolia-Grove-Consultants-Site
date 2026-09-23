@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import { Landmark, Briefcase } from "lucide-react";
 
 const STORAGE_KEY = "mg-vertical-choice";
 
@@ -61,11 +60,8 @@ export default function VerticalGate() {
           <button
             type="button"
             onClick={() => choose("political")}
-            className="group flex flex-col items-center gap-4 rounded-lg border border-gold/30 bg-onyx px-6 py-10 text-center transition-all hover:-translate-y-1 hover:border-gold/70 hover:shadow-[0_16px_40px_-12px_rgba(197,160,89,0.35)]"
+            className="group flex flex-col items-center gap-3 rounded-lg border border-gold/30 bg-onyx px-6 py-10 text-center transition-all hover:-translate-y-1 hover:border-gold/70 hover:shadow-[0_16px_40px_-12px_rgba(197,160,89,0.35)]"
           >
-            <span className="flex h-14 w-14 items-center justify-center rounded-full border border-gold/40 bg-gold/10 text-gold-bright">
-              <Landmark size={26} strokeWidth={1.75} />
-            </span>
             <span className="text-lg font-semibold text-white">Political Campaigns</span>
             <span className="text-sm text-muted-light">
               Candidates, PACs, and political organizations
@@ -75,11 +71,8 @@ export default function VerticalGate() {
           <button
             type="button"
             onClick={() => choose("business")}
-            className="group flex flex-col items-center gap-4 rounded-lg border border-gold/30 bg-onyx px-6 py-10 text-center transition-all hover:-translate-y-1 hover:border-gold/70 hover:shadow-[0_16px_40px_-12px_rgba(197,160,89,0.35)]"
+            className="group flex flex-col items-center gap-3 rounded-lg border border-gold/30 bg-onyx px-6 py-10 text-center transition-all hover:-translate-y-1 hover:border-gold/70 hover:shadow-[0_16px_40px_-12px_rgba(197,160,89,0.35)]"
           >
-            <span className="flex h-14 w-14 items-center justify-center rounded-full border border-gold/40 bg-gold/10 text-gold-bright">
-              <Briefcase size={26} strokeWidth={1.75} />
-            </span>
             <span className="text-lg font-semibold text-white">Business & Organizations</span>
             <span className="text-sm text-muted-light">
               Businesses, nonprofits, and enterprise clients
