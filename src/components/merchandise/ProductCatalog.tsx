@@ -74,7 +74,7 @@ export default function ProductCatalog({ products }: ProductCatalogProps) {
 
       {filtered.length === 0 ? (
         <p className="mt-14 text-center text-base leading-relaxed text-onyx/60">
-          No products match your search — try the request form below and we'll source it for you.
+          No products match your search — try the request form below and we&apos;ll source it for you.
         </p>
       ) : (
         <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

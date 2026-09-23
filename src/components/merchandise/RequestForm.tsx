@@ -115,7 +115,7 @@ export default function MerchRequestForm() {
         </div>
         <h3 className="mt-6 text-2xl text-onyx">Request Received</h3>
         <p className="mt-3 max-w-md text-base leading-relaxed text-onyx/60">
-          We'll source pricing and get back to you with a quote shortly.
+          We&apos;ll source pricing and get back to you with a quote shortly.
         </p>
         <button
           type="button"
