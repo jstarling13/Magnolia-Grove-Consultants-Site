@@ -148,4 +148,6 @@ export interface MerchProduct {
   price: number;
   image?: string;
   imageAlt?: string;
+  /** Full list of color options as named on the supplier's product page. */
+  colors?: string[];
 }

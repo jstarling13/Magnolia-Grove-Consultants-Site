@@ -106,6 +106,13 @@ export default function ProductCatalog({ products }: ProductCatalogProps) {
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-onyx/60">
                   {product.description}
                 </p>
+                {product.colors && product.colors.length > 0 && (
+                  <p className="mt-2 text-xs text-onyx/50">
+                    {product.colors.length === 1
+                      ? product.colors[0]
+                      : `${product.colors.length} colors available`}
+                  </p>
+                )}
                 <div className="mt-4 flex items-center justify-between border-t border-gold/15 pt-4">
                   <span className="font-heading text-2xl font-bold text-onyx">
                     ${product.price.toFixed(2)}
