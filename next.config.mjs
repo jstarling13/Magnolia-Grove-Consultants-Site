@@ -3,9 +3,14 @@ import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
+// Next.js dev mode's HMR/React Refresh runtime uses eval() for module
+// wrapping — without 'unsafe-eval' here, client components never hydrate
+// in `next dev` (production doesn't need eval() and is unaffected).
+const isDev = process.env.NODE_ENV !== "production";
+
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com;
+  script-src 'self' 'unsafe-inline' ${isDev ? "'unsafe-eval'" : ""} https://challenges.cloudflare.com;
   style-src 'self' 'unsafe-inline';
   img-src 'self' data: blob:;
   font-src 'self' data:;

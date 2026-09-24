@@ -133,21 +133,34 @@ export interface CaseStudy {
   quoteAttribution: string;
 }
 
+export interface MerchPriceTier {
+  /** Minimum order quantity this price applies to. */
+  quantity: number;
+  /**
+   * What we'd pay ASI/ESP for this item at this quantity — already includes
+   * ASI's own markup over the raw supplier cost. This, not raw supplier
+   * cost, is the base the 5% business surcharge is calculated on. Never
+   * shown to the client.
+   */
+  espPrice: number;
+  /** espPrice * (1 + MARKUP_RATE), rounded to cents — what the client sees. */
+  price: number;
+}
+
 export interface MerchProduct {
   id: string;
   name: string;
   category: string;
   description: string;
-  /**
-   * What we'd pay ASI/ESP for this item — already includes ASI's own markup
-   * over the raw supplier cost. This, not raw supplier cost, is the base the
-   * 5% business surcharge is calculated on. Never shown to the client.
-   */
-  espPrice: number;
-  /** espPrice * (1 + MARKUP_RATE), rounded to cents — what the client sees. */
-  price: number;
+  /** Quantity-break pricing, sorted ascending by quantity. At least one tier. */
+  priceTiers: MerchPriceTier[];
   image?: string;
   imageAlt?: string;
   /** Full list of color options as named on the supplier's product page. */
   colors?: string[];
+  /**
+   * Brand shown on the product's own label (Nike, Peter Millar, etc.), used
+   * to group the catalog. Unbranded/private-label items use "Essentials".
+   */
+  brand: string;
 }

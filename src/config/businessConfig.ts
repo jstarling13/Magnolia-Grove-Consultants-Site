@@ -25,6 +25,7 @@ export const businessNavLinks: NavLink[] = [
   { label: "Home", href: "/business" },
   { label: "Services / 4 Pillars", href: "/business/pillars" },
   { label: "About", href: "/business/about" },
+  { label: "Merchant", href: "/merchandise" },
   { label: "Contact", href: "/business/contact" },
 ];
 

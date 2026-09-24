@@ -1,6 +1,6 @@
 import { Resend } from "resend";
 import type { LeadFormPayload, StrategySessionPayload, PaymentRequestPayload } from "./validation";
-import type { MerchOrderRequestPayload } from "./merchOrders";
+import type { MerchOrderRequestPayload, PricedCartLineItem } from "./merchOrders";
 
 const hasResendConfig =
   Boolean(process.env.RESEND_API_KEY) && Boolean(process.env.CONTACT_EMAIL_FROM);
@@ -235,6 +235,76 @@ export async function sendMerchOrderNotification(
 
   if (error) {
     console.error("[email] Resend rejected sendMerchOrderNotification:", error);
+    return { sent: false, reason: error.message };
+  }
+
+  return { sent: true };
+}
+
+interface CartOrderNotificationPayload {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  notes: string;
+  items: PricedCartLineItem[];
+  total: number;
+}
+
+export async function sendCartOrderNotification(
+  payload: CartOrderNotificationPayload
+): Promise<SendResult> {
+  if (!resend || !hasResendConfig) {
+    console.warn(
+      "[email] RESEND_API_KEY / CONTACT_EMAIL_FROM not set — skipping cart order notification."
+    );
+    return { sent: false, reason: "not_configured" };
+  }
+
+  const itemsHtml = payload.items
+    .map(
+      (item) =>
+        `<tr>
+          <td style="padding:6px 0;color:#e5e5e5;font-size:14px;">${item.name}</td>
+          <td style="padding:6px 0;color:#e5e5e5;font-size:14px;text-align:right;">${item.quantity}</td>
+          <td style="padding:6px 0;color:#e5e5e5;font-size:14px;text-align:right;">$${item.unitPrice.toFixed(2)}</td>
+          <td style="padding:6px 0;color:#e5e5e5;font-size:14px;text-align:right;">$${item.lineTotal.toFixed(2)}</td>
+        </tr>`
+    )
+    .join("");
+
+  const html = emailShell(
+    "New Merchandise Cart Order",
+    [
+      row("Name", `${payload.firstName} ${payload.lastName}`),
+      row("Email", payload.email),
+      row("Phone", payload.phone),
+      `<table style="width:100%;border-collapse:collapse;margin:16px 0;">
+        <thead>
+          <tr style="border-bottom:1px solid rgba(197,160,89,0.25);">
+            <th style="text-align:left;color:${MUTED};text-transform:uppercase;font-size:11px;letter-spacing:0.05em;padding-bottom:6px;">Item</th>
+            <th style="text-align:right;color:${MUTED};text-transform:uppercase;font-size:11px;letter-spacing:0.05em;padding-bottom:6px;">Qty</th>
+            <th style="text-align:right;color:${MUTED};text-transform:uppercase;font-size:11px;letter-spacing:0.05em;padding-bottom:6px;">Unit</th>
+            <th style="text-align:right;color:${MUTED};text-transform:uppercase;font-size:11px;letter-spacing:0.05em;padding-bottom:6px;">Line Total</th>
+          </tr>
+        </thead>
+        <tbody>${itemsHtml}</tbody>
+      </table>`,
+      row("Estimated Total", `$${payload.total.toFixed(2)}`),
+      payload.notes ? row("Notes", payload.notes) : "",
+    ].join("")
+  );
+
+  const { error } = await resend.emails.send({
+    from: process.env.CONTACT_EMAIL_FROM!,
+    to: process.env.CONTACT_EMAIL_TO || "ben@magnoliagrovega.com",
+    replyTo: payload.email,
+    subject: `New Merch Cart Order — ${payload.firstName} ${payload.lastName} (${payload.items.length} items, $${payload.total.toFixed(2)})`,
+    html,
+  });
+
+  if (error) {
+    console.error("[email] Resend rejected sendCartOrderNotification:", error);
     return { sent: false, reason: error.message };
   }
 

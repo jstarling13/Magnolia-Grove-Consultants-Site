@@ -33,7 +33,35 @@ const TYPE_LABELS: Record<SubmissionRow["type"], string> = {
   merch_order: "Merchandise Order",
 };
 
-const HIDDEN_FIELDS = new Set(["company_website", "turnstileToken", "formType", "status"]);
+const HIDDEN_FIELDS = new Set([
+  "company_website",
+  "turnstileToken",
+  "formType",
+  "status",
+  "items",
+  "total",
+]);
+
+interface CartLineItemDTO {
+  productId: string;
+  name: string;
+  quantity: number;
+  unitPrice: number;
+  lineTotal: number;
+}
+
+function isCartLineItems(value: unknown): value is CartLineItemDTO[] {
+  return (
+    Array.isArray(value) &&
+    value.every(
+      (item) =>
+        item &&
+        typeof item === "object" &&
+        typeof (item as CartLineItemDTO).name === "string" &&
+        typeof (item as CartLineItemDTO).quantity === "number"
+    )
+  );
+}
 
 function summarize(row: SubmissionRow): string {
   const d = row.data;
@@ -387,6 +415,31 @@ export default function Dashboard({
                         </div>
                       ))}
                   </dl>
+
+                  {row.type === "merch_order" && isCartLineItems(row.data.items) && (
+                    <div className="mt-4 rounded-md border border-gold/15 bg-cream/60 p-3">
+                      <p className="text-xs font-semibold uppercase tracking-wide text-onyx/50">
+                        Cart Items
+                      </p>
+                      <ul className="mt-2 space-y-1.5">
+                        {row.data.items.map((item) => (
+                          <li key={item.productId} className="flex justify-between text-sm text-onyx">
+                            <span>
+                              {item.name} × {item.quantity}
+                            </span>
+                            <span className="text-onyx/70">
+                              ${item.unitPrice.toFixed(2)}/ea — ${item.lineTotal.toFixed(2)}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                      {typeof row.data.total === "number" && (
+                        <p className="mt-2 border-t border-gold/15 pt-2 text-right text-sm font-semibold text-onyx">
+                          Total: ${row.data.total.toFixed(2)}
+                        </p>
+                      )}
+                    </div>
+                  )}
 
                   {row.type === "merch_order" && (
                     <MerchOrderStatusControl

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { merchandisePage, products } from "@/config/merchandiseConfig";
 import MerchRequestForm from "@/components/merchandise/RequestForm";
 import ProductCatalog from "@/components/merchandise/ProductCatalog";
+import CartLink from "@/components/merchandise/CartLink";
 
 export const metadata: Metadata = {
   title: "Merchandise | Magnolia Grove Consultants",
@@ -13,7 +14,12 @@ export default function MerchandisePage() {
 
   return (
     <>
-      <section className="bg-onyx px-6 py-20 text-center sm:px-8 lg:px-12 lg:py-28">
+      <section className="relative bg-onyx px-6 py-20 text-center sm:px-8 lg:px-12 lg:py-28">
+        {hasProducts && (
+          <div className="absolute right-6 top-6 sm:right-8 sm:top-8 lg:right-12 lg:top-10">
+            <CartLink />
+          </div>
+        )}
         <div className="mx-auto max-w-2xl">
           <span className="eyebrow">{merchandisePage.eyebrow}</span>
           <h1 className="mt-3 text-5xl uppercase text-white sm:text-6xl">

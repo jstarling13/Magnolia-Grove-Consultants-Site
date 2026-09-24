@@ -18,6 +18,35 @@ export const merchOrderRequestSchema = z.object({
 
 export type MerchOrderRequestPayload = z.infer<typeof merchOrderRequestSchema>;
 
+export const cartCheckoutSchema = z.object({
+  firstName: z.string().trim().min(1, "First name is required.").max(100),
+  lastName: z.string().trim().min(1, "Last name is required.").max(100),
+  email: z.string().trim().email("Enter a valid email address.").max(200),
+  phone: z.string().trim().min(7, "Phone number is required.").max(30),
+  notes: z.string().trim().max(2000).optional().or(z.literal("")),
+  items: z
+    .array(
+      z.object({
+        productId: z.string().trim().min(1).max(100),
+        quantity: z.number().int().positive().max(100000),
+      })
+    )
+    .min(1, "Your cart is empty."),
+  company_website: honeypotField,
+  turnstileToken: z.string().optional(),
+});
+
+export type CartCheckoutPayload = z.infer<typeof cartCheckoutSchema>;
+
+/** A cart line item with pricing recalculated server-side — never trust client-submitted prices. */
+export interface PricedCartLineItem {
+  productId: string;
+  name: string;
+  quantity: number;
+  unitPrice: number;
+  lineTotal: number;
+}
+
 /**
  * Lifecycle for a merch order request, per CLAUDE_HANDOFF.md's integration
  * checklist: no order is ever placed with the supplier automatically — an
