@@ -123,6 +123,40 @@ export const products: MerchProduct[] = [
     ],
   },
   {
+    id: "mesa-vest",
+    name: "Mesa Vest",
+    category: "Apparel",
+    description:
+      "A quilted insulated vest in 5 colors — a polished layering piece for cooler-weather events and door-knocking season. Priced per unit.",
+    espPrice: 59.2,
+    price: clientPrice(59.2),
+    image: "/images/merch/mesa-vest.jpg",
+    imageAlt: "Mesa Vest",
+    colors: ["Black", "Dark Grey", "Loden Green", "Saddle", "True Navy"],
+  },
+  {
+    id: "flexfit-performance-trucker-cap",
+    name: "Flexfit Performance Trucker Cap",
+    category: "Apparel",
+    description:
+      "A structured performance trucker cap in 30 color combinations — the most-requested item type we didn't have yet. Priced at 15 units.",
+    espPrice: 26.1,
+    price: clientPrice(26.1),
+    image: "/images/merch/flexfit-performance-trucker-cap.jpg",
+    imageAlt: "Flexfit Performance Trucker Cap",
+    colors: [
+      "Athletic Gold-Black-White", "Athletic Gold-Navy-White",
+      "Black-Red-White", "Black-Royal-White", "Columbia-Navy-White",
+      "Maroon-Black-White", "Navy-Red-White", "Orange-Black-White",
+      "White-Navy-Red", "White-Royal-Red", "Black-White", "Dark Green-White",
+      "Graphite-Black", "Graphite-White", "Navy-White", "Red-White",
+      "Royal-White", "Black", "Navy", "White", "Kelly Green-White",
+      "Purple-White", "Red", "Royal", "Vegas Gold-Navy-White",
+      "Vegas Gold-Black-White", "Black-Graphite", "Maroon-Graphite",
+      "White-Navy Blue-Navy Blue", "White-Black-Black",
+    ],
+  },
+  {
     id: "owala-freesip-bottle-24oz",
     name: "24 oz Owala Freesip Insulated Bottle",
     category: "Drinkware",
@@ -249,6 +283,18 @@ export const products: MerchProduct[] = [
     ],
   },
   {
+    id: "samsonite-weekender-duffel",
+    name: "Samsonite Better Than Basic Weekender",
+    category: "Bags",
+    description:
+      "A premium Samsonite weekender duffel in 2 colors — a higher-end gift for leadership, major donors, or top staff. Priced at 6 units.",
+    espPrice: 165.5,
+    price: clientPrice(165.5),
+    image: "/images/merch/samsonite-weekender-duffel.jpg",
+    imageAlt: "Samsonite Better Than Basic Weekender",
+    colors: ["Black", "Limestone"],
+  },
+  {
     id: "wireless-charging-pad",
     name: "Wireless Phone Charging Pad",
     category: "Tech Accessories",
@@ -259,6 +305,21 @@ export const products: MerchProduct[] = [
     image: "/images/merch/wireless-charging-pad.jpg",
     imageAlt: "Wireless Phone Charging Pad",
     colors: ["Red"],
+  },
+  {
+    id: "neoprene-laptop-sleeve",
+    name: "Slim Reversible Neoprene Laptop Sleeve",
+    category: "Tech Accessories",
+    description:
+      "A budget-friendly 14\" reversible laptop sleeve in 6 colors — a practical, low-cost tech giveaway. Priced at 100 units.",
+    espPrice: 3.917,
+    price: clientPrice(3.917),
+    image: "/images/merch/neoprene-laptop-sleeve.jpg",
+    imageAlt: "Slim Reversible Neoprene Laptop Sleeve",
+    colors: [
+      "Bright Black", "Bright Blue", "Camouflage White", "Camouflage Yellow",
+      "Metallic Pink", "Medium Gray",
+    ],
   },
   {
     id: "magsafe-power-bank-10000mah",
@@ -301,6 +362,18 @@ export const products: MerchProduct[] = [
       "Reflex Blue", "White", "Yellow", "Custom Shell Colors", "Silver",
       "Cola Red",
     ],
+  },
+  {
+    id: "the-decision-maker-padfolio",
+    name: "The Decision Maker Leather Padfolio",
+    category: "Office & Writing",
+    description:
+      "A leather-look padfolio in 3 colors, sized for briefings and client meetings — a polished everyday-carry piece. Priced at 12 units.",
+    espPrice: 49.95,
+    price: clientPrice(49.95),
+    image: "/images/merch/the-decision-maker-padfolio.jpg",
+    imageAlt: "The Decision Maker Leather Padfolio",
+    colors: ["Black", "Brown", "Navy"],
   },
   {
     id: "textured-linen-notebook",
