@@ -1,10 +1,11 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { merchandiseCategories, groupByBrand } from "@/config/merchandiseConfig";
 import ColorSwatches from "@/components/merchandise/ColorSwatches";
+import ProductImageWithLogo from "@/components/merchandise/ProductImageWithLogo";
+import LogoDropzone from "@/components/merchandise/LogoDropzone";
 import type { MerchProduct } from "@/types";
 
 interface ProductCatalogProps {
@@ -38,6 +39,10 @@ export default function ProductCatalog({ products }: ProductCatalogProps) {
 
   return (
     <div>
+      <div className="mb-10">
+        <LogoDropzone />
+      </div>
+
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <input
           type="search"
@@ -90,19 +95,10 @@ export default function ProductCatalog({ products }: ProductCatalogProps) {
                       className="flex h-full flex-col overflow-hidden rounded-lg border border-gold/25 bg-cream-100/85 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:shadow-[0_16px_40px_-12px_rgba(197,160,89,0.35)]"
                     >
                       <div className="relative h-48 w-full bg-cream-200">
-                        {product.image ? (
-                          <Image
-                            src={product.image}
-                            alt={product.imageAlt ?? product.name}
-                            fill
-                            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                            className="object-cover object-center"
-                          />
-                        ) : (
-                          <div className="flex h-full items-center justify-center text-xs font-semibold uppercase tracking-wide text-onyx/40">
-                            Image Coming Soon
-                          </div>
-                        )}
+                        <ProductImageWithLogo
+                          product={product}
+                          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        />
                       </div>
                       <div className="flex flex-1 flex-col p-6">
                         <span className="text-xs font-semibold uppercase tracking-wide text-gold-dark">

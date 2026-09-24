@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getProductById, merchandisePage, products } from "@/config/merchandiseConfig";
 import CartLink from "@/components/merchandise/CartLink";
 import ProductDetailActions from "@/components/merchandise/ProductDetailActions";
 import ColorSwatches from "@/components/merchandise/ColorSwatches";
+import ProductImageWithLogo from "@/components/merchandise/ProductImageWithLogo";
 
 interface ProductPageProps {
   params: Promise<{ id: string }>;
@@ -49,20 +49,11 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
       <section className="bg-cream px-6 py-16 sm:px-8 lg:px-12 lg:py-24">
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 lg:grid-cols-2">
           <div className="relative h-80 w-full overflow-hidden rounded-lg border border-gold/25 bg-cream-200 sm:h-[28rem]">
-            {product.image ? (
-              <Image
-                src={product.image}
-                alt={product.imageAlt ?? product.name}
-                fill
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover object-center"
-                priority
-              />
-            ) : (
-              <div className="flex h-full items-center justify-center text-xs font-semibold uppercase tracking-wide text-onyx/40">
-                Image Coming Soon
-              </div>
-            )}
+            <ProductImageWithLogo
+              product={product}
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              priority
+            />
           </div>
 
           <div>

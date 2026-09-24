@@ -24,7 +24,7 @@
  * ============================================================================
  */
 
-import type { MerchPriceTier, MerchProduct } from "@/types";
+import type { ImprintArea, MerchPriceTier, MerchProduct } from "@/types";
 
 export const MARKUP_RATE = 0.05;
 
@@ -898,6 +898,26 @@ export const products: MerchProduct[] = [
     ],
   },
 ];
+
+// Reasonable default logo placement per category, used when a product has
+// no `imprintArea` of its own. Values are % of the image box; top/left are
+// the logo's center point, width is the logo's width as % of image width.
+// These are a starting point for a live "see your logo on it" preview, not
+// exact print-area specs — tune per product if something looks off.
+const CATEGORY_IMPRINT_DEFAULTS: Record<string, ImprintArea> = {
+  Apparel: { top: 33, left: 44, width: 16 },
+  Drinkware: { top: 46, left: 50, width: 26 },
+  Bags: { top: 48, left: 50, width: 24 },
+  "Tech Accessories": { top: 50, left: 50, width: 22 },
+  "Office & Writing": { top: 50, left: 50, width: 22 },
+  "Event & Signage": { top: 50, left: 50, width: 22 },
+};
+
+const FALLBACK_IMPRINT: ImprintArea = { top: 50, left: 50, width: 22 };
+
+export function getImprintArea(product: MerchProduct): ImprintArea {
+  return product.imprintArea ?? CATEGORY_IMPRINT_DEFAULTS[product.category] ?? FALLBACK_IMPRINT;
+}
 
 export function getProductById(id: string): MerchProduct | undefined {
   return products.find((product) => product.id === id);

@@ -163,4 +163,18 @@ export interface MerchProduct {
    * to group the catalog. Unbranded/private-label items use "Essentials".
    */
   brand: string;
+  /**
+   * Where an uploaded client logo is previewed on this product's photo, as
+   * percentages of the image box (top/left = center point, width = logo
+   * width as % of image width). Falls back to a per-category default in
+   * CATEGORY_IMPRINT_DEFAULTS when omitted — most products don't need a
+   * per-item override.
+   */
+  imprintArea?: ImprintArea;
+}
+
+export interface ImprintArea {
+  top: number;
+  left: number;
+  width: number;
 }
