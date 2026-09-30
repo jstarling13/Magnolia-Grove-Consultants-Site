@@ -259,6 +259,12 @@ export const products: MerchProduct[] = [
     image: "/images/merch/peter-millar-galway-stretch-vest.jpg",
     imageAlt: "Peter Millar Galway Stretch Loop Terry Quarter-Zip Vest",
     colors: ["Black", "Iron", "White", "Navy"],
+    colorImages: {
+      Black: "/images/merch/peter-millar-galway-vest-black.webp",
+      Iron: "/images/merch/peter-millar-galway-vest-iron.webp",
+      White: "/images/merch/peter-millar-galway-vest-white.webp",
+      Navy: "/images/merch/peter-millar-galway-vest-navy.webp",
+    },
   },
   {
     id: "peter-millar-essex-vest",
@@ -276,6 +282,11 @@ export const products: MerchProduct[] = [
     image: "/images/merch/peter-millar-essex-vest.jpg",
     imageAlt: "Peter Millar Men's Essex Vest",
     colors: ["Black", "Dark Olive", "Navy"],
+    colorImages: {
+      Black: "/images/merch/peter-millar-essex-vest-black.webp",
+      "Dark Olive": "/images/merch/peter-millar-essex-vest-dark-olive.webp",
+      Navy: "/images/merch/peter-millar-essex-vest-navy.webp",
+    },
   },
   {
     id: "peter-millar-pine-performance-hoodie",
@@ -283,14 +294,20 @@ export const products: MerchProduct[] = [
     category: "Apparel",
     brand: "Peter Millar",
     description:
-      "A luxury-tier performance hoodie in 9 colors — a premium layering piece for leadership and top-tier gifting. Priced at 6 units.",
+      "A luxury-tier performance hoodie in 7 colors — a premium layering piece for leadership and top-tier gifting. Priced at 6 units.",
     priceTiers: tiers([[6, 150.0]]),
     image: "/images/merch/peter-millar-pine-performance-hoodie.jpg",
     imageAlt: "Men's Peter Millar Pine Performance Hoodie",
-    colors: [
-      "Black", "Navy", "White", "Gale Grey", "Red 3", "Fresh Mint",
-      "Lakeside", "Pine Brook", "Sport Navy",
-    ],
+    colors: ["Black", "Navy", "White", "Gale Grey", "Red 3", "Fresh Mint", "Sport Navy"],
+    colorImages: {
+      Black: "/images/merch/peter-millar-pine-hoodie-black.webp",
+      Navy: "/images/merch/peter-millar-pine-hoodie-navy.webp",
+      White: "/images/merch/peter-millar-pine-hoodie-white.webp",
+      "Gale Grey": "/images/merch/peter-millar-pine-hoodie-gale-grey.webp",
+      "Red 3": "/images/merch/peter-millar-pine-hoodie-red3.webp",
+      "Fresh Mint": "/images/merch/peter-millar-pine-hoodie-fresh-mint.webp",
+      "Sport Navy": "/images/merch/peter-millar-pine-hoodie-sport-navy.webp",
+    },
   },
   {
     id: "peter-millar-perth-quarter-zip-mens",
@@ -306,6 +323,16 @@ export const products: MerchProduct[] = [
       "Black", "British Grey", "Cottage Blue", "Iron", "Navy", "White",
       "Red 3", "Blue 3",
     ],
+    colorImages: {
+      Black: "/images/merch/peter-millar-perth-qz-mens-black.webp",
+      "British Grey": "/images/merch/peter-millar-perth-qz-mens-british-grey.webp",
+      "Cottage Blue": "/images/merch/peter-millar-perth-qz-mens-cottage-blue.webp",
+      Iron: "/images/merch/peter-millar-perth-qz-mens-iron.webp",
+      Navy: "/images/merch/peter-millar-perth-qz-mens-navy.webp",
+      White: "/images/merch/peter-millar-perth-qz-mens-white.webp",
+      "Red 3": "/images/merch/peter-millar-perth-qz-mens-red3.webp",
+      "Blue 3": "/images/merch/peter-millar-perth-qz-mens-blue3.webp",
+    },
   },
   {
     id: "peter-millar-perth-quarter-zip-womens",
@@ -318,6 +345,14 @@ export const products: MerchProduct[] = [
     image: "/images/merch/peter-millar-perth-quarter-zip-womens.jpg",
     imageAlt: "Peter Millar Women's Perth Performance Quarter-Zip",
     colors: ["Black", "Navy", "White", "Red 3", "Pine Brook", "Rainwater"],
+    colorImages: {
+      Black: "/images/merch/peter-millar-perth-qz-womens-black.webp",
+      Navy: "/images/merch/peter-millar-perth-qz-womens-navy.webp",
+      White: "/images/merch/peter-millar-perth-qz-womens-white.webp",
+      "Red 3": "/images/merch/peter-millar-perth-qz-womens-red3.webp",
+      "Pine Brook": "/images/merch/peter-millar-perth-qz-womens-pine-brook.webp",
+      Rainwater: "/images/merch/peter-millar-perth-qz-womens-rainwater.webp",
+    },
   },
   {
     id: "peter-millar-jubilee-striped-polo",
