@@ -360,11 +360,18 @@ export const products: MerchProduct[] = [
     category: "Apparel",
     brand: "Peter Millar",
     description:
-      "A striped luxury-tier polo in 4 colors — for leadership, donor-facing events, and top-tier client gifting. Priced at 6 units.",
+      "A striped luxury-tier polo in 5 colors — for leadership, donor-facing events, and top-tier client gifting. Priced at 6 units.",
     priceTiers: tiers([[6, 115.0]]),
     image: "/images/merch/peter-millar-jubilee-striped-polo.jpg",
     imageAlt: "Peter Millar Men's Jubilee Striped Polo",
-    colors: ["Black", "Navy", "Cottage Blue", "Iron"],
+    colors: ["Black", "Navy", "Cottage Blue", "Iron", "Red Coral"],
+    colorImages: {
+      Black: "/images/merch/peter-millar-jubilee-polo-black.webp",
+      Navy: "/images/merch/peter-millar-jubilee-polo-navy.webp",
+      "Cottage Blue": "/images/merch/peter-millar-jubilee-polo-cottage-blue.webp",
+      Iron: "/images/merch/peter-millar-jubilee-polo-iron.webp",
+      "Red Coral": "/images/merch/peter-millar-jubilee-polo-red-coral.webp",
+    },
   },
   {
     id: "peter-millar-hales-polo",
@@ -372,11 +379,15 @@ export const products: MerchProduct[] = [
     category: "Apparel",
     brand: "Peter Millar",
     description:
-      "A luxury-tier jersey polo in 3 colors — for leadership, donor-facing events, and top-tier client gifting.",
+      "A luxury-tier jersey polo in 2 colors — for leadership, donor-facing events, and top-tier client gifting.",
     priceTiers: tiers([[1, 115.0]]),
     image: "/images/merch/peter-millar-hales-polo.jpg",
     imageAlt: "Peter Millar Hales Performance Short Sleeve Jersey Polo",
-    colors: ["Cottage Blue", "Navy Blue", "Pear Tart Green"],
+    colors: ["Cottage Blue", "Navy"],
+    colorImages: {
+      "Cottage Blue": "/images/merch/peter-millar-hales-polo-cottage-blue.webp",
+      Navy: "/images/merch/peter-millar-hales-polo-navy.webp",
+    },
   },
   {
     id: "peter-millar-polo-mens",
@@ -389,6 +400,13 @@ export const products: MerchProduct[] = [
     image: "/images/merch/peter-millar-polo-mens.jpg",
     imageAlt: "Peter Millar Men's Solid Performance Polo",
     colors: ["Black", "Cottage Blue", "Navy", "White", "Iron"],
+    colorImages: {
+      Black: "/images/merch/peter-millar-solid-polo-mens-black.webp",
+      "Cottage Blue": "/images/merch/peter-millar-solid-polo-mens-cottage-blue.webp",
+      Navy: "/images/merch/peter-millar-solid-polo-mens-navy.webp",
+      White: "/images/merch/peter-millar-solid-polo-mens-white.webp",
+      Iron: "/images/merch/peter-millar-solid-polo-mens-iron.webp",
+    },
   },
   {
     id: "peter-millar-polo-womens",
@@ -400,7 +418,12 @@ export const products: MerchProduct[] = [
     priceTiers: tiers([[1, 115.0]]),
     image: "/images/merch/peter-millar-polo-womens.jpg",
     imageAlt: "Peter Millar Women's Short Sleeve Button Polo",
-    colors: ["Black", "White", "Navy Blue"],
+    colors: ["Black", "Navy", "White"],
+    colorImages: {
+      Black: "/images/merch/peter-millar-solid-polo-womens-black.webp",
+      Navy: "/images/merch/peter-millar-solid-polo-womens-navy.webp",
+      White: "/images/merch/peter-millar-solid-polo-womens-white.webp",
+    },
   },
   {
     id: "callaway-lightweight-quarter-zip",
