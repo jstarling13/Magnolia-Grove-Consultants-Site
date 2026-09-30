@@ -966,3 +966,31 @@ export function groupByBrand(list: MerchProduct[]): { brand: string; items: Merc
 
   return groups;
 }
+
+/**
+ * Groups products by category (in the fixed merchandiseCategories order —
+ * how shoppers actually browse: "I need drinkware," not "I want Peter
+ * Millar"). Within each category, name-brand items still lead and
+ * "Essentials" private-label items still trail, same anchoring effect as
+ * groupByBrand, just applied inside each category instead of across the
+ * whole catalog.
+ */
+export function groupByCategory(list: MerchProduct[]): { category: string; items: MerchProduct[] }[] {
+  const byCategory = new Map<string, MerchProduct[]>();
+  for (const product of list) {
+    const group = byCategory.get(product.category);
+    if (group) group.push(product);
+    else byCategory.set(product.category, [product]);
+  }
+
+  return merchandiseCategories
+    .filter((category) => byCategory.has(category))
+    .map((category) => ({
+      category,
+      items: [...byCategory.get(category)!].sort((a, b) => {
+        if (a.brand === "Essentials" && b.brand !== "Essentials") return 1;
+        if (b.brand === "Essentials" && a.brand !== "Essentials") return -1;
+        return startingPrice(b) - startingPrice(a);
+      }),
+    }));
+}

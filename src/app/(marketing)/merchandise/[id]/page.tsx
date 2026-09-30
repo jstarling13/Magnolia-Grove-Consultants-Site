@@ -4,8 +4,7 @@ import { notFound } from "next/navigation";
 import { getProductById, merchandisePage, products } from "@/config/merchandiseConfig";
 import CartLink from "@/components/merchandise/CartLink";
 import ProductDetailActions from "@/components/merchandise/ProductDetailActions";
-import ColorSwatches from "@/components/merchandise/ColorSwatches";
-import ProductImageWithLogo from "@/components/merchandise/ProductImageWithLogo";
+import ProductGallery from "@/components/merchandise/ProductGallery";
 
 interface ProductPageProps {
   params: Promise<{ id: string }>;
@@ -48,13 +47,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
       <section className="bg-cream px-6 py-16 sm:px-8 lg:px-12 lg:py-24">
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 lg:grid-cols-2">
-          <div className="relative h-80 w-full overflow-hidden rounded-lg border border-gold/25 bg-cream-200 sm:h-[28rem]">
-            <ProductImageWithLogo
-              product={product}
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              priority
-            />
-          </div>
+          <ProductGallery product={product} />
 
           <div>
             <div className="flex items-center gap-3">
@@ -68,20 +61,6 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
             </div>
             <h1 className="mt-2 text-3xl text-onyx sm:text-4xl">{product.name}</h1>
             <p className="mt-4 text-base leading-relaxed text-onyx/70">{product.description}</p>
-
-            {product.colors && product.colors.length > 0 && (
-              <div className="mt-6">
-                <h2 className="text-xs font-semibold uppercase tracking-wide text-onyx/50">
-                  {product.colors.length === 1 ? "Color" : `Colors (${product.colors.length})`}
-                </h2>
-                <div className="mt-2">
-                  <ColorSwatches colors={product.colors} max={product.colors.length} size="md" />
-                </div>
-                <p className="mt-2 text-xs leading-relaxed text-onyx/50">
-                  {product.colors.join(", ")}
-                </p>
-              </div>
-            )}
 
             <div className="mt-6">
               <h2 className="text-xs font-semibold uppercase tracking-wide text-onyx/50">

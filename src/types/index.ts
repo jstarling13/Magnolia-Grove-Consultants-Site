@@ -159,6 +159,14 @@ export interface MerchProduct {
   /** Full list of color options as named on the supplier's product page. */
   colors?: string[];
   /**
+   * Real product photo for a specific color, keyed by the exact string in
+   * `colors`. Sourced from ESP+ gradually, one color at a time — a color
+   * with no entry here just falls back to `image` when selected, so the
+   * catalog never breaks or shows a placeholder while photos are still
+   * being sourced.
+   */
+  colorImages?: Record<string, string>;
+  /**
    * Brand shown on the product's own label (Nike, Peter Millar, etc.), used
    * to group the catalog. Unbranded/private-label items use "Essentials".
    */
