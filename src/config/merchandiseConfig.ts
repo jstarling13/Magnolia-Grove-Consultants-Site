@@ -62,6 +62,8 @@ export const merchandiseCategories = [
   "Tech Accessories",
   "Office & Writing",
   "Event & Signage",
+  "Knives & Tools",
+  "Gifts & Entertaining",
 ] as const;
 
 // Real products sourced from live ESP+ search (espplus.com), September 2026.
@@ -958,6 +960,72 @@ export const products: MerchProduct[] = [
       "Black", "White", "Navy", "Yellow", "Red", "Green", "Royal", "Orange",
       "Lime",
     ],
+  },
+  {
+    id: "buck-bantam-285-blw-lockback-knife",
+    name: "Buck Bantam 285 BLW Lockback Knife",
+    category: "Knives & Tools",
+    brand: "Buck",
+    description:
+      "A Made-in-USA lockback knife with a 3 1/8\" stainless steel blade and textured thermoplastic handle — a durable, trusted-brand gift. Priced at 24 units.",
+    priceTiers: tiers([
+      [24, 25.8],
+      [96, 24.9],
+      [288, 24.0],
+    ]),
+    image: "/images/merch/buck-bantam-285-blw-lockback-knife.webp",
+    imageAlt: "Buck Bantam 285 BLW Lockback Knife",
+    colors: ["Black"],
+  },
+  {
+    id: "leatherman-rev-multi-tool",
+    name: "Leatherman® Rev",
+    category: "Knives & Tools",
+    brand: "Leatherman",
+    description:
+      "A Made-in-USA stainless steel multi-tool — 4\" closed, with pliers, screwdrivers, wire cutters, and more. Priced at 24 units.",
+    priceTiers: tiers([
+      [24, 43.225],
+      [48, 42.575],
+      [144, 40.918],
+    ]),
+    image: "/images/merch/leatherman-rev-multi-tool.webp",
+    imageAlt: "Leatherman Rev Multi-Tool",
+    colors: ["Silver"],
+  },
+  {
+    id: "cedar-creek-valor-pocket-knife",
+    name: "Cedar Creek® Valor Pocket Knife",
+    category: "Knives & Tools",
+    brand: "Essentials",
+    description:
+      "A budget-friendly textured-handle pocket knife in 2 colors — an easy, low-cost add-on gift. Priced at 48 units.",
+    priceTiers: tiers([
+      [48, 7.05],
+      [144, 6.75],
+      [288, 6.3],
+    ]),
+    image: "/images/merch/cedar-creek-valor-pocket-knife.webp",
+    imageAlt: "Cedar Creek Valor Pocket Knife",
+    colors: ["Black", "Green"],
+  },
+  {
+    id: "astor-bamboo-cheese-board-knife-set",
+    name: "Astor Bamboo Cheese Board Knife Set",
+    category: "Gifts & Entertaining",
+    brand: "Essentials",
+    description:
+      "A bamboo cheese board with a cheese knife, cheese fork, and chisel knife — a polished host or client gift. Priced at 25 units.",
+    priceTiers: tiers([
+      [25, 13.5],
+      [50, 12.9],
+      [100, 12.3],
+      [250, 12.0],
+      [500, 11.7],
+    ]),
+    image: "/images/merch/astor-bamboo-cheese-board-knife-set.webp",
+    imageAlt: "Astor Bamboo Cheese Board Knife Set",
+    colors: ["Bamboo"],
   },
 ];
 
