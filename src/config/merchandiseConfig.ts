@@ -1191,6 +1191,41 @@ export const products: MerchProduct[] = [
       "White",
     ],
   },
+  {
+    id: "bamboo-desk-organizer",
+    name: "Bamboo Desk Organizer with Stylus Pen and Phone Holder",
+    category: "Office & Writing",
+    brand: "Essentials",
+    description:
+      "A bamboo desk organizer with a stylus pen, phone holder, 3 pen slots, and a sticky note pad — a practical desk-accessory gift. Priced at 75 units.",
+    priceTiers: tiers([
+      [75, 8.35],
+      [150, 8.25],
+      [250, 8.15],
+      [500, 8.05],
+      [1000, 7.95],
+    ]),
+    image: "/images/merch/bamboo-desk-organizer.webp",
+    imageAlt: "Bamboo Desk Organizer with Stylus Pen and Phone Holder",
+    colors: ["Brown"],
+  },
+  {
+    id: "die-cut-stickers",
+    name: "Die-Cut Stickers",
+    category: "Event & Signage",
+    brand: "Essentials",
+    description:
+      "Full-color custom vinyl die-cut stickers in your choice of shape, from 2\" to 5\" — a low-cost way to extend brand reach. Priced at 50 units.",
+    priceTiers: tiers([
+      [50, 1.61],
+      [100, 0.96],
+      [200, 0.6],
+      [300, 0.468],
+    ]),
+    image: "/images/merch/die-cut-stickers.webp",
+    imageAlt: "Die-Cut Stickers",
+    colors: ["Custom (full-color print)"],
+  },
 ];
 
 // Reasonable default logo placement per category, used when a product has
