@@ -193,6 +193,10 @@ export const products: MerchProduct[] = [
     image: "/images/merch/brooks-brothers-mesh-polo-mens.jpg",
     imageAlt: "Brooks Brothers Mesh Pique Performance Polo",
     colors: ["Charter Blue", "Deep Black", "Navy Blazer", "Rich Red", "Soft Mint", "White"],
+    colorImages: {
+      "Navy Blazer": "/images/merch/brooks-brothers-mesh-polo-mens-navy-blazer.webp",
+      "Deep Black": "/images/merch/brooks-brothers-mesh-polo-mens-deep-black.webp",
+    },
   },
   {
     id: "brooks-brothers-mesh-polo-womens",
