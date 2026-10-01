@@ -1102,6 +1102,23 @@ export const products: MerchProduct[] = [
     imageAlt: "Rain Gauge",
     colors: ["White", "Blue", "Red", "Black", "Green"],
   },
+  {
+    id: "8pc-bbq-grill-tool-set",
+    name: "8 Pc BBQ Grill Tool Set",
+    category: "Gifts & Entertaining",
+    brand: "Essentials",
+    description:
+      "An eight-piece BBQ set with spatula, fork, tongs, basting brush, and four skewers in a zip polyester case with 12\" handles. Priced at 25 units.",
+    priceTiers: tiers([
+      [25, 21.59],
+      [75, 20.59],
+      [150, 19.59],
+      [300, 18.59],
+    ]),
+    image: "/images/merch/8pc-bbq-grill-tool-set.webp",
+    imageAlt: "8 Pc BBQ Grill Tool Set",
+    colors: ["Black"],
+  },
 ];
 
 // Reasonable default logo placement per category, used when a product has
