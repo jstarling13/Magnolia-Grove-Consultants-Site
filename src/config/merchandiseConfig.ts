@@ -1027,6 +1027,81 @@ export const products: MerchProduct[] = [
     imageAlt: "Astor Bamboo Cheese Board Knife Set",
     colors: ["Bamboo"],
   },
+  {
+    id: "pu-leather-magnetic-phone-wallet",
+    name: "PU Leather Magnetic Phone Card Wallet",
+    category: "Tech Accessories",
+    brand: "Essentials",
+    description:
+      "A magnetic PU leather card wallet that attaches to the back of a phone in 7 colors — everyday-carry utility. Priced at 100 units.",
+    priceTiers: tiers([
+      [100, 2.9],
+      [250, 2.4],
+      [500, 2.3],
+      [1000, 2.2],
+      [2500, 2.1],
+    ]),
+    image: "/images/merch/pu-leather-magnetic-phone-wallet.webp",
+    imageAlt: "PU Leather Magnetic Phone Card Wallet",
+    colors: ["Black", "Red", "Yellow", "Green", "Purple", "Brown", "Navy Blue"],
+  },
+  {
+    id: "u-go-travel-toiletry-kit",
+    name: "U-Go Travel Kit",
+    category: "Gifts & Entertaining",
+    brand: "Essentials",
+    description:
+      "A travel toiletry kit with a nylon pouch, bandages, tissue pack, toothbrush, toothpaste, deodorant soap, and shampoo in 4 colors. Priced at 50 units.",
+    priceTiers: tiers([
+      [50, 6.3],
+      [250, 6.06],
+      [500, 5.82],
+      [1000, 5.61],
+    ]),
+    image: "/images/merch/u-go-travel-toiletry-kit.webp",
+    imageAlt: "U-Go Travel Kit",
+    colors: ["Blue", "Red", "White", "Black"],
+  },
+  {
+    id: "rpet-roll-up-picnic-blanket",
+    name: "rPET Roll-Up Picnic Blanket",
+    category: "Gifts & Entertaining",
+    brand: "Essentials",
+    description:
+      "A recycled-material roll-up picnic blanket in 8 color combinations — a relaxed outdoor-event or thank-you gift. Priced at 25 units.",
+    priceTiers: tiers([
+      [25, 7.83],
+      [50, 7.602],
+      [100, 7.38],
+      [250, 7.164],
+      [500, 6.954],
+    ]),
+    image: "/images/merch/rpet-roll-up-picnic-blanket.webp",
+    imageAlt: "rPET Roll-Up Picnic Blanket",
+    colors: [
+      "Orange Multi", "Red Flap/Blkred Blanket", "Nav Flap/Grnnav Blanket",
+      "Blk Flap/Blkgra Blanket", "Nav Flap/Navwht Blanket", "Lime/Lt Blue",
+      "Red/Black", "Royal Blue/Black",
+    ],
+  },
+  {
+    id: "rain-gauge",
+    name: "Rain Gauge",
+    category: "Gifts & Entertaining",
+    brand: "Essentials",
+    description:
+      "A plastic rain gauge with a heavy-gauge 4\" tub in 5 colors — a practical, memorable outdoor gift. Priced at 150 units.",
+    priceTiers: tiers([
+      [150, 2.634],
+      [250, 2.532],
+      [500, 2.472],
+      [1000, 2.418],
+      [1500, 2.31],
+    ]),
+    image: "/images/merch/rain-gauge.webp",
+    imageAlt: "Rain Gauge",
+    colors: ["White", "Blue", "Red", "Black", "Green"],
+  },
 ];
 
 // Reasonable default logo placement per category, used when a product has
