@@ -1119,6 +1119,78 @@ export const products: MerchProduct[] = [
     imageAlt: "8 Pc BBQ Grill Tool Set",
     colors: ["Black"],
   },
+  {
+    id: "pickleball-paddle",
+    name: "Pickleball Paddle",
+    category: "Gifts & Entertaining",
+    brand: "Essentials",
+    description:
+      "A budget-friendly single pickleball paddle — an easy, on-trend bulk giveaway. Priced at 100 units.",
+    priceTiers: tiers([
+      [100, 6.1],
+      [300, 5.94],
+      [600, 5.82],
+      [1200, 5.57],
+      [1800, 5.3],
+    ]),
+    image: "/images/merch/pickleball-paddle.webp",
+    imageAlt: "Pickleball Paddle",
+    colors: ["White-Black"],
+  },
+  {
+    id: "carbon-fiber-pickleball-set",
+    name: "Carbon Fiber Pickleball Racket Paddle Set",
+    category: "Gifts & Entertaining",
+    brand: "Essentials",
+    description:
+      "A premium carbon fiber pickleball set with 2 rackets, 4 balls, and a carrying bag — a lightweight, fast-swing design in 2 colors. Priced at 50 units.",
+    priceTiers: tiers([
+      [50, 35.683],
+      [100, 35.517],
+      [300, 35.35],
+      [1000, 35.183],
+    ]),
+    image: "/images/merch/carbon-fiber-pickleball-set.webp",
+    imageAlt: "Carbon Fiber Pickleball Racket Paddle Set",
+    colors: ["Black", "Gray"],
+  },
+  {
+    id: "cross-classic-century-pen",
+    name: "Cross® Classic Century Ballpoint Pen",
+    category: "Office & Writing",
+    brand: "Cross",
+    description:
+      "An iconic chrome ballpoint pen from Cross — a special-occasion gift with lasting prestige. Priced at 12 units.",
+    priceTiers: tiers([[12, 34.99]]),
+    image: "/images/merch/cross-classic-century-pen.webp",
+    imageAlt: "Cross Classic Century Ballpoint Pen",
+    colors: ["Chrome"],
+  },
+  {
+    id: "bic-clic-stic-pen",
+    name: "BIC® Clic Stic® Pen",
+    category: "Office & Writing",
+    brand: "Essentials",
+    description:
+      "An affordable retractable ballpoint pen in 12 colors — a reliable everyday-use bulk giveaway. Priced at 250 units.",
+    priceTiers: tiers([[250, 0.59]]),
+    image: "/images/merch/bic-clic-stic-pen.webp",
+    imageAlt: "BIC Clic Stic Pen",
+    colors: [
+      "Black",
+      "Forest Green",
+      "Metallic Sand",
+      "Slate",
+      "Blue",
+      "Green",
+      "Navy",
+      "Teal",
+      "Burgundy",
+      "Metallic Dark Blue",
+      "Orange",
+      "White",
+    ],
+  },
 ];
 
 // Reasonable default logo placement per category, used when a product has
