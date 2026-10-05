@@ -62,5 +62,43 @@
     "Teal Green": "/images/merch/colors/port-authority-extended-size-long-sleeve-easy-care-shirt-03405-teal-green.webp",
     "Yellow": "/images/merch/colors/port-authority-extended-size-long-sleeve-easy-care-shirt-03405-yellow.webp",
     "Strong Blue": "/images/merch/colors/port-authority-extended-size-long-sleeve-easy-care-shirt-03405-strong-blue.webp"
+  },
+  "classic-polyester-drawstring-bags-94667": {
+    "Black": "/images/merch/colors/classic-polyester-drawstring-bags-94667-black.webp",
+    "Burgundy": "/images/merch/colors/classic-polyester-drawstring-bags-94667-burgundy.webp",
+    "Orange": "/images/merch/colors/classic-polyester-drawstring-bags-94667-orange.webp",
+    "Purple": "/images/merch/colors/classic-polyester-drawstring-bags-94667-purple.webp",
+    "Red": "/images/merch/colors/classic-polyester-drawstring-bags-94667-red.webp",
+    "Royal Blue": "/images/merch/colors/classic-polyester-drawstring-bags-94667-royal-blue.webp",
+    "Lime Green": "/images/merch/colors/classic-polyester-drawstring-bags-94667-lime-green.webp",
+    "White": "/images/merch/colors/classic-polyester-drawstring-bags-94667-white.webp",
+    "Yellow": "/images/merch/colors/classic-polyester-drawstring-bags-94667-yellow.webp"
+  },
+  "40-oz-intrepid-recycled-stainless-steel-tumbler-97724": {
+    "Recycled Beige": "/images/merch/colors/40-oz-intrepid-recycled-stainless-steel-tumbler-97724-recycled-beige.webp",
+    "Recycled Black": "/images/merch/colors/40-oz-intrepid-recycled-stainless-steel-tumbler-97724-recycled-black.webp",
+    "Recycled Light Blue": "/images/merch/colors/40-oz-intrepid-recycled-stainless-steel-tumbler-97724-recycled-light-blue.webp",
+    "Recycled Blue": "/images/merch/colors/40-oz-intrepid-recycled-stainless-steel-tumbler-97724-recycled-blue.webp",
+    "Recycled Gray": "/images/merch/colors/40-oz-intrepid-recycled-stainless-steel-tumbler-97724-recycled-gray.webp",
+    "Recycled Lime": "/images/merch/colors/40-oz-intrepid-recycled-stainless-steel-tumbler-97724-recycled-lime.webp",
+    "Recycled Navy Blue": "/images/merch/colors/40-oz-intrepid-recycled-stainless-steel-tumbler-97724-recycled-navy-blue.webp",
+    "Recycled Orange": "/images/merch/colors/40-oz-intrepid-recycled-stainless-steel-tumbler-97724-recycled-orange.webp",
+    "Recycled Pink": "/images/merch/colors/40-oz-intrepid-recycled-stainless-steel-tumbler-97724-recycled-pink.webp",
+    "Recycled Purple": "/images/merch/colors/40-oz-intrepid-recycled-stainless-steel-tumbler-97724-recycled-purple.webp",
+    "Recycled Red": "/images/merch/colors/40-oz-intrepid-recycled-stainless-steel-tumbler-97724-recycled-red.webp",
+    "Recycled White": "/images/merch/colors/40-oz-intrepid-recycled-stainless-steel-tumbler-97724-recycled-white.webp"
+  },
+  "platform-ladies-posicharge-tough-tee-03945": {
+    "Atomic Blue": "/images/merch/colors/platform-ladies-posicharge-tough-tee-03945-atomic-blue.webp",
+    "True Royal": "/images/merch/colors/platform-ladies-posicharge-tough-tee-03945-true-royal.webp",
+    "White": "/images/merch/colors/platform-ladies-posicharge-tough-tee-03945-white.webp",
+    "Black": "/images/merch/colors/platform-ladies-posicharge-tough-tee-03945-black.webp",
+    "Dark Smoke Gray": "/images/merch/colors/platform-ladies-posicharge-tough-tee-03945-dark-smoke-gray.webp",
+    "Deep Red": "/images/merch/colors/platform-ladies-posicharge-tough-tee-03945-deep-red.webp",
+    "Neon Green": "/images/merch/colors/platform-ladies-posicharge-tough-tee-03945-neon-green.webp",
+    "Neon Yellow": "/images/merch/colors/platform-ladies-posicharge-tough-tee-03945-neon-yellow.webp",
+    "Pink Raspberry": "/images/merch/colors/platform-ladies-posicharge-tough-tee-03945-pink-raspberry.webp",
+    "Silver": "/images/merch/colors/platform-ladies-posicharge-tough-tee-03945-silver.webp",
+    "True Navy": "/images/merch/colors/platform-ladies-posicharge-tough-tee-03945-true-navy.webp"
   }
 }
