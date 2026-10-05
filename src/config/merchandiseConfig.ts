@@ -28,6 +28,7 @@ import type { ImprintArea, MerchPriceTier, MerchProduct } from "@/types";
 import colorImageMapJson from "./colorImages.json";
 import colorImagesExtra1 from "./colorImages.extra1.json";
 import colorImagesExtra2 from "./colorImages.extra2.json";
+import colorImagesExtra3 from "./colorImages.extra3.json";
 import importedProductsJson from "./importedProducts.json";
 
 export const MARKUP_RATE = 0.05;
@@ -1435,7 +1436,8 @@ function mergeColorImageMaps(...maps: ColorImageMap[]): ColorImageMap {
 const colorImageOverrides = mergeColorImageMaps(
   colorImageMapJson as ColorImageMap,
   colorImagesExtra1 as ColorImageMap,
-  colorImagesExtra2 as ColorImageMap
+  colorImagesExtra2 as ColorImageMap,
+  colorImagesExtra3 as ColorImageMap
 );
 
 function withColorImages(product: MerchProduct): MerchProduct {
