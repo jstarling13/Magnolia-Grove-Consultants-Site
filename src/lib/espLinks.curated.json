@@ -256,5 +256,41 @@
     "supplier": "Athena Promo",
     "asi": "asi/37218",
     "productNo": "AP201"
+  },
+  "neoprene-laptop-sleeve": {
+    "espId": "554919908",
+    "supplier": "SC Promo Inc",
+    "asi": "asi/87101",
+    "productNo": "ACL33"
+  },
+  "the-decision-maker-padfolio": {
+    "espId": "4770552",
+    "supplier": "Strong Leather Co",
+    "asi": "asi/89960",
+    "productNo": "5348"
+  },
+  "textured-linen-notebook": {
+    "espId": "556048789",
+    "supplier": "Edge Pop Promo Inc",
+    "asi": "asi/51680",
+    "productNo": "EPFL0020"
+  },
+  "buck-bantam-285-blw-lockback-knife": {
+    "espId": "4910284",
+    "supplier": "Compass Industries Inc",
+    "asi": "asi/46170",
+    "productNo": "285BK"
+  },
+  "leatherman-rev-multi-tool": {
+    "espId": "550321654",
+    "supplier": "Compass Industries Inc",
+    "asi": "asi/46170",
+    "productNo": "LM50"
+  },
+  "cedar-creek-valor-pocket-knife": {
+    "espId": "554539025",
+    "supplier": "Compass Industries Inc",
+    "asi": "asi/46170",
+    "productNo": "7920"
   }
 }

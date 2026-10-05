@@ -126,5 +126,12 @@
     "Green (Forest)": "/images/merch/colors/classic-swivel-usb-drive-green-forest.webp",
     "Purple": "/images/merch/colors/classic-swivel-usb-drive-purple.webp",
     "Reflex Blue": "/images/merch/colors/classic-swivel-usb-drive-reflex-blue.webp"
+  },
+  "neoprene-laptop-sleeve": {
+    "Medium Gray": "/images/merch/colors/neoprene-laptop-sleeve-medium-gray.webp"
+  },
+  "cedar-creek-valor-pocket-knife": {
+    "Black": "/images/merch/colors/cedar-creek-valor-pocket-knife-black.webp",
+    "Green": "/images/merch/colors/cedar-creek-valor-pocket-knife-green.webp"
   }
 }
