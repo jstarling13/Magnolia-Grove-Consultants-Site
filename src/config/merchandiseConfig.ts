@@ -1501,32 +1501,69 @@ export const products: MerchProduct[] = [...curatedProducts, ...importedProducts
   withColorImages
 );
 
-// Reasonable default logo placement per category, used when a product has
-// no `imprintArea` of its own. Values are % of the image box; top/left are
-// the logo's center point, width is the logo's width as % of image width.
-// These are a starting point for a live "see your logo on it" preview, not
-// exact print-area specs — tune per product if something looks off.
-const CATEGORY_IMPRINT_DEFAULTS: Record<string, ImprintArea> = {
-  Apparel: { top: 33, left: 44, width: 16 },
-  Drinkware: { top: 46, left: 50, width: 26 },
+import imprintAreasJson from "./imprintAreas.json";
+
+// Logo placement for the "see your logo on it" preview. Values are % of the
+// rendered product photo: top/left are the logo's center point, width is the
+// logo's width as % of the photo width.
+//
+// Resolution order (see resolveImprintArea): a product's own `imprintArea`,
+// then its entry in imprintAreas.json, then CATEGORY_IMPRINT_DEFAULTS, then
+// FALLBACK_IMPRINT. Layers merge field by field, so a JSON entry can be just
+// { "width": 30 } or { "hide": true } and inherit the rest.
+//
+// The category defaults are for photos nobody has tuned yet, so they favour
+// the most common shot in each category (e.g. left-chest on a polo model).
+// Anything that deviates, such as centered tee prints, flat-lay garments,
+// cylindrical drinkware photographed as a collage, belongs in the JSON file.
+export const CATEGORY_IMPRINT_DEFAULTS: Record<string, ImprintArea> = {
+  // Left chest: the wearer's left sits on the viewer's right of the garment.
+  Apparel: { top: 38, left: 59, width: 9 },
+  // Center of the barrel, a little above the midpoint.
+  Drinkware: { top: 52, left: 50, width: 22 },
   Bags: { top: 48, left: 50, width: 24 },
-  "Tech Accessories": { top: 50, left: 50, width: 22 },
-  "Office & Writing": { top: 50, left: 50, width: 22 },
+  "Tech Accessories": { top: 50, left: 50, width: 20 },
+  "Office & Writing": { top: 48, left: 50, width: 20 },
   "Event & Signage": { top: 50, left: 50, width: 22 },
-  // Caps/visors: logo sits on the front panel, above center and fairly small.
-  Headwear: { top: 38, left: 50, width: 20 },
+  // Caps/visors/beanies: front panel, above center and fairly small.
+  Headwear: { top: 38, left: 45, width: 16 },
   // Mixed bag (balls, towels, umbrellas, coolers...): centered, mid-size.
-  "Outdoor & Sports": { top: 50, left: 50, width: 22 },
+  "Outdoor & Sports": { top: 50, left: 50, width: 20 },
   // Bottles, kits, sanitizer, etc.: lower-center like drinkware, slightly smaller.
   "Health & Wellness": { top: 48, left: 50, width: 22 },
   // Rugs and floor mats: the logo is printed large across the center.
   "Home & Decor": { top: 50, left: 50, width: 40 },
+  // Boards, blankets, kits: centered, mid-size.
+  "Gifts & Entertaining": { top: 50, left: 50, width: 22 },
+  // Blades and handles are small and photographed at angles; keep it modest.
+  "Knives & Tools": { top: 50, left: 40, width: 12 },
 };
 
 const FALLBACK_IMPRINT: ImprintArea = { top: 50, left: 50, width: 22 };
 
+/** Per-product overrides keyed by product id; any subset of ImprintArea. */
+export type ImprintOverrides = Record<string, Partial<ImprintArea>>;
+
+const IMPRINT_OVERRIDES = imprintAreasJson as unknown as ImprintOverrides;
+
+/**
+ * Pure lookup so the layering can be tested without the whole catalog.
+ * Product's own imprintArea wins over the JSON entry, which wins over the
+ * category default, which wins over the fallback.
+ */
+export function resolveImprintArea(
+  product: Pick<MerchProduct, "id" | "category" | "imprintArea">,
+  overrides: ImprintOverrides = IMPRINT_OVERRIDES
+): ImprintArea {
+  return {
+    ...(CATEGORY_IMPRINT_DEFAULTS[product.category] ?? FALLBACK_IMPRINT),
+    ...overrides[product.id],
+    ...product.imprintArea,
+  };
+}
+
 export function getImprintArea(product: MerchProduct): ImprintArea {
-  return product.imprintArea ?? CATEGORY_IMPRINT_DEFAULTS[product.category] ?? FALLBACK_IMPRINT;
+  return resolveImprintArea(product);
 }
 
 export function getProductById(id: string): MerchProduct | undefined {
