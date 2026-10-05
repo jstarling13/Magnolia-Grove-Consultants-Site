@@ -34,7 +34,8 @@ for (const file of ["espLinks.curated.json", "espLinks.imported.json"]) {
   if (!existsSync(path)) continue;
   const data = JSON.parse(readFileSync(path, "utf8"));
   for (const entry of Object.values(data)) {
-    if (entry && typeof entry.espId === "string" && entry.espId.trim()) espIds.add(entry.espId.trim());
+    if (entry && typeof entry.espId === "string" && entry.espId.trim())
+      espIds.add(entry.espId.trim());
   }
 }
 for (const id of espIds) {
@@ -51,9 +52,18 @@ const segments = (path) => relative(nextDir, path).split(sep);
 function isExcluded(path) {
   const parts = segments(path);
   // Route output for /admin and /api (pages, handlers, their manifests/traces).
-  if (parts[0] === "server" && parts[1] === "app" && ["admin", "api"].includes(parts[2]?.replace(/\.(html|rsc|js|json|body|meta|nft\.json|segments)$/, ""))) return true;
-  if (parts[0] === "static" && parts[1] === "chunks" && parts[2] === "app" && parts[3] === "admin") return true;
-  if (parts[0] === "static" && parts[1] === "chunks" && parts[2] === "app" && parts[3] === "api") return true;
+  if (
+    parts[0] === "server" &&
+    parts[1] === "app" &&
+    ["admin", "api"].includes(
+      parts[2]?.replace(/\.(html|rsc|js|json|body|meta|nft\.json|segments)$/, "")
+    )
+  )
+    return true;
+  if (parts[0] === "static" && parts[1] === "chunks" && parts[2] === "app" && parts[3] === "admin")
+    return true;
+  if (parts[0] === "static" && parts[1] === "chunks" && parts[2] === "app" && parts[3] === "api")
+    return true;
   return false;
 }
 
@@ -92,7 +102,9 @@ if (scanned === 0) {
 }
 
 if (findings.length > 0) {
-  console.error(`ESP LEAK: backend-only ESP data found in public build output (${findings.length}):`);
+  console.error(
+    `ESP LEAK: backend-only ESP data found in public build output (${findings.length}):`
+  );
   for (const finding of findings) console.error(`  ${finding}`);
   process.exit(1);
 }

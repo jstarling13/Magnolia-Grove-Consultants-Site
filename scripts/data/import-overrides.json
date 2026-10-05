@@ -10,5 +10,11 @@
       "reason": "6 Panels Relaxed Golf Hat Dad Cap (Direct Caps) duplicates the curated product 6panel-premium-relaxed-golf-cap, which has verified color photos. Curated wins.",
       "keepCuratedId": "6panel-premium-relaxed-golf-cap"
     }
+  ],
+  "keepApart": [
+    {
+      "espIds": ["555763946", "555764425"],
+      "reason": "Berber Impressions HD Floor Mat 4' x 6' and WaterHog Impressions HD Floor Mat 4'x 6' (both SnugZ USA) are different mat products (Berber vs WaterHog); keep both."
+    }
   ]
 }

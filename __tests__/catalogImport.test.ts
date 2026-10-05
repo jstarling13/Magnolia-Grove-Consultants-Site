@@ -5,6 +5,8 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import sharp from "sharp";
 import {
+  checkKeepApart,
+  parseKeepApart,
   checkOverrides,
   cleanDescriptionText,
   cleanName,
@@ -984,5 +986,86 @@ describe("protected ids and color photo keys", () => {
     // a key that would collide with an existing one is reported, not clobbered
     expect(result.unresolved).toEqual(['cap: "NAVY BLUE"']);
     expect(result.colorImages.cap["Navy Blue"]).toBe("/p/navy.webp");
+  });
+});
+
+describe("keepApart", () => {
+  const MAT_A = "Berber Impressions HD Floor Mat 4' x 6'";
+  const MAT_B = "WaterHog Impressions HD Floor Mat 4'x 6'";
+  const rows = () => [
+    mk({ espId: "9201", name: MAT_A, tag: "home", asi: "asi/7" }),
+    mk({ espId: "9202", name: MAT_B, tag: "home", asi: "asi/7" }),
+  ];
+
+  it("without keepApart the fuzzy rule merges the two mats (the bug being fixed)", () => {
+    expect(isDuplicateName(MAT_A, MAT_B)).toBe(true);
+    expect(buildCatalog(rows()).items).toHaveLength(1);
+  });
+
+  it("keeps listed espIds in separate clusters, so both products survive", () => {
+    const result = buildCatalog(rows(), {
+      keepApart: [{ espIds: ["9201", "9202"], reason: "different mats" }],
+    });
+    expect(result.items.map((i) => i.link.espId).sort()).toEqual(["9201", "9202"]);
+    expect(result.clusters).toEqual([]);
+  });
+
+  it("holds even when a third row would bridge the two", () => {
+    const bridge = mk({ espId: "9203", name: "Impressions HD Floor Mat 4' x 6'", tag: "home" });
+    const result = buildCatalog([...rows(), bridge], {
+      keepApart: [{ espIds: ["9201", "9202"], reason: "different mats" }],
+    });
+    // the bridge joins at most one side; 9201 and 9202 are never both in one cluster
+    const clustered = result.clusters.flatMap((c) => [
+      c.kept.espId,
+      ...c.dropped.map((d) => d.espId),
+    ]);
+    expect(clustered.includes("9201") && clustered.includes("9202")).toBe(false);
+    const kept = result.items.map((i) => i.link.espId);
+    expect(kept.includes("9201") || kept.includes("9202")).toBe(true);
+    expect(kept).toHaveLength(2);
+  });
+
+  it("also blocks merges by same espId or supplier+productNo routes", () => {
+    const r = [
+      mk({ espId: "9301", name: "Alpha", productNo: "P1", supplier: "S", asi: "asi/1" }),
+      mk({ espId: "9302", name: "Beta", productNo: "p1", supplier: "s", asi: "asi/1" }),
+    ];
+    expect(buildCatalog(r).items).toHaveLength(1);
+    expect(
+      buildCatalog(r, { keepApart: [{ espIds: ["9301", "9302"], reason: "x" }] }).items
+    ).toHaveLength(2);
+  });
+
+  it("validates the file shape", () => {
+    expect(parseKeepApart({ keepApart: [{ espIds: ["1", " 2 ", "2"], reason: "r" }] })).toEqual([
+      { espIds: ["1", "2"], reason: "r" },
+    ]);
+    expect(() => parseKeepApart({ keepApart: [{ espIds: ["1"], reason: "r" }] })).toThrow(/two/);
+    expect(() => parseKeepApart({ keepApart: [{ espIds: ["1", "2"] }] })).toThrow(/reason/);
+    expect(parseKeepApart({})).toEqual([]);
+  });
+
+  it("warns about stale keepApart espIds", () => {
+    const warnings = checkKeepApart({
+      keepApart: [{ espIds: ["1", "99"], reason: "r" }],
+      rawEspIds: ["1", "2"],
+    });
+    expect(warnings).toHaveLength(1);
+    expect(warnings[0]).toMatch(/stale keepApart: espId 99/);
+    expect(
+      checkKeepApart({ keepApart: [{ espIds: ["1", "2"], reason: "r" }], rawEspIds: ["1", "2"] })
+    ).toEqual([]);
+  });
+
+  it("ships a keepApart entry for the two SnugZ mats, both live in the raw data", async () => {
+    const file = JSON.parse(
+      await fs.readFile(path.join(__dirname, "../scripts/data/import-overrides.json"), "utf8")
+    );
+    const groups = parseKeepApart(file);
+    expect(groups[0].espIds).toEqual(["555763946", "555764425"]);
+    const ids = new Set(products.map((p) => p.name));
+    expect(ids.has(MAT_A)).toBe(true);
+    expect(ids.has(MAT_B)).toBe(true);
   });
 });
