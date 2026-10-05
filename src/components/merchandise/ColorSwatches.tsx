@@ -125,6 +125,7 @@ export default function ColorSwatches({
         {hiddenCount > 0 && moreHref && (
           <Link
             href={moreHref}
+            prefetch={false}
             className="ml-1 whitespace-nowrap rounded text-xs font-semibold text-gold-dark hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-dark"
           >
             +{hiddenCount} more

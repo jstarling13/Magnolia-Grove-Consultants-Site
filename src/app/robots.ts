@@ -12,6 +12,7 @@ export const DISALLOWED_PATHS = [
   "/payment",
   "/merchandise/cart",
   "/merchandise/lookup.json",
+  "/merchandise/category/*/cards.json",
 ];
 
 export default function robots(): MetadataRoute.Robots {
