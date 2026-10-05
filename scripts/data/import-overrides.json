@@ -16,5 +16,32 @@
       "espIds": ["555763946", "555764425"],
       "reason": "Berber Impressions HD Floor Mat 4' x 6' and WaterHog Impressions HD Floor Mat 4'x 6' (both SnugZ USA) are different mat products (Berber vs WaterHog); keep both."
     }
+  ],
+  "categoryOverrides": [
+    {
+      "espId": "554079367",
+      "category": "Kids & Toys",
+      "reason": "6\" Plush Big Paw Dog With Shirt is a stuffed toy, not apparel."
+    },
+    {
+      "espId": "553267133",
+      "category": "Automotive",
+      "reason": "Custom Disposable Paper Car Floor Mats are car floor mats, not home decor."
+    },
+    {
+      "espId": "555527670",
+      "category": "Automotive",
+      "reason": "PVC Car Anti-Slip Floor Mats Four Piece Set are car floor mats, not home decor."
+    },
+    {
+      "espId": "553109588",
+      "category": "Apparel",
+      "reason": "Cold Weather Set is a scarf/glove/cap set, not just headwear."
+    },
+    {
+      "espId": "553389764",
+      "category": "Apparel",
+      "reason": "Buffalo Plaid Knit Cap, Scarf and Text Gloves Combo is a cap/scarf/glove set, not just headwear."
+    }
   ]
 }
