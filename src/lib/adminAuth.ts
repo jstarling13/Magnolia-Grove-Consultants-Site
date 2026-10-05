@@ -1,18 +1,23 @@
 import { createHmac, timingSafeEqual } from "crypto";
+import {
+  createSignedToken,
+  sessionCookieOptions,
+  verifySignedToken,
+  type SessionCookieOptions,
+} from "./signedToken";
 
 export const ADMIN_SESSION_COOKIE = "admin_session";
-const SESSION_TTL_MS = 7 * 24 * 60 * 60 * 1000; // 7 days
-
-function sign(payload: string): string {
-  return createHmac("sha256", process.env.ADMIN_SESSION_SECRET!)
-    .update(payload)
-    .digest("base64url");
-}
+// Admin sessions can send customer email and create payment links, and the
+// token is stateless (logout can't revoke it), so keep the window short.
+export const ADMIN_SESSION_TTL_MS = 24 * 60 * 60 * 1000; // 24 hours
 
 export function createSessionToken(username: string): string {
-  const payload = JSON.stringify({ username, exp: Date.now() + SESSION_TTL_MS });
-  const encodedPayload = Buffer.from(payload).toString("base64url");
-  return `${encodedPayload}.${sign(encodedPayload)}`;
+  return createSignedToken("ADMIN_SESSION_SECRET", { username }, ADMIN_SESSION_TTL_MS);
+}
+
+/** Strict: the admin cookie is never needed on cross-site navigations. */
+export function adminCookieOptions(): SessionCookieOptions {
+  return sessionCookieOptions(ADMIN_SESSION_TTL_MS, "strict");
 }
 
 export interface AdminSession {
@@ -20,31 +25,24 @@ export interface AdminSession {
 }
 
 export function verifySessionToken(token: string | undefined): AdminSession | null {
-  if (!token) return null;
-  const [encodedPayload, signature] = token.split(".");
-  if (!encodedPayload || !signature) return null;
-
-  const expectedSignature = sign(encodedPayload);
-  const a = Buffer.from(signature);
-  const b = Buffer.from(expectedSignature);
-  if (a.length !== b.length || !timingSafeEqual(a, b)) return null;
-
-  try {
-    const { exp, username } = JSON.parse(Buffer.from(encodedPayload, "base64url").toString());
-    if (typeof exp !== "number" || Date.now() >= exp) return null;
-    if (typeof username !== "string") return null;
-    return { username };
-  } catch {
-    return null;
-  }
+  const claims = verifySignedToken("ADMIN_SESSION_SECRET", token);
+  if (!claims || typeof claims.username !== "string" || !claims.username) return null;
+  return { username: claims.username };
 }
 
-// Gates the one-off schema-migration endpoint only — not used for regular
-// per-user admin login, which is verified against admin_users in the DB.
+/**
+ * Gates the one-off schema-migration endpoint only — not used for regular
+ * per-user admin login, which is verified against admin_users in the DB.
+ *
+ * Fails closed: if ADMIN_PASSWORD is unset or empty no candidate is accepted
+ * (an empty candidate would otherwise match an empty expected value). Both
+ * sides are hashed first so the comparison is constant-time regardless of
+ * length.
+ */
 export function verifyMigratePassword(candidate: string): boolean {
-  const expected = process.env.ADMIN_PASSWORD ?? "";
-  const a = Buffer.from(candidate);
-  const b = Buffer.from(expected);
-  if (a.length !== b.length) return false;
+  const expected = process.env.ADMIN_PASSWORD;
+  if (!expected || !candidate) return false;
+  const a = createHmac("sha256", "migrate-compare").update(candidate).digest();
+  const b = createHmac("sha256", "migrate-compare").update(expected).digest();
   return timingSafeEqual(a, b);
 }

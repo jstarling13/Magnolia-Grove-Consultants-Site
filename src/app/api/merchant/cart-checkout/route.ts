@@ -7,6 +7,8 @@ import {
 import { getProductById } from "@/config/merchandiseConfig";
 import { cleanLineColor, validateCart, type CartPricingProduct } from "@/lib/cartPricing";
 import { checkRateLimit } from "@/lib/ratelimit";
+import { CART_POLICY, EMAIL_TARGET_POLICY } from "@/lib/rateLimitPolicies";
+import { emailKey, getClientIp, readJsonBody, tooManyRequests } from "@/lib/http";
 import { verifyTurnstileToken } from "@/lib/turnstile";
 import { sendCartOrderNotification, sendMerchRequestConfirmation } from "@/lib/email";
 import { recordSubmission } from "@/lib/submissions";
@@ -14,31 +16,32 @@ import { getEspLink } from "@/lib/espLinks";
 
 export const runtime = "nodejs";
 
-function getClientIp(request: NextRequest): string {
-  const forwardedFor = request.headers.get("x-forwarded-for");
-  if (forwardedFor) return forwardedFor.split(",")[0].trim();
-  return request.headers.get("x-real-ip") ?? "unknown";
-}
+/** Distinct product/color lines accepted in one request. */
+const MAX_CART_LINES = 100;
 
 export async function POST(request: NextRequest) {
   const ip = getClientIp(request);
 
-  const rateLimitResult = await checkRateLimit(ip);
-  if (!rateLimitResult.success) {
+  const rateLimitResult = await checkRateLimit(`cart:${ip}`, CART_POLICY);
+  if (!rateLimitResult.success)
+    return tooManyRequests(undefined, rateLimitResult.retryAfterSeconds);
+
+  const read = await readJsonBody(request);
+  if (!read.ok) return read.response;
+
+  // Cap the line count before schema parsing; a real cart has a handful of lines.
+  const rawItems = (read.body as { items?: unknown } | null)?.items;
+  if (Array.isArray(rawItems) && rawItems.length > MAX_CART_LINES) {
     return NextResponse.json(
-      { success: false, error: "Too many requests. Please try again later." },
-      { status: 429 }
+      {
+        success: false,
+        error: "Your cart has too many items. Please split it into smaller orders.",
+      },
+      { status: 400 }
     );
   }
 
-  let body: unknown;
-  try {
-    body = await request.json();
-  } catch {
-    return NextResponse.json({ success: false, error: "Invalid request body." }, { status: 400 });
-  }
-
-  const parsed = cartCheckoutSchema.safeParse(body);
+  const parsed = cartCheckoutSchema.safeParse(read.body);
   if (!parsed.success) {
     return NextResponse.json(
       { success: false, error: "Validation failed.", issues: parsed.error.flatten() },
@@ -81,6 +84,13 @@ export async function POST(request: NextRequest) {
   if (!validation.ok) {
     return NextResponse.json({ success: false, error: validation.error }, { status: 400 });
   }
+
+  // The confirmation goes to the typed-in address, so cap how often one address can be targeted.
+  const targetLimit = await checkRateLimit(
+    `cart-email:${emailKey(payload.email)}`,
+    EMAIL_TARGET_POLICY
+  );
+  if (!targetLimit.success) return tooManyRequests(undefined, targetLimit.retryAfterSeconds);
 
   const pricedItems: PricedCartLineItem[] = validation.pricing.lines.map(
     ({ line, unitPrice, lineTotal }) => {

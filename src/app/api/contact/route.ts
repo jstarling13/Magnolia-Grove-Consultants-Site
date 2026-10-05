@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { contactSubmissionSchema } from "@/lib/validation";
 import { checkRateLimit } from "@/lib/ratelimit";
+import { EMAIL_TARGET_POLICY, FORM_POLICY } from "@/lib/rateLimitPolicies";
+import { emailKey, getClientIp, readJsonBody, tooManyRequests } from "@/lib/http";
 import { verifyTurnstileToken } from "@/lib/turnstile";
 import {
   sendLeadNotification,
@@ -12,33 +14,19 @@ import { recordSubmission } from "@/lib/submissions";
 
 export const runtime = "nodejs";
 
-function getClientIp(request: NextRequest): string {
-  const forwardedFor = request.headers.get("x-forwarded-for");
-  if (forwardedFor) return forwardedFor.split(",")[0].trim();
-  return request.headers.get("x-real-ip") ?? "unknown";
-}
-
 export async function POST(request: NextRequest) {
   const ip = getClientIp(request);
 
   // Rate limit first — cheapest check, blocks floods before touching
   // validation, Turnstile, or email sending.
-  const rateLimitResult = await checkRateLimit(ip);
-  if (!rateLimitResult.success) {
-    return NextResponse.json(
-      { success: false, error: "Too many requests. Please try again later." },
-      { status: 429 }
-    );
-  }
+  const rateLimitResult = await checkRateLimit(ip, FORM_POLICY);
+  if (!rateLimitResult.success)
+    return tooManyRequests(undefined, rateLimitResult.retryAfterSeconds);
 
-  let body: unknown;
-  try {
-    body = await request.json();
-  } catch {
-    return NextResponse.json({ success: false, error: "Invalid request body." }, { status: 400 });
-  }
+  const read = await readJsonBody(request);
+  if (!read.ok) return read.response;
 
-  const parsed = contactSubmissionSchema.safeParse(body);
+  const parsed = contactSubmissionSchema.safeParse(read.body);
   if (!parsed.success) {
     return NextResponse.json(
       { success: false, error: "Validation failed.", issues: parsed.error.flatten() },
@@ -62,9 +50,20 @@ export async function POST(request: NextRequest) {
     );
   }
 
+  // The auto-responder goes to whatever address was typed in, so cap how many
+  // times one address can be targeted (stops using us to mail-bomb someone).
+  const targetLimit = await checkRateLimit(
+    `contact-email:${emailKey(payload.email)}`,
+    EMAIL_TARGET_POLICY
+  );
+  if (!targetLimit.success) return tooManyRequests(undefined, targetLimit.retryAfterSeconds);
+
+  // Bot-protection fields are not business data; keep them out of the database.
+  const { turnstileToken: _turnstileToken, company_website: _honeypot, ...stored } = payload;
+
   try {
     if (payload.formType === "lead") {
-      await recordSubmission("lead", payload);
+      await recordSubmission("lead", stored);
       const notification = await sendLeadNotification(payload);
       await sendLeadAutoResponder(payload);
       if (!notification.sent) {
@@ -74,7 +73,7 @@ export async function POST(request: NextRequest) {
         );
       }
     } else {
-      await recordSubmission("strategy_session", payload);
+      await recordSubmission("strategy_session", stored);
       const notification = await sendStrategySessionNotification(payload);
       await sendStrategySessionAutoResponder(payload);
       if (!notification.sent) {

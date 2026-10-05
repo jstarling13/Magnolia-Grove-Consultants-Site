@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
-import { ADMIN_SESSION_COOKIE } from "@/lib/adminAuth";
+import { ADMIN_SESSION_COOKIE, adminCookieOptions } from "@/lib/adminAuth";
 
 export const runtime = "nodejs";
 
 export async function POST() {
   const response = NextResponse.json({ success: true });
-  response.cookies.delete(ADMIN_SESSION_COOKIE);
+  // Expire with the same attributes the cookie was set with.
+  response.cookies.set(ADMIN_SESSION_COOKIE, "", { ...adminCookieOptions(), maxAge: 0 });
   return response;
 }

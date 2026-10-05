@@ -1,5 +1,5 @@
 import { sql } from "./db";
-import { hashPassword, verifyPasswordHash } from "./passwords";
+import { hashPassword, verifyAgainstDecoy, verifyPasswordHash } from "./passwords";
 
 export interface ClientProfile {
   email: string;
@@ -58,7 +58,10 @@ export async function verifyClientCredentials(
   `) as { email: string; password_hash: string }[];
 
   const user = rows[0];
-  if (!user) return null;
+  if (!user) {
+    verifyAgainstDecoy(password);
+    return null;
+  }
   if (!verifyPasswordHash(password, user.password_hash)) return null;
 
   return user.email;
