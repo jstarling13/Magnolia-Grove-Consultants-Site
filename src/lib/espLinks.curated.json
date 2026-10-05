@@ -1,1 +1,164 @@
-{}
+{
+  "nike-dri-fit-polo": {
+    "espId": "553421569",
+    "supplier": "SanMar",
+    "asi": "asi/84863",
+    "productNo": "NKDC1963"
+  },
+  "nike-therma-fit-quarter-zip-fleece": {
+    "espId": "554016857",
+    "supplier": "SanMar",
+    "asi": "asi/84863",
+    "productNo": "CN9492"
+  },
+  "adidas-performance-polo-mens": {
+    "espId": "552068896",
+    "supplier": "S&S Activewear",
+    "asi": "asi/84358",
+    "productNo": "A230"
+  },
+  "adidas-performance-polo-womens": {
+    "espId": "552068897",
+    "supplier": "S&S Activewear",
+    "asi": "asi/84358",
+    "productNo": "A231"
+  },
+  "adidas-ultimate365-quarter-zip-mens": {
+    "espId": "552372098",
+    "supplier": "S&S Activewear",
+    "asi": "asi/84358",
+    "productNo": "A401"
+  },
+  "adidas-spacer-quarter-zip-womens": {
+    "espId": "554831359",
+    "supplier": "S&S Activewear",
+    "asi": "asi/84358",
+    "productNo": "A589"
+  },
+  "callaway-lightweight-quarter-zip": {
+    "espId": "552575827",
+    "supplier": "Ball Pro",
+    "asi": "asi/38120",
+    "productNo": "A-CGM742"
+  },
+  "storm-creek-front-runner-vest-mens": {
+    "espId": "550125396",
+    "supplier": "Storm Creek",
+    "asi": "asi/89879",
+    "productNo": "3120"
+  },
+  "storm-creek-front-runner-vest-womens": {
+    "espId": "550125452",
+    "supplier": "Storm Creek",
+    "asi": "asi/89879",
+    "productNo": "3125"
+  },
+  "imperial-original-performance-cap": {
+    "espId": "553329087",
+    "supplier": "Kati Sportcap & Bag",
+    "asi": "asi/64140",
+    "productNo": "X210P"
+  },
+  "gildan-ultra-cotton-tshirt": {
+    "espId": "550989561",
+    "supplier": "BEL Promo",
+    "asi": "asi/39552",
+    "productNo": "AG2000"
+  },
+  "owala-freesip-bottle-24oz": {
+    "espId": "555058382",
+    "supplier": "ETS Express, LLC",
+    "asi": "asi/51197",
+    "productNo": "78836-G"
+  },
+  "samsonite-weekender-duffel": {
+    "espId": "555729613",
+    "supplier": "Gemline",
+    "asi": "asi/56070",
+    "productNo": "102225"
+  },
+  "brooks-brothers-mesh-polo-mens": {
+    "espId": "555114452",
+    "supplier": "SanMar",
+    "asi": "asi/84863",
+    "productNo": "BB18220"
+  },
+  "brooks-brothers-mesh-polo-womens": {
+    "espId": "555802620",
+    "supplier": "SanMar",
+    "asi": "asi/84863",
+    "productNo": "BB18221"
+  },
+  "under-armour-drive-midlayer-pullover": {
+    "espId": "556483173",
+    "supplier": "Ball Pro",
+    "asi": "asi/38120",
+    "productNo": "A-UM1322"
+  },
+  "holderness-bourne-westland-pullover": {
+    "espId": "554834721",
+    "supplier": "Ball Pro",
+    "asi": "asi/38120",
+    "productNo": "A-HB2031"
+  },
+  "johnnie-o-sully-quarter-zip": {
+    "espId": "551882450",
+    "supplier": "Ball Pro",
+    "asi": "asi/38120",
+    "productNo": "A-JMKO1460"
+  },
+  "6panel-upf-stretch-cap": {
+    "espId": "551782499",
+    "supplier": "Otto Intl Inc",
+    "asi": "asi/75350",
+    "productNo": "19-1256"
+  },
+  "6panel-premium-relaxed-golf-cap": {
+    "espId": "555795880",
+    "supplier": "Direct Caps",
+    "asi": "asi/48015",
+    "productNo": "7649"
+  },
+  "summit-sweater-fleece-vest-mens": {
+    "espId": "551716905",
+    "supplier": "Vantage Apparel",
+    "asi": "asi/93390",
+    "productNo": "3307"
+  },
+  "summit-sweater-fleece-vest-womens": {
+    "espId": "556282948",
+    "supplier": "Vantage Apparel",
+    "asi": "asi/93390",
+    "productNo": "3336"
+  },
+  "zen-quarter-zip-pullover": {
+    "espId": "551821068",
+    "supplier": "Vantage Apparel",
+    "asi": "asi/93390",
+    "productNo": "3450"
+  },
+  "mesa-vest": {
+    "espId": "553642145",
+    "supplier": "Vantage Apparel",
+    "asi": "asi/93390",
+    "productNo": "3135"
+  },
+  "polar-30oz-tumbler": {
+    "espId": "554436264",
+    "supplier": "STOPNGO Line",
+    "asi": "asi/57655",
+    "productNo": "SSTMBLR030"
+  },
+  "insulated-travel-mug-16oz": {
+    "espId": "4973802",
+    "supplier": "BEL Promo",
+    "asi": "asi/39552",
+    "productNo": "AST58"
+  },
+  "ceramic-mug-11oz": {
+    "espId": "4973793",
+    "supplier": "BEL Promo",
+    "asi": "asi/39552",
+    "productNo": "A7102"
+  }
+}
