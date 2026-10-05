@@ -75,6 +75,11 @@ export const merchandiseCategories = [
   "Outdoor & Sports",
   "Health & Wellness",
   "Home & Decor",
+  "Food & Treats",
+  "Automotive",
+  "Seasonal & Holiday",
+  "Kids & Toys",
+  "Awards & Recognition",
 ] as const;
 
 // Real products sourced from live ESP+ search (espplus.com), September 2026.
@@ -1533,6 +1538,12 @@ export const CATEGORY_IMPRINT_DEFAULTS: Record<string, ImprintArea> = {
   "Health & Wellness": { top: 48, left: 50, width: 22 },
   // Rugs and floor mats: the logo is printed large across the center.
   "Home & Decor": { top: 50, left: 50, width: 40 },
+  // Packaged food, car items, seasonal gifts, toys: centered, mid-size.
+  "Food & Treats": { top: 50, left: 50, width: 24 },
+  Automotive: { top: 50, left: 50, width: 26 },
+  "Seasonal & Holiday": { top: 50, left: 50, width: 24 },
+  "Kids & Toys": { top: 50, left: 50, width: 22 },
+  "Awards & Recognition": { top: 50, left: 50, width: 30 },
   // Boards, blankets, kits: centered, mid-size.
   "Gifts & Entertaining": { top: 50, left: 50, width: 22 },
   // Blades and handles are small and photographed at angles; keep it modest.

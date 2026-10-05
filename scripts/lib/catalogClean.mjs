@@ -52,6 +52,11 @@ export const TAG_TO_CATEGORY = {
   outdoor: "Outdoor & Sports",
   wellness: "Health & Wellness",
   home: "Home & Decor",
+  food: "Food & Treats",
+  auto: "Automotive",
+  seasonal: "Seasonal & Holiday",
+  kids: "Kids & Toys",
+  awards: "Awards & Recognition",
   // legacy tags from the first scrape batch
   umbrellas: "Outdoor & Sports",
   golf: "Outdoor & Sports",
