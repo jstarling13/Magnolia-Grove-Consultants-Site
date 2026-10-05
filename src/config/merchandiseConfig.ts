@@ -4,7 +4,7 @@
  * ============================================================================
  * Products are added here one at a time as real items are provided — never
  * fabricate a product, price, or image. Each price tier's `price` is always
- * espPrice * (1 + MARKUP_RATE), rounded to the cent.
+ * the ESP catalog price * (1 + MARKUP_RATE), rounded to the cent.
  *
  * Pricing model (verified): the 5% surcharge applies to the ESP selling
  * price, NOT raw supplier cost — the ESP price already has ASI's own markup
@@ -34,10 +34,13 @@ function clientPrice(espPrice: number): number {
   return Math.round(espPrice * (1 + MARKUP_RATE) * 100) / 100;
 }
 
+/**
+ * Turns [quantity, ESP catalog price] pairs into client-visible tiers. Only the
+ * marked-up `price` is kept; the raw ESP number never lands on a product object.
+ */
 function tiers(pairs: [quantity: number, espPrice: number][]): MerchPriceTier[] {
   return pairs.map(([quantity, espPrice]) => ({
     quantity,
-    espPrice,
     price: clientPrice(espPrice),
   }));
 }
@@ -73,9 +76,9 @@ export const merchandiseCategories = [
 ] as const;
 
 // Real products sourced from live ESP+ search (espplus.com), September 2026.
-// Each tier's espPrice is that product's ESP "Catalog Price" (the distributor
-// selling price) at that quantity — never the raw supplier "Net Cost", which
-// is not stored here. `price` = clientPrice(espPrice).
+// The numbers passed to tiers() are that product's ESP "Catalog Price" (the
+// distributor selling price) at that quantity — never the raw supplier "Net
+// Cost", which is not stored here. Each tier's `price` = clientPrice(that number).
 const curatedProducts: MerchProduct[] = [
   {
     id: "nike-dri-fit-polo",

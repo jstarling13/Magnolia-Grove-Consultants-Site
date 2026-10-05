@@ -26,8 +26,8 @@ vi.mock("@/config/merchandiseConfig", async (importOriginal) => {
             brand: "Essentials",
             description: "",
             priceTiers: [
-              { quantity: 10, espPrice: 2, price: 2.1 },
-              { quantity: 100, espPrice: 1, price: 1.05 },
+              { quantity: 10, price: 2.1 },
+              { quantity: 100, price: 1.05 },
             ],
           }
         : actual.getProductById(id),
@@ -80,7 +80,8 @@ describe("cartCheckoutSchema", () => {
 
   it("rejects a non-string or oversized color", () => {
     expect(
-      cartCheckoutSchema.safeParse({ ...base, items: [{ productId: VEST, color: 5, quantity: 6 }] }).success
+      cartCheckoutSchema.safeParse({ ...base, items: [{ productId: VEST, color: 5, quantity: 6 }] })
+        .success
     ).toBe(false);
     expect(
       cartCheckoutSchema.safeParse({
@@ -170,7 +171,9 @@ describe("POST /api/merchant/cart-checkout", () => {
   });
 
   it("is case-sensitive: the color must equal one of the product's colors exactly", async () => {
-    const response = await post([{ productId: VEST, color: VEST_COLORS[3].toLowerCase(), quantity: 6 }]);
+    const response = await post([
+      { productId: VEST, color: VEST_COLORS[3].toLowerCase(), quantity: 6 },
+    ]);
     expect(response.status).toBe(400);
   });
 

@@ -319,8 +319,8 @@ describe("markup is applied exactly once, through tiers()", () => {
     });
     expect(MARKUP_RATE).toBe(0.05);
     expect(product.priceTiers).toEqual([
-      { quantity: 1, espPrice: 10, price: 10.5 },
-      { quantity: 50, espPrice: 7.331, price: 7.7 },
+      { quantity: 1, price: 10.5 },
+      { quantity: 50, price: 7.7 },
     ]);
   });
 
@@ -342,7 +342,8 @@ describe("markup is applied exactly once, through tiers()", () => {
       const product = products.find((p) => p.id === r.id)!;
       expect(product).toBeDefined();
       product.priceTiers.forEach((tier, i) => {
-        expect(tier.espPrice).toBe(r.tiers[i][1]);
+        expect(tier.quantity).toBe(r.tiers[i][0]);
+        expect(tier).not.toHaveProperty("espPrice");
         expect(tier.price).toBe(Math.round(r.tiers[i][1] * 1.05 * 100) / 100);
       });
     }

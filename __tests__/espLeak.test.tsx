@@ -99,9 +99,7 @@ describe("ESP link leak prevention", () => {
   it("keeps the cart page and thank-you page copy free of ESP links", async () => {
     window.localStorage.setItem(
       "mg-merch-cart",
-      JSON.stringify([
-        { productId: products[0].id, color: products[0].colors?.[0], quantity: 250 },
-      ])
+      JSON.stringify([{ productId: products[0].id, color: products[0].colors?.[0], quantity: 250 }])
     );
     const { container } = render(
       <CartProvider>
@@ -123,16 +121,13 @@ describe("ESP link leak prevention", () => {
 
   it("has no ESP-related keys on any product served to browsers", () => {
     const forbidden = /esp|supplier|asi|productNo/i;
-    // Known, pre-existing field: MerchPriceTier.espPrice is the pre-markup ESP+ catalog price
-    // (see src/types/index.ts). Flagged to the orchestrator; every other match must fail.
-    const allowed = new Set(["espPrice"]);
     const offenders: string[] = [];
     const walk = (value: unknown, path: string) => {
       if (Array.isArray(value)) {
         value.forEach((v, i) => walk(v, `${path}[${i}]`));
       } else if (value && typeof value === "object") {
         for (const [key, v] of Object.entries(value)) {
-          if (forbidden.test(key) && !allowed.has(key)) offenders.push(`${path}.${key}`);
+          if (forbidden.test(key)) offenders.push(`${path}.${key}`);
           walk(v, `${path}.${key}`);
         }
       } else if (typeof value === "string" && /espplus\.com/i.test(value)) {

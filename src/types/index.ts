@@ -136,14 +136,7 @@ export interface CaseStudy {
 export interface MerchPriceTier {
   /** Minimum order quantity this price applies to. */
   quantity: number;
-  /**
-   * What we'd pay ASI/ESP for this item at this quantity — already includes
-   * ASI's own markup over the raw supplier cost. This, not raw supplier
-   * cost, is the base the 5% business surcharge is calculated on. Never
-   * shown to the client.
-   */
-  espPrice: number;
-  /** espPrice * (1 + MARKUP_RATE), rounded to cents — what the client sees. */
+  /** Per-unit price shown to the client at this quantity (markup already applied). */
   price: number;
 }
 
