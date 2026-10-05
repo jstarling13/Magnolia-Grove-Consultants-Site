@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  allProducts,
   CATEGORY_IMPRINT_DEFAULTS,
   getImprintArea,
   products,
@@ -72,7 +73,7 @@ describe("resolveImprintArea", () => {
 
 describe("imprintAreas.json", () => {
   const entries = Object.entries(OVERRIDES);
-  const productIds = new Set(products.map((p) => p.id));
+  const productIds = new Set(allProducts.map((p) => p.id));
 
   it("only names products that exist in the catalog", () => {
     const unknown = entries.map(([id]) => id).filter((id) => !productIds.has(id));

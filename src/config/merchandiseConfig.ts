@@ -29,6 +29,7 @@ import colorImageMapJson from "./colorImages.json";
 import colorImagesExtra1 from "./colorImages.extra1.json";
 import colorImagesExtra2 from "./colorImages.extra2.json";
 import importedProductsJson from "./importedProducts.json";
+import hiddenProductsJson from "./hiddenProducts.json";
 
 export const MARKUP_RATE = 0.05;
 
@@ -1502,8 +1503,17 @@ const importedProducts: MerchProduct[] = (importedProductsJson as unknown[])
   .filter(isImportedProductRecord)
   .map(toImportedProduct);
 
-export const products: MerchProduct[] = [...curatedProducts, ...importedProducts].map(
+// Products taken off the storefront (e.g. photos that show another company's logo or a
+// real person) without deleting their data. id -> reason; remove an entry to restore it.
+const hiddenProductIds = new Set(Object.keys(hiddenProductsJson as Record<string, string>));
+
+/** Every product in the data files, hidden ones included. For data-integrity checks, not the storefront. */
+export const allProducts: MerchProduct[] = [...curatedProducts, ...importedProducts].map(
   withColorImages
+);
+
+export const products: MerchProduct[] = allProducts.filter(
+  (product) => !hiddenProductIds.has(product.id)
 );
 
 import imprintAreasJson from "./imprintAreas.json";

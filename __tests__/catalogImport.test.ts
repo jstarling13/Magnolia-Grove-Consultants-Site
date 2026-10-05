@@ -38,7 +38,7 @@ import {
   MARKUP_RATE,
   isImportedProductRecord,
   merchandiseCategories,
-  products,
+  allProducts as products,
   toImportedProduct,
 } from "../src/config/merchandiseConfig";
 import importedProductsJson from "../src/config/importedProducts.json";

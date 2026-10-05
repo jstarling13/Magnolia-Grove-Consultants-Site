@@ -5,6 +5,7 @@ import importedProductsJson from "@/config/importedProducts.json";
 import {
   MARKUP_RATE,
   clientPrice,
+  allProducts,
   merchandiseCategories,
   products,
   toImportedProduct,
@@ -274,8 +275,8 @@ describe("catalog integrity", () => {
   });
 
   it("keeps curated and imported ids disjoint", () => {
-    const curated = products.filter((p) => !importedIds.has(p.id));
+    const curated = allProducts.filter((p) => !importedIds.has(p.id));
     expect(curated.length).toBeGreaterThan(0);
-    expect(products.length).toBe(curated.length + importedIds.size);
+    expect(allProducts.length).toBe(curated.length + importedIds.size);
   });
 });
