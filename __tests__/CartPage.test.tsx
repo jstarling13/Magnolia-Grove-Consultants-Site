@@ -40,7 +40,11 @@ function renderCart(stored: unknown) {
   window.localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(stored));
   return render(
     <CartProvider>
-      <CartPageContent catalog={CATALOG} pricingDisclaimer="Disclaimer." deliveryEstimate="Estimate." />
+      <CartPageContent
+        catalog={CATALOG}
+        pricingDisclaimer="Disclaimer."
+        deliveryEstimate="Estimate."
+      />
     </CartProvider>
   );
 }
@@ -106,9 +110,13 @@ describe("cart page", () => {
       { productId: "vest", color: "Navy", quantity: 6 },
       { productId: "vest", color: "Black", quantity: 6 },
     ]);
-    fireEvent.change(screen.getByLabelText("Quantity for Test Vest, Navy"), { target: { value: "2" } });
+    fireEvent.change(screen.getByLabelText("Quantity for Test Vest, Navy"), {
+      target: { value: "2" },
+    });
     // 2 + 6 = 8 units: back to the 6+ price.
-    expect(within(lineFor(/Quantity for Test Vest, Black/)).getByText("$100.00 per unit")).toBeInTheDocument();
+    expect(
+      within(lineFor(/Quantity for Test Vest, Black/)).getByText("$100.00 per unit")
+    ).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole("button", { name: "Remove Test Vest, Navy" }));
     expect(screen.queryByLabelText("Quantity for Test Vest, Navy")).not.toBeInTheDocument();
@@ -127,20 +135,25 @@ describe("cart page", () => {
     expect(submitButton()).toBeDisabled();
 
     // Raising the total across colors to the minimum clears it.
-    fireEvent.change(screen.getByLabelText("Quantity for Test Vest, Black"), { target: { value: "4" } });
+    fireEvent.change(screen.getByLabelText("Quantity for Test Vest, Black"), {
+      target: { value: "4" },
+    });
     expect(screen.queryByText(/Minimum order is/)).not.toBeInTheDocument();
     expect(submitButton()).not.toBeDisabled();
   });
 
   it("asks legacy colorless lines for a color and blocks submit until chosen", () => {
-    renderCart([{ productId: "vest", quantity: 6 }, { productId: "mug", quantity: 10 }]);
+    renderCart([
+      { productId: "vest", quantity: 6 },
+      { productId: "mug", quantity: 10 },
+    ]);
 
     const select = screen.getByLabelText("Choose a color") as HTMLSelectElement;
-    expect(within(select).getAllByRole("option").map((option) => option.textContent)).toEqual([
-      "Select a color",
-      "Black",
-      "Navy",
-    ]);
+    expect(
+      within(select)
+        .getAllByRole("option")
+        .map((option) => option.textContent)
+    ).toEqual(["Select a color", "Black", "Navy"]);
     // Only the colored product asks; the mug has no colors.
     expect(screen.getAllByLabelText("Choose a color")).toHaveLength(1);
     expect(submitButton()).toBeDisabled();
@@ -178,7 +191,9 @@ describe("cart page", () => {
   });
 
   it("submits each line's color to the checkout API", async () => {
-    const fetchMock = vi.fn().mockResolvedValue({ ok: true, json: async () => ({ success: true }) });
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValue({ ok: true, json: async () => ({ success: true }) });
     vi.stubGlobal("fetch", fetchMock);
     renderCart([
       { productId: "vest", color: "Navy", quantity: 6 },
@@ -199,5 +214,29 @@ describe("cart page", () => {
       { productId: "mug", quantity: 10 },
     ]);
     vi.unstubAllGlobals();
+  });
+  it("shows the order reference after a successful submit, and says whether we emailed it", async () => {
+    for (const [emailed, expected] of [
+      [true, /We've emailed you a confirmation/],
+      [false, /Keep it handy/],
+    ] as const) {
+      window.localStorage.clear();
+      const fetchMock = vi.fn().mockResolvedValue({
+        ok: true,
+        json: async () => ({ success: true, orderRef: "MG-00042", confirmationEmailed: emailed }),
+      });
+      vi.stubGlobal("fetch", fetchMock);
+      const { unmount } = renderCart([{ productId: "mug", quantity: 10 }]);
+      fireEvent.change(screen.getByLabelText("First Name"), { target: { value: "Pat" } });
+      fireEvent.change(screen.getByLabelText("Last Name"), { target: { value: "Lee" } });
+      fireEvent.change(screen.getByLabelText("Email"), { target: { value: "pat@example.com" } });
+      fireEvent.change(screen.getByLabelText("Phone"), { target: { value: "5555551234" } });
+      fireEvent.click(submitButton());
+
+      expect(await screen.findByText("MG-00042")).toBeInTheDocument();
+      expect(screen.getByText(expected)).toBeInTheDocument();
+      unmount();
+      vi.unstubAllGlobals();
+    }
   });
 });

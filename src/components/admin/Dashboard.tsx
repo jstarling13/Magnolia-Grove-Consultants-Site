@@ -9,8 +9,16 @@ import {
   deleteDeliverable,
   updateMerchOrderStatus,
   sendMerchPaymentLink,
+  recordEspOrder,
+  markMerchShipped,
 } from "@/app/admin/actions";
-import { MERCH_ORDER_STATUSES, MERCH_ORDER_STATUS_LABELS } from "@/lib/merchOrders";
+import {
+  MERCH_ORDER_STATUSES,
+  MERCH_ORDER_STATUS_LABELS,
+  formatOrderReference,
+  parseEspOrderNumber,
+  parseShipment,
+} from "@/lib/merchOrders";
 import { buildBackendOrderSheet, describeLineColor } from "@/lib/merchBackendSheet";
 
 export interface SubmissionRow {
@@ -48,6 +56,13 @@ const HIDDEN_FIELDS = new Set([
   "paymentUrl",
   "paidAt",
   "paidManually",
+  "paidEmailSentAt",
+  // Fulfillment fields are edited in the Fulfillment panel instead.
+  "espOrderNumber",
+  "espOrderedAt",
+  "carrier",
+  "trackingNumber",
+  "shippedAt",
 ]);
 
 interface CartLineItemDTO {
@@ -90,7 +105,7 @@ function summarize(row: SubmissionRow): string {
     case "merch_order": {
       const statusLabel =
         MERCH_ORDER_STATUS_LABELS[d.status as keyof typeof MERCH_ORDER_STATUS_LABELS] ?? "New";
-      return `${d.product ?? "Unknown Product"} — Qty ${d.quantity ?? "?"} (${statusLabel})`;
+      return `${formatOrderReference(row.id)} · ${d.product ?? "Unknown Product"} — Qty ${d.quantity ?? "?"} (${statusLabel})`;
     }
   }
 }
@@ -454,6 +469,193 @@ function MerchPaymentPanel({
   );
 }
 
+const CARRIER_SUGGESTIONS = ["UPS", "FedEx", "USPS", "DHL"];
+
+/**
+ * Admin-only fulfillment steps for a paid order: record the ESP order number
+ * (internal, never shown to customers) and mark it shipped, which emails the
+ * customer carrier and tracking details.
+ */
+function MerchFulfillmentPanel({
+  submissionId,
+  data,
+}: {
+  submissionId: number;
+  data: Record<string, unknown>;
+}) {
+  const router = useRouter();
+  const status = String(data.status ?? "new");
+  const paid = typeof data.paidAt === "string";
+  const shippedAt = typeof data.shippedAt === "string" ? data.shippedAt : "";
+
+  const [espOrderNumber, setEspOrderNumber] = useState(
+    typeof data.espOrderNumber === "string" ? data.espOrderNumber : ""
+  );
+  const [carrier, setCarrier] = useState(typeof data.carrier === "string" ? data.carrier : "");
+  const [trackingNumber, setTrackingNumber] = useState(
+    typeof data.trackingNumber === "string" ? data.trackingNumber : ""
+  );
+  const [espMessage, setEspMessage] = useState("");
+  const [espError, setEspError] = useState("");
+  const [shipMessage, setShipMessage] = useState("");
+  const [shipError, setShipError] = useState("");
+  const [espPending, startEspTransition] = useTransition();
+  const [shipPending, startShipTransition] = useTransition();
+
+  if (status === "cancelled") return null;
+
+  if (!paid) {
+    return (
+      <div className="mt-4 border-t border-gold/15 pt-4">
+        <span className="text-xs font-semibold uppercase tracking-wide text-gold-dark">
+          Fulfillment
+        </span>
+        <p className="mt-1 text-xs text-onyx/60">
+          Available once payment is received. Then record the ESP order number and, when it ships,
+          the tracking details.
+        </p>
+      </div>
+    );
+  }
+
+  function handleSaveEsp() {
+    setEspMessage("");
+    const parsed = parseEspOrderNumber(espOrderNumber);
+    if (!parsed.ok) {
+      setEspError(parsed.error);
+      return;
+    }
+    setEspError("");
+    startEspTransition(async () => {
+      const result = await recordEspOrder(submissionId, parsed.value);
+      if (!result.ok) {
+        setEspError(result.error);
+        return;
+      }
+      setEspMessage("ESP order number saved.");
+      router.refresh();
+    });
+  }
+
+  function handleShip() {
+    setShipMessage("");
+    const parsed = parseShipment({ carrier, trackingNumber });
+    if (!parsed.ok) {
+      setShipError(parsed.error);
+      return;
+    }
+    setShipError("");
+    startShipTransition(async () => {
+      const result = await markMerchShipped(submissionId, parsed.value);
+      if (!result.ok) {
+        setShipError(result.error);
+        return;
+      }
+      setShipMessage(
+        result.emailed
+          ? "Marked shipped. The customer was emailed their tracking details."
+          : "Marked shipped, but the email didn't send. Contact the customer with the tracking details yourself."
+      );
+      router.refresh();
+    });
+  }
+
+  const inputClass =
+    "w-full rounded-md border border-gold/25 bg-cream px-3 py-2 text-sm text-onyx focus:outline-none focus:ring-2 focus:ring-gold/60";
+  const labelClass = "text-xs font-medium text-onyx/70";
+
+  return (
+    <div className="mt-4 border-t border-gold/15 pt-4">
+      <span className="text-xs font-semibold uppercase tracking-wide text-gold-dark">
+        Fulfillment
+      </span>
+
+      <div className="mt-3">
+        <label htmlFor={`esp-order-${submissionId}`} className={labelClass}>
+          ESP order number (internal, never sent to the customer)
+        </label>
+        <div className="mt-1 flex flex-wrap items-center gap-3">
+          <input
+            id={`esp-order-${submissionId}`}
+            value={espOrderNumber}
+            onChange={(event) => setEspOrderNumber(event.target.value)}
+            maxLength={40}
+            className={`${inputClass} max-w-xs`}
+          />
+          <button
+            type="button"
+            onClick={handleSaveEsp}
+            disabled={espPending}
+            className="rounded-md border border-gold/40 px-4 py-2 text-sm font-semibold text-onyx transition-colors hover:bg-gold/10 disabled:opacity-60"
+          >
+            {espPending
+              ? "Saving…"
+              : status === "paid"
+                ? "Save & mark Ordered in ESP"
+                : "Save ESP order number"}
+          </button>
+        </div>
+        {espMessage && <p className="mt-2 text-xs text-onyx/80">{espMessage}</p>}
+        {espError && <p className="mt-2 text-xs text-red-500">{espError}</p>}
+      </div>
+
+      <div className="mt-4">
+        <p className={labelClass}>
+          Shipment{shippedAt ? ` (shipped ${formatDate(shippedAt)})` : ""}
+        </p>
+        <div className="mt-1 grid gap-3 sm:grid-cols-2">
+          <div>
+            <label htmlFor={`carrier-${submissionId}`} className="sr-only">
+              Carrier
+            </label>
+            <input
+              id={`carrier-${submissionId}`}
+              list={`carriers-${submissionId}`}
+              value={carrier}
+              onChange={(event) => setCarrier(event.target.value)}
+              placeholder="Carrier (UPS, FedEx, USPS, DHL)"
+              maxLength={40}
+              className={inputClass}
+            />
+            <datalist id={`carriers-${submissionId}`}>
+              {CARRIER_SUGGESTIONS.map((name) => (
+                <option key={name} value={name} />
+              ))}
+            </datalist>
+          </div>
+          <div>
+            <label htmlFor={`tracking-${submissionId}`} className="sr-only">
+              Tracking number
+            </label>
+            <input
+              id={`tracking-${submissionId}`}
+              value={trackingNumber}
+              onChange={(event) => setTrackingNumber(event.target.value)}
+              placeholder="Tracking number"
+              maxLength={50}
+              className={inputClass}
+            />
+          </div>
+        </div>
+        <button
+          type="button"
+          onClick={handleShip}
+          disabled={shipPending}
+          className="mt-3 rounded-md bg-gold px-4 py-2 text-sm font-semibold text-onyx transition-colors hover:bg-gold-bright disabled:opacity-60"
+        >
+          {shipPending
+            ? "Sending…"
+            : shippedAt
+              ? "Update tracking & resend email"
+              : "Mark shipped & email customer"}
+        </button>
+        {shipMessage && <p className="mt-2 text-xs text-onyx/80">{shipMessage}</p>}
+        {shipError && <p className="mt-2 text-xs text-red-500">{shipError}</p>}
+      </div>
+    </div>
+  );
+}
+
 export default function Dashboard({
   submissions,
   username,
@@ -596,6 +798,14 @@ export default function Dashboard({
 
               {isExpanded && (
                 <div className="border-t border-gold/15 px-5 py-4">
+                  {row.type === "merch_order" && (
+                    <p className="mb-3 text-sm text-onyx">
+                      <span className="text-xs uppercase tracking-wide text-onyx/60">
+                        Order reference{" "}
+                      </span>
+                      <span className="font-semibold">{formatOrderReference(row.id)}</span>
+                    </p>
+                  )}
                   <dl className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                     {Object.entries(row.data)
                       .filter(([key]) => !HIDDEN_FIELDS.has(key))
@@ -680,6 +890,10 @@ export default function Dashboard({
 
                   {row.type === "merch_order" && (
                     <MerchPaymentPanel submissionId={row.id} data={row.data} />
+                  )}
+
+                  {row.type === "merch_order" && (
+                    <MerchFulfillmentPanel submissionId={row.id} data={row.data} />
                   )}
 
                   {row.type === "merch_order" && (

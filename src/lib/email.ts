@@ -2,6 +2,7 @@ import { Resend } from "resend";
 import type { LeadFormPayload, StrategySessionPayload, PaymentRequestPayload } from "./validation";
 import type { MerchOrderRequestPayload, PricedCartLineItem } from "./merchOrders";
 import { describeLineColor } from "./merchBackendSheet";
+import { buildTrackingUrl, formatOrderReference, recognizeCarrier } from "./merchOrders";
 
 const hasResendConfig =
   Boolean(process.env.RESEND_API_KEY) && Boolean(process.env.CONTACT_EMAIL_FROM);
@@ -243,6 +244,8 @@ export async function sendMerchOrderNotification(
 }
 
 interface CartOrderNotificationPayload {
+  /** Customer-facing reference such as MG-00042; absent only if the order couldn't be saved. */
+  orderRef?: string;
   firstName: string;
   lastName: string;
   email: string;
@@ -295,9 +298,10 @@ export async function sendCartOrderNotification(
   const html = emailShell(
     "New Merchandise Cart Order",
     [
-      row("Name", `${payload.firstName} ${payload.lastName}`),
-      row("Email", payload.email),
-      row("Phone", payload.phone),
+      payload.orderRef ? row("Order Reference", escapeHtml(payload.orderRef)) : "",
+      row("Name", escapeHtml(`${payload.firstName} ${payload.lastName}`)),
+      row("Email", escapeHtml(payload.email)),
+      row("Phone", escapeHtml(payload.phone)),
       `<table style="width:100%;border-collapse:collapse;margin:16px 0;">
         <thead>
           <tr style="border-bottom:1px solid rgba(197,160,89,0.25);">
@@ -310,7 +314,7 @@ export async function sendCartOrderNotification(
         <tbody>${itemsHtml}</tbody>
       </table>`,
       row("Estimated Total", `$${payload.total.toFixed(2)}`),
-      payload.notes ? row("Notes", payload.notes) : "",
+      payload.notes ? row("Notes", multiline(payload.notes)) : "",
     ].join("")
   );
 
@@ -318,7 +322,9 @@ export async function sendCartOrderNotification(
     from: process.env.CONTACT_EMAIL_FROM!,
     to: process.env.CONTACT_EMAIL_TO || "ben@magnoliagrovega.com",
     replyTo: payload.email,
-    subject: `New Merch Cart Order — ${payload.firstName} ${payload.lastName} (${payload.items.length} items, $${payload.total.toFixed(2)})`,
+    subject: oneLine(
+      `New Merch Cart Order${payload.orderRef ? ` ${payload.orderRef}` : ""} — ${payload.firstName} ${payload.lastName} (${payload.items.length} items, $${payload.total.toFixed(2)})`
+    ),
     html,
   });
 
@@ -337,6 +343,191 @@ function escapeHtml(value: string): string {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
 }
+
+/** Escapes, then keeps the author's line breaks. */
+function multiline(value: string): string {
+  return escapeHtml(value).replace(/\r?\n/g, "<br/>");
+}
+
+/** Header-safe single line for use in an email subject. */
+function oneLine(value: string): string {
+  return value.replace(/[\r\n]+/g, " ").trim();
+}
+
+function businessInbox(): string {
+  return process.env.CONTACT_EMAIL_TO || "ben@magnoliagrovega.com";
+}
+
+function paragraph(innerHtml: string): string {
+  return `<p style="color:#e5e5e5;font-size:14px;line-height:1.6;">${innerHtml}</p>`;
+}
+
+function greeting(firstName: string): string {
+  return paragraph(`Hi ${escapeHtml(firstName.trim()) || "there"},`);
+}
+
+/**
+ * What a customer may see of a cart line: no supplier, product number, or link
+ * fields exist on this type, and the builders copy only these fields, so
+ * backend-only data on the stored line can never reach a customer email.
+ */
+export interface CustomerOrderLine {
+  name: string;
+  color?: string;
+  quantity: number;
+  unitPrice?: number;
+  lineTotal?: number;
+}
+
+function money(value: number): string {
+  return `$${value.toFixed(2)}`;
+}
+
+function headerCell(label: string, align: "left" | "right"): string {
+  return `<th style="text-align:${align};color:${MUTED};text-transform:uppercase;font-size:11px;letter-spacing:0.05em;padding-bottom:6px;">${label}</th>`;
+}
+
+function bodyCell(innerHtml: string, align: "left" | "right" = "right"): string {
+  return `<td style="padding:6px 0;color:#e5e5e5;font-size:14px;text-align:${align};vertical-align:top;">${innerHtml}</td>`;
+}
+
+function itemNameCell(item: CustomerOrderLine): string {
+  const color = item.color?.trim();
+  return bodyCell(
+    `${escapeHtml(item.name)}${color ? `<div style="margin-top:2px;color:${MUTED};font-size:12px;">${escapeHtml(color)}</div>` : ""}`,
+    "left"
+  );
+}
+
+function allPriced(items: CustomerOrderLine[]): boolean {
+  return items.every(
+    (item) => typeof item.unitPrice === "number" && typeof item.lineTotal === "number"
+  );
+}
+
+function customerItemsTable(items: CustomerOrderLine[]): string {
+  const showPrices = allPriced(items);
+  const head = [
+    headerCell("Item", "left"),
+    headerCell("Qty", "right"),
+    ...(showPrices ? [headerCell("Unit", "right"), headerCell("Line Total", "right")] : []),
+  ].join("");
+  const body = items
+    .map(
+      (item) =>
+        `<tr>${itemNameCell(item)}${bodyCell(String(item.quantity))}${
+          showPrices
+            ? bodyCell(money(item.unitPrice as number)) + bodyCell(money(item.lineTotal as number))
+            : ""
+        }</tr>`
+    )
+    .join("");
+  return `<table style="width:100%;border-collapse:collapse;margin:16px 0;">
+        <thead><tr style="border-bottom:1px solid rgba(197,160,89,0.25);">${head}</tr></thead>
+        <tbody>${body}</tbody>
+      </table>`;
+}
+
+/** Copies only the customer-safe fields, dropping anything else stored on the line. */
+function pickLines(items: CustomerOrderLine[]): CustomerOrderLine[] {
+  return items.map(({ name, color, quantity, unitPrice, lineTotal }) => ({
+    name,
+    ...(color ? { color } : {}),
+    quantity,
+    ...(typeof unitPrice === "number" ? { unitPrice } : {}),
+    ...(typeof lineTotal === "number" ? { lineTotal } : {}),
+  }));
+}
+
+export interface BuiltEmail {
+  subject: string;
+  html: string;
+}
+
+// ---------------------------------------------------------------------------
+// Customer: request confirmation (sent right after a cart is submitted)
+// ---------------------------------------------------------------------------
+
+export interface MerchRequestConfirmationPayload {
+  email: string;
+  firstName: string;
+  /** Customer-facing reference such as MG-00042; omitted only if the order couldn't be saved. */
+  orderRef?: string;
+  items: CustomerOrderLine[];
+  /** Estimated subtotal at the shared quantity tier, before decoration, shipping, and tax. */
+  total: number;
+  notes?: string;
+}
+
+export function buildMerchRequestConfirmationEmail(
+  payload: MerchRequestConfirmationPayload
+): BuiltEmail {
+  const items = pickLines(payload.items);
+  const html = emailShell(
+    "We Received Your Merchandise Request",
+    [
+      greeting(payload.firstName),
+      paragraph(
+        "Thank you for your request. <strong>Nothing has been charged.</strong> This confirms that we have it, with a summary of what you asked for."
+      ),
+      payload.orderRef ? row("Order Reference", escapeHtml(payload.orderRef)) : "",
+      customerItemsTable(items),
+      row("Estimated Subtotal", money(payload.total)),
+      paragraph(
+        `<span style="color:${MUTED};font-size:12px;">Unit prices reflect the quantity tier for each product across all of its colors. This estimate does not yet include decoration, shipping, or tax.</span>`
+      ),
+      payload.notes?.trim() ? row("Your Notes", multiline(payload.notes.trim())) : "",
+      `<h2 style="color:#ffffff;font-size:16px;margin:24px 0 8px;">What happens next</h2>`,
+      `<ol style="color:#e5e5e5;font-size:14px;line-height:1.7;margin:0 0 16px;padding-left:20px;">
+        <li>We confirm decoration, shipping, and sales tax for your order.</li>
+        <li>We email you a final quote with a secure link to pay.</li>
+        <li>We place your order with our supplier after your payment clears, and email you tracking details when it ships.</li>
+      </ol>`,
+      paragraph(
+        `<span style="color:${MUTED};font-size:12px;">Questions or changes? Just reply to this email${payload.orderRef ? ` and mention ${escapeHtml(payload.orderRef)}` : ""}.</span>`
+      ),
+    ].join("")
+  );
+  return {
+    subject: oneLine(
+      payload.orderRef
+        ? `We received your merchandise request — ${payload.orderRef}`
+        : "We received your merchandise request"
+    ),
+    html,
+  };
+}
+
+/** Acknowledges a submitted cart to the customer. Callers must not let a failure here fail the order. */
+export async function sendMerchRequestConfirmation(
+  payload: MerchRequestConfirmationPayload
+): Promise<SendResult> {
+  if (!resend || !hasResendConfig) {
+    console.warn(
+      "[email] RESEND_API_KEY / CONTACT_EMAIL_FROM not set — skipping merch request confirmation."
+    );
+    return { sent: false, reason: "not_configured" };
+  }
+
+  const { subject, html } = buildMerchRequestConfirmationEmail(payload);
+  const { error } = await resend.emails.send({
+    from: process.env.CONTACT_EMAIL_FROM!,
+    to: payload.email,
+    replyTo: businessInbox(),
+    subject,
+    html,
+  });
+
+  if (error) {
+    console.error("[email] Resend rejected sendMerchRequestConfirmation:", error);
+    return { sent: false, reason: error.message };
+  }
+  return { sent: true };
+}
+
+// ---------------------------------------------------------------------------
+// Customer: payment link (the final quote)
+// ---------------------------------------------------------------------------
 
 export interface MerchPaymentLinkEmailPayload {
   email: string;
@@ -357,11 +548,12 @@ export async function sendMerchPaymentLinkEmail(
     return { sent: false, reason: "not_configured" };
   }
 
+  const orderRef = formatOrderReference(payload.orderId);
   const html = emailShell(
     "Your Merchandise Quote Is Ready",
     `<p style="color:#e5e5e5;font-size:14px;line-height:1.6;">Hi ${escapeHtml(payload.firstName) || "there"},</p>
      <p style="color:#e5e5e5;font-size:14px;line-height:1.6;">We've confirmed the final pricing for your merchandise order, including decoration, shipping, and tax. We place the order with our supplier as soon as payment clears.</p>
-     ${row("Order", `#${payload.orderId}`)}
+     ${row("Order Reference", orderRef)}
      ${row("Total Due", `$${payload.total.toFixed(2)}`)}
      <p style="margin:24px 0;"><a href="${escapeHtml(payload.paymentUrl)}" style="display:inline-block;background:${GOLD};color:${ONYX};font-size:14px;font-weight:700;text-decoration:none;border-radius:6px;padding:12px 24px;">Pay Securely Online &rarr;</a></p>
      <p style="color:${MUTED};font-size:12px;line-height:1.6;">Payment is processed by Square. Card details never touch our site. Questions? Just reply to this email.</p>`
@@ -370,8 +562,8 @@ export async function sendMerchPaymentLinkEmail(
   const { error } = await resend.emails.send({
     from: process.env.CONTACT_EMAIL_FROM!,
     to: payload.email,
-    replyTo: process.env.CONTACT_EMAIL_TO || "ben@magnoliagrovega.com",
-    subject: `Your Merchandise Quote Is Ready — Order #${payload.orderId}`,
+    replyTo: businessInbox(),
+    subject: `Your Merchandise Quote Is Ready — ${orderRef}`,
     html,
   });
 
@@ -380,5 +572,133 @@ export async function sendMerchPaymentLinkEmail(
     return { sent: false, reason: error.message };
   }
 
+  return { sent: true };
+}
+
+// ---------------------------------------------------------------------------
+// Customer: payment received (receipt)
+// ---------------------------------------------------------------------------
+
+export interface MerchPaidEmailPayload {
+  email: string;
+  firstName: string;
+  orderId: number;
+  /** The quoted amount that was paid. Omitted when we don't have one on record. */
+  amountPaid?: number;
+}
+
+export function buildMerchPaidEmail(payload: MerchPaidEmailPayload): BuiltEmail {
+  const orderRef = formatOrderReference(payload.orderId);
+  const html = emailShell(
+    "Payment Received",
+    [
+      greeting(payload.firstName),
+      paragraph("Thank you. We have received your payment for your merchandise order."),
+      row("Order Reference", escapeHtml(orderRef)),
+      typeof payload.amountPaid === "number" ? row("Amount Paid", money(payload.amountPaid)) : "",
+      paragraph(
+        "We are placing your order with our supplier now. We will email you again with tracking details when it ships."
+      ),
+      paragraph(
+        `<span style="color:${MUTED};font-size:12px;">Keep this email as your receipt. Questions? Just reply and mention ${escapeHtml(orderRef)}.</span>`
+      ),
+    ].join("")
+  );
+  return { subject: `Payment received — ${orderRef}`, html };
+}
+
+export async function sendMerchPaidEmail(payload: MerchPaidEmailPayload): Promise<SendResult> {
+  if (!resend || !hasResendConfig) {
+    console.warn(
+      "[email] RESEND_API_KEY / CONTACT_EMAIL_FROM not set — skipping merch payment received email."
+    );
+    return { sent: false, reason: "not_configured" };
+  }
+
+  const { subject, html } = buildMerchPaidEmail(payload);
+  const { error } = await resend.emails.send({
+    from: process.env.CONTACT_EMAIL_FROM!,
+    to: payload.email,
+    replyTo: businessInbox(),
+    subject,
+    html,
+  });
+
+  if (error) {
+    console.error("[email] Resend rejected sendMerchPaidEmail:", error);
+    return { sent: false, reason: error.message };
+  }
+  return { sent: true };
+}
+
+// ---------------------------------------------------------------------------
+// Customer: shipped
+// ---------------------------------------------------------------------------
+
+export interface MerchShippedEmailPayload {
+  email: string;
+  firstName: string;
+  orderId: number;
+  carrier: string;
+  trackingNumber: string;
+  /** What is in the shipment (name, color, quantity). Prices are not shown. */
+  items?: CustomerOrderLine[];
+}
+
+export function buildMerchShippedEmail(payload: MerchShippedEmailPayload): BuiltEmail {
+  const orderRef = formatOrderReference(payload.orderId);
+  const carrierName = recognizeCarrier(payload.carrier) ?? payload.carrier;
+  const trackingUrl = buildTrackingUrl(payload.carrier, payload.trackingNumber);
+  const items = pickLines(payload.items ?? []).map(({ name, color, quantity }) => ({
+    name,
+    ...(color ? { color } : {}),
+    quantity,
+  }));
+
+  const html = emailShell(
+    "Your Order Has Shipped",
+    [
+      greeting(payload.firstName),
+      paragraph("Good news: your merchandise order is on its way."),
+      row("Order Reference", escapeHtml(orderRef)),
+      row("Carrier", escapeHtml(carrierName)),
+      row("Tracking Number", escapeHtml(payload.trackingNumber)),
+      trackingUrl
+        ? `<p style="margin:24px 0;"><a href="${escapeHtml(trackingUrl)}" style="display:inline-block;background:${GOLD};color:${ONYX};font-size:14px;font-weight:700;text-decoration:none;border-radius:6px;padding:12px 24px;">Track Your Package &rarr;</a></p>`
+        : paragraph(
+            `<span style="color:${MUTED};font-size:12px;">Use the tracking number above on ${escapeHtml(carrierName)}'s website to follow your package.</span>`
+          ),
+      items.length ? customerItemsTable(items) : "",
+      paragraph(
+        `<span style="color:${MUTED};font-size:12px;">Tracking can take a few hours to show movement after a label is created. Questions? Just reply and mention ${escapeHtml(orderRef)}.</span>`
+      ),
+    ].join("")
+  );
+  return { subject: `Your order has shipped — ${orderRef}`, html };
+}
+
+export async function sendMerchShippedEmail(
+  payload: MerchShippedEmailPayload
+): Promise<SendResult> {
+  if (!resend || !hasResendConfig) {
+    console.warn(
+      "[email] RESEND_API_KEY / CONTACT_EMAIL_FROM not set — skipping merch shipped email."
+    );
+    return { sent: false, reason: "not_configured" };
+  }
+
+  const { subject, html } = buildMerchShippedEmail(payload);
+  const { error } = await resend.emails.send({
+    from: process.env.CONTACT_EMAIL_FROM!,
+    to: payload.email,
+    replyTo: businessInbox(),
+    subject,
+    html,
+  });
+
+  if (error) {
+    console.error("[email] Resend rejected sendMerchShippedEmail:", error);
+    return { sent: false, reason: error.message };
+  }
   return { sent: true };
 }

@@ -98,6 +98,8 @@ export default function CartPageContent({
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFields, string>>>({});
   const [status, setStatus] = useState<Status>("idle");
   const [submitError, setSubmitError] = useState("");
+  const [orderRef, setOrderRef] = useState("");
+  const [confirmationEmailed, setConfirmationEmailed] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState("");
 
   const productsById = useMemo(
@@ -193,6 +195,8 @@ export default function CartPageContent({
         return;
       }
 
+      setOrderRef(typeof data.orderRef === "string" ? data.orderRef : "");
+      setConfirmationEmailed(data.confirmationEmailed === true);
       setStatus("success");
       clear();
       setFields(initialFields);
@@ -212,6 +216,14 @@ export default function CartPageContent({
             shipping, and tax, with a secure link to pay. We place the order with our supplier once
             your payment clears.
           </p>
+          {orderRef && (
+            <p className="mt-6 text-sm text-onyx/80">
+              Your order reference is <span className="font-semibold text-onyx">{orderRef}</span>.
+              {confirmationEmailed
+                ? " We've emailed you a confirmation with the details."
+                : " Keep it handy if you contact us."}
+            </p>
+          )}
           <Link
             href="/merchandise"
             className="mt-8 inline-flex items-center rounded-md border border-gold/60 px-6 py-3 text-sm font-semibold text-gold-dark transition-colors hover:bg-gold/10"

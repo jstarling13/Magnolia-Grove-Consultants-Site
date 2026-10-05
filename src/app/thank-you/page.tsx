@@ -29,7 +29,7 @@ const copyBySource = {
     eyebrow: "Payment Received",
     headline: "Thank You — We're Placing Your Order.",
     message:
-      "Your payment cleared. We're placing your merchandise order with our supplier now and will email you proofs and shipping updates.",
+      "Your payment cleared. We're placing your merchandise order with our supplier now. You'll get a receipt by email, and we'll email tracking details as soon as your order ships.",
   },
   default: {
     eyebrow: "Submission Received",

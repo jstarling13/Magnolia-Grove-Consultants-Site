@@ -5,7 +5,7 @@
  * public pages. /admin and /api are excluded because they are the only places
  * allowed to touch ESP links (admin dashboard, admin notification email).
  *
- * Needles: "espplus.com/products", plus every ESP id in the ESP link data files.
+ * Needles: "espplus.com/products", "espOrderNumber", plus every ESP id in the ESP link data files.
  *
  * Usage: node scripts/check-no-esp-leak.mjs [--dir <path-to-.next>]
  */
@@ -23,7 +23,11 @@ if (!existsSync(nextDir)) {
 }
 
 // Needles ---------------------------------------------------------------
-const needles = [{ label: "espplus.com/products", test: (text) => text.includes("espplus.com/products") }];
+const needles = [
+  { label: "espplus.com/products", test: (text) => text.includes("espplus.com/products") },
+  // Internal supplier order number stored on merch orders (admin dashboard only).
+  { label: "espOrderNumber", test: (text) => text.includes("espOrderNumber") },
+];
 const espIds = new Set();
 for (const file of ["espLinks.curated.json", "espLinks.imported.json"]) {
   const path = join(root, "src", "lib", file);
