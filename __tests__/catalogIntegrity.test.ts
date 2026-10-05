@@ -27,7 +27,7 @@ const configSource = readFileSync(
   "utf8"
 );
 
-const PRICED_AT = /[.!?] Priced at (\d+) units?\.$/;
+const PRICED_AT = /(?:^|[.!?] )Priced at (\d+) units?\.$/;
 const COLOR_DEBRIS = /show\s+(more|less)/i;
 const IMAGE_EXT = /\.(webp|jpe?g|png)$/i;
 

@@ -1014,7 +1014,7 @@ describe("protected ids and color photo keys", () => {
 
 describe("keepApart", () => {
   const MAT_A = "Berber Impressions HD Floor Mat 4' x 6'";
-  const MAT_B = "WaterHog Impressions HD Floor Mat 4'x 6'";
+  const MAT_B = "WaterHog Impressions HD Floor Mat 4' x 6'";
   const rows = () => [
     mk({ espId: "9201", name: MAT_A, tag: "home", asi: "asi/7" }),
     mk({ espId: "9202", name: MAT_B, tag: "home", asi: "asi/7" }),
@@ -1088,7 +1088,8 @@ describe("keepApart", () => {
     const groups = parseKeepApart(file);
     expect(groups[0].espIds).toEqual(["555763946", "555764425"]);
     const ids = new Set(products.map((p) => p.name));
-    expect(ids.has(MAT_A)).toBe(true);
+    // MAT_A (Berber 4x6) is dropped by the duplicate-image rule (identical photo to the 3x5);
+    // the keepApart entry still protects the pair from the fuzzy-name merge.
     expect(ids.has(MAT_B)).toBe(true);
   });
 });

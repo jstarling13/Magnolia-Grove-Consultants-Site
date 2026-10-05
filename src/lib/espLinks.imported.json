@@ -443,12 +443,6 @@
     "asi": "asi/63549",
     "productNo": "JK-5861"
   },
-  "20-oz-travel-stainless-vacuum-insulated-coffee-cup-w-lid-43497": {
-    "espId": "552443497",
-    "supplier": "Opusline (Benmex)",
-    "asi": "asi/39820",
-    "productNo": "MP19"
-  },
   "20-oz-himalayan-tumbler-20426": {
     "espId": "550620426",
     "supplier": "Hit Promotional Products",
@@ -569,12 +563,6 @@
     "asi": "asi/94101",
     "productNo": "300007"
   },
-  "event-flooring-91195": {
-    "espId": "554991195",
-    "supplier": "Instent Industries",
-    "asi": "asi/94101",
-    "productNo": "300003"
-  },
   "rugs-55129": {
     "espId": "554255129",
     "supplier": "Metro Textile",
@@ -641,12 +629,6 @@
     "asi": "asi/62098",
     "productNo": "IPLL130A"
   },
-  "6x10-indoor-door-mat-27056": {
-    "espId": "551227056",
-    "supplier": "Giraffe Technology",
-    "asi": "asi/56886",
-    "productNo": "GP-KB610"
-  },
   "welcome-entrance-doormat-26327": {
     "espId": "554926327",
     "supplier": "Sprinters Advertising",
@@ -707,12 +689,6 @@
     "asi": "asi/56886",
     "productNo": "GP-KB35"
   },
-  "5x10-outdoor-entrance-mat-69221": {
-    "espId": "551369221",
-    "supplier": "Giraffe Technology",
-    "asi": "asi/56886",
-    "productNo": "GP-KA510"
-  },
   "3x4-indoor-entrance-mat-68874": {
     "espId": "551368874",
     "supplier": "Giraffe Technology",
@@ -724,12 +700,6 @@
     "supplier": "Top Line Promos Inc",
     "asi": "asi/91484",
     "productNo": "SW3864"
-  },
-  "rubber-backed-entrance-outdoor-indoor-logo-mat-6-x-12-69323": {
-    "espId": "551369323",
-    "supplier": "Giraffe Technology",
-    "asi": "asi/56886",
-    "productNo": "GP-KA612"
   },
   "30-x18-entrance-mat-84700": {
     "espId": "554484700",
@@ -778,12 +748,6 @@
     "supplier": "Hit Promotional Products",
     "asi": "asi/61125",
     "productNo": "8904"
-  },
-  "berber-impressions-hd-floor-mat-4-x-6-63946": {
-    "espId": "555763946",
-    "supplier": "SnugZ USA",
-    "asi": "asi/88060",
-    "productNo": "LMBBI46"
   },
   "3-x-10-digiprint-hd-indoor-floor-mat-07101": {
     "espId": "551507101",
@@ -844,12 +808,6 @@
     "supplier": "Marketing Gifts Inc",
     "asi": "asi/68835",
     "productNo": "MG607"
-  },
-  "outdoor-or-indoor-brand-ambassador-logo-floor-mat-8-ft-91618": {
-    "espId": "552491618",
-    "supplier": "Custom Business Mats Inc.",
-    "asi": "asi/46846",
-    "productNo": ""
   },
   "brand-diplomat-custom-branded-logo-rug-4-ft-91626": {
     "espId": "552491626",
@@ -1997,12 +1955,6 @@
     "asi": "asi/90913",
     "productNo": ""
   },
-  "portable-folding-chair-w-cup-holders-and-carry-bag-holds-300-83888": {
-    "espId": "4583888",
-    "supplier": "Opusline (Benmex)",
-    "asi": "asi/39820",
-    "productNo": "CS7"
-  },
   "portable-folding-camping-chair-with-pillow-25763": {
     "espId": "556625763",
     "supplier": "Uniprint Inc.",
@@ -2092,5 +2044,1037 @@
     "supplier": "Compass Industries Inc",
     "asi": "asi/46170",
     "productNo": "40512"
+  },
+  "5000mah-power-bank-with-cables-14403": {
+    "espId": "556314403",
+    "supplier": "Tempo Industries Inc",
+    "asi": "asi/90859",
+    "productNo": "PB-182439-RCA"
+  },
+  "keychain-power-bank-with-flashlight-82055": {
+    "espId": "556282055",
+    "supplier": "Tempo Industries Inc",
+    "asi": "asi/90859",
+    "productNo": "IS-PB2000RCA"
+  },
+  "magcharge-trio-powerbank-55067": {
+    "espId": "555755067",
+    "supplier": "Sunjoy Group Inc",
+    "asi": "asi/90154",
+    "productNo": "PWB473"
+  },
+  "ul-corded-powerlink-5000-49498": {
+    "espId": "555949498",
+    "supplier": "Sunjoy Group Inc",
+    "asi": "asi/90154",
+    "productNo": "PWB486UL"
+  },
+  "10000-mah-multi-cable-power-bank-16036": {
+    "espId": "556016036",
+    "supplier": "Lungsal",
+    "asi": "asi/68190",
+    "productNo": "CH-52W"
+  },
+  "houston-dual-cord-power-bank-10000-12057": {
+    "espId": "555612057",
+    "supplier": "Sunjoy Group Inc",
+    "asi": "asi/90154",
+    "productNo": "PWB423"
+  },
+  "10000mah-magnetic-wireless-charger-power-bank-82396": {
+    "espId": "555682396",
+    "supplier": "Red Marketing Service",
+    "asi": "asi/81062",
+    "productNo": "RMCQ46"
+  },
+  "scosche-magicmount-chargepad-kick-wireless-charger-04722": {
+    "espId": "556604722",
+    "supplier": "Compass Industries Inc",
+    "asi": "asi/46170",
+    "productNo": "MSQTPKS"
+  },
+  "portable-bi-fold-magsafe-travel-charging-station-99190": {
+    "espId": "556499190",
+    "supplier": "Uniprint Inc.",
+    "asi": "asi/92491",
+    "productNo": "VC6114"
+  },
+  "boxanne-recycled-wireless-speaker-65577": {
+    "espId": "550665577",
+    "supplier": "HPG",
+    "asi": "asi/61966",
+    "productNo": "9804"
+  },
+  "mindiss-clip-waterproof-bluetooth-speaker-14107": {
+    "espId": "553614107",
+    "supplier": "Sunjoy Group Inc",
+    "asi": "asi/90154",
+    "productNo": "SPK133"
+  },
+  "wireless-bluetooth-speaker-58727": {
+    "espId": "556058727",
+    "supplier": "Innovation Line",
+    "asi": "asi/62660",
+    "productNo": "5152"
+  },
+  "magnetic-clip-bluetooth-speaker-fm-radio-clock-night-light-47231": {
+    "espId": "556347231",
+    "supplier": "Promo Gifts House Inc",
+    "asi": "asi/80106",
+    "productNo": "PGHE360"
+  },
+  "jbl-xtreme-3-waterproof-portable-bluetooth-speaker-12059": {
+    "espId": "555612059",
+    "supplier": "Sunjoy Group Inc",
+    "asi": "asi/90154",
+    "productNo": "XTREME3"
+  },
+  "custom-beats-by-dr-dre-solo-buds-12067": {
+    "espId": "555612067",
+    "supplier": "Sunjoy Group Inc",
+    "asi": "asi/90154",
+    "productNo": "BEATSSOLOBUDS"
+  },
+  "open-ear-air-conduction-wireless-earbuds-20991": {
+    "espId": "555420991",
+    "supplier": "Giraffe Technology",
+    "asi": "asi/56886",
+    "productNo": "GP-EB20"
+  },
+  "earbuds-in-case-52431": {
+    "espId": "6052431",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "2700"
+  },
+  "fast-charging-cable-84691": {
+    "espId": "556484691",
+    "supplier": "Logo Maker Inc",
+    "asi": "asi/67856",
+    "productNo": "LMH 3693"
+  },
+  "3-in-1-braided-charging-buddy-2-0-17708": {
+    "espId": "555517708",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "28292"
+  },
+  "retractable-dual-type-c-data-cable-24207": {
+    "espId": "556624207",
+    "supplier": "Goldentop Gifts Corp",
+    "asi": "asi/79532",
+    "productNo": "GOR1809"
+  },
+  "eco-bamboo-round-60w-fast-charging-cable-72704": {
+    "espId": "556072704",
+    "supplier": "Top Line Promos Inc",
+    "asi": "asi/91484",
+    "productNo": "SW3979"
+  },
+  "tribune-3-in-1-charging-cable-47651": {
+    "espId": "556047651",
+    "supplier": "Ariel Premium Supply Inc",
+    "asi": "asi/36730",
+    "productNo": "EAC-TR25"
+  },
+  "mag-max-rabs-airplane-phone-holder-18964": {
+    "espId": "556518964",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "25687"
+  },
+  "duratrac-matte-plus-hard-surface-mouse-pad-w-rubber-backing-32599": {
+    "espId": "551832599",
+    "supplier": "IDLine",
+    "asi": "asi/59080",
+    "productNo": ""
+  },
+  "frame-it-flex-7-5-x-8-x-1-8-window-photo-mouse-pad-23807": {
+    "espId": "6423807",
+    "supplier": "Digispec Visstun Counterpoint",
+    "asi": "asi/49716",
+    "productNo": "FFH7 Mouse Pad"
+  },
+  "frame-it-flex-8-x-9-5-x-1-16-window-photo-mouse-pad-23797": {
+    "espId": "6423797",
+    "supplier": "Digispec Visstun Counterpoint",
+    "asi": "asi/49716",
+    "productNo": "FFD8 Mouse Pad"
+  },
+  "vynex-heavy-duty-7-5-x-8-x-1-16-hard-surface-mouse-pad-72508": {
+    "espId": "4972508",
+    "supplier": "Digispec Visstun Counterpoint",
+    "asi": "asi/49716",
+    "productNo": "N67 Mouse Pad"
+  },
+  "frame-it-lift-8-x-9-5-x-1-16-duratec-lift-top-mousepad-24845": {
+    "espId": "6424845",
+    "supplier": "Digispec Visstun Counterpoint",
+    "asi": "asi/49716",
+    "productNo": "FLD8 Mouse Pad"
+  },
+  "classic-stick-usb-flash-drive-30847": {
+    "espId": "6430847",
+    "supplier": "Athena Promo™",
+    "asi": "asi/37218",
+    "productNo": "AP103"
+  },
+  "northlake-quickship-swivel-usb-flash-drive-61409": {
+    "espId": "551261409",
+    "supplier": "Sunjoy Group Inc",
+    "asi": "asi/90154",
+    "productNo": "SJUSB0006QS"
+  },
+  "rectangle-webcam-privacy-cover-88653": {
+    "espId": "552488653",
+    "supplier": "First Stage Promotion",
+    "asi": "asi/54387",
+    "productNo": "FS3032"
+  },
+  "mini-webcam-cover-29170": {
+    "espId": "552429170",
+    "supplier": "Tekweld",
+    "asi": "asi/90807",
+    "productNo": "WCC101"
+  },
+  "titus-executive-companion-a5-notebook-with-pen-and-elastic-84893": {
+    "espId": "555684893",
+    "supplier": "imprintID",
+    "asi": "asi/73651",
+    "productNo": "TNB205"
+  },
+  "sensewrite-recycled-notebook-06565": {
+    "espId": "556606565",
+    "supplier": "High Caliber Line USA",
+    "asi": "asi/43442",
+    "productNo": "JT157"
+  },
+  "eco-notebook-with-recycled-paper-and-strap-50290": {
+    "espId": "554750290",
+    "supplier": "Jornik Manufacturing",
+    "asi": "asi/63549",
+    "productNo": "JK-1865"
+  },
+  "perfect-journal-flexible-trekker-covers-63112": {
+    "espId": "552163112",
+    "supplier": "Drum-Line - A Div of Arch Promo Group, LLC",
+    "asi": "asi/50873",
+    "productNo": ""
+  },
+  "52-sheets-b5-spiral-weekly-planner-notebook-16410": {
+    "espId": "556016410",
+    "supplier": "Topromos Inc",
+    "asi": "asi/91271",
+    "productNo": "TPJC427A"
+  },
+  "rpet-5-x-7-journal-notebook-97212": {
+    "espId": "550197212",
+    "supplier": "Jornik Manufacturing",
+    "asi": "asi/63549",
+    "productNo": "JK-1852"
+  },
+  "eco-friendly-notebook-with-pen-65485": {
+    "espId": "550265485",
+    "supplier": "Jornik Manufacturing",
+    "asi": "asi/63549",
+    "productNo": "JK-1859"
+  },
+  "titus-melange-pu-leather-a5-executive-notebook-with-elastic-84906": {
+    "espId": "555684906",
+    "supplier": "imprintID",
+    "asi": "asi/73651",
+    "productNo": "TNB207"
+  },
+  "muse-recycled-journal-56757": {
+    "espId": "556156757",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "65057"
+  },
+  "button-note-book-50622": {
+    "espId": "555750622",
+    "supplier": "Nova Gift Solutions Inc",
+    "asi": "asi/74391",
+    "productNo": "AL075"
+  },
+  "notebook-with-front-pocket-67647": {
+    "espId": "551667647",
+    "supplier": "Jornik Manufacturing",
+    "asi": "asi/63549",
+    "productNo": "JK-1871"
+  },
+  "eco-recycled-magnetic-journal-with-sticky-notes-and-flags-97229": {
+    "espId": "550197229",
+    "supplier": "Jornik Manufacturing",
+    "asi": "asi/63549",
+    "productNo": "JK-1853"
+  },
+  "stratton-junior-writing-pad-52546": {
+    "espId": "555352546",
+    "supplier": "Fey Promo",
+    "asi": "asi/54040",
+    "productNo": "F1419"
+  },
+  "a4-pu-leather-business-padfolio-with-calculator-and-pen-37073": {
+    "espId": "555437073",
+    "supplier": "SC Promo Inc",
+    "asi": "asi/87101",
+    "productNo": "ALZ023S"
+  },
+  "a4-leather-folder-padfolio-24677": {
+    "espId": "555224677",
+    "supplier": "Branding Your Brand Inc",
+    "asi": "asi/90200",
+    "productNo": "RS196"
+  },
+  "conference-padholder-portfolio-padfolio-with-writing-pad-92902": {
+    "espId": "5092902",
+    "supplier": "Seville Gear",
+    "asi": "asi/86565",
+    "productNo": "CV-420"
+  },
+  "leather-folder-padfolio-63838": {
+    "espId": "553063838",
+    "supplier": "Top Line Promos Inc",
+    "asi": "asi/91484",
+    "productNo": "OD019"
+  },
+  "alamo-metal-pen-97790": {
+    "espId": "553197790",
+    "supplier": "RiteLine LLC",
+    "asi": "asi/82498",
+    "productNo": "B737H"
+  },
+  "manhattan-ridge-metal-pens-33593": {
+    "espId": "555233593",
+    "supplier": "BEL Promo",
+    "asi": "asi/39552",
+    "productNo": "AMP289"
+  },
+  "sharpie-s-gel-metal-gunmetal-barrel-70811": {
+    "espId": "553670811",
+    "supplier": "Gemline",
+    "asi": "asi/56070",
+    "productNo": "101318"
+  },
+  "alice-metal-stylus-pen-68122": {
+    "espId": "551868122",
+    "supplier": "Tempo Industries Inc",
+    "asi": "asi/90859",
+    "productNo": "PG1830"
+  },
+  "knight-100-aluminum-ballpoint-pen-10923": {
+    "espId": "550910923",
+    "supplier": "Lungsal",
+    "asi": "asi/68190",
+    "productNo": "KN-100"
+  },
+  "ellipse-softy-white-barrel-pen-w-stylus-91765": {
+    "espId": "553091765",
+    "supplier": "Goldstar",
+    "asi": "asi/73295",
+    "productNo": "MPE"
+  },
+  "cache-touch-stylus-pen-01318": {
+    "espId": "553701318",
+    "supplier": "HPG",
+    "asi": "asi/61966",
+    "productNo": "704"
+  },
+  "european-style-rubber-grip-metal-pen-w-gold-accents-42977": {
+    "espId": "5442977",
+    "supplier": "Graphco Line",
+    "asi": "asi/57956",
+    "productNo": "MPEN"
+  },
+  "softy-touch-screen-metal-ballpoint-pen-with-stylus-81397": {
+    "espId": "555681397",
+    "supplier": "Top Line Promos Inc",
+    "asi": "asi/91484",
+    "productNo": "RZ256"
+  },
+  "innovative-6-in-1-quest-pen-86648": {
+    "espId": "556086648",
+    "supplier": "REMANS PROMO INC",
+    "asi": "asi/81726",
+    "productNo": "RSL1644"
+  },
+  "stylus-430-crystal-stylus-pens-50715": {
+    "espId": "6850715",
+    "supplier": "Lungsal",
+    "asi": "asi/68190",
+    "productNo": "ST-430"
+  },
+  "outdoor-multi-function-tool-pen-54400": {
+    "espId": "554954400",
+    "supplier": "Purrrfect Life LLC",
+    "asi": "asi/91561",
+    "productNo": "PL001303"
+  },
+  "stowaway-sticky-jotter-with-pen-30850": {
+    "espId": "6030850",
+    "supplier": "Prime Line",
+    "asi": "asi/79530",
+    "productNo": "PL-4260"
+  },
+  "atherton-compact-sticky-notes-and-flags-notepad-notebook-93065": {
+    "espId": "6793065",
+    "supplier": "Innovation Line",
+    "asi": "asi/62660",
+    "productNo": "9206"
+  },
+  "50-sheet-compact-3x3-inch-adhesive-reminder-notes-55720": {
+    "espId": "556055720",
+    "supplier": "Edge Pop Promo Inc",
+    "asi": "asi/51680",
+    "productNo": "EPTG0043"
+  },
+  "business-card-sticky-pack-68205": {
+    "espId": "5568205",
+    "supplier": "Prime Line",
+    "asi": "asi/79530",
+    "productNo": "PL-3826"
+  },
+  "journal-notebook-with-sticky-notes-and-flags-41946": {
+    "espId": "554841946",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "65024"
+  },
+  "daily-date-value-trimmed-calendar-54093": {
+    "espId": "6954093",
+    "supplier": "Warwick Publishing Co",
+    "asi": "asi/95280",
+    "productNo": "V33"
+  },
+  "deluxe-daily-planners-21383": {
+    "espId": "4821383",
+    "supplier": "Fey Promo",
+    "asi": "asi/54040",
+    "productNo": "1010"
+  },
+  "desktop-glass-whiteboard-with-calculator-51689": {
+    "espId": "555251689",
+    "supplier": "Goldentop Gifts Corp",
+    "asi": "asi/79532",
+    "productNo": "GOE1277"
+  },
+  "leather-desk-organizer-40743": {
+    "espId": "555740743",
+    "supplier": "Nova Gift Solutions Inc",
+    "asi": "asi/74391",
+    "productNo": "FE8115"
+  },
+  "desk-caddy-digital-clock-07223": {
+    "espId": "200307223",
+    "supplier": "Opusline (Benmex)",
+    "asi": "asi/39820",
+    "productNo": "BC402"
+  },
+  "bamboo-cutting-board-with-knife-and-sharpener-gift-set-71363": {
+    "espId": "553571363",
+    "supplier": "Evans Manufacturing, LLC",
+    "asi": "asi/52840",
+    "productNo": "2395"
+  },
+  "luxury-stationery-gift-set-with-custom-logo-91658": {
+    "espId": "553391658",
+    "supplier": "Magic Promo Inc",
+    "asi": "asi/68474",
+    "productNo": "MGJL0111"
+  },
+  "hardcover-notebook-gift-set-50472": {
+    "espId": "554050472",
+    "supplier": "Branding Your Brand Inc",
+    "asi": "asi/90200",
+    "productNo": "BYB032"
+  },
+  "deluxe-silicone-and-bamboo-kitchen-set-17456": {
+    "espId": "553717456",
+    "supplier": "Evans Manufacturing, LLC",
+    "asi": "asi/52840",
+    "productNo": "2645"
+  },
+  "rest-and-relaxation-kit-57124": {
+    "espId": "551957124",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "9997"
+  },
+  "vanilla-scented-soy-wax-candle-in-glass-jar-small-65730": {
+    "espId": "554265730",
+    "supplier": "High Caliber Line USA",
+    "asi": "asi/43442",
+    "productNo": "H102"
+  },
+  "2oz-scented-candle-in-screw-top-metal-tin-21686": {
+    "espId": "551621686",
+    "supplier": "SnugZ USA",
+    "asi": "asi/88060",
+    "productNo": "NCSTS2"
+  },
+  "mini-candle-with-bamboo-lid-41091": {
+    "espId": "555141091",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "85017"
+  },
+  "bamboo-square-coaster-73267": {
+    "espId": "556173267",
+    "supplier": "Fey Promo",
+    "asi": "asi/54040",
+    "productNo": "F1451"
+  },
+  "sandstone-uv-coasters-99732": {
+    "espId": "551999732",
+    "supplier": "Morris Magnets",
+    "asi": "asi/72521",
+    "productNo": "COASTER-SSU"
+  },
+  "custom-cork-coaster-00987": {
+    "espId": "555600987",
+    "supplier": "WBPromotion",
+    "asi": "asi/98409",
+    "productNo": "CO-004"
+  },
+  "mini-everyday-bamboo-cutting-board-62930": {
+    "espId": "551062930",
+    "supplier": "Fey Promo",
+    "asi": "asi/54040",
+    "productNo": "Mi6000"
+  },
+  "acacia-wood-serving-and-cutting-board-butcher-block-27176": {
+    "espId": "554427176",
+    "supplier": "STOPNGO Line",
+    "asi": "asi/57655",
+    "productNo": "ACCUT208"
+  },
+  "gerber-compleat-cutting-board-set-97181": {
+    "espId": "555597181",
+    "supplier": "Compass Industries Inc",
+    "asi": "asi/46170",
+    "productNo": "1069262"
+  },
+  "bamboo-cheese-board-charcuterie-set-05344": {
+    "espId": "554405344",
+    "supplier": "Evans Manufacturing, LLC",
+    "asi": "asi/52840",
+    "productNo": "2320"
+  },
+  "bamboo-bottle-opener-key-tag-full-color-graphic-43175": {
+    "espId": "555143175",
+    "supplier": "Morris Magnets",
+    "asi": "asi/72521",
+    "productNo": "KEYTAG-BOKTBU"
+  },
+  "vinyl-wrapped-paddle-style-bottle-opener-66543": {
+    "espId": "6666543",
+    "supplier": "STOPNGO Line",
+    "asi": "asi/57655",
+    "productNo": "B-OPEN8A"
+  },
+  "golf-n-brew-2-prong-divot-repair-tool-54632": {
+    "espId": "552154632",
+    "supplier": "EMT",
+    "asi": "asi/52263",
+    "productNo": "DVT08"
+  },
+  "aluminum-bottle-opener-59444": {
+    "espId": "553359444",
+    "supplier": "Top Advg",
+    "asi": "asi/91466",
+    "productNo": "TPK7"
+  },
+  "golf-hat-clip-w-bottle-opener-and-full-color-ball-marker-64767": {
+    "espId": "550664767",
+    "supplier": "EMT",
+    "asi": "asi/52263",
+    "productNo": "GHC03"
+  },
+  "key-chain-with-flashlight-06800": {
+    "espId": "200006800",
+    "supplier": "Nu Promo International",
+    "asi": "asi/74585",
+    "productNo": "FL1010"
+  },
+  "pvc-key-holder-24393": {
+    "espId": "551224393",
+    "supplier": "Nu Promo International",
+    "asi": "asi/74585",
+    "productNo": "KH1006"
+  },
+  "push-pop-stress-reliever-keychain-56072": {
+    "espId": "553656072",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "20026"
+  },
+  "mini-cylinder-led-flashlight-key-tag-95723": {
+    "espId": "551195723",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "2532"
+  },
+  "mini-grip-3-25-tape-measure-keychain-48053": {
+    "espId": "551848053",
+    "supplier": "Prime Line",
+    "asi": "asi/79530",
+    "productNo": "TM110"
+  },
+  "phone-stand-and-screen-cleaner-combo-key-chain-57780": {
+    "espId": "550157780",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "189"
+  },
+  "custom-coin-1-1-2-die-struck-brass-with-soft-enamel-63139": {
+    "espId": "4963139",
+    "supplier": "Genesis",
+    "asi": "asi/56420",
+    "productNo": "DSC-1.5"
+  },
+  "zinc-1-3-4-challenge-coin-nickel-plating-87619": {
+    "espId": "551887619",
+    "supplier": "BamBams",
+    "asi": "asi/38228",
+    "productNo": "ZCN-N175"
+  },
+  "1-5-zinc-challenge-coin-no-color-fill-92296": {
+    "espId": "550692296",
+    "supplier": "IDProductsource",
+    "asi": "asi/62088",
+    "productNo": "COINZA-15-0"
+  },
+  "2-challenge-coin-diamond-border-w-3d-texture-print-54765": {
+    "espId": "555754765",
+    "supplier": "EMT",
+    "asi": "asi/52263",
+    "productNo": "3DSPC3"
+  },
+  "custom-die-struck-challenge-coins-no-color-45871": {
+    "espId": "550045871",
+    "supplier": "Full Designs",
+    "asi": "asi/55516",
+    "productNo": "CN-BCC-0"
+  },
+  "custom-lapel-pin-die-struck-with-soft-enamel-color-fill-63169": {
+    "espId": "4963169",
+    "supplier": "Genesis",
+    "asi": "asi/56420",
+    "productNo": "LP-SE"
+  },
+  "lapel-pin-4-color-process-printed-with-clear-epoxy-dome-63086": {
+    "espId": "4963086",
+    "supplier": "Genesis",
+    "asi": "asi/56420",
+    "productNo": "LP-FC"
+  },
+  "soft-enamel-price-buster-lapel-pin-19207": {
+    "espId": "550419207",
+    "supplier": "IDProductsource",
+    "asi": "asi/62088",
+    "productNo": "ASPIN-SE-WH"
+  },
+  "express-usa-made-custom-shape-acrylic-lapel-pins-16078": {
+    "espId": "553716078",
+    "supplier": "SIMBA",
+    "asi": "asi/87296",
+    "productNo": "EXP-ACRP"
+  },
+  "millsboro-plaque-walnut-finish-silver-35218": {
+    "espId": "556335218",
+    "supplier": "SRG",
+    "asi": "asi/84592",
+    "productNo": "AWP801-S"
+  },
+  "express-vibraprint-plaque-30221": {
+    "espId": "555030221",
+    "supplier": "SIMBA",
+    "asi": "asi/87296",
+    "productNo": "EXP-PLAQUE"
+  },
+  "reston-plaque-walnut-finish-gold-35215": {
+    "espId": "556335215",
+    "supplier": "SRG",
+    "asi": "asi/84592",
+    "productNo": "AWP802-G"
+  },
+  "custom-acrylic-desk-plaques-with-metal-screw-posts-76417": {
+    "espId": "7376417",
+    "supplier": "Morris Magnets",
+    "asi": "asi/72521",
+    "productNo": "PLAQUE-AFMP"
+  },
+  "optic-crystal-octagon-tower-award-medium-90061": {
+    "espId": "550790061",
+    "supplier": "Pacesetter Awards",
+    "asi": "asi/75640",
+    "productNo": "GI23B"
+  },
+  "chairmans-tower-06159": {
+    "espId": "4906159",
+    "supplier": "Moderne Glass Company Inc",
+    "asi": "asi/71920",
+    "productNo": ""
+  },
+  "express-vibraprint-lite-champ-with-plastic-chain-49377": {
+    "espId": "552649377",
+    "supplier": "SIMBA",
+    "asi": "asi/87296",
+    "productNo": "EXP-CCPRPLS"
+  },
+  "7-blue-cathedral-soaring-acrylic-award-54449": {
+    "espId": "554554449",
+    "supplier": "Calico",
+    "asi": "asi/74601",
+    "productNo": "CSA201BU"
+  },
+  "waterproof-floating-flashlight-68695": {
+    "espId": "556068695",
+    "supplier": "Safety Made",
+    "asi": "asi/84514",
+    "productNo": "FL0510"
+  },
+  "voyager-slim-keyholder-keylight-with-bright-led-light-72808": {
+    "espId": "553872808",
+    "supplier": "Innovation Line",
+    "asi": "asi/62660",
+    "productNo": "1143"
+  },
+  "rechargeable-multifunction-tactical-flashlight-01847": {
+    "espId": "551801847",
+    "supplier": "Compass Industries Inc",
+    "asi": "asi/46170",
+    "productNo": "8250"
+  },
+  "2-aa-led-mini-maglite-10245": {
+    "espId": "4910245",
+    "supplier": "Compass Industries Inc",
+    "asi": "asi/46170",
+    "productNo": "2AALED"
+  },
+  "aluminum-flashlight-with-strap-70889": {
+    "espId": "556170889",
+    "supplier": "WOWLine",
+    "asi": "asi/98360",
+    "productNo": "TOL15"
+  },
+  "8-in-1-aluminum-multi-tool-kit-15547": {
+    "espId": "200015547",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "7210"
+  },
+  "multi-tool-with-flashlight-11337": {
+    "espId": "552511337",
+    "supplier": "Prime Line",
+    "asi": "asi/79530",
+    "productNo": "T506"
+  },
+  "electric-screwdriver-31364": {
+    "espId": "555931364",
+    "supplier": "SWAGPROSOLUTIONS INC",
+    "asi": "asi/90341",
+    "productNo": "LX-1168"
+  },
+  "raceway-tool-set-14419": {
+    "espId": "555014419",
+    "supplier": "Goldentop Gifts Corp",
+    "asi": "asi/79532",
+    "productNo": "GOE3292"
+  },
+  "carabiner-multitool-knife-44471": {
+    "espId": "555044471",
+    "supplier": "EMT",
+    "asi": "asi/52263",
+    "productNo": "CMT14"
+  },
+  "bike-n-brew-bicycle-multi-tool-37906": {
+    "espId": "551237906",
+    "supplier": "EMT",
+    "asi": "asi/52263",
+    "productNo": "STBB"
+  },
+  "survival-multi-tool-00596": {
+    "espId": "550300596",
+    "supplier": "EMT",
+    "asi": "asi/52263",
+    "productNo": "BST"
+  },
+  "kershaw-eris-07583": {
+    "espId": "555207583",
+    "supplier": "Compass Industries Inc",
+    "asi": "asi/46170",
+    "productNo": "1881"
+  },
+  "victorinox-classic-10178": {
+    "espId": "4910178",
+    "supplier": "Compass Industries Inc",
+    "asi": "asi/46170",
+    "productNo": "00"
+  },
+  "sk5-retractable-folding-utility-knife-62091": {
+    "espId": "554062091",
+    "supplier": "Hebe Creative Corporation",
+    "asi": "asi/60277",
+    "productNo": "MM1318"
+  },
+  "cedar-creek-bamboo-pocket-knife-10489": {
+    "espId": "552610489",
+    "supplier": "Compass Industries Inc",
+    "asi": "asi/46170",
+    "productNo": "1210"
+  },
+  "medi-fey-on-the-go-first-aid-kit-47318": {
+    "espId": "555847318",
+    "supplier": "Fey Promo",
+    "asi": "asi/54040",
+    "productNo": "F1435"
+  },
+  "personal-first-aid-kit-07978": {
+    "espId": "551707978",
+    "supplier": "Safety Made",
+    "asi": "asi/84514",
+    "productNo": "F02"
+  },
+  "portable-medical-first-aid-kit-for-travel-and-home-emergency-32613": {
+    "espId": "556032613",
+    "supplier": "Promo Wise Inc",
+    "asi": "asi/49931",
+    "productNo": "00SM030"
+  },
+  "go-safe-first-aid-kit-10703": {
+    "espId": "551710703",
+    "supplier": "Safety Made",
+    "asi": "asi/84514",
+    "productNo": "F46"
+  },
+  "mini-backpack-first-aid-kit-04459": {
+    "espId": "553204459",
+    "supplier": "Evans Manufacturing, LLC",
+    "asi": "asi/52840",
+    "productNo": "3543"
+  },
+  "5-oz-compact-hand-sanitizer-antibacterial-gel-32986": {
+    "espId": "552732986",
+    "supplier": "Innovation Line",
+    "asi": "asi/62660",
+    "productNo": "5253S"
+  },
+  "sancard-20-ml-antibacterial-hand-sanitizer-spray-18217": {
+    "espId": "553218217",
+    "supplier": "Innovation Line",
+    "asi": "asi/62660",
+    "productNo": "5247"
+  },
+  "5-oz-hand-sanitizer-gel-60620": {
+    "espId": "551760620",
+    "supplier": "NC Custom (CI/Lanco)",
+    "asi": "asi/44900",
+    "productNo": "ABL5100-E"
+  },
+  "2-ounce-hand-sanitizer-gel-bottle-80128": {
+    "espId": "550780128",
+    "supplier": "Tempo Industries Inc",
+    "asi": "asi/90859",
+    "productNo": "SAN-2000"
+  },
+  "economy-lip-moisturizer-in-white-tube-22902": {
+    "espId": "200222902",
+    "supplier": "SnugZ USA",
+    "asi": "asi/88060",
+    "productNo": "ZLBPEWT"
+  },
+  "tek-os-round-lip-balm-48596": {
+    "espId": "550448596",
+    "supplier": "Tekweld",
+    "asi": "asi/90807",
+    "productNo": "CB300"
+  },
+  "lip-balm-with-matte-finish-97430": {
+    "espId": "554997430",
+    "supplier": "Jornik Manufacturing",
+    "asi": "asi/63549",
+    "productNo": "JK-9117"
+  },
+  "spf-30-sun-and-fun-sunstick-10047": {
+    "espId": "550310047",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "9020"
+  },
+  "1-oz-sunscreen-with-carabiner-80200": {
+    "espId": "550780200",
+    "supplier": "Tempo Industries Inc",
+    "asi": "asi/90859",
+    "productNo": "SSC-500"
+  },
+  "sunscreen-packet-spf30-35009": {
+    "espId": "553435009",
+    "supplier": "Tekweld",
+    "asi": "asi/90807",
+    "productNo": "SB117"
+  },
+  "natural-lip-moisturizer-in-mini-tube-35101": {
+    "espId": "4835101",
+    "supplier": "SnugZ USA",
+    "asi": "asi/88060",
+    "productNo": "ZLBXLT"
+  },
+  "vanilla-scented-soy-wax-candle-in-glass-jar-w-bamboo-lid-la-65847": {
+    "espId": "554265847",
+    "supplier": "High Caliber Line USA",
+    "asi": "asi/43442",
+    "productNo": "H103"
+  },
+  "mini-square-mint-tin-70962": {
+    "espId": "550270962",
+    "supplier": "Tekweld",
+    "asi": "asi/90807",
+    "productNo": "SQ100"
+  },
+  "snap-it-promotional-tin-with-micromints-03869": {
+    "espId": "6303869",
+    "supplier": "NC Custom (CI/Lanco)",
+    "asi": "asi/44900",
+    "productNo": "404-E"
+  },
+  "zagasnacks-promo-snack-pack-bags-00103": {
+    "espId": "552200103",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "ZS5"
+  },
+  "large-clicker-tin-61424": {
+    "espId": "555961424",
+    "supplier": "NC Custom (CI/Lanco)",
+    "asi": "asi/44900",
+    "productNo": "LCT-01-E"
+  },
+  "domed-tin-with-micromints-07079": {
+    "espId": "6307079",
+    "supplier": "NC Custom (CI/Lanco)",
+    "asi": "asi/44900",
+    "productNo": "300-E"
+  },
+  "mini-tek-klick-mint-tin-96396": {
+    "espId": "7296396",
+    "supplier": "Tekweld",
+    "asi": "asi/90807",
+    "productNo": "TK102"
+  },
+  "wheat-straw-mini-mints-keychain-21623": {
+    "espId": "552721623",
+    "supplier": "HPG",
+    "asi": "asi/61966",
+    "productNo": "WSMKC"
+  },
+  "small-tin-with-printed-mints-10201": {
+    "espId": "552110201",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "ST02-PM"
+  },
+  "square-mint-dispenser-01959": {
+    "espId": "550701959",
+    "supplier": "SnugZ USA",
+    "asi": "asi/88060",
+    "productNo": "SMNCSQ2"
+  },
+  "pinch-me-mint-tin-81134": {
+    "espId": "555981134",
+    "supplier": "HPG",
+    "asi": "asi/61966",
+    "productNo": "PM01MT"
+  },
+  "4-color-process-wrapped-buttermints-54202": {
+    "espId": "554554202",
+    "supplier": "NC Custom (CI/Lanco)",
+    "asi": "asi/44900",
+    "productNo": "4CP-PP-BTM-E"
+  },
+  "premium-craft-roasted-coffee-12oz-bag-07585": {
+    "espId": "554407585",
+    "supplier": "Active Life Promo",
+    "asi": "asi/72657",
+    "productNo": "R3140H"
+  },
+  "coffee-gift-set-16-oz-tahoe-mug-and-9-blend-sampler-36122": {
+    "espId": "556736122",
+    "supplier": "WBPromotion",
+    "asi": "asi/98409",
+    "productNo": "CB-005"
+  },
+  "cozy-comfort-coffee-kit-77804": {
+    "espId": "553077804",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "95062"
+  },
+  "tin-pail-with-caramel-popcorn-59577": {
+    "espId": "551759577",
+    "supplier": "NC Custom (CI/Lanco)",
+    "asi": "asi/44900",
+    "productNo": "TG400-037-E"
+  },
+  "book-window-box-caramel-popcorn-40448": {
+    "espId": "556440448",
+    "supplier": "NC Custom (CI/Lanco)",
+    "asi": "asi/44900",
+    "productNo": "BWB-CPOP-E"
+  },
+  "1-gallon-gift-tin-with-caramel-popcorn-59506": {
+    "espId": "551759506",
+    "supplier": "NC Custom (CI/Lanco)",
+    "asi": "asi/44900",
+    "productNo": "TG110-E"
+  },
+  "sweet-celebration-popcorn-party-gift-box-58445": {
+    "espId": "555458445",
+    "supplier": "Gemline",
+    "asi": "asi/56070",
+    "productNo": "102304"
+  },
+  "gourmet-popcorn-single-00107": {
+    "espId": "552200107",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "GPS"
+  },
+  "slate-cheese-board-charcuterie-set-83283": {
+    "espId": "553083283",
+    "supplier": "Evans Manufacturing, LLC",
+    "asi": "asi/52840",
+    "productNo": "2350"
+  },
+  "custom-halloween-pumpkin-skull-candy-bag-59075": {
+    "espId": "555459075",
+    "supplier": "Magic Promo Inc",
+    "asi": "asi/68474",
+    "productNo": "MGTV0064"
+  },
+  "diy-halloween-decor-candy-basket-treat-bag-44843": {
+    "espId": "553644843",
+    "supplier": "BNS Promo Inc",
+    "asi": "asi/40708",
+    "productNo": "133BIIKDI"
+  },
+  "fresh-beginnings-chocolate-chip-gourmet-cookie-tin-61158": {
+    "espId": "554161158",
+    "supplier": "NC Custom (CI/Lanco)",
+    "asi": "asi/44900",
+    "productNo": "FBC102-E"
+  },
+  "2-oz-mini-strawberry-heart-cookies-digibag-44844": {
+    "espId": "555744844",
+    "supplier": "NC Custom (CI/Lanco)",
+    "asi": "asi/44900",
+    "productNo": "FBC236-E"
+  },
+  "fresh-beginnings-gourmet-classic-cookie-combo-61692": {
+    "espId": "554161692",
+    "supplier": "NC Custom (CI/Lanco)",
+    "asi": "asi/44900",
+    "productNo": "FBC185-E"
   }
 }
