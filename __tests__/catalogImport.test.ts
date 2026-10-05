@@ -38,6 +38,10 @@ describe("slugify / ids", () => {
     expect(slugify("Nike® Dri-FIT™ Café Polo & Co.")).toBe("nike-dri-fit-cafe-polo-and-co");
   });
 
+  it("drops apostrophes instead of splitting words", () => {
+    expect(slugify("Men's Polo \u2019Classic\u2019")).toBe("mens-polo-classic");
+  });
+
   it("caps the slug at 60 chars with no trailing dash", () => {
     const slug = slugify("word ".repeat(40));
     expect(slug.length).toBeLessThanOrEqual(60);
@@ -132,6 +136,19 @@ describe("description / badge / colors", () => {
         multiGrid: 0,
       })
     ).toBe("1 color option. Priced at 1 unit.");
+  });
+
+  it("does not repeat Made in USA when the supplier text already says it", () => {
+    expect(
+      buildDescription({
+        rawDescription: "Golf balls. Made in USA.",
+        colorCount: 1,
+        sizes: "",
+        minQty: 6,
+        usa: 1,
+        multiGrid: 0,
+      })
+    ).toBe("Golf balls. Made in USA. Priced at 6 units.");
   });
 
   it("adds the USA and multi-grid sentences only when the row says so", () => {

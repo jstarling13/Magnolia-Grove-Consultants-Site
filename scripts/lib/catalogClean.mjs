@@ -236,6 +236,7 @@ export function slugify(name, max = MAX_SLUG_LENGTH) {
     .replace(/[\u00ae\u2122\u00a9]/g, "")
     .normalize("NFKD")
     .replace(/[\u0300-\u036f]/g, "")
+    .replace(/['\u2018\u2019`]/g, "")
     .replace(/&/g, " and ")
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
@@ -380,7 +381,11 @@ export function buildDescription({ rawDescription, colorCount, sizes, minQty, us
     base += ".";
   }
   const sentences = [];
-  if (usa === 1 || usa === true || usa === "1") sentences.push("Made in the USA.");
+  const usaFlag = usa === 1 || usa === true || usa === "1";
+  // Skip the prefix when the supplier text already says so ("Made in USA.").
+  if (usaFlag && !/made\s+in\s+(the\s+)?u\.?s\.?a\b/i.test(base)) {
+    sentences.push("Made in the USA.");
+  }
   if (base) sentences.push(base);
   if (multiGrid === 1 || multiGrid === true || multiGrid === "1") {
     sentences.push(
