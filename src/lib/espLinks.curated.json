@@ -160,5 +160,23 @@
     "supplier": "BEL Promo",
     "asi": "asi/39552",
     "productNo": "A7102"
+  },
+  "fletcher-rpet-laptop-backpack": {
+    "espId": "556598090",
+    "supplier": "Gemline",
+    "asi": "asi/56070",
+    "productNo": "103019"
+  },
+  "cotton-canvas-tote-7oz": {
+    "espId": "552463920",
+    "supplier": "imprintID",
+    "asi": "asi/73651",
+    "productNo": "TBUSB50"
+  },
+  "non-woven-recycled-tote": {
+    "espId": "554030849",
+    "supplier": "Jornik Manufacturing",
+    "asi": "asi/63549",
+    "productNo": "JK-9903"
   }
 }

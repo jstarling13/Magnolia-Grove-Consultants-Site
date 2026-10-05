@@ -213,5 +213,16 @@
     "Green": "/images/merch/colors/ceramic-mug-11oz-green.webp",
     "Purple": "/images/merch/colors/ceramic-mug-11oz-purple.webp",
     "Red": "/images/merch/colors/ceramic-mug-11oz-red.webp"
+  },
+  "fletcher-rpet-laptop-backpack": {
+    "Black Sand": "/images/merch/colors/fletcher-rpet-laptop-backpack-black-sand.webp",
+    "Navy Heather": "/images/merch/colors/fletcher-rpet-laptop-backpack-navy-heather.webp"
+  },
+  "cotton-canvas-tote-7oz": {
+    "Natural": "/images/merch/colors/cotton-canvas-tote-7oz-natural.webp",
+    "Navy Blue": "/images/merch/colors/cotton-canvas-tote-7oz-navy-blue.webp",
+    "Red": "/images/merch/colors/cotton-canvas-tote-7oz-red.webp",
+    "Royal Blue": "/images/merch/colors/cotton-canvas-tote-7oz-royal-blue.webp",
+    "Black": "/images/merch/colors/cotton-canvas-tote-7oz-black.webp"
   }
 }
