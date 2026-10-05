@@ -21,6 +21,8 @@ export default function VerticalGate() {
     // A shared product or cart link must land on the product, not on a gate
     // that can redirect the shopper away from it.
     if (pathname?.startsWith("/merchandise")) return;
+    // Same for the order status link in a customer's email.
+    if (pathname?.startsWith("/orders")) return;
 
     let alreadyChosen = true;
     try {

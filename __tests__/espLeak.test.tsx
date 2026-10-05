@@ -152,6 +152,57 @@ describe("ESP link leak prevention", () => {
     }
   });
 
+  it("keeps ESP data out of the tracking link in customer emails", async () => {
+    vi.stubEnv("ORDER_LINK_SECRET", "test-secret-with-enough-length-0123456789");
+    const email = await loadEmail();
+    await email.sendMerchPaidEmail({
+      email: "pat@example.com",
+      firstName: "Pat",
+      orderId: 7,
+      amountPaid: 750,
+    });
+    await email.sendMerchShippedEmail({
+      email: "pat@example.com",
+      firstName: "Pat",
+      orderId: 7,
+      carrier: "UPS",
+      trackingNumber: "1Z999AA10123456784",
+      items: [espItem],
+    });
+    expect(sent.emails).toHaveLength(2);
+    for (const { html } of sent.emails) {
+      expect(html).toContain("Track your order");
+      const lower = html.toLowerCase();
+      for (const secret of ["espplus", "prime", "od618", "supplier:", "espordernumber"]) {
+        expect(lower).not.toContain(secret);
+      }
+    }
+    vi.unstubAllEnvs();
+  });
+
+  it("keeps ESP data off the customer order status page", async () => {
+    vi.resetModules();
+    vi.stubEnv("ORDER_LINK_SECRET", "test-secret-with-enough-length-0123456789");
+    const { toOrderView } = await import("@/app/orders/orderView");
+    const { default: OrderStatusView } = await import("@/app/orders/OrderStatusView");
+    for (const status of ["new", "awaiting_payment", "paid", "ordered_in_esp", "fulfilled"]) {
+      const view = toOrderView(7, {
+        status,
+        email: "pat@example.com",
+        items: [espItem],
+        espOrderNumber: "PO-SECRET-9",
+        carrier: "UPS",
+        trackingNumber: "1Z999AA10123456784",
+      });
+      const html = renderToStaticMarkup(<OrderStatusView order={view} />).toLowerCase();
+      for (const secret of ["espplus", "prime", "od618", "po-secret-9", "espordernumber"]) {
+        expect(html).not.toContain(secret);
+      }
+      expect(html).not.toContain("pat@example.com");
+    }
+    vi.unstubAllEnvs();
+  });
+
   it("keeps the cart page and thank-you page copy free of ESP links", async () => {
     window.localStorage.setItem(
       "mg-merch-cart",

@@ -132,9 +132,13 @@ describe("POST /api/webhooks/square", () => {
 });
 
 describe("middleware and the webhook path", () => {
-  it("only matches /admin and /account, not /api/webhooks", () => {
+  it("only matches /admin, /account and /orders, not /api/webhooks", () => {
     const matchers = config.matcher as string[];
-    expect(matchers.every((m) => m.startsWith("/admin") || m.startsWith("/account"))).toBe(true);
+    expect(
+      matchers.every(
+        (m) => m.startsWith("/admin") || m.startsWith("/account") || m.startsWith("/orders")
+      )
+    ).toBe(true);
   });
 
   it("lets /api/webhooks/square through even if invoked, with no redirect", () => {
