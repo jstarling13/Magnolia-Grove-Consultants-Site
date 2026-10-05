@@ -32,7 +32,7 @@
     "image": "/images/merch/steal-umbrella-1-imprint-63089.webp",
     "imageAlt": "Steal Umbrella",
     "colors": [
-      "Azure_White",
+      "Azure/White",
       "Spruce",
       "Ruby",
       "Purple",
@@ -47,8 +47,8 @@
       "Spruce/White",
       "Ruby/White",
       "Pumpkin/White",
-      "Indigo_White",
-      "Crimson_White",
+      "Indigo/White",
+      "Crimson/White",
       "Purple/White"
     ]
   },
@@ -112,9 +112,9 @@
       "Spruce/White",
       "Ruby/White",
       "Pumpkin/White",
-      "Indigo_White",
-      "Crimson_White",
-      "Azure_White",
+      "Indigo/White",
+      "Crimson/White",
+      "Azure/White",
       "Spruce",
       "Ruby",
       "Indigo",
@@ -397,8 +397,7 @@
       [500, 16.59]
     ],
     "image": "/images/merch/bella-canvas-mens-triblend-short-sleeve-t-shirt-3-4-oz-06852.webp",
-    "imageAlt": "Bella Canvas Men's Triblend Short-Sleeve T-Shirt 3.4 oz",
-    "colors": ["Various"]
+    "imageAlt": "Bella Canvas Men's Triblend Short-Sleeve T-Shirt 3.4 oz"
   },
   {
     "id": "bella-canvas-unisex-triblend-long-sleeve-t-shirt-90338",
@@ -487,19 +486,19 @@
     "image": "/images/merch/cayak-lightweight-stretch-hoodie-24974.webp",
     "imageAlt": "Cayak Lightweight Stretch Hoodie",
     "colors": [
-      "Black Heather - 104",
-      "Navy Heather - 240",
-      "Blue Heather - 293",
-      "Dark Grey Heather - 511",
-      "Seafoam Heather - 235",
-      "Light Grey Heather - 514",
-      "White -080",
-      "Coral Heather - 359",
-      "Spruce Heather - 190",
-      "Burgundy Heather - 128",
-      "Blue Lavender Heather - 147",
-      "Red Heather - 168",
-      "Apricot Heather - 259"
+      "Black Heather",
+      "Navy Heather",
+      "Blue Heather",
+      "Dark Grey Heather",
+      "Seafoam Heather",
+      "Light Grey Heather",
+      "White",
+      "Coral Heather",
+      "Spruce Heather",
+      "Burgundy Heather",
+      "Blue Lavender Heather",
+      "Red Heather",
+      "Apricot Heather"
     ]
   },
   {
@@ -598,8 +597,7 @@
       [250, 41.81]
     ],
     "image": "/images/merch/unisex-310-gsm-interlock-fleece-sublimation-hoodies-86399.webp",
-    "imageAlt": "Unisex 310 GSM Interlock Fleece Sublimation Hoodies",
-    "colors": ["Sublimated"]
+    "imageAlt": "Unisex 310 GSM Interlock Fleece Sublimation Hoodies"
   },
   {
     "id": "lightweight-jersey-hood-with-zipper-for-male-04088",
@@ -781,16 +779,7 @@
     "tiers": [[1, 58]],
     "image": "/images/merch/portsmouth-jacket-14852.webp",
     "imageAlt": "Portsmouth Jacket",
-    "colors": [
-      "Red 060",
-      "Royal 070",
-      "Navy 040",
-      "Forest 020",
-      "Black 010",
-      "Maroon 030",
-      "Grey 115",
-      "Neon Yellow 364"
-    ]
+    "colors": ["Red", "Royal", "Navy", "Forest", "Black", "Maroon", "Grey", "Neon Yellow"]
   },
   {
     "id": "rain-poncho-in-vinyl-case-44071",
@@ -840,8 +829,7 @@
       [300, 15.23]
     ],
     "image": "/images/merch/unisex-and-kids-sublimation-pique-polo-economy-series-99320.webp",
-    "imageAlt": "Unisex & Kids' Sublimation Pique Polo - Economy Series",
-    "colors": ["Various"]
+    "imageAlt": "Unisex & Kids' Sublimation Pique Polo - Economy Series"
   },
   {
     "id": "devon-and-jones-mens-short-sleeve-polo-shirts-81136",
@@ -867,7 +855,6 @@
       "Burgundy",
       "Navy",
       "Blue",
-      "Various",
       "Stone",
       "White",
       "Red",
@@ -920,7 +907,7 @@
     "tiers": [[1, 43.5]],
     "image": "/images/merch/womens-greenway-stretch-cotton-polo-24904.webp",
     "imageAlt": "Women's Greenway Stretch Cotton Polo",
-    "colors": ["Black - 010", "Navy - 040", "Gray - 115", "Sky Blue - 470"]
+    "colors": ["Black", "Navy", "Gray", "Sky Blue"]
   },
   {
     "id": "womens-sublimation-spandex-interlock-short-sleeve-polo-57487",
@@ -936,8 +923,7 @@
       [300, 23.02]
     ],
     "image": "/images/merch/womens-sublimation-spandex-interlock-short-sleeve-polo-57487.webp",
-    "imageAlt": "Women's Sublimation Spandex Interlock Short Sleeve Polo",
-    "colors": ["Various"]
+    "imageAlt": "Women's Sublimation Spandex Interlock Short Sleeve Polo"
   },
   {
     "id": "womens-space-dye-performance-polo-93149",
@@ -1225,8 +1211,7 @@
       [100, 8.78]
     ],
     "image": "/images/merch/rush-cotton-6-panel-baseball-cap-w-metal-tuck-buckle-18777.webp",
-    "imageAlt": "Cotton 6-Panel Baseball Cap w/ Metal Tuck Buckle",
-    "colors": ["Various"]
+    "imageAlt": "Cotton 6-Panel Baseball Cap w/ Metal Tuck Buckle"
   },
   {
     "id": "transparent-pvc-sun-visor-hat-w-printed-world-cup-theme-53508",
@@ -1764,7 +1749,7 @@
       "Graphite",
       "Harvest",
       "Olive",
-      "Pinetree",
+      "Pine Tree",
       "Pond",
       "Beach",
       "Navy Blue",
@@ -2057,7 +2042,7 @@
     "colors": [
       "Black",
       "Lightly Toasted",
-      "Terracotta Sunsert",
+      "Terracotta Sunset",
       "Beachfront",
       "Eucalyptus Green",
       "Sea Captain",
@@ -2172,8 +2157,7 @@
     "description": "Premium custom sized and printed floors that elevate your brand presence with plush comfort, vibrant colors, and no-slip backing. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
     "tiers": [[1, 990]],
     "image": "/images/merch/showstopper-event-flooring-95710.webp",
-    "imageAlt": "ShowStopper Event Flooring",
-    "colors": ["Full Digital Printing"]
+    "imageAlt": "ShowStopper Event Flooring"
   },
   {
     "id": "rugs-55129",
@@ -2197,8 +2181,7 @@
       [10, 47.37]
     ],
     "image": "/images/merch/custom-logo-rugs-polyester-3ft-x-3ft-57678.webp",
-    "imageAlt": "Custom Logo Rugs - Polyester (3ft x 3ft)",
-    "colors": ["Custom"]
+    "imageAlt": "Custom Logo Rugs - Polyester (3ft x 3ft)"
   },
   {
     "id": "sublimated-rug-63-x-84-69078",
@@ -2290,8 +2273,7 @@
       [1000, 10.4]
     ],
     "image": "/images/merch/customizable-non-slip-area-rug-durable-and-stain-resistant-84536.webp",
-    "imageAlt": "Customizable Non Slip Area Rug Durable and Stain Resistant",
-    "colors": ["Custom"]
+    "imageAlt": "Customizable Non Slip Area Rug Durable and Stain Resistant"
   },
   {
     "id": "colorful-ornate-patterned-round-custom-logo-area-rugs-64967",
@@ -2364,8 +2346,7 @@
       [500, 23.396]
     ],
     "image": "/images/merch/welcome-entrance-doormat-26327.webp",
-    "imageAlt": "Welcome Entrance Doormat",
-    "colors": ["Custom"]
+    "imageAlt": "Welcome Entrance Doormat"
   },
   {
     "id": "coir-doormat-12571",
@@ -2432,8 +2413,7 @@
       [600, 30.753]
     ],
     "image": "/images/merch/carpet-household-outdoor-non-slip-mat-53806.webp",
-    "imageAlt": "Carpet household outdoor non-slip mat",
-    "colors": ["Any/All Colors"]
+    "imageAlt": "Carpet household outdoor non-slip mat"
   },
   {
     "id": "sublimation-door-mat-04587",
@@ -2449,8 +2429,7 @@
       [800, 16.567]
     ],
     "image": "/images/merch/sublimation-door-mat-04587.webp",
-    "imageAlt": "Sublimation Door Mat",
-    "colors": ["Any/All Colors"]
+    "imageAlt": "Sublimation Door Mat"
   },
   {
     "id": "natural-coir-door-mat-97453",
@@ -2506,8 +2485,7 @@
       [1000, 3.59]
     ],
     "image": "/images/merch/custom-outdoor-front-door-mat-42370.webp",
-    "imageAlt": "Custom Outdoor Front Door Mat",
-    "colors": ["Custom"]
+    "imageAlt": "Custom Outdoor Front Door Mat"
   },
   {
     "id": "3x5-indoor-entrance-mat-38112",
@@ -2808,8 +2786,7 @@
       [10, 242.7]
     ],
     "image": "/images/merch/floor-impressions-mats-72992.webp",
-    "imageAlt": "Floor Impressions Mats",
-    "colors": ["Custom Colors"]
+    "imageAlt": "Floor Impressions Mats"
   },
   {
     "id": "3-x-5-point-of-purchase-dye-sublimated-floor-mat-07115",
@@ -3221,8 +3198,7 @@
       [500, 24.167]
     ],
     "image": "/images/merch/custom-design-non-slip-welcome-mat-18494.webp",
-    "imageAlt": "Custom Design Non-Slip Welcome Mat",
-    "colors": ["Custom"]
+    "imageAlt": "Custom Design Non-Slip Welcome Mat"
   },
   {
     "id": "15-oz-full-color-el-grande-mug-81752",
@@ -3428,8 +3404,6 @@
     "image": "/images/merch/budget-can-cooler-holder-12956.webp",
     "imageAlt": "Budget Can Cooler Holder",
     "colors": [
-      "Fullcolor Avail",
-      "Full Imprint Avail",
       "White",
       "Burgundy",
       "Camel",
@@ -3501,8 +3475,7 @@
       [500, 0.658]
     ],
     "image": "/images/merch/price-saver-can-cooler-holder-12957.webp",
-    "imageAlt": "Price Saver Can Cooler Holder",
-    "colors": ["Pms Color Match"]
+    "imageAlt": "Price Saver Can Cooler Holder"
   },
   {
     "id": "premium-foam-collapsible-coolies-88995",
@@ -3608,8 +3581,7 @@
       [500, 0.658]
     ],
     "image": "/images/merch/can-coolers-beverage-holder-44355.webp",
-    "imageAlt": "Can Coolers - Beverage Holder",
-    "colors": ["Pms Color Match"]
+    "imageAlt": "Can Coolers - Beverage Holder"
   },
   {
     "id": "16oz-stadium-cups-89077",
@@ -3910,8 +3882,7 @@
       [1000, 216.33]
     ],
     "image": "/images/merch/24-x18-36-x48-real-estate-signs-post-kit-with-rider-14059.webp",
-    "imageAlt": "24\" x 18\" - 36\" x 48\" Real Estate Signs Post Kit with Rider",
-    "colors": ["Custom"]
+    "imageAlt": "24\" x 18\" - 36\" x 48\" Real Estate Signs Post Kit with Rider"
   },
   {
     "id": "custom-18-x-24-yard-signs-89249",
@@ -3926,8 +3897,7 @@
       [500, 2.9]
     ],
     "image": "/images/merch/custom-18-x-24-yard-signs-89249.webp",
-    "imageAlt": "Custom 18\" x 24\" Yard Signs",
-    "colors": ["Various"]
+    "imageAlt": "Custom 18\" x 24\" Yard Signs"
   },
   {
     "id": "12-x-18-corrugated-yard-sign-full-color-18292",
@@ -3943,8 +3913,7 @@
       [100, 8.69]
     ],
     "image": "/images/merch/12-x-18-corrugated-yard-sign-full-color-18292.webp",
-    "imageAlt": "12\" x 18\" Corrugated Yard Sign - Full Color",
-    "colors": ["Custom"]
+    "imageAlt": "12\" x 18\" Corrugated Yard Sign - Full Color"
   },
   {
     "id": "medium-corrugated-yard-sign-full-color-2-sides-83577",
@@ -3960,8 +3929,7 @@
       [100, 10.25]
     ],
     "image": "/images/merch/medium-corrugated-yard-sign-full-color-2-sides-83577.webp",
-    "imageAlt": "Medium Corrugated Yard Sign - Full Color - 2 Sides",
-    "colors": ["Custom"]
+    "imageAlt": "Medium Corrugated Yard Sign - Full Color - 2 Sides"
   },
   {
     "id": "yard-sign-1ft-x-1ft-sqft-57334",
@@ -3974,8 +3942,7 @@
       [10, 7.3]
     ],
     "image": "/images/merch/yard-sign-1ft-x-1ft-sqft-57334.webp",
-    "imageAlt": "Yard sign (1ft x 1ft) SQFT",
-    "colors": ["Custom Colors"]
+    "imageAlt": "Yard sign (1ft x 1ft) SQFT"
   },
   {
     "id": "18-x-24-corrugated-yard-sign-full-color-18413",
@@ -3991,8 +3958,7 @@
       [100, 10.07]
     ],
     "image": "/images/merch/18-x-24-corrugated-yard-sign-full-color-18413.webp",
-    "imageAlt": "18\" x 24\" Corrugated Yard Sign - Full Color",
-    "colors": ["Custom"]
+    "imageAlt": "18\" x 24\" Corrugated Yard Sign - Full Color"
   },
   {
     "id": "usa-printed-stick-flags-12-x-18-24502",
@@ -4090,8 +4056,7 @@
       [25, 64.2]
     ],
     "image": "/images/merch/3-x-5-double-sided-digitally-printed-knit-polyester-flag-74416.webp",
-    "imageAlt": "3' x 5' Double Sided Digitally Printed Knit Polyester Flag",
-    "colors": ["Custom"]
+    "imageAlt": "3' x 5' Double Sided Digitally Printed Knit Polyester Flag"
   },
   {
     "id": "2-75-w-x-15-h-bumper-sticker-18674",
@@ -4107,8 +4072,7 @@
       [2000, 0.88]
     ],
     "image": "/images/merch/2-75-w-x-15-h-bumper-sticker-18674.webp",
-    "imageAlt": "2.75\" W x 15\" H Bumper Sticker",
-    "colors": ["Cmyk"]
+    "imageAlt": "2.75\" W x 15\" H Bumper Sticker"
   },
   {
     "id": "stickers-bumper-stickers-50280",
@@ -4314,16 +4278,16 @@
       "White",
       "Warm Grey 1",
       "Cool Grey 6",
-      "Metallic Silver PMS 877",
+      "Metallic Silver",
       "Cool Grey 8",
-      "Dark Grey PMS 425",
-      "Bright Red PMS 032",
-      "Scarlet Red PMS 1795",
-      "Pink Red PMS 193",
-      "Mystic Red PMS 485",
-      "Jungle Green PMS 3302",
-      "Maroon PMS 208",
-      "Passion Pink PMS 212"
+      "Dark Grey",
+      "Bright Red",
+      "Scarlet Red",
+      "Pink Red",
+      "Mystic Red",
+      "Jungle Green",
+      "Maroon",
+      "Passion Pink"
     ]
   },
   {
@@ -4420,8 +4384,7 @@
       [250, 2.12]
     ],
     "image": "/images/merch/5-8-variable-data-dye-sublimated-lanyard-78857.webp",
-    "imageAlt": "5/8\" Variable Data Dye Sublimated Lanyard",
-    "colors": ["Cmyk"]
+    "imageAlt": "5/8\" Variable Data Dye Sublimated Lanyard"
   },
   {
     "id": "polyester-badge-reel-lanyard-combo-b-50466",
@@ -4813,8 +4776,7 @@
       [1000, 0.37]
     ],
     "image": "/images/merch/debossed-silicone-bands-50897.webp",
-    "imageAlt": "Debossed Silicone Bands",
-    "colors": ["All Colors"]
+    "imageAlt": "Debossed Silicone Bands"
   },
   {
     "id": "colorfilled-silicone-wristband-bracelet-78728",
@@ -4830,8 +4792,7 @@
       [3000, 0.314]
     ],
     "image": "/images/merch/colorfilled-silicone-wristband-bracelet-78728.webp",
-    "imageAlt": "Colorfilled Silicone Wristband Bracelet",
-    "colors": ["Pms Color Match"]
+    "imageAlt": "Colorfilled Silicone Wristband Bracelet"
   },
   {
     "id": "table-runner-front-top-all-over-dye-sub-69739",
@@ -4846,8 +4807,7 @@
       [12, 81]
     ],
     "image": "/images/merch/table-runner-front-top-all-over-dye-sub-69739.webp",
-    "imageAlt": "Table Runner - (Front, Top) - All Over Dye Sub",
-    "colors": ["Custom"]
+    "imageAlt": "Table Runner - (Front, Top) - All Over Dye Sub"
   },
   {
     "id": "30-x-84-custom-table-banners-digital-02711",
@@ -4866,14 +4826,14 @@
     "imageAlt": "30\" x 84\" Custom Table Banners - Digital",
     "colors": [
       "White",
-      "Yellow - 108c",
-      "Orange - 021c",
-      "Warm Red - 186c",
-      "Green - 347c",
-      "Burgundy - 195c",
-      "Purple - 267c",
-      "Royal Blue - 287c",
-      "Navy Blue - 281c",
+      "Yellow",
+      "Orange",
+      "Warm Red",
+      "Green",
+      "Burgundy",
+      "Purple",
+      "Royal Blue",
+      "Navy Blue",
       "Black"
     ]
   },
@@ -4921,8 +4881,7 @@
       [10000, 10.59]
     ],
     "image": "/images/merch/waterproof-disposable-plastic-tablecloth-roll-40-x-100-38040.webp",
-    "imageAlt": "Waterproof Disposable Plastic Tablecloth Roll 40'' x 100'",
-    "colors": ["Custom"]
+    "imageAlt": "Waterproof Disposable Plastic Tablecloth Roll 40'' x 100'"
   },
   {
     "id": "8-double-sided-portable-half-drop-banner-w-hardware-set-93464",
@@ -4938,8 +4897,7 @@
       [25, 175]
     ],
     "image": "/images/merch/8-double-sided-portable-half-drop-banner-w-hardware-set-93464.webp",
-    "imageAlt": "8' Double Sided Portable Half Drop Banner w/ Hardware Set",
-    "colors": ["Custom"]
+    "imageAlt": "8' Double Sided Portable Half Drop Banner w/ Hardware Set"
   },
   {
     "id": "8x8-and-8x10-adjustable-fabric-backdrop-38896",
@@ -4980,8 +4938,7 @@
     "description": "Trade show starter kit with 10' x 10' vinyl backdrop, 31.5\" x 78\" retractable banner and 6' poly poplin table cover. Made in USA. Priced at 1 unit.",
     "tiers": [[1, 796.5]],
     "image": "/images/merch/essential-trade-show-starter-kit-64236.webp",
-    "imageAlt": "Essential Trade Show Starter Kit",
-    "colors": ["Custom"]
+    "imageAlt": "Essential Trade Show Starter Kit"
   },
   {
     "id": "eiderdown-puffer-women-tote-bag-52740",
@@ -5327,8 +5284,7 @@
       [1000, 18.383]
     ],
     "image": "/images/merch/travel-weekender-bag-carry-on-overnight-63651.webp",
-    "imageAlt": "Travel Weekender Bag Carry on Overnight",
-    "colors": ["Any/All Colors"]
+    "imageAlt": "Travel Weekender Bag Carry on Overnight"
   },
   {
     "id": "gym-duffel-bags-52536",
@@ -5699,7 +5655,7 @@
     ],
     "image": "/images/merch/reversible-laptop-sleeve-with-fold-over-flap-neoprene-14070.webp",
     "imageAlt": "Reversible Laptop Sleeve with Fold-Over Flap - Neoprene",
-    "colors": ["Black", "Pink", "Various", "Purple"]
+    "colors": ["Black", "Pink", "Purple"]
   },
   {
     "id": "in-stock-11-13-15-laptop-sleeve-case-with-stand-36041",
@@ -6058,12 +6014,7 @@
     ],
     "image": "/images/merch/custom-jbl-clip-5-portable-waterproof-bluetooth-speaker-82937.webp",
     "imageAlt": "Custom JBL Clip 5 Portable Waterproof Bluetooth Speaker",
-    "colors": [
-      "Medium Black - Black C",
-      "Dark White - White C",
-      "Dark Blue - 632C",
-      "Iridescent Red - 711C"
-    ]
+    "colors": ["Medium Black - Black C", "Dark White - White C", "Dark Blue", "Iridescent Red"]
   },
   {
     "id": "vintage-vibes-mini-bluetooth-speaker-89733",
@@ -6131,7 +6082,7 @@
     ],
     "image": "/images/merch/jbl-flip-7-portable-waterproof-and-drop-proof-speaker-46910.webp",
     "imageAlt": "JBL Flip 7 Portable waterproof and drop-proof speaker",
-    "colors": ["Medium Black - Black C", "Camouflage Gray - 7545C", "Dark White - White C"]
+    "colors": ["Medium Black - Black C", "Camouflage Gray", "Dark White - White C"]
   },
   {
     "id": "mini-bluetooth-5-3-speaker-lightweight-portable-lanyard-50310",
@@ -6182,7 +6133,7 @@
     ],
     "image": "/images/merch/custom-jbl-vibe-beam-2-true-wireless-noise-canceling-earbuds-03749.webp",
     "imageAlt": "Custom JBL Vibe Beam 2 True Wireless Noise-Canceling Earbuds",
-    "colors": ["Medium Black - Black C", "Dark White - White C", "Camouflage Green - 7475C"]
+    "colors": ["Medium Black - Black C", "Dark White - White C", "Camouflage Green"]
   },
   {
     "id": "long-lasting-bluetooth-earbuds-with-charging-case-97104",
@@ -6497,7 +6448,7 @@
     ],
     "image": "/images/merch/vynex-heavy-duty-7-5-x-8-x-1-8-hard-surface-mouse-pad-72504.webp",
     "imageAlt": "Vynex® Heavy Duty 7.5\" x 8\" x 1/8\" Hard Surface Mouse Pad",
-    "colors": ["White", "All Colors", "Red", "Blue", "Light Blue", "Green", "Purple", "Brown"]
+    "colors": ["White", "Red", "Blue", "Light Blue", "Green", "Purple", "Brown"]
   },
   {
     "id": "recycled-mouse-mat-28667",
@@ -6547,7 +6498,7 @@
     ],
     "image": "/images/merch/vynex-duratec-7-x-9-x-1-16-hard-surface-mouse-pad-23757.webp",
     "imageAlt": "Vynex® DuraTec® 7\" x 9\" x 1/16\" Hard Surface Mouse Pad",
-    "colors": ["White", "All Colors", "Red", "Blue", "Light Blue", "Green", "Purple", "Brown"]
+    "colors": ["White", "Red", "Blue", "Light Blue", "Green", "Purple", "Brown"]
   },
   {
     "id": "broadview-card-usb-quickship-07205",
@@ -6655,8 +6606,7 @@
       [1000, 4.45]
     ],
     "image": "/images/merch/radiant-center-clip-style-golf-towel-24-w-x-12-h-18870.webp",
-    "imageAlt": "RADIANT Center-Clip Style Golf Towel 24\" W X 12\" H",
-    "colors": ["Standard"]
+    "imageAlt": "RADIANT Center-Clip Style Golf Towel 24\" W X 12\" H"
   },
   {
     "id": "soft-breathable-chilly-outdoor-sports-gym-cooling-towel-93669",
@@ -7246,8 +7196,7 @@
       [2000, 17.76]
     ],
     "image": "/images/merch/10000mah-magnetic-wireless-charger-power-bank-82396.webp",
-    "imageAlt": "10000mah Magnetic Wireless Charger Power Bank",
-    "colors": ["Custom"]
+    "imageAlt": "10000mah Magnetic Wireless Charger Power Bank"
   },
   {
     "id": "scosche-magicmount-chargepad-kick-wireless-charger-04722",
@@ -7552,7 +7501,6 @@
     "imageAlt": "Frame-It Flex® 7.5\" x 8\" x 1/8\" Window/Photo Mouse Pad",
     "colors": [
       "White",
-      "All Colors",
       "Red",
       "Blue",
       "Light Blue",
@@ -7587,7 +7535,6 @@
     "imageAlt": "Frame-It Flex® 8\" x 9.5\" x 1/16\" Window/Photo Mouse Pad",
     "colors": [
       "White",
-      "All Colors",
       "Red",
       "Blue",
       "Light Blue",
@@ -7622,7 +7569,6 @@
     "imageAlt": "Vynex® Heavy Duty 7.5\" x 8\" x 1/16\" Hard Surface Mouse Pad",
     "colors": [
       "White",
-      "All Colors",
       "Red",
       "Blue",
       "Light Blue",
@@ -7657,7 +7603,6 @@
     "imageAlt": "Frame-It Lift® 8\" x 9.5\" x 1/16\" DuraTec®-Lift-Top Mousepad",
     "colors": [
       "White",
-      "All Colors",
       "Red",
       "Blue",
       "Light Blue",
@@ -7690,16 +7635,7 @@
     ],
     "image": "/images/merch/classic-stick-usb-flash-drive-30847.webp",
     "imageAlt": "Classic Stick USB Flash Drive",
-    "colors": [
-      "Black",
-      "Blue 286 C",
-      "Green 361",
-      "Red 485 C",
-      "White",
-      "Yellow C",
-      "Silver",
-      "Cola Red"
-    ]
+    "colors": ["Black", "Blue", "Green", "Red", "White", "Yellow C", "Silver", "Cola Red"]
   },
   {
     "id": "northlake-quickship-swivel-usb-flash-drive-61409",
@@ -7720,7 +7656,7 @@
       "Medium Black - Black C",
       "Camouflage Blue - Reflex Blue C",
       "Dark White - White C",
-      "Iridescent Red - 186C"
+      "Iridescent Red"
     ]
   },
   {
@@ -7836,15 +7772,7 @@
     ],
     "image": "/images/merch/perfect-journal-flexible-trekker-covers-63112.webp",
     "imageAlt": "Perfect Journal - Flexible Trekker Covers",
-    "colors": [
-      "Natural 600",
-      "Black 601",
-      "Hot Pink 602",
-      "Tangerine 603",
-      "Navy 605",
-      "Brilliant Blue 606",
-      "Purple 611"
-    ]
+    "colors": ["Natural", "Black", "Hot Pink", "Tangerine", "Navy", "Brilliant Blue", "Purple"]
   },
   {
     "id": "52-sheets-b5-spiral-weekly-planner-notebook-16410",
@@ -8129,7 +8057,7 @@
     ],
     "image": "/images/merch/alamo-metal-pen-97790.webp",
     "imageAlt": "Alamo™ Metal Pen",
-    "colors": ["19 Blue Pms7684", "01 Black", "02 White"]
+    "colors": ["Blue", "Black", "White"]
   },
   {
     "id": "manhattan-ridge-metal-pens-33593",
@@ -8452,7 +8380,7 @@
     ],
     "image": "/images/merch/deluxe-daily-planners-21383.webp",
     "imageAlt": "Deluxe Daily Planners",
-    "colors": ["White", "Black", "Red 186", "Green 343", "Royal Blue 654"]
+    "colors": ["White", "Black", "Red", "Green", "Royal Blue"]
   },
   {
     "id": "desktop-glass-whiteboard-with-calculator-51689",
@@ -9028,8 +8956,7 @@
       [1000, 1.97]
     ],
     "image": "/images/merch/1-5-zinc-challenge-coin-no-color-fill-92296.webp",
-    "imageAlt": "1.5\" Zinc Challenge Coin (No Color Fill)",
-    "colors": ["Pms Color Matchable"]
+    "imageAlt": "1.5\" Zinc Challenge Coin (No Color Fill)"
   },
   {
     "id": "2-challenge-coin-diamond-border-w-3d-texture-print-54765",
@@ -10044,7 +9971,7 @@
     "tiers": [[12, 92.29]],
     "image": "/images/merch/coffee-gift-set-16-oz-tahoe-mug-and-9-blend-sampler-36122.webp",
     "imageAlt": "Coffee Gift Set - 16 oz Tahoe Mug & 9-Blend Sampler",
-    "colors": ["White", "Black", "Navy Blue", "Gray", "Standard"]
+    "colors": ["White", "Black", "Navy Blue", "Gray"]
   },
   {
     "id": "cozy-comfort-coffee-kit-77804",
@@ -10237,5 +10164,908 @@
     "image": "/images/merch/fresh-beginnings-gourmet-classic-cookie-combo-61692.webp",
     "imageAlt": "Fresh Beginnings Gourmet Classic Cookie Combo",
     "colors": ["White"]
+  },
+  {
+    "id": "1-5-oz-milk-chocolate-bar-67429",
+    "name": "1.5 oz. Milk Chocolate Bar",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Foil wrapped, 1.5 oz. milk chocolate bar and 4-color process wrapper. Priced at 250 units.",
+    "tiers": [
+      [250, 3.05],
+      [500, 3],
+      [1000, 2.95]
+    ],
+    "image": "/images/merch/1-5-oz-milk-chocolate-bar-67429.webp",
+    "imageAlt": "1.5 oz. Milk Chocolate Bar",
+    "colors": ["White"]
+  },
+  {
+    "id": "1-oz-color-choice-m-and-ms-in-full-color-digibag-95189",
+    "name": "1 oz. Color Choice M&M'S in Full Color Digibag",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "2 oz. Color Choice M&M'S in Full Color Digibag Made in USA. Priced at 500 units.",
+    "tiers": [
+      [500, 3.41],
+      [1000, 3.24],
+      [2500, 3.15],
+      [5000, 3.07]
+    ],
+    "image": "/images/merch/1-oz-color-choice-m-and-ms-in-full-color-digibag-95189.webp",
+    "imageAlt": "1 oz. Color Choice M&M'S in Full Color Digibag",
+    "colors": [
+      "Aqua",
+      "Black",
+      "Blue",
+      "Cream",
+      "Dark Blue",
+      "Dark Green",
+      "Dark Pink",
+      "Gold",
+      "Green",
+      "Light Blue",
+      "Orange",
+      "Pink",
+      "Purple",
+      "Red",
+      "Silver",
+      "White",
+      "Yellow"
+    ]
+  },
+  {
+    "id": "2-oz-color-choice-m-and-ms-in-full-color-digibag-95152",
+    "name": "2 oz. Color Choice M&M'S in Full Color Digibag",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "2 oz. Color Choice M&M'S in Full Color Digibag Made in USA. Priced at 500 units.",
+    "tiers": [
+      [500, 5.37],
+      [1000, 5.1],
+      [2500, 4.96],
+      [5000, 4.81]
+    ],
+    "image": "/images/merch/2-oz-color-choice-m-and-ms-in-full-color-digibag-95152.webp",
+    "imageAlt": "2 oz. Color Choice M&M'S in Full Color Digibag",
+    "colors": [
+      "Aqua",
+      "Black",
+      "Blue",
+      "Cream",
+      "Dark Blue",
+      "Dark Green",
+      "Dark Pink",
+      "Gold",
+      "Green",
+      "Light Blue",
+      "Orange",
+      "Pink",
+      "Purple",
+      "Red",
+      "Silver",
+      "White",
+      "Yellow"
+    ]
+  },
+  {
+    "id": "1-oz-custom-wrapper-bars-08769",
+    "name": "1 oz Custom Wrapper Bars",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "1 color option. Size: 3.25\" x 2.25\". Priced at 250 units.",
+    "tiers": [
+      [250, 2.39],
+      [500, 2.29],
+      [1000, 2.27],
+      [2500, 2.25]
+    ],
+    "image": "/images/merch/1-oz-custom-wrapper-bars-08769.webp",
+    "imageAlt": "1 oz Custom Wrapper Bars",
+    "colors": ["Multi-Color"]
+  },
+  {
+    "id": "miniature-hershey-singles-83842",
+    "name": "Miniature Hershey Singles",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Hershey's miniatures wrapped candies with custom wrappers. Made in USA. Priced at 500 units.",
+    "tiers": [
+      [500, 0.73],
+      [750, 0.7],
+      [1000, 0.67]
+    ],
+    "image": "/images/merch/miniature-hershey-singles-83842.webp",
+    "imageAlt": "Miniature Hershey Singles",
+    "colors": ["White"]
+  },
+  {
+    "id": "overwrapped-snickers-candy-bar-14231",
+    "name": "Overwrapped Snickers® Candy Bar",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Overwrapped Candy Bar Made in USA. Priced at 100 units.",
+    "tiers": [
+      [100, 3.33],
+      [250, 3.23],
+      [500, 3.18],
+      [1000, 3.09]
+    ],
+    "image": "/images/merch/overwrapped-snickers-candy-bar-14231.webp",
+    "imageAlt": "Overwrapped Snickers® Candy Bar"
+  },
+  {
+    "id": "overwrapped-hershey-candy-bar-13836",
+    "name": "Overwrapped Hershey® Candy Bar",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Overwrapped Chocolate Candy Bar. Made in USA. Priced at 100 units.",
+    "tiers": [
+      [100, 3.66],
+      [250, 3.49],
+      [500, 3.37],
+      [1000, 3.29]
+    ],
+    "image": "/images/merch/overwrapped-hershey-candy-bar-13836.webp",
+    "imageAlt": "Overwrapped Hershey® Candy Bar"
+  },
+  {
+    "id": "overwrapped-payday-candy-bar-14138",
+    "name": "Overwrapped PayDay® Candy Bar",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Overwrapped PayDay® Candy Bar Made in USA. Priced at 100 units.",
+    "tiers": [
+      [100, 4.62],
+      [250, 4.53],
+      [500, 4.45],
+      [1000, 4.38]
+    ],
+    "image": "/images/merch/overwrapped-payday-candy-bar-14138.webp",
+    "imageAlt": "Overwrapped PayDay® Candy Bar"
+  },
+  {
+    "id": "mini-tube-with-mike-and-ikes-69153",
+    "name": "Mini Tube with Mike and Ikes",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Mini tube with candy. Made in USA. Priced at 100 units.",
+    "tiers": [
+      [100, 2.86],
+      [250, 2.77],
+      [500, 2.67],
+      [1000, 2.57]
+    ],
+    "image": "/images/merch/mini-tube-with-mike-and-ikes-69153.webp",
+    "imageAlt": "Mini Tube with Mike and Ikes",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "high-impact-license-plate-frame-35886",
+    "name": "High Impact License Plate Frame",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "License plate frame; made in the USA. Priced at 200 units.",
+    "tiers": [
+      [200, 2.52],
+      [500, 2.48],
+      [1000, 2.43],
+      [1500, 2.38],
+      [2000, 2.33]
+    ],
+    "image": "/images/merch/high-impact-license-plate-frame-35886.webp",
+    "imageAlt": "High Impact License Plate Frame",
+    "colors": ["Red", "Pink", "White", "Black"]
+  },
+  {
+    "id": "car-license-plate-frame-holder-37586",
+    "name": "Car License Plate Frame Holder",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "8 color options. Size: 6.57\" x 12.25\" x 0.25\". Priced at 100 units.",
+    "tiers": [
+      [100, 2.983],
+      [500, 2.283],
+      [1000, 1.933],
+      [2000, 1.883],
+      [3000, 1.867]
+    ],
+    "image": "/images/merch/car-license-plate-frame-holder-37586.webp",
+    "imageAlt": "Car License Plate Frame Holder",
+    "colors": [
+      "Camouflage Brown",
+      "Clear Orange",
+      "Iridescent Black",
+      "Light Purple",
+      "Clear",
+      "Dark Green",
+      "Medium Green",
+      "Light Black"
+    ]
+  },
+  {
+    "id": "colorful-standard-metal-license-plate-frames-10369",
+    "name": "Colorful Standard Metal License Plate Frames",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Nine different shape frames and multiple printing methods are available. Priced at 100 units.",
+    "tiers": [
+      [100, 4.82],
+      [250, 3.76],
+      [500, 3.31],
+      [1000, 3.02],
+      [2000, 2.64]
+    ],
+    "image": "/images/merch/colorful-standard-metal-license-plate-frames-10369.webp",
+    "imageAlt": "Colorful Standard Metal License Plate Frames",
+    "colors": ["Black", "Silver", "Red", "Purple", "Gold", "Blue", "Assorted"]
+  },
+  {
+    "id": "aluminum-license-plate-frame-05523",
+    "name": "Aluminum License Plate Frame",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Aluminum license plate frame. Priced at 100 units.",
+    "tiers": [
+      [100, 6.65],
+      [250, 6.4],
+      [500, 6.15],
+      [1000, 5.9],
+      [2500, 5.65]
+    ],
+    "image": "/images/merch/aluminum-license-plate-frame-05523.webp",
+    "imageAlt": "Aluminum License Plate Frame",
+    "colors": ["Black"]
+  },
+  {
+    "id": "full-color-aluminum-license-plate-frames-moq-10-pcs-92657",
+    "name": "Full Color Aluminum License Plate Frames",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "12.3\" x 6.3\" aluminum alloy automobile license plate frame and installation hardware. Priced at 10 units.",
+    "tiers": [
+      [10, 4.917],
+      [50, 4.5],
+      [100, 3.767],
+      [300, 3.25],
+      [500, 2.8]
+    ],
+    "image": "/images/merch/full-color-aluminum-license-plate-frames-moq-10-pcs-92657.webp",
+    "imageAlt": "Full Color Aluminum License Plate Frames",
+    "colors": ["Gold", "Silver", "Black", "Red", "Blue", "Purple"]
+  },
+  {
+    "id": "custom-paper-air-fresheners-52389",
+    "name": "Custom Paper Air Fresheners",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Custom shape paper air freshener with two-sided full color imprint and choice of scents. Priced at 500 units.",
+    "tiers": [
+      [500, 2.25],
+      [1000, 1.9],
+      [2500, 1.65]
+    ],
+    "image": "/images/merch/custom-paper-air-fresheners-52389.webp",
+    "imageAlt": "Custom Paper Air Fresheners",
+    "colors": ["Assorted"]
+  },
+  {
+    "id": "tek-scents-air-freshener-square-80568",
+    "name": "Tek-Scents Air Freshener - Square",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Square-shaped air freshener with elastic hanging loop, full color printing on both sides and your choice of fragrance. Priced at 250 units.",
+    "tiers": [
+      [250, 1.74],
+      [500, 1.62],
+      [750, 1.52],
+      [1000, 1.42]
+    ],
+    "image": "/images/merch/tek-scents-air-freshener-square-80568.webp",
+    "imageAlt": "Tek-Scents Air Freshener - Square",
+    "colors": ["Assorted"]
+  },
+  {
+    "id": "custom-size-shape-paper-air-freshener-46073",
+    "name": "Custom Size Shape Paper Air Freshener",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Promotional Custom Logo Imprinted Fresheners. Priced at 50 units.",
+    "tiers": [
+      [50, 1.58],
+      [100, 1.06],
+      [500, 0.66],
+      [1000, 0.49],
+      [5000, 0.28]
+    ],
+    "image": "/images/merch/custom-size-shape-paper-air-freshener-46073.webp",
+    "imageAlt": "Custom Size Shape Paper Air Freshener"
+  },
+  {
+    "id": "square-round-corners-shaped-air-fresheners-38792",
+    "name": "Square (Round Corners) Shaped Air Fresheners",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Square air fresheners with a string and bag. Made in USA. Priced at 125 units.",
+    "tiers": [
+      [125, 1.98],
+      [250, 1.94],
+      [500, 1.9],
+      [1000, 1.86],
+      [1500, 1.82]
+    ],
+    "image": "/images/merch/square-round-corners-shaped-air-fresheners-38792.webp",
+    "imageAlt": "Square (Round Corners) Shaped Air Fresheners",
+    "colors": ["White"]
+  },
+  {
+    "id": "prest-o-shade-nt-sunshade-28726",
+    "name": "Prest-O-Shade NT Sunshade",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Intertek All rights reserved. U.S. Patent No. 6,179,038; D444,749; D431,510; D470,446; D555,057; D665,318 & other Patent Pend. Priced at 50 units.",
+    "tiers": [
+      [50, 18.3],
+      [100, 17.4],
+      [250, 16.5],
+      [500, 15.7],
+      [750, 14.9]
+    ],
+    "image": "/images/merch/prest-o-shade-nt-sunshade-28726.webp",
+    "imageAlt": "Prest-O-Shade NT Sunshade",
+    "colors": ["Gray-Silver"]
+  },
+  {
+    "id": "custom-car-windshield-sun-shade-and-engine-hood-cover-kit-50366",
+    "name": "Custom Car Windshield Sun Shade & Engine Hood Cover kit",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Custom Car Sun Shades (59\" x 27\") & Engine Hood Covers (47\" x 59\") protect vehicles and add promo value. Made in USA. Priced at 25 units.",
+    "tiers": [
+      [25, 55],
+      [50, 46.67],
+      [100, 33.33],
+      [250, 26.67],
+      [500, 21.67]
+    ],
+    "image": "/images/merch/custom-car-windshield-sun-shade-and-engine-hood-cover-kit-50366.webp",
+    "imageAlt": "Custom Car Windshield Sun Shade & Engine Hood Cover kit"
+  },
+  {
+    "id": "long-lasting-folding-car-sun-shade-98517",
+    "name": "Long-lasting Folding Car Sun Shade",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Keep your vehicle cool and protected with our durable car sunshade, crafted from rip-resistant nylon mesh with flexible memory. Priced at 100 units.",
+    "tiers": [
+      [100, 11.43],
+      [500, 9.32],
+      [1000, 8.84],
+      [3000, 8.5],
+      [5000, 3.2]
+    ],
+    "image": "/images/merch/long-lasting-folding-car-sun-shade-98517.webp",
+    "imageAlt": "Long-lasting Folding Car Sun Shade",
+    "colors": ["Silver"]
+  },
+  {
+    "id": "2-in1-circle-car-magnet-with-4-paw-prints-51037",
+    "name": "2 in1 Circle Car Magnet with 4 Paw Prints",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "5.75\" x 8.5\" car magnet with four paw prints. Made in USA. Priced at 24 units.",
+    "tiers": [
+      [24, 9.37],
+      [50, 7.6],
+      [100, 5.1],
+      [250, 2.86],
+      [500, 2.26]
+    ],
+    "image": "/images/merch/2-in1-circle-car-magnet-with-4-paw-prints-51037.webp",
+    "imageAlt": "2 in1 Circle Car Magnet with 4 Paw Prints",
+    "colors": ["030N Thickness White"]
+  },
+  {
+    "id": "magnet-4-x-7-square-corners-74744",
+    "name": "Magnet - 4\" x 7\" - Square Corners",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Magnet - 4\" x 7\" - Square Corners - 20 or 30 Mil. Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 50 units.",
+    "tiers": [
+      [50, 2],
+      [100, 1.24],
+      [250, 0.92],
+      [500, 0.68],
+      [1000, 0.53]
+    ],
+    "image": "/images/merch/magnet-4-x-7-square-corners-74744.webp",
+    "imageAlt": "Magnet - 4\" x 7\" - Square Corners",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "car-magnets-12-x-12-10286",
+    "name": "Car Magnets (12\" x 12\")",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "12\" x 12\" car magnet made of 30 mil flexible vinyl with ultra-vivid full color printing. Made in USA. Priced at 4 units.",
+    "tiers": [
+      [4, 64.63],
+      [8, 36.93],
+      [12, 24.62],
+      [24, 19.94],
+      [50, 15.15]
+    ],
+    "image": "/images/merch/car-magnets-12-x-12-10286.webp",
+    "imageAlt": "Car Magnets (12\" x 12\")",
+    "colors": ["Multi color"]
+  },
+  {
+    "id": "magnets-car-truck-custom-shaped-20-mil-thickness-16928",
+    "name": "Magnets Car/Truck custom Shaped - 20 mil thickness",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Magnets Car/Truck custom Shaped - 20 mil thickness, USA made, low minimum and quick ship. Available in different size and shapes. Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 50 units.",
+    "tiers": [
+      [50, 1.53],
+      [100, 0.89],
+      [250, 0.63],
+      [500, 0.58],
+      [1000, 0.54]
+    ],
+    "image": "/images/merch/magnets-car-truck-custom-shaped-20-mil-thickness-16928.webp",
+    "imageAlt": "Magnets Car/Truck custom Shaped - 20 mil thickness",
+    "colors": ["Assorted"]
+  },
+  {
+    "id": "outdoor-jumbo-car-magnet-85907",
+    "name": "Outdoor Jumbo Car Magnet",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Jumbo car magnet measuring 11.75\"H x 24\"W with 30 mil thickness. Made in USA. Priced at 12 units.",
+    "tiers": [
+      [12, 26.77],
+      [24, 18.86],
+      [50, 14.76],
+      [100, 12.87]
+    ],
+    "image": "/images/merch/outdoor-jumbo-car-magnet-85907.webp",
+    "imageAlt": "Outdoor Jumbo Car Magnet",
+    "colors": ["White"]
+  },
+  {
+    "id": "soft-enamel-key-chain-1-5-10093",
+    "name": "Soft Enamel Key Chain - 1.5\"",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "1.5\" Die-cast Soft Enamel Metal Keychain with Split Ring, Fully Customizable to Your Requirement. Priced at 100 units.",
+    "tiers": [
+      [100, 4],
+      [250, 3.16],
+      [500, 2.78],
+      [1000, 2.46],
+      [2500, 2.1]
+    ],
+    "image": "/images/merch/soft-enamel-key-chain-1-5-10093.webp",
+    "imageAlt": "Soft Enamel Key Chain - 1.5\"",
+    "colors": ["Shiny Nickel", "Black Nickel", "Copper", "Brass", "Maroon"]
+  },
+  {
+    "id": "spare-tire-cover-75580",
+    "name": "Spare tire cover",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Perfect for auto dealerships, repair shops, car rental agencies, and of course, tire stores. Priced at 200 units.",
+    "tiers": [
+      [200, 14.133],
+      [500, 13.833],
+      [1000, 13.483],
+      [3000, 12.933],
+      [10000, 9.217]
+    ],
+    "image": "/images/merch/spare-tire-cover-75580.webp",
+    "imageAlt": "Spare tire cover",
+    "colors": ["Black"]
+  },
+  {
+    "id": "pvc-thickening-leather-spare-tire-wheel-cover-for-car-68563",
+    "name": "PVC Thickening Leather Spare Tire Wheel Cover for Car",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Explore our stylish & practical R13-R18 car accessories. Tailored to fit, waterproof PU leather keeps tires clean. Priced at 50 units.",
+    "tiers": [
+      [50, 19.64],
+      [100, 9.818],
+      [200, 8.974],
+      [500, 8.646],
+      [1000, 8.548]
+    ],
+    "image": "/images/merch/pvc-thickening-leather-spare-tire-wheel-cover-for-car-68563.webp",
+    "imageAlt": "PVC Thickening Leather Spare Tire Wheel Cover for Car",
+    "colors": ["White", "Black", "Gray", "Blue", "Purple", "Red", "Orange", "Brown"]
+  },
+  {
+    "id": "glitter-tree-christmas-ornament-44288",
+    "name": "Glitter Tree Christmas Ornament",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "2.25\" x 2.5\" die cast zinc alloy Christmas tree-shaped holiday ornament with hanging string. Priced at 100 units.",
+    "tiers": [
+      [100, 3.5],
+      [300, 3.3],
+      [500, 2.95]
+    ],
+    "image": "/images/merch/glitter-tree-christmas-ornament-44288.webp",
+    "imageAlt": "Glitter Tree Christmas Ornament",
+    "colors": ["Shiny Nickel"]
+  },
+  {
+    "id": "custom-acrylic-uv-printed-ornaments-32727",
+    "name": "Custom Acrylic UV Printed Ornaments",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "Custom Acrylic UV Printed Ornaments. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "tiers": [
+      [100, 4.88],
+      [250, 3.82],
+      [500, 3.48],
+      [1000, 3.22],
+      [2500, 3.06]
+    ],
+    "image": "/images/merch/custom-acrylic-uv-printed-ornaments-32727.webp",
+    "imageAlt": "Custom Acrylic UV Printed Ornaments",
+    "colors": ["Transparent"]
+  },
+  {
+    "id": "snowflake-holiday-ornament-48216",
+    "name": "Snowflake Holiday Ornament",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "Snowflake Holiday Ornament. Priced at 100 units.",
+    "tiers": [
+      [100, 5.32],
+      [300, 4.82],
+      [500, 4.6],
+      [1000, 4.38],
+      [2000, 4.36]
+    ],
+    "image": "/images/merch/snowflake-holiday-ornament-48216.webp",
+    "imageAlt": "Snowflake Holiday Ornament",
+    "colors": ["Nickel"]
+  },
+  {
+    "id": "die-struck-ornaments-09790",
+    "name": "Die Struck Ornaments",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "Christmas ornament. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "tiers": [
+      [100, 7.25],
+      [250, 5.92],
+      [500, 4.98],
+      [1000, 3.99]
+    ],
+    "image": "/images/merch/die-struck-ornaments-09790.webp",
+    "imageAlt": "Die Struck Ornaments",
+    "colors": [
+      "Shiny Gold",
+      "Silver",
+      "Copper",
+      "Black Nickel",
+      "Antique Brass",
+      "Antiqued Silver",
+      "Antique Copper"
+    ]
+  },
+  {
+    "id": "stained-glass-bulb-christmas-holiday-ornament-10485",
+    "name": "Stained Glass Bulb Christmas Holiday Ornament",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "Bulb shaped ornament with stained glass colors and hanging string. Priced at 100 units.",
+    "tiers": [
+      [100, 4.65],
+      [300, 4.45],
+      [500, 4.25]
+    ],
+    "image": "/images/merch/stained-glass-bulb-christmas-holiday-ornament-10485.webp",
+    "imageAlt": "Stained Glass Bulb Christmas Holiday Ornament",
+    "colors": ["Gold", "Blue", "Pink", "Red", "Yellow", "Green"]
+  },
+  {
+    "id": "three-months-at-a-glance-calendars-10-75-x-33-75-59450",
+    "name": "Three Months at a Glance Calendars 10.75\" x 33.75\"",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "Wall calendar - three months at a glance Made in USA. Priced at 100 units.",
+    "tiers": [
+      [100, 11.21],
+      [250, 10.82],
+      [500, 10.66],
+      [1000, 10.41]
+    ],
+    "image": "/images/merch/three-months-at-a-glance-calendars-10-75-x-33-75-59450.webp",
+    "imageAlt": "Three Months at a Glance Calendars 10.75\" x 33.75\"",
+    "colors": ["Multi color"]
+  },
+  {
+    "id": "custom-photo-wall-calendar-60523",
+    "name": "Custom Photo Wall Calendar",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "12 month wall calendar featuring your 13 submitted photos. Made in USA. Priced at 100 units.",
+    "tiers": [
+      [100, 8.85],
+      [250, 8.11],
+      [500, 7.32],
+      [1000, 6.58]
+    ],
+    "image": "/images/merch/custom-photo-wall-calendar-60523.webp",
+    "imageAlt": "Custom Photo Wall Calendar",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "large-memo-apron-wall-calendar-40885",
+    "name": "Large Memo Apron Wall Calendar",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "Large Memo Apron (Red and Blue) with numbers easily read from a distance. Made in USA. Priced at 100 units.",
+    "tiers": [
+      [100, 9.8],
+      [250, 7.33],
+      [500, 5.9],
+      [1000, 5.1]
+    ],
+    "image": "/images/merch/large-memo-apron-wall-calendar-40885.webp",
+    "imageAlt": "Large Memo Apron Wall Calendar",
+    "colors": ["White-185 Red-Reflex Blue"]
+  },
+  {
+    "id": "inspiration-wall-calendar-2027-stapled-79521",
+    "name": "Inspiration Wall Calendar: 2027 Stapled",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "13 month nature with uplifting quotes calendar. Made in USA. Priced at 100 units.",
+    "tiers": [
+      [100, 2.6],
+      [300, 2.26],
+      [500, 2.2],
+      [1000, 2.11]
+    ],
+    "image": "/images/merch/inspiration-wall-calendar-2027-stapled-79521.webp",
+    "imageAlt": "Inspiration Wall Calendar: 2027 Stapled",
+    "colors": ["Multi-Color"]
+  },
+  {
+    "id": "60cm-pvc-tabletop-christmas-tree-97148",
+    "name": "60cm PVC Tabletop Christmas Tree",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "Product 60cm PVC tabletop Christmas tree with 60 tips, sturdy stand, and realistic green branches. Priced at 100 units.",
+    "tiers": [
+      [100, 7.5],
+      [500, 6.667],
+      [1000, 5.833],
+      [5000, 3.333],
+      [10000, 2.667]
+    ],
+    "image": "/images/merch/60cm-pvc-tabletop-christmas-tree-97148.webp",
+    "imageAlt": "60cm PVC Tabletop Christmas Tree",
+    "colors": ["Assorted"]
+  },
+  {
+    "id": "halloween-pumpkin-jack-o-lantern-with-lanyard-76551",
+    "name": "Halloween Pumpkin Jack O Lantern with Lanyard",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "Add spooky charm with our durable pumpkin lantern, perfect for indoor/outdoor use. Rush service available. Priced at 48 units.",
+    "tiers": [
+      [48, 18],
+      [192, 17.533],
+      [576, 16.617],
+      [1152, 15.383],
+      [2304, 13.683]
+    ],
+    "image": "/images/merch/halloween-pumpkin-jack-o-lantern-with-lanyard-76551.webp",
+    "imageAlt": "Halloween Pumpkin Jack O Lantern with Lanyard",
+    "colors": ["Orange"]
+  },
+  {
+    "id": "holiday-gift-sets-18774",
+    "name": "Holiday Gift Sets",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "Help your family and friends feel relaxed and stress-free in these hard times through our sick care package box. Priced at 120 units.",
+    "tiers": [
+      [120, 24.75],
+      [600, 15.45],
+      [2400, 14.7],
+      [6000, 13.95],
+      [24000, 13.2]
+    ],
+    "image": "/images/merch/holiday-gift-sets-18774.webp",
+    "imageAlt": "Holiday Gift Sets",
+    "colors": ["Pink"]
+  },
+  {
+    "id": "happy-holidays-kit-92746",
+    "name": "Happy Holidays Kit",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "Happy holidays gift set with blanket, drinkware, ornament, puzzle and more. Priced at 50 units.",
+    "tiers": [
+      [50, 91.4],
+      [100, 85.42],
+      [250, 79.83],
+      [500, 74.61],
+      [1000, 69.73]
+    ],
+    "image": "/images/merch/happy-holidays-kit-92746.webp",
+    "imageAlt": "Happy Holidays Kit",
+    "colors": ["White"]
+  },
+  {
+    "id": "halloween-pumpkin-scooper-48547",
+    "name": "Halloween Pumpkin Scooper",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "Halloween Pumpkin Scooper. Priced at 300 units.",
+    "tiers": [
+      [300, 1.89],
+      [500, 1.79],
+      [1000, 1.69],
+      [1500, 1.59],
+      [2500, 1.49]
+    ],
+    "image": "/images/merch/halloween-pumpkin-scooper-48547.webp",
+    "imageAlt": "Halloween Pumpkin Scooper",
+    "colors": ["Orange"]
+  },
+  {
+    "id": "pumpkin-light-handle-halloween-bucket-76793",
+    "name": "Pumpkin Light Handle Halloween Bucket",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "Pumpkin Light Handle Halloween Bucket; Blank & Imprinted Pricing. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 72 units.",
+    "tiers": [
+      [72, 9.317],
+      [144, 9.067],
+      [432, 8.817]
+    ],
+    "image": "/images/merch/pumpkin-light-handle-halloween-bucket-76793.webp",
+    "imageAlt": "Pumpkin Light Handle Halloween Bucket",
+    "colors": ["Orange-Black"]
+  },
+  {
+    "id": "mindfulness-matters-coloring-and-activity-book-84805",
+    "name": "Mindfulness Matters Coloring & Activity Book",
+    "category": "Kids & Toys",
+    "brand": "Essentials",
+    "description": "Mindfulness Matters Coloring and Activity Book Made in USA. Priced at 250 units.",
+    "tiers": [
+      [250, 0.79],
+      [500, 0.75],
+      [1000, 0.66],
+      [2500, 0.59]
+    ],
+    "image": "/images/merch/mindfulness-matters-coloring-and-activity-book-84805.webp",
+    "imageAlt": "Mindfulness Matters Coloring & Activity Book",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "stock-cover-adult-coloring-book-and-6-color-pencil-set-51918",
+    "name": "Stock Cover Adult Coloring Book & 6-Color Pencil Set",
+    "category": "Kids & Toys",
+    "brand": "Essentials",
+    "description": "4 1/4\" x 3 1/2\" 32-page adult coloring book with stock cover and box of six colored pencils. Priced at 150 units.",
+    "tiers": [
+      [150, 2.47],
+      [250, 2.42],
+      [500, 2.37],
+      [1000, 2.32],
+      [2500, 2.27]
+    ],
+    "image": "/images/merch/stock-cover-adult-coloring-book-and-6-color-pencil-set-51918.webp",
+    "imageAlt": "Stock Cover Adult Coloring Book & 6-Color Pencil Set",
+    "colors": ["Natural"]
+  },
+  {
+    "id": "halloween-kids-coloring-book-and-6-color-pencil-set-75207",
+    "name": "Halloween Kid's Coloring Book & 6-Color Pencil Set",
+    "category": "Kids & Toys",
+    "brand": "Essentials",
+    "description": "Halloween themed kids coloring book with 12 pages and 6 colored pencil set. Priced at 250 units.",
+    "tiers": [
+      [250, 1.04],
+      [500, 1],
+      [1000, 0.95],
+      [2500, 0.89]
+    ],
+    "image": "/images/merch/halloween-kids-coloring-book-and-6-color-pencil-set-75207.webp",
+    "imageAlt": "Halloween Kid's Coloring Book & 6-Color Pencil Set",
+    "colors": ["Brown"]
+  },
+  {
+    "id": "nature-stress-relieving-coloring-books-for-adults-full-color-46385",
+    "name": "Nature Stress Relieving Coloring Books for Adults-Full Color",
+    "category": "Kids & Toys",
+    "brand": "Essentials",
+    "description": "Adult coloring book set with 10 colored pencils, poly bag, 24 designs, and heavy-duty cover. Made in USA. Priced at 150 units.",
+    "tiers": [
+      [150, 8.17],
+      [200, 8.01],
+      [400, 7.85],
+      [800, 7.69],
+      [1600, 7.55]
+    ],
+    "image": "/images/merch/nature-stress-relieving-coloring-books-for-adults-full-color-46385.webp",
+    "imageAlt": "Nature Stress Relieving Coloring Books for Adults-Full Color",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "8-piece-crayon-set-39687",
+    "name": "8 Piece Crayon Set",
+    "category": "Kids & Toys",
+    "brand": "Essentials",
+    "description": "8-Piece Crayon Set. Priced at 250 units.",
+    "tiers": [
+      [250, 0.74],
+      [500, 0.71],
+      [1000, 0.69],
+      [2500, 0.66],
+      [5000, 0.61]
+    ],
+    "image": "/images/merch/8-piece-crayon-set-39687.webp",
+    "imageAlt": "8 Piece Crayon Set",
+    "colors": ["Multi color"]
+  },
+  {
+    "id": "4-pack-crayons-28035",
+    "name": "4 Pack Crayons",
+    "category": "Kids & Toys",
+    "brand": "Essentials",
+    "description": "4 pack of non-toxic crayons - red, green, blue and yellow. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 300 units.",
+    "tiers": [
+      [300, 0.47],
+      [500, 0.42],
+      [1000, 0.4],
+      [1500, 0.37],
+      [2000, 0.34]
+    ],
+    "image": "/images/merch/4-pack-crayons-28035.webp",
+    "imageAlt": "4 Pack Crayons",
+    "colors": ["Blue", "Orange", "Purple", "Green", "Red", "Natural", "Yellow", "Pink", "Rainbow"]
+  },
+  {
+    "id": "crayons-47380",
+    "name": "Crayons",
+    "category": "Kids & Toys",
+    "brand": "Essentials",
+    "description": "4 pack of red, yellow, green and blue crayons in imprintable box. Priced at 250 units.",
+    "tiers": [
+      [250, 0.44],
+      [500, 0.43],
+      [1000, 0.42],
+      [2500, 0.4]
+    ],
+    "image": "/images/merch/crayons-47380.webp",
+    "imageAlt": "Crayons",
+    "colors": ["Multi color"]
+  },
+  {
+    "id": "3-pack-crayons-28596",
+    "name": "3 Pack Crayons",
+    "category": "Kids & Toys",
+    "brand": "Essentials",
+    "description": "3 pack of crayons packed inside a customizable box. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 300 units.",
+    "tiers": [
+      [300, 0.46],
+      [500, 0.41],
+      [1000, 0.38],
+      [1500, 0.36],
+      [2000, 0.33]
+    ],
+    "image": "/images/merch/3-pack-crayons-28596.webp",
+    "imageAlt": "3 Pack Crayons",
+    "colors": ["Blue", "Yellow"]
   }
 ]
