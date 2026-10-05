@@ -60,6 +60,39 @@ export async function sendMerchPaidEmailOnce(
   return "failed";
 }
 
+const RECEIPT_RETRY_WINDOW_MS = 14 * 24 * 60 * 60 * 1000;
+
+/**
+ * A receipt that failed to send releases its claim (see sendMerchPaidEmailOnce)
+ * but the order is no longer "awaiting payment", so no sync would ever try
+ * again. Retry for orders paid in the last two weeks that never got one; the
+ * window keeps old, pre-feature orders from suddenly emailing their customers.
+ */
+export async function retryMissingPaidReceipts(
+  rows: SyncableRow[],
+  now = Date.now()
+): Promise<void> {
+  const due = rows.filter((row) => {
+    if (row.type !== "merch_order" || row.data.status === "cancelled") return false;
+    if (typeof row.data.paidAt !== "string" || row.data.paidEmailSentAt !== undefined) return false;
+    const paidAt = Date.parse(row.data.paidAt);
+    return Number.isFinite(paidAt) && now - paidAt <= RECEIPT_RETRY_WINDOW_MS;
+  });
+
+  await Promise.all(
+    due.map(async (row) => {
+      try {
+        const outcome = await sendMerchPaidEmailOnce(row.id, row.data);
+        if (outcome === "sent") {
+          row.data = { ...row.data, paidEmailSentAt: new Date().toISOString() };
+        }
+      } catch (error) {
+        console.error(`[merchPayments] receipt retry failed for submission ${row.id}:`, error);
+      }
+    })
+  );
+}
+
 /**
  * Square has no webhook receiver wired up here, so payment is detected by
  * polling: any merch order awaiting payment is checked against Square and
@@ -102,6 +135,8 @@ export async function syncAwaitingMerchPayments(rows: SyncableRow[]): Promise<vo
       }
     })
   );
+
+  await retryMissingPaidReceipts(rows);
 }
 
 /**
@@ -124,7 +159,19 @@ export async function syncAllAwaitingMerchPayments(): Promise<number> {
     ORDER BY id
     LIMIT 200
   `) as SyncableRow[];
-  if (!rows || rows.length === 0) return 0;
-  await syncAwaitingMerchPayments(rows);
-  return rows.length;
+  if (rows && rows.length > 0) await syncAwaitingMerchPayments(rows);
+
+  const unreceipted = (await sql`
+    SELECT id, type, data
+    FROM submissions
+    WHERE type = 'merch_order'
+      AND data->>'paidAt' IS NOT NULL
+      AND data->>'paidEmailSentAt' IS NULL
+      AND (data->>'paidAt')::timestamptz > now() - interval '14 days'
+    ORDER BY id
+    LIMIT 50
+  `) as SyncableRow[];
+  if (unreceipted && unreceipted.length > 0) await retryMissingPaidReceipts(unreceipted);
+
+  return rows?.length ?? 0;
 }

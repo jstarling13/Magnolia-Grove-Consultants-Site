@@ -13,6 +13,12 @@ const mocks = vi.hoisted(() => ({
 vi.mock("@/lib/db", () => ({
   sql: async (strings: TemplateStringsArray, ...values: unknown[]) => {
     const text = strings.join("?");
+    if (text.includes("SELECT id, type, data") && text.includes("data->>'paidAt' IS NOT NULL")) {
+      // paid orders that never got a receipt (the retry sweep)
+      return Object.entries(mocks.store)
+        .filter(([, d]) => d.type === "merch_order" && d.paidAt && d.paidEmailSentAt === undefined)
+        .map(([id, d]) => ({ id: Number(id), type: "merch_order", data: { ...d } }));
+    }
     if (text.includes("SELECT id, type, data")) {
       mocks.selects += 1;
       expect(text).toContain("type = 'merch_order'");
