@@ -6,12 +6,16 @@ const mocks = vi.hoisted(() => ({
   verifyTurnstileToken: vi.fn(),
   recordSubmission: vi.fn(),
   sendCartOrderNotification: vi.fn(),
+  sendMerchRequestConfirmation: vi.fn(),
 }));
 
 vi.mock("@/lib/ratelimit", () => ({ checkRateLimit: mocks.checkRateLimit }));
 vi.mock("@/lib/turnstile", () => ({ verifyTurnstileToken: mocks.verifyTurnstileToken }));
 vi.mock("@/lib/submissions", () => ({ recordSubmission: mocks.recordSubmission }));
-vi.mock("@/lib/email", () => ({ sendCartOrderNotification: mocks.sendCartOrderNotification }));
+vi.mock("@/lib/email", () => ({
+  sendCartOrderNotification: mocks.sendCartOrderNotification,
+  sendMerchRequestConfirmation: mocks.sendMerchRequestConfirmation,
+}));
 // No product in the real catalog is color-less, so add one to exercise that rule.
 vi.mock("@/config/merchandiseConfig", async (importOriginal) => {
   const actual = await importOriginal<typeof import("@/config/merchandiseConfig")>();
@@ -80,7 +84,8 @@ describe("cartCheckoutSchema", () => {
 
   it("rejects a non-string or oversized color", () => {
     expect(
-      cartCheckoutSchema.safeParse({ ...base, items: [{ productId: VEST, color: 5, quantity: 6 }] }).success
+      cartCheckoutSchema.safeParse({ ...base, items: [{ productId: VEST, color: 5, quantity: 6 }] })
+        .success
     ).toBe(false);
     expect(
       cartCheckoutSchema.safeParse({
@@ -96,8 +101,9 @@ describe("POST /api/merchant/cart-checkout", () => {
     vi.clearAllMocks();
     mocks.checkRateLimit.mockResolvedValue({ success: true });
     mocks.verifyTurnstileToken.mockResolvedValue(true);
-    mocks.recordSubmission.mockResolvedValue(undefined);
+    mocks.recordSubmission.mockResolvedValue(42);
     mocks.sendCartOrderNotification.mockResolvedValue({ sent: true });
+    mocks.sendMerchRequestConfirmation.mockResolvedValue({ sent: true });
   });
 
   it("saves the chosen color on every line and stamps the internal ESP fields", async () => {
@@ -146,7 +152,9 @@ describe("POST /api/merchant/cart-checkout", () => {
     vi.clearAllMocks();
     mocks.checkRateLimit.mockResolvedValue({ success: true });
     mocks.verifyTurnstileToken.mockResolvedValue(true);
+    mocks.recordSubmission.mockResolvedValue(43);
     mocks.sendCartOrderNotification.mockResolvedValue({ sent: true });
+    mocks.sendMerchRequestConfirmation.mockResolvedValue({ sent: true });
     await post([{ productId: VEST, color: "Navy", quantity: 6 }]);
     const single = mocks.recordSubmission.mock.calls[0][1].items as { unitPrice: number }[];
     expect(single[0].unitPrice).toBeGreaterThan(items[0].unitPrice);
@@ -170,7 +178,9 @@ describe("POST /api/merchant/cart-checkout", () => {
   });
 
   it("is case-sensitive: the color must equal one of the product's colors exactly", async () => {
-    const response = await post([{ productId: VEST, color: VEST_COLORS[3].toLowerCase(), quantity: 6 }]);
+    const response = await post([
+      { productId: VEST, color: VEST_COLORS[3].toLowerCase(), quantity: 6 },
+    ]);
     expect(response.status).toBe(400);
   });
 
@@ -205,5 +215,115 @@ describe("POST /api/merchant/cart-checkout", () => {
     const response = await post([{ productId: VEST, color: "Navy", quantity: 6 }]);
     const text = JSON.stringify(await response.json()).toLowerCase();
     expect(text).not.toContain("esp");
+  });
+});
+
+describe("POST /api/merchant/cart-checkout: customer confirmation", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+    mocks.checkRateLimit.mockResolvedValue({ success: true });
+    mocks.verifyTurnstileToken.mockResolvedValue(true);
+    mocks.recordSubmission.mockResolvedValue(42);
+    mocks.sendCartOrderNotification.mockResolvedValue({ sent: true });
+    mocks.sendMerchRequestConfirmation.mockResolvedValue({ sent: true });
+  });
+
+  const cart = [
+    { productId: VEST, color: "Navy", quantity: 6 },
+    { productId: VEST, color: "Black", quantity: 6 },
+  ];
+
+  it("sends the confirmation after the submission is recorded, with the formatted reference", async () => {
+    const order: string[] = [];
+    mocks.recordSubmission.mockImplementation(async () => {
+      order.push("record");
+      return 42;
+    });
+    mocks.sendCartOrderNotification.mockImplementation(async () => {
+      order.push("notify");
+      return { sent: true };
+    });
+    mocks.sendMerchRequestConfirmation.mockImplementation(async () => {
+      order.push("confirm");
+      return { sent: true };
+    });
+
+    const response = await post(cart);
+    expect(response.status).toBe(200);
+    expect(order).toEqual(["record", "notify", "confirm"]);
+
+    const body = await response.json();
+    expect(body).toEqual({ success: true, orderRef: "MG-00042", confirmationEmailed: true });
+
+    // The same reference goes to the business notification and the customer.
+    expect(mocks.sendCartOrderNotification.mock.calls[0][0].orderRef).toBe("MG-00042");
+    const confirmation = mocks.sendMerchRequestConfirmation.mock.calls[0][0];
+    expect(confirmation.orderRef).toBe("MG-00042");
+    expect(confirmation.email).toBe("pat@example.com");
+    expect(confirmation.firstName).toBe("Pat");
+    expect(confirmation.items).toHaveLength(2);
+    expect(confirmation.total).toBeCloseTo(
+      confirmation.items.reduce(
+        (sum: number, item: { lineTotal: number }) => sum + item.lineTotal,
+        0
+      ),
+      2
+    );
+  });
+
+  it("gives the customer only customer-safe fields on each line", async () => {
+    await post(cart);
+    const { items } = mocks.sendMerchRequestConfirmation.mock.calls[0][0];
+    for (const item of items) {
+      expect(Object.keys(item).sort()).toEqual(
+        ["color", "lineTotal", "name", "quantity", "unitPrice"].sort()
+      );
+    }
+  });
+
+  it("still succeeds when the confirmation email throws", async () => {
+    const spy = vi.spyOn(console, "error").mockImplementation(() => {});
+    mocks.sendMerchRequestConfirmation.mockRejectedValue(new Error("resend exploded"));
+
+    const response = await post(cart);
+    expect(response.status).toBe(200);
+    expect(await response.json()).toEqual({
+      success: true,
+      orderRef: "MG-00042",
+      confirmationEmailed: false,
+    });
+    expect(mocks.recordSubmission).toHaveBeenCalledTimes(1);
+    expect(spy).toHaveBeenCalled();
+    spy.mockRestore();
+  });
+
+  it("still succeeds when the confirmation reports not sent", async () => {
+    mocks.sendMerchRequestConfirmation.mockResolvedValue({ sent: false, reason: "not_configured" });
+    const response = await post(cart);
+    expect(response.status).toBe(200);
+    expect((await response.json()).confirmationEmailed).toBe(false);
+  });
+
+  it("omits the reference when the order could not be saved, but still notifies and confirms", async () => {
+    mocks.recordSubmission.mockResolvedValue(undefined);
+    const response = await post(cart);
+    expect(response.status).toBe(200);
+    const body = await response.json();
+    expect(body.orderRef).toBeUndefined();
+    expect(mocks.sendCartOrderNotification.mock.calls[0][0].orderRef).toBeUndefined();
+    expect(mocks.sendMerchRequestConfirmation.mock.calls[0][0].orderRef).toBeUndefined();
+  });
+
+  it("does not confirm to the customer when the business notification fails", async () => {
+    mocks.sendCartOrderNotification.mockResolvedValue({ sent: false, reason: "not_configured" });
+    const response = await post(cart);
+    expect(response.status).toBe(503);
+    expect(mocks.sendMerchRequestConfirmation).not.toHaveBeenCalled();
+  });
+
+  it("does not send a confirmation for a rejected cart", async () => {
+    const response = await post([{ productId: VEST, color: "Hot Pink", quantity: 6 }]);
+    expect(response.status).toBe(400);
+    expect(mocks.sendMerchRequestConfirmation).not.toHaveBeenCalled();
   });
 });

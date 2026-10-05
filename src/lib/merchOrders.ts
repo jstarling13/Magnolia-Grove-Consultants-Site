@@ -130,3 +130,115 @@ export function parseQuoteAmount(input: number): QuoteAmountResult {
   }
   return { ok: true, cents: Math.round(input * 100) };
 }
+
+/**
+ * Customer-facing order reference, derived from the saved submission id so it
+ * needs no extra column: id 42 becomes "MG-00042". Ids past five digits just
+ * grow longer.
+ */
+export function formatOrderReference(id: number): string {
+  return `MG-${String(Math.trunc(id)).padStart(5, "0")}`;
+}
+
+// ---------------------------------------------------------------------------
+// Fulfillment fields (stored in the submission JSON; set from the admin
+// dashboard). espOrderNumber is internal and must never reach a customer.
+// ---------------------------------------------------------------------------
+
+export type FieldResult<T> = { ok: true; value: T } | { ok: false; error: string };
+
+const ESP_ORDER_NUMBER_PATTERN = /^[A-Za-z0-9][A-Za-z0-9 ._#/-]{0,39}$/;
+const CARRIER_PATTERN = /^[A-Za-z0-9][A-Za-z0-9 &.\-/]{1,39}$/;
+const TRACKING_NUMBER_PATTERN = /^[A-Za-z0-9-]{5,40}$/;
+
+/** Validates the supplier-side order number an admin records after ordering. */
+export function parseEspOrderNumber(input: string): FieldResult<string> {
+  const value = String(input ?? "").trim();
+  if (!value) return { ok: false, error: "Enter the ESP order number." };
+  if (!ESP_ORDER_NUMBER_PATTERN.test(value)) {
+    return {
+      ok: false,
+      error:
+        "The ESP order number can be up to 40 characters: letters, numbers, spaces, and . _ # / -",
+    };
+  }
+  return { ok: true, value };
+}
+
+export interface ShipmentInput {
+  carrier: string;
+  trackingNumber: string;
+}
+
+/**
+ * Validates carrier and tracking number. Spaces inside a pasted tracking number
+ * are dropped ("1Z 999 AA1" becomes "1Z999AA1"); the carrier's runs of spaces
+ * are collapsed.
+ */
+export function parseShipment(input: ShipmentInput): FieldResult<ShipmentInput> {
+  const carrier = String(input?.carrier ?? "")
+    .trim()
+    .replace(/\s+/g, " ");
+  const trackingNumber = String(input?.trackingNumber ?? "").replace(/\s+/g, "");
+  if (!carrier) return { ok: false, error: "Enter the carrier (for example UPS or FedEx)." };
+  if (!CARRIER_PATTERN.test(carrier)) {
+    return {
+      ok: false,
+      error: "The carrier can be 2 to 40 characters: letters, numbers, spaces, and & . - /",
+    };
+  }
+  if (!trackingNumber) return { ok: false, error: "Enter the tracking number." };
+  if (!TRACKING_NUMBER_PATTERN.test(trackingNumber)) {
+    return {
+      ok: false,
+      error: "The tracking number can be 5 to 40 letters, numbers, or dashes.",
+    };
+  }
+  return { ok: true, value: { carrier, trackingNumber } };
+}
+
+export type KnownCarrier = "UPS" | "FedEx" | "USPS" | "DHL";
+
+const CARRIER_ALIASES: Record<string, KnownCarrier> = {
+  ups: "UPS",
+  unitedparcelservice: "UPS",
+  fedex: "FedEx",
+  federalexpress: "FedEx",
+  usps: "USPS",
+  unitedstatespostalservice: "USPS",
+  uspostalservice: "USPS",
+  uspostoffice: "USPS",
+  dhl: "DHL",
+  dhlexpress: "DHL",
+};
+
+/** Maps free-text carrier input to one of the carriers we can link to, or undefined. */
+export function recognizeCarrier(carrier: string): KnownCarrier | undefined {
+  return CARRIER_ALIASES[
+    String(carrier ?? "")
+      .toLowerCase()
+      .replace(/[^a-z0-9]/g, "")
+  ];
+}
+
+/**
+ * Public tracking page for a recognized carrier, or undefined for any other
+ * carrier (the email then just shows the number). The number is URL-encoded,
+ * so no input can break out of the query string.
+ */
+export function buildTrackingUrl(carrier: string, trackingNumber: string): string | undefined {
+  const known = recognizeCarrier(carrier);
+  const number = String(trackingNumber ?? "").replace(/\s+/g, "");
+  if (!known || !number) return undefined;
+  const encoded = encodeURIComponent(number);
+  switch (known) {
+    case "UPS":
+      return `https://www.ups.com/track?tracknum=${encoded}`;
+    case "FedEx":
+      return `https://www.fedex.com/fedextrack/?trknbr=${encoded}`;
+    case "USPS":
+      return `https://tools.usps.com/go/TrackConfirmAction?tLabels=${encoded}`;
+    case "DHL":
+      return `https://www.dhl.com/us-en/home/tracking/tracking-express.html?submit=1&tracking-id=${encoded}`;
+  }
+}

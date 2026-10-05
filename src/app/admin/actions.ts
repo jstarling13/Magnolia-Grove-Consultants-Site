@@ -4,13 +4,17 @@ import { sql } from "@/lib/db";
 import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 import { createPaymentLink } from "@/lib/square";
-import { sendMerchPaymentLinkEmail } from "@/lib/email";
+import { sendMerchPaymentLinkEmail, sendMerchShippedEmail } from "@/lib/email";
+import { sendMerchPaidEmailOnce } from "@/lib/merchPayments";
 import type { SubmissionRow } from "@/components/admin/Dashboard";
 import {
   MERCH_ORDER_STATUSES,
   MERCH_ORDER_STATUS_LABELS,
   canSetMerchStatus,
+  formatOrderReference,
+  parseEspOrderNumber,
   parseQuoteAmount,
+  parseShipment,
   type MerchOrderStatus,
   type StatusChangeResult,
 } from "@/lib/merchOrders";
@@ -53,11 +57,21 @@ export async function updateMerchOrderStatus(
     // Payment arrived outside Square (check, bank transfer) — the admin is
     // vouching for it, so it's flagged and timestamped rather than silent.
     const patch = { status, paidAt: new Date().toISOString(), paidManually: true };
-    await sql`
+    const updated = (await sql`
       UPDATE submissions
       SET data = data || ${JSON.stringify(patch)}::jsonb
-      WHERE id = ${id} AND type = 'merch_order'
-    `;
+      WHERE id = ${id} AND type = 'merch_order' AND data->>'paidAt' IS NULL
+      RETURNING id
+    `) as { id: number }[];
+    // Receipt email only for the click that actually recorded the payment, and
+    // never allowed to fail the status change itself.
+    if (updated.length > 0) {
+      try {
+        await sendMerchPaidEmailOnce(id, { ...rows[0].data, ...patch });
+      } catch (error) {
+        console.error(`[admin] paid email failed for submission ${id}:`, error);
+      }
+    }
   } else {
     await sql`
       UPDATE submissions
@@ -115,7 +129,7 @@ export async function sendMerchPaymentLink(
 
   const link = await createPaymentLink({
     organizationName: `${firstName} ${lastName}`.trim() || "Merchandise",
-    memo: `Merchandise order #${id}`,
+    memo: `Merchandise order ${formatOrderReference(id)}`,
     amountCents: amount.cents,
     buyerEmail: email,
     redirectSource: "merch",
@@ -153,6 +167,121 @@ export async function sendMerchPaymentLink(
 
   revalidatePath("/admin");
   return { ok: true, url: link.url, emailed: emailResult.sent };
+}
+
+export type RecordEspOrderResult = { ok: true } | { ok: false; error: string };
+
+/**
+ * Records the supplier-side order number and moves the order to "Ordered in
+ * ESP". Internal only: the number is never shown to or emailed to customers.
+ * Refused until payment is confirmed, like any other ESP-order status.
+ */
+export async function recordEspOrder(
+  id: number,
+  espOrderNumber: string
+): Promise<RecordEspOrderResult> {
+  if (!(await isAdminSession())) return { ok: false, error: "Not authorized." };
+
+  const parsed = parseEspOrderNumber(espOrderNumber);
+  if (!parsed.ok) return parsed;
+
+  const rows = (await sql`
+    SELECT data FROM submissions WHERE id = ${id} AND type = 'merch_order'
+  `) as { data: Record<string, unknown> }[];
+  const data = rows[0]?.data;
+  if (!data) return { ok: false, error: "Order not found." };
+  if (data.status === "cancelled") return { ok: false, error: "This order was cancelled." };
+
+  const allowed = canSetMerchStatus(data, "ordered_in_esp");
+  if (!allowed.ok) return allowed;
+
+  // An already-shipped order keeps its Fulfilled status; only the number is corrected.
+  const patch =
+    data.status === "fulfilled"
+      ? { espOrderNumber: parsed.value }
+      : {
+          status: "ordered_in_esp",
+          espOrderNumber: parsed.value,
+          espOrderedAt:
+            typeof data.espOrderedAt === "string" ? data.espOrderedAt : new Date().toISOString(),
+        };
+  await sql`
+    UPDATE submissions
+    SET data = data || ${JSON.stringify(patch)}::jsonb
+    WHERE id = ${id} AND type = 'merch_order'
+  `;
+  revalidatePath("/admin");
+  return { ok: true };
+}
+
+export type MarkShippedResult = { ok: true; emailed: boolean } | { ok: false; error: string };
+
+/**
+ * Records carrier + tracking, moves the order to "Fulfilled", stamps shippedAt,
+ * and emails the customer. The email never includes the ESP order number or
+ * any supplier data. Submitting again corrects the tracking and re-sends the
+ * email; the original shippedAt is kept.
+ */
+export async function markMerchShipped(
+  id: number,
+  input: { carrier: string; trackingNumber: string }
+): Promise<MarkShippedResult> {
+  if (!(await isAdminSession())) return { ok: false, error: "Not authorized." };
+
+  const shipment = parseShipment(input);
+  if (!shipment.ok) return shipment;
+
+  const rows = (await sql`
+    SELECT data FROM submissions WHERE id = ${id} AND type = 'merch_order'
+  `) as { data: Record<string, unknown> }[];
+  const data = rows[0]?.data;
+  if (!data) return { ok: false, error: "Order not found." };
+  if (data.status === "cancelled") return { ok: false, error: "This order was cancelled." };
+
+  const allowed = canSetMerchStatus(data, "fulfilled");
+  if (!allowed.ok) return allowed;
+
+  const email = typeof data.email === "string" ? data.email.trim() : "";
+  if (!email) return { ok: false, error: "This order has no customer email." };
+
+  const patch = {
+    status: "fulfilled",
+    carrier: shipment.value.carrier,
+    trackingNumber: shipment.value.trackingNumber,
+    shippedAt: typeof data.shippedAt === "string" ? data.shippedAt : new Date().toISOString(),
+  };
+  await sql`
+    UPDATE submissions
+    SET data = data || ${JSON.stringify(patch)}::jsonb
+    WHERE id = ${id} AND type = 'merch_order'
+  `;
+
+  let emailed = false;
+  try {
+    const items = Array.isArray(data.items)
+      ? (data.items as Record<string, unknown>[])
+          .filter((item) => typeof item?.name === "string" && typeof item?.quantity === "number")
+          .map((item) => ({
+            name: item.name as string,
+            quantity: item.quantity as number,
+            ...(typeof item.color === "string" && item.color ? { color: item.color } : {}),
+          }))
+      : [];
+    const result = await sendMerchShippedEmail({
+      email,
+      firstName: typeof data.firstName === "string" ? data.firstName : "",
+      orderId: id,
+      carrier: shipment.value.carrier,
+      trackingNumber: shipment.value.trackingNumber,
+      items,
+    });
+    emailed = result.sent;
+  } catch (error) {
+    console.error(`[admin] shipped email failed for submission ${id}:`, error);
+  }
+
+  revalidatePath("/admin");
+  return { ok: true, emailed };
 }
 
 // Deliverables storage isn't wired up yet — these keep the Dashboard UI

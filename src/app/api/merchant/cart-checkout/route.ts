@@ -1,10 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
-import { cartCheckoutSchema, type PricedCartLineItem } from "@/lib/merchOrders";
+import {
+  cartCheckoutSchema,
+  formatOrderReference,
+  type PricedCartLineItem,
+} from "@/lib/merchOrders";
 import { getProductById } from "@/config/merchandiseConfig";
 import { cleanLineColor, validateCart, type CartPricingProduct } from "@/lib/cartPricing";
 import { checkRateLimit } from "@/lib/ratelimit";
 import { verifyTurnstileToken } from "@/lib/turnstile";
-import { sendCartOrderNotification } from "@/lib/email";
+import { sendCartOrderNotification, sendMerchRequestConfirmation } from "@/lib/email";
 import { recordSubmission } from "@/lib/submissions";
 import { getEspLink } from "@/lib/espLinks";
 
@@ -110,11 +114,14 @@ export async function POST(request: NextRequest) {
       ? `${pricedItems[0].name}${pricedItems[0].color ? ` (${pricedItems[0].color})` : ""}`
       : `${pricedItems.length} items (${uniqueNames.join(", ")})`;
 
+  let orderRef: string | undefined;
+  let confirmationEmailed = false;
+
   try {
     // No supplier order is ever placed automatically here — this just
     // records the cart and notifies the business. An admin manually orders
     // through ESP and advances status from the dashboard.
-    await recordSubmission("merch_order", {
+    const submissionId = await recordSubmission("merch_order", {
       firstName: payload.firstName,
       lastName: payload.lastName,
       email: payload.email,
@@ -127,7 +134,11 @@ export async function POST(request: NextRequest) {
       status: "new",
     });
 
+    // Undefined only if the database write failed (it logs rather than throws).
+    orderRef = submissionId !== undefined ? formatOrderReference(submissionId) : undefined;
+
     const notification = await sendCartOrderNotification({
+      orderRef,
       firstName: payload.firstName,
       lastName: payload.lastName,
       email: payload.email,
@@ -142,6 +153,29 @@ export async function POST(request: NextRequest) {
         { status: 503 }
       );
     }
+
+    // Acknowledge the request to the customer. This must never block or fail
+    // the order: it is already saved and the business already notified.
+    try {
+      const confirmation = await sendMerchRequestConfirmation({
+        email: payload.email,
+        firstName: payload.firstName,
+        orderRef,
+        // Only customer-safe fields: no ESP url/supplier/product number.
+        items: pricedItems.map(({ name, color, quantity, unitPrice, lineTotal }) => ({
+          name,
+          ...(color ? { color } : {}),
+          quantity,
+          unitPrice,
+          lineTotal,
+        })),
+        total: grandTotal,
+        notes: payload.notes || "",
+      });
+      confirmationEmailed = confirmation.sent;
+    } catch (confirmationError) {
+      console.error("[api/merchant/cart-checkout] confirmation email failed:", confirmationError);
+    }
   } catch (error) {
     console.error("[api/merchant/cart-checkout] failed:", error);
     return NextResponse.json(
@@ -150,5 +184,9 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  return NextResponse.json({ success: true });
+  return NextResponse.json({
+    success: true,
+    ...(orderRef ? { orderRef } : {}),
+    confirmationEmailed,
+  });
 }

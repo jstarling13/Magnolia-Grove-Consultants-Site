@@ -96,12 +96,66 @@ describe("ESP link leak prevention", () => {
     expect(sent.emails[0].html).not.toContain("Color: ");
   });
 
+  it("never puts ESP data in any customer-facing order email", async () => {
+    const email = await loadEmail();
+    const customerLines = [espItem, { ...espItem, productId: "mug", color: undefined }];
+    const secrets = [
+      "espplus",
+      "Prime &lt;Line&gt;",
+      "Prime <Line>",
+      "OD618",
+      "supplier:",
+      "productno",
+      "PO-SECRET-9",
+      "espordernumber",
+    ];
+
+    await email.sendMerchRequestConfirmation({
+      email: "pat@example.com",
+      firstName: "Pat",
+      orderRef: "MG-00007",
+      // Pass whole stored lines, as a careless caller might: extra fields must be dropped.
+      items: customerLines,
+      total: 750,
+      notes: "",
+    });
+    await email.sendMerchPaymentLinkEmail({
+      email: "pat@example.com",
+      firstName: "Pat",
+      orderId: 7,
+      total: 750,
+      paymentUrl: "https://square.link/u/abc",
+    });
+    await email.sendMerchPaidEmail({
+      email: "pat@example.com",
+      firstName: "Pat",
+      orderId: 7,
+      amountPaid: 750,
+    });
+    await email.sendMerchShippedEmail({
+      email: "pat@example.com",
+      firstName: "Pat",
+      orderId: 7,
+      carrier: "UPS",
+      trackingNumber: "1Z999AA10123456784",
+      // An extra espOrderNumber on the payload must not surface either.
+      ...({ espOrderNumber: "PO-SECRET-9" } as object),
+      items: customerLines,
+    });
+
+    expect(sent.emails).toHaveLength(4);
+    for (const { to, html } of sent.emails) {
+      expect(to).toBe("pat@example.com");
+      const lower = html.toLowerCase();
+      for (const secret of secrets) expect(lower).not.toContain(secret.toLowerCase());
+      expect(html).toContain("MG-00007");
+    }
+  });
+
   it("keeps the cart page and thank-you page copy free of ESP links", async () => {
     window.localStorage.setItem(
       "mg-merch-cart",
-      JSON.stringify([
-        { productId: products[0].id, color: products[0].colors?.[0], quantity: 250 },
-      ])
+      JSON.stringify([{ productId: products[0].id, color: products[0].colors?.[0], quantity: 250 }])
     );
     const { container } = render(
       <CartProvider>
