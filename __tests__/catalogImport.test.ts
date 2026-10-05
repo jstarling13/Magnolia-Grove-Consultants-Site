@@ -23,7 +23,13 @@ import {
   cleanName,
   findLostProtectedIds,
   parseOverrides,
-  renameColorImageKeys,
+  remapColorImageKeys,
+  remapPhotoSamples,
+  colorNameMap,
+  refineColorName,
+  stripColorCode,
+  isNonColor,
+  COLOR_ALIASES,
   titleCaseColor,
   buildCatalog,
   buildDescription,
@@ -44,7 +50,12 @@ import {
   MIN_VENDOR_REVIEWS,
 } from "../scripts/lib/catalogClean.mjs";
 import { compressImage, ensureImage, mapConcurrent } from "../scripts/lib/catalogImages.mjs";
-import { readCuratedProducts, removeOrphanImages } from "../scripts/importCatalog.mjs";
+import {
+  deleteUnreferencedPhotos,
+  readCuratedProducts,
+  removeOrphanImages,
+} from "../scripts/importCatalog.mjs";
+import { validateCart } from "../src/lib/cartPricing";
 import {
   MARKUP_RATE,
   isImportedProductRecord,
@@ -991,25 +1002,6 @@ describe("protected ids and color photo keys", () => {
       findLostProtectedIds({ previousIds: ["a"], selectedIds: ["a"], protectedIds: ["a"] })
     ).toEqual([]);
   });
-
-  it("renames color photo keys changed by cleanup and never touches the paths", () => {
-    const input = {
-      cap: { BLACK: "/p/black.webp", "Navy Blue": "/p/navy.webp", "NAVY BLUE": "/p/x.webp" },
-      curated: { WHATEVER: "/p/c.webp" },
-      hat: { "ROYAL BLUE": "/p/royal.webp" },
-    };
-    const result = renameColorImageKeys(input, [
-      { id: "cap", colors: ["Black", "Navy Blue"] },
-      { id: "hat", colors: ["Royal Blue"] },
-    ]);
-    expect(result.colorImages.hat).toEqual({ "Royal Blue": "/p/royal.webp" });
-    expect(result.colorImages.cap.Black).toBe("/p/black.webp");
-    expect(result.colorImages.curated).toEqual({ WHATEVER: "/p/c.webp" }); // not imported: untouched
-    expect(result.renamed).toBe(2);
-    // a key that would collide with an existing one is reported, not clobbered
-    expect(result.unresolved).toEqual(['cap: "NAVY BLUE"']);
-    expect(result.colorImages.cap["Navy Blue"]).toBe("/p/navy.webp");
-  });
 });
 
 describe("keepApart", () => {
@@ -1452,5 +1444,267 @@ describe("duplicate images", () => {
     const { items } = buildCatalog([a, b]);
     const hashes = new Map(items.map((i) => [i.link.espId, "x"]));
     expect(findDuplicateImages(items, hashes).groups[0].kept.link.espId).toBe("6002");
+  });
+});
+
+// ---- color name cleanup (QA P1-9) --------------------------------------------------
+
+describe("vendor color codes", () => {
+  it("strips numeric codes from the QA examples", () => {
+    const cases: [string, string][] = [
+      ["Black Heather - 104", "Black Heather"],
+      ["White -080", "White"],
+      ["Red 060", "Red"],
+      ["Sky Blue - 470", "Sky Blue"],
+      ["Black - 010", "Black"],
+      ["Navy-040", "Navy"],
+      ["Neon Yellow 364", "Neon Yellow"],
+      ["Yellow - 108c", "Yellow"],
+      ["Blue 286 C", "Blue"],
+      ["Maroon PMS 208", "Maroon"],
+      ["19 Blue Pms7684", "Blue"],
+      ["01 Black", "Black"],
+    ];
+    for (const [input, expected] of cases) {
+      expect(refineColorName(input), input).toBe(expected);
+    }
+  });
+
+  it("keeps numbers that are part of a real name", () => {
+    for (const name of ["Cool Grey 6", "Warm Grey 1", "Camo1", "80'S Ski Slope", "Black Heather"]) {
+      expect(refineColorName(name), name).toBe(name);
+    }
+    expect(stripColorCode("Navy 40")).toBe("Navy 40");
+  });
+
+  it("is idempotent: cleaning a cleaned name changes nothing", () => {
+    for (const name of ["Black Heather - 104", "Azure_White", "Pinetree", "Navy-040", "Red 060"]) {
+      const once = refineColorName(name)!;
+      expect(refineColorName(once)).toBe(once);
+    }
+  });
+});
+
+describe("underscores and aliases", () => {
+  it("turns an underscore into a slash", () => {
+    expect(refineColorName("Azure_White")).toBe("Azure/White");
+    expect(refineColorName("Crimson _ White")).toBe("Crimson/White");
+  });
+
+  it("applies only the explicit, justified aliases", () => {
+    expect(refineColorName("Pinetree")).toBe("Pine Tree");
+    expect(refineColorName("Terracotta Sunsert")).toBe("Terracotta Sunset");
+    expect(COLOR_ALIASES.length).toBeGreaterThan(0);
+    for (const alias of COLOR_ALIASES) expect(alias.reason.length).toBeGreaterThan(10);
+    // not clearly justified by the raw data: left exactly as supplied
+    expect(refineColorName("Metblue")).toBe("Metblue");
+    expect(refineColorName("Very Very Dark")).toBe("Very Very Dark");
+    expect(refineColorName("Light White")).toBe("Light White");
+  });
+});
+
+describe("non-color entries", () => {
+  it("drops every listed non-color", () => {
+    for (const name of [
+      "Various",
+      "Custom",
+      "Custom Colors",
+      "Custom Shell Colors",
+      "Any/All Colors",
+      "All Colors",
+      "Full Digital Printing",
+      "Stock Colors",
+      "Sublimated",
+      "Standard",
+      "PMS Color Match",
+      "Pms Color Matchable",
+      "CMYK",
+      "Full Imprint Avail",
+      "Fullcolor Avail",
+      "Custom (full-color print)",
+    ]) {
+      expect(isNonColor(name), name).toBe(true);
+      expect(refineColorName(name), name).toBeNull();
+    }
+  });
+
+  it("keeps real colors that merely resemble them", () => {
+    for (const name of [
+      "Custom Blue",
+      "Standard Red",
+      "Multi Color",
+      "Assorted",
+      "Sublime Green",
+    ]) {
+      expect(refineColorName(name), name).toBe(name);
+    }
+  });
+});
+
+describe("cleanColors on a whole list", () => {
+  it("dedupes names that collapse together, keeping the first", () => {
+    const result = colorNameMap([
+      "Black - 010",
+      "Navy - 040",
+      "Black 010",
+      "BLACK",
+      "Various",
+      "Red",
+    ]);
+    expect(result.colors).toEqual(["Black", "Navy", "Red"]);
+    expect(result.map).toEqual({
+      "Black - 010": "Black",
+      "Navy - 040": "Navy",
+      "Black 010": "Black",
+      Black: "Black",
+      Various: null,
+      Red: "Red",
+    });
+  });
+
+  it("returns an empty list when every entry was not a color", () => {
+    expect(cleanColors(["Various", "Custom", "Stock Colors"])).toEqual([]);
+  });
+
+  it("a product with no real colors has no colors key and is orderable without one", () => {
+    const row = mk({ espId: "9700", name: "Event Flooring", colors: ["Various", "Stock Colors"] });
+    const cleaned = cleanRow(row);
+    expect(cleaned.product?.colors).toEqual([]);
+    const record = toPublicRecord({
+      id: "event-flooring-09700",
+      product: cleaned.product!,
+    } as never);
+    expect("colors" in record).toBe(false);
+    expect(isImportedProductRecord(record)).toBe(true);
+    expect(cleaned.product?.description).toBe("Priced at 1 unit.");
+
+    const product = {
+      id: "event-flooring-09700",
+      name: "Event Flooring",
+      colors: undefined,
+      tiers: [{ quantity: 1, price: 10 }],
+    };
+    const lookup = (id: string) => (id === product.id ? product : undefined);
+    expect(validateCart([{ productId: product.id, quantity: 3 }], lookup).ok).toBe(true);
+    // a stale saved color on a product that no longer has colors is rejected by the server
+    const stale = validateCart([{ productId: product.id, quantity: 3, color: "Various" }], lookup);
+    expect(stale.ok).toBe(false);
+  });
+
+  it("builds the public record's color list only from cleaned names", () => {
+    const row = mk({
+      espId: "9701",
+      name: "Hoodie",
+      colors: ["Black Heather - 104", "White -080"],
+    });
+    expect(cleanRow(row).product?.colors).toEqual(["Black Heather", "White"]);
+  });
+
+  it("every catalog item carries a colorMap from its raw names", () => {
+    const row = mk({ espId: "9702", name: "Hoodie", colors: ["Black - 010", "Various"] });
+    const { items } = buildCatalog([row]);
+    expect(items[0].colorMap).toEqual({ "Black - 010": "Black", Various: null });
+  });
+});
+
+describe("color photo keys follow the cleanup", () => {
+  const item = (id: string, raw: string[]) => {
+    const { colors, map } = colorNameMap(raw);
+    return { id, colors, colorMap: map };
+  };
+
+  it("renames keys, drops non-color keys, merges collapsed names (first color wins)", () => {
+    const files: { file: string; data: Record<string, Record<string, string>> }[] = [
+      {
+        file: "colorImages.json",
+        data: {
+          hoodie: {
+            "Black Heather - 104": "/p/bh.webp",
+            "White -080": "/p/w.webp",
+            Various: "/p/various.webp",
+          },
+          cap: { "Black - 010": "/p/first.webp", "Black 010": "/p/second.webp" },
+          curated: { WHATEVER: "/p/c.webp" },
+        },
+      },
+      { file: "colorImages.extra1.json", data: { hoodie: { "Navy - 040": "/p/n.webp" } } },
+    ];
+    const items = [
+      item("hoodie", ["Black Heather - 104", "White -080", "Various", "Navy - 040"]),
+      item("cap", ["Black - 010", "Black 010"]),
+    ];
+    const result = remapColorImageKeys(files, items);
+    expect(result.unresolved).toEqual([]);
+    expect(result.files[0].data.hoodie).toEqual({
+      "Black Heather": "/p/bh.webp",
+      White: "/p/w.webp",
+    });
+    expect(result.files[1].data.hoodie).toEqual({ Navy: "/p/n.webp" });
+    expect(result.files[0].data.cap).toEqual({ Black: "/p/first.webp" }); // first color's photo kept
+    expect(result.files[0].data.curated).toEqual({ WHATEVER: "/p/c.webp" }); // curated untouched
+    expect(result.renamed).toBe(4);
+    expect(result.dropped).toBe(1);
+    expect(result.merged).toBe(1);
+    // only keys moved: every surviving path was already there
+    const before = new Set(
+      files.flatMap((f) => Object.values(f.data).flatMap((v) => Object.values(v)))
+    );
+    for (const f of result.files) {
+      for (const byColor of Object.values(f.data)) {
+        for (const src of Object.values(byColor)) expect(before.has(src)).toBe(true);
+      }
+    }
+    expect(result.removedPaths.sort()).toEqual(["/p/second.webp", "/p/various.webp"]);
+  });
+
+  it("is a no-op once the keys are already clean", () => {
+    const files = [{ file: "a", data: { hoodie: { "Black Heather": "/p/bh.webp" } } }];
+    const result = remapColorImageKeys(files, [item("hoodie", ["Black Heather - 104"])]);
+    expect(result.files[0].data).toEqual(files[0].data);
+    expect(result.renamed + result.dropped + result.merged).toBe(0);
+  });
+
+  it("reports a key that matches no color instead of guessing", () => {
+    const files = [{ file: "a", data: { hoodie: { Mystery: "/p/m.webp" } } }];
+    const result = remapColorImageKeys(files, [item("hoodie", ["Black"])]);
+    expect(result.unresolved).toEqual(['hoodie: "Mystery"']);
+    expect(result.files[0].data.hoodie).toEqual({ Mystery: "/p/m.webp" });
+  });
+
+  it("applies the same moves to the photo-evidence fixture", () => {
+    const moves = [
+      { id: "hoodie", from: "White -080", to: "White" as string | null, reason: "renamed" },
+      { id: "hoodie", from: "Various", to: null, reason: "not a color" },
+    ];
+    const samples = [
+      { product: "hoodie", color: "White -080", src: "/p/w.webp" },
+      { product: "hoodie", color: "Various", src: "/p/v.webp" },
+      { product: "hoodie", color: "Black", src: "/p/b.webp" },
+    ];
+    const result = remapPhotoSamples(samples, moves);
+    expect(result.samples.map((x) => x.color)).toEqual(["White", "Black"]);
+    expect(result.changed).toBe(2);
+  });
+
+  it("deletes a dropped photo only when nothing references it", async () => {
+    const root = await fs.mkdtemp(path.join(os.tmpdir(), "catalog-photos-"));
+    await fs.mkdir(path.join(root, "public/images/merch/colors"), { recursive: true });
+    await fs.mkdir(path.join(root, "src/config"), { recursive: true });
+    await fs.writeFile(path.join(root, "public/images/merch/colors/lonely.webp"), "x");
+    await fs.writeFile(path.join(root, "public/images/merch/colors/shared.webp"), "x");
+    await fs.writeFile(
+      path.join(root, "src/config/other.ts"),
+      'export const x = "/images/merch/colors/shared.webp";'
+    );
+    const deleted = await deleteUnreferencedPhotos({
+      root,
+      paths: ["/images/merch/colors/lonely.webp", "/images/merch/colors/shared.webp"],
+      files: [{ file: "f", data: {} }],
+    });
+    expect(deleted).toEqual(["/images/merch/colors/lonely.webp"]);
+    await expect(
+      fs.stat(path.join(root, "public/images/merch/colors/shared.webp"))
+    ).resolves.toBeTruthy();
+    await fs.rm(root, { recursive: true, force: true });
   });
 });

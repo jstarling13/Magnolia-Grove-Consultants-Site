@@ -17,7 +17,7 @@
  *   tiers: [number, number][], imageAlt: string, colors: string[] }} CleanProduct
  * @typedef {{ espId: string, supplier: string, asi: string, productNo: string }} EspLink
  * @typedef {{ rating: number, reviews: number, key: string }} Vendor
- * @typedef {{ id: string, imgId: string, product: CleanProduct, link: EspLink, vendor: Vendor }} CatalogItem
+ * @typedef {{ id: string, imgId: string, product: CleanProduct, link: EspLink, vendor: Vendor, colorMap: Record<string, string | null> }} CatalogItem
  */
 
 // ---- Tunable rules (change here) -------------------------------------------
@@ -503,21 +503,114 @@ export function titleCaseColor(color) {
   );
 }
 
-export function cleanColors(colors) {
-  if (!Array.isArray(colors)) return [];
-  const seen = new Set();
-  const out = [];
+/** Trim, drop the "Show more/less" expander label, collapse spaces, Title Case a shouted name. */
+export function basicColorName(raw) {
+  return titleCaseColor(collapseWhitespace(str(raw).replace(/\s*show\s+(more|less)\s*$/i, "")));
+}
+
+/**
+ * Entries that are print/decoration options or ordering notes, not colors
+ * (compared case-insensitively against the whole cleaned name).
+ */
+export const NON_COLOR_PATTERNS = [
+  /^various$/i,
+  /^custom(?:\s+(?:shell\s+)?colou?rs?|\s*\(.*\))?$/i,
+  /^(?:any\s*\/\s*all|any|all)\s+colou?rs?$/i,
+  /^full\s+digital\s+printing$/i,
+  /^stock\s+colou?rs?$/i,
+  /^sublimated$/i,
+  /^standard$/i,
+  /^pms\s+colou?r\s+match(?:able)?$/i,
+  /^cmyk$/i,
+  /^full\s*imprint\s+avail(?:able)?$/i,
+  /^full\s*colou?r\s+avail(?:able)?$/i,
+];
+
+/** True when a (cleaned) color entry names no color. */
+export function isNonColor(name) {
+  return NON_COLOR_PATTERNS.some((re) => re.test(name));
+}
+
+/**
+ * Vendor spelling joins, applied by EXACT name only, each with its justification.
+ * Anything not clearly justified by the data stays as supplied (for example
+ * "Metblue" on the 26 oz sports bottle: its raw data gives no hint what it means).
+ */
+export const COLOR_ALIASES = [
+  {
+    from: "Pinetree",
+    to: "Pine Tree",
+    reason: "same RTIC colorway is spelled 'Pine Tree' on the sibling 30 oz tumbler",
+  },
+  {
+    from: "Terracotta Sunsert",
+    to: "Terracotta Sunset",
+    reason: "typo; the sibling Owala bottle lists the same colorway as 'Terracotta Sunset'",
+  },
+];
+const ALIAS_BY_NAME = new Map(COLOR_ALIASES.map((a) => [a.from.toLowerCase(), a.to]));
+
+/**
+ * Remove vendor numeric codes: "Black Heather - 104", "White -080", "Red 060",
+ * "Sky Blue - 470", "Navy-040", "Yellow - 108c", "Blue 286 C", "Maroon PMS 208",
+ * a leading "01 Black". Small trailing numbers that are part of the name
+ * ("Cool Grey 6", "Camo1") are kept.
+ */
+export function stripColorCode(name) {
+  let out = str(name);
+  out = out.replace(/^\d{2}\s+(?=[A-Za-z])/, "");
+  out = out.replace(/\s*\bPMS\s*#?\s*\d{2,5}\s*[cu]?$/i, "");
+  out = out.replace(/\s*[-–]\s*\d{2,4}\s?[cC]?$/, "");
+  out = out.replace(/\s+\d{3,4}(?:\s?[cC])?$/, "");
+  return collapseWhitespace(out.replace(/[\s\-–]+$/, ""));
+}
+
+/**
+ * One color entry -> its cleaned name, or null when it is not a color.
+ * Input is the basic-cleaned name; the result is stable (cleaning it again
+ * returns the same string).
+ */
+export function refineColorName(name) {
+  let out = str(name).replace(/\s*_\s*/g, "/");
+  out = stripColorCode(out);
+  out = out.replace(/^[\s\-–/]+|[\s\-–/]+$/g, "");
+  if (!/[A-Za-z]/.test(out)) return null;
+  if (isNonColor(out)) return null;
+  return ALIAS_BY_NAME.get(out.toLowerCase()) ?? out;
+}
+
+/**
+ * Cleans a raw color list and records what happened to each entry.
+ * `map` is keyed by the basic-cleaned name (what earlier imports stored, and so
+ * what colorImages*.json uses) and holds the final name, or null if dropped.
+ * Entries that collapse to the same name keep the first; later ones map to it.
+ * @returns {{ colors: string[], map: Record<string, string | null> }}
+ */
+export function colorNameMap(colors) {
+  const map = {};
+  const colorsOut = [];
+  if (!Array.isArray(colors)) return { colors: colorsOut, map };
+  const firstByKey = new Map();
   for (const raw of colors) {
-    const color = titleCaseColor(
-      collapseWhitespace(str(raw).replace(/\s*show\s+(more|less)\s*$/i, ""))
-    );
-    if (!color) continue;
-    const key = color.toLowerCase();
-    if (seen.has(key)) continue;
-    seen.add(key);
-    out.push(color);
+    const basic = basicColorName(raw);
+    if (!basic) continue;
+    const refined = refineColorName(basic);
+    if (!refined) {
+      map[basic] = null;
+      continue;
+    }
+    const key = refined.toLowerCase();
+    if (!firstByKey.has(key)) {
+      firstByKey.set(key, refined);
+      colorsOut.push(refined);
+    }
+    map[basic] = firstByKey.get(key);
   }
-  return out;
+  return { colors: colorsOut, map };
+}
+
+export function cleanColors(colors) {
+  return colorNameMap(colors).colors;
 }
 
 /**
@@ -879,7 +972,7 @@ export function isDuplicateName(nameA, nameB) {
  * { product, link, imgId, espId, vendor } (id not yet assigned; see buildCatalog).
  * The vendor gate runs first, before any other check.
  * @param {unknown} row
- * @returns {{ skip: string, product?: undefined, idName?: undefined } | { skip?: undefined, espId: string, imgId: string, idName: string, product: CleanProduct, link: EspLink, vendor: { key: string, rating: number, reviews: number } }}
+ * @returns {{ skip: string, product?: undefined, idName?: undefined, colorMap?: undefined } | { skip?: undefined, espId: string, imgId: string, idName: string, colorMap: Record<string, string | null>, product: CleanProduct, link: EspLink, vendor: { key: string, rating: number, reviews: number } }}
  */
 export function cleanRow(row) {
   if (!Array.isArray(row)) return { skip: "malformed-row" };
@@ -930,7 +1023,7 @@ export function cleanRow(row) {
   const imgId = collapseWhitespace(imgIdRaw);
   if (!/^\d+$/.test(imgId)) return { skip: "no-image" };
 
-  const colors = cleanColors(colorsRaw);
+  const { colors, map: colorMap } = colorNameMap(colorsRaw);
   const usa = Number(usaRaw) === 1 ? 1 : 0;
   const multiGrid = Number(multiGridRaw) === 1 ? 1 : 0;
 
@@ -949,6 +1042,7 @@ export function cleanRow(row) {
     imgId,
     vendor: { key: (asi || supplier).toLowerCase(), rating, reviews },
     idName,
+    colorMap,
     product: {
       name,
       category,
@@ -1200,7 +1294,14 @@ export function buildCatalog(rows, opts = {}) {
       continue;
     }
     taken.set(id, w.espId);
-    items.push({ id, imgId: w.imgId, product: w.product, link: w.link, vendor: w.vendor });
+    items.push({
+      id,
+      imgId: w.imgId,
+      product: w.product,
+      link: w.link,
+      vendor: w.vendor,
+      colorMap: w.colorMap,
+    });
   }
 
   return {
@@ -1394,42 +1495,118 @@ export function findLostProtectedIds({ previousIds, selectedIds, protectedIds })
 }
 
 /**
- * Rename colorImages keys that cleanup changed ("BLACK" -> "Black") so photos
- * keep mapping. Only keys move; values are never touched.
- * @param {Record<string, Record<string, string>>} colorImages
- * @param {{ id: string, colors: string[] }[]} records imported records
- * @returns {{ colorImages: Record<string, Record<string, string>>, renamed: number, unresolved: string[] }}
+ * Rewrite per-color photo KEYS after color-name cleanup so photos keep mapping.
+ * Only keys move or disappear; photo paths (values) are never edited.
+ *  - a key that already equals a final color name is kept as is
+ *  - a key found in the product's colorMap becomes its cleaned name, or is removed
+ *    when that color was dropped as a non-color
+ *  - two keys that collapse to one name keep the photo of the FIRST color in the
+ *    product's color order; the other key is removed
+ *  - a key that is neither is reported as unresolved (the caller must stop)
+ * Curated products (not in `items`) are never touched.
+ * @param {{ file: string, data: Record<string, Record<string, string>> }[]} files in load order
+ * @param {{ id: string, colors?: string[], colorMap: Record<string, string | null> }[]} items
+ * @returns {{
+ *   files: { file: string, data: Record<string, Record<string, string>> }[],
+ *   moves: { id: string, from: string, to: string | null, reason: string }[],
+ *   renamed: number, dropped: number, merged: number,
+ *   removedPaths: string[], unresolved: string[]
+ * }}
  */
-export function renameColorImageKeys(colorImages, records) {
-  const byId = new Map(records.map((r) => [r.id, r.colors]));
-  const next = {};
-  let renamed = 0;
+export function remapColorImageKeys(files, items) {
+  const byId = new Map(items.map((i) => [i.id, i]));
+  const moves = [];
   const unresolved = [];
-  for (const [id, byColor] of Object.entries(colorImages)) {
-    const colors = byId.get(id);
-    if (!colors) {
-      next[id] = byColor; // curated product: not ours to touch
-      continue;
-    }
-    const valid = new Set(colors);
-    const out = {};
-    for (const [color, src] of Object.entries(byColor)) {
-      if (valid.has(color)) {
-        out[color] = src;
+  const removedPaths = [];
+  let renamed = 0;
+  let dropped = 0;
+  let merged = 0;
+  const taken = new Map(); // id -> Set of final keys already kept (earlier files / earlier colors)
+  const out = files.map(({ file, data }) => {
+    const next = {};
+    for (const [id, byColor] of Object.entries(data)) {
+      const item = byId.get(id);
+      if (!item) {
+        next[id] = byColor;
         continue;
       }
-      const candidate = cleanColors([color])[0];
-      if (candidate && valid.has(candidate) && !(candidate in byColor) && !(candidate in out)) {
-        out[candidate] = src;
-        renamed++;
-      } else {
-        unresolved.push(`${id}: "${color}"`);
-        out[color] = src;
+      const final = new Set(item.colors ?? []);
+      const order = Object.keys(item.colorMap);
+      const position = (key) => {
+        const i = order.indexOf(key);
+        return i < 0 ? Number.MAX_SAFE_INTEGER : i;
+      };
+      const entries = Object.entries(byColor)
+        .map(([key, src], index) => ({ key, src, index }))
+        .sort((x, y) => position(x.key) - position(y.key) || x.index - y.index);
+      if (!taken.has(id)) taken.set(id, new Set());
+      const seen = taken.get(id);
+      const kept = {};
+      for (const { key, src } of entries) {
+        let target;
+        if (final.has(key)) target = key;
+        else if (key in item.colorMap) target = item.colorMap[key];
+        else {
+          unresolved.push(`${id}: "${key}"`);
+          kept[key] = src;
+          continue;
+        }
+        if (target === null) {
+          dropped++;
+          removedPaths.push(src);
+          moves.push({ id, from: key, to: null, reason: "not a color" });
+          continue;
+        }
+        if (target !== key && (seen.has(target) || target in kept)) {
+          merged++;
+          removedPaths.push(src);
+          moves.push({ id, from: key, to: null, reason: `merged into "${target}"` });
+          continue;
+        }
+        if (target !== key) {
+          renamed++;
+          moves.push({ id, from: key, to: target, reason: "renamed" });
+        }
+        kept[target] = src;
+        seen.add(target);
       }
+      // restore the file's original key order for keys that kept their position
+      const original = Object.keys(byColor).map((k) => (k in kept ? k : item.colorMap[k]));
+      const ordered = {};
+      for (const k of original) if (k && k in kept && !(k in ordered)) ordered[k] = kept[k];
+      for (const k of Object.keys(kept)) if (!(k in ordered)) ordered[k] = kept[k];
+      if (Object.keys(ordered).length > 0) next[id] = ordered;
     }
-    next[id] = out;
+    return { file, data: next };
+  });
+  return { files: out, moves, renamed, dropped, merged, removedPaths, unresolved };
+}
+
+/**
+ * Apply key moves to the photo-evidence fixture (entries with product + color).
+ * @param {{ product: string, color: string }[]} samples
+ * @param {{ id: string, from: string, to: string | null }[]} moves
+ */
+export function remapPhotoSamples(samples, moves) {
+  const byKey = new Map(moves.map((m) => [`${m.id}\u0000${m.from}`, m.to]));
+  const seen = new Set();
+  const out = [];
+  let changed = 0;
+  for (const sample of samples) {
+    const k = `${sample.product}\u0000${sample.color}`;
+    let color = sample.color;
+    if (byKey.has(k)) {
+      const to = byKey.get(k);
+      changed++;
+      if (to === null) continue;
+      color = to;
+    }
+    const finalKey = `${sample.product}\u0000${color}`;
+    if (seen.has(finalKey)) continue;
+    seen.add(finalKey);
+    out.push(color === sample.color ? sample : { ...sample, color });
   }
-  return { colorImages: next, renamed, unresolved };
+  return { samples: out, changed };
 }
 
 /**
@@ -1447,6 +1624,7 @@ export function toPublicRecord({ id, product }) {
     tiers: product.tiers,
     image: `/images/merch/${id}.webp`,
     imageAlt: product.imageAlt,
-    colors: product.colors,
+    // a product with no real color options has no `colors` key at all (no swatches, no color step)
+    ...(product.colors.length > 0 ? { colors: product.colors } : {}),
   };
 }

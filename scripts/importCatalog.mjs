@@ -30,7 +30,8 @@ import {
   parseCategoryOverrides,
   parseKeepApart,
   parseOverrides,
-  renameColorImageKeys,
+  remapColorImageKeys,
+  remapPhotoSamples,
   toPublicRecord,
 } from "./lib/catalogClean.mjs";
 import { DOWNLOAD_CONCURRENCY, ensureImage, mapConcurrent } from "./lib/catalogImages.mjs";
@@ -217,6 +218,45 @@ export async function removeOrphanImages({ imagesDir, previousIds, selectedIds }
   return removed;
 }
 
+/**
+ * Delete a color photo file ONLY if nothing references its path any more: not the
+ * rewritten colorImages data, not any source/test/script text, not importedProducts.
+ */
+export async function deleteUnreferencedPhotos({ root, paths, files }) {
+  const wanted = [...new Set(paths)].filter((p) => p.startsWith("/images/"));
+  if (wanted.length === 0) return [];
+  const corpus = [JSON.stringify(files.map((f) => f.data))];
+  const skip = new Set(["node_modules", ".next", ".git", "public", "out"]);
+  const walk = async (dir) => {
+    for (const entry of await fs.readdir(dir, { withFileTypes: true })) {
+      if (skip.has(entry.name)) continue;
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) await walk(full);
+      else if (
+        /\.(?:[cm]?[jt]sx?|json|md)$/.test(entry.name) &&
+        !/^colorImages(?:\.extra\d)?\.json$/.test(entry.name)
+      ) {
+        corpus.push(await fs.readFile(full, "utf8"));
+      }
+    }
+  };
+  for (const dir of ["src", "__tests__", "scripts"]) {
+    await walk(path.join(root, dir)).catch(() => {});
+  }
+  const text = corpus.join("\n");
+  const deleted = [];
+  for (const p of wanted) {
+    if (text.includes(p)) continue;
+    try {
+      await fs.unlink(path.join(root, "public", p));
+      deleted.push(p);
+    } catch {
+      // already gone
+    }
+  }
+  return deleted;
+}
+
 export async function runImport(args) {
   const root = args.root;
   const imagesDir = path.join(root, "public/images/merch");
@@ -225,7 +265,13 @@ export async function runImport(args) {
   const manifestFile = path.join(root, MANIFEST_REL);
   const reportFile = path.join(root, REPORT_REL);
   const overridesFile = path.join(root, OVERRIDES_REL);
-  const colorImagesFile = path.join(root, "src/config/colorImages.json");
+  const colorImageFiles = [
+    "colorImages.json",
+    "colorImages.extra1.json",
+    "colorImages.extra2.json",
+    "colorImages.extra3.json",
+  ].map((name) => path.join(root, "src/config", name));
+  const photoSamplesFile = path.join(root, "__tests__/fixtures/colorPhotoSamples.json");
   const curatedLinksFile = path.join(root, "src/lib/espLinks.curated.json");
 
   const curated = readCuratedProducts(
@@ -358,12 +404,15 @@ export async function runImport(args) {
 
   // ---- safety: products with hand-sourced data must keep their id ------------------
   const previousProducts = await readJsonIfExists(productsFile, []);
-  const colorImages = await readJsonIfExists(colorImagesFile, {});
+  const colorImageData = await Promise.all(
+    colorImageFiles.map(async (file) => ({ file, data: await readJsonIfExists(file, {}) }))
+  );
+  const protectedPhotoIds = colorImageData.flatMap(({ data }) => Object.keys(data));
   const curatedLinks = await readJsonIfExists(curatedLinksFile, {});
   const lostAll = findLostProtectedIds({
     previousIds: previousProducts.map((p) => p.id),
     selectedIds: items.map((i) => i.id),
-    protectedIds: [...Object.keys(colorImages), ...Object.keys(curatedLinks)],
+    protectedIds: [...protectedPhotoIds, ...Object.keys(curatedLinks)],
   });
   // A product dropped on purpose by a manual override may leave behind an unused
   // curated ESP link entry; that is reported, not fatal. Color photos always are.
@@ -371,7 +420,7 @@ export async function runImport(args) {
   const overridden = new Set(overrides.map((o) => o.espId));
   const lost = [];
   for (const id of lostAll) {
-    if (overridden.has(String(previousLinks[id]?.espId)) && !(id in colorImages)) {
+    if (overridden.has(String(previousLinks[id]?.espId)) && !protectedPhotoIds.includes(id)) {
       warnings.push(
         `override dropped ${id}: its entry in src/lib/espLinks.curated.json is now unused (owned by esp-links; safe to delete)`
       );
@@ -385,21 +434,39 @@ export async function runImport(args) {
         `would lose their id with the current raw data: ${lost.join(", ")}`
     );
   }
-  const renamedKeys = renameColorImageKeys(colorImages, publicRecords);
-  if (renamedKeys.unresolved.length > 0) {
+  const remapped = remapColorImageKeys(
+    colorImageData,
+    items.map((i) => ({ id: i.id, colors: i.product.colors, colorMap: i.colorMap }))
+  );
+  if (remapped.unresolved.length > 0) {
     throw new Error(
-      `STOPPED, nothing written: color photo keys that no longer match any color: ${renamedKeys.unresolved.join("; ")}`
+      `STOPPED, nothing written: color photo keys that no longer match any color: ${remapped.unresolved.join("; ")}`
     );
   }
 
   let orphansRemoved = [];
+  let unreferencedPhotos = [];
   if (!args.dryRun) {
-    if (renamedKeys.renamed > 0) {
-      await writeIfChanged(
-        colorImagesFile,
-        await formatJson(root, JSON.stringify(renamedKeys.colorImages))
-      );
+    for (const { file, data } of remapped.files) {
+      const before = colorImageData.find((f) => f.file === file).data;
+      if (JSON.stringify(before) !== JSON.stringify(data)) {
+        await writeIfChanged(file, await formatJson(root, JSON.stringify(data)));
+      }
     }
+    const samples = await readJsonIfExists(photoSamplesFile, null);
+    if (Array.isArray(samples)) {
+      const { samples: nextSamples, changed } = remapPhotoSamples(samples, remapped.moves);
+      if (changed > 0) {
+        // same layout as scripts/colorCoverage.mjs --sample: one sample per line
+        const lines = nextSamples.map((row) => "  " + JSON.stringify(row));
+        await writeIfChanged(photoSamplesFile, "[\n" + lines.join(",\n") + "\n]\n");
+      }
+    }
+    unreferencedPhotos = await deleteUnreferencedPhotos({
+      root,
+      paths: remapped.removedPaths,
+      files: remapped.files,
+    });
     const manifest = await readJsonIfExists(manifestFile, { generated: [] });
     await writeIfChanged(productsFile, await formatJson(root, JSON.stringify(publicRecords)));
     await writeIfChanged(linksFile, await formatJson(root, JSON.stringify(links)));
@@ -486,7 +553,11 @@ export async function runImport(args) {
     orphansRemoved,
     reportFile,
     warnings,
-    colorKeysRenamed: renamedKeys.renamed,
+    colorKeysRenamed: remapped.renamed,
+    colorKeysDropped: remapped.dropped,
+    colorKeysMerged: remapped.merged,
+    colorPhotosDeleted: unreferencedPhotos,
+    colorMoves: remapped.moves,
     categoryMoved: categoryMoved.length,
   };
 }
@@ -525,6 +596,9 @@ function printSummary(args, s) {
   line("image MB added", s.imageMbAdded.toFixed(2));
   line("orphan images removed", s.orphansRemoved.length);
   line("color photo keys renamed", s.colorKeysRenamed);
+  line("color photo keys dropped (non-color)", s.colorKeysDropped);
+  line("color photo keys merged (same name)", s.colorKeysMerged);
+  line("color photo files deleted (unreferenced)", s.colorPhotosDeleted.length);
   line("dedupe report", s.reportFile);
   for (const w of s.warnings) console.warn(`WARNING: ${w}`);
   if (args.dryRun) console.log("  (dry run: no JSON files written)");
