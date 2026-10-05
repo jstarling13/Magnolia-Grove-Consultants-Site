@@ -220,5 +220,17 @@
     "supplier": "Charles River Apparel",
     "asi": "asi/44620",
     "productNo": "1537"
+  },
+  "mens-color-blocked-wicking-polo-02809": {
+    "espId": "552202809",
+    "supplier": "Charles River Apparel",
+    "asi": "asi/44620",
+    "productNo": "3810"
+  },
+  "portsmouth-jacket-14852": {
+    "espId": "4714852",
+    "supplier": "Charles River Apparel",
+    "asi": "asi/44620",
+    "productNo": "9720"
   }
 }
