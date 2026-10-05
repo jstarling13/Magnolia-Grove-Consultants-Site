@@ -232,5 +232,29 @@
     "supplier": "Charles River Apparel",
     "asi": "asi/44620",
     "productNo": "2517"
+  },
+  "micro-mag-bluetooth-speaker": {
+    "espId": "556195449",
+    "supplier": "PCNA",
+    "asi": "asi/66887",
+    "productNo": "7195-78"
+  },
+  "wireless-charging-pad": {
+    "espId": "551847799",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "2882"
+  },
+  "magsafe-power-bank-10000mah": {
+    "espId": "555265580",
+    "supplier": "Hebe Creative Corporation",
+    "asi": "asi/60277",
+    "productNo": "HB7183"
+  },
+  "classic-swivel-usb-drive": {
+    "espId": "6432377",
+    "supplier": "Athena Promo",
+    "asi": "asi/37218",
+    "productNo": "AP201"
   }
 }
