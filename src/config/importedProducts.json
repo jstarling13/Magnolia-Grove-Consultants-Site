@@ -3063,6 +3063,23 @@
     "colors": ["White"]
   },
   {
+    "id": "waterhog-impressions-hd-floor-mat-4x-6-64425",
+    "name": "WaterHog Impressions HD Floor Mat 4'x 6'",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "4' x 6' slip-resistant floor mat with reinforced rubber nubs, beveled edges and digitally printed graphics/text. Made in USA. Priced at 1 unit.",
+    "tiers": [
+      [1, 443.92],
+      [10, 339.7],
+      [15, 303.05],
+      [20, 294.22],
+      [25, 285.65]
+    ],
+    "image": "/images/merch/waterhog-impressions-hd-floor-mat-4x-6-64425.webp",
+    "imageAlt": "WaterHog Impressions HD Floor Mat 4'x 6'",
+    "colors": ["White"]
+  },
+  {
     "id": "digiprint-hd-floor-mat-2x3-64266",
     "name": "DigiPrint HD Floor Mat 2'x3'",
     "category": "Home & Decor",

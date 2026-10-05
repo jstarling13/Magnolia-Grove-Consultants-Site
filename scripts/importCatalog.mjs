@@ -22,6 +22,8 @@ import {
   buildCatalog,
   checkOverrides,
   findLostProtectedIds,
+  checkKeepApart,
+  parseKeepApart,
   parseOverrides,
   renameColorImageKeys,
   toPublicRecord,
@@ -129,7 +131,12 @@ async function readJsonIfExists(file, fallback) {
 }
 
 /** Human-readable report of every duplicate cluster and curated duplicate. */
-export function renderDedupeReport({ clusters, curatedDuplicates, manualOverrides = [] }) {
+export function renderDedupeReport({
+  clusters,
+  curatedDuplicates,
+  manualOverrides = [],
+  keepApart = [],
+}) {
   const who = (m) =>
     `${m.name} -- ${m.supplier || m.asi || "unknown vendor"} (rating ${m.rating}, ${m.reviews} reviews, score ${m.score})`;
   const lines = ["# Catalog dedupe report", ""];
@@ -144,6 +151,14 @@ export function renderDedupeReport({ clusters, curatedDuplicates, manualOverride
   for (const o of manualOverrides) {
     lines.push(`- dropped: ${who(o.dropped)}`);
     lines.push(`  reason: ${o.reason}`);
+  }
+  lines.push("");
+  lines.push("## Kept apart on purpose (keepApart)", "");
+  for (const g of keepApart) {
+    lines.push(
+      `- espIds ${g.espIds.join(", ")} (in catalog: ${(g.inCatalog ?? []).join(", ") || "none"})`
+    );
+    lines.push(`  reason: ${g.reason}`);
   }
   lines.push("");
   lines.push("## Duplicate clusters", "");
@@ -198,8 +213,10 @@ export async function runImport(args) {
     await fs.readFile(path.join(REPO_ROOT, "src/config/merchandiseConfig.ts"), "utf8")
   );
   const { rows, files, badFiles, done } = await readRawRows(args.raw);
-  const overrides = parseOverrides(await readJsonIfExists(overridesFile, { dropEspIds: [] }));
-  const buildOpts = { curated: curated.products, dropEspIds: overrides };
+  const overridesJson = await readJsonIfExists(overridesFile, {});
+  const overrides = parseOverrides(overridesJson);
+  const keepApart = parseKeepApart(overridesJson);
+  const buildOpts = { curated: curated.products, dropEspIds: overrides, keepApart };
 
   // Select rows; fetch images for the winners; if a winner's image cannot be
   // fetched, reject it and re-select so the cluster's runner-up is used.
@@ -245,6 +262,21 @@ export async function runImport(args) {
     selectedEspIds: items.map((i) => i.link.espId),
     curatedIds: curated.ids,
   });
+
+  const rawEspIds = rows.map((r) => (Array.isArray(r) ? String(r[0]).trim() : ""));
+  warnings.push(...checkKeepApart({ keepApart, rawEspIds }));
+  const keptEspIds = new Set(items.map((i) => i.link.espId));
+  const keepApartStatus = keepApart.map((g) => ({
+    ...g,
+    inCatalog: g.espIds.filter((id) => keptEspIds.has(id)),
+  }));
+  for (const g of keepApartStatus) {
+    if (g.inCatalog.length < g.espIds.length) {
+      warnings.push(
+        `keepApart group [${g.espIds.join(", ")}]: only ${g.inCatalog.length} of ${g.espIds.length} are in the catalog (others dropped by another rule)`
+      );
+    }
+  }
 
   // ---- safety: products with hand-sourced data must keep their id ------------------
   const previousProducts = await readJsonIfExists(productsFile, []);
@@ -315,7 +347,7 @@ export async function runImport(args) {
   await fs.writeFile(path.join(path.dirname(reportFile), ".gitignore"), "*\n");
   await fs.writeFile(
     reportFile,
-    renderDedupeReport({ clusters, curatedDuplicates, manualOverrides })
+    renderDedupeReport({ clusters, curatedDuplicates, manualOverrides, keepApart: keepApartStatus })
   );
   if (args.report) {
     await fs.writeFile(

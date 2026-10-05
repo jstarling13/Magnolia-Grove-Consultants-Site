@@ -869,7 +869,8 @@ function memberInfo(c) {
  *   curated?: { id: string, name: string, category?: string }[],
  *   curatedNames?: string[], curatedIds?: string[],
  *   rejectedEspIds?: Iterable<string>,
- *   dropEspIds?: { espId: string, reason: string }[]
+ *   dropEspIds?: { espId: string, reason: string }[],
+ *   keepApart?: { espIds: string[], reason?: string }[]
  * }} [opts] `rejectedEspIds`: rows whose image could not be fetched; excluded so a
  *   runner-up from the same cluster is selected instead.
  * @returns {{
@@ -952,10 +953,33 @@ export function buildCatalog(rows, opts = {}) {
     }
     return i;
   };
+  // keepApart: espIds that must never share a cluster, whatever route links them
+  const apart = new Map(); // espId -> Set of espIds it must stay apart from
+  for (const group of opts.keepApart ?? []) {
+    const ids = (group.espIds ?? []).map((id) => String(id).trim());
+    for (const a of ids) {
+      for (const b of ids) {
+        if (a === b) continue;
+        if (!apart.has(a)) apart.set(a, new Set());
+        apart.get(a).add(b);
+      }
+    }
+  }
+  const listed = new Map(); // root -> espIds in that cluster that appear in keepApart
+  for (const c of candidates) if (apart.has(c.espId)) listed.set(c.idx, [c.espId]);
   const union = (a, b) => {
     const ra = find(a);
     const rb = find(b);
-    if (ra !== rb) parent[Math.max(ra, rb)] = Math.min(ra, rb);
+    if (ra === rb) return;
+    const la = listed.get(ra) ?? [];
+    const lb = listed.get(rb) ?? [];
+    for (const x of la) for (const y of lb) if (apart.get(x)?.has(y)) return; // forbidden
+    const [lo, hi] = ra < rb ? [ra, rb] : [rb, ra];
+    parent[hi] = lo;
+    if (la.length + lb.length > 0) {
+      listed.set(lo, [...la, ...lb]);
+      listed.delete(hi);
+    }
   };
   const byEsp = new Map();
   const bySupplierNo = new Map();
@@ -1053,6 +1077,43 @@ export function parseOverrides(json) {
     if (entry.keepCuratedId) out.keepCuratedId = collapseWhitespace(entry.keepCuratedId);
     return out;
   });
+}
+
+/**
+ * Validate the keepApart section of import-overrides.json: each group needs at
+ * least two distinct espIds and a reason.
+ * @returns {{ espIds: string[], reason: string }[]}
+ */
+export function parseKeepApart(json) {
+  const list = json?.keepApart ?? [];
+  if (!Array.isArray(list)) throw new Error("import-overrides.json: keepApart must be an array");
+  return list.map((entry, i) => {
+    const espIds = [...new Set((entry?.espIds ?? []).map((id) => collapseWhitespace(id)))].filter(
+      Boolean
+    );
+    const reason = collapseWhitespace(entry?.reason);
+    if (espIds.length < 2) {
+      throw new Error(`import-overrides.json: keepApart[${i}] needs at least two distinct espIds`);
+    }
+    if (!reason) throw new Error(`import-overrides.json: keepApart[${i}] has no reason`);
+    return { espIds, reason };
+  });
+}
+
+/** Warn about keepApart espIds that appear in no raw file (stale entries). */
+export function checkKeepApart({ keepApart, rawEspIds }) {
+  const raw = new Set(rawEspIds);
+  const warnings = [];
+  for (const group of keepApart) {
+    for (const id of group.espIds) {
+      if (!raw.has(id)) {
+        warnings.push(
+          `stale keepApart: espId ${id} is not present in any raw file (${group.reason})`
+        );
+      }
+    }
+  }
+  return warnings;
 }
 
 /**
