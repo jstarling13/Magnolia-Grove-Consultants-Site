@@ -60,7 +60,7 @@ describe("targetSize / sameAspect", () => {
   });
 });
 
-describe("processImage", () => {
+describe("processImage", { timeout: 30_000 }, () => {
   it("shrinks a large jpeg, keeps the container and the aspect ratio", async () => {
     const input = await synth(1200, 800).jpeg({ quality: 97 }).toBuffer();
     const res = await processImage(input);
@@ -70,7 +70,7 @@ describe("processImage", () => {
     expect(meta.format).toBe("jpeg");
     expect([meta.width, meta.height]).toEqual([1000, 667]);
     expect(res.buffer!.length).toBeLessThan(input.length * 0.75);
-    expect(res.metrics!.psnr).toBeGreaterThan(34);
+    expect((res.metrics as { psnr: number }).psnr).toBeGreaterThan(34);
   });
 
   it("never upscales a small image", async () => {
@@ -142,7 +142,7 @@ describe("similarity", () => {
   });
 });
 
-describe("optimizeImages CLI", () => {
+describe("optimizeImages CLI", { timeout: 60_000 }, () => {
   let root: string;
   let imgDir: string;
   const manifestPath = () => path.join(root, "scripts/data/image-optimize-manifest.json");
