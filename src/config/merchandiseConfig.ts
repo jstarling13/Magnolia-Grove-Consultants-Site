@@ -31,6 +31,7 @@ import colorImagesExtra2 from "./colorImages.extra2.json";
 import colorImagesExtra3 from "./colorImages.extra3.json";
 import importedProductsJson from "./importedProducts.json";
 import hiddenProductsJson from "./hiddenProducts.json";
+import imageOverridesJson from "./imageOverrides.json";
 
 export const MARKUP_RATE = 0.05;
 
@@ -1441,9 +1442,15 @@ const colorImageOverrides = mergeColorImageMaps(
   colorImagesExtra3 as ColorImageMap
 );
 
+// Replacement main photos (productId -> /images/merch/alt/...), used when the supplier's
+// default photo shows another company's logo or is otherwise unsuitable.
+const imageOverrides = imageOverridesJson as Record<string, string>;
+
 function withColorImages(product: MerchProduct): MerchProduct {
   const extra = colorImageOverrides[product.id];
-  return extra ? { ...product, colorImages: { ...product.colorImages, ...extra } } : product;
+  const image = imageOverrides[product.id] ?? product.image;
+  const withImage = image === product.image ? product : { ...product, image };
+  return extra ? { ...withImage, colorImages: { ...withImage.colorImages, ...extra } } : withImage;
 }
 
 /**
