@@ -11,6 +11,7 @@ import {
   sendMerchPaymentLink,
 } from "@/app/admin/actions";
 import { MERCH_ORDER_STATUSES, MERCH_ORDER_STATUS_LABELS } from "@/lib/merchOrders";
+import { buildBackendOrderSheet } from "@/lib/merchBackendSheet";
 
 export interface SubmissionRow {
   id: number;
@@ -55,6 +56,11 @@ interface CartLineItemDTO {
   quantity: number;
   unitPrice: number;
   lineTotal: number;
+  // Internal ESP+ fields stamped server-side; absent on orders stored earlier.
+  espUrl?: string;
+  espKind?: "product" | "search";
+  supplier?: string;
+  productNo?: string;
 }
 
 function isCartLineItems(value: unknown): value is CartLineItemDTO[] {
@@ -268,6 +274,71 @@ function MerchOrderStatusControl({
       </select>
       {isPending && <span className="ml-2 text-xs text-onyx/60">Saving…</span>}
       {error && <p className="mt-2 text-xs text-red-500">{error}</p>}
+    </div>
+  );
+}
+
+/** Plain-text summary the business uses to place the supplier order in ESP+. Admin-only. */
+function BackendOrderSheet({
+  submissionId,
+  data,
+  items,
+}: {
+  submissionId: number;
+  data: Record<string, unknown>;
+  items: CartLineItemDTO[];
+}) {
+  const [copied, setCopied] = useState(false);
+  const [copyFailed, setCopyFailed] = useState(false);
+
+  const sheet = buildBackendOrderSheet(
+    {
+      orderId: submissionId,
+      customerName: [data.firstName, data.lastName].filter(Boolean).join(" ") || undefined,
+      notes: typeof data.notes === "string" ? data.notes : undefined,
+      quotedTotal: typeof data.quotedTotal === "number" ? data.quotedTotal : undefined,
+    },
+    items
+  );
+
+  async function handleCopy() {
+    setCopied(false);
+    setCopyFailed(false);
+    try {
+      await navigator.clipboard.writeText(sheet);
+      setCopied(true);
+    } catch {
+      setCopyFailed(true);
+    }
+  }
+
+  return (
+    <div className="mt-4 rounded-md border border-gold/15 bg-cream/60 p-3">
+      <div className="flex items-center justify-between gap-3">
+        <p className="text-xs font-semibold uppercase tracking-wide text-onyx/50">
+          Backend order sheet
+        </p>
+        <button
+          type="button"
+          onClick={handleCopy}
+          className="rounded-md border border-gold/25 px-3 py-1 text-xs text-onyx/80 transition-colors hover:border-gold/50 hover:text-onyx"
+        >
+          {copied ? "Copied" : "Copy"}
+        </button>
+      </div>
+      <textarea
+        readOnly
+        aria-label="Backend order sheet"
+        value={sheet}
+        rows={Math.min(14, sheet.split("\n").length)}
+        onFocus={(event) => event.currentTarget.select()}
+        className="mt-2 w-full resize-y rounded-md border border-gold/25 bg-cream px-3 py-2 font-mono text-xs text-onyx focus:outline-none focus:ring-2 focus:ring-gold/60"
+      />
+      {copyFailed && (
+        <p className="mt-1 text-xs text-red-600">
+          Couldn&apos;t copy automatically. Select the text above and copy it manually.
+        </p>
+      )}
     </div>
   );
 }
@@ -545,16 +616,41 @@ export default function Dashboard({
                       </p>
                       <ul className="mt-2 space-y-1.5">
                         {row.data.items.map((item) => (
-                          <li
-                            key={item.productId}
-                            className="flex justify-between text-sm text-onyx"
-                          >
-                            <span>
-                              {item.name} × {item.quantity}
-                            </span>
-                            <span className="text-onyx/70">
-                              ${item.unitPrice.toFixed(2)}/ea — ${item.lineTotal.toFixed(2)}
-                            </span>
+                          <li key={item.productId} className="text-sm text-onyx">
+                            <div className="flex justify-between">
+                              <span>
+                                {item.name} × {item.quantity}
+                              </span>
+                              <span className="text-onyx/70">
+                                ${item.unitPrice.toFixed(2)}/ea — ${item.lineTotal.toFixed(2)}
+                              </span>
+                            </div>
+                            {(item.espUrl || item.supplier || item.productNo) && (
+                              <p className="mt-0.5 text-xs text-onyx/60">
+                                {item.espUrl && (
+                                  <a
+                                    href={item.espUrl}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="font-medium text-gold-dark underline underline-offset-2 hover:text-onyx"
+                                  >
+                                    Open in ESP+
+                                  </a>
+                                )}
+                                {item.espUrl && item.espKind === "search" && " (search link)"}
+                                {item.supplier && (
+                                  <span>
+                                    {item.espUrl ? " · " : ""}Supplier: {item.supplier}
+                                  </span>
+                                )}
+                                {item.productNo && (
+                                  <span>
+                                    {item.espUrl || item.supplier ? " · " : ""}Product no.{" "}
+                                    {item.productNo}
+                                  </span>
+                                )}
+                              </p>
+                            )}
                           </li>
                         ))}
                       </ul>
@@ -564,6 +660,14 @@ export default function Dashboard({
                         </p>
                       )}
                     </div>
+                  )}
+
+                  {row.type === "merch_order" && isCartLineItems(row.data.items) && (
+                    <BackendOrderSheet
+                      submissionId={row.id}
+                      data={row.data}
+                      items={row.data.items}
+                    />
                   )}
 
                   {row.type === "merch_order" && (

@@ -45,6 +45,16 @@ export interface PricedCartLineItem {
   quantity: number;
   unitPrice: number;
   lineTotal: number;
+  /**
+   * Internal, backend-only supplier lookup fields, stamped server-side from
+   * src/lib/espLinks.ts. Optional so orders stored before this existed still
+   * type-check. Never render these to customers or trust them from the client.
+   */
+  espUrl?: string;
+  espKind?: "product" | "search";
+  supplier?: string;
+  asi?: string;
+  productNo?: string;
 }
 
 /**
