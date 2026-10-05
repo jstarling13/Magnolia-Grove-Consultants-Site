@@ -246,3 +246,32 @@ describe("vendor two-tone codes", () => {
     expect(swatchInfo("Jersey-Black")).toEqual(swatchInfo("Black"));
   });
 });
+
+describe("second-pass catalog names (bags, drinkware, event, outdoor)", () => {
+  it.each([
+    ["Eggplant", "#614051"],
+    ["Cerulean", "#2a7fba"],
+    ["Marigold", "#eaa221"],
+    ["Cambridge Blue", "#a3c1ad"],
+    ["Cool Grey 6", "#a7a8aa"],
+    ["Cool Grey 8", "#888b8d"],
+    ["Warm Grey 1", "#d7d2cb"],
+  ])("%s resolves to %s", (name, hex) => {
+    expect(swatchInfo(name)).toEqual({ kind: "solid", colors: [hex] });
+  });
+
+  it("keeps Pantone numbers that change the shade apart", () => {
+    expect(swatchColor("Cool Grey 6")).not.toBe(swatchColor("Cool Grey 8"));
+  });
+
+  it("treats print-option labels as multi and sport names as unknown", () => {
+    for (const name of ["CMYK", "All Colors", "PMS Color Match", "Fullcolor Avail"]) {
+      expect(swatchInfo(name).kind, name).toBe("multi");
+    }
+    expect(swatchInfo("Soccer").kind).toBe("unknown");
+  });
+
+  it("draws 'Camo1' as camouflage", () => {
+    expect(swatchInfo("Camo1")).toEqual(swatchInfo("Camouflage"));
+  });
+});
