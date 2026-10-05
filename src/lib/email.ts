@@ -31,8 +31,24 @@ function emailShell(title: string, bodyHtml: string): string {
   </div>`;
 }
 
+/**
+ * One labelled line of an email body. `value` is inserted as HTML, so callers
+ * must pass already-escaped content (see escapeHtml / multiline). Anything that
+ * originates from a form submission should go through textRow() or
+ * multilineRow() instead, which escape for you.
+ */
 function row(label: string, value: string): string {
   return `<p style="margin:0 0 12px;color:#e5e5e5;font-size:14px;"><strong style="color:${MUTED};text-transform:uppercase;font-size:11px;letter-spacing:0.05em;display:block;margin-bottom:2px;">${label}</strong>${value}</p>`;
+}
+
+/** row() for plain text from an untrusted source (escapes it). */
+function textRow(label: string, text: string): string {
+  return row(label, escapeHtml(text));
+}
+
+/** row() for a multi-line untrusted message: escapes, then keeps line breaks. */
+function multilineRow(label: string, text: string): string {
+  return row(label, multiline(text));
 }
 
 interface SendResult {
@@ -51,11 +67,11 @@ export async function sendLeadNotification(payload: LeadFormPayload): Promise<Se
   const html = emailShell(
     "New Strategy Call Request",
     [
-      row("Name", `${payload.firstName} ${payload.lastName}`),
-      row("Email", payload.email),
-      row("Phone", payload.phone),
-      row("Service", payload.service),
-      row("Message", payload.message.replace(/\n/g, "<br/>")),
+      textRow("Name", `${payload.firstName} ${payload.lastName}`),
+      textRow("Email", payload.email),
+      textRow("Phone", payload.phone),
+      textRow("Service", payload.service),
+      multilineRow("Message", payload.message),
     ].join("")
   );
 
@@ -63,7 +79,7 @@ export async function sendLeadNotification(payload: LeadFormPayload): Promise<Se
     from: process.env.CONTACT_EMAIL_FROM!,
     to: process.env.CONTACT_EMAIL_TO || "ben@magnoliagrovega.com",
     replyTo: payload.email,
-    subject: `New Strategy Call Request — ${payload.firstName} ${payload.lastName}`,
+    subject: oneLine(`New Strategy Call Request — ${payload.firstName} ${payload.lastName}`),
     html,
   });
 
@@ -80,7 +96,7 @@ export async function sendLeadAutoResponder(payload: LeadFormPayload): Promise<S
 
   const html = emailShell(
     "Strategy Request Received",
-    `<p style="color:#e5e5e5;font-size:14px;line-height:1.6;">Hi ${payload.firstName},</p>
+    `<p style="color:#e5e5e5;font-size:14px;line-height:1.6;">Hi ${escapeHtml(payload.firstName)},</p>
      <p style="color:#e5e5e5;font-size:14px;line-height:1.6;">Strategy request received. A senior advisor will contact you within 12 hours under strict confidentiality.</p>`
   );
 
@@ -112,14 +128,14 @@ export async function sendStrategySessionNotification(
   const html = emailShell(
     "New Strategy Session Intake",
     [
-      row("Organization", payload.orgName),
-      row("Contact", `${payload.contactName} — ${payload.role}`),
-      row("Email", payload.email),
-      row("Phone", payload.phone),
-      row("Area of Interest", payload.pillar),
-      row("Budget Range", payload.budget),
-      row("Timeline", payload.timeline),
-      row("Details", payload.message.replace(/\n/g, "<br/>")),
+      textRow("Organization", payload.orgName),
+      textRow("Contact", `${payload.contactName} — ${payload.role}`),
+      textRow("Email", payload.email),
+      textRow("Phone", payload.phone),
+      textRow("Area of Interest", payload.pillar),
+      textRow("Budget Range", payload.budget),
+      textRow("Timeline", payload.timeline),
+      multilineRow("Details", payload.message),
     ].join("")
   );
 
@@ -127,7 +143,7 @@ export async function sendStrategySessionNotification(
     from: process.env.CONTACT_EMAIL_FROM!,
     to: process.env.CONTACT_EMAIL_TO || "ben@magnoliagrovega.com",
     replyTo: payload.email,
-    subject: `New Strategy Session Intake — ${payload.orgName}`,
+    subject: oneLine(`New Strategy Session Intake — ${payload.orgName}`),
     html,
   });
 
@@ -146,7 +162,7 @@ export async function sendStrategySessionAutoResponder(
 
   const html = emailShell(
     "Consultation Booked",
-    `<p style="color:#e5e5e5;font-size:14px;line-height:1.6;">Hi ${payload.contactName},</p>
+    `<p style="color:#e5e5e5;font-size:14px;line-height:1.6;">Hi ${escapeHtml(payload.contactName)},</p>
      <p style="color:#e5e5e5;font-size:14px;line-height:1.6;">Consultation booked. You will receive an invitation with encrypted meeting details shortly.</p>
      <p style="color:#e5e5e5;font-size:14px;line-height:1.6;">All consultations and project briefs are held under absolute client-advisor confidentiality.</p>`
   );
@@ -179,11 +195,11 @@ export async function sendPaymentRequestNotification(
   const html = emailShell(
     "New Payment Request",
     [
-      row("Organization", payload.organizationName),
-      row("Contact", `${payload.firstName} ${payload.lastName}`),
-      row("Email", payload.email),
+      textRow("Organization", payload.organizationName),
+      textRow("Contact", `${payload.firstName} ${payload.lastName}`),
+      textRow("Email", payload.email),
       row("Amount", `$${payload.amount.toFixed(2)}`),
-      row("Note / Invoice Reference", payload.memo),
+      textRow("Note / Invoice Reference", payload.memo),
     ].join("")
   );
 
@@ -191,7 +207,9 @@ export async function sendPaymentRequestNotification(
     from: process.env.CONTACT_EMAIL_FROM!,
     to: process.env.CONTACT_EMAIL_TO || "ben@magnoliagrovega.com",
     replyTo: payload.email,
-    subject: `New Payment Request — ${payload.organizationName} ($${payload.amount.toFixed(2)})`,
+    subject: oneLine(
+      `New Payment Request — ${payload.organizationName} ($${payload.amount.toFixed(2)})`
+    ),
     html,
   });
 
@@ -216,14 +234,14 @@ export async function sendMerchOrderNotification(
   const html = emailShell(
     "New Merchandise Order Request",
     [
-      row("Name", `${payload.firstName} ${payload.lastName}`),
-      row("Email", payload.email),
-      row("Phone", payload.phone),
-      row("Product", payload.product),
-      row("Quantity", payload.quantity),
-      payload.budget ? row("Budget", payload.budget) : "",
-      payload.deadline ? row("Deadline", payload.deadline) : "",
-      payload.notes ? row("Notes", payload.notes) : "",
+      textRow("Name", `${payload.firstName} ${payload.lastName}`),
+      textRow("Email", payload.email),
+      textRow("Phone", payload.phone),
+      textRow("Product", payload.product),
+      textRow("Quantity", payload.quantity),
+      payload.budget ? textRow("Budget", payload.budget) : "",
+      payload.deadline ? textRow("Deadline", payload.deadline) : "",
+      payload.notes ? multilineRow("Notes", payload.notes) : "",
     ].join("")
   );
 
@@ -231,7 +249,9 @@ export async function sendMerchOrderNotification(
     from: process.env.CONTACT_EMAIL_FROM!,
     to: process.env.CONTACT_EMAIL_TO || "ben@magnoliagrovega.com",
     replyTo: payload.email,
-    subject: `New Merch Order Request — ${payload.firstName} ${payload.lastName} (${payload.product})`,
+    subject: oneLine(
+      `New Merch Order Request — ${payload.firstName} ${payload.lastName} (${payload.product})`
+    ),
     html,
   });
 
@@ -298,10 +318,10 @@ export async function sendCartOrderNotification(
   const html = emailShell(
     "New Merchandise Cart Order",
     [
-      payload.orderRef ? row("Order Reference", escapeHtml(payload.orderRef)) : "",
-      row("Name", escapeHtml(`${payload.firstName} ${payload.lastName}`)),
-      row("Email", escapeHtml(payload.email)),
-      row("Phone", escapeHtml(payload.phone)),
+      payload.orderRef ? textRow("Order Reference", payload.orderRef) : "",
+      textRow("Name", `${payload.firstName} ${payload.lastName}`),
+      textRow("Email", payload.email),
+      textRow("Phone", payload.phone),
       `<table style="width:100%;border-collapse:collapse;margin:16px 0;">
         <thead>
           <tr style="border-bottom:1px solid rgba(197,160,89,0.25);">
@@ -314,7 +334,7 @@ export async function sendCartOrderNotification(
         <tbody>${itemsHtml}</tbody>
       </table>`,
       row("Estimated Total", `$${payload.total.toFixed(2)}`),
-      payload.notes ? row("Notes", multiline(payload.notes)) : "",
+      payload.notes ? multilineRow("Notes", payload.notes) : "",
     ].join("")
   );
 

@@ -29,6 +29,11 @@ async function isAdminSession(): Promise<boolean> {
 }
 
 export async function markSubmissionRead(id: number): Promise<void> {
+  if (!(await isAdminSession())) {
+    console.warn("[admin] markSubmissionRead refused: no valid admin session");
+    return;
+  }
+  if (!Number.isSafeInteger(id) || id <= 0) return;
   await sql`UPDATE submissions SET read_at = now() WHERE id = ${id} AND read_at IS NULL`;
   revalidatePath("/admin");
 }
@@ -292,7 +297,10 @@ export async function addDeliverable(
   _label: string,
   _url: string
 ): Promise<{ ok: true } | { ok: false; error: string }> {
+  if (!(await isAdminSession())) return { ok: false, error: "Not authorized." };
   return { ok: false, error: "Deliverables aren't available yet." };
 }
 
-export async function deleteDeliverable(_id: number): Promise<void> {}
+export async function deleteDeliverable(_id: number): Promise<void> {
+  if (!(await isAdminSession())) return;
+}

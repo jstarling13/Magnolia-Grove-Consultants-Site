@@ -14,10 +14,10 @@ export const leadFormSchema = z.object({
   lastName: z.string().trim().min(1, "Last name is required.").max(100),
   email: z.string().trim().email("Enter a valid email address.").max(200),
   phone: z.string().trim().min(7, "Phone number is required.").max(30),
-  service: z.string().trim().min(1, "Please select a service."),
+  service: z.string().trim().min(1, "Please select a service.").max(200),
   message: z.string().trim().min(1, "Please tell us about your project.").max(4000),
   company_website: honeypotField,
-  turnstileToken: z.string().optional(),
+  turnstileToken: z.string().max(4096).optional(),
 });
 
 export const strategySessionSchema = z.object({
@@ -27,12 +27,12 @@ export const strategySessionSchema = z.object({
   role: z.string().trim().min(1, "Title / role is required.").max(100),
   email: z.string().trim().email("Enter a valid email address.").max(200),
   phone: z.string().trim().min(7, "Phone number is required.").max(30),
-  pillar: z.string().trim().min(1, "Please select an area of interest."),
-  budget: z.string().trim().min(1, "Please select an estimated budget range."),
-  timeline: z.string().trim().min(1, "Please select an engagement timeline."),
+  pillar: z.string().trim().min(1, "Please select an area of interest.").max(200),
+  budget: z.string().trim().min(1, "Please select an estimated budget range.").max(200),
+  timeline: z.string().trim().min(1, "Please select an engagement timeline.").max(200),
   message: z.string().trim().min(1, "Please tell us about your race or initiative.").max(4000),
   company_website: honeypotField,
-  turnstileToken: z.string().optional(),
+  turnstileToken: z.string().max(4096).optional(),
 });
 
 export const contactSubmissionSchema = z.discriminatedUnion("formType", [
@@ -57,7 +57,9 @@ export const paymentRequestSchema = z.object({
   amount: z.coerce
     .number()
     .positive("Enter an amount greater than $0.")
-    .max(1_000_000, "Amount is too large."),
+    .max(1_000_000, "Amount is too large.")
+    // Anything under half a cent rounds to $0.00 and Square would reject it.
+    .refine((value) => Math.round(value * 100) >= 1, "Enter an amount of at least $0.01."),
   company_website: honeypotField,
 });
 

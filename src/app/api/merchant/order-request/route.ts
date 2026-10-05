@@ -1,37 +1,25 @@
 import { NextRequest, NextResponse } from "next/server";
 import { merchOrderRequestSchema } from "@/lib/merchOrders";
 import { checkRateLimit } from "@/lib/ratelimit";
+import { FORM_POLICY } from "@/lib/rateLimitPolicies";
+import { getClientIp, readJsonBody, tooManyRequests } from "@/lib/http";
 import { verifyTurnstileToken } from "@/lib/turnstile";
 import { sendMerchOrderNotification } from "@/lib/email";
 import { recordSubmission } from "@/lib/submissions";
 
 export const runtime = "nodejs";
 
-function getClientIp(request: NextRequest): string {
-  const forwardedFor = request.headers.get("x-forwarded-for");
-  if (forwardedFor) return forwardedFor.split(",")[0].trim();
-  return request.headers.get("x-real-ip") ?? "unknown";
-}
-
 export async function POST(request: NextRequest) {
   const ip = getClientIp(request);
 
-  const rateLimitResult = await checkRateLimit(ip);
-  if (!rateLimitResult.success) {
-    return NextResponse.json(
-      { success: false, error: "Too many requests. Please try again later." },
-      { status: 429 }
-    );
-  }
+  const rateLimitResult = await checkRateLimit(`merch-request:${ip}`, FORM_POLICY);
+  if (!rateLimitResult.success)
+    return tooManyRequests(undefined, rateLimitResult.retryAfterSeconds);
 
-  let body: unknown;
-  try {
-    body = await request.json();
-  } catch {
-    return NextResponse.json({ success: false, error: "Invalid request body." }, { status: 400 });
-  }
+  const read = await readJsonBody(request);
+  if (!read.ok) return read.response;
 
-  const parsed = merchOrderRequestSchema.safeParse(body);
+  const parsed = merchOrderRequestSchema.safeParse(read.body);
   if (!parsed.success) {
     return NextResponse.json(
       { success: false, error: "Validation failed.", issues: parsed.error.flatten() },

@@ -1,5 +1,5 @@
 import { sql } from "./db";
-import { verifyPasswordHash } from "./passwords";
+import { verifyAgainstDecoy, verifyPasswordHash } from "./passwords";
 
 export async function verifyUserCredentials(
   username: string,
@@ -10,7 +10,10 @@ export async function verifyUserCredentials(
   `) as { username: string; password_hash: string }[];
 
   const user = rows[0];
-  if (!user) return null;
+  if (!user) {
+    verifyAgainstDecoy(password);
+    return null;
+  }
   if (!verifyPasswordHash(password, user.password_hash)) return null;
 
   return user.username;

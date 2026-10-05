@@ -1,57 +1,77 @@
 import { NextRequest, NextResponse } from "next/server";
+import { z } from "zod";
 import { checkRateLimit } from "@/lib/ratelimit";
-import { ADMIN_SESSION_COOKIE, createSessionToken } from "@/lib/adminAuth";
+import { LOGIN_ACCOUNT_POLICY, LOGIN_IP_POLICY } from "@/lib/rateLimitPolicies";
+import { adminCookieOptions, ADMIN_SESSION_COOKIE, createSessionToken } from "@/lib/adminAuth";
+import { SessionConfigError } from "@/lib/signedToken";
 import { verifyUserCredentials } from "@/lib/adminUsers";
+import { getClientIp, readJsonBody, serverError, tooManyRequests } from "@/lib/http";
+import { MAX_PASSWORD_LENGTH } from "@/lib/passwords";
 
 export const runtime = "nodejs";
 
-function getClientIp(request: NextRequest): string {
-  const forwardedFor = request.headers.get("x-forwarded-for");
-  if (forwardedFor) return forwardedFor.split(",")[0].trim();
-  return request.headers.get("x-real-ip") ?? "unknown";
-}
+const loginSchema = z.object({
+  username: z.string().trim().min(1).max(100),
+  password: z.string().min(1).max(MAX_PASSWORD_LENGTH),
+});
 
 export async function POST(request: NextRequest) {
   const ip = getClientIp(request);
 
-  const rateLimitResult = await checkRateLimit(`admin-login:${ip}`);
-  if (!rateLimitResult.success) {
-    return NextResponse.json(
-      { success: false, error: "Too many attempts. Please try again later." },
-      { status: 429 }
-    );
+  const ipLimit = await checkRateLimit(`admin-login:${ip}`, LOGIN_IP_POLICY);
+  if (!ipLimit.success) {
+    return tooManyRequests("Too many attempts. Please try again later.", ipLimit.retryAfterSeconds);
   }
 
-  let body: unknown;
-  try {
-    body = await request.json();
-  } catch {
-    return NextResponse.json({ success: false, error: "Invalid request body." }, { status: 400 });
-  }
+  const read = await readJsonBody(request, 4 * 1024);
+  if (!read.ok) return read.response;
 
-  const { username, password } = body as { username?: unknown; password?: unknown };
-  if (typeof username !== "string" || typeof password !== "string") {
+  const parsed = loginSchema.safeParse(read.body);
+  if (!parsed.success) {
     return NextResponse.json(
       { success: false, error: "Username and password are required." },
       { status: 400 }
     );
   }
+  const { username, password } = parsed.data;
 
-  const verifiedUsername = await verifyUserCredentials(username, password);
-  if (!verifiedUsername) {
-    return NextResponse.json(
-      { success: false, error: "Incorrect username or password." },
-      { status: 401 }
+  // Also throttle per account so guesses spread across many IPs still add up.
+  const accountLimit = await checkRateLimit(
+    `admin-login-user:${username.toLowerCase()}`,
+    LOGIN_ACCOUNT_POLICY
+  );
+  if (!accountLimit.success) {
+    return tooManyRequests(
+      "Too many attempts. Please try again later.",
+      accountLimit.retryAfterSeconds
     );
   }
 
-  const response = NextResponse.json({ success: true });
-  response.cookies.set(ADMIN_SESSION_COOKIE, createSessionToken(verifiedUsername), {
-    httpOnly: true,
-    secure: true,
-    sameSite: "lax",
-    path: "/",
-    maxAge: 7 * 24 * 60 * 60,
-  });
-  return response;
+  try {
+    const verifiedUsername = await verifyUserCredentials(username, password);
+    if (!verifiedUsername) {
+      return NextResponse.json(
+        { success: false, error: "Incorrect username or password." },
+        { status: 401 }
+      );
+    }
+
+    const response = NextResponse.json({ success: true });
+    response.cookies.set(
+      ADMIN_SESSION_COOKIE,
+      createSessionToken(verifiedUsername),
+      adminCookieOptions()
+    );
+    return response;
+  } catch (error) {
+    if (error instanceof SessionConfigError) {
+      // Already logged loudly with the variable name; never tell the caller which one.
+      return NextResponse.json(
+        { success: false, error: "Sign-in is temporarily unavailable." },
+        { status: 503 }
+      );
+    }
+    console.error("[api/admin/login] failed:", error instanceof Error ? error.message : error);
+    return serverError();
+  }
 }
