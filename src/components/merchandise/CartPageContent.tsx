@@ -14,6 +14,7 @@ import Link from "next/link";
 import { Loader2 } from "lucide-react";
 import { useCart, type CartLineItem } from "@/components/merchandise/CartContext";
 import { ColorDot } from "@/components/merchandise/ColorSwatches";
+import { useCartProducts } from "@/hooks/useCartProducts";
 import { useQuantityDraft } from "@/hooks/useQuantityDraft";
 import {
   CART_CONTACT_FIELDS,
@@ -37,7 +38,7 @@ import {
   trackViewCart,
   type CartEventLine,
 } from "@/lib/merchAnalytics";
-import { formatPrice, isRealBrand, normalizeColors, type CatalogProduct } from "@/lib/merchCatalog";
+import { formatPrice, isRealBrand, normalizeColors, type CartProduct } from "@/lib/merchCatalog";
 import Turnstile from "@/components/Turnstile";
 
 interface ContactFields {
@@ -80,7 +81,7 @@ interface DisplayLine {
 }
 
 interface ProductGroup {
-  product: CatalogProduct;
+  product: CartProduct;
   summary: ProductPricingSummary;
   lines: DisplayLine[];
 }
@@ -89,12 +90,16 @@ function productHref(productId: string, color: string | undefined): string {
   return `/merchandise/${productId}${color ? `?color=${encodeURIComponent(color)}` : ""}`;
 }
 
-function lineThumbnail(product: CatalogProduct, color: string | undefined): string | undefined {
+function lineThumbnail(product: CartProduct, color: string | undefined): string | undefined {
   return (color ? product.colorImages?.[color] : undefined) ?? product.image;
 }
 
 interface CartPageContentProps {
-  catalog: CatalogProduct[];
+  /**
+   * Products already in hand (tests, previews). Leave it out on the real page:
+   * the cart then fetches only the products in the shopper's saved cart.
+   */
+  catalog?: CartProduct[];
   /** Disclaimer copy from the config, passed in so this client bundle never imports the full catalog config. */
   pricingDisclaimer: string;
   deliveryEstimate: string;
@@ -105,8 +110,16 @@ export default function CartPageContent({
   pricingDisclaimer,
   deliveryEstimate,
 }: CartPageContentProps) {
-  const { items, updateQuantity, removeItem, changeColor, clear, removedUnavailableCount } =
-    useCart();
+  const {
+    items,
+    hydrated,
+    updateQuantity,
+    removeItem,
+    changeColor,
+    clear,
+    removeProducts,
+    removedUnavailableCount,
+  } = useCart();
   const [fields, setFields] = useState<ContactFields>(initialFields);
   const [errors, setErrors] = useState<CartFieldErrors>({});
   const [status, setStatus] = useState<Status>("idle");
@@ -116,10 +129,20 @@ export default function CartPageContent({
   const [turnstileToken, setTurnstileToken] = useState("");
   const errorBannerRef = useRef<HTMLParagraphElement>(null);
 
-  const productsById = useMemo(
-    () => new Map(catalog.map((product) => [product.id, product])),
-    [catalog]
+  // Fetch just the products this cart holds (nothing until the saved cart has loaded).
+  const cartProductIds = useMemo(
+    () => (hydrated ? Array.from(new Set(items.map((item) => item.productId))) : []),
+    [hydrated, items]
   );
+  const loaded = useCartProducts(cartProductIds, catalog);
+  const productsById = loaded.products;
+
+  // Products the server says are gone: drop their lines; the notice below says so.
+  const missingIds = loaded.missingIds;
+  useEffect(() => {
+    if (missingIds.length > 0) removeProducts(missingIds);
+  }, [missingIds, removeProducts]);
+  const settlingRemovals = items.some((item) => missingIds.includes(item.productId));
 
   const cart = useMemo(
     () => priceCart(items, (id): CartPricingProduct | undefined => productsById.get(id)),
@@ -362,7 +385,26 @@ export default function CartPageContent({
                 : `${removedUnavailableCount} items in your cart are no longer available and were removed.`}
             </p>
           )}
-          {lines.length === 0 ? (
+          {!hydrated || (items.length > 0 && (loaded.status === "loading" || settlingRemovals)) ? (
+            <CartSkeleton />
+          ) : loaded.status === "error" ? (
+            <div
+              role="alert"
+              className="rounded-lg border border-gold/25 bg-cream-100/85 px-8 py-12 text-center"
+            >
+              <p className="text-base text-onyx/80">
+                We couldn&apos;t load your cart items. Your cart is saved; check your connection and
+                try again.
+              </p>
+              <button
+                type="button"
+                onClick={loaded.retry}
+                className="mt-6 inline-flex items-center rounded-md bg-gold px-6 py-3 text-sm font-semibold text-onyx transition-colors hover:bg-gold-bright"
+              >
+                Try again
+              </button>
+            </div>
+          ) : lines.length === 0 ? (
             <div className="rounded-lg border border-gold/25 bg-cream-100/85 px-8 py-16 text-center">
               <p className="text-base text-onyx/60">Your cart is empty.</p>
               <Link
@@ -593,6 +635,27 @@ export default function CartPageContent({
   );
 }
 
+function CartSkeleton() {
+  return (
+    <div role="status" aria-busy="true" className="space-y-4">
+      <span className="sr-only">Loading your cart</span>
+      {[0, 1].map((row) => (
+        <div
+          key={row}
+          className="flex items-center gap-4 rounded-lg border border-gold/25 bg-cream-100/85 p-4 sm:gap-5 sm:p-6"
+        >
+          <div className="h-20 w-20 shrink-0 animate-pulse rounded-md bg-cream motion-reduce:animate-none sm:h-24 sm:w-24" />
+          <div className="flex-1 space-y-3">
+            <div className="h-4 w-2/3 animate-pulse rounded bg-cream motion-reduce:animate-none" />
+            <div className="h-3 w-1/3 animate-pulse rounded bg-cream motion-reduce:animate-none" />
+            <div className="h-8 w-24 animate-pulse rounded bg-cream motion-reduce:animate-none" />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function CartProductGroup({
   group,
   onQuantity,
@@ -647,7 +710,7 @@ function CartLine({
   onRemove,
   onChooseColor,
 }: {
-  product: CatalogProduct;
+  product: CartProduct;
   line: DisplayLine;
   colorOptions: string[];
   onQuantity: (productId: string, quantity: number, color?: string) => void;

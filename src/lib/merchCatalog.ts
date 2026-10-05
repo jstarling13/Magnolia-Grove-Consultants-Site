@@ -115,6 +115,48 @@ export function toCatalogProduct(
 }
 
 /**
+ * What the cart needs to show and price one product's lines: name, photo,
+ * brand label (and category, for analytics events), colors with their photos,
+ * and customer-facing tiers. No description or imprint area.
+ */
+export interface CartProduct {
+  id: string;
+  name: string;
+  category: string;
+  brand: string;
+  image?: string;
+  colors?: string[];
+  colorImages?: Record<string, string>;
+  tiers: CatalogTier[];
+}
+
+/**
+ * Allow-list projection to the cart model, applied to the per-product JSON the
+ * cart fetches. Takes the already-slim CatalogProduct, so supplier fields
+ * (espPrice, links, ids) are gone before it runs, and re-maps tiers and
+ * colorImages so nothing extra can ride along.
+ */
+export function toCartProduct(product: CatalogProduct): CartProduct {
+  const colors = product.colors && product.colors.length > 0 ? [...product.colors] : undefined;
+  const colorImages =
+    colors && product.colorImages
+      ? Object.fromEntries(
+          Object.entries(product.colorImages).filter(([color]) => colors.includes(color))
+        )
+      : undefined;
+  return {
+    id: product.id,
+    name: product.name,
+    category: product.category,
+    brand: product.brand,
+    ...(product.image ? { image: product.image } : {}),
+    ...(colors ? { colors } : {}),
+    ...(colorImages && Object.keys(colorImages).length > 0 ? { colorImages } : {}),
+    tiers: product.tiers.map((tier) => ({ quantity: tier.quantity, price: tier.price })),
+  };
+}
+
+/**
  * Lean projection for product cards, applied to every list the storefront
  * ships to the browser (initial cards and the lazily fetched remainder), so a
  * card looks the same before and after more products arrive.

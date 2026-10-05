@@ -12,6 +12,8 @@ export const DISALLOWED_PATHS = [
   "/payment",
   "/merchandise/cart",
   "/merchandise/lookup.json",
+  "/merchandise/ids.json",
+  "/merchandise/*/cart.json",
   "/merchandise/category/*/cards.json",
 ];
 

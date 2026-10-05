@@ -6,9 +6,11 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
   type ReactNode,
 } from "react";
+import { CART_FORM_LIMITS } from "@/lib/cartFormRules";
 import { cartLineKey, cleanLineColor } from "@/lib/cartPricing";
 
 /**
@@ -28,6 +30,8 @@ interface CartContextValue {
   itemCount: number;
   /** Number of distinct (product, color) lines; what the header badge shows. */
   lineCount: number;
+  /** True once the saved cart has been read from storage (it loads after mount). */
+  hydrated: boolean;
   /** How many saved lines were dropped on load because their product is gone or hidden. */
   removedUnavailableCount: number;
   /** Adds `quantity` to the (productId, color) line, creating it if needed. */
@@ -38,6 +42,11 @@ interface CartContextValue {
   /** Re-colors a line (used to fix legacy lines), merging into an existing same-color line. */
   changeColor: (productId: string, fromColor: string | undefined, toColor: string) => void;
   clear: () => void;
+  /**
+   * Drops every line of the given products because they no longer exist, and
+   * counts them for the "no longer available" notice.
+   */
+  removeProducts: (productIds: readonly string[]) => void;
 }
 
 const CartContext = createContext<CartContextValue | null>(null);
@@ -158,7 +167,9 @@ export function parseStoredCart(raw: string | null): CartLineItem[] {
     if (existing) existing.quantity += line.quantity;
     else merged.set(key, line);
   }
-  return Array.from(merged.values());
+  // A real cart never exceeds what the API accepts; this also bounds how many
+  // products the cart page will ask for if storage was tampered with.
+  return Array.from(merged.values()).slice(0, CART_FORM_LIMITS.maxLines);
 }
 
 function readStoredCart(): CartLineItem[] {
@@ -230,6 +241,23 @@ export function CartProvider({ children, availableProductIds }: CartProviderProp
 
   const clear = useCallback(() => setItems([]), []);
 
+  // The latest items, so removeProducts can count what it drops without
+  // doing a side effect inside a state updater.
+  const itemsRef = useRef(items);
+  useEffect(() => {
+    itemsRef.current = items;
+  }, [items]);
+
+  const removeProducts = useCallback((productIds: readonly string[]) => {
+    if (productIds.length === 0) return;
+    const gone = new Set(productIds);
+    const dropped = itemsRef.current.filter((item) => gone.has(item.productId)).length;
+    if (dropped === 0) return;
+    itemsRef.current = itemsRef.current.filter((item) => !gone.has(item.productId));
+    setItems((prev) => prev.filter((item) => !gone.has(item.productId)));
+    setRemovedUnavailableCount((n) => n + dropped);
+  }, []);
+
   const itemCount = useMemo(() => items.reduce((sum, item) => sum + item.quantity, 0), [items]);
   const lineCount = items.length;
 
@@ -239,12 +267,14 @@ export function CartProvider({ children, availableProductIds }: CartProviderProp
         items,
         itemCount,
         lineCount,
+        hydrated,
         removedUnavailableCount,
         addItem,
         updateQuantity,
         removeItem,
         changeColor,
         clear,
+        removeProducts,
       }}
     >
       {children}

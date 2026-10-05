@@ -20,7 +20,9 @@ import {
   realBrands,
   startingTier,
   toCardProduct,
+  toCartProduct,
   toCatalogProduct,
+  type CartProduct,
   type CatalogProduct,
 } from "@/lib/merchCatalog";
 import { selectRelated } from "@/lib/merchRelated";
@@ -84,9 +86,26 @@ export function getStorefrontProduct(id: string): CatalogProduct | undefined {
 }
 
 /**
- * Everything the cart page needs to render lines for any product id: name,
- * photo, tiers (customer-facing prices only), and the colors with their
- * per-color photos. Descriptions are left out to keep the payload small.
+ * One product in the cart's shape, or undefined when the id is unknown or the
+ * product is hidden. Served as static JSON per product (merchandise/[id]/cart.json)
+ * and fetched by the cart only for the products a shopper actually has in it.
+ */
+export function getCartProduct(id: string): CartProduct | undefined {
+  const product = getProductById(id);
+  return product
+    ? toCartProduct(toCatalogProduct({ ...product, description: "" }, getImprintArea(product)))
+    : undefined;
+}
+
+/** Ids of every product the storefront sells; the cart uses them to drop lines for products that are gone. */
+export function getAvailableProductIds(): string[] {
+  return products.map((product) => product.id);
+}
+
+/**
+ * Every product in full cart-page form. No longer shipped to the browser (the
+ * cart fetches only what it needs, see getCartProduct); kept so tests can
+ * check the whole catalog's cart data in one pass.
  */
 export function getCartCatalog(): CatalogProduct[] {
   return products.map((product) =>
