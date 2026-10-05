@@ -191,5 +191,43 @@
     "Green": "/images/merch/colors/pvc-key-holder-24393-green.webp",
     "Orange": "/images/merch/colors/pvc-key-holder-24393-orange.webp",
     "Pink": "/images/merch/colors/pvc-key-holder-24393-pink.webp"
+  },
+  "premium-terry-velour-golf-towels-83190": {
+    "White": "/images/merch/colors/premium-terry-velour-golf-towels-83190-white.webp",
+    "Black": "/images/merch/colors/premium-terry-velour-golf-towels-83190-black.webp",
+    "Hot Pink": "/images/merch/colors/premium-terry-velour-golf-towels-83190-hot-pink.webp",
+    "Lime": "/images/merch/colors/premium-terry-velour-golf-towels-83190-lime.webp",
+    "Royal": "/images/merch/colors/premium-terry-velour-golf-towels-83190-royal.webp",
+    "Yellow": "/images/merch/colors/premium-terry-velour-golf-towels-83190-yellow.webp",
+    "Beige": "/images/merch/colors/premium-terry-velour-golf-towels-83190-beige.webp",
+    "Burgundy": "/images/merch/colors/premium-terry-velour-golf-towels-83190-burgundy.webp"
+  },
+  "12-can-convertible-duffel-cooler-2-in-1-bag-16-colors-92912": {
+    "Black": "/images/merch/colors/12-can-convertible-duffel-cooler-2-in-1-bag-16-colors-92912-black.webp",
+    "Red": "/images/merch/colors/12-can-convertible-duffel-cooler-2-in-1-bag-16-colors-92912-red.webp",
+    "Navy": "/images/merch/colors/12-can-convertible-duffel-cooler-2-in-1-bag-16-colors-92912-navy.webp",
+    "Yellow": "/images/merch/colors/12-can-convertible-duffel-cooler-2-in-1-bag-16-colors-92912-yellow.webp",
+    "Orange": "/images/merch/colors/12-can-convertible-duffel-cooler-2-in-1-bag-16-colors-92912-orange.webp",
+    "Purple": "/images/merch/colors/12-can-convertible-duffel-cooler-2-in-1-bag-16-colors-92912-purple.webp",
+    "Royal Blue": "/images/merch/colors/12-can-convertible-duffel-cooler-2-in-1-bag-16-colors-92912-royal-blue.webp"
+  },
+  "classic-sunglasses-89994": {
+    "Blue": "/images/merch/colors/classic-sunglasses-89994-blue.webp",
+    "White": "/images/merch/colors/classic-sunglasses-89994-white.webp",
+    "Red": "/images/merch/colors/classic-sunglasses-89994-red.webp",
+    "Yellow": "/images/merch/colors/classic-sunglasses-89994-yellow.webp",
+    "Purple": "/images/merch/colors/classic-sunglasses-89994-purple.webp",
+    "Green": "/images/merch/colors/classic-sunglasses-89994-green.webp",
+    "Navy Blue": "/images/merch/colors/classic-sunglasses-89994-navy-blue.webp",
+    "Orange": "/images/merch/colors/classic-sunglasses-89994-orange.webp"
+  },
+  "sunglasses-39578": {
+    "Yellow": "/images/merch/colors/sunglasses-39578-yellow.webp",
+    "Purple": "/images/merch/colors/sunglasses-39578-purple.webp",
+    "Gray": "/images/merch/colors/sunglasses-39578-gray.webp",
+    "Red": "/images/merch/colors/sunglasses-39578-red.webp",
+    "Green": "/images/merch/colors/sunglasses-39578-green.webp",
+    "Orange": "/images/merch/colors/sunglasses-39578-orange.webp",
+    "White": "/images/merch/colors/sunglasses-39578-white.webp"
   }
 }
