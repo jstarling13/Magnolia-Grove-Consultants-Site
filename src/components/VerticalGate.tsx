@@ -18,6 +18,9 @@ export default function VerticalGate() {
   useEffect(() => {
     if (pathname?.startsWith("/business")) return;
     if (pathname?.startsWith("/admin") || pathname?.startsWith("/account")) return;
+    // A shared product or cart link must land on the product, not on a gate
+    // that can redirect the shopper away from it.
+    if (pathname?.startsWith("/merchandise")) return;
 
     let alreadyChosen = true;
     try {
