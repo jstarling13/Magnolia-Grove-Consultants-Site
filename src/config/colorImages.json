@@ -172,5 +172,12 @@
     "Royal": "/images/merch/colors/zen-quarter-zip-pullover-royal.webp",
     "Silver": "/images/merch/colors/zen-quarter-zip-pullover-silver.webp",
     "Sport Red": "/images/merch/colors/zen-quarter-zip-pullover-sport-red.webp"
+  },
+  "mesa-vest": {
+    "Black": "/images/merch/colors/mesa-vest-black.webp",
+    "Dark Grey": "/images/merch/colors/mesa-vest-dark-grey.webp",
+    "Loden Green": "/images/merch/colors/mesa-vest-loden-green.webp",
+    "Saddle": "/images/merch/colors/mesa-vest-saddle.webp",
+    "True Navy": "/images/merch/colors/mesa-vest-true-navy.webp"
   }
 }
