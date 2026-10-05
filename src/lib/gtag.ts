@@ -15,6 +15,24 @@ export function trackEvent(event: ConversionEvent, params?: Record<string, strin
   window.gtag("event", event, params);
 }
 
+/**
+ * Sends any GA4 event (including the ecommerce ones, whose params are nested
+ * objects). Same gating as trackEvent: a no-op when NEXT_PUBLIC_GA_MEASUREMENT_ID
+ * is unset, on the server, or while gtag hasn't loaded. Never throws, so an
+ * analytics failure can't break a click or a form submit. gtag() only queues
+ * the event on dataLayer, so it never delays navigation either.
+ */
+export function sendGaEvent(name: string, params?: Record<string, unknown>): boolean {
+  if (!GA_MEASUREMENT_ID) return false;
+  if (typeof window === "undefined" || typeof window.gtag !== "function") return false;
+  try {
+    window.gtag("event", name, params);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;

@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import ProductCard from "@/components/merchandise/ProductCard";
+import { useMerchBrowseAnalytics } from "@/hooks/useMerchBrowseAnalytics";
 import {
   FOCUSED_INITIAL_VISIBLE,
   SHOW_MORE_STEP,
@@ -109,6 +110,7 @@ export default function CategoryProductGrid({ products, category }: CategoryProd
   const visible = disclosure.key === filterKey ? disclosure.count : FOCUSED_INITIAL_VISIBLE;
   const shown = Math.min(visible, results.length);
   const batch = nextBatchSize(shown, results.length);
+  useMerchBrowseAnalytics(category, () => results.slice(0, FOCUSED_INITIAL_VISIBLE), query);
 
   function clearFilters() {
     setQueryInput("");

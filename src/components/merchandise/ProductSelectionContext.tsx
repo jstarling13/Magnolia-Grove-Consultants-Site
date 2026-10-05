@@ -12,6 +12,7 @@ import {
   type RefObject,
 } from "react";
 import type { CatalogProduct } from "@/lib/merchCatalog";
+import { trackSelectColor } from "@/lib/merchAnalytics";
 
 /**
  * The shopper's color choice on a product page. The gallery (photo swap and
@@ -67,10 +68,15 @@ export function ProductSelectionProvider({
     if (requested && colors.includes(requested)) setChosen(requested);
   }, [product.id, colors]);
 
-  const selectColor = useCallback((color: string) => {
-    setChosen(color);
-    setColorError(false);
-  }, []);
+  const productId = product.id;
+  const selectColor = useCallback(
+    (color: string) => {
+      if (color !== chosen) trackSelectColor(productId, color);
+      setChosen(color);
+      setColorError(false);
+    },
+    [productId, chosen]
+  );
 
   const clearColor = useCallback(() => setChosen(undefined), []);
 

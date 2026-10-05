@@ -4,6 +4,7 @@ import { CheckCircle2, CalendarClock, ArrowRight } from "lucide-react";
 import { leadForm } from "@/config/siteConfig";
 import { bookingPage } from "@/config/pillarsConfig";
 import CreateAccountPrompt from "@/components/CreateAccountPrompt";
+import MerchPurchaseTracker from "@/components/merchandise/MerchPurchaseTracker";
 
 export const metadata: Metadata = {
   title: "Thank You | Magnolia Grove Consultants",
@@ -64,6 +65,8 @@ export default async function ThankYouPage({ searchParams }: ThankYouPageProps) 
           </p>
         </div>
       )}
+
+      {source === "merch" && <MerchPurchaseTracker />}
 
       <CreateAccountPrompt email={email} />
 
