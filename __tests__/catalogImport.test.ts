@@ -5,6 +5,13 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import sharp from "sharp";
 import {
+  checkOverrides,
+  cleanDescriptionText,
+  cleanName,
+  findLostProtectedIds,
+  parseOverrides,
+  renameColorImageKeys,
+  titleCaseColor,
   buildCatalog,
   buildDescription,
   cleanColors,
@@ -750,5 +757,232 @@ describe("orphan image cleanup", () => {
       "peter-millar-curated.webp",
     ]);
     await fs.rm(dir, { recursive: true, force: true });
+  });
+});
+
+// ---- promo / vendor noise cleanup --------------------------------------------
+
+describe("name cleanup", () => {
+  it("strips promo phrases and stray punctuation", () => {
+    expect(cleanName("ON SALE! Professional Golf Ball")).toBe("Professional Golf Ball");
+    expect(cleanName("Port Authority Team Jacket.")).toBe("Port Authority Team Jacket");
+    expect(cleanName("Mug 20% off")).toBe("Mug");
+    expect(cleanName("Golf Ball - Free Shipping!!")).toBe("Golf Ball");
+    expect(cleanName("Tumbler (Limited Time)")).toBe("Tumbler");
+    expect(cleanName("Fixed Amount Discount Pen")).toBe("Pen");
+    expect(cleanName("Umbrella - Sale!")).toBe("Umbrella");
+    expect(cleanName("  ..Hoodie,,  ")).toBe("Hoodie");
+    expect(cleanName("Tote   Bag!!")).toBe("Tote Bag");
+  });
+
+  it("keeps trademark marks and legitimate uses of the word sale", () => {
+    expect(cleanName("Titleist Pro V1® ")).toBe("Titleist Pro V1®");
+    expect(cleanName("Bella+Canvas Tee™")).toBe("Bella+Canvas Tee™");
+    expect(cleanName("Yard Sale Sign Holder")).toBe("Yard Sale Sign Holder");
+    expect(cleanName("Point of Sale Counter Mat")).toBe("Point of Sale Counter Mat");
+  });
+
+  it("an all-promo name becomes empty so the row is skipped", () => {
+    const row = mk({ espId: "9001", name: "ON SALE!" });
+    expect(cleanRow(row).skip).toBe("empty-name");
+  });
+});
+
+describe("description cleanup", () => {
+  it("drops promo sentences and promo labels glued to the front, keeping real text", () => {
+    expect(cleanDescriptionText("Free shipping on orders over $100. Nice tote.")).toBe(
+      "Nice tote."
+    );
+    expect(cleanDescriptionText("Fixed Amount Discount DC Premium cotton twill cap.")).toBe(
+      "DC Premium cotton twill cap."
+    );
+    expect(cleanDescriptionText("Sale! Lightweight cap.")).toBe("Lightweight cap.");
+    expect(cleanDescriptionText("Soft tee. Click here to order. Great fit.")).toBe(
+      "Soft tee. Great fit."
+    );
+    expect(cleanDescriptionText("Perfect for yard sale signs.")).toBe(
+      "Perfect for yard sale signs."
+    );
+  });
+
+  it("drops vendor color-count claims without inventing text", () => {
+    expect(
+      cleanDescriptionText("Available in 30 attractive colors - solid and alternating panels.")
+    ).toBe("Solid and alternating panels.");
+    expect(
+      cleanDescriptionText(
+        "100% acrylic beanie with a classic rolled cuff design and eight available colors."
+      )
+    ).toBe("100% acrylic beanie with a classic rolled cuff design.");
+    expect(cleanDescriptionText("Tote in 3 sizes and 5 colors.")).toBe("Tote in 3 sizes.");
+    expect(cleanDescriptionText("Soft tee. Eight colors available. Great fit.")).toBe(
+      "Soft tee. Great fit."
+    );
+    expect(cleanDescriptionText("Comes in eight colors.")).toBe("");
+  });
+
+  it("leaves imprint-color facts and decimals alone", () => {
+    expect(cleanDescriptionText("Includes a 2-color imprint. Made of 3.4 oz cotton.")).toBe(
+      "Includes a 2-color imprint. Made of 3.4 oz cotton."
+    );
+  });
+
+  it("falls back to the '<n> color options.' pattern when nothing is left", () => {
+    expect(
+      buildDescription({
+        rawDescription: "Trending Comes in eight colors.",
+        colorCount: 8,
+        sizes: "",
+        minQty: 12,
+        usa: 0,
+        multiGrid: 0,
+      })
+    ).toBe("8 color options. Priced at 12 units.");
+  });
+
+  it("never leaves a color-count claim that disagrees with the real color list", () => {
+    const row = mk({
+      espId: "9100",
+      name: "Cap",
+      colors: ["A", "B"],
+    });
+    row[3] = "Cotton cap in 12 colors.";
+    const cleaned = cleanRow(row);
+    expect(cleaned.product?.description).toBe("Cotton cap. Priced at 1 unit.");
+  });
+});
+
+describe("color name cleanup", () => {
+  it("title-cases shouted colors but keeps acronyms, codes and anything with digits", () => {
+    expect(titleCaseColor("BLACK")).toBe("Black");
+    expect(titleCaseColor("NAVY BLUE")).toBe("Navy Blue");
+    expect(titleCaseColor("BLACK/WHITE")).toBe("Black/White");
+    expect(titleCaseColor("UPF 50 WHITE")).toBe("UPF 50 WHITE");
+    expect(titleCaseColor("PMS 123")).toBe("PMS 123");
+    expect(titleCaseColor("UPF")).toBe("UPF");
+    expect(titleCaseColor("Black Heather - 104")).toBe("Black Heather - 104");
+    expect(titleCaseColor("Royal BLUE")).toBe("Royal BLUE"); // mixed case: as supplied
+  });
+
+  it("dedupes after case conversion", () => {
+    expect(cleanColors(["BLACK", "Black", "NAVY BLUE", "Red Show less"])).toEqual([
+      "Black",
+      "Navy Blue",
+      "Red",
+    ]);
+  });
+});
+
+// ---- manual overrides ----------------------------------------------------------
+
+describe("manual overrides", () => {
+  it("drops the listed espId (after the vendor gate) and reports it", () => {
+    const rows = [
+      mk({
+        espId: "100",
+        name: "Titleist Pro V1 Golf Ball",
+        asi: "asi/1",
+        rating: 4.5,
+        reviews: 50,
+      }),
+      mk({ espId: "200", name: "Titleist Pro V1", asi: "asi/2", rating: 5, reviews: 11 }),
+      mk({ espId: "300", name: "Gated Thing", rating: 3, reviews: 1 }),
+    ];
+    const result = buildCatalog(rows, {
+      dropEspIds: [
+        { espId: "100", reason: "same ball as 200" },
+        { espId: "300", reason: "would be gated first" },
+      ],
+    });
+    expect(result.items.map((i) => i.link.espId)).toEqual(["200"]);
+    expect(result.skipped["manual-override"]).toBe(1);
+    expect(result.skipped["low-vendor-rating"]).toBe(1); // the gate wins, override never reached
+    expect(result.manualOverrides).toHaveLength(1);
+    expect(result.manualOverrides[0].reason).toBe("same ball as 200");
+  });
+
+  it("validates the overrides file shape", () => {
+    expect(parseOverrides({ dropEspIds: [{ espId: " 1 ", reason: "r", keepEspId: "2" }] })).toEqual(
+      [{ espId: "1", reason: "r", keepEspId: "2" }]
+    );
+    expect(() => parseOverrides({ dropEspIds: [{ espId: "1" }] })).toThrow(/reason/);
+    expect(() => parseOverrides({ dropEspIds: [{ reason: "x" }] })).toThrow(/espId/);
+    expect(() =>
+      parseOverrides({
+        dropEspIds: [
+          { espId: "1", reason: "a" },
+          { espId: "1", reason: "b" },
+        ],
+      })
+    ).toThrow(/duplicate/);
+    expect(parseOverrides({})).toEqual([]);
+  });
+
+  it("warns on a stale override, a missing replacement, or no replacement named", () => {
+    const base = { rawEspIds: ["1", "2"], selectedEspIds: ["2"], curatedIds: ["cur"] };
+    expect(
+      checkOverrides({ ...base, overrides: [{ espId: "1", reason: "r", keepEspId: "2" }] })
+    ).toEqual([]);
+    expect(
+      checkOverrides({ ...base, overrides: [{ espId: "9", reason: "r", keepEspId: "2" }] })[0]
+    ).toMatch(/stale override: espId 9/);
+    expect(
+      checkOverrides({ ...base, overrides: [{ espId: "1", reason: "r", keepEspId: "7" }] })[0]
+    ).toMatch(/replacement espId 7 is NOT in the imported catalog/);
+    expect(
+      checkOverrides({
+        ...base,
+        overrides: [{ espId: "1", reason: "r", keepCuratedId: "nope" }],
+      })[0]
+    ).toMatch(/curated product nope does not exist/);
+    expect(checkOverrides({ ...base, overrides: [{ espId: "1", reason: "r" }] })[0]).toMatch(
+      /names no replacement/
+    );
+  });
+
+  it("ships overrides for the two known duplicates, both still live in the raw data", async () => {
+    const file = JSON.parse(
+      await fs.readFile(path.join(__dirname, "../scripts/data/import-overrides.json"), "utf8")
+    );
+    const overrides = parseOverrides(file);
+    expect(overrides.map((o) => o.espId)).toEqual(["7273365", "552519118"]);
+    expect(overrides[0].keepEspId).toBe("556464384");
+    expect(overrides[1].keepCuratedId).toBe("6panel-premium-relaxed-golf-cap");
+    const shippedIds = new Set(products.map((p) => p.id));
+    expect(shippedIds.has("6panel-premium-relaxed-golf-cap")).toBe(true);
+  });
+});
+
+describe("protected ids and color photo keys", () => {
+  it("reports only protected ids that were selected before and are gone now", () => {
+    expect(
+      findLostProtectedIds({
+        previousIds: ["a", "b", "c"],
+        selectedIds: ["a", "c"],
+        protectedIds: ["b", "c", "zzz"],
+      })
+    ).toEqual(["b"]);
+    expect(
+      findLostProtectedIds({ previousIds: ["a"], selectedIds: ["a"], protectedIds: ["a"] })
+    ).toEqual([]);
+  });
+
+  it("renames color photo keys changed by cleanup and never touches the paths", () => {
+    const input = {
+      cap: { BLACK: "/p/black.webp", "Navy Blue": "/p/navy.webp", "NAVY BLUE": "/p/x.webp" },
+      curated: { WHATEVER: "/p/c.webp" },
+      hat: { "ROYAL BLUE": "/p/royal.webp" },
+    };
+    const result = renameColorImageKeys(input, [
+      { id: "cap", colors: ["Black", "Navy Blue"] },
+      { id: "hat", colors: ["Royal Blue"] },
+    ]);
+    expect(result.colorImages.hat).toEqual({ "Royal Blue": "/p/royal.webp" });
+    expect(result.colorImages.cap.Black).toBe("/p/black.webp");
+    expect(result.colorImages.curated).toEqual({ WHATEVER: "/p/c.webp" }); // not imported: untouched
+    expect(result.renamed).toBe(2);
+    // a key that would collide with an existing one is reported, not clobbered
+    expect(result.unresolved).toEqual(['cap: "NAVY BLUE"']);
+    expect(result.colorImages.cap["Navy Blue"]).toBe("/p/navy.webp");
   });
 });

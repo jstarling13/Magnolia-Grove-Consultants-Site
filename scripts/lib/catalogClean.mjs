@@ -240,8 +240,64 @@ export function collapseWhitespace(value) {
   return str(value).replace(/\s+/g, " ").trim();
 }
 
+// ---- Promo / vendor noise ---------------------------------------------------
+
+/** Words that make "sale" a legitimate part of a product ("Yard Sale Sign"). */
+const SALE_GUARD = "(?:yard|garage|bake|estate|rummage|craft|point[- ]of|bill of|for|of|tax)";
+
+/**
+ * Phrases that are vendor promotion, not product facts. In a name the phrase
+ * is removed; in a description the whole sentence containing it is dropped.
+ */
+const PROMO_PATTERNS = [
+  /\bfixed[\s-]+amount[\s-]+discount\b/i,
+  /\b\d+(?:\.\d+)?\s*%\s*off\b/i,
+  /%\s*off\b/i,
+  /\blimited[\s-]+time\b/i,
+  /\bfree\s+shipping\b/i,
+  /\bclick\s+here\b/i,
+  /\bon\s+sale\b/i,
+  new RegExp(`(?<!\\b${SALE_GUARD}\\s)\\bsale\\b`, "i"),
+];
+
+/** True when the text carries a promo phrase (see PROMO_PATTERNS). */
+export function hasPromoText(text) {
+  return PROMO_PATTERNS.some((re) => re.test(str(text)));
+}
+
+/** Remove stray leading/trailing punctuation and repeated punctuation/spaces. */
+export function tidyPunctuation(value) {
+  let text = str(value)
+    .replace(/\(\s*\)|\[\s*\]/g, " ")
+    .replace(/([!?.,;:])\1+/g, "$1")
+    .replace(/\s+([,.;:!?])/g, "$1")
+    .replace(/(?:\s[-–—]){2,}(?=\s|$)/g, " -")
+    .replace(/\s+/g, " ")
+    .trim();
+  text = text.replace(/^[\s.,;:!\-–—/|&*•]+/, "");
+  text = text.replace(/[\s.,;:!\-–—/|&*•]+$/, "");
+  return text.trim();
+}
+
+/**
+ * Product name: whitespace collapsed, promo phrases ("ON SALE!", "% off",
+ * "Free shipping", ...) removed, stray punctuation trimmed. (R)/(TM) are kept.
+ */
 export function cleanName(value) {
-  return collapseWhitespace(value);
+  let name = collapseWhitespace(value);
+  name = name.replace(
+    /\b(?:fixed[\s-]+amount[\s-]+discount|\d+(?:\.\d+)?\s*%\s*off|limited[\s-]+time(?:\s+(?:offer|only|deal))?|free\s+shipping|click\s+here|on\s+sale)\b[\s!.]*/gi,
+    " "
+  );
+  name = name.replace(/%\s*off\b[\s!.]*/gi, " ");
+  // bare "Sale": only as a leading/trailing word or shouted ("Sale!"), never mid-name
+  name = name.replace(/^sale\b[\s!:\-–—]*/i, "");
+  name = name.replace(new RegExp(`(?<!\\b${SALE_GUARD}\\s)\\bsale\\s*!+`, "gi"), " ");
+  name = name.replace(
+    new RegExp(`(?<!\\b${SALE_GUARD}\\s)[\\s\\-\\u2013\\u2014:|,]*\\bsale\\s*$`, "i"),
+    ""
+  );
+  return tidyPunctuation(name);
 }
 
 /** Lowercase ASCII slug, at most `max` chars, no leading/trailing dashes. */
@@ -299,12 +355,50 @@ export function stripBadge(description) {
   return collapseWhitespace(text);
 }
 
+/** Short real acronyms/codes that stay upper-case inside a shouted color name. */
+export const COLOR_ACRONYMS = new Set([
+  "UPF",
+  "USA",
+  "PMS",
+  "UV",
+  "LED",
+  "RFID",
+  "GSM",
+  "TPU",
+  "PVC",
+  "USB",
+  "ANSI",
+  "RPET",
+  "NFL",
+  "NBA",
+  "MLB",
+  "NCAA",
+  "HD",
+  "UPC",
+  "SPF",
+]);
+
+/**
+ * "NAVY BLUE" -> "Navy Blue", "BLACK/WHITE" -> "Black/White". Colors that are
+ * not entirely upper-case, or that contain digits (PMS 123, "104"), are left
+ * exactly as supplied; known acronyms (UPF, USA, ...) keep their case.
+ */
+export function titleCaseColor(color) {
+  const text = str(color);
+  if (/\d/.test(text) || !/[A-Z]/.test(text) || text !== text.toUpperCase()) return text;
+  return text.replace(/[A-Za-z][A-Za-z']*/g, (word) =>
+    COLOR_ACRONYMS.has(word) ? word : word[0] + word.slice(1).toLowerCase()
+  );
+}
+
 export function cleanColors(colors) {
   if (!Array.isArray(colors)) return [];
   const seen = new Set();
   const out = [];
   for (const raw of colors) {
-    const color = collapseWhitespace(str(raw).replace(/\s*show\s+(more|less)\s*$/i, ""));
+    const color = titleCaseColor(
+      collapseWhitespace(str(raw).replace(/\s*show\s+(more|less)\s*$/i, ""))
+    );
     if (!color) continue;
     const key = color.toLowerCase();
     if (seen.has(key)) continue;
@@ -383,8 +477,77 @@ export function mapCategory(tag) {
  * from the row's own color count and sizes. Always ends with the "Priced at"
  * sentence matching the curated style.
  */
+const NUM_WORD =
+  "(?:\\d+|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|(?:twenty|thirty|forty|fifty|sixty)(?:[- ](?:one|two|three|four|five|six|seven|eight|nine))?)";
+// "available in 12 colors", "eight attractive colors", "5 colors to choose from"
+const COLOR_COUNT_CLAIM = new RegExp(
+  `(?:[,;]?\\s*\\b(?:and|or|plus)\\s+)?(?:(?:is|are|comes?|offered|available)\\s+)*(?:in\\s+)?(?:up\\s+to\\s+|over\\s+|more\\s+than\\s+)?\\b${NUM_WORD}[\\s-]+(?:[a-z]+[\\s-]+){0,2}?colou?r(?:way)?s?\\b(?:\\s+(?:available|to\\s+choose\\s+from|options?|choices?|offered))*`,
+  "gi"
+);
+// Imprint/decoration colors are a different fact ("2-color imprint"); leave those sentences alone.
+const IMPRINT_CONTEXT =
+  /imprint|print|\bink\b|decorat|embroider|screen|logo|artwork|process|stitch/i;
+
+/**
+ * Promo labels glued onto the front of a description with no sentence break
+ * ("Fixed Amount Discount DC Premium cotton twill cap...") are removed on their
+ * own so the real description that follows survives.
+ */
+export function stripLeadingPromoLabels(text) {
+  const label =
+    /^(?:fixed[\s-]+amount[\s-]+discount|on\s+sale|sale|\d+(?:\.\d+)?\s*%\s*off|limited[\s-]+time(?:\s+(?:offer|only|deal))?|free\s+shipping)\b[\s!:.\-\u2013\u2014]*/i;
+  let out = str(text).trim();
+  for (let i = 0; i < 4 && label.test(out); i++) {
+    const rest = out.replace(label, "").trimStart();
+    // a lowercase continuation means the label is part of a sentence
+    // ("Free shipping on orders..."): leave it for sentence-level removal
+    if (/^[a-z]/.test(rest)) break;
+    out = rest;
+  }
+  return out;
+}
+
+/**
+ * Description text from the supplier, minus: badge word, promo sentences, and
+ * vendor-written color-count claims (the importer states its own accurate
+ * color text). Never adds words. Returns "" when nothing meaningful is left.
+ */
+export function cleanDescriptionText(raw) {
+  const text = stripLeadingPromoLabels(stripBadge(raw));
+  const sentences = text.split(/(?<=[.!?])\s+(?=[A-Z0-9"“(])/);
+  const kept = [];
+  for (let sentence of sentences) {
+    if (hasPromoText(sentence)) continue;
+    if (!IMPRINT_CONTEXT.test(sentence)) {
+      sentence = sentence.replace(COLOR_COUNT_CLAIM, "\u0001");
+    }
+    if (sentence.includes("\u0001")) {
+      // drop a dangling connector and re-capitalize what follows a removed lead-in
+      sentence = sentence
+        .replace(/\u0001[\s,;:\-–—]*(?:(?:and|or|plus)\s+)?/g, "\u0001")
+        .replace(/^\u0001/, "\u0002")
+        .replace(/\u0001/g, " ");
+      sentence = tidyPunctuation(sentence);
+      sentence = sentence.replace(/^\u0002?\s*([a-z])/, (_, c) => c.toUpperCase());
+      sentence = sentence.replace(/\u0002/g, "");
+      if (!/[A-Za-z0-9]/.test(sentence)) continue;
+      if (!/[.!?)"'”]$/.test(sentence)) sentence += ".";
+    }
+    kept.push(sentence);
+  }
+  const joined = kept.join(" ").replace(/\s+/g, " ").trim();
+  return /[A-Za-z0-9]/.test(joined) ? tidyPunctuationKeepEnd(joined) : "";
+}
+
+/** Like tidyPunctuation but keeps a sentence-ending period/!/?. */
+function tidyPunctuationKeepEnd(text) {
+  const end = text.match(/[.!?]$/)?.[0] ?? "";
+  const body = tidyPunctuation(text.replace(/[.!?]+$/, ""));
+  return body ? body + end : "";
+}
+
 export function buildDescription({ rawDescription, colorCount, sizes, minQty, usa, multiGrid }) {
-  let base = stripBadge(rawDescription);
+  let base = cleanDescriptionText(rawDescription);
   if (!base) {
     const parts = [];
     if (colorCount > 0) parts.push(`${colorCount} color option${colorCount === 1 ? "" : "s"}.`);
@@ -424,6 +587,7 @@ export const SKIP_REASONS = [
   "duplicate-of-curated",
   "duplicate-same-vendor",
   "duplicate-other-vendor",
+  "manual-override",
   "id-collision",
 ];
 
@@ -644,7 +808,7 @@ export function cleanRow(row) {
 
   const description = buildDescription({
     rawDescription: descRaw,
-    colorCount: colors.length,
+    colorCount: Math.min(colors.length, MAX_COLORS),
     sizes: sizesRaw,
     minQty: tiers[0][0],
     usa,
@@ -704,7 +868,8 @@ function memberInfo(c) {
  * @param {{
  *   curated?: { id: string, name: string, category?: string }[],
  *   curatedNames?: string[], curatedIds?: string[],
- *   rejectedEspIds?: Iterable<string>
+ *   rejectedEspIds?: Iterable<string>,
+ *   dropEspIds?: { espId: string, reason: string }[]
  * }} [opts] `rejectedEspIds`: rows whose image could not be fetched; excluded so a
  *   runner-up from the same cluster is selected instead.
  * @returns {{
@@ -712,7 +877,8 @@ function memberInfo(c) {
  *   skipped: Record<string, number>,
  *   skippedDetail: { reason: string, espId?: string, name?: string }[],
  *   clusters: { kept: MemberInfo, dropped: (MemberInfo & { reason: string })[] }[],
- *   curatedDuplicates: { dropped: MemberInfo, curated: string }[]
+ *   curatedDuplicates: { dropped: MemberInfo, curated: string }[],
+ *   manualOverrides: { dropped: MemberInfo, reason: string }[]
  * }}
  */
 export function buildCatalog(rows, opts = {}) {
@@ -723,6 +889,8 @@ export function buildCatalog(rows, opts = {}) {
     .filter((c) => c.category)
     .map((c) => ({ ...c, tokens: significantTokens(c.name) }));
   const rejected = new Set(opts.rejectedEspIds ?? []);
+  const overrides = new Map((opts.dropEspIds ?? []).map((o) => [String(o.espId).trim(), o.reason]));
+  const manualOverrides = [];
 
   const skipped = {};
   const skippedDetail = [];
@@ -744,6 +912,12 @@ export function buildCatalog(rows, opts = {}) {
     const detail = { espId: cleaned.espId, name: cleaned.product.name };
     if (rejected.has(cleaned.espId)) {
       skip("image-failed", detail);
+      continue;
+    }
+    // manual overrides (scripts/data/import-overrides.json), after the vendor gate
+    if (overrides.has(cleaned.espId)) {
+      skip("manual-override", detail);
+      manualOverrides.push({ dropped: memberInfo(cleaned), reason: overrides.get(cleaned.espId) });
       continue;
     }
     // ---- 2) duplicates of curated products: curated always wins -------------
@@ -851,7 +1025,118 @@ export function buildCatalog(rows, opts = {}) {
     items.push({ id, imgId: w.imgId, product: w.product, link: w.link });
   }
 
-  return { items, skipped, skippedDetail, clusters, curatedDuplicates };
+  return { items, skipped, skippedDetail, clusters, curatedDuplicates, manualOverrides };
+}
+
+// ---- Manual overrides / safety checks ---------------------------------------
+
+/**
+ * Validate scripts/data/import-overrides.json content. Each entry needs a
+ * string espId and a non-empty reason; keepEspId / keepCuratedId optionally name
+ * the replacement that makes dropping the row safe (verified by checkOverrides).
+ * @returns {{ espId: string, reason: string, keepEspId?: string, keepCuratedId?: string }[]}
+ */
+export function parseOverrides(json) {
+  const list = json?.dropEspIds ?? [];
+  if (!Array.isArray(list)) throw new Error("import-overrides.json: dropEspIds must be an array");
+  const seen = new Set();
+  return list.map((entry, i) => {
+    const espId = collapseWhitespace(entry?.espId);
+    const reason = collapseWhitespace(entry?.reason);
+    if (!espId) throw new Error(`import-overrides.json: dropEspIds[${i}] has no espId`);
+    if (!reason)
+      throw new Error(`import-overrides.json: dropEspIds[${i}] (${espId}) has no reason`);
+    if (seen.has(espId)) throw new Error(`import-overrides.json: duplicate espId ${espId}`);
+    seen.add(espId);
+    const out = { espId, reason };
+    if (entry.keepEspId) out.keepEspId = collapseWhitespace(entry.keepEspId);
+    if (entry.keepCuratedId) out.keepCuratedId = collapseWhitespace(entry.keepCuratedId);
+    return out;
+  });
+}
+
+/**
+ * Warnings (never silent data loss): an override whose espId is in no raw file
+ * is stale; one whose declared replacement is not actually in the catalog would
+ * leave the product with no listing at all.
+ */
+export function checkOverrides({ overrides, rawEspIds, selectedEspIds, curatedIds }) {
+  const raw = new Set(rawEspIds);
+  const selected = new Set(selectedEspIds);
+  const curated = new Set(curatedIds);
+  const warnings = [];
+  for (const o of overrides) {
+    if (!raw.has(o.espId)) {
+      warnings.push(
+        `stale override: espId ${o.espId} is not present in any raw file (${o.reason})`
+      );
+      continue;
+    }
+    if (!o.keepEspId && !o.keepCuratedId) {
+      warnings.push(`override ${o.espId} names no replacement (keepEspId / keepCuratedId)`);
+    }
+    if (o.keepEspId && !selected.has(o.keepEspId)) {
+      warnings.push(
+        `override ${o.espId}: replacement espId ${o.keepEspId} is NOT in the imported catalog`
+      );
+    }
+    if (o.keepCuratedId && !curated.has(o.keepCuratedId)) {
+      warnings.push(
+        `override ${o.espId}: replacement curated product ${o.keepCuratedId} does not exist`
+      );
+    }
+  }
+  return warnings;
+}
+
+/**
+ * Products that carry hand-sourced data (color photos, ESP links) must keep
+ * their id across imports. Returns the protected ids that were selected last
+ * time but are gone now.
+ */
+export function findLostProtectedIds({ previousIds, selectedIds, protectedIds }) {
+  const selected = new Set(selectedIds);
+  const protectedSet = new Set(protectedIds);
+  return [...new Set(previousIds)].filter((id) => protectedSet.has(id) && !selected.has(id)).sort();
+}
+
+/**
+ * Rename colorImages keys that cleanup changed ("BLACK" -> "Black") so photos
+ * keep mapping. Only keys move; values are never touched.
+ * @param {Record<string, Record<string, string>>} colorImages
+ * @param {{ id: string, colors: string[] }[]} records imported records
+ * @returns {{ colorImages: Record<string, Record<string, string>>, renamed: number, unresolved: string[] }}
+ */
+export function renameColorImageKeys(colorImages, records) {
+  const byId = new Map(records.map((r) => [r.id, r.colors]));
+  const next = {};
+  let renamed = 0;
+  const unresolved = [];
+  for (const [id, byColor] of Object.entries(colorImages)) {
+    const colors = byId.get(id);
+    if (!colors) {
+      next[id] = byColor; // curated product: not ours to touch
+      continue;
+    }
+    const valid = new Set(colors);
+    const out = {};
+    for (const [color, src] of Object.entries(byColor)) {
+      if (valid.has(color)) {
+        out[color] = src;
+        continue;
+      }
+      const candidate = cleanColors([color])[0];
+      if (candidate && valid.has(candidate) && !(candidate in byColor) && !(candidate in out)) {
+        out[candidate] = src;
+        renamed++;
+      } else {
+        unresolved.push(`${id}: "${color}"`);
+        out[color] = src;
+      }
+    }
+    next[id] = out;
+  }
+  return { colorImages: next, renamed, unresolved };
 }
 
 /**

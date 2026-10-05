@@ -18,7 +18,14 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import prettier from "prettier";
-import { buildCatalog, toPublicRecord } from "./lib/catalogClean.mjs";
+import {
+  buildCatalog,
+  checkOverrides,
+  findLostProtectedIds,
+  parseOverrides,
+  renameColorImageKeys,
+  toPublicRecord,
+} from "./lib/catalogClean.mjs";
 import { DOWNLOAD_CONCURRENCY, ensureImage, mapConcurrent } from "./lib/catalogImages.mjs";
 
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
@@ -111,6 +118,7 @@ async function writeIfChanged(file, content) {
 
 const MANIFEST_REL = "scripts/data/import-manifest.json";
 const REPORT_REL = "scripts/out/dedupe-report.md";
+const OVERRIDES_REL = "scripts/data/import-overrides.json";
 
 async function readJsonIfExists(file, fallback) {
   try {
@@ -121,7 +129,7 @@ async function readJsonIfExists(file, fallback) {
 }
 
 /** Human-readable report of every duplicate cluster and curated duplicate. */
-export function renderDedupeReport({ clusters, curatedDuplicates }) {
+export function renderDedupeReport({ clusters, curatedDuplicates, manualOverrides = [] }) {
   const who = (m) =>
     `${m.name} -- ${m.supplier || m.asi || "unknown vendor"} (rating ${m.rating}, ${m.reviews} reviews, score ${m.score})`;
   const lines = ["# Catalog dedupe report", ""];
@@ -129,6 +137,14 @@ export function renderDedupeReport({ clusters, curatedDuplicates }) {
   lines.push(
     `Imported items dropped as duplicates of curated products: ${curatedDuplicates.length}`
   );
+  lines.push("");
+  lines.push(`Rows dropped by manual override: ${manualOverrides.length}`);
+  lines.push("");
+  lines.push("## Manual overrides (scripts/data/import-overrides.json)", "");
+  for (const o of manualOverrides) {
+    lines.push(`- dropped: ${who(o.dropped)}`);
+    lines.push(`  reason: ${o.reason}`);
+  }
   lines.push("");
   lines.push("## Duplicate clusters", "");
   clusters.forEach((c, i) => {
@@ -174,12 +190,16 @@ export async function runImport(args) {
   const linksFile = path.join(root, "src/lib/espLinks.imported.json");
   const manifestFile = path.join(root, MANIFEST_REL);
   const reportFile = path.join(root, REPORT_REL);
+  const overridesFile = path.join(root, OVERRIDES_REL);
+  const colorImagesFile = path.join(root, "src/config/colorImages.json");
+  const curatedLinksFile = path.join(root, "src/lib/espLinks.curated.json");
 
   const curated = readCuratedProducts(
     await fs.readFile(path.join(REPO_ROOT, "src/config/merchandiseConfig.ts"), "utf8")
   );
   const { rows, files, badFiles, done } = await readRawRows(args.raw);
-  const buildOpts = { curated: curated.products };
+  const overrides = parseOverrides(await readJsonIfExists(overridesFile, { dropEspIds: [] }));
+  const buildOpts = { curated: curated.products, dropEspIds: overrides };
 
   // Select rows; fetch images for the winners; if a winner's image cannot be
   // fetched, reject it and re-select so the cluster's runner-up is used.
@@ -212,15 +232,64 @@ export async function runImport(args) {
     });
     if (newFailures === 0) break;
   }
-  const { items, skipped, skippedDetail, clusters, curatedDuplicates } = result;
+  const { items, skipped, skippedDetail, clusters, curatedDuplicates, manualOverrides } = result;
   reused = args.images ? items.length - items.filter((i) => touched.has(i.id)).length : 0;
 
   const publicRecords = items.map(toPublicRecord);
   const links = Object.fromEntries(items.map((item) => [item.id, item.link]));
 
+  // ---- safety: overrides must be live and have a replacement ---------------------
+  const warnings = checkOverrides({
+    overrides,
+    rawEspIds: rows.map((r) => (Array.isArray(r) ? String(r[0]).trim() : "")),
+    selectedEspIds: items.map((i) => i.link.espId),
+    curatedIds: curated.ids,
+  });
+
+  // ---- safety: products with hand-sourced data must keep their id ------------------
+  const previousProducts = await readJsonIfExists(productsFile, []);
+  const colorImages = await readJsonIfExists(colorImagesFile, {});
+  const curatedLinks = await readJsonIfExists(curatedLinksFile, {});
+  const lostAll = findLostProtectedIds({
+    previousIds: previousProducts.map((p) => p.id),
+    selectedIds: items.map((i) => i.id),
+    protectedIds: [...Object.keys(colorImages), ...Object.keys(curatedLinks)],
+  });
+  // A product dropped on purpose by a manual override may leave behind an unused
+  // curated ESP link entry; that is reported, not fatal. Color photos always are.
+  const previousLinks = await readJsonIfExists(linksFile, {});
+  const overridden = new Set(overrides.map((o) => o.espId));
+  const lost = [];
+  for (const id of lostAll) {
+    if (overridden.has(String(previousLinks[id]?.espId)) && !(id in colorImages)) {
+      warnings.push(
+        `override dropped ${id}: its entry in src/lib/espLinks.curated.json is now unused (owned by esp-links; safe to delete)`
+      );
+    } else {
+      lost.push(id);
+    }
+  }
+  if (lost.length > 0) {
+    throw new Error(
+      `STOPPED, nothing written: these products have color photos or curated ESP links but ` +
+        `would lose their id with the current raw data: ${lost.join(", ")}`
+    );
+  }
+  const renamedKeys = renameColorImageKeys(colorImages, publicRecords);
+  if (renamedKeys.unresolved.length > 0) {
+    throw new Error(
+      `STOPPED, nothing written: color photo keys that no longer match any color: ${renamedKeys.unresolved.join("; ")}`
+    );
+  }
+
   let orphansRemoved = [];
   if (!args.dryRun) {
-    const previousProducts = await readJsonIfExists(productsFile, []);
+    if (renamedKeys.renamed > 0) {
+      await writeIfChanged(
+        colorImagesFile,
+        await formatJson(root, JSON.stringify(renamedKeys.colorImages))
+      );
+    }
     const manifest = await readJsonIfExists(manifestFile, { generated: [] });
     await writeIfChanged(productsFile, await formatJson(root, JSON.stringify(publicRecords)));
     await writeIfChanged(linksFile, await formatJson(root, JSON.stringify(links)));
@@ -244,11 +313,18 @@ export async function runImport(args) {
   // report lives in a self-ignoring scripts/out directory (never committed)
   await fs.mkdir(path.dirname(reportFile), { recursive: true });
   await fs.writeFile(path.join(path.dirname(reportFile), ".gitignore"), "*\n");
-  await fs.writeFile(reportFile, renderDedupeReport({ clusters, curatedDuplicates }));
+  await fs.writeFile(
+    reportFile,
+    renderDedupeReport({ clusters, curatedDuplicates, manualOverrides })
+  );
   if (args.report) {
     await fs.writeFile(
       args.report,
-      JSON.stringify({ skipped, skippedDetail, failures, clusters, curatedDuplicates }, null, 2)
+      JSON.stringify(
+        { skipped, skippedDetail, failures, clusters, curatedDuplicates, manualOverrides },
+        null,
+        2
+      )
     );
   }
 
@@ -271,6 +347,8 @@ export async function runImport(args) {
     imageMbAdded: imageBytes / 1024 / 1024,
     orphansRemoved,
     reportFile,
+    warnings,
+    colorKeysRenamed: renamedKeys.renamed,
   };
 }
 
@@ -286,6 +364,7 @@ function printSummary(args, s) {
   line("rows read", s.rowsRead);
   line("dropped: low vendor rating", s.skipped["low-vendor-rating"] ?? 0);
   line("dropped: excluded supplier", s.skipped["excluded-supplier"] ?? 0);
+  line("dropped: manual override", s.skipped["manual-override"] ?? 0);
   line("dropped: duplicate of curated", s.skipped["duplicate-of-curated"] ?? 0);
   line("dropped: duplicate, other vendor", s.skipped["duplicate-other-vendor"] ?? 0);
   line("dropped: duplicate, same vendor", s.skipped["duplicate-same-vendor"] ?? 0);
@@ -302,7 +381,9 @@ function printSummary(args, s) {
   line("images already present", s.imagesReused);
   line("image MB added", s.imageMbAdded.toFixed(2));
   line("orphan images removed", s.orphansRemoved.length);
+  line("color photo keys renamed", s.colorKeysRenamed);
   line("dedupe report", s.reportFile);
+  for (const w of s.warnings) console.warn(`WARNING: ${w}`);
   if (args.dryRun) console.log("  (dry run: no JSON files written)");
   if (!args.images) console.log("  (--no-images: images were NOT checked or downloaded)");
 }
