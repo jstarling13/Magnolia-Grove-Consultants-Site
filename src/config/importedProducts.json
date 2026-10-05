@@ -1,1 +1,488 @@
-[]
+[
+  {
+    "id": "44-arc-automatic-open-telescopic-folding-umbrella-85261",
+    "name": "44\" Arc Automatic Open Telescopic Folding Umbrella",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "44\" Arc Auto-Open Telescopic Folding Umbrella with matching sleeve. Priced at 40 units.",
+    "tiers": [
+      [40, 16.54],
+      [100, 14.38],
+      [240, 12.5],
+      [500, 10.87],
+      [1000, 9.45]
+    ],
+    "image": "/images/merch/44-arc-automatic-open-telescopic-folding-umbrella-85261.webp",
+    "imageAlt": "44\" Arc Automatic Open Telescopic Folding Umbrella",
+    "colors": ["BLACK", "Forest Green", "NAVY BLUE", "RED", "ROYAL BLUE"]
+  },
+  {
+    "id": "the-viceversa-inverted-umbrella-smartphone-friendly-handle-10763",
+    "name": "The ViceVersa Inverted Umbrella - Smartphone-Friendly Handle",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Get extra-colorful with our new ViceVersa Inverted Umbrella, featuring a colorful outer canopy and contrasting gray undercanopy! Priced at 12 units.",
+    "tiers": [
+      [12, 27.78],
+      [24, 21.18],
+      [48, 20.55],
+      [96, 19.68],
+      [288, 18.87]
+    ],
+    "image": "/images/merch/the-viceversa-inverted-umbrella-smartphone-friendly-handle-10763.webp",
+    "imageAlt": "The ViceVersa Inverted Umbrella - Smartphone-Friendly Handle",
+    "colors": [
+      "Black-Gray",
+      "Orange-Gray",
+      "Purple-Gray",
+      "Red-Gray",
+      "Royal Blue-Gray",
+      "Black-Black",
+      "Black-Royal Blue",
+      "Teal-Gray",
+      "Navy Blue-Gray"
+    ]
+  },
+  {
+    "id": "folding-umbrella-43323",
+    "name": "Folding umbrella",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Folding umbrella, 170T polyester fabric and 40\" arc. Priced at 60 units.",
+    "tiers": [
+      [60, 5.9],
+      [240, 5.7],
+      [500, 5.5],
+      [1000, 5.3]
+    ],
+    "image": "/images/merch/folding-umbrella-43323.webp",
+    "imageAlt": "Folding umbrella",
+    "colors": ["Red", "White", "Black", "Navy Blue"]
+  },
+  {
+    "id": "steal-umbrella-1-imprint-63089",
+    "name": "Steal Umbrella (1 Imprint)",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Budget-friendly folding with 8-panel auto-open design, a 44\" arc and anti-slip rubber handle. Priced at 12 units.",
+    "tiers": [
+      [12, 12.54],
+      [25, 12.06],
+      [50, 11.55],
+      [75, 11.03],
+      [100, 10.53]
+    ],
+    "image": "/images/merch/steal-umbrella-1-imprint-63089.webp",
+    "imageAlt": "Steal Umbrella (1 Imprint)",
+    "colors": [
+      "Azure_White",
+      "Spruce",
+      "Ruby",
+      "Purple",
+      "Pumpkin",
+      "Pink",
+      "Lime Green",
+      "Indigo",
+      "Cyan",
+      "Crimson",
+      "Canary",
+      "Azure",
+      "Spruce/White",
+      "Ruby/White",
+      "Pumpkin/White",
+      "Indigo_White",
+      "Crimson_White",
+      "Purple/White"
+    ]
+  },
+  {
+    "id": "the-spectrum-folding-umbrella-auto-open-31-colors-81216",
+    "name": "The Spectrum Folding Umbrella - Auto Open, 31 Colors",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Automatic-opening umbrella that measures 15\" when folded. Available in 30 attractive colors - solid and alternating panel.. Priced at 12 units.",
+    "tiers": [
+      [12, 16.58],
+      [24, 11.98],
+      [48, 11.35],
+      [96, 10.79],
+      [288, 10.35]
+    ],
+    "image": "/images/merch/the-spectrum-folding-umbrella-auto-open-31-colors-81216.webp",
+    "imageAlt": "The Spectrum Folding Umbrella - Auto Open, 31 Colors",
+    "colors": [
+      "Red-White",
+      "Royal Blue-White",
+      "Hunter Green-White",
+      "Orange-White",
+      "Purple-White",
+      "Black-White",
+      "Navy Blue-White",
+      "Burgundy-White",
+      "Red-Black",
+      "Black",
+      "Navy Blue",
+      "Hunter Green",
+      "Burgundy",
+      "Purple",
+      "Red",
+      "Teal Blue",
+      "Yellow",
+      "White",
+      "Red-White-Navy",
+      "Orange",
+      "Lime Green",
+      "Gray",
+      "Royal Blue",
+      "Carolina Blue-White",
+      "Lime Green-Black",
+      "Black-Gold",
+      "Navy Blue-Gold",
+      "Rainbow",
+      "Pink",
+      "Royal Blue-Black"
+    ]
+  },
+  {
+    "id": "60-arc-jumbo-golf-umbrella-48490",
+    "name": "60\" Arc Jumbo Golf Umbrella",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "60\" jumbo polyester umbrella with manual open/close feature, comfort-grip wooden handle and metal shaft and ribs. Priced at 24 units.",
+    "tiers": [
+      [24, 14.49],
+      [72, 14.09],
+      [144, 13.69],
+      [288, 13.29],
+      [576, 12.89]
+    ],
+    "image": "/images/merch/60-arc-jumbo-golf-umbrella-48490.webp",
+    "imageAlt": "60\" Arc Jumbo Golf Umbrella",
+    "colors": ["Black", "Blue-Reflex", "Black-White", "Blue-Reflex-White"]
+  },
+  {
+    "id": "the-vented-typhoon-tamer-umbrella-with-62-arc-canopy-96825",
+    "name": "The Vented Typhoon Tamer™ Umbrella with 62\" Arc Canopy",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Manual opening umbrella with 62\" arc, all fiberglass construction and alternating colored panels. Priced at 12 units.",
+    "tiers": [
+      [12, 27.78],
+      [24, 21.65],
+      [48, 20.93],
+      [96, 20.35],
+      [288, 19.67]
+    ],
+    "image": "/images/merch/the-vented-typhoon-tamer-umbrella-with-62-arc-canopy-96825.webp",
+    "imageAlt": "The Vented Typhoon Tamer™ Umbrella with 62\" Arc Canopy",
+    "colors": [
+      "Royal-White",
+      "Red-White",
+      "Hunter-White",
+      "Navy-White",
+      "Black-White",
+      "Purple-White",
+      "Orange-White",
+      "Black",
+      "Hunter Green",
+      "Navy Blue",
+      "Royal Blue",
+      "Teal Blue-White",
+      "Gray",
+      "Lime Green-White",
+      "Red-Black",
+      "Royal Blue-Black",
+      "Teal Blue-Black",
+      "Black-Gold",
+      "Navy Blue-Gold",
+      "Navy Blue-Gray",
+      "Red-Gray",
+      "Purple-Gray"
+    ]
+  },
+  {
+    "id": "the-vented-tornado-golf-umbrella-auto-open-12983",
+    "name": "The Vented Tornado™ Golf Umbrella - Auto-Open",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Automatic opening golf umbrella with 64\" vented canopy arc and fiberglass construction. Priced at 12 units.",
+    "tiers": [
+      [12, 30.88],
+      [24, 28.67],
+      [48, 27.88],
+      [96, 26.99],
+      [288, 26.48]
+    ],
+    "image": "/images/merch/the-vented-tornado-golf-umbrella-auto-open-12983.webp",
+    "imageAlt": "The Vented Tornado™ Golf Umbrella - Auto-Open",
+    "colors": [
+      "Navy Blue",
+      "Royal Blue",
+      "Black",
+      "Navy Blue-White",
+      "Royal Blue-White",
+      "Black-White",
+      "Red-White",
+      "Hunter Green-White",
+      "Gray"
+    ]
+  },
+  {
+    "id": "reverse-2-tone-umbrella-24182",
+    "name": "Reverse 2-Tone Umbrella",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Reverse Open or 2 Sided Umbrella. Priced at 60 units.",
+    "tiers": [
+      [60, 10.55],
+      [120, 10.35],
+      [500, 10.15],
+      [1000, 9.95]
+    ],
+    "image": "/images/merch/reverse-2-tone-umbrella-24182.webp",
+    "imageAlt": "Reverse 2-Tone Umbrella",
+    "colors": ["Black-Red", "Black-Blue"]
+  },
+  {
+    "id": "mini-windproof-sun-and-rain-pocket-umbrella-with-case-68729",
+    "name": "Mini Windproof Sun & Rain Pocket Umbrella With Case",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "This mini foldable pocket umbrella design w/fiberglass&steel shaft, 8 ribs w/ UPF 50+ pongee fabric, heat transfer custom logo. Priced at 100 units.",
+    "tiers": [
+      [100, 7.233],
+      [500, 6.683],
+      [1000, 6.617],
+      [2000, 6.567],
+      [3000, 6.55]
+    ],
+    "image": "/images/merch/mini-windproof-sun-and-rain-pocket-umbrella-with-case-68729.webp",
+    "imageAlt": "Mini Windproof Sun & Rain Pocket Umbrella With Case",
+    "colors": [
+      "Brass Metal",
+      "Camouflage Orange",
+      "Metallic Black",
+      "Bright Pink",
+      "Bright White",
+      "Metallic Yellow"
+    ]
+  },
+  {
+    "id": "storm-2-umbrella-1-imprint-63179",
+    "name": "Storm 2 Umbrella (1 Imprint)",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Manual-opening golf umbrella with 60\" arc, 8-panel construction, fiberglass shaft and ribs, hardwood handle and rPET canopy. Priced at 12 units.",
+    "tiers": [
+      [12, 16.9],
+      [25, 15.89],
+      [50, 15.21],
+      [75, 14.2],
+      [100, 13.35]
+    ],
+    "image": "/images/merch/storm-2-umbrella-1-imprint-63179.webp",
+    "imageAlt": "Storm 2 Umbrella (1 Imprint)",
+    "colors": [
+      "Spruce/White",
+      "Ruby/White",
+      "Pumpkin/White",
+      "Indigo_White",
+      "Crimson_White",
+      "Azure_White",
+      "Spruce",
+      "Ruby",
+      "Indigo",
+      "Gray",
+      "Crimson",
+      "Azure"
+    ]
+  },
+  {
+    "id": "the-vented-club-canopy-golf-umbrella-auto-open-58-arc-20473",
+    "name": "The Vented Club Canopy™ Golf Umbrella - Auto-Open, 58\" Arc",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Heavy-duty golf and sporting event umbrella with large vented 58\" canopy arc and automatic opening. Priced at 12 units.",
+    "tiers": [
+      [12, 25.65],
+      [24, 19.27],
+      [48, 18.88],
+      [96, 18.17],
+      [288, 17.45]
+    ],
+    "image": "/images/merch/the-vented-club-canopy-golf-umbrella-auto-open-58-arc-20473.webp",
+    "imageAlt": "The Vented Club Canopy™ Golf Umbrella - Auto-Open, 58\" Arc",
+    "colors": [
+      "Navy Blue",
+      "Navy Blue-White",
+      "Royal Blue",
+      "Royal Blue-White",
+      "Dark Black",
+      "Black-White",
+      "Hunter Green-White",
+      "Red-White",
+      "Gray",
+      "Purple/White"
+    ]
+  },
+  {
+    "id": "professional-colored-golf-ball-93928",
+    "name": "Professional Colored Golf Ball",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Rubber and surlyn golf balls. Priced at 100 units.",
+    "tiers": [
+      [100, 2.8],
+      [250, 2.7],
+      [500, 2.6],
+      [1000, 2.5],
+      [2500, 2.4]
+    ],
+    "image": "/images/merch/professional-colored-golf-ball-93928.webp",
+    "imageAlt": "Professional Colored Golf Ball",
+    "colors": ["Red", "Blue", "Yellow", "Green", "Orange", "Gold"]
+  },
+  {
+    "id": "on-sale-professional-golf-ball-49427",
+    "name": "ON SALE! Professional Golf Ball",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Golf balls with a rubber core and Surlyn top layer. Priced at 100 units.",
+    "tiers": [
+      [100, 2.55],
+      [250, 2.45],
+      [500, 2.35],
+      [1000, 2.25],
+      [2500, 2.15]
+    ],
+    "image": "/images/merch/on-sale-professional-golf-ball-49427.webp",
+    "imageAlt": "ON SALE! Professional Golf Ball",
+    "colors": ["White"]
+  },
+  {
+    "id": "golf-tees-and-ball-marker-in-matchbook-card-57838",
+    "name": "Golf Tees and Ball Marker in Matchbook Card",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Customizable set of four biodegradable golf tees and golf ball marker, stored inside a matchbook-style cover. Made in USA. Priced at 500 units.",
+    "tiers": [
+      [500, 1.65],
+      [1000, 1.59],
+      [2500, 1.54]
+    ],
+    "image": "/images/merch/golf-tees-and-ball-marker-in-matchbook-card-57838.webp",
+    "imageAlt": "Golf Tees and Ball Marker in Matchbook Card",
+    "colors": ["White", "Red", "Green", "Blue", "Black"]
+  },
+  {
+    "id": "titleist-trufeel-02948",
+    "name": "Titleist TruFeel",
+    "category": "Outdoor & Sports",
+    "brand": "Titleist",
+    "description": "2 color options. Priced at 12 units.",
+    "tiers": [
+      [12, 34.06],
+      [24, 33.34],
+      [48, 31.91],
+      [120, 30.34],
+      [240, 27.99]
+    ],
+    "image": "/images/merch/titleist-trufeel-02948.webp",
+    "imageAlt": "Titleist TruFeel",
+    "colors": ["White", "Yellow"]
+  },
+  {
+    "id": "titleist-pro-v1-golf-ball-73365",
+    "name": "Titleist Pro V1 Golf Ball",
+    "category": "Outdoor & Sports",
+    "brand": "Titleist",
+    "description": "Golf balls with imprint options. Made in USA. Priced at 6 units.",
+    "tiers": [
+      [6, 82.3],
+      [12, 81.3],
+      [24, 80.3],
+      [48, 79.3]
+    ],
+    "image": "/images/merch/titleist-pro-v1-golf-ball-73365.webp",
+    "imageAlt": "Titleist Pro V1 Golf Ball",
+    "colors": ["White", "Yellow"]
+  },
+  {
+    "id": "titleist-pro-v1-64384",
+    "name": "Titleist Pro V1",
+    "category": "Outdoor & Sports",
+    "brand": "Titleist",
+    "description": "2 color options. Priced at 12 units.",
+    "tiers": [
+      [12, 69.14],
+      [24, 68.43],
+      [48, 67],
+      [120, 65.29],
+      [240, 62.86]
+    ],
+    "image": "/images/merch/titleist-pro-v1-64384.webp",
+    "imageAlt": "Titleist Pro V1",
+    "colors": ["White", "Yellow"]
+  },
+  {
+    "id": "golf-ball-marker-poker-chip-and-tee-set-tube-custom-imprint-74223",
+    "name": "Golf Ball, Marker Poker Chip & Tee Set Tube - Custom Imprint",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Includes 1 golf ball, poker chip ball marker, and 12 tees. Customizable and perfect for events or giveaways. Priced at 72 units.",
+    "tiers": [
+      [72, 10.44],
+      [144, 10.24],
+      [288, 10.05],
+      [576, 9.85]
+    ],
+    "image": "/images/merch/golf-ball-marker-poker-chip-and-tee-set-tube-custom-imprint-74223.webp",
+    "imageAlt": "Golf Ball, Marker Poker Chip & Tee Set Tube - Custom Imprint",
+    "colors": [
+      "White",
+      "Blue",
+      "Red",
+      "Black",
+      "Gray",
+      "Yellow",
+      "Purple",
+      "Green",
+      "Pink",
+      "Orange"
+    ]
+  },
+  {
+    "id": "on-sale-twin-golf-balls-99966",
+    "name": "ON SALE! Twin Golf Balls",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Clear plastic tube filled with 2 imprinted golf balls. Priced at 100 units.",
+    "tiers": [
+      [100, 6.4],
+      [250, 6.2],
+      [500, 6],
+      [1000, 5.8],
+      [2500, 5.6]
+    ],
+    "image": "/images/merch/on-sale-twin-golf-balls-99966.webp",
+    "imageAlt": "ON SALE! Twin Golf Balls",
+    "colors": ["White"]
+  },
+  {
+    "id": "sublimated-traditional-mens-polo-shirt-19956",
+    "name": "Sublimated Traditional Men's Polo Shirt",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Sublimated Polo featuring 2 buttons and a collar. Priced at 10 units.",
+    "tiers": [
+      [10, 27.072],
+      [26, 27.072],
+      [51, 27.072],
+      [101, 27.072],
+      [251, 27.072]
+    ],
+    "image": "/images/merch/sublimated-traditional-mens-polo-shirt-19956.webp",
+    "imageAlt": "Sublimated Traditional Men's Polo Shirt",
+    "colors": ["Assorted"]
+  }
+]
