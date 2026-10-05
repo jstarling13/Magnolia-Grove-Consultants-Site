@@ -88,5 +88,23 @@
     "supplier": "SanMar",
     "asi": "asi/84863",
     "productNo": "BB18221"
+  },
+  "under-armour-drive-midlayer-pullover": {
+    "espId": "556483173",
+    "supplier": "Ball Pro",
+    "asi": "asi/38120",
+    "productNo": "A-UM1322"
+  },
+  "holderness-bourne-westland-pullover": {
+    "espId": "554834721",
+    "supplier": "Ball Pro",
+    "asi": "asi/38120",
+    "productNo": "A-HB2031"
+  },
+  "johnnie-o-sully-quarter-zip": {
+    "espId": "551882450",
+    "supplier": "Ball Pro",
+    "asi": "asi/38120",
+    "productNo": "A-JMKO1460"
   }
 }
