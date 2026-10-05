@@ -1,6 +1,7 @@
 import { z } from "zod";
 
-const honeypotField = z.string().max(0, "Bot detected").optional().or(z.literal(""));
+// Not length-limited here: the route checks it and returns a fake success, so the bot never learns it was caught.
+const honeypotField = z.string().max(500).optional();
 
 export const merchOrderRequestSchema = z.object({
   firstName: z.string().trim().min(1, "First name is required.").max(100),

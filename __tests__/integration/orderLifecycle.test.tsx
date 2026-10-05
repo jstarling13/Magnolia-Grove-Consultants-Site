@@ -413,21 +413,18 @@ describe("1. cart-checkout route", () => {
       expect(world.square.calls, "bots are stopped before any outbound call").toHaveLength(0);
     });
 
-    it.fails(
-      "BUG: the honeypot branch is unreachable, so bots get a 400 instead of the intended fake success",
-      async () => {
-        const response = await app.checkout(
-          cartRequest(cartBody({ company_website: "http://spam.test" }))
-        );
-        // Intended (see the comment in the route): 200 { success: true } so the bot doesn't learn
-        // it was caught. Actual: cartCheckoutSchema's honeypot field is `.max(0)`, so zod rejects
-        // the body first and the bot sees 400 "Validation failed" with a "Bot detected" issue.
-        // Fix: make the schema field a plain optional string and keep the explicit check in the
-        // route (or check the raw body's company_website before parsing).
-        expect(response.status).toBe(200);
-        expect(await jsonOf(response)).toEqual({ success: true });
-      }
-    );
+    it("a filled honeypot gets the intended fake success, not a 400", async () => {
+      const response = await app.checkout(
+        cartRequest(cartBody({ company_website: "http://spam.test" }))
+      );
+      // Intended (see the comment in the route): 200 { success: true } so the bot doesn't learn
+      // it was caught. Actual: cartCheckoutSchema's honeypot field is `.max(0)`, so zod rejects
+      // the body first and the bot sees 400 "Validation failed" with a "Bot detected" issue.
+      // Fix: make the schema field a plain optional string and keep the explicit check in the
+      // route (or check the raw body's company_website before parsing).
+      expect(response.status).toBe(200);
+      expect(await jsonOf(response)).toEqual({ success: true });
+    });
 
     it("Turnstile rejection -> 400, nothing stored or sent", async () => {
       const response = await app.checkout(cartRequest(cartBody({ turnstileToken: "bot-token" })));
@@ -454,11 +451,12 @@ describe("1. cart-checkout route", () => {
     });
 
     it("rate limit: the 6th request from one IP is a 429, other IPs are unaffected", async () => {
+      const bodyFor = (n: number) => ({ ...cartBody(), email: `pat${n}@example.com` });
       for (let i = 0; i < 5; i++) {
-        const ok = await app.checkout(cartRequest(cartBody(), { ip: "198.51.100.9" }));
+        const ok = await app.checkout(cartRequest(bodyFor(i), { ip: "198.51.100.9" }));
         expect(ok.status, `request ${i + 1} should pass`).toBe(200);
       }
-      const limited = await app.checkout(cartRequest(cartBody(), { ip: "198.51.100.9" }));
+      const limited = await app.checkout(cartRequest(bodyFor(5), { ip: "198.51.100.9" }));
       expect(limited.status).toBe(429);
       expect(await jsonOf(limited)).toMatchObject({ success: false });
       expect(world.db.rows.size, "the limited request stored nothing").toBe(5);
@@ -473,7 +471,7 @@ describe("1. cart-checkout route", () => {
       );
       expect(badBody.status).toBe(429);
 
-      const other = await app.checkout(cartRequest(cartBody(), { ip: "198.51.100.77" }));
+      const other = await app.checkout(cartRequest(bodyFor(6), { ip: "198.51.100.77" }));
       expect(other.status).toBe(200);
     });
   });
@@ -585,17 +583,14 @@ describe("2. admin quote and payment link", () => {
     });
 
     // Server actions are public POST endpoints, so each one has to check the session itself.
-    it.fails(
-      "BUG: markSubmissionRead has no admin check, so anyone can mark any submission read",
-      async () => {
-        const id = world.db.seed("lead", { firstName: "Casey", email: "casey@customer.test" });
-        app.signOut();
-        await app.actions.markSubmissionRead(id);
-        // Expected: an anonymous caller cannot change dashboard state.
-        // Actual: read_at gets stamped. Fix: add `if (!(await isAdminSession())) return;` first.
-        expect(world.db.rows.get(id)!.read_at).toBeNull();
-      }
-    );
+    it("markSubmissionRead requires an admin session", async () => {
+      const id = world.db.seed("lead", { firstName: "Casey", email: "casey@customer.test" });
+      app.signOut();
+      await app.actions.markSubmissionRead(id);
+      // Expected: an anonymous caller cannot change dashboard state.
+      // Actual: read_at gets stamped. Fix: add `if (!(await isAdminSession())) return;` first.
+      expect(world.db.rows.get(id)!.read_at).toBeNull();
+    });
   });
 
   describe("sending the link", () => {
@@ -1101,30 +1096,27 @@ describe("3. Square webhook, payment confirmation and receipts", () => {
       });
     });
 
-    it.fails(
-      "BUG: a stale snapshot of a since-cancelled order still gets a 'Payment received' email",
-      async () => {
-        const order = await awaitingPayment();
-        const snapshot = [{ id: order.id, type: "merch_order", data: world.db.data(order.id) }];
-        app.signInAsAdmin();
-        await app.actions.updateMerchOrderStatus(order.id, "cancelled");
-        customerPays(order.id);
+    it("a stale snapshot of a since-cancelled order gets no 'Payment received' email", async () => {
+      const order = await awaitingPayment();
+      const snapshot = [{ id: order.id, type: "merch_order", data: world.db.data(order.id) }];
+      app.signInAsAdmin();
+      await app.actions.updateMerchOrderStatus(order.id, "cancelled");
+      customerPays(order.id);
 
-        await app.merchPayments.syncAwaitingMerchPayments(snapshot);
+      await app.merchPayments.syncAwaitingMerchPayments(snapshot);
 
-        // The guarded UPDATE matched zero rows (the order is cancelled), yet the in-memory row is
-        // patched to "paid" anyway and the retry step then claims and sends a receipt. Expected:
-        // a receipt only ever goes out for an order whose stored record shows it as paid.
-        // Fix: in syncAwaitingMerchPayments, only patch row.data (and fall through to the receipt
-        // retry) when the UPDATE returned a row; otherwise re-read the row.
-        const sent = receiptsTo(CUSTOMER.email).length > 0;
-        const recordedPaid = typeof world.db.data(order.id).paidAt === "string";
-        expect(
-          sent && !recordedPaid,
-          "receipt sent for an order the database does not show as paid"
-        ).toBe(false);
-      }
-    );
+      // The guarded UPDATE matched zero rows (the order is cancelled), yet the in-memory row is
+      // patched to "paid" anyway and the retry step then claims and sends a receipt. Expected:
+      // a receipt only ever goes out for an order whose stored record shows it as paid.
+      // Fix: in syncAwaitingMerchPayments, only patch row.data (and fall through to the receipt
+      // retry) when the UPDATE returned a row; otherwise re-read the row.
+      const sent = receiptsTo(CUSTOMER.email).length > 0;
+      const recordedPaid = typeof world.db.data(order.id).paidAt === "string";
+      expect(
+        sent && !recordedPaid,
+        "receipt sent for an order the database does not show as paid"
+      ).toBe(false);
+    });
 
     it("never emails customers of old orders that were paid before receipts existed", async () => {
       const old = seedOrder({
@@ -1332,6 +1324,7 @@ describe("4. ESP-order guards, manual payment and fulfillment", () => {
       await app.actions.recordEspOrder(order.id, "PO-1");
       const original = world.db.data(order.id).espOrderedAt;
       advanceClock(DAY_MS);
+      app.signInAsAdmin(); // admin sessions last 24 hours
       await app.actions.recordEspOrder(order.id, "PO-2");
       expect(world.db.data(order.id)).toMatchObject({
         espOrderNumber: "PO-2",
@@ -1343,6 +1336,7 @@ describe("4. ESP-order guards, manual payment and fulfillment", () => {
       const order = await paidThroughSquare();
       await app.actions.recordEspOrder(order.id, "PO-77/B");
       advanceClock(DAY_MS);
+      app.signInAsAdmin(); // admin sessions last 24 hours
 
       const result = await app.actions.markMerchShipped(order.id, {
         carrier: " UPS ",
@@ -1667,71 +1661,59 @@ describe("5. global invariants across the whole lifecycle", () => {
 describe("other emails the merch/contact forms send", () => {
   const SCRIPT = "<script>alert(1)</script>";
 
-  it.fails(
-    "BUG: sendMerchOrderNotification (/api/merchant/order-request) puts form fields into HTML unescaped",
-    async () => {
-      const result = await app.email.sendMerchOrderNotification({
-        firstName: SCRIPT,
-        lastName: "Lee",
-        email: "pat@customer.test",
-        phone: "5555551234",
-        product: SCRIPT,
-        quantity: "100",
-        notes: SCRIPT,
-      } as never);
-      expect(result.sent).toBe(true);
-      // Fix: wrap every interpolated value in escapeHtml() (and multiline() for notes), as
-      // sendCartOrderNotification already does.
-      expect(world.outbox.toBusiness[0].html).not.toContain("<script>");
-    }
-  );
+  it("sendMerchOrderNotification (/api/merchant/order-request) escapes form fields in HTML", async () => {
+    const result = await app.email.sendMerchOrderNotification({
+      firstName: SCRIPT,
+      lastName: "Lee",
+      email: "pat@customer.test",
+      phone: "5555551234",
+      product: SCRIPT,
+      quantity: "100",
+      notes: SCRIPT,
+    } as never);
+    expect(result.sent).toBe(true);
+    // Fix: wrap every interpolated value in escapeHtml() (and multiline() for notes), as
+    // sendCartOrderNotification already does.
+    expect(world.outbox.toBusiness[0].html).not.toContain("<script>");
+  });
 
-  it.fails(
-    "BUG: sendLeadNotification puts the contact form's fields into HTML unescaped",
-    async () => {
-      await app.email.sendLeadNotification({
-        formType: "lead",
-        firstName: "Pat",
-        lastName: "Lee",
-        email: "pat@customer.test",
-        phone: "5555551234",
-        service: "Consulting",
-        message: `Hello ${SCRIPT}`,
-      } as never);
-      expect(world.outbox.toBusiness[0].html).not.toContain("<script>");
-    }
-  );
+  it("sendLeadNotification escapes the contact form's fields in HTML", async () => {
+    await app.email.sendLeadNotification({
+      formType: "lead",
+      firstName: "Pat",
+      lastName: "Lee",
+      email: "pat@customer.test",
+      phone: "5555551234",
+      service: "Consulting",
+      message: `Hello ${SCRIPT}`,
+    } as never);
+    expect(world.outbox.toBusiness[0].html).not.toContain("<script>");
+  });
 
-  it.fails(
-    "BUG: sendLeadAutoResponder echoes the visitor's first name into HTML unescaped",
-    async () => {
-      await app.email.sendLeadAutoResponder({
-        formType: "lead",
-        firstName: SCRIPT,
-        lastName: "Lee",
-        email: "pat@customer.test",
-        phone: "5555551234",
-        service: "Consulting",
-        message: "Hi",
-      } as never);
-      expect(world.outbox.toCustomers[0].html).not.toContain("<script>");
-    }
-  );
+  it("sendLeadAutoResponder escapes the visitor's first name in HTML", async () => {
+    await app.email.sendLeadAutoResponder({
+      formType: "lead",
+      firstName: SCRIPT,
+      lastName: "Lee",
+      email: "pat@customer.test",
+      phone: "5555551234",
+      service: "Consulting",
+      message: "Hi",
+    } as never);
+    expect(world.outbox.toCustomers[0].html).not.toContain("<script>");
+  });
 
-  it.fails(
-    "BUG: sendPaymentRequestNotification puts the invoice memo into HTML unescaped",
-    async () => {
-      await app.email.sendPaymentRequestNotification({
-        organizationName: "Acme",
-        firstName: "Pat",
-        lastName: "Lee",
-        email: "pat@customer.test",
-        memo: SCRIPT,
-        amount: 10,
-      } as never);
-      expect(world.outbox.toBusiness[0].html).not.toContain("<script>");
-    }
-  );
+  it("sendPaymentRequestNotification escapes the invoice memo in HTML", async () => {
+    await app.email.sendPaymentRequestNotification({
+      organizationName: "Acme",
+      firstName: "Pat",
+      lastName: "Lee",
+      email: "pat@customer.test",
+      memo: SCRIPT,
+      amount: 10,
+    } as never);
+    expect(world.outbox.toBusiness[0].html).not.toContain("<script>");
+  });
 
   it.fails(
     "COPY: customer emails literally say 'our supplier' (policy call; see withoutGenericSupplierCopy)",

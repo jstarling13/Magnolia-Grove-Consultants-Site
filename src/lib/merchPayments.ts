@@ -121,10 +121,11 @@ export async function syncAwaitingMerchPayments(rows: SyncableRow[]): Promise<vo
           WHERE id = ${row.id} AND type = 'merch_order' AND data->>'status' = 'awaiting_payment'
           RETURNING id
         `) as { id: number }[];
-        row.data = { ...row.data, ...patch };
 
-        // Zero rows means another load already made the transition (and sends the receipt).
+        // Zero rows means the order changed under us (already paid by another load, or
+        // cancelled): leave the stale snapshot alone so nothing downstream emails off it.
         if (updated.length > 0) {
+          row.data = { ...row.data, ...patch };
           const outcome = await sendMerchPaidEmailOnce(row.id, row.data);
           if (outcome === "sent") {
             row.data = { ...row.data, paidEmailSentAt: new Date().toISOString() };
