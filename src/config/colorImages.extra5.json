@@ -1,1 +1,413 @@
-{}
+{
+  "bella-canvas-unisex-heather-cvc-t-shirt-90320": {
+    "Aqua": "/images/merch/colors/bella-canvas-unisex-heather-cvc-t-shirt-90320-aqua.webp",
+    "Baby Blue": "/images/merch/colors/bella-canvas-unisex-heather-cvc-t-shirt-90320-baby-blue.webp",
+    "Purple": "/images/merch/colors/bella-canvas-unisex-heather-cvc-t-shirt-90320-purple.webp",
+    "Athletic": "/images/merch/colors/bella-canvas-unisex-heather-cvc-t-shirt-90320-athletic.webp"
+  },
+  "premium-foam-collapsible-coolies-88995": {
+    "Black": "/images/merch/colors/premium-foam-collapsible-coolies-88995-black.webp",
+    "Blush": "/images/merch/colors/premium-foam-collapsible-coolies-88995-blush.webp",
+    "Brown": "/images/merch/colors/premium-foam-collapsible-coolies-88995-brown.webp",
+    "Burgundy": "/images/merch/colors/premium-foam-collapsible-coolies-88995-burgundy.webp",
+    "Camo Pink": "/images/merch/colors/premium-foam-collapsible-coolies-88995-camo-pink.webp",
+    "Camo": "/images/merch/colors/premium-foam-collapsible-coolies-88995-camo.webp",
+    "Charcoal": "/images/merch/colors/premium-foam-collapsible-coolies-88995-charcoal.webp",
+    "Crimson": "/images/merch/colors/premium-foam-collapsible-coolies-88995-crimson.webp",
+    "Grey": "/images/merch/colors/premium-foam-collapsible-coolies-88995-grey.webp",
+    "Kelly Green": "/images/merch/colors/premium-foam-collapsible-coolies-88995-kelly-green.webp"
+  },
+  "full-color-foam-collapsible-coolies-all-over-print-88992": {
+    "Black": "/images/merch/colors/full-color-foam-collapsible-coolies-all-over-print-88992-black.webp",
+    "Grey": "/images/merch/colors/full-color-foam-collapsible-coolies-all-over-print-88992-grey.webp",
+    "Hunter Green": "/images/merch/colors/full-color-foam-collapsible-coolies-all-over-print-88992-hunter-green.webp"
+  },
+  "4mm-collapsible-custom-beer-can-coolers-47128": {
+    "Black": "/images/merch/colors/4mm-collapsible-custom-beer-can-coolers-47128-black.webp",
+    "Charcoal": "/images/merch/colors/4mm-collapsible-custom-beer-can-coolers-47128-charcoal.webp",
+    "Gray": "/images/merch/colors/4mm-collapsible-custom-beer-can-coolers-47128-gray.webp",
+    "Kelly Green": "/images/merch/colors/4mm-collapsible-custom-beer-can-coolers-47128-kelly-green.webp",
+    "Khaki": "/images/merch/colors/4mm-collapsible-custom-beer-can-coolers-47128-khaki.webp",
+    "Lime Green": "/images/merch/colors/4mm-collapsible-custom-beer-can-coolers-47128-lime-green.webp",
+    "Turquoise": "/images/merch/colors/4mm-collapsible-custom-beer-can-coolers-47128-turquoise.webp",
+    "White": "/images/merch/colors/4mm-collapsible-custom-beer-can-coolers-47128-white.webp",
+    "Yellow": "/images/merch/colors/4mm-collapsible-custom-beer-can-coolers-47128-yellow.webp"
+  },
+  "16oz-stadium-cups-89077": {
+    "Black": "/images/merch/colors/16oz-stadium-cups-89077-black.webp",
+    "Clear": "/images/merch/colors/16oz-stadium-cups-89077-clear.webp",
+    "Dark Green": "/images/merch/colors/16oz-stadium-cups-89077-dark-green.webp",
+    "Granite": "/images/merch/colors/16oz-stadium-cups-89077-granite.webp",
+    "Hot Green": "/images/merch/colors/16oz-stadium-cups-89077-hot-green.webp",
+    "Hot Pink": "/images/merch/colors/16oz-stadium-cups-89077-hot-pink.webp",
+    "Kelly Green": "/images/merch/colors/16oz-stadium-cups-89077-kelly-green.webp",
+    "Light Blue": "/images/merch/colors/16oz-stadium-cups-89077-light-blue.webp",
+    "Maroon": "/images/merch/colors/16oz-stadium-cups-89077-maroon.webp"
+  },
+  "16-oz-reusable-plastic-stadium-cup-69988": {
+    "Black": "/images/merch/colors/16-oz-reusable-plastic-stadium-cup-69988-black.webp",
+    "Blue": "/images/merch/colors/16-oz-reusable-plastic-stadium-cup-69988-blue.webp",
+    "Clear": "/images/merch/colors/16-oz-reusable-plastic-stadium-cup-69988-clear.webp",
+    "Teal": "/images/merch/colors/16-oz-reusable-plastic-stadium-cup-69988-teal.webp",
+    "Navy Blue": "/images/merch/colors/16-oz-reusable-plastic-stadium-cup-69988-navy-blue.webp",
+    "Purple": "/images/merch/colors/16-oz-reusable-plastic-stadium-cup-69988-purple.webp"
+  },
+  "5-1-2-rosette-12-long-with-3-streamers-78142": {
+    "Baby Blue": "/images/merch/colors/5-1-2-rosette-12-long-with-3-streamers-78142-baby-blue.webp",
+    "Black": "/images/merch/colors/5-1-2-rosette-12-long-with-3-streamers-78142-black.webp",
+    "Blue": "/images/merch/colors/5-1-2-rosette-12-long-with-3-streamers-78142-blue.webp",
+    "Egg Shell": "/images/merch/colors/5-1-2-rosette-12-long-with-3-streamers-78142-egg-shell.webp",
+    "Green": "/images/merch/colors/5-1-2-rosette-12-long-with-3-streamers-78142-green.webp",
+    "Hunter": "/images/merch/colors/5-1-2-rosette-12-long-with-3-streamers-78142-hunter.webp",
+    "Lavender": "/images/merch/colors/5-1-2-rosette-12-long-with-3-streamers-78142-lavender.webp"
+  },
+  "bella-canvas-unisex-triblend-long-sleeve-t-shirt-90338": {
+    "Brick": "/images/merch/colors/bella-canvas-unisex-triblend-long-sleeve-t-shirt-90338-brick.webp",
+    "Athletic Grey": "/images/merch/colors/bella-canvas-unisex-triblend-long-sleeve-t-shirt-90338-athletic-grey.webp",
+    "Black": "/images/merch/colors/bella-canvas-unisex-triblend-long-sleeve-t-shirt-90338-black.webp",
+    "Dark Grey": "/images/merch/colors/bella-canvas-unisex-triblend-long-sleeve-t-shirt-90338-dark-grey.webp",
+    "Emerald": "/images/merch/colors/bella-canvas-unisex-triblend-long-sleeve-t-shirt-90338-emerald.webp",
+    "Grey": "/images/merch/colors/bella-canvas-unisex-triblend-long-sleeve-t-shirt-90338-grey.webp"
+  },
+  "key-chain-with-flashlight-06800": {
+    "Purple": "/images/merch/colors/key-chain-with-flashlight-06800-purple.webp",
+    "Pink": "/images/merch/colors/key-chain-with-flashlight-06800-pink.webp",
+    "Orange": "/images/merch/colors/key-chain-with-flashlight-06800-orange.webp",
+    "Green": "/images/merch/colors/key-chain-with-flashlight-06800-green.webp",
+    "Gold": "/images/merch/colors/key-chain-with-flashlight-06800-gold.webp"
+  },
+  "unisex-thickness-hoodie-pullover-sweaters-75367": {
+    "Red": "/images/merch/colors/unisex-thickness-hoodie-pullover-sweaters-75367-red.webp"
+  },
+  "popular-therapeutic-squeezable-stress-balls-23728": {
+    "Black": "/images/merch/colors/popular-therapeutic-squeezable-stress-balls-23728-black.webp",
+    "Orange": "/images/merch/colors/popular-therapeutic-squeezable-stress-balls-23728-orange.webp",
+    "Red": "/images/merch/colors/popular-therapeutic-squeezable-stress-balls-23728-red.webp",
+    "Yellow": "/images/merch/colors/popular-therapeutic-squeezable-stress-balls-23728-yellow.webp"
+  },
+  "16-oz-bistro-glossy-personalized-coffee-mugs-73792": {
+    "Black": "/images/merch/colors/16-oz-bistro-glossy-personalized-coffee-mugs-73792-black.webp",
+    "Blue": "/images/merch/colors/16-oz-bistro-glossy-personalized-coffee-mugs-73792-blue.webp",
+    "Green": "/images/merch/colors/16-oz-bistro-glossy-personalized-coffee-mugs-73792-green.webp",
+    "Teal": "/images/merch/colors/16-oz-bistro-glossy-personalized-coffee-mugs-73792-teal.webp",
+    "Purple": "/images/merch/colors/16-oz-bistro-glossy-personalized-coffee-mugs-73792-purple.webp",
+    "Red": "/images/merch/colors/16-oz-bistro-glossy-personalized-coffee-mugs-73792-red.webp",
+    "White": "/images/merch/colors/16-oz-bistro-glossy-personalized-coffee-mugs-73792-white.webp"
+  },
+  "knight-100-aluminum-ballpoint-pen-10923": {
+    "Red": "/images/merch/colors/knight-100-aluminum-ballpoint-pen-10923-red.webp",
+    "Green": "/images/merch/colors/knight-100-aluminum-ballpoint-pen-10923-green.webp",
+    "Gun Metal": "/images/merch/colors/knight-100-aluminum-ballpoint-pen-10923-gun-metal.webp",
+    "Silver": "/images/merch/colors/knight-100-aluminum-ballpoint-pen-10923-silver.webp",
+    "White": "/images/merch/colors/knight-100-aluminum-ballpoint-pen-10923-white.webp",
+    "Black": "/images/merch/colors/knight-100-aluminum-ballpoint-pen-10923-black.webp"
+  },
+  "drawstring-backpack-with-front-zipper-pocket-53530": {
+    "Red": "/images/merch/colors/drawstring-backpack-with-front-zipper-pocket-53530-red.webp",
+    "White": "/images/merch/colors/drawstring-backpack-with-front-zipper-pocket-53530-white.webp",
+    "Yellow": "/images/merch/colors/drawstring-backpack-with-front-zipper-pocket-53530-yellow.webp",
+    "Pink": "/images/merch/colors/drawstring-backpack-with-front-zipper-pocket-53530-pink.webp",
+    "Lime Green": "/images/merch/colors/drawstring-backpack-with-front-zipper-pocket-53530-lime-green.webp",
+    "Baby Blue": "/images/merch/colors/drawstring-backpack-with-front-zipper-pocket-53530-baby-blue.webp"
+  },
+  "small-drawstring-cinch-backpack-83184": {
+    "Dark Green": "/images/merch/colors/small-drawstring-cinch-backpack-83184-dark-green.webp",
+    "Lime": "/images/merch/colors/small-drawstring-cinch-backpack-83184-lime.webp",
+    "Neon Orange": "/images/merch/colors/small-drawstring-cinch-backpack-83184-neon-orange.webp",
+    "Purple": "/images/merch/colors/small-drawstring-cinch-backpack-83184-purple.webp",
+    "Red": "/images/merch/colors/small-drawstring-cinch-backpack-83184-red.webp"
+  },
+  "20-oz-stainless-steel-insulated-tumbler-with-lid-and-straw-66442": {
+    "Black": "/images/merch/colors/20-oz-stainless-steel-insulated-tumbler-with-lid-and-straw-66442-black.webp"
+  },
+  "13-oz-ceramic-campfire-coffee-mugs-98160": {
+    "Almond": "/images/merch/colors/13-oz-ceramic-campfire-coffee-mugs-98160-almond.webp",
+    "Black": "/images/merch/colors/13-oz-ceramic-campfire-coffee-mugs-98160-black.webp"
+  },
+  "classic-stick-usb-flash-drive-30847": {
+    "Black": "/images/merch/colors/classic-stick-usb-flash-drive-30847-black.webp",
+    "Blue": "/images/merch/colors/classic-stick-usb-flash-drive-30847-blue.webp",
+    "Green": "/images/merch/colors/classic-stick-usb-flash-drive-30847-green.webp",
+    "Silver": "/images/merch/colors/classic-stick-usb-flash-drive-30847-silver.webp",
+    "Red": "/images/merch/colors/classic-stick-usb-flash-drive-30847-red.webp",
+    "White": "/images/merch/colors/classic-stick-usb-flash-drive-30847-white.webp",
+    "Yellow C": "/images/merch/colors/classic-stick-usb-flash-drive-30847-yellow-c.webp",
+    "Cola Red": "/images/merch/colors/classic-stick-usb-flash-drive-30847-cola-red.webp"
+  },
+  "lola-laminated-non-woven-shopper-tote-bag-66535": {
+    "Recycled White": "/images/merch/colors/lola-laminated-non-woven-shopper-tote-bag-66535-recycled-white.webp",
+    "Recycled Gray": "/images/merch/colors/lola-laminated-non-woven-shopper-tote-bag-66535-recycled-gray.webp",
+    "Recycled Black": "/images/merch/colors/lola-laminated-non-woven-shopper-tote-bag-66535-recycled-black.webp"
+  },
+  "womens-winter-long-sleeve-sherpa-jacket-coat-51244": {
+    "Green": "/images/merch/colors/womens-winter-long-sleeve-sherpa-jacket-coat-51244-green.webp",
+    "Pink": "/images/merch/colors/womens-winter-long-sleeve-sherpa-jacket-coat-51244-pink.webp",
+    "Black": "/images/merch/colors/womens-winter-long-sleeve-sherpa-jacket-coat-51244-black.webp",
+    "White": "/images/merch/colors/womens-winter-long-sleeve-sherpa-jacket-coat-51244-white.webp",
+    "Brown": "/images/merch/colors/womens-winter-long-sleeve-sherpa-jacket-coat-51244-brown.webp"
+  },
+  "30-oz-owala-sway-stainless-water-bottle-with-handle-28363": {
+    "Black": "/images/merch/colors/30-oz-owala-sway-stainless-water-bottle-with-handle-28363-black.webp"
+  },
+  "packable-lightweight-rain-jacket-with-hood-66255": {
+    "Pink": "/images/merch/colors/packable-lightweight-rain-jacket-with-hood-66255-pink.webp",
+    "Purple": "/images/merch/colors/packable-lightweight-rain-jacket-with-hood-66255-purple.webp"
+  },
+  "alpine-rpet-sherpa-blanket-17712": {
+    "Black": "/images/merch/colors/alpine-rpet-sherpa-blanket-17712-black.webp",
+    "Gray": "/images/merch/colors/alpine-rpet-sherpa-blanket-17712-gray.webp",
+    "Tan": "/images/merch/colors/alpine-rpet-sherpa-blanket-17712-tan.webp"
+  },
+  "3-in-1-braided-charging-buddy-2-0-17708": {
+    "Navy Blue": "/images/merch/colors/3-in-1-braided-charging-buddy-2-0-17708-navy-blue.webp",
+    "Black": "/images/merch/colors/3-in-1-braided-charging-buddy-2-0-17708-black.webp"
+  },
+  "mini-square-mint-tin-70962": {
+    "Black": "/images/merch/colors/mini-square-mint-tin-70962-black.webp",
+    "Dark Blue": "/images/merch/colors/mini-square-mint-tin-70962-dark-blue.webp",
+    "Silver": "/images/merch/colors/mini-square-mint-tin-70962-silver.webp",
+    "Yellow": "/images/merch/colors/mini-square-mint-tin-70962-yellow.webp"
+  },
+  "fun-foam-putty-63716": {
+    "Purple": "/images/merch/colors/fun-foam-putty-63716-purple.webp",
+    "Yellow": "/images/merch/colors/fun-foam-putty-63716-yellow.webp",
+    "Blue": "/images/merch/colors/fun-foam-putty-63716-blue.webp",
+    "Green": "/images/merch/colors/fun-foam-putty-63716-green.webp"
+  },
+  "small-tin-with-printed-mints-10201": {
+    "Black": "/images/merch/colors/small-tin-with-printed-mints-10201-black.webp",
+    "Royal Blue": "/images/merch/colors/small-tin-with-printed-mints-10201-royal-blue.webp",
+    "Pink": "/images/merch/colors/small-tin-with-printed-mints-10201-pink.webp",
+    "Red": "/images/merch/colors/small-tin-with-printed-mints-10201-red.webp",
+    "Silver": "/images/merch/colors/small-tin-with-printed-mints-10201-silver.webp",
+    "White": "/images/merch/colors/small-tin-with-printed-mints-10201-white.webp"
+  },
+  "outdoor-multi-function-tool-pen-54400": {
+    "Black": "/images/merch/colors/outdoor-multi-function-tool-pen-54400-black.webp",
+    "Yellow": "/images/merch/colors/outdoor-multi-function-tool-pen-54400-yellow.webp"
+  },
+  "professional-colored-golf-ball-93928": {
+    "Blue": "/images/merch/colors/professional-colored-golf-ball-93928-blue.webp",
+    "Green": "/images/merch/colors/professional-colored-golf-ball-93928-green.webp",
+    "Orange": "/images/merch/colors/professional-colored-golf-ball-93928-orange.webp",
+    "Red": "/images/merch/colors/professional-colored-golf-ball-93928-red.webp",
+    "Yellow": "/images/merch/colors/professional-colored-golf-ball-93928-yellow.webp",
+    "Gold": "/images/merch/colors/professional-colored-golf-ball-93928-gold.webp"
+  },
+  "15-oz-bistro-ceramic-mug-63498": {
+    "White": "/images/merch/colors/15-oz-bistro-ceramic-mug-63498-white.webp",
+    "Red": "/images/merch/colors/15-oz-bistro-ceramic-mug-63498-red.webp",
+    "Black": "/images/merch/colors/15-oz-bistro-ceramic-mug-63498-black.webp",
+    "Cobalt Blue": "/images/merch/colors/15-oz-bistro-ceramic-mug-63498-cobalt-blue.webp",
+    "Matte Black-White": "/images/merch/colors/15-oz-bistro-ceramic-mug-63498-matte-black-white.webp",
+    "Matte Cobalt Blue-White": "/images/merch/colors/15-oz-bistro-ceramic-mug-63498-matte-cobalt-blue-white.webp"
+  },
+  "6-pack-cooler-lunch-bags-50560": {
+    "Black": "/images/merch/colors/6-pack-cooler-lunch-bags-50560-black.webp",
+    "Blue": "/images/merch/colors/6-pack-cooler-lunch-bags-50560-blue.webp"
+  },
+  "7-oz-cotton-canvas-tote-bag-usa-decorated-15-x-16-63920": {
+    "Natural": "/images/merch/colors/7-oz-cotton-canvas-tote-bag-usa-decorated-15-x-16-63920-natural.webp",
+    "Navy Blue": "/images/merch/colors/7-oz-cotton-canvas-tote-bag-usa-decorated-15-x-16-63920-navy-blue.webp",
+    "Red": "/images/merch/colors/7-oz-cotton-canvas-tote-bag-usa-decorated-15-x-16-63920-red.webp",
+    "Royal Blue": "/images/merch/colors/7-oz-cotton-canvas-tote-bag-usa-decorated-15-x-16-63920-royal-blue.webp",
+    "Black": "/images/merch/colors/7-oz-cotton-canvas-tote-bag-usa-decorated-15-x-16-63920-black.webp"
+  },
+  "waffle-teddy-fleece-throw-blanket-32323": {
+    "Black": "/images/merch/colors/waffle-teddy-fleece-throw-blanket-32323-black.webp",
+    "Brown": "/images/merch/colors/waffle-teddy-fleece-throw-blanket-32323-brown.webp",
+    "Cream": "/images/merch/colors/waffle-teddy-fleece-throw-blanket-32323-cream.webp",
+    "Gray": "/images/merch/colors/waffle-teddy-fleece-throw-blanket-32323-gray.webp"
+  },
+  "mink-ever-soft-recycled-polyester-throw-blanket-62113": {
+    "Chalk": "/images/merch/colors/mink-ever-soft-recycled-polyester-throw-blanket-62113-chalk.webp",
+    "Circular Grey": "/images/merch/colors/mink-ever-soft-recycled-polyester-throw-blanket-62113-circular-grey.webp",
+    "Vintage Indigo": "/images/merch/colors/mink-ever-soft-recycled-polyester-throw-blanket-62113-vintage-indigo.webp"
+  },
+  "water-resistant-lightweight-office-school-laptop-bag-52170": {
+    "Gray": "/images/merch/colors/water-resistant-lightweight-office-school-laptop-bag-52170-gray.webp",
+    "Black": "/images/merch/colors/water-resistant-lightweight-office-school-laptop-bag-52170-black.webp",
+    "Pink": "/images/merch/colors/water-resistant-lightweight-office-school-laptop-bag-52170-pink.webp",
+    "Blue": "/images/merch/colors/water-resistant-lightweight-office-school-laptop-bag-52170-blue.webp",
+    "Purple": "/images/merch/colors/water-resistant-lightweight-office-school-laptop-bag-52170-purple.webp"
+  },
+  "eiderdown-puffer-women-tote-bag-52740": {
+    "Black": "/images/merch/colors/eiderdown-puffer-women-tote-bag-52740-black.webp",
+    "Green": "/images/merch/colors/eiderdown-puffer-women-tote-bag-52740-green.webp",
+    "Brown": "/images/merch/colors/eiderdown-puffer-women-tote-bag-52740-brown.webp",
+    "Gray": "/images/merch/colors/eiderdown-puffer-women-tote-bag-52740-gray.webp"
+  },
+  "leather-folder-padfolio-63838": {
+    "Black": "/images/merch/colors/leather-folder-padfolio-63838-black.webp",
+    "Royal Blue": "/images/merch/colors/leather-folder-padfolio-63838-royal-blue.webp",
+    "Brown": "/images/merch/colors/leather-folder-padfolio-63838-brown.webp",
+    "Pink": "/images/merch/colors/leather-folder-padfolio-63838-pink.webp"
+  },
+  "52-sheets-b5-spiral-weekly-planner-notebook-16410": {
+    "Green": "/images/merch/colors/52-sheets-b5-spiral-weekly-planner-notebook-16410-green.webp",
+    "Light Blue": "/images/merch/colors/52-sheets-b5-spiral-weekly-planner-notebook-16410-light-blue.webp",
+    "Purple": "/images/merch/colors/52-sheets-b5-spiral-weekly-planner-notebook-16410-purple.webp"
+  },
+  "alice-metal-stylus-pen-68122": {
+    "Green": "/images/merch/colors/alice-metal-stylus-pen-68122-green.webp",
+    "Black": "/images/merch/colors/alice-metal-stylus-pen-68122-black.webp",
+    "Silver": "/images/merch/colors/alice-metal-stylus-pen-68122-silver.webp",
+    "Blue": "/images/merch/colors/alice-metal-stylus-pen-68122-blue.webp",
+    "Red": "/images/merch/colors/alice-metal-stylus-pen-68122-red.webp"
+  },
+  "deluxe-daily-planners-21383": {
+    "Black": "/images/merch/colors/deluxe-daily-planners-21383-black.webp",
+    "Green": "/images/merch/colors/deluxe-daily-planners-21383-green.webp",
+    "Red": "/images/merch/colors/deluxe-daily-planners-21383-red.webp",
+    "Royal Blue": "/images/merch/colors/deluxe-daily-planners-21383-royal-blue.webp",
+    "White": "/images/merch/colors/deluxe-daily-planners-21383-white.webp"
+  },
+  "mini-cylinder-led-flashlight-key-tag-95723": {
+    "Black": "/images/merch/colors/mini-cylinder-led-flashlight-key-tag-95723-black.webp",
+    "Lime": "/images/merch/colors/mini-cylinder-led-flashlight-key-tag-95723-lime.webp",
+    "Red": "/images/merch/colors/mini-cylinder-led-flashlight-key-tag-95723-red.webp",
+    "Royal Blue": "/images/merch/colors/mini-cylinder-led-flashlight-key-tag-95723-royal-blue.webp",
+    "Silver": "/images/merch/colors/mini-cylinder-led-flashlight-key-tag-95723-silver.webp"
+  },
+  "mini-grip-3-25-tape-measure-keychain-48053": {
+    "Blue": "/images/merch/colors/mini-grip-3-25-tape-measure-keychain-48053-blue.webp",
+    "Orange": "/images/merch/colors/mini-grip-3-25-tape-measure-keychain-48053-orange.webp",
+    "Red": "/images/merch/colors/mini-grip-3-25-tape-measure-keychain-48053-red.webp",
+    "White": "/images/merch/colors/mini-grip-3-25-tape-measure-keychain-48053-white.webp",
+    "Yellow": "/images/merch/colors/mini-grip-3-25-tape-measure-keychain-48053-yellow.webp"
+  },
+  "voyager-slim-keyholder-keylight-with-bright-led-light-72808": {
+    "Silver": "/images/merch/colors/voyager-slim-keyholder-keylight-with-bright-led-light-72808-silver.webp"
+  },
+  "2-aa-led-mini-maglite-10245": {
+    "Blue": "/images/merch/colors/2-aa-led-mini-maglite-10245-blue.webp",
+    "Gray": "/images/merch/colors/2-aa-led-mini-maglite-10245-gray.webp",
+    "Red": "/images/merch/colors/2-aa-led-mini-maglite-10245-red.webp",
+    "Black": "/images/merch/colors/2-aa-led-mini-maglite-10245-black.webp",
+    "Copper": "/images/merch/colors/2-aa-led-mini-maglite-10245-copper.webp"
+  },
+  "mini-backpack-first-aid-kit-04459": {
+    "Black-Blue": "/images/merch/colors/mini-backpack-first-aid-kit-04459-black-blue.webp",
+    "Black-Grey": "/images/merch/colors/mini-backpack-first-aid-kit-04459-black-grey.webp",
+    "Black-Lime": "/images/merch/colors/mini-backpack-first-aid-kit-04459-black-lime.webp",
+    "Black-Orange": "/images/merch/colors/mini-backpack-first-aid-kit-04459-black-orange.webp",
+    "Black-Red": "/images/merch/colors/mini-backpack-first-aid-kit-04459-black-red.webp"
+  },
+  "personal-first-aid-kit-07978": {
+    "Red": "/images/merch/colors/personal-first-aid-kit-07978-red.webp",
+    "Black": "/images/merch/colors/personal-first-aid-kit-07978-black.webp",
+    "Blue": "/images/merch/colors/personal-first-aid-kit-07978-blue.webp",
+    "Green": "/images/merch/colors/personal-first-aid-kit-07978-green.webp"
+  },
+  "phone-stand-and-screen-cleaner-combo-key-chain-57780": {
+    "White": "/images/merch/colors/phone-stand-and-screen-cleaner-combo-key-chain-57780-white.webp",
+    "Blue": "/images/merch/colors/phone-stand-and-screen-cleaner-combo-key-chain-57780-blue.webp",
+    "Lime": "/images/merch/colors/phone-stand-and-screen-cleaner-combo-key-chain-57780-lime.webp",
+    "Red": "/images/merch/colors/phone-stand-and-screen-cleaner-combo-key-chain-57780-red.webp",
+    "Black": "/images/merch/colors/phone-stand-and-screen-cleaner-combo-key-chain-57780-black.webp"
+  },
+  "30-oz-full-color-intrepid-recycled-stainless-steel-tumbler-38806": {
+    "Black": "/images/merch/colors/30-oz-full-color-intrepid-recycled-stainless-steel-tumbler-38806-black.webp",
+    "White": "/images/merch/colors/30-oz-full-color-intrepid-recycled-stainless-steel-tumbler-38806-white.webp",
+    "Blue": "/images/merch/colors/30-oz-full-color-intrepid-recycled-stainless-steel-tumbler-38806-blue.webp",
+    "Gray": "/images/merch/colors/30-oz-full-color-intrepid-recycled-stainless-steel-tumbler-38806-gray.webp"
+  },
+  "attor-captain-foldable-chair-62390": {
+    "Royal Blue": "/images/merch/colors/attor-captain-foldable-chair-62390-royal-blue.webp",
+    "Green": "/images/merch/colors/attor-captain-foldable-chair-62390-green.webp",
+    "Purple": "/images/merch/colors/attor-captain-foldable-chair-62390-purple.webp",
+    "Red": "/images/merch/colors/attor-captain-foldable-chair-62390-red.webp"
+  },
+  "retro-sunglasses-26142": {
+    "Blue": "/images/merch/colors/retro-sunglasses-26142-blue.webp",
+    "Red": "/images/merch/colors/retro-sunglasses-26142-red.webp",
+    "Lime Green": "/images/merch/colors/retro-sunglasses-26142-lime-green.webp",
+    "Orange": "/images/merch/colors/retro-sunglasses-26142-orange.webp",
+    "Black": "/images/merch/colors/retro-sunglasses-26142-black.webp"
+  },
+  "25oz-diversion-safe-insulated-water-bottle-with-storage-13889": {
+    "Navy": "/images/merch/colors/25oz-diversion-safe-insulated-water-bottle-with-storage-13889-navy.webp",
+    "Red": "/images/merch/colors/25oz-diversion-safe-insulated-water-bottle-with-storage-13889-red.webp",
+    "White": "/images/merch/colors/25oz-diversion-safe-insulated-water-bottle-with-storage-13889-white.webp",
+    "Black": "/images/merch/colors/25oz-diversion-safe-insulated-water-bottle-with-storage-13889-black.webp",
+    "Silver": "/images/merch/colors/25oz-diversion-safe-insulated-water-bottle-with-storage-13889-silver.webp"
+  },
+  "lightweight-jersey-hood-with-zipper-for-male-04088": {
+    "Black": "/images/merch/colors/lightweight-jersey-hood-with-zipper-for-male-04088-black.webp",
+    "Classic Navy Heather": "/images/merch/colors/lightweight-jersey-hood-with-zipper-for-male-04088-classic-navy-heather.webp"
+  },
+  "womens-full-zip-sweater-fleece-jacket-56094": {
+    "Iceberg Heather Gray": "/images/merch/colors/womens-full-zip-sweater-fleece-jacket-56094-iceberg-heather-gray.webp",
+    "Navy Heather Blue": "/images/merch/colors/womens-full-zip-sweater-fleece-jacket-56094-navy-heather-blue.webp",
+    "Heather Black": "/images/merch/colors/womens-full-zip-sweater-fleece-jacket-56094-heather-black.webp",
+    "Heather Dark Gray": "/images/merch/colors/womens-full-zip-sweater-fleece-jacket-56094-heather-dark-gray.webp"
+  },
+  "leeman-knit-beanie-with-fur-pompom-53414": {
+    "Cream": "/images/merch/colors/leeman-knit-beanie-with-fur-pompom-53414-cream.webp",
+    "Blue-Navy": "/images/merch/colors/leeman-knit-beanie-with-fur-pompom-53414-blue-navy.webp",
+    "Gray": "/images/merch/colors/leeman-knit-beanie-with-fur-pompom-53414-gray.webp",
+    "Black": "/images/merch/colors/leeman-knit-beanie-with-fur-pompom-53414-black.webp"
+  },
+  "11-oz-two-tone-matted-c-handle-mug-49433": {
+    "Black-Red": "/images/merch/colors/11-oz-two-tone-matted-c-handle-mug-49433-black-red.webp",
+    "Black-Blue": "/images/merch/colors/11-oz-two-tone-matted-c-handle-mug-49433-black-blue.webp",
+    "Black-Orange": "/images/merch/colors/11-oz-two-tone-matted-c-handle-mug-49433-black-orange.webp",
+    "Black-White": "/images/merch/colors/11-oz-two-tone-matted-c-handle-mug-49433-black-white.webp"
+  },
+  "18-oz-travel-stainless-steel-vacuum-insulated-coffee-cup-w-80353": {
+    "Black": "/images/merch/colors/18-oz-travel-stainless-steel-vacuum-insulated-coffee-cup-w-80353-black.webp",
+    "Red": "/images/merch/colors/18-oz-travel-stainless-steel-vacuum-insulated-coffee-cup-w-80353-red.webp",
+    "Blue": "/images/merch/colors/18-oz-travel-stainless-steel-vacuum-insulated-coffee-cup-w-80353-blue.webp"
+  },
+  "600d-polyester-triple-zipper-fanny-pack-57379": {
+    "Black": "/images/merch/colors/600d-polyester-triple-zipper-fanny-pack-57379-black.webp",
+    "Navy Blue": "/images/merch/colors/600d-polyester-triple-zipper-fanny-pack-57379-navy-blue.webp",
+    "Red": "/images/merch/colors/600d-polyester-triple-zipper-fanny-pack-57379-red.webp",
+    "Royal Blue": "/images/merch/colors/600d-polyester-triple-zipper-fanny-pack-57379-royal-blue.webp"
+  },
+  "outdoor-crossbody-leisure-fanny-pack-bag-57967": {
+    "Khaki": "/images/merch/colors/outdoor-crossbody-leisure-fanny-pack-bag-57967-khaki.webp",
+    "Gray": "/images/merch/colors/outdoor-crossbody-leisure-fanny-pack-bag-57967-gray.webp",
+    "Red": "/images/merch/colors/outdoor-crossbody-leisure-fanny-pack-bag-57967-red.webp"
+  },
+  "summit-24-can-cooler-backpack-52490": {
+    "Black": "/images/merch/colors/summit-24-can-cooler-backpack-52490-black.webp",
+    "Gray/Black": "/images/merch/colors/summit-24-can-cooler-backpack-52490-gray-black.webp",
+    "Navy/Black": "/images/merch/colors/summit-24-can-cooler-backpack-52490-navy-black.webp",
+    "White/Black": "/images/merch/colors/summit-24-can-cooler-backpack-52490-white-black.webp"
+  },
+  "aurin-translucent-flying-discs-16584": {
+    "Blue": "/images/merch/colors/aurin-translucent-flying-discs-16584-blue.webp",
+    "Green": "/images/merch/colors/aurin-translucent-flying-discs-16584-green.webp",
+    "Clear": "/images/merch/colors/aurin-translucent-flying-discs-16584-clear.webp"
+  },
+  "european-style-rubber-grip-metal-pen-w-gold-accents-42977": {
+    "Black-Gold": "/images/merch/colors/european-style-rubber-grip-metal-pen-w-gold-accents-42977-black-gold.webp",
+    "Blue-Black-Gold": "/images/merch/colors/european-style-rubber-grip-metal-pen-w-gold-accents-42977-blue-black-gold.webp",
+    "Green-Black-Gold": "/images/merch/colors/european-style-rubber-grip-metal-pen-w-gold-accents-42977-green-black-gold.webp",
+    "Red-Black-Gold": "/images/merch/colors/european-style-rubber-grip-metal-pen-w-gold-accents-42977-red-black-gold.webp"
+  },
+  "go-safe-first-aid-kit-10703": {
+    "Blue": "/images/merch/colors/go-safe-first-aid-kit-10703-blue.webp",
+    "Black": "/images/merch/colors/go-safe-first-aid-kit-10703-black.webp",
+    "Red": "/images/merch/colors/go-safe-first-aid-kit-10703-red.webp",
+    "White": "/images/merch/colors/go-safe-first-aid-kit-10703-white.webp"
+  },
+  "16-oz-color-changing-mood-stadium-cup-20783": {
+    "Blue": "/images/merch/colors/16-oz-color-changing-mood-stadium-cup-20783-blue.webp",
+    "Green": "/images/merch/colors/16-oz-color-changing-mood-stadium-cup-20783-green.webp",
+    "Magenta": "/images/merch/colors/16-oz-color-changing-mood-stadium-cup-20783-magenta.webp",
+    "Orange": "/images/merch/colors/16-oz-color-changing-mood-stadium-cup-20783-orange.webp"
+  },
+  "roll-up-18-oz-foldable-water-bottle-with-matching-carabiner-72270": {
+    "Black": "/images/merch/colors/roll-up-18-oz-foldable-water-bottle-with-matching-carabiner-72270-black.webp",
+    "Blue": "/images/merch/colors/roll-up-18-oz-foldable-water-bottle-with-matching-carabiner-72270-blue.webp",
+    "Red": "/images/merch/colors/roll-up-18-oz-foldable-water-bottle-with-matching-carabiner-72270-red.webp",
+    "Lime Green": "/images/merch/colors/roll-up-18-oz-foldable-water-bottle-with-matching-carabiner-72270-lime-green.webp"
+  },
+  "rexburg-10-oz-stack-n-sip-mug-19069": {
+    "Black": "/images/merch/colors/rexburg-10-oz-stack-n-sip-mug-19069-black.webp",
+    "Blue": "/images/merch/colors/rexburg-10-oz-stack-n-sip-mug-19069-blue.webp",
+    "Grey": "/images/merch/colors/rexburg-10-oz-stack-n-sip-mug-19069-grey.webp"
+  }
+}
