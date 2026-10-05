@@ -160,5 +160,83 @@
     "supplier": "BEL Promo",
     "asi": "asi/39552",
     "productNo": "A7102"
+  },
+  "fletcher-rpet-laptop-backpack": {
+    "espId": "556598090",
+    "supplier": "Gemline",
+    "asi": "asi/56070",
+    "productNo": "103019"
+  },
+  "cotton-canvas-tote-7oz": {
+    "espId": "552463920",
+    "supplier": "imprintID",
+    "asi": "asi/73651",
+    "productNo": "TBUSB50"
+  },
+  "non-woven-recycled-tote": {
+    "espId": "554030849",
+    "supplier": "Jornik Manufacturing",
+    "asi": "asi/63549",
+    "productNo": "JK-9903"
+  },
+  "6-panel-premier-112-trucker-cap-19542": {
+    "espId": "552519542",
+    "supplier": "Direct Caps",
+    "asi": "asi/48015",
+    "productNo": "DC112"
+  },
+  "6-panels-relaxed-golf-hat-dad-cap-19118": {
+    "espId": "552519118",
+    "supplier": "Direct Caps",
+    "asi": "asi/48015",
+    "productNo": "7648"
+  },
+  "bella-canvas-unisex-sueded-t-shirt-90334": {
+    "espId": "555090334",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "BA3301C"
+  },
+  "bella-canvas-unisex-half-sleeve-t-shirt-98208": {
+    "espId": "553298208",
+    "supplier": "imprintID",
+    "asi": "asi/73651",
+    "productNo": "TSB3001C"
+  },
+  "bella-canvas-unisex-sponge-fleece-full-zip-hoodie-73139": {
+    "espId": "555973139",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "B3739"
+  },
+  "devon-and-jones-mens-short-sleeve-polo-shirts-81136": {
+    "espId": "555581136",
+    "supplier": "Northeastern Promotions",
+    "asi": "asi/74258",
+    "productNo": "APR-B191004"
+  },
+  "cayak-lightweight-stretch-hoodie-24974": {
+    "espId": "555124974",
+    "supplier": "Charles River Apparel",
+    "asi": "asi/44620",
+    "productNo": "1537"
+  },
+  "mens-color-blocked-wicking-polo-02809": {
+    "espId": "552202809",
+    "supplier": "Charles River Apparel",
+    "asi": "asi/44620",
+    "productNo": "3810"
+  },
+  "portsmouth-jacket-14852": {
+    "espId": "4714852",
+    "supplier": "Charles River Apparel",
+    "asi": "asi/44620",
+    "productNo": "9720"
+  },
+  "womens-greenway-stretch-cotton-polo-24904": {
+    "espId": "555124904",
+    "supplier": "Charles River Apparel",
+    "asi": "asi/44620",
+    "productNo": "2517"
   }
 }

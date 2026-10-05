@@ -213,5 +213,125 @@
     "Green": "/images/merch/colors/ceramic-mug-11oz-green.webp",
     "Purple": "/images/merch/colors/ceramic-mug-11oz-purple.webp",
     "Red": "/images/merch/colors/ceramic-mug-11oz-red.webp"
+  },
+  "fletcher-rpet-laptop-backpack": {
+    "Black Sand": "/images/merch/colors/fletcher-rpet-laptop-backpack-black-sand.webp",
+    "Navy Heather": "/images/merch/colors/fletcher-rpet-laptop-backpack-navy-heather.webp"
+  },
+  "cotton-canvas-tote-7oz": {
+    "Natural": "/images/merch/colors/cotton-canvas-tote-7oz-natural.webp",
+    "Navy Blue": "/images/merch/colors/cotton-canvas-tote-7oz-navy-blue.webp",
+    "Red": "/images/merch/colors/cotton-canvas-tote-7oz-red.webp",
+    "Royal Blue": "/images/merch/colors/cotton-canvas-tote-7oz-royal-blue.webp",
+    "Black": "/images/merch/colors/cotton-canvas-tote-7oz-black.webp"
+  },
+  "6-panel-premier-112-trucker-cap-19542": {
+    "Black": "/images/merch/colors/6-panel-premier-112-trucker-cap-19542-black.webp",
+    "Black-White": "/images/merch/colors/6-panel-premier-112-trucker-cap-19542-black-white.webp",
+    "Black-Neon Yellow": "/images/merch/colors/6-panel-premier-112-trucker-cap-19542-black-neon-yellow.webp",
+    "Black-Neon Green": "/images/merch/colors/6-panel-premier-112-trucker-cap-19542-black-neon-green.webp",
+    "Black-Neon Orange": "/images/merch/colors/6-panel-premier-112-trucker-cap-19542-black-neon-orange.webp",
+    "Charcoal": "/images/merch/colors/6-panel-premier-112-trucker-cap-19542-charcoal.webp",
+    "Charcoal-White": "/images/merch/colors/6-panel-premier-112-trucker-cap-19542-charcoal-white.webp",
+    "Charcoal-Royal": "/images/merch/colors/6-panel-premier-112-trucker-cap-19542-charcoal-royal.webp",
+    "Charcoal-Red": "/images/merch/colors/6-panel-premier-112-trucker-cap-19542-charcoal-red.webp",
+    "Charcoal-Neon Yellow": "/images/merch/colors/6-panel-premier-112-trucker-cap-19542-charcoal-neon-yellow.webp",
+    "Charcoal-Neon Green": "/images/merch/colors/6-panel-premier-112-trucker-cap-19542-charcoal-neon-green.webp",
+    "Charcoal-Neon Orange": "/images/merch/colors/6-panel-premier-112-trucker-cap-19542-charcoal-neon-orange.webp",
+    "Charcoal-Neon Pink": "/images/merch/colors/6-panel-premier-112-trucker-cap-19542-charcoal-neon-pink.webp",
+    "Charcoal-Kelly Green": "/images/merch/colors/6-panel-premier-112-trucker-cap-19542-charcoal-kelly-green.webp"
+  },
+  "bella-canvas-unisex-sueded-t-shirt-90334": {
+    "Athletic Heather": "/images/merch/colors/bella-canvas-unisex-sueded-t-shirt-90334-athletic-heather.webp",
+    "Heather Red": "/images/merch/colors/bella-canvas-unisex-sueded-t-shirt-90334-heather-red.webp",
+    "Heather Maroon": "/images/merch/colors/bella-canvas-unisex-sueded-t-shirt-90334-heather-maroon.webp",
+    "Heather Forest": "/images/merch/colors/bella-canvas-unisex-sueded-t-shirt-90334-heather-forest.webp",
+    "Heather True Royal": "/images/merch/colors/bella-canvas-unisex-sueded-t-shirt-90334-heather-true-royal.webp",
+    "White Blend": "/images/merch/colors/bella-canvas-unisex-sueded-t-shirt-90334-white-blend.webp",
+    "Heather Columbia Blue": "/images/merch/colors/bella-canvas-unisex-sueded-t-shirt-90334-heather-columbia-blue.webp",
+    "Heather Olive": "/images/merch/colors/bella-canvas-unisex-sueded-t-shirt-90334-heather-olive.webp",
+    "Heather Deep Teal": "/images/merch/colors/bella-canvas-unisex-sueded-t-shirt-90334-heather-deep-teal.webp",
+    "Heather Slate": "/images/merch/colors/bella-canvas-unisex-sueded-t-shirt-90334-heather-slate.webp"
+  },
+  "bella-canvas-unisex-half-sleeve-t-shirt-98208": {
+    "Deep Teal": "/images/merch/colors/bella-canvas-unisex-half-sleeve-t-shirt-98208-deep-teal.webp",
+    "Leaf": "/images/merch/colors/bella-canvas-unisex-half-sleeve-t-shirt-98208-leaf.webp",
+    "Light Blue": "/images/merch/colors/bella-canvas-unisex-half-sleeve-t-shirt-98208-light-blue.webp",
+    "Maize Yellow": "/images/merch/colors/bella-canvas-unisex-half-sleeve-t-shirt-98208-maize-yellow.webp",
+    "Maroon": "/images/merch/colors/bella-canvas-unisex-half-sleeve-t-shirt-98208-maroon.webp",
+    "Navy Blue": "/images/merch/colors/bella-canvas-unisex-half-sleeve-t-shirt-98208-navy-blue.webp",
+    "Ocean Blue": "/images/merch/colors/bella-canvas-unisex-half-sleeve-t-shirt-98208-ocean-blue.webp",
+    "Oxblood Black": "/images/merch/colors/bella-canvas-unisex-half-sleeve-t-shirt-98208-oxblood-black.webp",
+    "Pebble Brown": "/images/merch/colors/bella-canvas-unisex-half-sleeve-t-shirt-98208-pebble-brown.webp",
+    "Silver": "/images/merch/colors/bella-canvas-unisex-half-sleeve-t-shirt-98208-silver.webp",
+    "Soft Cream": "/images/merch/colors/bella-canvas-unisex-half-sleeve-t-shirt-98208-soft-cream.webp",
+    "Soft Pink": "/images/merch/colors/bella-canvas-unisex-half-sleeve-t-shirt-98208-soft-pink.webp",
+    "Steel Blue": "/images/merch/colors/bella-canvas-unisex-half-sleeve-t-shirt-98208-steel-blue.webp",
+    "Asphalt": "/images/merch/colors/bella-canvas-unisex-half-sleeve-t-shirt-98208-asphalt.webp"
+  },
+  "bella-canvas-unisex-sponge-fleece-full-zip-hoodie-73139": {
+    "Athletic Heather": "/images/merch/colors/bella-canvas-unisex-sponge-fleece-full-zip-hoodie-73139-athletic-heather.webp",
+    "Black": "/images/merch/colors/bella-canvas-unisex-sponge-fleece-full-zip-hoodie-73139-black.webp",
+    "Heather Forest": "/images/merch/colors/bella-canvas-unisex-sponge-fleece-full-zip-hoodie-73139-heather-forest.webp",
+    "Heather Navy": "/images/merch/colors/bella-canvas-unisex-sponge-fleece-full-zip-hoodie-73139-heather-navy.webp",
+    "Heather True Royal": "/images/merch/colors/bella-canvas-unisex-sponge-fleece-full-zip-hoodie-73139-heather-true-royal.webp",
+    "Navy": "/images/merch/colors/bella-canvas-unisex-sponge-fleece-full-zip-hoodie-73139-navy.webp"
+  },
+  "devon-and-jones-mens-short-sleeve-polo-shirts-81136": {
+    "Black": "/images/merch/colors/devon-and-jones-mens-short-sleeve-polo-shirts-81136-black.webp",
+    "Burgundy": "/images/merch/colors/devon-and-jones-mens-short-sleeve-polo-shirts-81136-burgundy.webp",
+    "Orange": "/images/merch/colors/devon-and-jones-mens-short-sleeve-polo-shirts-81136-orange.webp",
+    "Cantaloupe": "/images/merch/colors/devon-and-jones-mens-short-sleeve-polo-shirts-81136-cantaloupe.webp",
+    "Rust": "/images/merch/colors/devon-and-jones-mens-short-sleeve-polo-shirts-81136-rust.webp",
+    "Melon": "/images/merch/colors/devon-and-jones-mens-short-sleeve-polo-shirts-81136-melon.webp",
+    "Lime": "/images/merch/colors/devon-and-jones-mens-short-sleeve-polo-shirts-81136-lime.webp",
+    "Navy": "/images/merch/colors/devon-and-jones-mens-short-sleeve-polo-shirts-81136-navy.webp",
+    "Stone": "/images/merch/colors/devon-and-jones-mens-short-sleeve-polo-shirts-81136-stone.webp",
+    "White": "/images/merch/colors/devon-and-jones-mens-short-sleeve-polo-shirts-81136-white.webp",
+    "Red": "/images/merch/colors/devon-and-jones-mens-short-sleeve-polo-shirts-81136-red.webp",
+    "Dill": "/images/merch/colors/devon-and-jones-mens-short-sleeve-polo-shirts-81136-dill.webp",
+    "Graphite": "/images/merch/colors/devon-and-jones-mens-short-sleeve-polo-shirts-81136-graphite.webp",
+    "Yellow": "/images/merch/colors/devon-and-jones-mens-short-sleeve-polo-shirts-81136-yellow.webp",
+    "Silver": "/images/merch/colors/devon-and-jones-mens-short-sleeve-polo-shirts-81136-silver.webp"
+  },
+  "cayak-lightweight-stretch-hoodie-24974": {
+    "Black Heather - 104": "/images/merch/colors/cayak-lightweight-stretch-hoodie-24974-black-heather-104.webp",
+    "Navy Heather - 240": "/images/merch/colors/cayak-lightweight-stretch-hoodie-24974-navy-heather-240.webp",
+    "Blue Heather - 293": "/images/merch/colors/cayak-lightweight-stretch-hoodie-24974-blue-heather-293.webp",
+    "Dark Grey Heather - 511": "/images/merch/colors/cayak-lightweight-stretch-hoodie-24974-dark-grey-heather-511.webp",
+    "Seafoam Heather - 235": "/images/merch/colors/cayak-lightweight-stretch-hoodie-24974-seafoam-heather-235.webp",
+    "Light Grey Heather - 514": "/images/merch/colors/cayak-lightweight-stretch-hoodie-24974-light-grey-heather-514.webp",
+    "White -080": "/images/merch/colors/cayak-lightweight-stretch-hoodie-24974-white-080.webp",
+    "Coral Heather - 359": "/images/merch/colors/cayak-lightweight-stretch-hoodie-24974-coral-heather-359.webp",
+    "Spruce Heather - 190": "/images/merch/colors/cayak-lightweight-stretch-hoodie-24974-spruce-heather-190.webp",
+    "Burgundy Heather - 128": "/images/merch/colors/cayak-lightweight-stretch-hoodie-24974-burgundy-heather-128.webp",
+    "Blue Lavender Heather - 147": "/images/merch/colors/cayak-lightweight-stretch-hoodie-24974-blue-lavender-heather-147.webp"
+  },
+  "mens-color-blocked-wicking-polo-02809": {
+    "Forest-White": "/images/merch/colors/mens-color-blocked-wicking-polo-02809-forest-white.webp",
+    "Navy-White": "/images/merch/colors/mens-color-blocked-wicking-polo-02809-navy-white.webp",
+    "Black-White": "/images/merch/colors/mens-color-blocked-wicking-polo-02809-black-white.webp",
+    "Purple-White": "/images/merch/colors/mens-color-blocked-wicking-polo-02809-purple-white.webp",
+    "Red-White": "/images/merch/colors/mens-color-blocked-wicking-polo-02809-red-white.webp",
+    "Royal-White": "/images/merch/colors/mens-color-blocked-wicking-polo-02809-royal-white.webp",
+    "Slate-White": "/images/merch/colors/mens-color-blocked-wicking-polo-02809-slate-white.webp",
+    "Black-Slate": "/images/merch/colors/mens-color-blocked-wicking-polo-02809-black-slate.webp",
+    "Slate-Black": "/images/merch/colors/mens-color-blocked-wicking-polo-02809-slate-black.webp"
+  },
+  "portsmouth-jacket-14852": {
+    "Red 060": "/images/merch/colors/portsmouth-jacket-14852-red-060.webp",
+    "Royal 070": "/images/merch/colors/portsmouth-jacket-14852-royal-070.webp",
+    "Navy 040": "/images/merch/colors/portsmouth-jacket-14852-navy-040.webp",
+    "Forest 020": "/images/merch/colors/portsmouth-jacket-14852-forest-020.webp",
+    "Black 010": "/images/merch/colors/portsmouth-jacket-14852-black-010.webp",
+    "Maroon 030": "/images/merch/colors/portsmouth-jacket-14852-maroon-030.webp",
+    "Grey 115": "/images/merch/colors/portsmouth-jacket-14852-grey-115.webp",
+    "Neon Yellow 364": "/images/merch/colors/portsmouth-jacket-14852-neon-yellow-364.webp"
+  },
+  "womens-greenway-stretch-cotton-polo-24904": {
+    "Sky Blue - 470": "/images/merch/colors/womens-greenway-stretch-cotton-polo-24904-sky-blue-470.webp",
+    "Navy - 040": "/images/merch/colors/womens-greenway-stretch-cotton-polo-24904-navy-040.webp",
+    "Gray - 115": "/images/merch/colors/womens-greenway-stretch-cotton-polo-24904-gray-115.webp",
+    "Black - 010": "/images/merch/colors/womens-greenway-stretch-cotton-polo-24904-black-010.webp"
   }
 }
