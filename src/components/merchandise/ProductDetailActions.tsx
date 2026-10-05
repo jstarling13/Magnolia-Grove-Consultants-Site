@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useCart } from "@/components/merchandise/CartContext";
 import { useProductSelection } from "@/components/merchandise/ProductSelectionContext";
+import { useQuantityDraft } from "@/hooks/useQuantityDraft";
 import { cleanColorName } from "@/lib/colorSwatches";
 import { lineTotal as priceLine, minimumOrderQuantity } from "@/lib/cartPricing";
 import { trackAddToCart, trackViewItem } from "@/lib/merchAnalytics";
@@ -13,7 +14,11 @@ export default function ProductDetailActions({ product }: { product: CatalogProd
   const { items, addItem } = useCart();
   const { selectedColor, requireColor } = useProductSelection();
   const minQuantity = minimumOrderQuantity(product);
+  // The last whole quantity the box held; pricing follows it while the box is mid-edit.
   const [quantity, setQuantity] = useState(product.tiers[0].quantity);
+  // Why the last add was refused (below the minimum, or nothing entered).
+  const [quantityError, setQuantityError] = useState("");
+  const quantityRef = useRef<HTMLInputElement>(null);
   // What the last add put in the cart, for the confirmation line.
   const [added, setAdded] = useState<{ color?: string; quantity: number } | null>(null);
 
@@ -40,18 +45,51 @@ export default function ProductDetailActions({ product }: { product: CatalogProd
     setAdded(null);
   }, [selectedColor]);
 
-  function handleQuantityChange(value: string) {
-    const parsed = Number.parseInt(value, 10);
-    setQuantity(Number.isFinite(parsed) && parsed > 0 ? parsed : 1);
+  const field = useQuantityDraft({
+    value: quantity,
+    onCommit: (next) => {
+      setQuantity(next);
+      setQuantityError("");
+      setAdded(null);
+    },
+  });
+
+  // Volume pricing and the minimum count units already in the cart, so only
+  // the shortfall has to be added here.
+  const neededNow = Math.max(1, minQuantity - inCart);
+
+  function refuse(message: string) {
+    setQuantityError(message);
     setAdded(null);
+    quantityRef.current?.focus();
   }
 
   function handleAddToCart() {
+    if (field.parsed.kind !== "ok") {
+      refuse(
+        neededNow > 1
+          ? `Enter a quantity of ${neededNow} or more.`
+          : "Enter a quantity of at least 1."
+      );
+      return;
+    }
+    if (quantity + inCart < minQuantity) {
+      refuse(
+        inCart > 0
+          ? `The minimum order is ${minQuantity} units across all colors, and you already have ${inCart} in your cart. Enter ${neededNow} or more.`
+          : `The minimum order is ${minQuantity} units. Enter ${minQuantity} or more.`
+      );
+      return;
+    }
     if (!requireColor()) return;
+    setQuantityError("");
     addItem(product.id, quantity, selectedColor);
     trackAddToCart({ product, color: selectedColor, quantity, unitPrice: activeTier.price });
     setAdded({ color: selectedColor, quantity });
   }
+
+  const singleTier = product.tiers.length === 1;
+  const inlineMessage = quantityError || field.message;
 
   return (
     <div className="mt-8 rounded-lg border border-gold/25 bg-cream-100/60 p-5 sm:p-6">
@@ -66,14 +104,25 @@ export default function ProductDetailActions({ product }: { product: CatalogProd
             Quantity
           </label>
           <input
+            {...field.inputProps}
+            ref={quantityRef}
             id="quantity"
             type="number"
             inputMode="numeric"
-            min={1}
-            value={quantity}
-            onChange={(event) => handleQuantityChange(event.target.value)}
+            min={neededNow}
+            aria-invalid={Boolean(quantityError)}
+            aria-describedby={
+              [minQuantity > 1 ? "quantity-minimum" : "", inlineMessage ? field.messageId : ""]
+                .filter(Boolean)
+                .join(" ") || undefined
+            }
             className="mt-2 w-28 rounded-md border border-gold/25 bg-cream px-3 py-2.5 text-sm text-onyx focus:outline-none focus:ring-2 focus:ring-gold/60"
           />
+          {minQuantity > 1 && (
+            <p id="quantity-minimum" className="mt-1.5 text-xs font-medium text-onyx/80">
+              Minimum order: {minQuantity} units
+            </p>
+          )}
         </div>
         <div className="pb-0.5 text-right">
           {selectedColor && (
@@ -82,7 +131,9 @@ export default function ProductDetailActions({ product }: { product: CatalogProd
             </p>
           )}
           <p className="text-xs text-onyx/50">
-            {formatPrice(activeTier.price)} / unit at {activeTier.quantity}+
+            {singleTier
+              ? `${formatPrice(activeTier.price)} / unit`
+              : `${formatPrice(activeTier.price)} / unit at ${activeTier.quantity}+`}
           </p>
           <p className="font-heading text-2xl font-bold leading-tight text-onyx">
             {formatPrice(lineTotal)}
@@ -90,12 +141,23 @@ export default function ProductDetailActions({ product }: { product: CatalogProd
         </div>
       </div>
 
+      {inlineMessage && (
+        <p
+          id={field.messageId}
+          role="alert"
+          className="mt-3 text-sm font-semibold leading-5 text-red-700"
+        >
+          {inlineMessage}
+        </p>
+      )}
+
       <p className="mt-3 min-h-[1.25rem] text-xs leading-5 text-onyx/60">
         {upcomingTier
           ? `Order ${upcomingTier.quantity}+ units to lower the price to ${formatPrice(upcomingTier.price)} per unit.`
-          : "You are at our best price for this item."}
+          : singleTier
+            ? ""
+            : "You are at our best price for this item."}
         {inCart > 0 && ` Includes the ${inCart} already in your cart.`}
-        {minQuantity > 1 && ` Minimum order is ${minQuantity} units.`}
       </p>
 
       <button

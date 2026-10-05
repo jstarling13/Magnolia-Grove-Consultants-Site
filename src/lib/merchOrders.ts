@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { CART_FORM_LIMITS, CART_FORM_MESSAGES, EMAIL_PATTERN } from "@/lib/cartFormRules";
 
 // Not length-limited here: the route checks it and returns a fake success, so the bot never learns it was caught.
 const honeypotField = z.string().max(500).optional();
@@ -20,11 +21,36 @@ export const merchOrderRequestSchema = z.object({
 export type MerchOrderRequestPayload = z.infer<typeof merchOrderRequestSchema>;
 
 export const cartCheckoutSchema = z.object({
-  firstName: z.string().trim().min(1, "First name is required.").max(100),
-  lastName: z.string().trim().min(1, "Last name is required.").max(100),
-  email: z.string().trim().email("Enter a valid email address.").max(200),
-  phone: z.string().trim().min(7, "Phone number is required.").max(30),
-  notes: z.string().trim().max(2000).optional().or(z.literal("")),
+  // Limits, patterns and messages come from cartFormRules so the browser form
+  // and this schema always agree.
+  firstName: z
+    .string()
+    .trim()
+    .min(1, CART_FORM_MESSAGES.firstNameRequired)
+    .max(CART_FORM_LIMITS.nameMax, CART_FORM_MESSAGES.nameTooLong),
+  lastName: z
+    .string()
+    .trim()
+    .min(1, CART_FORM_MESSAGES.lastNameRequired)
+    .max(CART_FORM_LIMITS.nameMax, CART_FORM_MESSAGES.nameTooLong),
+  email: z
+    .string()
+    .trim()
+    .min(1, CART_FORM_MESSAGES.emailRequired)
+    .max(CART_FORM_LIMITS.emailMax, CART_FORM_MESSAGES.emailTooLong)
+    .regex(EMAIL_PATTERN, CART_FORM_MESSAGES.emailInvalid),
+  phone: z
+    .string()
+    .trim()
+    .min(1, CART_FORM_MESSAGES.phoneRequired)
+    .min(CART_FORM_LIMITS.phoneMin, CART_FORM_MESSAGES.phoneTooShort)
+    .max(CART_FORM_LIMITS.phoneMax, CART_FORM_MESSAGES.phoneTooLong),
+  notes: z
+    .string()
+    .trim()
+    .max(CART_FORM_LIMITS.notesMax, CART_FORM_MESSAGES.notesTooLong)
+    .optional()
+    .or(z.literal("")),
   items: z
     .array(
       z.object({
@@ -33,10 +59,14 @@ export const cartCheckoutSchema = z.object({
         // it is one of the product's real colors, is checked server-side
         // against the catalog (see validateCart), not here.
         color: z.string().trim().max(100).optional(),
-        quantity: z.number().int().positive().max(100000),
+        quantity: z
+          .number()
+          .int()
+          .positive()
+          .max(CART_FORM_LIMITS.lineQuantityMax, CART_FORM_MESSAGES.quantityMax),
       })
     )
-    .min(1, "Your cart is empty."),
+    .min(1, CART_FORM_MESSAGES.cartEmpty),
   company_website: honeypotField,
   turnstileToken: z.string().optional(),
 });

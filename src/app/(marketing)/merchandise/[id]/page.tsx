@@ -119,7 +119,11 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 <span className="font-heading text-3xl font-bold text-onyx">
                   {formatPrice(first.price)}
                 </span>
-                <span>per unit at {first.quantity}+ units</span>
+                <span>
+                  {product.tiers.length > 1
+                    ? `per unit at ${first.quantity}+ units`
+                    : `per unit, minimum ${first.quantity}`}
+                </span>
               </p>
               {best.price < first.price && (
                 <p className="mt-1 text-sm text-onyx/60">
@@ -130,34 +134,42 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               <p className="mt-5 text-base leading-relaxed text-onyx/70">{product.description}</p>
 
               <div className="mt-8">
-                <h2 className="text-xs font-semibold uppercase tracking-wide text-onyx/50">
-                  Pricing by Quantity
-                </h2>
-                <table className="mt-3 w-full max-w-sm overflow-hidden rounded-md border border-gold/25 text-sm">
-                  <caption className="sr-only">Price per unit by order quantity</caption>
-                  <thead className="bg-cream-100">
-                    <tr className="text-left text-xs uppercase tracking-wide text-onyx/50">
-                      <th scope="col" className="px-4 py-2.5 font-semibold">
-                        Quantity
-                      </th>
-                      <th scope="col" className="px-4 py-2.5 text-right font-semibold">
-                        Price / Unit
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {product.tiers.map((tier) => (
-                      <tr key={tier.quantity} className="border-t border-gold/15">
-                        <th scope="row" className="px-4 py-2.5 text-left font-normal text-onyx/80">
-                          {tier.quantity}+ units
-                        </th>
-                        <td className="px-4 py-2.5 text-right font-semibold tabular-nums text-onyx">
-                          {formatPrice(tier.price)}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+                {/* A single price has nothing to compare, so skip the one-row table. */}
+                {product.tiers.length > 1 && (
+                  <>
+                    <h2 className="text-xs font-semibold uppercase tracking-wide text-onyx/50">
+                      Pricing by Quantity
+                    </h2>
+                    <table className="mt-3 w-full max-w-sm overflow-hidden rounded-md border border-gold/25 text-sm">
+                      <caption className="sr-only">Price per unit by order quantity</caption>
+                      <thead className="bg-cream-100">
+                        <tr className="text-left text-xs uppercase tracking-wide text-onyx/50">
+                          <th scope="col" className="px-4 py-2.5 font-semibold">
+                            Quantity
+                          </th>
+                          <th scope="col" className="px-4 py-2.5 text-right font-semibold">
+                            Price / Unit
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {product.tiers.map((tier) => (
+                          <tr key={tier.quantity} className="border-t border-gold/15">
+                            <th
+                              scope="row"
+                              className="px-4 py-2.5 text-left font-normal text-onyx/80"
+                            >
+                              {tier.quantity}+ units
+                            </th>
+                            <td className="px-4 py-2.5 text-right font-semibold tabular-nums text-onyx">
+                              {formatPrice(tier.price)}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </>
+                )}
                 <p className="mt-3 text-xs leading-relaxed text-onyx/50">
                   {merchandisePage.pricingDisclaimer}
                 </p>
