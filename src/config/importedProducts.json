@@ -1048,5 +1048,607 @@
       "Orange",
       "Assorted"
     ]
+  },
+  {
+    "id": "price-buster-cap-00716",
+    "name": "Price Buster Cap",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "100% Cotton Twill Cap, 5 Panel, Medium Profile, Unstructured Crown & Pre-Curved Visor & Adj. Self-Material Strap. Priced at 144 units.",
+    "tiers": [[144, 6.49]],
+    "image": "/images/merch/price-buster-cap-00716.webp",
+    "imageAlt": "Price Buster Cap",
+    "colors": [
+      "BLACK",
+      "GRAY",
+      "KELLY GREEN",
+      "KHAKI",
+      "NAVY BLUE",
+      "ORANGE",
+      "PINK",
+      "ROYAL BLUE",
+      "WHITE",
+      "Red"
+    ]
+  },
+  {
+    "id": "stock-camo-polyester-6-panel-baseball-cap-32878",
+    "name": "Stock Camo Polyester 6-Panel Baseball Cap",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "10 color options. Priced at 12 units.",
+    "tiers": [
+      [12, 12.35],
+      [24, 10.03],
+      [50, 8.23],
+      [100, 6.9],
+      [300, 6.7]
+    ],
+    "image": "/images/merch/stock-camo-polyester-6-panel-baseball-cap-32878.webp",
+    "imageAlt": "Stock Camo Polyester 6-Panel Baseball Cap",
+    "colors": [
+      "Camouflage",
+      "Digital Camouflage",
+      "Woodland Camouflage",
+      "Desert Digital Camouflage",
+      "Arid Digital Camouflage",
+      "Terrain Camouflage",
+      "Forest Camo",
+      "Pink Urban Camo",
+      "Classic Woodland Camouflage",
+      "Navy Digital Camo"
+    ]
+  },
+  {
+    "id": "6-panel-premier-112-trucker-cap-19542",
+    "name": "6 Panel Premier 112 Trucker Cap",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Fixed Amount Discount DC Premium cotton twill cap six-panel trucker cap with mesh back and snapback closure. Priced at 12 units.",
+    "tiers": [
+      [12, 6.667],
+      [48, 6.667],
+      [144, 6.583],
+      [576, 6.5],
+      [1008, 6.417]
+    ],
+    "image": "/images/merch/6-panel-premier-112-trucker-cap-19542.webp",
+    "imageAlt": "6 Panel Premier 112 Trucker Cap",
+    "colors": [
+      "Black",
+      "Black-White",
+      "Black-Charcoal",
+      "Black-Neon Green",
+      "Black-Neon Yellow",
+      "Black-Neon Orange",
+      "Charcoal",
+      "Charcoal-Black",
+      "Charcoal-White",
+      "Charcoal-Royal",
+      "Charcoal-Red",
+      "Charcoal-Kelly Green",
+      "Charcoal-Neon Green",
+      "Charcoal-Neon Yellow",
+      "Charcoal-Neon Orange",
+      "Charcoal-Neon Pink",
+      "Heather-White",
+      "Heather-Black",
+      "Heather-Columbia",
+      "Heather-Red",
+      "Jersey-White",
+      "Jersey-Black",
+      "Jersey-Columbia",
+      "Jersey-Royal"
+    ]
+  },
+  {
+    "id": "moq-50pcs-full-color-adjustable-trucker-hat-mesh-back-13561",
+    "name": "MOQ 50PCS Full Color Adjustable Trucker Hat Mesh Back",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Trucker hat with a snap closure, five panels, pre-curved visor, mesh back, and plastic snap tab closure. Priced at 50 units.",
+    "tiers": [
+      [50, 3.333],
+      [100, 3.083],
+      [200, 2.833],
+      [300, 2.7],
+      [500, 2.667]
+    ],
+    "image": "/images/merch/moq-50pcs-full-color-adjustable-trucker-hat-mesh-back-13561.webp",
+    "imageAlt": "MOQ 50PCS Full Color Adjustable Trucker Hat Mesh Back",
+    "colors": [
+      "Black",
+      "Orange",
+      "Red",
+      "Pink",
+      "Green",
+      "Light Blue",
+      "Royal Blue",
+      "Navy Blue",
+      "Purple",
+      "Gray",
+      "Brown",
+      "Rose Red"
+    ]
+  },
+  {
+    "id": "richardson-112-trucker-hat-cap-with-usa-made-leather-patch-04064",
+    "name": "Richardson 112 Trucker Hat Cap with USA Made Leather Patch",
+    "category": "Headwear",
+    "brand": "Richardson",
+    "description": "Made in the USA. Richardson 112 Trucker Hat with Sewn-On Leather Patches on Hats Caps. Priced at 24 units.",
+    "tiers": [
+      [24, 30.5],
+      [48, 27.517],
+      [72, 24.95],
+      [144, 21.8],
+      [288, 19.843]
+    ],
+    "image": "/images/merch/richardson-112-trucker-hat-cap-with-usa-made-leather-patch-04064.webp",
+    "imageAlt": "Richardson 112 Trucker Hat Cap with USA Made Leather Patch",
+    "colors": [
+      "Black",
+      "Cardinal",
+      "Columbia Blue",
+      "Dark Green",
+      "Loden",
+      "Navy Blue",
+      "Orange",
+      "Purple",
+      "Quarry",
+      "Red",
+      "Royal Blue",
+      "White",
+      "Biscuit/True Blue",
+      "Black/Charcoal",
+      "Black/Gold",
+      "Black/Vegas Gold",
+      "Black/White",
+      "Black/Yellow",
+      "Brown/Khaki",
+      "Caramel/Black",
+      "Cardinal/Black",
+      "Cardinal/White",
+      "Charcoal/Black",
+      "Charcoal/Columbia Blue"
+    ]
+  },
+  {
+    "id": "branded-bills-545-bare-curved-rope-cap-07235",
+    "name": "Branded Bills 545 Bare Curved Rope Cap",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "6 color options. Priced at 144 units.",
+    "tiers": [
+      [144, 42.11],
+      [288, 36.62],
+      [576, 31.84],
+      [1008, 27.69]
+    ],
+    "image": "/images/merch/branded-bills-545-bare-curved-rope-cap-07235.webp",
+    "imageAlt": "Branded Bills 545 Bare Curved Rope Cap",
+    "colors": [
+      "Black/Burnt Orange",
+      "Black/Kelly Green",
+      "Black/Purple",
+      "Black/Red",
+      "Black/Sky Blue",
+      "Black/ Tangerine"
+    ]
+  },
+  {
+    "id": "6-panels-relaxed-golf-hat-dad-cap-19118",
+    "name": "6 Panels Relaxed Golf Hat Dad Cap",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Pre-washed chino twill six-panel dad cap with low profile unstructured design, pre-curved bill, sweatband and slide buckle. Priced at 12 units.",
+    "tiers": [
+      [12, 6.667],
+      [48, 6.583],
+      [144, 6.5],
+      [576, 6.417],
+      [1008, 6.333]
+    ],
+    "image": "/images/merch/6-panels-relaxed-golf-hat-dad-cap-19118.webp",
+    "imageAlt": "6 Panels Relaxed Golf Hat Dad Cap",
+    "colors": [
+      "Black",
+      "Brown",
+      "Royal",
+      "Burgundy",
+      "Dark Green",
+      "Gold",
+      "Kelly Green",
+      "Khaki",
+      "Light Blue",
+      "Navy",
+      "Olive",
+      "Orange",
+      "Pink",
+      "Red",
+      "Tie Dyed Pink",
+      "Tie Dyed Navy",
+      "Yellow",
+      "Stone",
+      "Sky Blue",
+      "White",
+      "Silver",
+      "Gray",
+      "Multi Color",
+      "Assorted"
+    ]
+  },
+  {
+    "id": "6-panel-poly-twill-baseball-cap-21849",
+    "name": "6 Panel Poly Twill Baseball Cap",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Fixed Amount Discount Cotton poly twill six-panel constructed baseball cap with pre-curved visor and hook and loop closure. Priced at 12 units.",
+    "tiers": [
+      [12, 4.167],
+      [48, 4.083],
+      [144, 4],
+      [576, 3.917],
+      [1008, 3.833]
+    ],
+    "image": "/images/merch/6-panel-poly-twill-baseball-cap-21849.webp",
+    "imageAlt": "6 Panel Poly Twill Baseball Cap",
+    "colors": [
+      "Sky Blue",
+      "Black",
+      "Brown",
+      "Burgundy",
+      "Charcoal",
+      "Camo",
+      "Forest Green",
+      "Green",
+      "Khaki",
+      "Navy",
+      "Orange",
+      "Pink",
+      "Royal",
+      "Red",
+      "Texas Orange",
+      "White",
+      "Yellow"
+    ]
+  },
+  {
+    "id": "branded-bills-ep500-bare-curved-performance-cap-83439",
+    "name": "Branded Bills EP500 Bare Curved Performance Cap",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "6 panel, low profile cap with adjustable self-fabric hook and loop closure. Priced at 48 units.",
+    "tiers": [
+      [48, 50.86],
+      [96, 44.23],
+      [144, 38.46],
+      [288, 33.44],
+      [576, 29.08]
+    ],
+    "image": "/images/merch/branded-bills-ep500-bare-curved-performance-cap-83439.webp",
+    "imageAlt": "Branded Bills EP500 Bare Curved Performance Cap",
+    "colors": ["Black", "Gray", "Navy Blue", "White", "Kelly Green", "Red", "Royal Blue"]
+  },
+  {
+    "id": "rush-cotton-6-panel-baseball-cap-w-metal-tuck-buckle-18777",
+    "name": "Rush - Cotton 6-Panel Baseball Cap w/ Metal Tuck Buckle",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Structured Crown, Pre-Curved Visor, Metal Tuck Buckle. Priced at 12 units.",
+    "tiers": [
+      [12, 14.53],
+      [24, 11.38],
+      [36, 9.73],
+      [48, 9.2],
+      [100, 8.78]
+    ],
+    "image": "/images/merch/rush-cotton-6-panel-baseball-cap-w-metal-tuck-buckle-18777.webp",
+    "imageAlt": "Rush - Cotton 6-Panel Baseball Cap w/ Metal Tuck Buckle",
+    "colors": ["Various"]
+  },
+  {
+    "id": "transparent-pvc-sun-visor-hat-w-printed-world-cup-theme-53508",
+    "name": "Transparent PVC Sun Visor Hat W/ Printed World Cup Theme",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Clear PVC sun visor hat w/ UV protection, elastic strap back, ideal for world cup fans, silkscreen custom logo. Priced at 100 units.",
+    "tiers": [
+      [100, 2.867],
+      [500, 1.733],
+      [1000, 1.583],
+      [2000, 1.55],
+      [5000, 1.5]
+    ],
+    "image": "/images/merch/transparent-pvc-sun-visor-hat-w-printed-world-cup-theme-53508.webp",
+    "imageAlt": "Transparent PVC Sun Visor Hat W/ Printed World Cup Theme",
+    "colors": [
+      "Light Pink",
+      "Light Purple",
+      "Light Red",
+      "Light White",
+      "Light Yellow",
+      "Light Brown",
+      "Light Blue",
+      "Light Black"
+    ]
+  },
+  {
+    "id": "transparent-summer-sun-visor-66344",
+    "name": "Transparent Summer Sun Visor",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Transparent Summer Sun Visor is a good gift to promote your brand. Priced at 200 units.",
+    "tiers": [
+      [200, 4.25],
+      [500, 3.917],
+      [1000, 3.583],
+      [5000, 3.25],
+      [10000, 2.917]
+    ],
+    "image": "/images/merch/transparent-summer-sun-visor-66344.webp",
+    "imageAlt": "Transparent Summer Sun Visor",
+    "colors": ["Red", "Green", "Blue", "Purple", "Black", "White", "Orange"]
+  },
+  {
+    "id": "golf-visor-54090",
+    "name": "Golf visor",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "100% cotton twill structured golf visor with stretch headband and hook and loop closure. Priced at 12 units.",
+    "tiers": [
+      [12, 4.983],
+      [48, 4.983],
+      [144, 4.9],
+      [576, 4.817],
+      [1008, 4.733]
+    ],
+    "image": "/images/merch/golf-visor-54090.webp",
+    "imageAlt": "Golf visor",
+    "colors": [
+      "Red",
+      "Black",
+      "Navy",
+      "Royal",
+      "White",
+      "Brown",
+      "Forest Green",
+      "Khaki",
+      "Navy Blue",
+      "Lavender",
+      "Pink",
+      "Sky Blue",
+      "Stone",
+      "Assorted"
+    ]
+  },
+  {
+    "id": "cotton-sun-visor-w-custom-print-43185",
+    "name": "Cotton Sun Visor w/ Custom Print",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Cotton material and Pro-Stitching On Front Pre-Curved Visor. These visors have both comfort and beauty. Always the first choice. Priced at 100 units.",
+    "tiers": [
+      [100, 5.14],
+      [500, 4.47],
+      [1000, 3.79],
+      [3000, 3.17],
+      [5000, 2.5]
+    ],
+    "image": "/images/merch/cotton-sun-visor-w-custom-print-43185.webp",
+    "imageAlt": "Cotton Sun Visor w/ Custom Print",
+    "colors": ["Black", "Orange", "Yellow", "Red", "Blue", "Pink", "White"]
+  },
+  {
+    "id": "roll-cuff-beanie-with-direct-embroidery-42685",
+    "name": "Roll Cuff Beanie with Direct Embroidery",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "100% acrylic beanie with a classic rolled cuff design and eight available colors. Priced at 48 units.",
+    "tiers": [
+      [48, 12.5],
+      [72, 11.58],
+      [120, 10.42],
+      [250, 9.58],
+      [500, 9]
+    ],
+    "image": "/images/merch/roll-cuff-beanie-with-direct-embroidery-42685.webp",
+    "imageAlt": "Roll Cuff Beanie with Direct Embroidery",
+    "colors": [
+      "Black",
+      "Navy",
+      "Red",
+      "Royal",
+      "White",
+      "Neon Orange",
+      "Neon Yellow",
+      "Heather Gray",
+      "Orange"
+    ]
+  },
+  {
+    "id": "trendy-cotton-bucket-hat-02331",
+    "name": "Trendy Cotton Bucket Hat",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "100% cotton trendy bucket hat, perfect for outdoor events with customizable branding options. Priced at 50 units.",
+    "tiers": [
+      [50, 7.633],
+      [200, 5.55],
+      [500, 4.65],
+      [1000, 4.5],
+      [5000, 2.583]
+    ],
+    "image": "/images/merch/trendy-cotton-bucket-hat-02331.webp",
+    "imageAlt": "Trendy Cotton Bucket Hat",
+    "colors": [
+      "Multi Color",
+      "Black",
+      "Navy Blue",
+      "Light Blue",
+      "Blue",
+      "Red",
+      "Purple",
+      "Green",
+      "Yellow",
+      "Orange",
+      "Royal Blue",
+      "Gray"
+    ]
+  },
+  {
+    "id": "full-color-adjustable-boonie-hat-rush-service-34594",
+    "name": "Full Color Adjustable Boonie Hat Rush Service",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "21\" boonie hat with side snaps and foldable brim. Priced at 50 units.",
+    "tiers": [
+      [50, 5.533],
+      [100, 5.05],
+      [300, 4.3],
+      [500, 4.1],
+      [1000, 3.967]
+    ],
+    "image": "/images/merch/full-color-adjustable-boonie-hat-rush-service-34594.webp",
+    "imageAlt": "Full Color Adjustable Boonie Hat Rush Service",
+    "colors": ["Black", "Gray", "Green", "Khaki", "Navy"]
+  },
+  {
+    "id": "berkley-bucket-hat-32732",
+    "name": "Berkley Bucket Hat",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Bucket hat made of 100% cotton twill. Priced at 144 units.",
+    "tiers": [
+      [144, 11.3],
+      [288, 10.97],
+      [576, 10.65],
+      [1008, 10.34]
+    ],
+    "image": "/images/merch/berkley-bucket-hat-32732.webp",
+    "imageAlt": "Berkley Bucket Hat",
+    "colors": [
+      "Black",
+      "Gray",
+      "Navy Blue",
+      "Red",
+      "White",
+      "Beige",
+      "Light Blue",
+      "Orange",
+      "Pink",
+      "Royal Blue",
+      "Brown",
+      "Olive"
+    ]
+  },
+  {
+    "id": "reversible-cotton-travel-bucket-hat-19474",
+    "name": "Reversible Cotton Travel Bucket Hat",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "7 color options. Size: 22.5 \" x 22.5 \" x 5.5 \". Priced at 100 units.",
+    "tiers": [
+      [100, 7.983],
+      [200, 6.7],
+      [1000, 6.467],
+      [5000, 5.75],
+      [10000, 4.783]
+    ],
+    "image": "/images/merch/reversible-cotton-travel-bucket-hat-19474.webp",
+    "imageAlt": "Reversible Cotton Travel Bucket Hat",
+    "colors": [
+      "Yellow-Black",
+      "White-Black",
+      "Pink-Black",
+      "Red-Black",
+      "Khaki-Black",
+      "Black",
+      "Yellow"
+    ]
+  },
+  {
+    "id": "breathable-bucket-hat-for-men-and-women-87067",
+    "name": "Breathable Bucket Hat for Men and Women",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Stay cool and comfortable with a quick dry breathable hat for every outdoor adventure. Priced at 300 units.",
+    "tiers": [
+      [300, 4.1],
+      [500, 3.833],
+      [1000, 3.55],
+      [3000, 3.317],
+      [5000, 2.217]
+    ],
+    "image": "/images/merch/breathable-bucket-hat-for-men-and-women-87067.webp",
+    "imageAlt": "Breathable Bucket Hat for Men and Women",
+    "colors": ["Black", "Gray", "Blue", "Brown", "Red"]
+  },
+  {
+    "id": "performance-airy-safari-hat-with-perforated-mesh-69897",
+    "name": "Performance Airy Safari Hat with perforated mesh",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Performance Safari Sun Blocker hat in assorted colors with chin strap. Priced at 12 units.",
+    "tiers": [
+      [12, 10],
+      [48, 10],
+      [144, 9.917],
+      [576, 9.833],
+      [1008, 9.75]
+    ],
+    "image": "/images/merch/performance-airy-safari-hat-with-perforated-mesh-69897.webp",
+    "imageAlt": "Performance Airy Safari Hat with perforated mesh",
+    "colors": ["Black", "Charcoal", "Stone"]
+  },
+  {
+    "id": "12-knit-pompon-beanie-21842",
+    "name": "12\" Knit Pompon Beanie",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "12\" knit acrylic beanie in assorted colors with pompom topper. Priced at 12 units.",
+    "tiers": [
+      [12, 5.333],
+      [48, 5.333],
+      [144, 5.25],
+      [576, 5.167],
+      [1008, 5.083]
+    ],
+    "image": "/images/merch/12-knit-pompon-beanie-21842.webp",
+    "imageAlt": "12\" Knit Pompon Beanie",
+    "colors": ["Black", "Charcoal", "Red"]
+  },
+  {
+    "id": "knit-roll-cuff-beanie-cap-21800",
+    "name": "Knit Roll Cuff Beanie Cap",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Made of 50% Cotton and 50% Acrylic with a rolled cuff. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 50 units.",
+    "tiers": [
+      [50, 12.14],
+      [100, 10.76],
+      [250, 10.46],
+      [500, 10.26],
+      [1000, 10.06]
+    ],
+    "image": "/images/merch/knit-roll-cuff-beanie-cap-21800.webp",
+    "imageAlt": "Knit Roll Cuff Beanie Cap",
+    "colors": ["Gray", "Navy Blue"]
+  },
+  {
+    "id": "leeman-knit-beanie-with-fur-pompom-53414",
+    "name": "Leeman Knit Beanie With Fur PomPom",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Leeman™ knit acrylic beanie with PU patch and faux fur pom-pom. Priced at 30 units.",
+    "tiers": [
+      [30, 14.69],
+      [100, 14.29],
+      [300, 13.89],
+      [600, 13.49]
+    ],
+    "image": "/images/merch/leeman-knit-beanie-with-fur-pompom-53414.webp",
+    "imageAlt": "Leeman Knit Beanie With Fur PomPom",
+    "colors": ["Black", "Cream", "Gray", "Blue-Navy"]
   }
 ]

@@ -274,5 +274,149 @@
     "supplier": "The Sublimation Store",
     "asi": "asi/89376",
     "productNo": "SUB-WArchery"
+  },
+  "price-buster-cap-00716": {
+    "espId": "550300716",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "1035"
+  },
+  "stock-camo-polyester-6-panel-baseball-cap-32878": {
+    "espId": "555632878",
+    "supplier": "Northeastern Promotions",
+    "asi": "asi/74258",
+    "productNo": "BCP-STK-B131"
+  },
+  "6-panel-premier-112-trucker-cap-19542": {
+    "espId": "552519542",
+    "supplier": "Direct Caps",
+    "asi": "asi/48015",
+    "productNo": "DC112"
+  },
+  "moq-50pcs-full-color-adjustable-trucker-hat-mesh-back-13561": {
+    "espId": "555413561",
+    "supplier": "Promos Business Inc.",
+    "asi": "asi/80023",
+    "productNo": "PBRS0010"
+  },
+  "richardson-112-trucker-hat-cap-with-usa-made-leather-patch-04064": {
+    "espId": "554004064",
+    "supplier": "Overnightline",
+    "asi": "asi/38195",
+    "productNo": "LPATCHHATL"
+  },
+  "branded-bills-545-bare-curved-rope-cap-07235": {
+    "espId": "556407235",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "15087"
+  },
+  "6-panels-relaxed-golf-hat-dad-cap-19118": {
+    "espId": "552519118",
+    "supplier": "Direct Caps",
+    "asi": "asi/48015",
+    "productNo": "7648"
+  },
+  "6-panel-poly-twill-baseball-cap-21849": {
+    "espId": "552521849",
+    "supplier": "Direct Caps",
+    "asi": "asi/48015",
+    "productNo": "8618"
+  },
+  "branded-bills-ep500-bare-curved-performance-cap-83439": {
+    "espId": "555183439",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "15047"
+  },
+  "rush-cotton-6-panel-baseball-cap-w-metal-tuck-buckle-18777": {
+    "espId": "555718777",
+    "supplier": "Northeastern Promotions",
+    "asi": "asi/74258",
+    "productNo": "3DR-BCP-B2"
+  },
+  "transparent-pvc-sun-visor-hat-w-printed-world-cup-theme-53508": {
+    "espId": "553353508",
+    "supplier": "SC Promo Inc",
+    "asi": "asi/87101",
+    "productNo": "AAV017"
+  },
+  "transparent-summer-sun-visor-66344": {
+    "espId": "553866344",
+    "supplier": "Flyer Sourcing Inc",
+    "asi": "asi/54871",
+    "productNo": "FYLY061A"
+  },
+  "golf-visor-54090": {
+    "espId": "553354090",
+    "supplier": "Direct Caps",
+    "asi": "asi/48015",
+    "productNo": "6318"
+  },
+  "cotton-sun-visor-w-custom-print-43185": {
+    "espId": "553743185",
+    "supplier": "ANYTIME PROMO INC",
+    "asi": "asi/79380",
+    "productNo": "ATJS0103"
+  },
+  "roll-cuff-beanie-with-direct-embroidery-42685": {
+    "espId": "552142685",
+    "supplier": "Sports Solutions Inc",
+    "asi": "asi/88876",
+    "productNo": "RCBeanieEMB"
+  },
+  "trendy-cotton-bucket-hat-02331": {
+    "espId": "555302331",
+    "supplier": "Goldentop Gifts Corp",
+    "asi": "asi/79532",
+    "productNo": "GCX3555"
+  },
+  "full-color-adjustable-boonie-hat-rush-service-34594": {
+    "espId": "555434594",
+    "supplier": "Promos Business Inc.",
+    "asi": "asi/80023",
+    "productNo": "PBLS0014"
+  },
+  "berkley-bucket-hat-32732": {
+    "espId": "553832732",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "15013"
+  },
+  "reversible-cotton-travel-bucket-hat-19474": {
+    "espId": "555019474",
+    "supplier": "Uniprint Inc.",
+    "asi": "asi/92491",
+    "productNo": "QL1023"
+  },
+  "breathable-bucket-hat-for-men-and-women-87067": {
+    "espId": "556287067",
+    "supplier": "Goldentop Gifts Corp",
+    "asi": "asi/79532",
+    "productNo": "GNW35132"
+  },
+  "performance-airy-safari-hat-with-perforated-mesh-69897": {
+    "espId": "554769897",
+    "supplier": "Direct Caps",
+    "asi": "asi/48015",
+    "productNo": "7007"
+  },
+  "12-knit-pompon-beanie-21842": {
+    "espId": "552521842",
+    "supplier": "Direct Caps",
+    "asi": "asi/48015",
+    "productNo": "2564"
+  },
+  "knit-roll-cuff-beanie-cap-21800": {
+    "espId": "553521800",
+    "supplier": "Suntex Industries",
+    "asi": "asi/90160",
+    "productNo": "KSR-750"
+  },
+  "leeman-knit-beanie-with-fur-pompom-53414": {
+    "espId": "552353414",
+    "supplier": "Prime Line",
+    "asi": "asi/79530",
+    "productNo": "LG303"
   }
 }
