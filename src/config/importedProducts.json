@@ -245,47 +245,6 @@
     "colors": ["Assorted"]
   },
   {
-    "id": "port-and-company-core-cotton-t-shirt-57309",
-    "name": "Port & Company® Core Cotton T-Shirt",
-    "category": "Apparel",
-    "brand": "Port & Company",
-    "description": "Cotton T-Shirt. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 96 units.",
-    "tiers": [
-      [96, 10.02],
-      [144, 7.82],
-      [288, 7.58],
-      [504, 6.59]
-    ],
-    "image": "/images/merch/port-and-company-core-cotton-t-shirt-57309.webp",
-    "imageAlt": "Port & Company® Core Cotton T-Shirt",
-    "colors": [
-      "Jet Black",
-      "Red",
-      "Royal Blue",
-      "White",
-      "Aquatic Blue",
-      "Ash",
-      "Athletic Heather",
-      "Athletic Maroon",
-      "Candy Pink",
-      "Cardinal",
-      "Carolina Blue",
-      "Charcoal",
-      "Clover Green",
-      "Dark Chocolate Brown",
-      "Dark Green",
-      "Dark Heather Gray",
-      "Gold",
-      "Heather Navy",
-      "Heather Purple",
-      "Heather Red",
-      "Heather Royal Blue",
-      "Kelly Green",
-      "Light Blue",
-      "Lime"
-    ]
-  },
-  {
     "id": "bella-canvas-unisex-jersey-short-sleeve-t-shirt-72467",
     "name": "Bella + Canvas Unisex Jersey Short-Sleeve T-Shirt",
     "category": "Apparel",
@@ -4838,36 +4797,6 @@
     ]
   },
   {
-    "id": "6-economy-table-throw-full-color-front-only-58728",
-    "name": "6' Economy Table Throw (Full-Color Front Only)",
-    "category": "Event & Signage",
-    "brand": "Essentials",
-    "description": "6' economy table throw made of polyester poplin with 3 sides, draped corners and an open back design. Priced at 1 unit.",
-    "tiers": [
-      [1, 173.5],
-      [2, 166.5],
-      [6, 157.9],
-      [12, 149.2],
-      [25, 145.7]
-    ],
-    "image": "/images/merch/6-economy-table-throw-full-color-front-only-58728.webp",
-    "imageAlt": "6' Economy Table Throw (Full-Color Front Only)",
-    "colors": [
-      "Black",
-      "Blueberry",
-      "Brown",
-      "Burgundy",
-      "Charcoal",
-      "Gray",
-      "Hunter Green",
-      "Lime Green",
-      "Navy",
-      "Orange",
-      "Purple",
-      "Cherry"
-    ]
-  },
-  {
     "id": "waterproof-disposable-plastic-tablecloth-roll-40-x-100-38040",
     "name": "Waterproof Disposable Plastic Tablecloth Roll 40'' x 100'",
     "category": "Event & Signage",
@@ -6633,21 +6562,6 @@
       "Red",
       "Gray"
     ]
-  },
-  {
-    "id": "12-can-convertible-duffel-cooler-2-in-1-bag-16-colors-92912",
-    "name": "12-Can Convertible Duffel Cooler - 2-in-1 Bag (16 Colors)",
-    "category": "Outdoor & Sports",
-    "brand": "Essentials",
-    "description": "Convertible duffel/cooler bag that holds 12 cans inside the insulated, waterproof main compartment with removable liner. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 20 units.",
-    "tiers": [
-      [20, 26.99],
-      [50, 26.2],
-      [100, 25.19]
-    ],
-    "image": "/images/merch/12-can-convertible-duffel-cooler-2-in-1-bag-16-colors-92912.webp",
-    "imageAlt": "12-Can Convertible Duffel Cooler - 2-in-1 Bag (16 Colors)",
-    "colors": ["Black", "Red", "Navy", "Green", "Yellow", "Orange", "Purple", "Royal Blue"]
   },
   {
     "id": "heather-12-can-soft-insulated-cooler-bag-w-shoulder-strap-35335",
@@ -11855,5 +11769,2906 @@
     "image": "/images/merch/gift-pen-25102.webp",
     "imageAlt": "Gift Pen",
     "colors": ["Red", "Gold", "Purple", "Blue", "Pink", "Black", "White", "Silver", "Green"]
+  },
+  {
+    "id": "door-hanger-w-pocket-21080",
+    "name": "Door Hanger w/Pocket",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "4 1/2\" x 12\" Door Hanger with pocket on the front with full 4-color process imprint included Made in USA. Priced at 250 units.",
+    "tiers": [
+      [250, 2.55],
+      [500, 1.96],
+      [1000, 1.67],
+      [2500, 1.46]
+    ],
+    "image": "/images/merch/door-hanger-w-pocket-21080.webp",
+    "imageAlt": "Door Hanger w/Pocket",
+    "colors": ["White"]
+  },
+  {
+    "id": "door-hanger-21084",
+    "name": "Door Hanger",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "3 1/2\" x 8 1/2\" Door Hanger made in USA with full 4-color process imprint included Made in USA. Priced at 250 units.",
+    "tiers": [
+      [250, 0.85],
+      [500, 0.65],
+      [1000, 0.57],
+      [2500, 0.5]
+    ],
+    "image": "/images/merch/door-hanger-21084.webp",
+    "imageAlt": "Door Hanger",
+    "colors": ["White"]
+  },
+  {
+    "id": "4-25-x-11-inch-full-color-door-hanger-89087",
+    "name": "4.25 x 11 Inch Full Color Door Hanger",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "4.25\" x 11\" door hanger with imprint options. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "tiers": [
+      [100, 0.74],
+      [250, 0.48],
+      [500, 0.32],
+      [1000, 0.26]
+    ],
+    "image": "/images/merch/4-25-x-11-inch-full-color-door-hanger-89087.webp",
+    "imageAlt": "4.25 x 11 Inch Full Color Door Hanger",
+    "colors": ["White"]
+  },
+  {
+    "id": "door-hanger-house-shape-83678",
+    "name": "Door Hanger - House Shape",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "4\"w x 10.5\"h Door Hanger USA made w/die-cut hole, full coverage 4-color process imprint on both sides included Made in USA. Priced at 250 units.",
+    "tiers": [
+      [250, 1.06],
+      [500, 0.81],
+      [1000, 0.7],
+      [2500, 0.63]
+    ],
+    "image": "/images/merch/door-hanger-house-shape-83678.webp",
+    "imageAlt": "Door Hanger - House Shape",
+    "colors": ["White"]
+  },
+  {
+    "id": "3-5-x-8-5-inch-full-color-door-hanger-89086",
+    "name": "3.5 x 8.5 Inch Full Color Door Hanger",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "3.5\" x 8.5\" door hanger with die-cut holes. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "tiers": [
+      [100, 0.68],
+      [250, 0.34],
+      [500, 0.22],
+      [1000, 0.2]
+    ],
+    "image": "/images/merch/3-5-x-8-5-inch-full-color-door-hanger-89086.webp",
+    "imageAlt": "3.5 x 8.5 Inch Full Color Door Hanger",
+    "colors": ["White"]
+  },
+  {
+    "id": "slotted-door-hanger-custom-printed-business-card-hanger-14190",
+    "name": "Slotted Door Hanger Custom Printed - Business Card Hanger",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "1 color option. Size: 6.75\" x 3.5\". Priced at 100 units.",
+    "tiers": [
+      [100, 1.81],
+      [250, 1.04],
+      [500, 0.6],
+      [1000, 0.3],
+      [2500, 0.17]
+    ],
+    "image": "/images/merch/slotted-door-hanger-custom-printed-business-card-hanger-14190.webp",
+    "imageAlt": "Slotted Door Hanger Custom Printed - Business Card Hanger",
+    "colors": ["Assorted"]
+  },
+  {
+    "id": "superseal-4-1-8-x-5-5-8-direct-mail-postcard-21974",
+    "name": "SuperSeal 4-1/8 x 5-5/8 Direct Mail Postcard",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "4 1/8\" x 5 5/8\" sealed magnetic postcard with four color process printing. Made in USA. Priced at 500 units.",
+    "tiers": [
+      [500, 0.957],
+      [1000, 0.759],
+      [1500, 0.634],
+      [2500, 0.489],
+      [5000, 0.406]
+    ],
+    "image": "/images/merch/superseal-4-1-8-x-5-5-8-direct-mail-postcard-21974.webp",
+    "imageAlt": "SuperSeal 4-1/8 x 5-5/8 Direct Mail Postcard",
+    "colors": ["12P Thickness White"]
+  },
+  {
+    "id": "postcard-4-x-6-full-color-26473",
+    "name": "Postcard 4\" x 6\" Full Color",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Direct mail is a great way to get your message in front of your audience. Made in USA. Priced at 250 units.",
+    "tiers": [
+      [250, 1.02],
+      [500, 0.64],
+      [1000, 0.54]
+    ],
+    "image": "/images/merch/postcard-4-x-6-full-color-26473.webp",
+    "imageAlt": "Postcard 4\" x 6\" Full Color",
+    "colors": ["White"]
+  },
+  {
+    "id": "custom-full-color-flat-card-5-x-7-10445",
+    "name": "Custom Full Color Flat Card 5\" x 7\"",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Custom Full Color printed 5\" x 7\" card, edge to edge 2 side coverage, post card, greeting card, marketing card w/free envelopes Made in USA. Priced at 50 units.",
+    "tiers": [
+      [50, 2.58],
+      [75, 2.35],
+      [100, 2.17],
+      [500, 2.12],
+      [1000, 2.01]
+    ],
+    "image": "/images/merch/custom-full-color-flat-card-5-x-7-10445.webp",
+    "imageAlt": "Custom Full Color Flat Card 5\" x 7\"",
+    "colors": ["White"]
+  },
+  {
+    "id": "planning-and-saving-pocket-pamphlet-87136",
+    "name": "Planning & Saving Pocket Pamphlet",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Tri-fold, pocket sized informative brochure filled with tips on saving money and planning your expenses. Made in USA. Priced at 250 units.",
+    "tiers": [
+      [250, 0.59],
+      [500, 0.57],
+      [1000, 0.55],
+      [2500, 0.52]
+    ],
+    "image": "/images/merch/planning-and-saving-pocket-pamphlet-87136.webp",
+    "imageAlt": "Planning & Saving Pocket Pamphlet",
+    "colors": ["Multi color"]
+  },
+  {
+    "id": "aluminum-alloy-automatic-pop-up-card-holder-98856",
+    "name": "Aluminum Alloy Automatic Pop-up Card Holder",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Product RFID Aluminum Alloy Automatic Pop-up Card Holder Business Card Case.Rush services available! Priced at 10 units.",
+    "tiers": [
+      [10, 4.812],
+      [50, 3.238],
+      [100, 2.741],
+      [300, 2.502],
+      [500, 2.482]
+    ],
+    "image": "/images/merch/aluminum-alloy-automatic-pop-up-card-holder-98856.webp",
+    "imageAlt": "Aluminum Alloy Automatic Pop-up Card Holder",
+    "colors": ["Gold", "Gray", "Silver", "Blue", "Black", "Red"]
+  },
+  {
+    "id": "leatherette-business-card-holder-57900",
+    "name": "Leatherette Business Card Holder",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Leatherette business card holder that features clear plastic insert pages with card slots for 72 cards. Priced at 48 units.",
+    "tiers": [
+      [48, 4.18],
+      [96, 4.05],
+      [200, 3.95],
+      [500, 3.75]
+    ],
+    "image": "/images/merch/leatherette-business-card-holder-57900.webp",
+    "imageAlt": "Leatherette Business Card Holder",
+    "colors": ["Black"]
+  },
+  {
+    "id": "best-value-business-card-magnets-20-mil-full-color-print-31742",
+    "name": "Best Value - Business Card Magnets 20 Mil - Full Color Print",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Business Card Magnets 20 Mil Indoor 2x3.5 Round Corner. 4 Color Imprint Process. Stronger & Thicker magnets are available Made in USA. Priced at 250 units.",
+    "tiers": [
+      [250, 0.18],
+      [500, 0.172],
+      [1000, 0.153],
+      [2500, 0.13],
+      [5000, 0.11]
+    ],
+    "image": "/images/merch/best-value-business-card-magnets-20-mil-full-color-print-31742.webp",
+    "imageAlt": "Best Value - Business Card Magnets 20 Mil - Full Color Print",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "add-a-pad-50-sheet-things-to-do-23153",
+    "name": "Add-A-Pad 50 sheet Things to Do",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "50 sheet Things To Do notepad with magnetic business card on top with four color process imprinting. Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 250 units.",
+    "tiers": [
+      [250, 1.66],
+      [500, 1.32],
+      [1000, 1.1],
+      [2500, 0.92],
+      [5000, 0.88]
+    ],
+    "image": "/images/merch/add-a-pad-50-sheet-things-to-do-23153.webp",
+    "imageAlt": "Add-A-Pad 50 sheet Things to Do",
+    "colors": ["White"]
+  },
+  {
+    "id": "custom-plastic-card-94763",
+    "name": "Custom Plastic Card",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Custom PVC Plastic Cards Made in USA. Priced at 250 units.",
+    "tiers": [
+      [250, 1.02],
+      [500, 0.752],
+      [1000, 0.556],
+      [2000, 0.515],
+      [3000, 0.484]
+    ],
+    "image": "/images/merch/custom-plastic-card-94763.webp",
+    "imageAlt": "Custom Plastic Card"
+  },
+  {
+    "id": "elify-tap-classic-digital-business-card-10476",
+    "name": "Elify Tap Classic Digital Business Card",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Digital business card; QR code and NFC-embedded chip; Personalized template with image, theme color, contact info, & social media. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 25 units.",
+    "tiers": [
+      [25, 20.08],
+      [150, 18.75],
+      [300, 16.07],
+      [425, 15.62],
+      [550, 14.05]
+    ],
+    "image": "/images/merch/elify-tap-classic-digital-business-card-10476.webp",
+    "imageAlt": "Elify Tap Classic Digital Business Card",
+    "colors": ["White", "Brown", "Black"]
+  },
+  {
+    "id": "nfc-metal-business-card-23232",
+    "name": "NFC Metal Business Card",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "NFC Metal Business Cards combine elegance and digital connections. Standard 1-sided print; 2-sided is extra. Priced at 100 units.",
+    "tiers": [
+      [100, 5.75],
+      [250, 4.62],
+      [500, 4.35],
+      [1000, 4.22],
+      [2500, 4.15]
+    ],
+    "image": "/images/merch/nfc-metal-business-card-23232.webp",
+    "imageAlt": "NFC Metal Business Card",
+    "colors": ["Silver", "Black", "White", "Rose Gold", "Brass", "Copper"]
+  },
+  {
+    "id": "metal-nfc-business-cards-with-215-chip-52391",
+    "name": "Metal NFC Business Cards With 215 Chip",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Metal NFC Card, Digital Smart Stainless Steel NFC Business Cards, Sleek Modern Digital Business Card. Priced at 100 units.",
+    "tiers": [
+      [100, 8.633],
+      [200, 7.18],
+      [300, 6.828],
+      [500, 6.143],
+      [1000, 5.68]
+    ],
+    "image": "/images/merch/metal-nfc-business-cards-with-215-chip-52391.webp",
+    "imageAlt": "Metal NFC Business Cards With 215 Chip",
+    "colors": ["Silver", "Gold", "Black", "Rose Gold"]
+  },
+  {
+    "id": "magnet-3-x-3-round-corners-18112",
+    "name": "Magnet - 3\" x 3\" Round Corners",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Magnet - 3\" x 3\" with Round Corners in 20 and 30 mil thicknesses. Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "tiers": [
+      [100, 1.25],
+      [250, 0.88],
+      [500, 0.62],
+      [1000, 0.41],
+      [2500, 0.28]
+    ],
+    "image": "/images/merch/magnet-3-x-3-round-corners-18112.webp",
+    "imageAlt": "Magnet - 3\" x 3\" Round Corners",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "presentation-folder-ink-printed-white-stock-95922",
+    "name": "Presentation Folder- Ink Printed - White Stock",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "9\" x 12\" USA Made Presentation Folders w/1 to 4 color ink imprint on white stock w/full coverage on back front & inside pockets. Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 250 units.",
+    "tiers": [
+      [250, 3.59],
+      [500, 2.35],
+      [1000, 1.59],
+      [1500, 1.4],
+      [2000, 1.24]
+    ],
+    "image": "/images/merch/presentation-folder-ink-printed-white-stock-95922.webp",
+    "imageAlt": "Presentation Folder- Ink Printed - White Stock",
+    "colors": ["White"]
+  },
+  {
+    "id": "deluxe-presentation-folder-with-10-pockets-56881",
+    "name": "Deluxe Presentation Folder with 10 Pockets",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "10-pocket presentation folder made of vinyl with horizontal pockets at the front and back. Made in USA. Priced at 50 units.",
+    "tiers": [
+      [50, 20.14],
+      [100, 15.33],
+      [250, 14.1],
+      [500, 12.82]
+    ],
+    "image": "/images/merch/deluxe-presentation-folder-with-10-pockets-56881.webp",
+    "imageAlt": "Deluxe Presentation Folder with 10 Pockets",
+    "colors": ["White", "Black", "Red", "Green", "Burgundy", "Navy Blue", "Royal Blue"]
+  },
+  {
+    "id": "presentation-folder-1-color-foil-stamp-44323",
+    "name": "Presentation Folder - 1 Color Foil-Stamp",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Presentation Folders, 9\" x 12\" w/ foil-stamp on front. 47 paper stocks & 23 layouts available Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 250 units.",
+    "tiers": [
+      [250, 3.04],
+      [500, 2.14],
+      [1000, 1.7],
+      [1500, 1.55],
+      [2000, 1.44]
+    ],
+    "image": "/images/merch/presentation-folder-1-color-foil-stamp-44323.webp",
+    "imageAlt": "Presentation Folder - 1 Color Foil-Stamp",
+    "colors": ["Standard White Paper", "Classic Paper Colors", "Designer Paper Colors"]
+  },
+  {
+    "id": "budget-presentation-folders-51101",
+    "name": "Budget Presentation Folders",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Budget Priced 9\" x 12\" Presentation Folders, 12 pt. White Coated stock two 4\" pockets inside, ink printed or foil stamped Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 250 units.",
+    "tiers": [
+      [250, 2.71],
+      [500, 1.68],
+      [1000, 1.34],
+      [1500, 1.15],
+      [2000, 1.04]
+    ],
+    "image": "/images/merch/budget-presentation-folders-51101.webp",
+    "imageAlt": "Budget Presentation Folders",
+    "colors": ["White"]
+  },
+  {
+    "id": "2-pocket-folders-with-fasteners-73447",
+    "name": "2 Pocket Folders with Fasteners",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "11.6\" x 9.4\" poly folder with 2 pockets and 3 metal prongs. Priced at 300 units.",
+    "tiers": [
+      [300, 2.1],
+      [500, 1.85]
+    ],
+    "image": "/images/merch/2-pocket-folders-with-fasteners-73447.webp",
+    "imageAlt": "2 Pocket Folders with Fasteners",
+    "colors": ["Black", "Blue", "Green", "Red", "Orange", "Yellow"]
+  },
+  {
+    "id": "multicolor-sticky-note-set-30400",
+    "name": "Multicolor Sticky Note Set",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Note Set for meetings, project planning, studying, and filing. Priced at 300 units.",
+    "tiers": [
+      [300, 6.517],
+      [500, 6.017],
+      [1000, 5.9],
+      [3000, 5.783],
+      [5000, 5.617]
+    ],
+    "image": "/images/merch/multicolor-sticky-note-set-30400.webp",
+    "imageAlt": "Multicolor Sticky Note Set",
+    "colors": ["Black", "Yellow"]
+  },
+  {
+    "id": "jotter-with-pen-67099",
+    "name": "Jotter with pen",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "3\" x 5\" spiral bound eco jotter with pen. Priced at 250 units.",
+    "tiers": [
+      [250, 1.82],
+      [500, 1.77],
+      [1000, 1.69],
+      [2500, 1.64],
+      [5000, 1.57]
+    ],
+    "image": "/images/merch/jotter-with-pen-67099.webp",
+    "imageAlt": "Jotter with pen",
+    "colors": [
+      "Red-Kraft Brown",
+      "Blue-Kraft Brown",
+      "Green-Black",
+      "Black-Kraft Brown",
+      "Purple-Kraft Brown",
+      "Orange-Kraft Brown",
+      "Green-Kraft Brown"
+    ]
+  },
+  {
+    "id": "sticky-book-59282",
+    "name": "Sticky Book",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "100 sheets of 4\" x 3\" yellow sticky notes, 25 sheets of 3\" x 2\" yellow notes and 25 sheets of page marker strips. Priced at 150 units.",
+    "tiers": [
+      [150, 2.59],
+      [300, 2.49],
+      [600, 2.39],
+      [1200, 2.29],
+      [2600, 2.19]
+    ],
+    "image": "/images/merch/sticky-book-59282.webp",
+    "imageAlt": "Sticky Book",
+    "colors": [
+      "White",
+      "Red",
+      "Blue",
+      "Silver",
+      "Black",
+      "Green",
+      "Yellow",
+      "Orange",
+      "Purple",
+      "Natural",
+      "Blue-Navy",
+      "Green-Lime"
+    ]
+  },
+  {
+    "id": "durable-luxury-memo-case-12142",
+    "name": "Durable Luxury Memo Case",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Durable Luxury Memo Case is for school, office, meeting. Priced at 50 units.",
+    "tiers": [
+      [50, 8.217],
+      [100, 6.55],
+      [300, 5.767],
+      [500, 5.517],
+      [1000, 5.267]
+    ],
+    "image": "/images/merch/durable-luxury-memo-case-12142.webp",
+    "imageAlt": "Durable Luxury Memo Case",
+    "colors": ["Brown"]
+  },
+  {
+    "id": "custom-1-4-acrylic-magnets-usa-made-55042",
+    "name": "Custom 1/4\" Acrylic Magnets USA Made",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "1/4\" thick acrylic plastic magnets with full color imprinting. Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "tiers": [
+      [100, 2.683],
+      [250, 2.467],
+      [500, 2.267],
+      [1000, 2.183]
+    ],
+    "image": "/images/merch/custom-1-4-acrylic-magnets-usa-made-55042.webp",
+    "imageAlt": "Custom 1/4\" Acrylic Magnets USA Made",
+    "colors": ["Clear", "Multi Color"]
+  },
+  {
+    "id": "magnet-5-inch-circle-27972",
+    "name": "Magnet - 5 Inch Circle",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Custom Magnet - 5\" Diameter Circle Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "tiers": [
+      [100, 2.29],
+      [250, 1.288],
+      [500, 0.892],
+      [1000, 0.787],
+      [2500, 0.505]
+    ],
+    "image": "/images/merch/magnet-5-inch-circle-27972.webp",
+    "imageAlt": "Magnet - 5 Inch Circle",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "rectangle-magnet-4-x-6-68230",
+    "name": "Rectangle Magnet 4 x 6",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "4\" x 6\" rectangular shaped magnet with four color process customization. Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 250 units.",
+    "tiers": [
+      [250, 1.27],
+      [500, 0.91],
+      [1000, 0.74],
+      [2500, 0.55],
+      [5000, 0.49]
+    ],
+    "image": "/images/merch/rectangle-magnet-4-x-6-68230.webp",
+    "imageAlt": "Rectangle Magnet 4 x 6",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "magnet-3-inch-circle-27961",
+    "name": "Magnet - 3 Inch Circle",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Custom Magnet - 3\" Diameter Circle Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "tiers": [
+      [100, 0.51],
+      [250, 0.26],
+      [500, 0.23],
+      [1000, 0.22],
+      [2500, 0.21]
+    ],
+    "image": "/images/merch/magnet-3-inch-circle-27961.webp",
+    "imageAlt": "Magnet - 3 Inch Circle",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "house-2-44-h-x-3-43-w-notekeeper-magnet-20-mil-18285",
+    "name": "House 2.44\"H x 3.43\"W NoteKeeper™ Magnet 20 Mil",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "House shaped magnet with your choice of thickness and full color Customization. Made in USA. Priced at 500 units.",
+    "tiers": [
+      [500, 0.8],
+      [1000, 0.56],
+      [1500, 0.44],
+      [2500, 0.4],
+      [5000, 0.34]
+    ],
+    "image": "/images/merch/house-2-44-h-x-3-43-w-notekeeper-magnet-20-mil-18285.webp",
+    "imageAlt": "House 2.44\"H x 3.43\"W NoteKeeper™ Magnet 20 Mil",
+    "colors": ["White"]
+  },
+  {
+    "id": "magnet-4-x-6-square-corners-74699",
+    "name": "Magnet - 4\" x 6\" - Square Corners",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Magnet - 4\" x 6\" - Square Corners - 20 or 30 Mil. Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "tiers": [
+      [100, 2.29],
+      [250, 1.288],
+      [500, 0.892],
+      [1000, 0.787],
+      [2500, 0.505]
+    ],
+    "image": "/images/merch/magnet-4-x-6-square-corners-74699.webp",
+    "imageAlt": "Magnet - 4\" x 6\" - Square Corners",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "digitally-printed-name-badge-83209",
+    "name": "Digitally Printed Name Badge",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Full color digitally printed name badge comes on white, brushed silver, or brushed gold. Custom colors, sizes, full bleed Made in USA. Priced at 1 unit.",
+    "tiers": [
+      [1, 12.5],
+      [10, 10.5],
+      [25, 9.25],
+      [50, 7.8],
+      [100, 6.75]
+    ],
+    "image": "/images/merch/digitally-printed-name-badge-83209.webp",
+    "imageAlt": "Digitally Printed Name Badge",
+    "colors": ["White", "Brushed Silver", "Brushed Gold"]
+  },
+  {
+    "id": "engraved-name-badge-30533",
+    "name": "Engraved Name Badge",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Made in the USA! Lightning fast turnaround. Laser engraved name badges comes on a variety of popular colors. Made in USA. Priced at 1 unit.",
+    "tiers": [
+      [1, 11.95],
+      [10, 10.25],
+      [25, 8.95],
+      [50, 7.45],
+      [100, 6.5]
+    ],
+    "image": "/images/merch/engraved-name-badge-30533.webp",
+    "imageAlt": "Engraved Name Badge",
+    "colors": [
+      "White",
+      "Brushed Silver",
+      "Brushed Gold",
+      "Blue",
+      "Purple",
+      "Red",
+      "Brown",
+      "Orange",
+      "Yellow",
+      "Green",
+      "Navy Blue",
+      "Amber Walnut",
+      "Light Walnut"
+    ]
+  },
+  {
+    "id": "shadow-printed-name-badge-86568",
+    "name": "Shadow Printed Name Badge",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Product Full color digitally printed shadow name badge comes on white, brushed silver, or brushed gold. Custom colors, sizes, full bleed Made in USA. Priced at 1 unit.",
+    "tiers": [
+      [1, 12.5],
+      [10, 10.5],
+      [25, 9.25],
+      [50, 7.8],
+      [100, 6.75]
+    ],
+    "image": "/images/merch/shadow-printed-name-badge-86568.webp",
+    "imageAlt": "Shadow Printed Name Badge",
+    "colors": ["White", "Brushed Silver", "Brushed Gold"]
+  },
+  {
+    "id": "executive-name-badge-86566",
+    "name": "Executive Name Badge",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Product Metal framed executive series name badges - laser engraved or full color digitally printed Made in USA. Priced at 1 unit.",
+    "tiers": [
+      [1, 16.95],
+      [10, 15.5],
+      [25, 14.25],
+      [50, 12],
+      [100, 10.5]
+    ],
+    "image": "/images/merch/executive-name-badge-86566.webp",
+    "imageAlt": "Executive Name Badge",
+    "colors": ["White", "Brushed Silver", "Brushed Gold"]
+  },
+  {
+    "id": "square-roll-labels-3x3-09222",
+    "name": "Square Roll Labels 3x3",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "1 color option. Size: 3\" x 3\". Priced at 200 units.",
+    "tiers": [
+      [200, 0.66],
+      [300, 0.52],
+      [500, 0.4],
+      [1000, 0.31],
+      [2000, 0.23]
+    ],
+    "image": "/images/merch/square-roll-labels-3x3-09222.webp",
+    "imageAlt": "Square Roll Labels 3x3",
+    "colors": ["White"]
+  },
+  {
+    "id": "custom-circle-square-roll-labels-05506",
+    "name": "Custom Circle,Square Roll Labels",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Personalized Stickers for Business Logo, Party, Wedding Favor, Baby Shower-Any Design Text Image, Matte,Gloss Finish. Priced at 20 units.",
+    "tiers": [
+      [20, 14.317],
+      [30, 13.317],
+      [60, 8.317],
+      [100, 5.983],
+      [150, 5.15]
+    ],
+    "image": "/images/merch/custom-circle-square-roll-labels-05506.webp",
+    "imageAlt": "Custom Circle,Square Roll Labels",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "custom-vinyl-sticker-rolls-76608",
+    "name": "Custom Vinyl Sticker Rolls",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Roll of full color custom vinyl stickers. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 200 units.",
+    "tiers": [
+      [200, 0.636],
+      [300, 0.42],
+      [500, 0.312],
+      [1000, 0.228],
+      [2000, 0.215]
+    ],
+    "image": "/images/merch/custom-vinyl-sticker-rolls-76608.webp",
+    "imageAlt": "Custom Vinyl Sticker Rolls"
+  },
+  {
+    "id": "customized-250pcs-american-flag-patriotic-sticker-roll-77955",
+    "name": "Customized 250pcs American Flag Patriotic Sticker Roll",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "250pcs American Flag Sticker Roll, USA Patriotic Vinyl Decals Adhesive Label for 4th of July Patriotic Party, Sport, Game. Priced at 100 units.",
+    "tiers": [
+      [100, 3.917],
+      [300, 3.25],
+      [500, 2.917],
+      [2000, 2.083],
+      [5000, 1.583]
+    ],
+    "image": "/images/merch/customized-250pcs-american-flag-patriotic-sticker-roll-77955.webp",
+    "imageAlt": "Customized 250pcs American Flag Patriotic Sticker Roll",
+    "colors": ["Blue", "White", "Red"]
+  },
+  {
+    "id": "4-x-7-large-magnetic-calendar-30-mil-01009",
+    "name": "4\" x 7\" Large Magnetic Calendar 30 Mil",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "7\"H x 4\"W non-toxic, flexible calendar magnet with 30 Mil thickness and customization. Made in USA. Priced at 250 units.",
+    "tiers": [
+      [250, 1.6],
+      [500, 1.16],
+      [1000, 0.94],
+      [2500, 0.8],
+      [5000, 0.76]
+    ],
+    "image": "/images/merch/4-x-7-large-magnetic-calendar-30-mil-01009.webp",
+    "imageAlt": "4\" x 7\" Large Magnetic Calendar 30 Mil",
+    "colors": ["White"]
+  },
+  {
+    "id": "4-x-6-calendar-or-sports-schedule-magnet-57794",
+    "name": "4\" x 6\" Calendar or Sports Schedule Magnet",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Calendar or Sports Schedule Magnet (4\" x 6\") Made in USA. Priced at 150 units.",
+    "tiers": [
+      [150, 3.74],
+      [250, 2.96],
+      [500, 2.55],
+      [1000, 2.03]
+    ],
+    "image": "/images/merch/4-x-6-calendar-or-sports-schedule-magnet-57794.webp",
+    "imageAlt": "4\" x 6\" Calendar or Sports Schedule Magnet",
+    "colors": ["White"]
+  },
+  {
+    "id": "3-5-x-4-small-magnetic-calendar-30-mil-00143",
+    "name": "3.5\" x 4\" Small Magnetic Calendar 30 Mil",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Flexible non-toxic 30 mil calendar magnet with 3.5\"H x 4\"W measurements and full color Customization. Made in USA. Priced at 250 units.",
+    "tiers": [
+      [250, 1.29],
+      [500, 0.87],
+      [1000, 0.63],
+      [2500, 0.51],
+      [5000, 0.45]
+    ],
+    "image": "/images/merch/3-5-x-4-small-magnetic-calendar-30-mil-00143.webp",
+    "imageAlt": "3.5\" x 4\" Small Magnetic Calendar 30 Mil",
+    "colors": ["White"]
+  },
+  {
+    "id": "magnet-3-5-x-4-round-corners-18579",
+    "name": "Magnet - 3.5\" x 4\" Round Corners",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Magnet - 3.5\" x 4\" with Round Corners in 20 and 30 mil thicknesses. Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "tiers": [
+      [100, 0.682],
+      [250, 0.415],
+      [500, 0.38],
+      [1000, 0.35],
+      [2500, 0.23]
+    ],
+    "image": "/images/merch/magnet-3-5-x-4-round-corners-18579.webp",
+    "imageAlt": "Magnet - 3.5\" x 4\" Round Corners",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "letter-size-document-envelope-67134",
+    "name": "Letter Size Document Envelope",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "13 1/8\" x 9 1/2\" polypro snap envelope that holds 50-100 letter size pages. Priced at 250 units.",
+    "tiers": [
+      [250, 1.92],
+      [500, 1.75],
+      [1000, 1.67],
+      [2500, 1.58]
+    ],
+    "image": "/images/merch/letter-size-document-envelope-67134.webp",
+    "imageAlt": "Letter Size Document Envelope",
+    "colors": [
+      "Translucent Red",
+      "Translucent Blue",
+      "Translucent Purple",
+      "Translucent Orange",
+      "Black",
+      "White",
+      "Reflex Blue",
+      "Translucent Green"
+    ]
+  },
+  {
+    "id": "letterheads-8-5-x-11-87071",
+    "name": "Letterheads (8.5\" x 11\")",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Premium 70 lb. uncoated, ideal for professional use, offering superior writability and printability with sustainable paper. Priced at 50 units.",
+    "tiers": [[50, 44.37]],
+    "image": "/images/merch/letterheads-8-5-x-11-87071.webp",
+    "imageAlt": "Letterheads (8.5\" x 11\")"
+  },
+  {
+    "id": "10-x-10-custom-event-tent-with-steel-frame-and-1-full-wall-21286",
+    "name": "10' x 10' Custom Event Tent with Steel Frame & 1 Full Wall",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "Product Custom 10' x 10' event tent with a powder-coated steel frame, full-color printed canopy, and one full wall. Priced at 1 unit.",
+    "tiers": [
+      [1, 1230.5],
+      [2, 1146.55],
+      [3, 1118.75],
+      [5, 1082.15],
+      [10, 1032.7]
+    ],
+    "image": "/images/merch/10-x-10-custom-event-tent-with-steel-frame-and-1-full-wall-21286.webp",
+    "imageAlt": "10' x 10' Custom Event Tent with Steel Frame & 1 Full Wall"
+  },
+  {
+    "id": "6-deluxe-tent-kit-full-bleed-dye-sublimation-92259",
+    "name": "6' Deluxe Tent Kit (Full-Bleed Dye Sublimation)",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "6' deluxe tent kit with crank-up canopy, steel frame, legs, feet and customization. Priced at 1 unit.",
+    "tiers": [
+      [1, 979.5],
+      [2, 960],
+      [6, 940.5],
+      [12, 911],
+      [25, 891.5]
+    ],
+    "image": "/images/merch/6-deluxe-tent-kit-full-bleed-dye-sublimation-92259.webp",
+    "imageAlt": "6' Deluxe Tent Kit (Full-Bleed Dye Sublimation)",
+    "colors": ["Full Color", "Full Bleed"]
+  },
+  {
+    "id": "10x10-starter-package-with-printed-top-51898",
+    "name": "10' x 10' Starter Package with Printed Top",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "10' x 10' 600 Denier polyester display tent top with dye sublimated imprint. Made in USA. Priced at 1 unit.",
+    "tiers": [[1, 898.333]],
+    "image": "/images/merch/10x10-starter-package-with-printed-top-51898.webp",
+    "imageAlt": "10' x 10' Starter Package with Printed Top"
+  },
+  {
+    "id": "10-heavy-duty-steel-pop-up-canopy-w-600-denier-polyester-48600",
+    "name": "10' Heavy Duty Steel Pop Up Canopy w/600 Denier Polyester",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "UV-protected canopy with full-color branding, adjustable legs, and wheeled bag-durable, and portable for any event. Priced at 1 unit.",
+    "tiers": [
+      [1, 347.25],
+      [5, 339.6],
+      [10, 327.7],
+      [25, 314.58],
+      [50, 303.55]
+    ],
+    "image": "/images/merch/10-heavy-duty-steel-pop-up-canopy-w-600-denier-polyester-48600.webp",
+    "imageAlt": "10' Heavy Duty Steel Pop Up Canopy w/600 Denier Polyester"
+  },
+  {
+    "id": "printed-sunblade-flag-w-heavy-duty-pole-43739",
+    "name": "Printed Sunblade Flag w/ Heavy Duty Pole",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "8', 13' or 17' feather-shaped Sunblade composite nylon and polyester flag with heavy duty pole. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "tiers": [[1, 148]],
+    "image": "/images/merch/printed-sunblade-flag-w-heavy-duty-pole-43739.webp",
+    "imageAlt": "Printed Sunblade Flag w/ Heavy Duty Pole"
+  },
+  {
+    "id": "double-sided-printed-teardrop-flag-w-heavy-duty-pole-43724",
+    "name": "Double Sided Printed Teardrop Flag W/ Heavy Duty Pole",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "7', 11' or 15' composite nylon and polyester double-sided teardrop flag with heavy duty pole. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "tiers": [[1, 173]],
+    "image": "/images/merch/double-sided-printed-teardrop-flag-w-heavy-duty-pole-43724.webp",
+    "imageAlt": "Double Sided Printed Teardrop Flag W/ Heavy Duty Pole"
+  },
+  {
+    "id": "premium-white-table-covers-and-throws-4-sided-8ft-x-2-5ft-75526",
+    "name": "Premium White Table Covers & Throws - 4 Sided (8ft x 2.5ft)",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "Premium White Table Covers and Throws provide a stylish and polished appearance, perfect for enhancing any event or occasion. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "tiers": [
+      [1, 197.98],
+      [10, 192]
+    ],
+    "image": "/images/merch/premium-white-table-covers-and-throws-4-sided-8ft-x-2-5ft-75526.webp",
+    "imageAlt": "Premium White Table Covers & Throws - 4 Sided (8ft x 2.5ft)",
+    "colors": ["White"]
+  },
+  {
+    "id": "6ft-stretch-table-throw-33034",
+    "name": "6ft Stretch Table Throw",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "6' table cover made of polyester-spandex. Priced at 1 unit.",
+    "tiers": [
+      [1, 145.37],
+      [2, 124.22],
+      [5, 115.46],
+      [12, 110.84],
+      [20, 105.9]
+    ],
+    "image": "/images/merch/6ft-stretch-table-throw-33034.webp",
+    "imageAlt": "6ft Stretch Table Throw",
+    "colors": ["White"]
+  },
+  {
+    "id": "6-economy-table-throw-full-color-front-only-58728",
+    "name": "6' Economy Table Throw (Full-Color Front Only)",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "6' economy table throw made of polyester poplin with 3 sides, draped corners and an open back design. Priced at 1 unit.",
+    "tiers": [
+      [1, 173.5],
+      [2, 166.5],
+      [6, 157.9],
+      [12, 149.2],
+      [25, 145.7]
+    ],
+    "image": "/images/merch/6-economy-table-throw-full-color-front-only-58728.webp",
+    "imageAlt": "6' Economy Table Throw (Full-Color Front Only)",
+    "colors": [
+      "Black",
+      "Blueberry",
+      "Brown",
+      "Burgundy",
+      "Charcoal",
+      "Gray",
+      "Hunter Green",
+      "Lime Green",
+      "Navy",
+      "Orange",
+      "Purple",
+      "Cherry",
+      "Peach",
+      "Shamrock",
+      "Aquamarine",
+      "Emerald",
+      "Flamingo",
+      "Grape",
+      "Cobalt",
+      "Hot Pink",
+      "Hazelnut",
+      "Mango",
+      "Mulberry",
+      "Lemon",
+      "Red",
+      "Royal Blue",
+      "Yellow"
+    ]
+  },
+  {
+    "id": "premium-6-full-color-dye-sublimation-stretch-table-cover-73792",
+    "name": "Premium 6' Full Color Dye Sublimation Stretch Table Cover",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "This 5- side table cover is stretchable, durable, wrinkle-free and stain resistant due to it was made from 90% Polyester. Priced at 1 unit.",
+    "tiers": [
+      [1, 94],
+      [2, 86.21],
+      [5, 78],
+      [10, 70.5],
+      [50, 59.54]
+    ],
+    "image": "/images/merch/premium-6-full-color-dye-sublimation-stretch-table-cover-73792.webp",
+    "imageAlt": "Premium 6' Full Color Dye Sublimation Stretch Table Cover",
+    "colors": [
+      "White",
+      "Black",
+      "Burgundy",
+      "Brown",
+      "Green",
+      "Yellow",
+      "Purple",
+      "Navy Blue",
+      "Royal Blue",
+      "Light Blue",
+      "Gray",
+      "Red"
+    ]
+  },
+  {
+    "id": "stretch-fabric-table-cover-w-rubber-feet-54908",
+    "name": "Stretch Fabric Table Cover W/ RUBBER FEET",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "Stretch-Fitted,Hemmed edge finish, Wrinkle-resistant properties, Can be used for weddings, hotels, banquets, exhibition halls. Priced at 10 units.",
+    "tiers": [
+      [10, 80.52],
+      [20, 78.28],
+      [50, 70.99]
+    ],
+    "image": "/images/merch/stretch-fabric-table-cover-w-rubber-feet-54908.webp",
+    "imageAlt": "Stretch Fabric Table Cover W/ RUBBER FEET"
+  },
+  {
+    "id": "custom-inflatable-slim-can-6-8-10-15-20-57603",
+    "name": "Custom Inflatable Slim Can (6' 8' 10' 15' 20')",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "6' 8' 10' 15' or 20' Custom Inflatable Can - Slim, Constant or Sealed Air. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "tiers": [[1, 983]],
+    "image": "/images/merch/custom-inflatable-slim-can-6-8-10-15-20-57603.webp",
+    "imageAlt": "Custom Inflatable Slim Can (6' 8' 10' 15' 20')",
+    "colors": ["Assorted"]
+  },
+  {
+    "id": "custom-inflatable-bottle-6-8-10-15-20-58445",
+    "name": "Custom Inflatable Bottle (6' 8' 10' 15' 20')",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "6' 8' 10' 15' or 20' Inflatable Bottle - Constant or Sealed Air. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "tiers": [[1, 1033]],
+    "image": "/images/merch/custom-inflatable-bottle-6-8-10-15-20-58445.webp",
+    "imageAlt": "Custom Inflatable Bottle (6' 8' 10' 15' 20')",
+    "colors": ["Assorted"]
+  },
+  {
+    "id": "custom-inflatable-arch-angled-08239",
+    "name": "Custom Inflatable Arch - Angled",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "Custom Inflatable Arch Fully Printed - Angled Shape. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "tiers": [[1, 1012]],
+    "image": "/images/merch/custom-inflatable-arch-angled-08239.webp",
+    "imageAlt": "Custom Inflatable Arch - Angled",
+    "colors": [
+      "Black",
+      "Blue",
+      "Brown",
+      "Assorted",
+      "Gray",
+      "Green",
+      "Orange",
+      "Pink",
+      "White",
+      "Yellow",
+      "Red",
+      "Burgundy",
+      "Light Blue",
+      "Silver",
+      "Teal",
+      "Maroon"
+    ]
+  },
+  {
+    "id": "hand-clapper-noise-maker-48157",
+    "name": "Hand Clapper Noise Maker",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "Hand shaped clapper noisemaker with customization options. Priced at 300 units.",
+    "tiers": [
+      [300, 1.77],
+      [600, 1.66],
+      [1200, 1.57],
+      [2600, 1.48],
+      [5200, 1.33]
+    ],
+    "image": "/images/merch/hand-clapper-noise-maker-48157.webp",
+    "imageAlt": "Hand Clapper Noise Maker",
+    "colors": ["Blue", "White", "Red", "Purple", "Orange"]
+  },
+  {
+    "id": "football-clapper-noise-maker-39391",
+    "name": "Football Clapper Noise Maker",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "Football clapper with imprint options. Priced at 150 units.",
+    "tiers": [
+      [150, 2.19],
+      [250, 2.09],
+      [500, 1.99],
+      [1000, 1.89],
+      [2500, 1.79]
+    ],
+    "image": "/images/merch/football-clapper-noise-maker-39391.webp",
+    "imageAlt": "Football Clapper Noise Maker",
+    "colors": ["Brown"]
+  },
+  {
+    "id": "bottle-banger-noisemaker-45745",
+    "name": "Bottle Banger Noisemaker",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "Plastic bottle banger noisemaker. Priced at 250 units.",
+    "tiers": [
+      [250, 1.01],
+      [500, 0.97],
+      [1000, 0.94],
+      [2500, 0.9],
+      [5000, 0.86]
+    ],
+    "image": "/images/merch/bottle-banger-noisemaker-45745.webp",
+    "imageAlt": "Bottle Banger Noisemaker",
+    "colors": ["Blue", "Red", "Navy Blue", "White", "Orange", "Maroon", "Green", "Yellow"]
+  },
+  {
+    "id": "giant-foam-fingers-hand-34166",
+    "name": "Giant Foam Fingers Hand",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "Cheer on your team with our durable EVA foam finger, perfect for sports events and parties, featuring customizable text. Priced at 100 units.",
+    "tiers": [
+      [100, 3.97],
+      [200, 3.55],
+      [500, 2.72],
+      [1000, 2.31],
+      [3000, 1.57]
+    ],
+    "image": "/images/merch/giant-foam-fingers-hand-34166.webp",
+    "imageAlt": "Giant Foam Fingers Hand",
+    "colors": ["Red", "Blue", "Green", "Yellow", "Orange", "Purple", "White", "Black"]
+  },
+  {
+    "id": "round-8-megaphone-32-oz-24141",
+    "name": "Round 8\" Megaphone 32 oz",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "8\" round shape, megaphone/popcorn holder made from 14 point board stock. Made in USA. Priced at 250 units.",
+    "tiers": [
+      [250, 0.96],
+      [500, 0.66],
+      [1000, 0.53],
+      [2500, 0.48],
+      [5000, 0.44]
+    ],
+    "image": "/images/merch/round-8-megaphone-32-oz-24141.webp",
+    "imageAlt": "Round 8\" Megaphone 32 oz",
+    "colors": ["White"]
+  },
+  {
+    "id": "multipurpose-portable-practical-30w-power-megaphone-speaker-95717",
+    "name": "Multipurpose Portable Practical 30w Power Megaphone Speaker",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "This practical handheld speaker makes your various activities more exciting, efficient and convenient.Rush service is available. Priced at 50 units.",
+    "tiers": [
+      [50, 29.35],
+      [100, 28.9],
+      [200, 28.45],
+      [500, 28.233],
+      [1000, 26.017]
+    ],
+    "image": "/images/merch/multipurpose-portable-practical-30w-power-megaphone-speaker-95717.webp",
+    "imageAlt": "Multipurpose Portable Practical 30w Power Megaphone Speaker",
+    "colors": ["Black", "Dark Pink", "Green", "Purple", "Orange", "Blue"]
+  },
+  {
+    "id": "high-visibility-reflective-safety-vest-for-construction-work-23411",
+    "name": "High Visibility Reflective Safety Vest For Construction Work",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "High-visibility safety vest with reflective stripes, multiple pockets and front zipper closure. Priced at 100 units.",
+    "tiers": [
+      [100, 10.167],
+      [300, 9.5],
+      [500, 8.833],
+      [800, 8.15],
+      [1000, 7.633]
+    ],
+    "image": "/images/merch/high-visibility-reflective-safety-vest-for-construction-work-23411.webp",
+    "imageAlt": "High Visibility Reflective Safety Vest For Construction Work",
+    "colors": ["Light Green"]
+  },
+  {
+    "id": "dye-sublimated-v-neck-tee-73702",
+    "name": "Dye-sublimated V-Neck Tee",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Silk milk fabric V-neck t-shirt. Priced at 20 units.",
+    "tiers": [
+      [20, 10.25],
+      [100, 7.933],
+      [300, 7.583],
+      [500, 7.133],
+      [1000, 4.9]
+    ],
+    "image": "/images/merch/dye-sublimated-v-neck-tee-73702.webp",
+    "imageAlt": "Dye-sublimated V-Neck Tee",
+    "colors": ["Assorted"]
+  },
+  {
+    "id": "america250-usa-made-youth-crew-t-shirt-79361",
+    "name": "America250™ USA Made Youth Crew T Shirt",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Product America250™ youth crewneck t-shirt made of 100% pre-shrunk cotton. Made in USA. Priced at 48 units.",
+    "tiers": [
+      [48, 18.98],
+      [96, 17.43],
+      [144, 15.88]
+    ],
+    "image": "/images/merch/america250-usa-made-youth-crew-t-shirt-79361.webp",
+    "imageAlt": "America250™ USA Made Youth Crew T Shirt",
+    "colors": ["Black", "Navy", "Red", "White"]
+  },
+  {
+    "id": "free-fly-youth-bamboo-shade-long-sleeve-31480",
+    "name": "Free Fly Youth Bamboo Shade Long Sleeve",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Super soft and super stretchy, the Bamboo Shade Long Sleeve isn't just for grownups-we make 'em for kids, too. Priced at 18 units.",
+    "tiers": [[18, 44]],
+    "image": "/images/merch/free-fly-youth-bamboo-shade-long-sleeve-31480.webp",
+    "imageAlt": "Free Fly Youth Bamboo Shade Long Sleeve",
+    "colors": ["Ocean Mist", "Slate Blue", "Heather Aspen Grey"]
+  },
+  {
+    "id": "bella-canvas-youth-triblend-short-sleeve-t-shirt-90336",
+    "name": "Bella + Canvas Youth Triblend Short-Sleeve T-Shirt",
+    "category": "Apparel",
+    "brand": "Bella+Canvas",
+    "description": "24 color options. Size: S, M, L, XL. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 96 units.",
+    "tiers": [
+      [96, 16.414],
+      [144, 15.414],
+      [576, 14.414],
+      [1008, 13.914]
+    ],
+    "image": "/images/merch/bella-canvas-youth-triblend-short-sleeve-t-shirt-90336.webp",
+    "imageAlt": "Bella + Canvas Youth Triblend Short-Sleeve T-Shirt",
+    "colors": [
+      "Blue",
+      "Green",
+      "Mauve",
+      "Navy",
+      "Olive",
+      "Peach",
+      "Athletic Grey",
+      "Charcoal Black",
+      "Charity Pink",
+      "Grey",
+      "Ice Blue",
+      "Kelly",
+      "Maroon",
+      "Mustard",
+      "Oatmeal",
+      "Orange",
+      "Red",
+      "Black",
+      "Dark Grey",
+      "Natural",
+      "Teal",
+      "True Royal",
+      "White Fleck",
+      "Yellow Gold"
+    ]
+  },
+  {
+    "id": "platform-ladies-posicharge-tough-tee-03945",
+    "name": "Platform Ladies' PosiCharge® Tough Tee",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Scoop neck tee with PosiCharge technology, moisture wicking, and snag resistance. Priced at 96 units.",
+    "tiers": [
+      [96, 21.23],
+      [144, 18.46],
+      [288, 16.05],
+      [504, 13.96]
+    ],
+    "image": "/images/merch/platform-ladies-posicharge-tough-tee-03945.webp",
+    "imageAlt": "Platform Ladies' PosiCharge® Tough Tee",
+    "colors": [
+      "Atomic Blue",
+      "Black",
+      "Deep Red",
+      "Dark Smoke Gray",
+      "Neon Green",
+      "Neon Yellow",
+      "Pink Raspberry",
+      "Silver",
+      "True Navy",
+      "True Royal",
+      "White"
+    ]
+  },
+  {
+    "id": "port-and-company-core-cotton-t-shirt-57309",
+    "name": "Port & Company® Core Cotton T-Shirt",
+    "category": "Apparel",
+    "brand": "Port & Company",
+    "description": "Cotton T-Shirt. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 96 units.",
+    "tiers": [
+      [96, 10.02],
+      [144, 7.82],
+      [288, 7.58],
+      [504, 6.59]
+    ],
+    "image": "/images/merch/port-and-company-core-cotton-t-shirt-57309.webp",
+    "imageAlt": "Port & Company® Core Cotton T-Shirt",
+    "colors": [
+      "Jet Black",
+      "Red",
+      "Royal Blue",
+      "White",
+      "Aquatic Blue",
+      "Ash",
+      "Athletic Heather",
+      "Athletic Maroon",
+      "Candy Pink",
+      "Cardinal",
+      "Carolina Blue",
+      "Charcoal",
+      "Clover Green",
+      "Dark Chocolate Brown",
+      "Dark Green",
+      "Dark Heather Gray",
+      "Gold",
+      "Heather Althletic Maroon",
+      "Heather Dark Chocolate",
+      "Heather Navy",
+      "Heather Purple",
+      "Heather Red",
+      "Heather Royal Blue",
+      "Heather Sangria",
+      "Kelly Green",
+      "Light Blue",
+      "Lime",
+      "Medium Gray",
+      "Natural",
+      "Navy"
+    ]
+  },
+  {
+    "id": "gildan-womens-ultra-cotton-tee-light-heather-34754",
+    "name": "Gildan Women's Ultra Cotton Tee - Light/Heather",
+    "category": "Apparel",
+    "brand": "Gildan",
+    "description": "Women's t-shirt made of 100% preshrunk cotton. Priced at 12 units.",
+    "tiers": [
+      [12, 18.9],
+      [36, 14.6],
+      [72, 12.69],
+      [144, 12.14],
+      [288, 11.61]
+    ],
+    "image": "/images/merch/gildan-womens-ultra-cotton-tee-light-heather-34754.webp",
+    "imageAlt": "Gildan Women's Ultra Cotton Tee - Light/Heather",
+    "colors": ["Ash Gray", "Sport Gray"]
+  },
+  {
+    "id": "gildan-ultra-cotton-100-cotton-long-sleeve-t-shirt-wit-32581",
+    "name": "Gildan® Ultra Cotton® 100% Cotton Long Sleeve T-Shirt wit",
+    "category": "Apparel",
+    "brand": "Gildan",
+    "description": "Cotton long-sleeve t-shirt with pocket. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 96 units.",
+    "tiers": [
+      [96, 24.556],
+      [144, 21.353],
+      [288, 18.568],
+      [504, 16.146]
+    ],
+    "image": "/images/merch/gildan-ultra-cotton-100-cotton-long-sleeve-t-shirt-wit-32581.webp",
+    "imageAlt": "Gildan® Ultra Cotton® 100% Cotton Long Sleeve T-Shirt wit",
+    "colors": ["Safety Orange", "Safety Green", "Navy", "Sport Gray", "White", "Black"]
+  },
+  {
+    "id": "port-and-company-5-4-oz-100-cotton-long-sleeve-t-shirt-65911",
+    "name": "Port & Company 5.4 oz 100% Cotton Long-Sleeve T-Shirt",
+    "category": "Apparel",
+    "brand": "Port & Company",
+    "description": "5.4 oz 100% Cotton Performance Long-Sleeve T-shirt; Printed in USA. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 12 units.",
+    "tiers": [
+      [12, 30.15],
+      [25, 25.84],
+      [50, 23.88],
+      [100, 22.77],
+      [250, 21.77]
+    ],
+    "image": "/images/merch/port-and-company-5-4-oz-100-cotton-long-sleeve-t-shirt-65911.webp",
+    "imageAlt": "Port & Company 5.4 oz 100% Cotton Long-Sleeve T-Shirt",
+    "colors": [
+      "Gold",
+      "Light Blue",
+      "Navy Blue",
+      "Orange",
+      "Purple",
+      "Red",
+      "Royal Blue",
+      "White",
+      "Yellow",
+      "Aquatic Blue",
+      "Ash",
+      "Athletic Heather",
+      "Athletic Maroon",
+      "Charcoal",
+      "Dark Green",
+      "Dark Heather Grey",
+      "Heather Navy",
+      "Jetblack",
+      "Kelly",
+      "Sangria"
+    ]
+  },
+  {
+    "id": "black-touchscreen-mechanics-gloves-14074",
+    "name": "Black Touchscreen Mechanics Gloves",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Touchscreen mechanics gloves, black synthetic suede palm, black spandex back. Priced at 72 units.",
+    "tiers": [
+      [72, 20.27],
+      [144, 20],
+      [288, 19.73],
+      [576, 19.45],
+      [1000, 19.18]
+    ],
+    "image": "/images/merch/black-touchscreen-mechanics-gloves-14074.webp",
+    "imageAlt": "Black Touchscreen Mechanics Gloves",
+    "colors": ["Black"]
+  },
+  {
+    "id": "buffalo-leather-gloves-79119",
+    "name": "Buffalo Leather Gloves",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Premium grain buffalo leather gloves with shirred elastic back. Priced at 72 units.",
+    "tiers": [
+      [72, 16.36],
+      [144, 16.09],
+      [288, 15.82],
+      [576, 15.55],
+      [1000, 15.27]
+    ],
+    "image": "/images/merch/buffalo-leather-gloves-79119.webp",
+    "imageAlt": "Buffalo Leather Gloves",
+    "colors": ["Light Gray"]
+  },
+  {
+    "id": "deluxe-knit-text-gloves-60517",
+    "name": "Deluxe Knit Text Gloves",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Deluxe acrylic knit gloves featuring conducting fiber on three fingertips for touchscreen device use. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 50 units.",
+    "tiers": [
+      [50, 9.3],
+      [100, 8.88],
+      [200, 8.58],
+      [300, 8.3],
+      [500, 8.1]
+    ],
+    "image": "/images/merch/deluxe-knit-text-gloves-60517.webp",
+    "imageAlt": "Deluxe Knit Text Gloves",
+    "colors": ["Navy/Gray", "Gray-Black", "Purple", "Black"]
+  },
+  {
+    "id": "touch-screen-gloves-20760",
+    "name": "Touch Screen Gloves",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "1 side 1 color printing any logo can customized in the middle of the telefingers gloves. Rush Service. Priced at 100 units.",
+    "tiers": [
+      [100, 2.61],
+      [300, 1.93],
+      [500, 1.57],
+      [1000, 1.19],
+      [3000, 1.05]
+    ],
+    "image": "/images/merch/touch-screen-gloves-20760.webp",
+    "imageAlt": "Touch Screen Gloves",
+    "colors": ["Black", "Orange", "Red", "Gray", "Blue"]
+  },
+  {
+    "id": "custom-100-pure-wool-scarf-with-embroidered-logos-31528",
+    "name": "Custom 100% Pure Wool Scarf with Embroidered Logos",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Product Premium 100% pure wool scarf with fringe, available in rich colors, and customizable with your logo. Priced at 100 units.",
+    "tiers": [
+      [100, 15.833],
+      [300, 15],
+      [1000, 14.167],
+      [3000, 10.333],
+      [6000, 10]
+    ],
+    "image": "/images/merch/custom-100-pure-wool-scarf-with-embroidered-logos-31528.webp",
+    "imageAlt": "Custom 100% Pure Wool Scarf with Embroidered Logos",
+    "colors": ["Assorted"]
+  },
+  {
+    "id": "warm-knitted-woven-scarf-w-tassel-15055",
+    "name": "Warm Knitted Woven Scarf W/ Tassel",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "95% Acrylic + 5% Spandex, 6.7\"W X 55.11\"H,Double-layers & Double-side, Tassel: 2.56\"-2.76\". Priced at 300 units.",
+    "tiers": [
+      [300, 15.07],
+      [500, 14.18],
+      [1000, 13.47],
+      [3000, 12.58]
+    ],
+    "image": "/images/merch/warm-knitted-woven-scarf-w-tassel-15055.webp",
+    "imageAlt": "Warm Knitted Woven Scarf W/ Tassel",
+    "colors": ["Multicolor"]
+  },
+  {
+    "id": "made-in-usa-cotton-crew-dress-socks-with-all-over-design-95759",
+    "name": "Made in USA Cotton Crew Dress Socks with All Over Design",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Flat Knit Cotton Crew Dress Socks with All Over Design, #1 Seller. Made in USA. Priced at 30 units.",
+    "tiers": [
+      [30, 20.83],
+      [60, 14.17],
+      [120, 9.13],
+      [250, 8.23],
+      [500, 7.13]
+    ],
+    "image": "/images/merch/made-in-usa-cotton-crew-dress-socks-with-all-over-design-95759.webp",
+    "imageAlt": "Made in USA Cotton Crew Dress Socks with All Over Design",
+    "colors": [
+      "Yellow",
+      "Gold",
+      "Sunshine Yellow",
+      "Bright Yellow",
+      "Orange",
+      "Tennessee Orange",
+      "Texas Orange",
+      "Coral",
+      "Red",
+      "Garnet",
+      "Maroon",
+      "Rubine Red",
+      "Pink",
+      "Neon Pink",
+      "Lavender",
+      "Purple",
+      "Navy",
+      "Light Navy",
+      "Royal",
+      "Bright Royal",
+      "C. Blue",
+      "Aqua",
+      "Ocean Blue",
+      "Teal",
+      "Cactus Green",
+      "Celtic Green",
+      "Forest Green",
+      "Tan",
+      "Light Brown",
+      "Natural"
+    ]
+  },
+  {
+    "id": "youth-or-kid-crew-socks-pair-17495",
+    "name": "Youth or Kid Crew Socks (Pair)",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Youth crew socks. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "tiers": [
+      [100, 9.49],
+      [300, 6.39],
+      [600, 5.48],
+      [1200, 4.58],
+      [2500, 4.23]
+    ],
+    "image": "/images/merch/youth-or-kid-crew-socks-pair-17495.webp",
+    "imageAlt": "Youth or Kid Crew Socks (Pair)"
+  },
+  {
+    "id": "made-in-the-usa-full-cushion-crew-socks-with-knit-in-logo-22373",
+    "name": "Made in the USA Full Cushion Crew Socks with Knit-In Logo",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Full Cushion Crew Socks with Knit-In Logo Made in USA. Priced at 30 units.",
+    "tiers": [
+      [30, 20.83],
+      [60, 14.17],
+      [120, 9.13],
+      [250, 8.23],
+      [500, 7.13]
+    ],
+    "image": "/images/merch/made-in-the-usa-full-cushion-crew-socks-with-knit-in-logo-22373.webp",
+    "imageAlt": "Made in the USA Full Cushion Crew Socks with Knit-In Logo",
+    "colors": [
+      "Yellow",
+      "Gold",
+      "Sunshine Yellow",
+      "Bright Yellow",
+      "Orange",
+      "Tennessee Orange",
+      "Texas Orange",
+      "Coral",
+      "Red",
+      "Garnet",
+      "Maroon",
+      "Rubine Red",
+      "Pink",
+      "Neon Pink",
+      "Lavender",
+      "Purple",
+      "Navy",
+      "Light Navy",
+      "Royal",
+      "Bright Royal",
+      "C. Blue",
+      "Aqua",
+      "Ocean Blue",
+      "Teal",
+      "Cactus Green",
+      "Celtic Green",
+      "Forest Green",
+      "Tan",
+      "Light Brown",
+      "Natural"
+    ]
+  },
+  {
+    "id": "made-in-the-usa-cotton-team-crew-socks-99192",
+    "name": "Made in the USA Cotton Team Crew Socks",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Crew socks with wrap-around knit-in logo. Made in USA. Priced at 30 units.",
+    "tiers": [
+      [30, 20.83],
+      [60, 14.17],
+      [120, 9.13],
+      [250, 8.23],
+      [500, 7.13]
+    ],
+    "image": "/images/merch/made-in-the-usa-cotton-team-crew-socks-99192.webp",
+    "imageAlt": "Made in the USA Cotton Team Crew Socks",
+    "colors": [
+      "Black",
+      "White",
+      "Celtic Green",
+      "Aqua",
+      "Blue",
+      "Dark Navy",
+      "Fuchsia",
+      "C. Blue",
+      "Gold",
+      "Navy",
+      "Gray",
+      "Orange",
+      "Pink",
+      "Purple",
+      "Maroon",
+      "Dark Green",
+      "Red",
+      "Royal",
+      "Vegas Gold"
+    ]
+  },
+  {
+    "id": "100-cotton-canvas-apron-74411",
+    "name": "100% Cotton Canvas Apron",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Choose the color of the 100% Cotton Canvas Apron that best matches your business or campaign! Priced at 50 units.",
+    "tiers": [
+      [50, 6.15],
+      [100, 5.95],
+      [300, 5.85],
+      [1000, 5.75],
+      [5000, 5.65]
+    ],
+    "image": "/images/merch/100-cotton-canvas-apron-74411.webp",
+    "imageAlt": "100% Cotton Canvas Apron",
+    "colors": ["Blue", "Red", "Green", "White", "Black"]
+  },
+  {
+    "id": "cooking-apron-26844",
+    "name": "Cooking Apron",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Cooking Apron is a good gift to promote your brand. Priced at 100 units.",
+    "tiers": [
+      [100, 6.55],
+      [250, 6.45],
+      [500, 6.35],
+      [1000, 6.25],
+      [2500, 6.15]
+    ],
+    "image": "/images/merch/cooking-apron-26844.webp",
+    "imageAlt": "Cooking Apron",
+    "colors": ["Black", "Navy Blue", "Red", "White", "Orange"]
+  },
+  {
+    "id": "sportswear-mens-hooded-jacket-62529",
+    "name": "Sportswear Men's Hooded Jacket",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Men's jacket with hood, adjustable drawstring and hook and loop closure. Priced at 20 units.",
+    "tiers": [
+      [20, 27.5],
+      [50, 25.333],
+      [100, 24.5],
+      [200, 23.667],
+      [500, 22.667]
+    ],
+    "image": "/images/merch/sportswear-mens-hooded-jacket-62529.webp",
+    "imageAlt": "Sportswear Men's Hooded Jacket",
+    "colors": ["Black", "Blue"]
+  },
+  {
+    "id": "color-blocked-pack-n-go-pullover-10769",
+    "name": "Color Blocked Pack-N-Go® Pullover",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Clearance Pack-N-Go® polyester half-zip unisex pullover jacket that folds into its own storage pouch. Priced at 1 unit.",
+    "tiers": [[1, 49]],
+    "image": "/images/merch/color-blocked-pack-n-go-pullover-10769.webp",
+    "imageAlt": "Color Blocked Pack-N-Go® Pullover",
+    "colors": ["Navy/Forest", "Grey/White", "Navy/White"]
+  },
+  {
+    "id": "carhartt-gilliam-jacket-73779",
+    "name": "Carhartt® Gilliam Jacket",
+    "category": "Apparel",
+    "brand": "Carhartt",
+    "description": "Lightweight 2.9 oz poly/nylon chambray shirt with FastDry®, Rugged Flex®, UPF 50+, & dual chest pockets for comfort. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 12 units.",
+    "tiers": [
+      [12, 180.53],
+      [25, 154.74],
+      [50, 150.63],
+      [100, 147.38],
+      [250, 144.23]
+    ],
+    "image": "/images/merch/carhartt-gilliam-jacket-73779.webp",
+    "imageAlt": "Carhartt® Gilliam Jacket",
+    "colors": ["Black", "Navy", "Moss", "Shadow Gray"]
+  },
+  {
+    "id": "perry-ellis-mini-grid-woven-womens-dress-shirt-89068",
+    "name": "PERRY ELLIS® Mini Grid Woven Women's Dress Shirt",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "PERRY ELLIS® Mini Grid Woven Women's Dress Shirt, 8-button front with button-down collar for a polished appearance! Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 12 units.",
+    "tiers": [
+      [12, 51.9],
+      [72, 51.5],
+      [144, 51.1],
+      [288, 50.5]
+    ],
+    "image": "/images/merch/perry-ellis-mini-grid-woven-womens-dress-shirt-89068.webp",
+    "imageAlt": "PERRY ELLIS® Mini Grid Woven Women's Dress Shirt",
+    "colors": ["Caviar", "Classy Navy", "Blue", "White", "Quiet Shade"]
+  },
+  {
+    "id": "perry-ellis-big-and-tall-heathered-woven-mens-dress-shirt-89050",
+    "name": "PERRY ELLIS® Big and Tall Heathered Woven Men's Dress Shirt",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "PERRY ELLIS® Big and Tall Heathered Woven Men's Dress Shirt, Stretch fabric for enhanced comfort and mobility, Rounded hem & Cuff! Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 12 units.",
+    "tiers": [
+      [12, 71.9],
+      [72, 71.5],
+      [144, 71.1],
+      [288, 70.5]
+    ],
+    "image": "/images/merch/perry-ellis-big-and-tall-heathered-woven-mens-dress-shirt-89050.webp",
+    "imageAlt": "PERRY ELLIS® Big and Tall Heathered Woven Men's Dress Shirt",
+    "colors": ["Caviar", "Classy Navy", "Blue", "White", "Quiet Shade"]
+  },
+  {
+    "id": "port-authority-extended-size-long-sleeve-easy-care-shirt-03405",
+    "name": "Port Authority Extended Size Long Sleeve Easy Care Shirt",
+    "category": "Apparel",
+    "brand": "Port Authority",
+    "description": "Shirt with long sleeves, wrinkle resistance, button-down collar, buttons, left chest pocket, box pleat, and cuffs. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 96 units.",
+    "tiers": [
+      [96, 71.872],
+      [144, 70.872],
+      [576, 69.872],
+      [1008, 69.5]
+    ],
+    "image": "/images/merch/port-authority-extended-size-long-sleeve-easy-care-shirt-03405.webp",
+    "imageAlt": "Port Authority Extended Size Long Sleeve Easy Care Shirt",
+    "colors": [
+      "Bark",
+      "Black/Lt Stone",
+      "Brt Lavender",
+      "Clover Green",
+      "Clsc Nvy/Ltstn",
+      "Court Green",
+      "Light Pink",
+      "Lt Stn/Clsc Ny",
+      "Maui Blue",
+      "Med. Blue",
+      "Royal/Cls Navy",
+      "Stone",
+      "Strong Blue",
+      "Teal Green",
+      "Ultramarne Blu",
+      "White/Lt Stone",
+      "Yellow"
+    ]
+  },
+  {
+    "id": "pack-n-go-pullover-14864",
+    "name": "Pack-N-Go Pullover",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Wind and water-resistant pullover with an extended zipper. Priced at 1 unit.",
+    "tiers": [[1, 43.5]],
+    "image": "/images/merch/pack-n-go-pullover-14864.webp",
+    "imageAlt": "Pack-N-Go Pullover",
+    "colors": [
+      "Black",
+      "Forest",
+      "Maroon",
+      "Navy",
+      "Purple",
+      "Red",
+      "Royal",
+      "Columbia Blue",
+      "Aqua",
+      "Coral",
+      "Mint",
+      "Hot Pink",
+      "Neon Yellow",
+      "White",
+      "Grey",
+      "Olive",
+      "Stone",
+      "Spruce"
+    ]
+  },
+  {
+    "id": "womens-heathered-eco-logic-stretch-quarter-zip-93231",
+    "name": "Women's Heathered Eco-Logic Stretch Quarter Zip",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Our lightweight Women's Eco-Logic Quarter Zip is a sustainable pullover designed for athleisure and professional settings. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "tiers": [[1, 55]],
+    "image": "/images/merch/womens-heathered-eco-logic-stretch-quarter-zip-93231.webp",
+    "imageAlt": "Women's Heathered Eco-Logic Stretch Quarter Zip",
+    "colors": ["Graphite Heather", "Light Grey Heather", "Navy Heather", "Light Royal Heather"]
+  },
+  {
+    "id": "mens-heathered-eco-logic-stretch-quarter-zip-93289",
+    "name": "Men's Heathered Eco-Logic Stretch Quarter Zip",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Our lightweight Men's Eco-Logic Quarter Zip is a sustainable pullover designed for athleisure and professional settings. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "tiers": [[1, 55]],
+    "image": "/images/merch/mens-heathered-eco-logic-stretch-quarter-zip-93289.webp",
+    "imageAlt": "Men's Heathered Eco-Logic Stretch Quarter Zip",
+    "colors": ["Graphite Heather", "Light Grey Heather", "Navy Heather", "Light Royal Heather"]
+  },
+  {
+    "id": "bella-womens-1x1-baby-rib-cap-sleeve-t-shirt-dark-all-80354",
+    "name": "Bella Women's 1x1 Baby Rib Cap-Sleeve T-Shirt - Dark/All",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Women's cap-sleeve baby T-shirt. Priced at 12 units.",
+    "tiers": [
+      [12, 25.59],
+      [24, 24.88],
+      [48, 22.28],
+      [72, 20.1],
+      [144, 19.32]
+    ],
+    "image": "/images/merch/bella-womens-1x1-baby-rib-cap-sleeve-t-shirt-dark-all-80354.webp",
+    "imageAlt": "Bella Women's 1x1 Baby Rib Cap-Sleeve T-Shirt - Dark/All",
+    "colors": [
+      "Berry",
+      "Black",
+      "Baby Blue",
+      "Navy Blue",
+      "Ocean Blue",
+      "True Royal Blue",
+      "Cardinal",
+      "Chocolate",
+      "Fuchsia",
+      "Deep Heathered Gray",
+      "Army Green",
+      "Kelly Green",
+      "Lime Wedge Green",
+      "Moss Green",
+      "Orange",
+      "Sorbet Orange",
+      "Pink",
+      "Soft Pink",
+      "Very Pink",
+      "Purple",
+      "Red",
+      "Teal",
+      "Turquoise",
+      "Yellow"
+    ]
+  },
+  {
+    "id": "kan-tastic-33219",
+    "name": "Kan-Tastic",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "Beverage holder made of laminated open cell foam, folds flat. Priced at 250 units.",
+    "tiers": [
+      [250, 1.07],
+      [500, 0.93],
+      [1000, 0.81],
+      [2500, 0.7]
+    ],
+    "image": "/images/merch/kan-tastic-33219.webp",
+    "imageAlt": "Kan-Tastic",
+    "colors": [
+      "Black",
+      "Burgundy",
+      "Burnt Orange",
+      "Camouflage",
+      "Fuschia",
+      "Gray",
+      "Green",
+      "Hot Pink",
+      "Khaki",
+      "Light Blue",
+      "Light Green",
+      "Magenta",
+      "Navy",
+      "Neon Green",
+      "Orange",
+      "Pink",
+      "Purple",
+      "Red",
+      "Royal Blue",
+      "Turquoise",
+      "White",
+      "Yellow"
+    ]
+  },
+  {
+    "id": "premium-foam-collapsible-can-coolers-10458",
+    "name": "Premium Foam Collapsible Can Coolers",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "19 color options. Size: 3.25\" x 3.25\". Priced at 100 units.",
+    "tiers": [
+      [100, 1.58],
+      [250, 0.99],
+      [500, 0.89],
+      [1000, 0.79],
+      [2500, 0.69]
+    ],
+    "image": "/images/merch/premium-foam-collapsible-can-coolers-10458.webp",
+    "imageAlt": "Premium Foam Collapsible Can Coolers",
+    "colors": [
+      "Black",
+      "Brown",
+      "Burgundy Red",
+      "Camo",
+      "Fuchsia",
+      "Green",
+      "Kelly Green",
+      "Lime Green",
+      "Navy Blue",
+      "Neon Blue",
+      "Orange",
+      "Pink",
+      "Pink Camo",
+      "Purple",
+      "Red",
+      "Royal Blue",
+      "Teal Blue",
+      "White",
+      "Yellow"
+    ]
+  },
+  {
+    "id": "12-oz-slim-fit-kan-tastic-82875",
+    "name": "12 oz. Slim Fit Kan-Tastic",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "12 oz. slim fit Kan-tastic for keeping your can or bottle at the right temperature and providing a grip. Priced at 250 units.",
+    "tiers": [
+      [250, 1.44],
+      [500, 1.25],
+      [1000, 1.09],
+      [2500, 0.95]
+    ],
+    "image": "/images/merch/12-oz-slim-fit-kan-tastic-82875.webp",
+    "imageAlt": "12 oz. Slim Fit Kan-Tastic",
+    "colors": ["Black", "Gray", "Green", "Navy Blue", "Orange", "Red", "Royal Blue", "Light Blue"]
+  },
+  {
+    "id": "bartolo-stemless-wine-imprinted-99546",
+    "name": "Bartolo Stemless Wine - Imprinted",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "Why wait to aerate? Enjoying a fine wine is a sensory experience enhanced by the twisting wisps of glass inside deep Bartolo bowls. Priced at 36 units.",
+    "tiers": [
+      [36, 15.65],
+      [72, 14.52],
+      [144, 14.13],
+      [288, 13.83]
+    ],
+    "image": "/images/merch/bartolo-stemless-wine-imprinted-99546.webp",
+    "imageAlt": "Bartolo Stemless Wine - Imprinted",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "24-oz-red-cup-living-reuseable-beer-mug-20644",
+    "name": "24 oz. Red Cup Living® Reuseable Beer Mug",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "1 color option. Size: 6\". Priced at 500 units.",
+    "tiers": [
+      [500, 21.19],
+      [1000, 18.43],
+      [2500, 16.03],
+      [5000, 13.94]
+    ],
+    "image": "/images/merch/24-oz-red-cup-living-reuseable-beer-mug-20644.webp",
+    "imageAlt": "24 oz. Red Cup Living® Reuseable Beer Mug",
+    "colors": ["Red"]
+  },
+  {
+    "id": "40-oz-hydrapeak-voyager-travel-mug-90494",
+    "name": "40 oz. Hydrapeak Voyager Travel Mug",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "40 oz. double wall insulated stainless steel tumbler with lid and straw. Priced at 48 units.",
+    "tiers": [
+      [48, 26.17],
+      [72, 25.67],
+      [144, 25.17],
+      [288, 24.67],
+      [576, 24.17]
+    ],
+    "image": "/images/merch/40-oz-hydrapeak-voyager-travel-mug-90494.webp",
+    "imageAlt": "40 oz. Hydrapeak Voyager Travel Mug",
+    "colors": [
+      "Black",
+      "Agave Blue",
+      "Alpine",
+      "Belize",
+      "Navy Blue",
+      "Green",
+      "Gingerbread",
+      "Blush",
+      "Bubblegum",
+      "Grey",
+      "Apricot Crush",
+      "Citrus",
+      "Cotton Pink",
+      "Fuschia",
+      "Digital Lavendar",
+      "French Blue",
+      "Fresh Mint",
+      "Hot Pink",
+      "Iceberg",
+      "Iris",
+      "Ivory",
+      "Kelly Green",
+      "Maya",
+      "Modern Blue",
+      "Modern Cream",
+      "Midnight Plum",
+      "Neon Crush",
+      "Mauve",
+      "Purple",
+      "Periwinkle"
+    ]
+  },
+  {
+    "id": "grosche-international-inc-40-oz-aspen-vacuum-insulated-s-02688",
+    "name": "Grosche International Inc. 40 oz Aspen Vacuum Insulated S",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "Grosche Aspen 40oz Insulated Straw Tumbler With Handle. Priced at 12 units.",
+    "tiers": [
+      [12, 55.65],
+      [48, 52.36],
+      [64, 49.45],
+      [128, 46.85],
+      [240, 44.52]
+    ],
+    "image": "/images/merch/grosche-international-inc-40-oz-aspen-vacuum-insulated-s-02688.webp",
+    "imageAlt": "Grosche International Inc. 40 oz Aspen Vacuum Insulated S",
+    "colors": ["Cream White", "Graphite Black", "Mountain Blue", "Sand Beige", "Steel Grey"]
+  },
+  {
+    "id": "40-oz-intrepid-recycled-stainless-steel-tumbler-97724",
+    "name": "40 oz. Intrepid Recycled Stainless Steel Tumbler",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "40 oz. stainless steel tumbler with double wall vacuum insulated construction, 12\" straw and screw-on, spill resistant lid. Priced at 20 units.",
+    "tiers": [
+      [20, 17.43],
+      [40, 16.92],
+      [100, 16.43],
+      [260, 15.95],
+      [500, 15.49]
+    ],
+    "image": "/images/merch/40-oz-intrepid-recycled-stainless-steel-tumbler-97724.webp",
+    "imageAlt": "40 oz. Intrepid Recycled Stainless Steel Tumbler",
+    "colors": [
+      "Recycled Beige",
+      "Recycled Black",
+      "Recycled Light Blue",
+      "Recycled Blue",
+      "Recycled Gray",
+      "Recycled Lime",
+      "Recycled Navy Blue",
+      "Recycled Orange",
+      "Recycled Purple",
+      "Recycled Red",
+      "Recycled White",
+      "Recycled Pink"
+    ]
+  },
+  {
+    "id": "27-oz-shaker-and-water-bottle-with-stainless-steel-agitator-10248",
+    "name": "27 oz Shaker & Water Bottle with Stainless Steel Agitator",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "27 oz. shaker and water bottle with double wall insulation, screw-off cap with whisk agitator. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 25 units.",
+    "tiers": [
+      [25, 15.41],
+      [50, 14.4],
+      [100, 13.49],
+      [250, 12.58],
+      [500, 11.76]
+    ],
+    "image": "/images/merch/27-oz-shaker-and-water-bottle-with-stainless-steel-agitator-10248.webp",
+    "imageAlt": "27 oz Shaker & Water Bottle with Stainless Steel Agitator",
+    "colors": ["Black", "Navy", "Red", "Royal Blue", "White", "Gray (Pms Cool Gray 8C)"]
+  },
+  {
+    "id": "shake-it-compartment-shaker-bottle-55862",
+    "name": "Shake-It Compartment Shaker Bottle",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "Shaker Bottle with shaker ball and removable bottom compartment for mixing protein powders or other supplement powders Made in USA. Priced at 100 units.",
+    "tiers": [
+      [100, 6.05],
+      [250, 5.95],
+      [500, 5.85],
+      [1000, 5.75],
+      [2500, 5.65]
+    ],
+    "image": "/images/merch/shake-it-compartment-shaker-bottle-55862.webp",
+    "imageAlt": "Shake-It Compartment Shaker Bottle",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "classic-shaker-bottle-47769",
+    "name": "Classic Shaker Bottle",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "Shaker bottle with wire whisk, screw-on lid and loop top. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "tiers": [
+      [100, 9.933],
+      [300, 9.217],
+      [500, 8.65],
+      [2000, 8.2],
+      [5000, 7.876]
+    ],
+    "image": "/images/merch/classic-shaker-bottle-47769.webp",
+    "imageAlt": "Classic Shaker Bottle",
+    "colors": ["Black", "Purple", "Green", "Gray", "Red", "White", "Navy Blue", "Blue"]
+  },
+  {
+    "id": "leather-briefcases-62864",
+    "name": "Leather briefcases",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "15.3\" x 2.4\" x 11\" cowhide leather messenger bag style briefcase with alloy zipper, handles and detachable shoulder strap. Priced at 100 units.",
+    "tiers": [
+      [100, 44.083],
+      [300, 43.667],
+      [600, 35.583],
+      [1200, 34.667],
+      [2400, 25.417]
+    ],
+    "image": "/images/merch/leather-briefcases-62864.webp",
+    "imageAlt": "Leather briefcases",
+    "colors": ["Black", "Brown", "Khaki"]
+  },
+  {
+    "id": "cutting-edge-laptop-messenger-72558",
+    "name": "Cutting Edge Laptop Messenger",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "3.125\" x 12.25\" x 15\" 210 and 600 Denier polyester messenger-style laptop bag with shoulder strap. Priced at 30 units.",
+    "tiers": [
+      [30, 16.19],
+      [50, 15.69],
+      [150, 15.09],
+      [300, 14.59],
+      [600, 13.99]
+    ],
+    "image": "/images/merch/cutting-edge-laptop-messenger-72558.webp",
+    "imageAlt": "Cutting Edge Laptop Messenger",
+    "colors": ["Black", "Gray", "Blue-Reflex"]
+  },
+  {
+    "id": "versatile-canvas-business-computer-shoulder-messenger-bag-02734",
+    "name": "Versatile canvas business computer shoulder messenger bag",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "This shoulder crossbody bag is a must-have for those who pursue fashion. It is also a good gift choice.Rush service is available. Priced at 50 units.",
+    "tiers": [
+      [50, 27.067],
+      [100, 26.583],
+      [200, 26.083],
+      [500, 25.833],
+      [1000, 23.383]
+    ],
+    "image": "/images/merch/versatile-canvas-business-computer-shoulder-messenger-bag-02734.webp",
+    "imageAlt": "Versatile canvas business computer shoulder messenger bag",
+    "colors": ["Black", "Gray", "Brown", "Green", "Blue", "Khaki"]
+  },
+  {
+    "id": "mens-business-briefcase-57280",
+    "name": "Mens Business Briefcase",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "Mens Business Briefcase Satchel Messenger Bag PU Leather Office Commuter Bag for Business Travel. Priced at 30 units.",
+    "tiers": [
+      [30, 18.75],
+      [100, 16.35],
+      [300, 15.45],
+      [1000, 14.017],
+      [3000, 9.883]
+    ],
+    "image": "/images/merch/mens-business-briefcase-57280.webp",
+    "imageAlt": "Mens Business Briefcase",
+    "colors": ["Black", "Brown"]
+  },
+  {
+    "id": "large-capacity-simple-waterproof-laptop-commuter-briefcase-76407",
+    "name": "Large capacity simple waterproof laptop commuter briefcase",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "Our minimalist waterproof laptop bag is a stylish tote that is a practical and fashionable accessory.Rush service is available. Priced at 50 units.",
+    "tiers": [
+      [50, 26.583],
+      [100, 26.2],
+      [200, 25.8],
+      [500, 25.6],
+      [1000, 23.65]
+    ],
+    "image": "/images/merch/large-capacity-simple-waterproof-laptop-commuter-briefcase-76407.webp",
+    "imageAlt": "Large capacity simple waterproof laptop commuter briefcase",
+    "colors": ["Brown", "Light Green", "Black", "Light Gray"]
+  },
+  {
+    "id": "rfid-computer-backpack-and-briefcase-01217",
+    "name": "RFID Computer Backpack And Briefcase",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "RFID shielding computer backpack and briefcase. Priced at 12 units.",
+    "tiers": [
+      [12, 271.04],
+      [48, 235.7],
+      [96, 204.94],
+      [288, 178.22],
+      [480, 154.96]
+    ],
+    "image": "/images/merch/rfid-computer-backpack-and-briefcase-01217.webp",
+    "imageAlt": "RFID Computer Backpack And Briefcase",
+    "colors": ["Black"]
+  },
+  {
+    "id": "classic-polyester-drawstring-bags-94667",
+    "name": "Classic Polyester Drawstring Bags",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "Free setup 14\" x 16.5\" polyester drawstring backpack. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "tiers": [
+      [100, 2.85],
+      [250, 2.59],
+      [500, 2.39],
+      [1000, 2.19],
+      [2500, 2.12]
+    ],
+    "image": "/images/merch/classic-polyester-drawstring-bags-94667.webp",
+    "imageAlt": "Classic Polyester Drawstring Bags",
+    "colors": [
+      "Black",
+      "Burgundy",
+      "Forest Green",
+      "Carolina Blue",
+      "Lime Green",
+      "Navy Blue",
+      "Orange",
+      "Purple",
+      "Red",
+      "Royal Blue",
+      "White",
+      "Yellow",
+      "Camo 1",
+      "Camo 2",
+      "Safety Yellow"
+    ]
+  },
+  {
+    "id": "rpp-non-woven-drawstring-bag-30692",
+    "name": "RPP Non Woven Drawstring Bag",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "17.5\" x 14.5\" x 0.125\" 80GSM non-woven polypropylene drawstring backpack. Priced at 100 units.",
+    "tiers": [
+      [100, 1.74],
+      [250, 1.65],
+      [500, 1.53],
+      [1000, 1.4],
+      [2500, 1.32]
+    ],
+    "image": "/images/merch/rpp-non-woven-drawstring-bag-30692.webp",
+    "imageAlt": "RPP Non Woven Drawstring Bag",
+    "colors": [
+      "Black",
+      "Burgundy",
+      "Hunter Green",
+      "Lime Green",
+      "Navy Blue",
+      "Orange",
+      "Pink",
+      "Reflex Blue",
+      "Purple",
+      "Red",
+      "Teal",
+      "White"
+    ]
+  },
+  {
+    "id": "utility-canvas-tool-pouch-zipper-bags-with-carabiner-88671",
+    "name": "Utility Canvas Tool Pouch Zipper Bags With Carabiner",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "Utility Tools Pouch. Priced at 100 units.",
+    "tiers": [
+      [100, 4.65],
+      [200, 4.517],
+      [500, 4.35],
+      [1000, 3.967],
+      [5000, 3.233]
+    ],
+    "image": "/images/merch/utility-canvas-tool-pouch-zipper-bags-with-carabiner-88671.webp",
+    "imageAlt": "Utility Canvas Tool Pouch Zipper Bags With Carabiner",
+    "colors": ["Black", "Blue", "Pink", "Red", "Orange", "Yellow", "Green"]
+  },
+  {
+    "id": "15-packout-tool-tote-82174",
+    "name": "15\" Packout Tool Tote",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "Features an impact-resistant base, connects to PACKOUT components. Durable 1680D material, all-metal hardware for tough jobsites. Priced at 1 unit.",
+    "tiers": [
+      [1, 200],
+      [5, 194],
+      [12, 189],
+      [25, 178],
+      [50, 172]
+    ],
+    "image": "/images/merch/15-packout-tool-tote-82174.webp",
+    "imageAlt": "15\" Packout Tool Tote",
+    "colors": ["Black-Red"]
+  },
+  {
+    "id": "truckee-water-resistant-cell-phone-accessories-case-57364",
+    "name": "Truckee Water-Resistant Cell Phone/Accessories Case",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "9 7/8\" x 3 3/4\" water resistant cellphone pouch with 21\" lanyard and clear vinyl usage window. Priced at 150 units.",
+    "tiers": [
+      [150, 2.41],
+      [300, 2.26],
+      [500, 2.15],
+      [1000, 2.04],
+      [2500, 1.93]
+    ],
+    "image": "/images/merch/truckee-water-resistant-cell-phone-accessories-case-57364.webp",
+    "imageAlt": "Truckee Water-Resistant Cell Phone/Accessories Case",
+    "colors": ["Clear-Lime Green", "Clear-Red", "Clear-White", "Clear-Black", "Clear-Blue"]
+  },
+  {
+    "id": "magsafe-leather-wallet-phone-card-holder-adjustable-stand-90578",
+    "name": "MagSafe Leather Wallet Phone Card Holder Adjustable Stand",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "MagSafe leather wallet phone holder with adjustable stand, holds 3 cards, degaussing protection, and durable design. Priced at 50 units.",
+    "tiers": [
+      [50, 14.283],
+      [100, 13.333],
+      [200, 12.5],
+      [500, 11.767],
+      [1000, 11.433]
+    ],
+    "image": "/images/merch/magsafe-leather-wallet-phone-card-holder-adjustable-stand-90578.webp",
+    "imageAlt": "MagSafe Leather Wallet Phone Card Holder Adjustable Stand",
+    "colors": ["Black"]
+  },
+  {
+    "id": "travel-portable-magnetic-phone-camera-grip-with-shutter-93248",
+    "name": "Travel portable magnetic phone camera grip with shutter",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "This compact phone stabilizer offers a secure grip, ideal for capturing stable shots while on the go. Rush service is available. Priced at 200 units.",
+    "tiers": [
+      [200, 14.883],
+      [500, 14.583],
+      [1000, 14.283],
+      [2000, 13.967],
+      [5000, 12.633]
+    ],
+    "image": "/images/merch/travel-portable-magnetic-phone-camera-grip-with-shutter-93248.webp",
+    "imageAlt": "Travel portable magnetic phone camera grip with shutter",
+    "colors": ["Black", "Blue", "Light Purple", "Pink"]
+  },
+  {
+    "id": "phone-ring-and-stand-00903",
+    "name": "Phone Ring and Stand",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Phone ring and stand. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 150 units.",
+    "tiers": [
+      [150, 0.96],
+      [250, 0.89],
+      [1000, 0.84],
+      [2500, 0.78]
+    ],
+    "image": "/images/merch/phone-ring-and-stand-00903.webp",
+    "imageAlt": "Phone Ring and Stand",
+    "colors": ["Black", "Blue", "Lime Green", "Orange", "Purple", "Red", "Teal", "White", "Yellow"]
+  },
+  {
+    "id": "foldable-aluminum-laptop-stand-with-cooling-fan-96728",
+    "name": "Foldable Aluminum Laptop Stand With Cooling Fan",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "This durable, adjustable computer stand features a cooling fan and foldable design, making it perfect for work, study, or travel. Priced at 30 units.",
+    "tiers": [
+      [30, 56.83],
+      [50, 54.84],
+      [100, 32.64],
+      [200, 30.14],
+      [500, 27.4]
+    ],
+    "image": "/images/merch/foldable-aluminum-laptop-stand-with-cooling-fan-96728.webp",
+    "imageAlt": "Foldable Aluminum Laptop Stand With Cooling Fan",
+    "colors": ["Red", "Black"]
+  },
+  {
+    "id": "throne-cell-phone-and-tablet-stand-89173",
+    "name": "Throne Cell Phone and Tablet Stand",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Cell phone and tablet stand with cutout in the back for cable access. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 200 units.",
+    "tiers": [
+      [200, 1.69],
+      [300, 1.59],
+      [500, 1.45],
+      [1000, 1.35],
+      [2500, 1.29]
+    ],
+    "image": "/images/merch/throne-cell-phone-and-tablet-stand-89173.webp",
+    "imageAlt": "Throne Cell Phone and Tablet Stand",
+    "colors": ["Black", "Blue", "White"]
+  },
+  {
+    "id": "car-cigarette-lighter-charger-40372",
+    "name": "Car Cigarette Lighter Charger",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "It is also a perfect gift for your families and friends. Priced at 150 units.",
+    "tiers": [
+      [150, 6.25],
+      [200, 6.05],
+      [500, 5.33],
+      [1500, 4.8],
+      [2500, 4.7]
+    ],
+    "image": "/images/merch/car-cigarette-lighter-charger-40372.webp",
+    "imageAlt": "Car Cigarette Lighter Charger",
+    "colors": ["Black", "Silver", "White"]
+  },
+  {
+    "id": "special-usb-dual-port-car-portable-charger-27702",
+    "name": "Special! USB Dual Port Car Portable Charger",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "100% Safe Dual Port USB Car Charger. Charge Any Two USB Devices Simultaneously. Closeout. Priced at 100 units.",
+    "tiers": [
+      [100, 1.7],
+      [250, 1.65],
+      [500, 1.6],
+      [1000, 1.55],
+      [2500, 1.5]
+    ],
+    "image": "/images/merch/special-usb-dual-port-car-portable-charger-27702.webp",
+    "imageAlt": "Special! USB Dual Port Car Portable Charger",
+    "colors": ["Dark Blue", "White", "Black", "Red", "Light Blue", "Silver", "Assorted"]
+  },
+  {
+    "id": "expander-adapter-180-degree-rotatable-4-port-usb-3-0-hub-67067",
+    "name": "Expander adapter 180 degree rotatable 4-port USB 3.0 Hub",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "USB Port Expander provides 4 ports for computers and cars, enabling fast data transfer and charging. Rush service is available. Priced at 200 units.",
+    "tiers": [
+      [200, 4.017],
+      [500, 3.95],
+      [1000, 3.883],
+      [2000, 3.833],
+      [5000, 3.467]
+    ],
+    "image": "/images/merch/expander-adapter-180-degree-rotatable-4-port-usb-3-0-hub-67067.webp",
+    "imageAlt": "Expander adapter 180 degree rotatable 4-port USB 3.0 Hub",
+    "colors": ["Black", "Blue", "Orange"]
+  },
+  {
+    "id": "portable-7-in-1-multi-port-laptop-usb-c-hub-docking-station-96465",
+    "name": "Portable 7-in-1 Multi-Port Laptop USB C Hub Docking Station",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Portable Docking Station offers versatile connectivity and wireless charging for a efficient workspace. Rush service is available. Priced at 50 units.",
+    "tiers": [
+      [50, 24.85],
+      [100, 24.4],
+      [200, 23.933],
+      [500, 23.717],
+      [1000, 21.45]
+    ],
+    "image": "/images/merch/portable-7-in-1-multi-port-laptop-usb-c-hub-docking-station-96465.webp",
+    "imageAlt": "Portable 7-in-1 Multi-Port Laptop USB C Hub Docking Station",
+    "colors": ["Black"]
+  },
+  {
+    "id": "valoy-desk-calendar-04393",
+    "name": "Valoy Desk Calendar",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "#1 Selling Desk Calendar in the industry customize in 3 areas, large memo style 13 mo. datepad and free envelopes included Made in USA. Priced at 150 units.",
+    "tiers": [
+      [150, 4.36],
+      [250, 3.97],
+      [500, 3.72],
+      [1000, 3.42],
+      [1750, 2.99]
+    ],
+    "image": "/images/merch/valoy-desk-calendar-04393.webp",
+    "imageAlt": "Valoy Desk Calendar",
+    "colors": ["White-Green", "White-Blue", "White-Maroon", "White-Red", "White-Black"]
+  },
+  {
+    "id": "monthly-desk-planner-leatherette-21450",
+    "name": "Monthly Desk Planner - Leatherette",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Customizable 10\"H x 7\"W leatherette 13-month desk planner with 6-month layout. Made in USA. Priced at 100 units.",
+    "tiers": [
+      [100, 6.33],
+      [250, 5.46],
+      [500, 5.18],
+      [1000, 4.94]
+    ],
+    "image": "/images/merch/monthly-desk-planner-leatherette-21450.webp",
+    "imageAlt": "Monthly Desk Planner - Leatherette",
+    "colors": [
+      "Black",
+      "Navy Blue",
+      "Burgundy",
+      "Green",
+      "Carbon Fiber",
+      "Metallic Weave Red",
+      "Metallic Weave Royal Blue"
+    ]
+  },
+  {
+    "id": "desk-pad-calendar-leatherette-06790",
+    "name": "Desk Pad Calendar - Leatherette",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Refillable desk pad calendar with leatherette header and corners. Made in USA. Priced at 100 units.",
+    "tiers": [
+      [100, 11.82],
+      [250, 11.67],
+      [500, 10.46],
+      [1000, 10.25],
+      [2500, 9.2]
+    ],
+    "image": "/images/merch/desk-pad-calendar-leatherette-06790.webp",
+    "imageAlt": "Desk Pad Calendar - Leatherette",
+    "colors": [
+      "Black",
+      "Burgundy Red",
+      "Navy Blue",
+      "Teal Green",
+      "Red",
+      "White",
+      "Green",
+      "Purple"
+    ]
+  },
+  {
+    "id": "full-color-process-clipboard-69630",
+    "name": "Full Color Process Clipboard",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Clipboard - 9\" x 13\". Priced at 150 units.",
+    "tiers": [
+      [150, 8.68],
+      [250, 8.62],
+      [500, 8.51],
+      [1000, 8.38]
+    ],
+    "image": "/images/merch/full-color-process-clipboard-69630.webp",
+    "imageAlt": "Full Color Process Clipboard",
+    "colors": ["White", "Red", "Blue", "Black", "Multi color"]
+  },
+  {
+    "id": "plastic-clipboard-07070",
+    "name": "Plastic Clipboard",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Plastic Clipboard With Ruler is a good gift to promote your brand. Priced at 240 units.",
+    "tiers": [
+      [240, 4.82],
+      [600, 4.313],
+      [1500, 3.922],
+      [3000, 3.373],
+      [10000, 2.707]
+    ],
+    "image": "/images/merch/plastic-clipboard-07070.webp",
+    "imageAlt": "Plastic Clipboard",
+    "colors": ["Black", "Silver", "Blue", "Green", "Pink", "Red"]
+  },
+  {
+    "id": "pp-foldable-clipboard-a4-size-file-10094",
+    "name": "PP Foldable Clipboard A4 Size File",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "A4-sized folding clipboard. Priced at 100 units.",
+    "tiers": [
+      [100, 10.417],
+      [200, 8.75],
+      [500, 8.167],
+      [800, 6.683],
+      [1000, 6.583]
+    ],
+    "image": "/images/merch/pp-foldable-clipboard-a4-size-file-10094.webp",
+    "imageAlt": "PP Foldable Clipboard A4 Size File",
+    "colors": ["Black", "Dark Blue", "White", "Gray"]
+  },
+  {
+    "id": "dwight-letter-size-clipboard-with-imprintable-clip-83767",
+    "name": "Dwight Letter Size Clipboard with Imprintable Clip",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "9\" x 13\" letter size clipboard with three imprint areas. Made in USA. Priced at 50 units.",
+    "tiers": [
+      [50, 7.7],
+      [100, 7.6],
+      [250, 7.5],
+      [500, 6.55],
+      [1000, 6.5]
+    ],
+    "image": "/images/merch/dwight-letter-size-clipboard-with-imprintable-clip-83767.webp",
+    "imageAlt": "Dwight Letter Size Clipboard with Imprintable Clip",
+    "colors": ["Solid White", "Red", "Blue"]
+  },
+  {
+    "id": "aluminum-desk-set-engraved-plate-w-holder-60401",
+    "name": "Aluminum Desk Set Engraved plate w/holder",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Aluminum holder with an engraved name plate. Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 3 units.",
+    "tiers": [
+      [3, 39.5],
+      [10, 35.85],
+      [25, 33.6],
+      [50, 32.9],
+      [100, 32.5]
+    ],
+    "image": "/images/merch/aluminum-desk-set-engraved-plate-w-holder-60401.webp",
+    "imageAlt": "Aluminum Desk Set Engraved plate w/holder",
+    "colors": ["Silver", "Rose Gold", "Black"]
+  },
+  {
+    "id": "stratton-1-ring-binder-20502",
+    "name": "Stratton 1\" Ring Binder",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Stratton 1\" ring binder made of vinyl with matching black stitching and inside front and back pockets. Priced at 25 units.",
+    "tiers": [
+      [25, 20.67],
+      [50, 19.69],
+      [100, 18.97],
+      [250, 18.1]
+    ],
+    "image": "/images/merch/stratton-1-ring-binder-20502.webp",
+    "imageAlt": "Stratton 1\" Ring Binder",
+    "colors": ["Black", "Blue"]
+  },
+  {
+    "id": "office-home-planner-budget-refillable-a6-notebook-binder-35610",
+    "name": "Office home planner budget refillable a6 notebook binder",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "This binder is versatile, ideal for students, teachers, office Staff and professionals alike. Rush service is available. Priced at 100 units.",
+    "tiers": [
+      [100, 8.683],
+      [200, 8.533],
+      [500, 8.367],
+      [1000, 8.3],
+      [2000, 7.5]
+    ],
+    "image": "/images/merch/office-home-planner-budget-refillable-a6-notebook-binder-35610.webp",
+    "imageAlt": "Office home planner budget refillable a6 notebook binder",
+    "colors": ["Purple", "Green", "Black", "Yellow", "Blue", "Pink"]
+  },
+  {
+    "id": "school-office-premium-durable-pu-leather-3-ring-binders-20220",
+    "name": "School Office Premium Durable PU Leather 3 Ring Binders",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Our premium 3 ring binder organizes documents seamlessly to elevate your business branding. Rush service is available. Priced at 300 units.",
+    "tiers": [
+      [300, 17.917],
+      [500, 17.65],
+      [1000, 17.383],
+      [2000, 17.25],
+      [5000, 15.933]
+    ],
+    "image": "/images/merch/school-office-premium-durable-pu-leather-3-ring-binders-20220.webp",
+    "imageAlt": "School Office Premium Durable PU Leather 3 Ring Binders",
+    "colors": ["Blue", "Black", "Brown", "Green", "Pink", "Burgundy"]
+  },
+  {
+    "id": "aluminum-architectural-scale-triangle-drafting-ruler-79895",
+    "name": "Aluminum Architectural Scale Triangle Drafting Ruler",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Architectural Scale Ruler,12\" Aluminum Triangular Engineers Ruler,Construction rulers for Architects, Blueprint,Students. Priced at 100 units.",
+    "tiers": [
+      [100, 8.69],
+      [500, 7.95],
+      [1000, 6.99],
+      [5000, 5.19],
+      [10000, 3.46]
+    ],
+    "image": "/images/merch/aluminum-architectural-scale-triangle-drafting-ruler-79895.webp",
+    "imageAlt": "Aluminum Architectural Scale Triangle Drafting Ruler",
+    "colors": ["Black"]
+  },
+  {
+    "id": "daisy-highlighter-63544",
+    "name": "Daisy Highlighter",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Flower shaped highlighter with 5 ink colors. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 250 units.",
+    "tiers": [
+      [250, 2.17],
+      [500, 2.11],
+      [1000, 2.05],
+      [2500, 1.99]
+    ],
+    "image": "/images/merch/daisy-highlighter-63544.webp",
+    "imageAlt": "Daisy Highlighter",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "sharpie-gel-highlighter-08946",
+    "name": "Sharpie® Gel Highlighter",
+    "category": "Office & Writing",
+    "brand": "Sharpie",
+    "description": "Sharpie® gel highlighter that doesn't dry out or bleed through paper. Priced at 200 units.",
+    "tiers": [
+      [200, 2.88],
+      [500, 2.58],
+      [1000, 2.33],
+      [2500, 2.09]
+    ],
+    "image": "/images/merch/sharpie-gel-highlighter-08946.webp",
+    "imageAlt": "Sharpie® Gel Highlighter",
+    "colors": ["Pink", "Yellow"]
+  },
+  {
+    "id": "high-five-highlighters-70835",
+    "name": "High-Five Highlighters",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Hand shaped highlighter with mini highlighters. Priced at 200 units.",
+    "tiers": [
+      [200, 3.37],
+      [800, 2.9],
+      [1200, 2.44],
+      [2600, 2.09]
+    ],
+    "image": "/images/merch/high-five-highlighters-70835.webp",
+    "imageAlt": "High-Five Highlighters",
+    "colors": ["Multicolor"]
+  },
+  {
+    "id": "subli-plush-velour-beach-towel-32520",
+    "name": "Subli-Plush Velour Beach Towel",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "30\" x 60\" subli-plush velour back towel with a sheared microfiber polyester face. Priced at 12 units.",
+    "tiers": [
+      [12, 32.79],
+      [36, 31.75],
+      [72, 30.84],
+      [144, 29.95],
+      [300, 29.15]
+    ],
+    "image": "/images/merch/subli-plush-velour-beach-towel-32520.webp",
+    "imageAlt": "Subli-Plush Velour Beach Towel",
+    "colors": ["Multi color"]
+  },
+  {
+    "id": "luxury-beach-towel-04581",
+    "name": "Luxury Beach Towel",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "60\" x 35\" soft and absorbent dobby hem, mid-weight beach towel. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 25 units.",
+    "tiers": [
+      [25, 26.05],
+      [50, 24.73],
+      [150, 23.5],
+      [300, 22.55],
+      [500, 21.73]
+    ],
+    "image": "/images/merch/luxury-beach-towel-04581.webp",
+    "imageAlt": "Luxury Beach Towel",
+    "colors": [
+      "Gold",
+      "Lime Green",
+      "Navy",
+      "Ocean Blue",
+      "Orange",
+      "Red",
+      "Royal",
+      "Black",
+      "Grey"
+    ]
+  },
+  {
+    "id": "12-can-convertible-duffel-cooler-2-in-1-bag-16-colors-92912",
+    "name": "12-Can Convertible Duffel Cooler - 2-in-1 Bag (16 Colors)",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Convertible duffel/cooler bag that holds 12 cans inside the insulated, waterproof main compartment with removable liner. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 20 units.",
+    "tiers": [
+      [20, 26.99],
+      [50, 26.2],
+      [100, 25.19]
+    ],
+    "image": "/images/merch/12-can-convertible-duffel-cooler-2-in-1-bag-16-colors-92912.webp",
+    "imageAlt": "12-Can Convertible Duffel Cooler - 2-in-1 Bag (16 Colors)",
+    "colors": [
+      "Black",
+      "Red",
+      "Navy",
+      "Green",
+      "Yellow",
+      "Orange",
+      "Purple",
+      "Royal Blue",
+      "Burgundy",
+      "Lime Green",
+      "Turquoise",
+      "Hunter's Camo",
+      "Urban Camo",
+      "Gray Heather",
+      "Royal Heather"
+    ]
   }
 ]

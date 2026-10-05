@@ -771,7 +771,8 @@ export function buildDescription({ rawDescription, colorCount, sizes, minQty, us
     base = size
       ? `${colorCount > 0 ? `${colorCount} color option${colorCount === 1 ? "" : "s"}. ` : ""}Size: ${size}.`
       : "";
-  } else if (!/[.!?)"'”]$/.test(base)) {
+  } else if (!(/[.!?)'”]$/.test(base) || (/"$/.test(base) && !/\d"$/.test(base)))) {
+    // A closing quote ends a sentence, but a digit followed by " is an inch mark.
     base += ".";
   }
   const sentences = [];

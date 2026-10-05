@@ -71,12 +71,6 @@
     "asi": "asi/89376",
     "productNo": "SUB-TRAD-MPOLO"
   },
-  "port-and-company-core-cotton-t-shirt-57309": {
-    "espId": "550757309",
-    "supplier": "Hit Promotional Products",
-    "asi": "asi/61125",
-    "productNo": "PC54"
-  },
   "bella-canvas-unisex-jersey-short-sleeve-t-shirt-72467": {
     "espId": "551972467",
     "supplier": "Hit Promotional Products",
@@ -1307,12 +1301,6 @@
     "asi": "asi/30125",
     "productNo": ""
   },
-  "6-economy-table-throw-full-color-front-only-58728": {
-    "espId": "550358728",
-    "supplier": "Showdown Displays",
-    "asi": "asi/87188",
-    "productNo": "106002"
-  },
   "waterproof-disposable-plastic-tablecloth-roll-40-x-100-38040": {
     "espId": "555938040",
     "supplier": "More Imprint Inc",
@@ -1888,12 +1876,6 @@
     "supplier": "WholeGifts Trading",
     "asi": "asi/98423",
     "productNo": "WG3323"
-  },
-  "12-can-convertible-duffel-cooler-2-in-1-bag-16-colors-92912": {
-    "espId": "5092912",
-    "supplier": "Seville Gear",
-    "asi": "asi/86565",
-    "productNo": "AG-653"
   },
   "heather-12-can-soft-insulated-cooler-bag-w-shoulder-strap-35335": {
     "espId": "556535335",
@@ -3634,5 +3616,899 @@
     "supplier": "Top Line Promos Inc",
     "asi": "asi/91484",
     "productNo": "GZ3527"
+  },
+  "door-hanger-w-pocket-21080": {
+    "espId": "551221080",
+    "supplier": "Warwick Publishing Co",
+    "asi": "asi/95280",
+    "productNo": "2003"
+  },
+  "door-hanger-21084": {
+    "espId": "551221084",
+    "supplier": "Warwick Publishing Co",
+    "asi": "asi/95280",
+    "productNo": "2004"
+  },
+  "4-25-x-11-inch-full-color-door-hanger-89087": {
+    "espId": "555089087",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "IPDR2"
+  },
+  "door-hanger-house-shape-83678": {
+    "espId": "555783678",
+    "supplier": "Warwick Publishing Co",
+    "asi": "asi/95280",
+    "productNo": "2011"
+  },
+  "3-5-x-8-5-inch-full-color-door-hanger-89086": {
+    "espId": "555089086",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "IPDR1"
+  },
+  "slotted-door-hanger-custom-printed-business-card-hanger-14190": {
+    "espId": "556214190",
+    "supplier": "Promoful/PMGOA",
+    "asi": "asi/79982",
+    "productNo": "AG-IS-EE8C"
+  },
+  "superseal-4-1-8-x-5-5-8-direct-mail-postcard-21974": {
+    "espId": "552421974",
+    "supplier": "The Magnet Group",
+    "asi": "asi/68507",
+    "productNo": "SS01"
+  },
+  "postcard-4-x-6-full-color-26473": {
+    "espId": "551326473",
+    "supplier": "Lion Circle Corp",
+    "asi": "asi/67620",
+    "productNo": "PC501D"
+  },
+  "custom-full-color-flat-card-5-x-7-10445": {
+    "espId": "551410445",
+    "supplier": "Warwick Publishing Co",
+    "asi": "asi/95280",
+    "productNo": "8000-DP-57"
+  },
+  "planning-and-saving-pocket-pamphlet-87136": {
+    "espId": "7387136",
+    "supplier": "Coloring Book Solutions",
+    "asi": "asi/45815",
+    "productNo": "PP-1620"
+  },
+  "aluminum-alloy-automatic-pop-up-card-holder-98856": {
+    "espId": "556498856",
+    "supplier": "Brandio Promo Inc",
+    "asi": "asi/90201",
+    "productNo": "HTH0063"
+  },
+  "leatherette-business-card-holder-57900": {
+    "espId": "200257900",
+    "supplier": "Opusline (Benmex)",
+    "asi": "asi/39820",
+    "productNo": "GP860"
+  },
+  "best-value-business-card-magnets-20-mil-full-color-print-31742": {
+    "espId": "554231742",
+    "supplier": "Magnet Guys",
+    "asi": "asi/68524",
+    "productNo": "Magnets-MG1001"
+  },
+  "add-a-pad-50-sheet-things-to-do-23153": {
+    "espId": "7023153",
+    "supplier": "The Magnet Group",
+    "asi": "asi/68507",
+    "productNo": "NP03"
+  },
+  "custom-plastic-card-94763": {
+    "espId": "550494763",
+    "supplier": "IDProductsource",
+    "asi": "asi/62088",
+    "productNo": "IDP-PC"
+  },
+  "elify-tap-classic-digital-business-card-10476": {
+    "espId": "554810476",
+    "supplier": "iClick, Inc.",
+    "asi": "asi/62124",
+    "productNo": "57663"
+  },
+  "nfc-metal-business-card-23232": {
+    "espId": "555723232",
+    "supplier": "Full Designs",
+    "asi": "asi/55516",
+    "productNo": "FD0100001"
+  },
+  "metal-nfc-business-cards-with-215-chip-52391": {
+    "espId": "556152391",
+    "supplier": "BNS Promo Inc",
+    "asi": "asi/40708",
+    "productNo": "BSRPD002"
+  },
+  "magnet-3-x-3-round-corners-18112": {
+    "espId": "555418112",
+    "supplier": "Magnet Guys",
+    "asi": "asi/68524",
+    "productNo": ""
+  },
+  "presentation-folder-ink-printed-white-stock-95922": {
+    "espId": "550595922",
+    "supplier": "Warwick Publishing Co",
+    "asi": "asi/95280",
+    "productNo": ""
+  },
+  "deluxe-presentation-folder-with-10-pockets-56881": {
+    "espId": "550656881",
+    "supplier": "Fey Promo",
+    "asi": "asi/54040",
+    "productNo": "6040F10"
+  },
+  "presentation-folder-1-color-foil-stamp-44323": {
+    "espId": "550244323",
+    "supplier": "Warwick Publishing Co",
+    "asi": "asi/95280",
+    "productNo": ""
+  },
+  "budget-presentation-folders-51101": {
+    "espId": "550251101",
+    "supplier": "Warwick Publishing Co",
+    "asi": "asi/95280",
+    "productNo": "FES"
+  },
+  "2-pocket-folders-with-fasteners-73447": {
+    "espId": "553573447",
+    "supplier": "Topromos Inc",
+    "asi": "asi/91271",
+    "productNo": "TPLJ155"
+  },
+  "multicolor-sticky-note-set-30400": {
+    "espId": "555930400",
+    "supplier": "Top Line Promos Inc",
+    "asi": "asi/91484",
+    "productNo": "SW3569"
+  },
+  "jotter-with-pen-67099": {
+    "espId": "550267099",
+    "supplier": "Jornik Manufacturing",
+    "asi": "asi/63549",
+    "productNo": "JK-1858"
+  },
+  "sticky-book-59282": {
+    "espId": "4859282",
+    "supplier": "Prime Line",
+    "asi": "asi/79530",
+    "productNo": "PL-0466"
+  },
+  "durable-luxury-memo-case-12142": {
+    "espId": "555912142",
+    "supplier": "Top Line Promos Inc",
+    "asi": "asi/91484",
+    "productNo": "GZ3149"
+  },
+  "custom-1-4-acrylic-magnets-usa-made-55042": {
+    "espId": "6255042",
+    "supplier": "Morris Magnets",
+    "asi": "asi/72521",
+    "productNo": "MAGNET-AF"
+  },
+  "magnet-5-inch-circle-27972": {
+    "espId": "555427972",
+    "supplier": "Magnet Guys",
+    "asi": "asi/68524",
+    "productNo": ""
+  },
+  "rectangle-magnet-4-x-6-68230": {
+    "espId": "5568230",
+    "supplier": "The Magnet Group",
+    "asi": "asi/68507",
+    "productNo": "S419"
+  },
+  "magnet-3-inch-circle-27961": {
+    "espId": "555427961",
+    "supplier": "Magnet Guys",
+    "asi": "asi/68524",
+    "productNo": ""
+  },
+  "house-2-44-h-x-3-43-w-notekeeper-magnet-20-mil-18285": {
+    "espId": "552418285",
+    "supplier": "Fey Promo",
+    "asi": "asi/54040",
+    "productNo": "HOUSE4-20"
+  },
+  "magnet-4-x-6-square-corners-74699": {
+    "espId": "555474699",
+    "supplier": "Magnet Guys",
+    "asi": "asi/68524",
+    "productNo": ""
+  },
+  "digitally-printed-name-badge-83209": {
+    "espId": "550383209",
+    "supplier": "BNB Line",
+    "asi": "asi/40706",
+    "productNo": "DP-BADGE"
+  },
+  "engraved-name-badge-30533": {
+    "espId": "550430533",
+    "supplier": "BNB Line",
+    "asi": "asi/40706",
+    "productNo": "EN-BADGE"
+  },
+  "shadow-printed-name-badge-86568": {
+    "espId": "556386568",
+    "supplier": "BNB Line",
+    "asi": "asi/40706",
+    "productNo": "SHD-BADGE"
+  },
+  "executive-name-badge-86566": {
+    "espId": "556386566",
+    "supplier": "BNB Line",
+    "asi": "asi/40706",
+    "productNo": "EX-BADGE"
+  },
+  "square-roll-labels-3x3-09222": {
+    "espId": "556209222",
+    "supplier": "Promoful/PMGOA",
+    "asi": "asi/79982",
+    "productNo": "P7-SQRL-3X3"
+  },
+  "custom-circle-square-roll-labels-05506": {
+    "espId": "555705506",
+    "supplier": "Value Gifts Corp",
+    "asi": "asi/93252",
+    "productNo": "VG 88082"
+  },
+  "custom-vinyl-sticker-rolls-76608": {
+    "espId": "555576608",
+    "supplier": "WBPromotion",
+    "asi": "asi/98409",
+    "productNo": "K00244"
+  },
+  "customized-250pcs-american-flag-patriotic-sticker-roll-77955": {
+    "espId": "555377955",
+    "supplier": "Goldentop Gifts Corp",
+    "asi": "asi/79532",
+    "productNo": "GOD1275"
+  },
+  "4-x-7-large-magnetic-calendar-30-mil-01009": {
+    "espId": "552601009",
+    "supplier": "Fey Promo",
+    "asi": "asi/54040",
+    "productNo": "MG19195-30"
+  },
+  "4-x-6-calendar-or-sports-schedule-magnet-57794": {
+    "espId": "555557794",
+    "supplier": "Drum-Line - A Div of Arch Promo Group, LLC",
+    "asi": "asi/50873",
+    "productNo": "YGM2"
+  },
+  "3-5-x-4-small-magnetic-calendar-30-mil-00143": {
+    "espId": "552600143",
+    "supplier": "Fey Promo",
+    "asi": "asi/54040",
+    "productNo": "MG19148-30"
+  },
+  "magnet-3-5-x-4-round-corners-18579": {
+    "espId": "555418579",
+    "supplier": "Magnet Guys",
+    "asi": "asi/68524",
+    "productNo": ""
+  },
+  "letter-size-document-envelope-67134": {
+    "espId": "550267134",
+    "supplier": "Jornik Manufacturing",
+    "asi": "asi/63549",
+    "productNo": "JK-1861"
+  },
+  "letterheads-8-5-x-11-87071": {
+    "espId": "553087071",
+    "supplier": "Giant Media LLC",
+    "asi": "asi/56729",
+    "productNo": "UPLEHD01-GM"
+  },
+  "10-x-10-custom-event-tent-with-steel-frame-and-1-full-wall-21286": {
+    "espId": "556521286",
+    "supplier": "AGAS Flags, Banners and Trade Show Displays",
+    "asi": "asi/30125",
+    "productNo": "KIT030-1FW"
+  },
+  "6-deluxe-tent-kit-full-bleed-dye-sublimation-92259": {
+    "espId": "550292259",
+    "supplier": "Showdown Displays",
+    "asi": "asi/87188",
+    "productNo": "240809"
+  },
+  "10x10-starter-package-with-printed-top-51898": {
+    "espId": "555751898",
+    "supplier": "Instent Industries",
+    "asi": "asi/94101",
+    "productNo": "3001001"
+  },
+  "10-heavy-duty-steel-pop-up-canopy-w-600-denier-polyester-48600": {
+    "espId": "555148600",
+    "supplier": "Rivers Garment Inc",
+    "asi": "asi/82571",
+    "productNo": "313752"
+  },
+  "printed-sunblade-flag-w-heavy-duty-pole-43739": {
+    "espId": "555743739",
+    "supplier": "Instent Industries",
+    "asi": "asi/94101",
+    "productNo": "150048"
+  },
+  "double-sided-printed-teardrop-flag-w-heavy-duty-pole-43724": {
+    "espId": "555743724",
+    "supplier": "Instent Industries",
+    "asi": "asi/94101",
+    "productNo": "150045"
+  },
+  "premium-white-table-covers-and-throws-4-sided-8ft-x-2-5ft-75526": {
+    "espId": "555575526",
+    "supplier": "Giant Media LLC",
+    "asi": "asi/56729",
+    "productNo": "BBWTCT01_02-GM"
+  },
+  "6ft-stretch-table-throw-33034": {
+    "espId": "556133034",
+    "supplier": "SnugZ USA",
+    "asi": "asi/88060",
+    "productNo": "DSPSTRCH6"
+  },
+  "6-economy-table-throw-full-color-front-only-58728": {
+    "espId": "550358728",
+    "supplier": "Showdown Displays",
+    "asi": "asi/87188",
+    "productNo": "106002"
+  },
+  "premium-6-full-color-dye-sublimation-stretch-table-cover-73792": {
+    "espId": "555773792",
+    "supplier": "First Stage Promotion",
+    "asi": "asi/54387",
+    "productNo": "FST1988"
+  },
+  "stretch-fabric-table-cover-w-rubber-feet-54908": {
+    "espId": "556254908",
+    "supplier": "More Imprint Inc",
+    "asi": "asi/72244",
+    "productNo": "MI10191A"
+  },
+  "custom-inflatable-slim-can-6-8-10-15-20-57603": {
+    "espId": "555757603",
+    "supplier": "Instent Industries",
+    "asi": "asi/94101",
+    "productNo": "400016"
+  },
+  "custom-inflatable-bottle-6-8-10-15-20-58445": {
+    "espId": "555758445",
+    "supplier": "Instent Industries",
+    "asi": "asi/94101",
+    "productNo": "400026"
+  },
+  "custom-inflatable-arch-angled-08239": {
+    "espId": "553608239",
+    "supplier": "Instent Industries",
+    "asi": "asi/94101",
+    "productNo": "110022"
+  },
+  "hand-clapper-noise-maker-48157": {
+    "espId": "551848157",
+    "supplier": "Prime Line",
+    "asi": "asi/79530",
+    "productNo": "NM104"
+  },
+  "football-clapper-noise-maker-39391": {
+    "espId": "555039391",
+    "supplier": "Prime Line",
+    "asi": "asi/79530",
+    "productNo": "NM109"
+  },
+  "bottle-banger-noisemaker-45745": {
+    "espId": "555645745",
+    "supplier": "WOWLine",
+    "asi": "asi/98360",
+    "productNo": "BOTBGR"
+  },
+  "giant-foam-fingers-hand-34166": {
+    "espId": "555834166",
+    "supplier": "ANYTIME PROMO INC",
+    "asi": "asi/79380",
+    "productNo": "ATTZ4605"
+  },
+  "round-8-megaphone-32-oz-24141": {
+    "espId": "4824141",
+    "supplier": "Lion Circle Corp",
+    "asi": "asi/67620",
+    "productNo": "97125-R"
+  },
+  "multipurpose-portable-practical-30w-power-megaphone-speaker-95717": {
+    "espId": "555695717",
+    "supplier": "WholeGifts Trading",
+    "asi": "asi/98423",
+    "productNo": "WG3310"
+  },
+  "high-visibility-reflective-safety-vest-for-construction-work-23411": {
+    "espId": "555223411",
+    "supplier": "I Promotion Pro Inc",
+    "asi": "asi/62098",
+    "productNo": "IPSM181A"
+  },
+  "dye-sublimated-v-neck-tee-73702": {
+    "espId": "556173702",
+    "supplier": "Starshine Brands Inc",
+    "asi": "asi/89160",
+    "productNo": "SSNMD0289"
+  },
+  "america250-usa-made-youth-crew-t-shirt-79361": {
+    "espId": "556379361",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "BA4100-A250"
+  },
+  "free-fly-youth-bamboo-shade-long-sleeve-31480": {
+    "espId": "556031480",
+    "supplier": "Thirsty Boxer",
+    "asi": "asi/91141",
+    "productNo": "YSHLS"
+  },
+  "bella-canvas-youth-triblend-short-sleeve-t-shirt-90336": {
+    "espId": "555090336",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "BA3413Y"
+  },
+  "platform-ladies-posicharge-tough-tee-03945": {
+    "espId": "553203945",
+    "supplier": "Promoful/PMGOA",
+    "asi": "asi/79982",
+    "productNo": "AA-SZ0A97"
+  },
+  "port-and-company-core-cotton-t-shirt-57309": {
+    "espId": "550757309",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "PC54"
+  },
+  "gildan-womens-ultra-cotton-tee-light-heather-34754": {
+    "espId": "552234754",
+    "supplier": "WBPromotion",
+    "asi": "asi/98409",
+    "productNo": "TS98409-TS306"
+  },
+  "gildan-ultra-cotton-100-cotton-long-sleeve-t-shirt-wit-32581": {
+    "espId": "555832581",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "G2410"
+  },
+  "port-and-company-5-4-oz-100-cotton-long-sleeve-t-shirt-65911": {
+    "espId": "553265911",
+    "supplier": "imprintID",
+    "asi": "asi/73651",
+    "productNo": "TSBC54LS"
+  },
+  "black-touchscreen-mechanics-gloves-14074": {
+    "espId": "200314074",
+    "supplier": "Illinois Glove Co",
+    "asi": "asi/62192",
+    "productNo": "76"
+  },
+  "buffalo-leather-gloves-79119": {
+    "espId": "550179119",
+    "supplier": "Illinois Glove Co",
+    "asi": "asi/62192",
+    "productNo": "21"
+  },
+  "deluxe-knit-text-gloves-60517": {
+    "espId": "554260517",
+    "supplier": "Suntex Industries",
+    "asi": "asi/90160",
+    "productNo": "DKT-100"
+  },
+  "touch-screen-gloves-20760": {
+    "espId": "552720760",
+    "supplier": "Magic Promo Inc",
+    "asi": "asi/68474",
+    "productNo": "MGTZ2443"
+  },
+  "custom-100-pure-wool-scarf-with-embroidered-logos-31528": {
+    "espId": "556631528",
+    "supplier": "Bright Way Global Inc",
+    "asi": "asi/41960",
+    "productNo": "ZQT-049"
+  },
+  "warm-knitted-woven-scarf-w-tassel-15055": {
+    "espId": "555015055",
+    "supplier": "imprintID",
+    "asi": "asi/73651",
+    "productNo": "SCF010"
+  },
+  "made-in-usa-cotton-crew-dress-socks-with-all-over-design-95759": {
+    "espId": "556295759",
+    "supplier": "Sports Solutions Inc",
+    "asi": "asi/88876",
+    "productNo": "4725D"
+  },
+  "youth-or-kid-crew-socks-pair-17495": {
+    "espId": "556017495",
+    "supplier": "BamBams",
+    "asi": "asi/38228",
+    "productNo": "YCS-400"
+  },
+  "made-in-the-usa-full-cushion-crew-socks-with-knit-in-logo-22373": {
+    "espId": "200122373",
+    "supplier": "Sports Solutions Inc",
+    "asi": "asi/88876",
+    "productNo": "4-700"
+  },
+  "made-in-the-usa-cotton-team-crew-socks-99192": {
+    "espId": "553199192",
+    "supplier": "Sports Solutions Inc",
+    "asi": "asi/88876",
+    "productNo": "4-S523"
+  },
+  "100-cotton-canvas-apron-74411": {
+    "espId": "554374411",
+    "supplier": "Magic Branding Promos Inc",
+    "asi": "asi/68473",
+    "productNo": "SGJA123"
+  },
+  "cooking-apron-26844": {
+    "espId": "554326844",
+    "supplier": "Magic Branding Promos Inc",
+    "asi": "asi/68473",
+    "productNo": "SGLY131"
+  },
+  "sportswear-mens-hooded-jacket-62529": {
+    "espId": "554462529",
+    "supplier": "I Promotion Pro Inc",
+    "asi": "asi/62098",
+    "productNo": "IPJY360A"
+  },
+  "color-blocked-pack-n-go-pullover-10769": {
+    "espId": "552410769",
+    "supplier": "Charles River Apparel",
+    "asi": "asi/44620",
+    "productNo": "9012"
+  },
+  "carhartt-gilliam-jacket-73779": {
+    "espId": "555773779",
+    "supplier": "imprintID",
+    "asi": "asi/73651",
+    "productNo": "MWSMC434"
+  },
+  "perry-ellis-mini-grid-woven-womens-dress-shirt-89068": {
+    "espId": "555789068",
+    "supplier": "imprintID",
+    "asi": "asi/73651",
+    "productNo": "PEW117"
+  },
+  "perry-ellis-big-and-tall-heathered-woven-mens-dress-shirt-89050": {
+    "espId": "555789050",
+    "supplier": "imprintID",
+    "asi": "asi/73651",
+    "productNo": "PEM103X"
+  },
+  "port-authority-extended-size-long-sleeve-easy-care-shirt-03405": {
+    "espId": "555203405",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "SMS608ES"
+  },
+  "pack-n-go-pullover-14864": {
+    "espId": "4714864",
+    "supplier": "Charles River Apparel",
+    "asi": "asi/44620",
+    "productNo": "9904"
+  },
+  "womens-heathered-eco-logic-stretch-quarter-zip-93231": {
+    "espId": "554893231",
+    "supplier": "Charles River Apparel",
+    "asi": "asi/44620",
+    "productNo": "5468"
+  },
+  "mens-heathered-eco-logic-stretch-quarter-zip-93289": {
+    "espId": "554893289",
+    "supplier": "Charles River Apparel",
+    "asi": "asi/44620",
+    "productNo": "9468"
+  },
+  "bella-womens-1x1-baby-rib-cap-sleeve-t-shirt-dark-all-80354": {
+    "espId": "555480354",
+    "supplier": "WBPromotion",
+    "asi": "asi/98409",
+    "productNo": "TS98409-TS176"
+  },
+  "kan-tastic-33219": {
+    "espId": "5633219",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "34"
+  },
+  "premium-foam-collapsible-can-coolers-10458": {
+    "espId": "556210458",
+    "supplier": "Promoful/PMGOA",
+    "asi": "asi/79982",
+    "productNo": "P7-CC1C"
+  },
+  "12-oz-slim-fit-kan-tastic-82875": {
+    "espId": "552982875",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "11"
+  },
+  "bartolo-stemless-wine-imprinted-99546": {
+    "espId": "551899546",
+    "supplier": "SRG",
+    "asi": "asi/84592",
+    "productNo": "DCC8361"
+  },
+  "24-oz-red-cup-living-reuseable-beer-mug-20644": {
+    "espId": "556520644",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "51039"
+  },
+  "40-oz-hydrapeak-voyager-travel-mug-90494": {
+    "espId": "556090494",
+    "supplier": "Gold Bond",
+    "asi": "asi/57653",
+    "productNo": "HPVOYAGER40-FD"
+  },
+  "grosche-international-inc-40-oz-aspen-vacuum-insulated-s-02688": {
+    "espId": "555802688",
+    "supplier": "Prime Line",
+    "asi": "asi/79530",
+    "productNo": "GR003"
+  },
+  "40-oz-intrepid-recycled-stainless-steel-tumbler-97724": {
+    "espId": "554497724",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "50035"
+  },
+  "27-oz-shaker-and-water-bottle-with-stainless-steel-agitator-10248": {
+    "espId": "555710248",
+    "supplier": "Tekweld",
+    "asi": "asi/90807",
+    "productNo": "BTL137"
+  },
+  "shake-it-compartment-shaker-bottle-55862": {
+    "espId": "551255862",
+    "supplier": "Evans Manufacturing, LLC",
+    "asi": "asi/52840",
+    "productNo": "4279"
+  },
+  "classic-shaker-bottle-47769": {
+    "espId": "553647769",
+    "supplier": "I Promotion Pro Inc",
+    "asi": "asi/62098",
+    "productNo": "IPSM149A"
+  },
+  "leather-briefcases-62864": {
+    "espId": "554662864",
+    "supplier": "Promosmart Inc.",
+    "asi": "asi/80026",
+    "productNo": "JU3211"
+  },
+  "cutting-edge-laptop-messenger-72558": {
+    "espId": "553172558",
+    "supplier": "Prime Line",
+    "asi": "asi/79530",
+    "productNo": "BG700"
+  },
+  "versatile-canvas-business-computer-shoulder-messenger-bag-02734": {
+    "espId": "555702734",
+    "supplier": "WholeGifts Trading",
+    "asi": "asi/98423",
+    "productNo": "WG2643"
+  },
+  "mens-business-briefcase-57280": {
+    "espId": "555757280",
+    "supplier": "Marketing Gifts Inc",
+    "asi": "asi/68835",
+    "productNo": "MG558"
+  },
+  "large-capacity-simple-waterproof-laptop-commuter-briefcase-76407": {
+    "espId": "556476407",
+    "supplier": "WholeGifts Trading",
+    "asi": "asi/98423",
+    "productNo": "WG3755"
+  },
+  "rfid-computer-backpack-and-briefcase-01217": {
+    "espId": "553101217",
+    "supplier": "WBPromotion",
+    "asi": "asi/98409",
+    "productNo": "TT984-143"
+  },
+  "classic-polyester-drawstring-bags-94667": {
+    "espId": "5594667",
+    "supplier": "BEL Promo",
+    "asi": "asi/39552",
+    "productNo": "ABPK10"
+  },
+  "rpp-non-woven-drawstring-bag-30692": {
+    "espId": "554030692",
+    "supplier": "Jornik Manufacturing",
+    "asi": "asi/63549",
+    "productNo": "JK-9201"
+  },
+  "utility-canvas-tool-pouch-zipper-bags-with-carabiner-88671": {
+    "espId": "555888671",
+    "supplier": "Promosmart Inc.",
+    "asi": "asi/80026",
+    "productNo": "NF6800"
+  },
+  "15-packout-tool-tote-82174": {
+    "espId": "555182174",
+    "supplier": "HPG",
+    "asi": "asi/61966",
+    "productNo": "48228315"
+  },
+  "truckee-water-resistant-cell-phone-accessories-case-57364": {
+    "espId": "555057364",
+    "supplier": "Innovation Line",
+    "asi": "asi/62660",
+    "productNo": "5093"
+  },
+  "magsafe-leather-wallet-phone-card-holder-adjustable-stand-90578": {
+    "espId": "555890578",
+    "supplier": "Goldentop Gifts Corp",
+    "asi": "asi/79532",
+    "productNo": "GYX5604"
+  },
+  "travel-portable-magnetic-phone-camera-grip-with-shutter-93248": {
+    "espId": "556193248",
+    "supplier": "WholeGifts Trading",
+    "asi": "asi/98423",
+    "productNo": "WG8231"
+  },
+  "phone-ring-and-stand-00903": {
+    "espId": "554100903",
+    "supplier": "Tekweld",
+    "asi": "asi/90807",
+    "productNo": "PH101"
+  },
+  "foldable-aluminum-laptop-stand-with-cooling-fan-96728": {
+    "espId": "555496728",
+    "supplier": "BNS Promo Inc",
+    "asi": "asi/40708",
+    "productNo": "H-BJNNC014"
+  },
+  "throne-cell-phone-and-tablet-stand-89173": {
+    "espId": "6789173",
+    "supplier": "Innovation Line",
+    "asi": "asi/62660",
+    "productNo": "5109"
+  },
+  "car-cigarette-lighter-charger-40372": {
+    "espId": "555640372",
+    "supplier": "Moneshion Promotion Inc",
+    "asi": "asi/72026",
+    "productNo": "MSH300"
+  },
+  "special-usb-dual-port-car-portable-charger-27702": {
+    "espId": "550127702",
+    "supplier": "Chulani",
+    "asi": "asi/45100",
+    "productNo": "E800"
+  },
+  "expander-adapter-180-degree-rotatable-4-port-usb-3-0-hub-67067": {
+    "espId": "556367067",
+    "supplier": "WholeGifts Trading",
+    "asi": "asi/98423",
+    "productNo": "WG6246"
+  },
+  "portable-7-in-1-multi-port-laptop-usb-c-hub-docking-station-96465": {
+    "espId": "555796465",
+    "supplier": "WholeGifts Trading",
+    "asi": "asi/98423",
+    "productNo": "WG4976"
+  },
+  "valoy-desk-calendar-04393": {
+    "espId": "5004393",
+    "supplier": "Warwick Publishing Co",
+    "asi": "asi/95280",
+    "productNo": "955"
+  },
+  "monthly-desk-planner-leatherette-21450": {
+    "espId": "4821450",
+    "supplier": "Fey Promo",
+    "asi": "asi/54040",
+    "productNo": "1605"
+  },
+  "desk-pad-calendar-leatherette-06790": {
+    "espId": "5106790",
+    "supplier": "Payne Publishers Inc",
+    "asi": "asi/76575",
+    "productNo": "APP-1H"
+  },
+  "full-color-process-clipboard-69630": {
+    "espId": "550469630",
+    "supplier": "Tekweld",
+    "asi": "asi/90807",
+    "productNo": "FCB100"
+  },
+  "plastic-clipboard-07070": {
+    "espId": "552607070",
+    "supplier": "Flyer Sourcing Inc",
+    "asi": "asi/54871",
+    "productNo": "FYNL131"
+  },
+  "pp-foldable-clipboard-a4-size-file-10094": {
+    "espId": "554910094",
+    "supplier": "Topromos Inc",
+    "asi": "asi/91271",
+    "productNo": "TPMS122A"
+  },
+  "dwight-letter-size-clipboard-with-imprintable-clip-83767": {
+    "espId": "6783767",
+    "supplier": "Innovation Line",
+    "asi": "asi/62660",
+    "productNo": "8210"
+  },
+  "aluminum-desk-set-engraved-plate-w-holder-60401": {
+    "espId": "554560401",
+    "supplier": "IDLine",
+    "asi": "asi/59080",
+    "productNo": ""
+  },
+  "stratton-1-ring-binder-20502": {
+    "espId": "6020502",
+    "supplier": "Fey Promo",
+    "asi": "asi/54040",
+    "productNo": "8067"
+  },
+  "office-home-planner-budget-refillable-a6-notebook-binder-35610": {
+    "espId": "555935610",
+    "supplier": "WholeGifts Trading",
+    "asi": "asi/98423",
+    "productNo": "WG6738"
+  },
+  "school-office-premium-durable-pu-leather-3-ring-binders-20220": {
+    "espId": "556520220",
+    "supplier": "WholeGifts Trading",
+    "asi": "asi/98423",
+    "productNo": "WG8857"
+  },
+  "aluminum-architectural-scale-triangle-drafting-ruler-79895": {
+    "espId": "555479895",
+    "supplier": "Flyer Sourcing Inc",
+    "asi": "asi/54871",
+    "productNo": "EYCA039"
+  },
+  "daisy-highlighter-63544": {
+    "espId": "4963544",
+    "supplier": "High Caliber Line USA",
+    "asi": "asi/43442",
+    "productNo": "T331"
+  },
+  "sharpie-gel-highlighter-08946": {
+    "espId": "553208946",
+    "supplier": "Gemline",
+    "asi": "asi/56070",
+    "productNo": "100856"
+  },
+  "high-five-highlighters-70835": {
+    "espId": "5570835",
+    "supplier": "Prime Line",
+    "asi": "asi/79530",
+    "productNo": "PL-3892"
+  },
+  "subli-plush-velour-beach-towel-32520": {
+    "espId": "551232520",
+    "supplier": "Terry Town",
+    "asi": "asi/90913",
+    "productNo": "BP1529"
+  },
+  "luxury-beach-towel-04581": {
+    "espId": "552104581",
+    "supplier": "The Magnet Group",
+    "asi": "asi/68507",
+    "productNo": "B3560"
+  },
+  "12-can-convertible-duffel-cooler-2-in-1-bag-16-colors-92912": {
+    "espId": "5092912",
+    "supplier": "Seville Gear",
+    "asi": "asi/86565",
+    "productNo": "AG-653"
   }
 }

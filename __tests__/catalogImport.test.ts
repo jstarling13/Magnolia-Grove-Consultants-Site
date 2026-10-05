@@ -1708,3 +1708,31 @@ describe("color photo keys follow the cleanup", () => {
     await fs.rm(root, { recursive: true, force: true });
   });
 });
+
+describe("description ending punctuation", () => {
+  it("adds a period after a trailing inch mark so the pricing clause reads as its own sentence", async () => {
+    const { buildDescription } = await import("../scripts/lib/catalogClean.mjs");
+    const out = buildDescription({
+      rawDescription: 'Knitted scarf, Tassel: 2.56"-2.76"',
+      colorCount: 0,
+      sizes: "",
+      minQty: 300,
+      usa: 0,
+      multiGrid: 0,
+    });
+    expect(out.endsWith('2.76". Priced at 300 units.')).toBe(true);
+  });
+
+  it("does not double-punctuate text that already ends a sentence with a closing quote", async () => {
+    const { buildDescription } = await import("../scripts/lib/catalogClean.mjs");
+    const out = buildDescription({
+      rawDescription: 'Our customers call it "the best".',
+      colorCount: 0,
+      sizes: "",
+      minQty: 12,
+      usa: 0,
+      multiGrid: 0,
+    });
+    expect(out).toBe('Our customers call it "the best". Priced at 12 units.');
+  });
+});
