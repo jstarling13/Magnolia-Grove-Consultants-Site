@@ -254,5 +254,36 @@
     "Silver": "/images/merch/colors/alice-metal-stylus-pen-68122-silver.webp",
     "Blue": "/images/merch/colors/alice-metal-stylus-pen-68122-blue.webp",
     "Red": "/images/merch/colors/alice-metal-stylus-pen-68122-red.webp"
+  },
+  "deluxe-daily-planners-21383": {
+    "Black": "/images/merch/colors/deluxe-daily-planners-21383-black.webp",
+    "Green": "/images/merch/colors/deluxe-daily-planners-21383-green.webp",
+    "Red": "/images/merch/colors/deluxe-daily-planners-21383-red.webp",
+    "Royal Blue": "/images/merch/colors/deluxe-daily-planners-21383-royal-blue.webp",
+    "White": "/images/merch/colors/deluxe-daily-planners-21383-white.webp"
+  },
+  "mini-cylinder-led-flashlight-key-tag-95723": {
+    "Black": "/images/merch/colors/mini-cylinder-led-flashlight-key-tag-95723-black.webp",
+    "Lime": "/images/merch/colors/mini-cylinder-led-flashlight-key-tag-95723-lime.webp",
+    "Red": "/images/merch/colors/mini-cylinder-led-flashlight-key-tag-95723-red.webp",
+    "Royal Blue": "/images/merch/colors/mini-cylinder-led-flashlight-key-tag-95723-royal-blue.webp",
+    "Silver": "/images/merch/colors/mini-cylinder-led-flashlight-key-tag-95723-silver.webp"
+  },
+  "mini-grip-3-25-tape-measure-keychain-48053": {
+    "Blue": "/images/merch/colors/mini-grip-3-25-tape-measure-keychain-48053-blue.webp",
+    "Orange": "/images/merch/colors/mini-grip-3-25-tape-measure-keychain-48053-orange.webp",
+    "Red": "/images/merch/colors/mini-grip-3-25-tape-measure-keychain-48053-red.webp",
+    "White": "/images/merch/colors/mini-grip-3-25-tape-measure-keychain-48053-white.webp",
+    "Yellow": "/images/merch/colors/mini-grip-3-25-tape-measure-keychain-48053-yellow.webp"
+  },
+  "voyager-slim-keyholder-keylight-with-bright-led-light-72808": {
+    "Silver": "/images/merch/colors/voyager-slim-keyholder-keylight-with-bright-led-light-72808-silver.webp"
+  },
+  "2-aa-led-mini-maglite-10245": {
+    "Blue": "/images/merch/colors/2-aa-led-mini-maglite-10245-blue.webp",
+    "Gray": "/images/merch/colors/2-aa-led-mini-maglite-10245-gray.webp",
+    "Red": "/images/merch/colors/2-aa-led-mini-maglite-10245-red.webp",
+    "Black": "/images/merch/colors/2-aa-led-mini-maglite-10245-black.webp",
+    "Copper": "/images/merch/colors/2-aa-led-mini-maglite-10245-copper.webp"
   }
 }
