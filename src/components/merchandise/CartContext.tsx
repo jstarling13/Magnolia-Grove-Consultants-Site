@@ -24,7 +24,12 @@ export interface CartLineItem {
 
 interface CartContextValue {
   items: CartLineItem[];
+  /** Total units across every line. */
   itemCount: number;
+  /** Number of distinct (product, color) lines; what the header badge shows. */
+  lineCount: number;
+  /** How many saved lines were dropped on load because their product is gone or hidden. */
+  removedUnavailableCount: number;
   /** Adds `quantity` to the (productId, color) line, creating it if needed. */
   addItem: (productId: string, quantity: number, color?: string) => void;
   /** Sets the quantity of one line; zero or less removes it. */
@@ -110,6 +115,18 @@ export function recolorLine(
 }
 
 /**
+ * Drops lines whose product the storefront no longer sells. Returns the lines
+ * that stay and how many were removed.
+ */
+export function pruneUnavailableLines(
+  items: CartLineItem[],
+  availableProductIds: ReadonlySet<string>
+): { items: CartLineItem[]; removed: number } {
+  const kept = items.filter((item) => availableProductIds.has(item.productId));
+  return { items: kept, removed: items.length - kept.length };
+}
+
+/**
  * Reads whatever is in storage into a clean cart. Accepts the old
  * `{ productId, quantity }` shape (those become colorless lines), drops
  * anything malformed, and folds duplicate (productId, color) entries
@@ -153,13 +170,34 @@ function readStoredCart(): CartLineItem[] {
   }
 }
 
-export function CartProvider({ children }: { children: ReactNode }) {
+interface CartProviderProps {
+  children: ReactNode;
+  /**
+   * Ids of every product the storefront currently sells. When given, saved
+   * lines for any other product (removed or hidden since the shopper added
+   * them) are dropped from the cart and from storage as soon as it loads, so
+   * they never reach the header count. Omit to keep every saved line.
+   */
+  availableProductIds?: readonly string[];
+}
+
+export function CartProvider({ children, availableProductIds }: CartProviderProps) {
   const [items, setItems] = useState<CartLineItem[]>([]);
   const [hydrated, setHydrated] = useState(false);
+  const [removedUnavailableCount, setRemovedUnavailableCount] = useState(0);
 
   useEffect(() => {
-    setItems(readStoredCart());
+    const stored = readStoredCart();
+    if (availableProductIds) {
+      const pruned = pruneUnavailableLines(stored, new Set(availableProductIds));
+      setItems(pruned.items);
+      setRemovedUnavailableCount(pruned.removed);
+    } else {
+      setItems(stored);
+    }
     setHydrated(true);
+    // Only the first load reads storage; later id changes don't re-read it.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -193,10 +231,21 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const clear = useCallback(() => setItems([]), []);
 
   const itemCount = useMemo(() => items.reduce((sum, item) => sum + item.quantity, 0), [items]);
+  const lineCount = items.length;
 
   return (
     <CartContext.Provider
-      value={{ items, itemCount, addItem, updateQuantity, removeItem, changeColor, clear }}
+      value={{
+        items,
+        itemCount,
+        lineCount,
+        removedUnavailableCount,
+        addItem,
+        updateQuantity,
+        removeItem,
+        changeColor,
+        clear,
+      }}
     >
       {children}
     </CartContext.Provider>

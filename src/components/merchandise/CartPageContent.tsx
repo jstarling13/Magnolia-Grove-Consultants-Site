@@ -14,6 +14,14 @@ import Link from "next/link";
 import { Loader2 } from "lucide-react";
 import { useCart, type CartLineItem } from "@/components/merchandise/CartContext";
 import { ColorDot } from "@/components/merchandise/ColorSwatches";
+import { useQuantityDraft } from "@/hooks/useQuantityDraft";
+import {
+  CART_CONTACT_FIELDS,
+  fieldErrorsFromIssues,
+  validateCartContact,
+  type CartContactField,
+  type CartFieldErrors,
+} from "@/lib/cartFormRules";
 import { cleanColorName } from "@/lib/colorSwatches";
 import {
   cartLineKey,
@@ -50,22 +58,9 @@ const initialFields: ContactFields = {
   company_website: "",
 };
 
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const DEFAULT_ERROR =
   "Something went wrong. Please double-check your info or email ben@magnoliagrovega.com.";
-
-function validate(fields: ContactFields): Partial<Record<keyof ContactFields, string>> {
-  const errors: Partial<Record<keyof ContactFields, string>> = {};
-  if (!fields.firstName.trim()) errors.firstName = "First name is required.";
-  if (!fields.lastName.trim()) errors.lastName = "Last name is required.";
-  if (!fields.email.trim()) {
-    errors.email = "Email is required.";
-  } else if (!EMAIL_PATTERN.test(fields.email)) {
-    errors.email = "Enter a valid email address.";
-  }
-  if (!fields.phone.trim()) errors.phone = "Phone number is required.";
-  return errors;
-}
+const FIELD_ERRORS_SUMMARY = "Please fix the highlighted fields and submit again.";
 
 const inputClasses =
   "w-full rounded-md border border-gold/25 bg-cream px-4 py-3 text-sm text-onyx placeholder:text-onyx/50 focus:outline-none focus:ring-2 focus:ring-gold/60 transition-colors";
@@ -80,6 +75,8 @@ interface DisplayLine {
   color: string | undefined;
   /** Product has colors but this line has none we can submit (legacy or stale). */
   needsColor: boolean;
+  /** Set when a color-less legacy line belongs to a one-color product: that color is the only choice. */
+  soleColor: string | undefined;
 }
 
 interface ProductGroup {
@@ -108,14 +105,16 @@ export default function CartPageContent({
   pricingDisclaimer,
   deliveryEstimate,
 }: CartPageContentProps) {
-  const { items, updateQuantity, removeItem, changeColor, clear } = useCart();
+  const { items, updateQuantity, removeItem, changeColor, clear, removedUnavailableCount } =
+    useCart();
   const [fields, setFields] = useState<ContactFields>(initialFields);
-  const [errors, setErrors] = useState<Partial<Record<keyof ContactFields, string>>>({});
+  const [errors, setErrors] = useState<CartFieldErrors>({});
   const [status, setStatus] = useState<Status>("idle");
   const [submitError, setSubmitError] = useState("");
   const [orderRef, setOrderRef] = useState("");
   const [confirmationEmailed, setConfirmationEmailed] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState("");
+  const errorBannerRef = useRef<HTMLParagraphElement>(null);
 
   const productsById = useMemo(
     () => new Map(catalog.map((product) => [product.id, product])),
@@ -135,16 +134,23 @@ export default function CartPageContent({
     for (const priced of cart.lines) {
       const product = productsById.get(priced.line.productId)!;
       const colorState = resolveLineColor(product, priced.line.color);
+      const colorOptions = normalizeColors(product.colors);
+      // A legacy color-less line of a one-color product has nothing to choose:
+      // use that color instead of asking.
+      const soleColor =
+        colorState.kind === "missing" && colorOptions.length === 1 ? colorOptions[0] : undefined;
       const line: DisplayLine = {
         item: priced.line,
         unitPrice: priced.unitPrice,
         lineTotal: priced.lineTotal,
         // A legacy or stale color isn't something we can submit; the shopper
         // has to choose one of the product's real colors.
-        color: colorState.kind === "ok" ? colorState.color : undefined,
+        color: colorState.kind === "ok" ? colorState.color : soleColor,
         needsColor:
-          colorState.kind === "missing" ||
-          (colorState.kind === "invalid" && normalizeColors(product.colors).length > 0),
+          !soleColor &&
+          (colorState.kind === "missing" ||
+            (colorState.kind === "invalid" && colorOptions.length > 0)),
+        soleColor,
       };
       const group = byProduct.get(product.id);
       if (group) group.lines.push(line);
@@ -172,6 +178,19 @@ export default function CartPageContent({
       ),
     [groups]
   );
+
+  // Save the auto-selected color into the cart so the stored line is complete
+  // (and merges into an existing line of that color, if there is one).
+  useEffect(() => {
+    for (const group of groups) {
+      for (const line of group.lines) {
+        if (line.soleColor && line.item.color === undefined) {
+          changeColor(group.product.id, undefined, line.soleColor);
+        }
+      }
+    }
+  }, [groups, changeColor]);
+
   const viewedCart = useRef(false);
   const startedCheckout = useRef(false);
 
@@ -216,12 +235,25 @@ export default function CartPageContent({
     setErrors((prev) => ({ ...prev, [name]: undefined }));
   }
 
+  // A failed submit with no field to blame (server, network, minimums): move focus to the message.
+  const hasFieldErrors = Object.values(errors).some(Boolean);
+  useEffect(() => {
+    if (status === "error" && !hasFieldErrors) errorBannerRef.current?.focus();
+  }, [status, submitError, hasFieldErrors]);
+
+  /** Puts the cursor in the first field that has an error, in form order. */
+  function focusFirstInvalid(fieldErrors: CartFieldErrors) {
+    const first = CART_CONTACT_FIELDS.find((name) => fieldErrors[name]);
+    if (first) document.getElementById(first)?.focus();
+  }
+
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    const validationErrors = validate(fields);
+    const validationErrors = validateCartContact(fields);
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
+      focusFirstInvalid(validationErrors);
       return;
     }
 
@@ -246,8 +278,20 @@ export default function CartPageContent({
       const data = await response.json();
 
       if (!response.ok || !data.success) {
-        setSubmitError(data.error || DEFAULT_ERROR);
+        // A 400 from schema validation carries per-field messages: show them on
+        // the fields instead of the generic "Validation failed.".
+        const server = fieldErrorsFromIssues(data.issues);
+        const hasFieldErrors = Object.keys(server.fields).length > 0;
+        if (hasFieldErrors) setErrors(server.fields);
+        setSubmitError(
+          hasFieldErrors
+            ? server.other
+              ? `${FIELD_ERRORS_SUMMARY} ${server.other}`
+              : FIELD_ERRORS_SUMMARY
+            : server.other || data.error || DEFAULT_ERROR
+        );
         setStatus("error");
+        if (hasFieldErrors) focusFirstInvalid(server.fields);
         return;
       }
 
@@ -308,6 +352,16 @@ export default function CartPageContent({
 
       <section className="bg-cream px-6 py-16 sm:px-8 lg:px-12 lg:py-24">
         <div className="mx-auto max-w-4xl">
+          {removedUnavailableCount > 0 && (
+            <p
+              role="status"
+              className="mb-6 rounded-md border border-gold/40 bg-gold/10 px-4 py-3 text-sm text-onyx"
+            >
+              {removedUnavailableCount === 1
+                ? "An item in your cart is no longer available and was removed."
+                : `${removedUnavailableCount} items in your cart are no longer available and were removed.`}
+            </p>
+          )}
           {lines.length === 0 ? (
             <div className="rounded-lg border border-gold/25 bg-cream-100/85 px-8 py-16 text-center">
               <p className="text-base text-onyx/60">Your cart is empty.</p>
@@ -393,10 +447,13 @@ export default function CartPageContent({
                       value={fields.firstName}
                       onChange={handleChange}
                       aria-invalid={Boolean(errors.firstName)}
+                      aria-describedby={errors.firstName ? "firstName-error" : undefined}
                       className={`${inputClasses} ${errors.firstName ? "border-red-500" : ""}`}
                     />
                     {errors.firstName && (
-                      <p className="mt-1.5 text-xs text-red-500">{errors.firstName}</p>
+                      <p id="firstName-error" role="alert" className="mt-1.5 text-xs text-red-700">
+                        {errors.firstName}
+                      </p>
                     )}
                   </div>
 
@@ -415,10 +472,13 @@ export default function CartPageContent({
                       value={fields.lastName}
                       onChange={handleChange}
                       aria-invalid={Boolean(errors.lastName)}
+                      aria-describedby={errors.lastName ? "lastName-error" : undefined}
                       className={`${inputClasses} ${errors.lastName ? "border-red-500" : ""}`}
                     />
                     {errors.lastName && (
-                      <p className="mt-1.5 text-xs text-red-500">{errors.lastName}</p>
+                      <p id="lastName-error" role="alert" className="mt-1.5 text-xs text-red-700">
+                        {errors.lastName}
+                      </p>
                     )}
                   </div>
 
@@ -434,9 +494,14 @@ export default function CartPageContent({
                       value={fields.email}
                       onChange={handleChange}
                       aria-invalid={Boolean(errors.email)}
+                      aria-describedby={errors.email ? "email-error" : undefined}
                       className={`${inputClasses} ${errors.email ? "border-red-500" : ""}`}
                     />
-                    {errors.email && <p className="mt-1.5 text-xs text-red-500">{errors.email}</p>}
+                    {errors.email && (
+                      <p id="email-error" role="alert" className="mt-1.5 text-xs text-red-700">
+                        {errors.email}
+                      </p>
+                    )}
                   </div>
 
                   <div>
@@ -451,9 +516,14 @@ export default function CartPageContent({
                       value={fields.phone}
                       onChange={handleChange}
                       aria-invalid={Boolean(errors.phone)}
+                      aria-describedby={errors.phone ? "phone-error" : undefined}
                       className={`${inputClasses} ${errors.phone ? "border-red-500" : ""}`}
                     />
-                    {errors.phone && <p className="mt-1.5 text-xs text-red-500">{errors.phone}</p>}
+                    {errors.phone && (
+                      <p id="phone-error" role="alert" className="mt-1.5 text-xs text-red-700">
+                        {errors.phone}
+                      </p>
+                    )}
                   </div>
 
                   <div className="sm:col-span-2">
@@ -467,8 +537,15 @@ export default function CartPageContent({
                       value={fields.notes}
                       onChange={handleChange}
                       placeholder="Colors, branding details, deadline, etc."
-                      className={`${inputClasses} resize-none`}
+                      aria-invalid={Boolean(errors.notes)}
+                      aria-describedby={errors.notes ? "notes-error" : undefined}
+                      className={`${inputClasses} resize-none ${errors.notes ? "border-red-500" : ""}`}
                     />
+                    {errors.notes && (
+                      <p id="notes-error" role="alert" className="mt-1.5 text-xs text-red-700">
+                        {errors.notes}
+                      </p>
+                    )}
                   </div>
                 </div>
 
@@ -477,7 +554,12 @@ export default function CartPageContent({
                 </div>
 
                 {status === "error" && (
-                  <p className="mt-6 rounded-md border border-red-500/40 bg-red-500/10 px-4 py-3 text-sm text-red-600">
+                  <p
+                    ref={errorBannerRef}
+                    tabIndex={-1}
+                    role="alert"
+                    className="mt-6 rounded-md border border-red-500/40 bg-red-500/10 px-4 py-3 text-sm text-red-700 focus:outline-none focus:ring-2 focus:ring-gold/60"
+                  >
                     {submitError || DEFAULT_ERROR}
                   </p>
                 )}
@@ -574,6 +656,10 @@ function CartLine({
 }) {
   const selectId = useId();
   const { item } = line;
+  const quantity = useQuantityDraft({
+    value: item.quantity,
+    onCommit: (next) => onQuantity(item.productId, next, item.color),
+  });
   const href = productHref(product.id, line.color);
   const thumbnail = lineThumbnail(product, line.color);
   const colorLabel = line.color ? cleanColorName(line.color) : undefined;
@@ -650,19 +736,13 @@ function CartLine({
           <label className="flex items-center gap-2 text-xs font-medium text-onyx/60">
             Qty
             <input
+              {...quantity.inputProps}
               type="number"
               inputMode="numeric"
               min={1}
-              value={item.quantity}
               aria-label={`Quantity for ${lineName}`}
-              onChange={(event) => {
-                const parsed = Number.parseInt(event.target.value, 10);
-                onQuantity(
-                  item.productId,
-                  Number.isFinite(parsed) && parsed > 0 ? parsed : 1,
-                  item.color
-                );
-              }}
+              aria-invalid={Boolean(quantity.message)}
+              aria-describedby={quantity.message ? quantity.messageId : undefined}
               className="w-20 rounded-md border border-gold/25 bg-cream px-2 py-1.5 text-sm text-onyx focus:outline-none focus:ring-2 focus:ring-gold/60"
             />
           </label>
@@ -675,6 +755,15 @@ function CartLine({
             Remove
           </button>
         </div>
+        {quantity.message && (
+          <p
+            id={quantity.messageId}
+            role="alert"
+            className="mt-2 text-xs font-semibold text-red-700"
+          >
+            {quantity.message}
+          </p>
+        )}
       </div>
 
       <div className="shrink-0 text-right font-heading text-lg font-bold tabular-nums text-onyx">
