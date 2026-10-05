@@ -142,5 +142,17 @@
     "supplier": "Vantage Apparel",
     "asi": "asi/93390",
     "productNo": "3135"
+  },
+  "polar-30oz-tumbler": {
+    "espId": "554436264",
+    "supplier": "STOPNGO Line",
+    "asi": "asi/57655",
+    "productNo": "SSTMBLR030"
+  },
+  "insulated-travel-mug-16oz": {
+    "espId": "4973802",
+    "supplier": "BEL Promo",
+    "asi": "asi/39552",
+    "productNo": "AST58"
   }
 }

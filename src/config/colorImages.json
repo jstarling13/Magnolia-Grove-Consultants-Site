@@ -179,5 +179,22 @@
     "Loden Green": "/images/merch/colors/mesa-vest-loden-green.webp",
     "Saddle": "/images/merch/colors/mesa-vest-saddle.webp",
     "True Navy": "/images/merch/colors/mesa-vest-true-navy.webp"
+  },
+  "polar-30oz-tumbler": {
+    "Black": "/images/merch/colors/polar-30oz-tumbler-black.webp",
+    "Navy Blue": "/images/merch/colors/polar-30oz-tumbler-navy-blue.webp",
+    "Silver": "/images/merch/colors/polar-30oz-tumbler-silver.webp",
+    "White": "/images/merch/colors/polar-30oz-tumbler-white.webp"
+  },
+  "insulated-travel-mug-16oz": {
+    "Black": "/images/merch/colors/insulated-travel-mug-16oz-black.webp",
+    "Blue": "/images/merch/colors/insulated-travel-mug-16oz-blue.webp",
+    "Green": "/images/merch/colors/insulated-travel-mug-16oz-green.webp",
+    "Lime Green": "/images/merch/colors/insulated-travel-mug-16oz-lime-green.webp",
+    "Orange": "/images/merch/colors/insulated-travel-mug-16oz-orange.webp",
+    "Pink": "/images/merch/colors/insulated-travel-mug-16oz-pink.webp",
+    "Purple": "/images/merch/colors/insulated-travel-mug-16oz-purple.webp",
+    "Red": "/images/merch/colors/insulated-travel-mug-16oz-red.webp",
+    "Yellow": "/images/merch/colors/insulated-travel-mug-16oz-yellow.webp"
   }
 }
