@@ -82,8 +82,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Nike Dri-FIT Micro Pique 2.0 Polo",
     category: "Apparel",
     brand: "Nike",
-    description:
-      "Moisture-wicking pique polo in 20 colors — a reliable staple for staff and volunteer uniforms.",
+    description: "Moisture-wicking pique polo. Priced at 1 unit.",
     priceTiers: tiers([[1, 56.02]]),
     image: "/images/merch/nike-dri-fit-polo.jpg",
     imageAlt: "Nike Dri-FIT Micro Pique 2.0 Polo",
@@ -115,8 +114,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Nike Therma-FIT 1/4-Zip Fleece",
     category: "Apparel",
     brand: "Nike",
-    description:
-      "A fleece quarter-zip in 6 colors — a warm, recognizable-brand layering piece for cooler-weather events.",
+    description: "Fleece quarter-zip pullover. Priced at 1 unit.",
     priceTiers: tiers([
       [1, 68.767],
       [12, 62.1],
@@ -137,8 +135,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Adidas Men's Performance Polo",
     category: "Apparel",
     brand: "Adidas",
-    description:
-      "A budget-friendly, recognizable-brand polo in 14 colors — solid everyday staff and volunteer wear.",
+    description: "Performance polo. Priced at 1 unit.",
     priceTiers: tiers([[1, 39.5]]),
     image: "/images/merch/adidas-performance-polo-mens.jpg",
     imageAlt: "Adidas Men's Performance Polo",
@@ -164,8 +161,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Adidas Women's Performance Polo",
     category: "Apparel",
     brand: "Adidas",
-    description:
-      "The women's counterpart to our Adidas polo, in 12 colors — the same budget-friendly, recognizable-brand staple.",
+    description: "Women's counterpart to our Adidas men's performance polo. Priced at 1 unit.",
     priceTiers: tiers([[1, 39.5]]),
     image: "/images/merch/adidas-performance-polo-womens.jpg",
     imageAlt: "Adidas Women's Performance Polo",
@@ -189,8 +185,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Adidas Men's Ultimate365 Lightweight Quarter-Zip Pullover",
     category: "Apparel",
     brand: "Adidas",
-    description:
-      "A lightweight quarter-zip pullover in 11 colors — a versatile, recognizable-brand layering piece.",
+    description: "Lightweight quarter-zip pullover. Priced at 1 unit.",
     priceTiers: tiers([[1, 60.0]]),
     image: "/images/merch/adidas-ultimate365-quarter-zip-mens.jpg",
     imageAlt: "Adidas Men's Ultimate365 Lightweight Quarter-Zip Pullover",
@@ -213,8 +208,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Adidas Women's Spacer Quarter-Zip Pullover",
     category: "Apparel",
     brand: "Adidas",
-    description:
-      "The women's counterpart quarter-zip pullover, in 6 colors — the same recognizable-brand layering piece.",
+    description: "Women's counterpart to our Adidas men's quarter-zip pullover. Priced at 1 unit.",
     priceTiers: tiers([[1, 71.98]]),
     image: "/images/merch/adidas-spacer-quarter-zip-womens.jpg",
     imageAlt: "Adidas Women's Spacer Quarter-Zip Pullover",
@@ -225,8 +219,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Under Armour Men's Drive Midlayer Pullover",
     category: "Apparel",
     brand: "Under Armour",
-    description:
-      "A midlayer quarter-zip pullover in 6 colors — a performance-brand option for cooler-weather events.",
+    description: "Midlayer quarter-zip pullover. Priced at 1 unit.",
     priceTiers: tiers([[1, 90.0]]),
     image: "/images/merch/under-armour-drive-midlayer-pullover.jpg",
     imageAlt: "Under Armour Men's Drive Midlayer Pullover",
@@ -244,8 +237,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Brooks Brothers Mesh Pique Performance Polo",
     category: "Apparel",
     brand: "Brooks Brothers",
-    description:
-      "An upper-tier brand polo in 6 colors — a step up from our everyday options for client-facing staff.",
+    description: "Mesh pique performance polo. Priced at 1 unit.",
     priceTiers: tiers([
       [1, 51.383],
       [36, 44.717],
@@ -264,7 +256,7 @@ const curatedProducts: MerchProduct[] = [
     category: "Apparel",
     brand: "Brooks Brothers",
     description:
-      "The women's counterpart to our Brooks Brothers polo, in 5 colors — the same upper-tier brand quality.",
+      "Women's counterpart to our Brooks Brothers mesh pique performance polo. Priced at 1 unit.",
     priceTiers: tiers([
       [1, 51.383],
       [36, 44.717],
@@ -278,8 +270,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Holderness & Bourne The Westland Peached Pullover",
     category: "Apparel",
     brand: "Holderness & Bourne",
-    description:
-      "A premium peached-finish quarter-zip pullover in 15 colors — a top-tier layering piece for leadership and donor events.",
+    description: "Peached-finish quarter-zip pullover. Priced at 1 unit.",
     priceTiers: tiers([[1, 155.0]]),
     image: "/images/merch/holderness-bourne-westland-pullover.jpg",
     imageAlt: "Holderness & Bourne The Westland Peached Pullover",
@@ -306,8 +297,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Johnnie-O Men's Sully Quarter-Zip Pullover Shirt",
     category: "Apparel",
     brand: "Johnnie-O",
-    description:
-      "A premium quarter-zip pullover in 14 colors — a polished, high-end layering option.",
+    description: "Quarter-zip pullover shirt. Priced at 1 unit.",
     priceTiers: tiers([[1, 138.0]]),
     image: "/images/merch/johnnie-o-sully-quarter-zip.jpg",
     imageAlt: "Johnnie-O Men's Sully Quarter-Zip Pullover Shirt",
@@ -333,8 +323,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Peter Millar Galway Stretch Loop Terry Quarter-Zip Vest",
     category: "Apparel",
     brand: "Peter Millar",
-    description:
-      "A stretch loop-terry quarter-zip vest in 4 colors — a luxury-tier layering piece. Priced at 6 units.",
+    description: "Stretch loop-terry quarter-zip vest. Priced at 6 units.",
     priceTiers: tiers([
       [6, 149.11],
       [12, 144.95],
@@ -356,8 +345,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Peter Millar Men's Essex Vest",
     category: "Apparel",
     brand: "Peter Millar",
-    description:
-      "A quilted luxury-tier vest in 3 colors — our top-end winter option for leadership and donor-facing events. Priced at 6 units.",
+    description: "Quilted vest. Priced at 6 units.",
     priceTiers: tiers([
       [6, 272.32],
       [12, 265.16],
@@ -378,8 +366,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Men's Peter Millar Pine Performance Hoodie",
     category: "Apparel",
     brand: "Peter Millar",
-    description:
-      "A luxury-tier performance hoodie in 7 colors — a premium layering piece for leadership and top-tier gifting. Priced at 6 units.",
+    description: "Performance hoodie. Priced at 6 units.",
     priceTiers: tiers([[6, 150.0]]),
     image: "/images/merch/peter-millar-pine-performance-hoodie.jpg",
     imageAlt: "Men's Peter Millar Pine Performance Hoodie",
@@ -399,8 +386,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Peter Millar Men's Perth Performance Quarter-Zip",
     category: "Apparel",
     brand: "Peter Millar",
-    description:
-      "A luxury-tier performance quarter-zip in 8 colors — for leadership, donor-facing events, and top-tier client gifting. Priced at 6 units.",
+    description: "Performance quarter-zip. Priced at 6 units.",
     priceTiers: tiers([[6, 145.0]]),
     image: "/images/merch/peter-millar-perth-quarter-zip-mens.jpg",
     imageAlt: "Peter Millar Men's Perth Performance Quarter-Zip",
@@ -422,7 +408,7 @@ const curatedProducts: MerchProduct[] = [
     category: "Apparel",
     brand: "Peter Millar",
     description:
-      "The women's counterpart to our Peter Millar Perth quarter-zip, in 6 colors — the same luxury tier. Priced at 6 units.",
+      "Women's counterpart to our Peter Millar Perth performance quarter-zip. Priced at 6 units.",
     priceTiers: tiers([[6, 145.0]]),
     image: "/images/merch/peter-millar-perth-quarter-zip-womens.jpg",
     imageAlt: "Peter Millar Women's Perth Performance Quarter-Zip",
@@ -441,8 +427,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Peter Millar Men's Jubilee Striped Polo",
     category: "Apparel",
     brand: "Peter Millar",
-    description:
-      "A striped luxury-tier polo in 5 colors — for leadership, donor-facing events, and top-tier client gifting. Priced at 6 units.",
+    description: "Striped polo. Priced at 6 units.",
     priceTiers: tiers([[6, 115.0]]),
     image: "/images/merch/peter-millar-jubilee-striped-polo.jpg",
     imageAlt: "Peter Millar Men's Jubilee Striped Polo",
@@ -460,8 +445,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Peter Millar Hales Performance Short Sleeve Jersey Polo",
     category: "Apparel",
     brand: "Peter Millar",
-    description:
-      "A luxury-tier jersey polo in 2 colors — for leadership, donor-facing events, and top-tier client gifting.",
+    description: "Performance short-sleeve jersey polo. Priced at 1 unit.",
     priceTiers: tiers([[1, 115.0]]),
     image: "/images/merch/peter-millar-hales-polo.jpg",
     imageAlt: "Peter Millar Hales Performance Short Sleeve Jersey Polo",
@@ -476,8 +460,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Peter Millar Men's Solid Performance Polo",
     category: "Apparel",
     brand: "Peter Millar",
-    description:
-      "Our luxury-tier polo in 5 colors — for leadership, donor-facing events, and top-tier client gifting. Priced at 6 units.",
+    description: "Solid performance polo. Priced at 6 units.",
     priceTiers: tiers([[6, 105.0]]),
     image: "/images/merch/peter-millar-polo-mens.jpg",
     imageAlt: "Peter Millar Men's Solid Performance Polo",
@@ -496,7 +479,7 @@ const curatedProducts: MerchProduct[] = [
     category: "Apparel",
     brand: "Peter Millar",
     description:
-      "The women's counterpart to our Peter Millar polo, in 3 colors — the same luxury tier for leadership and top-tier gifting.",
+      "Women's short-sleeve button polo, the counterpart to our Peter Millar men's polo. Priced at 1 unit.",
     priceTiers: tiers([[1, 115.0]]),
     image: "/images/merch/peter-millar-polo-womens.jpg",
     imageAlt: "Peter Millar Women's Short Sleeve Button Polo",
@@ -512,8 +495,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Callaway Men's Lightweight 1/4 Zip Pullover",
     category: "Apparel",
     brand: "Callaway",
-    description:
-      "A lightweight quarter-zip pullover in 3 colors — a recognizable-brand layering piece.",
+    description: "Lightweight quarter-zip pullover. Priced at 1 unit.",
     priceTiers: tiers([[1, 90.0]]),
     image: "/images/merch/callaway-lightweight-quarter-zip.jpg",
     imageAlt: "Callaway Men's Lightweight 1/4 Zip Pullover",
@@ -524,8 +506,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Storm Creek Men's Front Runner 120 GSM Insulated Vest",
     category: "Apparel",
     brand: "Storm Creek",
-    description:
-      "A recognizable-brand insulated vest in 4 colors — a winter staple for canvassing and outdoor events.",
+    description: "120 GSM insulated vest. Priced at 1 unit.",
     priceTiers: tiers([[1, 90.0]]),
     image: "/images/merch/storm-creek-front-runner-vest-mens.jpg",
     imageAlt: "Storm Creek Men's Front Runner 120 GSM Insulated Vest",
@@ -536,8 +517,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Storm Creek Women's Front Runner 120 GSM Insulated Vest",
     category: "Apparel",
     brand: "Storm Creek",
-    description:
-      "The women's counterpart to our Storm Creek insulated vest, in 6 colors — the same winter-ready warmth.",
+    description: "Women's counterpart to our Storm Creek insulated vest. Priced at 1 unit.",
     priceTiers: tiers([[1, 90.0]]),
     image: "/images/merch/storm-creek-front-runner-vest-womens.jpg",
     imageAlt: "Storm Creek Women's Front Runner 120 GSM Insulated Vest",
@@ -548,8 +528,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Imperial The Original Performance Cap",
     category: "Headwear",
     brand: "Imperial",
-    description:
-      "A structured, unstructured-brim performance cap in 33 colors — the widest color range of any cap in the catalog.",
+    description: "Performance cap. Priced at 1 unit.",
     priceTiers: tiers([
       [1, 20.33],
       [12, 19.5],
@@ -598,8 +577,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Gildan Ultra Cotton T-Shirt",
     category: "Apparel",
     brand: "Gildan",
-    description:
-      "The industry-standard cotton tee in 61 colors — the most flexible, budget-friendly option for large-volume giveaways.",
+    description: "Cotton t-shirt. Priced at 72 units.",
     priceTiers: tiers([
       [72, 9.05],
       [144, 8.15],
@@ -677,8 +655,7 @@ const curatedProducts: MerchProduct[] = [
     name: "6-Panel UPF 50+ Cool Comfort Stretch Cap",
     category: "Headwear",
     brand: "Essentials",
-    description:
-      "A structured, stretch-fit performance cap in 7 colors — built for a cleaner, more finished look than a mesh trucker back.",
+    description: "Structured, stretch-fit performance cap with UPF 50+. Priced at 1 unit.",
     priceTiers: tiers([
       [1, 12.7],
       [144, 12.6],
@@ -695,8 +672,7 @@ const curatedProducts: MerchProduct[] = [
     name: "6 Panel Premium Relaxed Golf Cap",
     category: "Headwear",
     brand: "Essentials",
-    description:
-      "A relaxed-fit golf dad cap in 20 colors — an affordable, casual everyday option. Priced at 12 units.",
+    description: "Relaxed-fit golf dad cap. Priced at 12 units.",
     priceTiers: tiers([
       [12, 7.5],
       [48, 7.417],
@@ -734,8 +710,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Summit Sweater-Fleece Vest",
     category: "Apparel",
     brand: "Essentials",
-    description:
-      "A heathered sweater-fleece vest — a polished mid-tier layering piece for cooler weather. Priced at 1 unit.",
+    description: "Heathered sweater-fleece vest. Priced at 1 unit.",
     priceTiers: tiers([
       [1, 74.6],
       [12, 70.3],
@@ -751,7 +726,7 @@ const curatedProducts: MerchProduct[] = [
     category: "Apparel",
     brand: "Essentials",
     description:
-      "The women's counterpart to our Summit sweater-fleece vest, in 2 color-blocked options.",
+      "Women's color-blocked counterpart to our Summit sweater-fleece vest. Priced at 1 unit.",
     priceTiers: tiers([
       [1, 75.7],
       [12, 71.3],
@@ -766,8 +741,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Zen Quarter-Zip Pullover",
     category: "Apparel",
     brand: "Essentials",
-    description:
-      "Layered quarter-zip pullover in 10 colors — a polished option for cooler-weather canvassing and events.",
+    description: "Layered quarter-zip pullover. Priced at 1 unit.",
     priceTiers: tiers([[1, 65.8]]),
     image: "/images/merch/zen-quarter-zip-pullover.jpg",
     imageAlt: "Zen Quarter-Zip Pullover",
@@ -789,8 +763,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Mesa Vest",
     category: "Apparel",
     brand: "Essentials",
-    description:
-      "A quilted insulated vest in 5 colors — a polished layering piece for cooler-weather events and door-knocking season.",
+    description: "Quilted insulated vest. Priced at 1 unit.",
     priceTiers: tiers([
       [1, 59.2],
       [12, 55.6],
@@ -806,7 +779,7 @@ const curatedProducts: MerchProduct[] = [
     category: "Drinkware",
     brand: "Owala",
     description:
-      "Double-wall stainless steel bottle with a flip straw and handle, in 12 colors — one of the most-requested drinkware items on the market.",
+      "Double-wall stainless steel bottle with a flip straw and handle. Priced at 24 units.",
     priceTiers: tiers([
       [24, 39.99],
       [72, 37.99],
@@ -834,8 +807,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Polar 30 oz. Stainless Steel Tumbler",
     category: "Drinkware",
     brand: "Essentials",
-    description:
-      "Vacuum-insulated tumbler in 4 colors, built for all-day use in the field or at the office.",
+    description: "Vacuum-insulated stainless steel tumbler. Priced at 25 units.",
     priceTiers: tiers([
       [25, 14.2],
       [50, 12.7],
@@ -852,8 +824,7 @@ const curatedProducts: MerchProduct[] = [
     name: "16 oz. Insulated Stainless Steel Travel Mug",
     category: "Drinkware",
     brand: "Essentials",
-    description:
-      "Budget-friendly insulated travel mug in 9 colors — a dependable everyday giveaway.",
+    description: "Insulated stainless steel travel mug. Priced at 100 units.",
     priceTiers: tiers([
       [100, 5.51],
       [250, 5.39],
@@ -870,8 +841,7 @@ const curatedProducts: MerchProduct[] = [
     name: "11 oz. Traditional Ceramic Mug",
     category: "Drinkware",
     brand: "Essentials",
-    description:
-      "Classic ceramic coffee mug in 15 colors — an easy, budget-friendly giveaway for offices and events.",
+    description: "Classic ceramic coffee mug. Priced at 72 units.",
     priceTiers: tiers([[72, 3.67]]),
     image: "/images/merch/ceramic-mug-11oz.jpg",
     imageAlt: "11 oz. Traditional Ceramic Mug",
@@ -898,8 +868,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Samsonite Better Than Basic Weekender",
     category: "Bags",
     brand: "Samsonite",
-    description:
-      "A premium Samsonite weekender duffel in 2 colors — a higher-end gift for leadership, major donors, or top staff.",
+    description: "Weekender duffel bag. Priced at 6 units.",
     priceTiers: tiers([
       [6, 165.5],
       [25, 141.94],
@@ -915,8 +884,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Fletcher Recycled rPET Laptop Backpack",
     category: "Bags",
     brand: "Essentials",
-    description:
-      "A polished recycled laptop backpack in 2 colors — a higher-end option for staff and leadership gifting.",
+    description: "Recycled rPET laptop backpack. Priced at 12 units.",
     priceTiers: tiers([
       [12, 48.59],
       [25, 41.67],
@@ -932,8 +900,7 @@ const curatedProducts: MerchProduct[] = [
     name: "7 oz. Cotton Canvas Tote Bag",
     category: "Bags",
     brand: "Essentials",
-    description:
-      'A dependable 15" x 16" cotton canvas tote in 5 colors — our most popular tote on ESP by review volume.',
+    description: '15" x 16" cotton canvas tote. Priced at 100 units.',
     priceTiers: tiers([
       [100, 2.9],
       [250, 2.84],
@@ -950,8 +917,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Large Non-Woven Recycled Tote",
     category: "Bags",
     brand: "Essentials",
-    description:
-      "Budget-friendly recycled tote in 13 colors — sized for handouts, literature, and event swag.",
+    description: "Large recycled non-woven tote. Priced at 100 units.",
     priceTiers: tiers([[100, 2.15]]),
     image: "/images/merch/non-woven-recycled-tote.jpg",
     imageAlt: "Large Non-Woven Recycled Tote",
@@ -976,8 +942,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Gusseted Shopping Tote",
     category: "Bags",
     brand: "Essentials",
-    description:
-      'Roomier gusseted tote (10.5"w x 11.75"h with an 8" gusset) in 7 colors, for heavier hauls.',
+    description: 'Gusseted tote, 10.5"w x 11.75"h with an 8" gusset. Priced at 150 units.',
     priceTiers: tiers([[150, 5.12]]),
     image: "/images/merch/gusset-shopping-tote.jpg",
     imageAlt: "Gusseted Shopping Tote",
@@ -988,8 +953,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Non-Woven Drawstring Backpack",
     category: "Bags",
     brand: "Essentials",
-    description:
-      "An inexpensive drawstring backpack in 10 colors — a lightweight option for field or event handouts.",
+    description: "Lightweight non-woven drawstring backpack. Priced at 150 units.",
     priceTiers: tiers([
       [150, 1.79],
       [250, 1.69],
@@ -1017,8 +981,7 @@ const curatedProducts: MerchProduct[] = [
     name: "10,000mAh MagSafe Power Bank",
     category: "Tech Accessories",
     brand: "Essentials",
-    description:
-      "Wired and wireless MagSafe-compatible power bank in 4 colors — a high-value tech giveaway.",
+    description: "Wired and wireless MagSafe-compatible power bank. Priced at 100 units.",
     priceTiers: tiers([[100, 22.13]]),
     image: "/images/merch/magsafe-power-bank.jpg",
     imageAlt: "10,000mAh MagSafe Power Bank",
@@ -1030,7 +993,7 @@ const curatedProducts: MerchProduct[] = [
     category: "Tech Accessories",
     brand: "Essentials",
     description:
-      "A compact magnetic Bluetooth speaker that clips to any metal surface — a distinctive, higher-end tech giveaway.",
+      "Compact magnetic Bluetooth speaker that clips to any metal surface. Priced at 25 units.",
     priceTiers: tiers([
       [25, 20.13],
       [120, 19.33],
@@ -1047,8 +1010,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Wireless Phone Charging Pad",
     category: "Tech Accessories",
     brand: "Essentials",
-    description:
-      "A best-selling wireless charging pad — practical desk swag that keeps your brand in daily view.",
+    description: "Wireless phone charging pad. Priced at 50 units.",
     priceTiers: tiers([[50, 18.27]]),
     image: "/images/merch/wireless-charging-pad.jpg",
     imageAlt: "Wireless Phone Charging Pad",
@@ -1059,8 +1021,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Classic Swivel USB Flash Drive",
     category: "Tech Accessories",
     brand: "Essentials",
-    description:
-      "A dependable swivel USB drive in 22 colors — a practical giveaway for onboarding kits and conferences.",
+    description: "Swivel USB flash drive. Priced at 50 units.",
     priceTiers: tiers([
       [50, 5.7],
       [100, 3.77],
@@ -1099,8 +1060,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Slim Reversible Neoprene Laptop Sleeve",
     category: "Tech Accessories",
     brand: "Essentials",
-    description:
-      'A budget-friendly 14" reversible laptop sleeve in 6 colors — a practical, low-cost tech giveaway.',
+    description: 'Slim 14" reversible neoprene laptop sleeve. Priced at 100 units.',
     priceTiers: tiers([
       [100, 3.917],
       [300, 3.583],
@@ -1125,7 +1085,7 @@ const curatedProducts: MerchProduct[] = [
     category: "Office & Writing",
     brand: "Essentials",
     description:
-      "A leather-look padfolio in 3 colors, sized for briefings and client meetings — a polished everyday-carry piece.",
+      "Leather-look padfolio sized for briefings and client meetings. Priced at 12 units.",
     priceTiers: tiers([
       [12, 49.95],
       [25, 49.0],
@@ -1142,8 +1102,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Textured Linen Notebook",
     category: "Office & Writing",
     brand: "Essentials",
-    description:
-      "Linen-textured journal in 6 colors — a refined giveaway for donors and VIP contacts.",
+    description: "Linen-textured journal. Priced at 100 units.",
     priceTiers: tiers([[100, 6.99]]),
     image: "/images/merch/textured-linen-notebook.jpg",
     imageAlt: "Textured Linen Notebook",
@@ -1154,7 +1113,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Classic Hard Cover Notebook",
     category: "Office & Writing",
     brand: "Essentials",
-    description: "A dependable hardcover notebook for everyday note-taking and briefings.",
+    description: "Hardcover notebook. Priced at 50 units.",
     priceTiers: tiers([[50, 13.32]]),
     image: "/images/merch/classic-hardcover-notebook.jpg",
     imageAlt: "Classic Hard Cover Notebook",
@@ -1165,8 +1124,7 @@ const curatedProducts: MerchProduct[] = [
     name: '32" x 79" Retractable Banner Stand',
     category: "Event & Signage",
     brand: "Essentials",
-    description:
-      "Full-size retractable banner stand for tables, entrances, and step-and-repeat setups.",
+    description: 'Full-size 32" x 79" retractable banner stand. Priced at 1 unit.',
     priceTiers: tiers([[1, 354.9]]),
     image: "/images/merch/retractable-banner-stand.jpg",
     imageAlt: "32 by 79 inch Retractable Banner Stand",
@@ -1177,8 +1135,7 @@ const curatedProducts: MerchProduct[] = [
     name: '3/4" Silkscreen Breakaway Lanyard',
     category: "Event & Signage",
     brand: "Essentials",
-    description:
-      "Breakaway safety lanyard in 9 colors — a staple for staff and volunteer credentials at events.",
+    description: '3/4" breakaway safety lanyard. Priced at 150 units.',
     priceTiers: tiers([[150, 1.75]]),
     image: "/images/merch/silkscreen-lanyard.jpg",
     imageAlt: "3/4-inch Silkscreen Breakaway Lanyard",
@@ -1190,7 +1147,7 @@ const curatedProducts: MerchProduct[] = [
     category: "Knives & Tools",
     brand: "Buck",
     description:
-      'A Made-in-USA lockback knife with a 3 1/8" stainless steel blade and textured thermoplastic handle — a durable, trusted-brand gift. Priced at 24 units.',
+      'Made-in-USA lockback knife with a 3 1/8" stainless steel blade and textured thermoplastic handle. Priced at 24 units.',
     priceTiers: tiers([
       [24, 25.8],
       [96, 24.9],
@@ -1206,7 +1163,7 @@ const curatedProducts: MerchProduct[] = [
     category: "Knives & Tools",
     brand: "Leatherman",
     description:
-      'A Made-in-USA stainless steel multi-tool — 4" closed, with pliers, screwdrivers, wire cutters, and more. Priced at 24 units.',
+      'Made-in-USA stainless steel multi-tool, 4" closed, with pliers, screwdrivers, wire cutters, and more. Priced at 24 units.',
     priceTiers: tiers([
       [24, 43.225],
       [48, 42.575],
@@ -1221,8 +1178,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Cedar Creek® Valor Pocket Knife",
     category: "Knives & Tools",
     brand: "Essentials",
-    description:
-      "A budget-friendly textured-handle pocket knife in 2 colors — an easy, low-cost add-on gift. Priced at 48 units.",
+    description: "Textured-handle pocket knife. Priced at 48 units.",
     priceTiers: tiers([
       [48, 7.05],
       [144, 6.75],
@@ -1238,7 +1194,7 @@ const curatedProducts: MerchProduct[] = [
     category: "Gifts & Entertaining",
     brand: "Essentials",
     description:
-      "A bamboo cheese board with a cheese knife, cheese fork, and chisel knife — a polished host or client gift. Priced at 25 units.",
+      "Bamboo cheese board with a cheese knife, cheese fork, and chisel knife. Priced at 25 units.",
     priceTiers: tiers([
       [25, 13.5],
       [50, 12.9],
@@ -1256,7 +1212,7 @@ const curatedProducts: MerchProduct[] = [
     category: "Tech Accessories",
     brand: "Essentials",
     description:
-      "A magnetic PU leather card wallet that attaches to the back of a phone in 7 colors — everyday-carry utility. Priced at 100 units.",
+      "Magnetic PU leather card wallet that attaches to the back of a phone. Priced at 100 units.",
     priceTiers: tiers([
       [100, 2.9],
       [250, 2.4],
@@ -1274,7 +1230,7 @@ const curatedProducts: MerchProduct[] = [
     category: "Gifts & Entertaining",
     brand: "Essentials",
     description:
-      "A travel toiletry kit with a nylon pouch, bandages, tissue pack, toothbrush, toothpaste, deodorant soap, and shampoo in 4 colors. Priced at 50 units.",
+      "Travel toiletry kit with a nylon pouch, bandages, tissue pack, toothbrush, toothpaste, deodorant soap, and shampoo. Priced at 50 units.",
     priceTiers: tiers([
       [50, 6.3],
       [250, 6.06],
@@ -1290,8 +1246,7 @@ const curatedProducts: MerchProduct[] = [
     name: "rPET Roll-Up Picnic Blanket",
     category: "Gifts & Entertaining",
     brand: "Essentials",
-    description:
-      "A recycled-material roll-up picnic blanket in 8 color combinations — a relaxed outdoor-event or thank-you gift. Priced at 25 units.",
+    description: "Recycled-material roll-up picnic blanket. Priced at 25 units.",
     priceTiers: tiers([
       [25, 7.83],
       [50, 7.602],
@@ -1317,8 +1272,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Rain Gauge",
     category: "Gifts & Entertaining",
     brand: "Essentials",
-    description:
-      'A plastic rain gauge with a heavy-gauge 4" tub in 5 colors — a practical, memorable outdoor gift. Priced at 150 units.',
+    description: 'Plastic rain gauge with a heavy-gauge 4" tub. Priced at 150 units.',
     priceTiers: tiers([
       [150, 2.634],
       [250, 2.532],
@@ -1336,7 +1290,7 @@ const curatedProducts: MerchProduct[] = [
     category: "Gifts & Entertaining",
     brand: "Essentials",
     description:
-      'An eight-piece BBQ set with spatula, fork, tongs, basting brush, and four skewers in a zip polyester case with 12" handles. Priced at 25 units.',
+      'Eight-piece BBQ set with spatula, fork, tongs, basting brush, and four skewers in a zip polyester case with 12" handles. Priced at 25 units.',
     priceTiers: tiers([
       [25, 21.59],
       [75, 20.59],
@@ -1350,10 +1304,9 @@ const curatedProducts: MerchProduct[] = [
   {
     id: "pickleball-paddle",
     name: "Pickleball Paddle",
-    category: "Gifts & Entertaining",
+    category: "Outdoor & Sports",
     brand: "Essentials",
-    description:
-      "A budget-friendly single pickleball paddle — an easy, on-trend bulk giveaway. Priced at 100 units.",
+    description: "Single pickleball paddle. Priced at 100 units.",
     priceTiers: tiers([
       [100, 6.1],
       [300, 5.94],
@@ -1368,10 +1321,10 @@ const curatedProducts: MerchProduct[] = [
   {
     id: "carbon-fiber-pickleball-set",
     name: "Carbon Fiber Pickleball Racket Paddle Set",
-    category: "Gifts & Entertaining",
+    category: "Outdoor & Sports",
     brand: "Essentials",
     description:
-      "A premium carbon fiber pickleball set with 2 rackets, 4 balls, and a carrying bag — a lightweight, fast-swing design in 2 colors. Priced at 50 units.",
+      "Carbon fiber pickleball set with 2 rackets, 4 balls, and a carrying bag, in a lightweight, fast-swing design. Priced at 50 units.",
     priceTiers: tiers([
       [50, 35.683],
       [100, 35.517],
@@ -1387,8 +1340,7 @@ const curatedProducts: MerchProduct[] = [
     name: "Cross® Classic Century Ballpoint Pen",
     category: "Office & Writing",
     brand: "Cross",
-    description:
-      "An iconic chrome ballpoint pen from Cross — a special-occasion gift with lasting prestige. Priced at 12 units.",
+    description: "Chrome ballpoint pen from Cross. Priced at 12 units.",
     priceTiers: tiers([[12, 34.99]]),
     image: "/images/merch/cross-classic-century-pen.webp",
     imageAlt: "Cross Classic Century Ballpoint Pen",
@@ -1398,9 +1350,8 @@ const curatedProducts: MerchProduct[] = [
     id: "bic-clic-stic-pen",
     name: "BIC® Clic Stic® Pen",
     category: "Office & Writing",
-    brand: "Essentials",
-    description:
-      "An affordable retractable ballpoint pen in 12 colors — a reliable everyday-use bulk giveaway. Priced at 250 units.",
+    brand: "BIC",
+    description: "Retractable ballpoint pen. Priced at 250 units.",
     priceTiers: tiers([[250, 0.59]]),
     image: "/images/merch/bic-clic-stic-pen.webp",
     imageAlt: "BIC Clic Stic Pen",
@@ -1425,7 +1376,7 @@ const curatedProducts: MerchProduct[] = [
     category: "Office & Writing",
     brand: "Essentials",
     description:
-      "A bamboo desk organizer with a stylus pen, phone holder, 3 pen slots, and a sticky note pad — a practical desk-accessory gift. Priced at 75 units.",
+      "Bamboo desk organizer with a stylus pen, phone holder, 3 pen slots, and a sticky note pad. Priced at 75 units.",
     priceTiers: tiers([
       [75, 8.35],
       [150, 8.25],
@@ -1443,7 +1394,7 @@ const curatedProducts: MerchProduct[] = [
     category: "Event & Signage",
     brand: "Essentials",
     description:
-      'Full-color custom vinyl die-cut stickers in your choice of shape, from 2" to 5" — a low-cost way to extend brand reach. Priced at 50 units.',
+      'Full-color custom vinyl die-cut stickers in your choice of shape, from 2" to 5". Priced at 50 units.',
     priceTiers: tiers([
       [50, 1.61],
       [100, 0.96],
