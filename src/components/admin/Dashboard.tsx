@@ -11,7 +11,7 @@ import {
   sendMerchPaymentLink,
 } from "@/app/admin/actions";
 import { MERCH_ORDER_STATUSES, MERCH_ORDER_STATUS_LABELS } from "@/lib/merchOrders";
-import { buildBackendOrderSheet } from "@/lib/merchBackendSheet";
+import { buildBackendOrderSheet, describeLineColor } from "@/lib/merchBackendSheet";
 
 export interface SubmissionRow {
   id: number;
@@ -53,6 +53,8 @@ const HIDDEN_FIELDS = new Set([
 interface CartLineItemDTO {
   productId: string;
   name: string;
+  // Absent on orders stored before colors were recorded.
+  color?: string;
   quantity: number;
   unitPrice: number;
   lineTotal: number;
@@ -616,7 +618,10 @@ export default function Dashboard({
                       </p>
                       <ul className="mt-2 space-y-1.5">
                         {row.data.items.map((item) => (
-                          <li key={item.productId} className="text-sm text-onyx">
+                          <li
+                            key={`${item.productId}::${item.color ?? ""}`}
+                            className="text-sm text-onyx"
+                          >
                             <div className="flex justify-between">
                               <span>
                                 {item.name} × {item.quantity}
@@ -625,6 +630,9 @@ export default function Dashboard({
                                 ${item.unitPrice.toFixed(2)}/ea — ${item.lineTotal.toFixed(2)}
                               </span>
                             </div>
+                            <p className="mt-0.5 text-xs text-onyx/60">
+                              {describeLineColor(item.color)}
+                            </p>
                             {(item.espUrl || item.supplier || item.productNo) && (
                               <p className="mt-0.5 text-xs text-onyx/60">
                                 {item.espUrl && (
