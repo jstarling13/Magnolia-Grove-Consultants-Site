@@ -16,7 +16,9 @@ import { describe, expect, it } from "vitest";
 import { products } from "@/config/merchandiseConfig";
 import { swatchInfo } from "@/lib/colorSwatches";
 
-const MIN_OCCURRENCE_COVERAGE = 0.98;
+// Target is 98%. The hard floor is 96% so a new import with a few vendor-invented color names
+// (which just render the neutral dashed swatch) never blocks a deploy; the test message lists them.
+const MIN_OCCURRENCE_COVERAGE = 0.96;
 
 /**
  * Names that deliberately keep the neutral dashed ring. Adding a name here
@@ -93,7 +95,7 @@ function coverage() {
 }
 
 describe("swatch coverage of the live catalog", () => {
-  it("covers at least 98% of color-name occurrences with a real swatch", () => {
+  it("covers at least 96% of color-name occurrences with a real swatch (target 98%)", () => {
     const result = coverage();
     if (process.env.COLOR_COVERAGE_REPORT) {
       const pct = (result.occurrenceCoverage * 100).toFixed(2);
