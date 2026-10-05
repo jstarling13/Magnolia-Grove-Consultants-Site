@@ -1,56 +1,181 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import Link from "next/link";
-import { merchandiseCategories, groupByCategory } from "@/config/merchandiseConfig";
-import ColorSwatches from "@/components/merchandise/ColorSwatches";
-import ProductImageWithLogo from "@/components/merchandise/ProductImageWithLogo";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import ProductCard from "@/components/merchandise/ProductCard";
 import LogoDropzone from "@/components/merchandise/LogoDropzone";
-import type { MerchProduct } from "@/types";
+import {
+  FOCUSED_INITIAL_VISIBLE,
+  INITIAL_VISIBLE,
+  SORT_OPTIONS,
+  SHOW_MORE_STEP,
+  growVisible,
+  isRealBrand,
+  isSortKey,
+  matchesQuery,
+  nextBatchSize,
+  searchHaystack,
+  sortProducts,
+  type CatalogProduct,
+  type SortKey,
+} from "@/lib/merchCatalog";
 
 interface ProductCatalogProps {
-  products: MerchProduct[];
+  /** Slim card products in "featured" order. */
+  products: CatalogProduct[];
+  /** Categories in display order. */
+  categories: string[];
 }
 
-const INITIAL_VISIBLE = 6;
+const ALL = "All";
+const SEARCH_DEBOUNCE_MS = 200;
+/** Cards in the first row of the first section load eagerly. */
+const PRIORITY_CARDS = 4;
 
-export default function ProductCatalog({ products }: ProductCatalogProps) {
-  const [query, setQuery] = useState("");
-  const [activeCategory, setActiveCategory] = useState<string>("All");
-  const [activeBrand, setActiveBrand] = useState<string>("All");
-  const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>({});
+const controlClasses =
+  "rounded-md border border-gold/25 bg-cream px-3 py-2.5 text-sm text-onyx focus:outline-none focus:ring-2 focus:ring-gold/60";
 
-  const categoriesInUse = useMemo(
-    () => merchandiseCategories.filter((category) => products.some((p) => p.category === category)),
+function useDebouncedValue<T>(value: T, delay: number): T {
+  const [debounced, setDebounced] = useState(value);
+  useEffect(() => {
+    const timer = window.setTimeout(() => setDebounced(value), delay);
+    return () => window.clearTimeout(timer);
+  }, [value, delay]);
+  return debounced;
+}
+
+function slug(category: string): string {
+  return `category-${category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+}
+
+export default function ProductCatalog({ products, categories }: ProductCatalogProps) {
+  const [queryInput, setQueryInput] = useState("");
+  const query = useDebouncedValue(queryInput, SEARCH_DEBOUNCE_MS).trim();
+  const [sort, setSort] = useState<SortKey>("featured");
+  const [category, setCategory] = useState<string>(ALL);
+  const [brand, setBrand] = useState<string>(ALL);
+  // Visible-count state is tagged with the filter it belongs to, so changing
+  // any filter naturally starts every section back at its initial size.
+  const filterKey = `${category}|${brand}|${query}|${sort}`;
+  const [disclosure, setDisclosure] = useState<{ key: string; counts: Record<string, number> }>({
+    key: filterKey,
+    counts: {},
+  });
+  // Flips once the URL has been read, so we never overwrite it with defaults.
+  const [urlReady, setUrlReady] = useState(false);
+
+  // The chip bar sticks just below the site header, whatever height it has at
+  // this breakpoint.
+  const [headerHeight, setHeaderHeight] = useState(0);
+  useEffect(() => {
+    const header = document.querySelector("header");
+    if (!header) return;
+    const update = () => setHeaderHeight(Math.round(header.getBoundingClientRect().height));
+    update();
+    const observer = new ResizeObserver(update);
+    observer.observe(header);
+    return () => observer.disconnect();
+  }, []);
+
+  const haystacks = useMemo(
+    () => new Map(products.map((product) => [product.id, searchHaystack(product)])),
     [products]
   );
 
-  const brandsInUse = useMemo(() => {
-    const brands = Array.from(new Set(products.map((p) => p.brand)));
-    brands.sort((a, b) => {
-      if (a === "Essentials") return 1;
-      if (b === "Essentials") return -1;
-      return a.localeCompare(b);
-    });
-    return brands;
-  }, [products]);
+  const brands = useMemo(
+    () =>
+      Array.from(new Set(products.map((product) => product.brand)))
+        .filter(isRealBrand)
+        .sort((a, b) => a.localeCompare(b)),
+    [products]
+  );
 
-  const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    return products.filter((product) => {
-      const matchesCategory = activeCategory === "All" || product.category === activeCategory;
-      const matchesBrand = activeBrand === "All" || product.brand === activeBrand;
-      const matchesQuery =
-        !q ||
-        product.name.toLowerCase().includes(q) ||
-        product.description.toLowerCase().includes(q) ||
-        product.category.toLowerCase().includes(q) ||
-        product.brand.toLowerCase().includes(q);
-      return matchesCategory && matchesBrand && matchesQuery;
-    });
-  }, [products, query, activeCategory, activeBrand]);
+  // Restore shareable state (?category=&q=&sort=&brand=) on first mount. Done
+  // in an effect, not during render, so server and client markup match.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const initialCategory = params.get("category");
+    const initialBrand = params.get("brand");
+    const initialSort = params.get("sort");
+    const initialQuery = params.get("q");
+    if (initialCategory && categories.includes(initialCategory)) setCategory(initialCategory);
+    if (initialBrand && brands.includes(initialBrand)) setBrand(initialBrand);
+    if (isSortKey(initialSort)) setSort(initialSort);
+    if (initialQuery) setQueryInput(initialQuery);
+    setUrlReady(true);
+  }, [categories, brands]);
 
-  const categoryGroups = useMemo(() => groupByCategory(filtered), [filtered]);
+  useEffect(() => {
+    if (!urlReady) return;
+    const url = new URL(window.location.href);
+    const entries: [string, string | null][] = [
+      ["category", category === ALL ? null : category],
+      ["brand", brand === ALL ? null : brand],
+      ["sort", sort === "featured" ? null : sort],
+      ["q", query || null],
+    ];
+    for (const [key, value] of entries) {
+      if (value) url.searchParams.set(key, value);
+      else url.searchParams.delete(key);
+    }
+    if (url.href !== window.location.href) {
+      window.history.replaceState(window.history.state, "", url);
+    }
+  }, [urlReady, category, brand, sort, query]);
+
+  // Search + brand narrow the result set; the category chips then slice it.
+  const matching = useMemo(
+    () =>
+      products.filter(
+        (product) =>
+          (brand === ALL || product.brand === brand) &&
+          (!query || matchesQuery(haystacks.get(product.id) ?? "", query))
+      ),
+    [products, brand, query, haystacks]
+  );
+
+  const counts = useMemo(() => {
+    const result: Record<string, number> = {};
+    for (const product of matching) result[product.category] = (result[product.category] ?? 0) + 1;
+    return result;
+  }, [matching]);
+
+  const groups = useMemo(() => {
+    const sorted = sortProducts(matching, sort);
+    const byCategory = new Map<string, CatalogProduct[]>();
+    for (const product of sorted) {
+      const list = byCategory.get(product.category);
+      if (list) list.push(product);
+      else byCategory.set(product.category, [product]);
+    }
+    return categories
+      .filter((name) => (category === ALL || name === category) && byCategory.has(name))
+      .map((name) => ({ category: name, items: byCategory.get(name)! }));
+  }, [matching, sort, categories, category]);
+
+  const resultCount = groups.reduce((sum, group) => sum + group.items.length, 0);
+  const hasFilters = category !== ALL || brand !== ALL || query !== "" || queryInput !== "";
+  const initialVisible = category === ALL ? INITIAL_VISIBLE : FOCUSED_INITIAL_VISIBLE;
+  const visibleCounts = disclosure.key === filterKey ? disclosure.counts : {};
+
+  const setVisible = useCallback(
+    (name: string, count: number) =>
+      setDisclosure((prev) => ({
+        key: filterKey,
+        counts: { ...(prev.key === filterKey ? prev.counts : {}), [name]: count },
+      })),
+    [filterKey]
+  );
+
+  function clearFilters() {
+    setQueryInput("");
+    setBrand(ALL);
+    setCategory(ALL);
+  }
+
+  function collapse(name: string) {
+    setVisible(name, initialVisible);
+    document.getElementById(slug(name))?.scrollIntoView({ block: "start" });
+  }
 
   return (
     <div>
@@ -58,93 +183,183 @@ export default function ProductCatalog({ products }: ProductCatalogProps) {
         <LogoDropzone />
       </div>
 
-      <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-[minmax(0,1fr)_auto_auto]">
         <input
           type="search"
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-          placeholder="Search products or brands..."
+          value={queryInput}
+          onChange={(event) => setQueryInput(event.target.value)}
+          placeholder="Search products, brands or colors"
           aria-label="Search products"
-          className="w-full max-w-sm rounded-md border border-gold/25 bg-cream px-4 py-3 text-sm text-onyx placeholder:text-onyx/50 focus:outline-none focus:ring-2 focus:ring-gold/60"
+          className={`${controlClasses} col-span-2 w-full sm:col-span-1`}
         />
+        <label className="min-w-0">
+          <span className="sr-only">Sort products</span>
+          <select
+            value={sort}
+            onChange={(event) => setSort(event.target.value as SortKey)}
+            className={`${controlClasses} w-full font-medium`}
+          >
+            {SORT_OPTIONS.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className="min-w-0">
+          <span className="sr-only">Filter by brand</span>
+          <select
+            value={brand}
+            onChange={(event) => setBrand(event.target.value)}
+            className={`${controlClasses} w-full font-medium`}
+          >
+            <option value={ALL}>All Brands</option>
+            {brands.map((name) => (
+              <option key={name} value={name}>
+                {name}
+              </option>
+            ))}
+          </select>
+        </label>
+      </div>
 
-        <div className="flex flex-col gap-3 sm:flex-row">
-          <label className="flex items-center gap-2 text-sm text-onyx/70">
-            <span className="sr-only">Filter by category</span>
-            <select
-              value={activeCategory}
-              onChange={(event) => setActiveCategory(event.target.value)}
-              className="rounded-md border border-gold/25 bg-cream px-4 py-3 text-sm font-medium text-onyx focus:outline-none focus:ring-2 focus:ring-gold/60"
-            >
-              <option value="All">All Categories</option>
-              {categoriesInUse.map((category) => (
-                <option key={category} value={category}>
-                  {category}
-                </option>
-              ))}
-            </select>
-          </label>
-
-          <label className="flex items-center gap-2 text-sm text-onyx/70">
-            <span className="sr-only">Filter by brand</span>
-            <select
-              value={activeBrand}
-              onChange={(event) => setActiveBrand(event.target.value)}
-              className="rounded-md border border-gold/25 bg-cream px-4 py-3 text-sm font-medium text-onyx focus:outline-none focus:ring-2 focus:ring-gold/60"
-            >
-              <option value="All">All Brands</option>
-              {brandsInUse.map((brand) => (
-                <option key={brand} value={brand}>
-                  {brand}
-                </option>
-              ))}
-            </select>
-          </label>
+      {/* Category chips: sticky below the site header so they stay reachable at 500 products. */}
+      <div
+        style={{ top: headerHeight }}
+        className="sticky z-30 -mx-6 mt-4 border-b border-gold/20 bg-cream/95 px-6 backdrop-blur sm:-mx-8 sm:px-8 lg:-mx-12 lg:px-12"
+      >
+        <div
+          role="group"
+          aria-label="Filter by category"
+          className="flex gap-2 overflow-x-auto py-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+          <CategoryChip
+            label="All"
+            count={matching.length}
+            active={category === ALL}
+            onClick={() => setCategory(ALL)}
+          />
+          {categories.map((name) => (
+            <CategoryChip
+              key={name}
+              label={name}
+              count={counts[name] ?? 0}
+              active={category === name}
+              onClick={() => setCategory(name)}
+            />
+          ))}
         </div>
       </div>
 
-      {filtered.length === 0 ? (
-        <p className="mt-14 text-center text-base leading-relaxed text-onyx/60">
-          No products match your search — try the request form below and we&apos;ll source it for you.
+      <div className="mt-5 flex min-h-[2rem] flex-wrap items-center justify-between gap-3">
+        <p role="status" className="text-sm text-onyx/60">
+          {resultCount === 0
+            ? "No products found"
+            : `Showing ${resultCount} ${resultCount === 1 ? "product" : "products"}${
+                category === ALL ? "" : ` in ${category}`
+              }`}
         </p>
-      ) : (
-        <div className="mt-10 space-y-16">
-          {categoryGroups.map(({ category, items }) => {
-            const isExpanded = expandedCategories[category] ?? false;
-            const visibleItems = isExpanded ? items : items.slice(0, INITIAL_VISIBLE);
-            const hasMore = items.length > INITIAL_VISIBLE;
+        {hasFilters && (
+          <button
+            type="button"
+            onClick={clearFilters}
+            className="text-sm font-semibold text-gold-dark underline-offset-2 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-dark"
+          >
+            Clear filters
+          </button>
+        )}
+      </div>
 
+      {resultCount === 0 ? (
+        <div className="mt-8 rounded-lg border border-dashed border-gold/40 px-6 py-14 text-center">
+          <p className="text-base font-semibold text-onyx">No products match your filters.</p>
+          <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-onyx/60">
+            Try a different search, or clear the filters. If it still isn&apos;t here, request it
+            and we&apos;ll source it for you.
+          </p>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+            {hasFilters && (
+              <button
+                type="button"
+                onClick={clearFilters}
+                className="rounded-md border border-gold/40 px-5 py-2.5 text-sm font-semibold text-onyx transition-colors hover:border-gold hover:bg-gold/10"
+              >
+                Clear filters
+              </button>
+            )}
+            <a
+              href="#request"
+              className="rounded-md bg-gold px-5 py-2.5 text-sm font-semibold text-onyx transition-colors hover:bg-gold-bright"
+            >
+              Request a product
+            </a>
+          </div>
+        </div>
+      ) : (
+        <div className="mt-8 space-y-14">
+          {groups.map(({ category: name, items }, groupIndex) => {
+            const shown = Math.min(visibleCounts[name] ?? initialVisible, items.length);
+            const batch = nextBatchSize(shown, items.length);
             return (
-              <div key={category}>
+              <section
+                key={name}
+                id={slug(name)}
+                aria-labelledby={`${slug(name)}-heading`}
+                className="scroll-mt-44"
+              >
                 <div className="flex items-baseline justify-between border-b border-gold/20 pb-2">
-                  <h2 className="font-heading text-lg uppercase tracking-wide text-onyx/80">
-                    {category}
+                  <h2
+                    id={`${slug(name)}-heading`}
+                    className="font-heading text-lg uppercase tracking-wide text-onyx/80"
+                  >
+                    {name}
                   </h2>
-                  <span className="text-xs font-medium text-onyx/40">
+                  <span className="text-xs font-medium text-onyx/50">
                     {items.length} {items.length === 1 ? "item" : "items"}
                   </span>
                 </div>
 
-                <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                  {visibleItems.map((product) => (
-                    <ProductCard key={product.id} product={product} />
+                <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">
+                  {items.slice(0, shown).map((product, index) => (
+                    <ProductCard
+                      key={product.id}
+                      product={product}
+                      priority={groupIndex === 0 && index < PRIORITY_CARDS}
+                    />
                   ))}
                 </div>
 
-                {hasMore && (
-                  <div className="mt-6 text-center">
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setExpandedCategories((prev) => ({ ...prev, [category]: !isExpanded }))
-                      }
-                      className="rounded-md border border-gold/30 px-6 py-2.5 text-sm font-semibold text-onyx/80 transition-colors hover:border-gold/60 hover:text-onyx"
-                    >
-                      {isExpanded ? "Show Fewer" : `View All ${items.length} ${category} Items`}
-                    </button>
+                {items.length > initialVisible && (
+                  <div className="mt-8 flex flex-col items-center gap-3">
+                    <p className="text-xs text-onyx/50" aria-live="polite">
+                      Showing {shown} of {items.length}
+                    </p>
+                    <div className="flex flex-wrap justify-center gap-3">
+                      {batch > 0 && (
+                        <button
+                          type="button"
+                          aria-label={`Show ${batch} more ${name} ${batch === 1 ? "product" : "products"}`}
+                          onClick={() =>
+                            setVisible(name, growVisible(shown, items.length, SHOW_MORE_STEP))
+                          }
+                          className="rounded-md border border-gold/40 px-6 py-2.5 text-sm font-semibold text-onyx transition-colors hover:border-gold hover:bg-gold/10"
+                        >
+                          Show {batch} more
+                        </button>
+                      )}
+                      {shown > initialVisible && (
+                        <button
+                          type="button"
+                          onClick={() => collapse(name)}
+                          className="rounded-md px-4 py-2.5 text-sm font-semibold text-onyx/60 transition-colors hover:text-onyx"
+                        >
+                          Show fewer
+                        </button>
+                      )}
+                    </div>
                   </div>
                 )}
-              </div>
+              </section>
             );
           })}
         </div>
@@ -153,63 +368,34 @@ export default function ProductCatalog({ products }: ProductCatalogProps) {
   );
 }
 
-function ProductCard({ product }: { product: MerchProduct }) {
-  const [selectedColor, setSelectedColor] = useState<string | undefined>(undefined);
-
-  const sortedTiers = [...product.priceTiers].sort((a, b) => a.quantity - b.quantity);
-  const lowestQtyTier = sortedTiers[0];
-  const bestTier = sortedTiers[sortedTiers.length - 1];
-  const hasRange = sortedTiers.length > 1;
-  const imageSrc = selectedColor ? product.colorImages?.[selectedColor] : undefined;
-
+function CategoryChip({
+  label,
+  count,
+  active,
+  onClick,
+}: {
+  label: string;
+  count: number;
+  active: boolean;
+  onClick: () => void;
+}) {
+  const disabled = count === 0 && !active;
   return (
-    <Link
-      href={`/merchandise/${product.id}`}
-      className="flex h-full flex-col overflow-hidden rounded-lg border border-gold/25 bg-cream-100/85 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:shadow-[0_16px_40px_-12px_rgba(197,160,89,0.35)]"
+    <button
+      type="button"
+      aria-pressed={active}
+      disabled={disabled}
+      onClick={onClick}
+      className={`inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full border px-3.5 py-1.5 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-dark disabled:cursor-not-allowed disabled:opacity-40 ${
+        active
+          ? "border-onyx bg-onyx text-white"
+          : "border-gold/30 bg-cream text-onyx/80 hover:border-gold hover:text-onyx"
+      }`}
     >
-      <div className="relative aspect-square w-full overflow-hidden border-b border-gold/15 bg-cream-100">
-        <ProductImageWithLogo
-          product={product}
-          imageSrc={imageSrc}
-          imageAlt={selectedColor ? `${product.name} in ${selectedColor}` : undefined}
-          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-        />
-      </div>
-      <div className="flex flex-1 flex-col p-6">
-        <span className="text-xs font-semibold uppercase tracking-wide text-gold-dark">
-          {product.brand}
-        </span>
-        <h3 className="mt-2 text-xl text-onyx">{product.name}</h3>
-        <p className="mt-2 flex-1 text-sm leading-relaxed text-onyx/60">{product.description}</p>
-        {product.colors && product.colors.length > 0 && (
-          <div className="mt-4">
-            <p className="mb-1.5 text-xs font-medium text-onyx/50">
-              {selectedColor ?? `${product.colors.length} ${product.colors.length === 1 ? "Color" : "Colors"}`}
-            </p>
-            <ColorSwatches
-              colors={product.colors}
-              size="md"
-              selected={selectedColor}
-              onSelect={(color) => setSelectedColor((prev) => (prev === color ? undefined : color))}
-            />
-          </div>
-        )}
-        <div className="mt-4 border-t border-gold/15 pt-4">
-          <div className="flex items-center justify-between">
-            <span className="font-heading text-2xl font-bold text-onyx">
-              ${lowestQtyTier.price.toFixed(2)}
-            </span>
-            <span className="text-xs font-semibold uppercase tracking-wide text-onyx/50">
-              at {lowestQtyTier.quantity}+ units
-            </span>
-          </div>
-          {hasRange && (
-            <p className="mt-1 text-xs text-onyx/50">
-              As low as ${bestTier.price.toFixed(2)} at {bestTier.quantity}+ units
-            </p>
-          )}
-        </div>
-      </div>
-    </Link>
+      {label}
+      <span className={`text-xs tabular-nums ${active ? "text-white/70" : "text-onyx/50"}`}>
+        {count}
+      </span>
+    </button>
   );
 }

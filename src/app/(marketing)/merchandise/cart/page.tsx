@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import CartPageContent from "@/components/merchandise/CartPageContent";
+import { merchandisePage } from "@/config/merchandiseConfig";
+import { getCartCatalog } from "@/lib/merchStorefront";
 
 export const metadata: Metadata = {
   title: "Your Cart | Magnolia Grove Consultants",
@@ -7,5 +9,11 @@ export const metadata: Metadata = {
 };
 
 export default function CartPage() {
-  return <CartPageContent />;
+  return (
+    <CartPageContent
+      catalog={getCartCatalog()}
+      pricingDisclaimer={merchandisePage.pricingDisclaimer}
+      deliveryEstimate={merchandisePage.deliveryEstimate}
+    />
+  );
 }
