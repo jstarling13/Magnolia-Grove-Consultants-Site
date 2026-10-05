@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { merchandisePage, products } from "@/config/merchandiseConfig";
+import { getStorefrontCatalog } from "@/lib/merchStorefront";
 import MerchRequestForm from "@/components/merchandise/RequestForm";
 import ProductCatalog from "@/components/merchandise/ProductCatalog";
 import CartLink from "@/components/merchandise/CartLink";
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
 
 export default function MerchandisePage() {
   const hasProducts = products.length > 0;
+  const catalog = getStorefrontCatalog();
 
   return (
     <>
@@ -36,12 +38,13 @@ export default function MerchandisePage() {
       {hasProducts && (
         <section className="bg-cream px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
           <div className="mx-auto max-w-8xl">
-            <ProductCatalog products={products} />
+            <ProductCatalog products={catalog.products} categories={catalog.categories} />
           </div>
         </section>
       )}
 
       <section
+        id="request"
         className={
           hasProducts
             ? "bg-cream-100 px-6 py-20 sm:px-8 lg:px-12 lg:py-28"

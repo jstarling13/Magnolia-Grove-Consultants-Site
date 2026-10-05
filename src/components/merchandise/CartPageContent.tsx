@@ -3,9 +3,10 @@
 import { useMemo, useState, type ChangeEvent, type FormEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { CheckCircle2, Loader2, Send } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { useCart } from "@/components/merchandise/CartContext";
-import { getProductById, merchandisePage, tierForQuantity } from "@/config/merchandiseConfig";
+import { merchandisePage } from "@/config/merchandiseConfig";
+import { formatPrice, isRealBrand, tierForQuantity, type CatalogProduct } from "@/lib/merchCatalog";
 import Turnstile from "@/components/Turnstile";
 
 interface ContactFields {
@@ -48,7 +49,7 @@ const inputClasses =
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-export default function CartPageContent() {
+export default function CartPageContent({ catalog }: { catalog: CatalogProduct[] }) {
   const { items, updateQuantity, removeItem, clear } = useCart();
   const [fields, setFields] = useState<ContactFields>(initialFields);
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFields, string>>>({});
@@ -56,11 +57,16 @@ export default function CartPageContent() {
   const [submitError, setSubmitError] = useState("");
   const [turnstileToken, setTurnstileToken] = useState("");
 
+  const productsById = useMemo(
+    () => new Map(catalog.map((product) => [product.id, product])),
+    [catalog]
+  );
+
   const lines = useMemo(
     () =>
       items
         .map((item) => {
-          const product = getProductById(item.productId);
+          const product = productsById.get(item.productId);
           if (!product) return null;
           const tier = tierForQuantity(product, item.quantity);
           return {
@@ -71,8 +77,10 @@ export default function CartPageContent() {
           };
         })
         .filter((line): line is NonNullable<typeof line> => line !== null),
-    [items]
+    [items, productsById]
   );
+
+  const unitCount = useMemo(() => lines.reduce((sum, line) => sum + line.quantity, 0), [lines]);
 
   const subtotal = useMemo(
     () => Math.round(lines.reduce((sum, line) => sum + line.lineTotal, 0) * 100) / 100,
@@ -129,10 +137,7 @@ export default function CartPageContent() {
     return (
       <section className="bg-cream px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
         <div className="mx-auto flex max-w-2xl flex-col items-center rounded-lg border border-gold/25 bg-cream-100/85 px-8 py-16 text-center">
-          <div className="flex h-16 w-16 items-center justify-center rounded-full border border-gold/40 bg-gold/10 text-gold-bright">
-            <CheckCircle2 size={32} />
-          </div>
-          <h1 className="mt-6 text-2xl text-onyx">Order Request Received</h1>
+          <h1 className="text-2xl text-onyx">Order Request Received</h1>
           <p className="mt-3 max-w-md text-base leading-relaxed text-onyx/60">
             Nothing has been charged. We&apos;ll email you a final quote covering decoration,
             shipping, and tax, with a secure link to pay. We place the order with our supplier once
@@ -177,68 +182,101 @@ export default function CartPageContent() {
             </div>
           ) : (
             <>
-              <div className="divide-y divide-gold/15 rounded-lg border border-gold/25 bg-cream-100/85">
+              <ul className="divide-y divide-gold/15 rounded-lg border border-gold/25 bg-cream-100/85">
                 {lines.map((line) => (
-                  <div key={line.product.id} className="flex items-center gap-4 p-4 sm:p-6">
-                    <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-md bg-cream-200">
-                      {line.product.image && (
+                  <li
+                    key={line.product.id}
+                    className="flex items-start gap-4 p-4 sm:items-center sm:gap-5 sm:p-6"
+                  >
+                    <Link
+                      href={`/merchandise/${line.product.id}`}
+                      tabIndex={-1}
+                      aria-hidden="true"
+                      className="relative block h-20 w-20 shrink-0 overflow-hidden rounded-md border border-gold/15 bg-cream sm:h-24 sm:w-24"
+                    >
+                      {line.product.image ? (
                         <Image
                           src={line.product.image}
-                          alt={line.product.imageAlt ?? line.product.name}
+                          alt=""
                           fill
-                          sizes="80px"
-                          className="object-cover object-center"
+                          sizes="96px"
+                          className="object-contain object-center p-1.5"
                         />
-                      )}
-                    </div>
+                      ) : null}
+                    </Link>
+
                     <div className="min-w-0 flex-1">
+                      {isRealBrand(line.product.brand) && (
+                        <p className="truncate text-[11px] font-semibold uppercase leading-4 tracking-wide text-gold-dark">
+                          {line.product.brand}
+                        </p>
+                      )}
                       <Link
                         href={`/merchandise/${line.product.id}`}
-                        className="text-sm font-semibold text-onyx hover:text-gold-dark"
+                        className="line-clamp-3 text-sm font-semibold leading-snug text-onyx hover:text-gold-dark sm:line-clamp-2"
                       >
                         {line.product.name}
                       </Link>
-                      <p className="mt-1 text-xs text-onyx/50">${line.unitPrice.toFixed(2)}/unit</p>
-                      <div className="mt-2 flex items-center gap-3">
-                        <input
-                          type="number"
-                          min={1}
-                          value={line.quantity}
-                          onChange={(event) => {
-                            const parsed = Number.parseInt(event.target.value, 10);
-                            updateQuantity(
-                              line.product.id,
-                              Number.isFinite(parsed) && parsed > 0 ? parsed : 1
-                            );
-                          }}
-                          className="w-20 rounded-md border border-gold/25 bg-cream px-2 py-1.5 text-sm text-onyx focus:outline-none focus:ring-2 focus:ring-gold/60"
-                        />
+                      <p className="mt-1 text-xs text-onyx/50">
+                        {formatPrice(line.unitPrice)} per unit
+                      </p>
+                      <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2">
+                        <label className="flex items-center gap-2 text-xs font-medium text-onyx/60">
+                          Qty
+                          <input
+                            type="number"
+                            inputMode="numeric"
+                            min={1}
+                            value={line.quantity}
+                            aria-label={`Quantity for ${line.product.name}`}
+                            onChange={(event) => {
+                              const parsed = Number.parseInt(event.target.value, 10);
+                              updateQuantity(
+                                line.product.id,
+                                Number.isFinite(parsed) && parsed > 0 ? parsed : 1
+                              );
+                            }}
+                            className="w-20 rounded-md border border-gold/25 bg-cream px-2 py-1.5 text-sm text-onyx focus:outline-none focus:ring-2 focus:ring-gold/60"
+                          />
+                        </label>
                         <button
                           type="button"
                           onClick={() => removeItem(line.product.id)}
+                          aria-label={`Remove ${line.product.name}`}
                           className="text-xs font-semibold text-onyx/50 underline hover:text-red-500"
                         >
                           Remove
                         </button>
                       </div>
                     </div>
-                    <div className="shrink-0 text-right font-heading text-lg font-bold text-onyx">
-                      ${line.lineTotal.toFixed(2)}
-                    </div>
-                  </div>
-                ))}
-              </div>
 
-              <div className="mt-4 flex items-center justify-between rounded-lg border border-gold/25 bg-cream-100/85 px-6 py-4">
-                <span className="text-sm font-semibold uppercase tracking-wide text-onyx/60">
-                  Estimated Subtotal
-                </span>
-                <span className="font-heading text-2xl font-bold text-onyx">
-                  ${subtotal.toFixed(2)}
-                </span>
+                    <div className="shrink-0 text-right font-heading text-lg font-bold tabular-nums text-onyx">
+                      {formatPrice(line.lineTotal)}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-4 rounded-lg border border-gold/25 bg-cream-100/85 px-6 py-5">
+                <div className="flex items-baseline justify-between gap-4">
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-wide text-onyx/60">
+                      Estimated Subtotal
+                    </p>
+                    <p className="mt-0.5 text-xs text-onyx/50">
+                      {lines.length} {lines.length === 1 ? "item" : "items"}, {unitCount}{" "}
+                      {unitCount === 1 ? "unit" : "units"}
+                    </p>
+                  </div>
+                  <p className="font-heading text-3xl font-bold tabular-nums text-onyx">
+                    {formatPrice(subtotal)}
+                  </p>
+                </div>
+                <div className="mt-4 space-y-1 border-t border-gold/15 pt-4 text-xs leading-relaxed text-onyx/50">
+                  <p>{merchandisePage.pricingDisclaimer}</p>
+                  <p>{merchandisePage.deliveryEstimate}</p>
+                </div>
               </div>
-              <p className="mt-2 text-xs text-onyx/50">{merchandisePage.pricingDisclaimer}</p>
-              <p className="mt-1 text-xs text-onyx/50">{merchandisePage.deliveryEstimate}</p>
 
               <form
                 noValidate
@@ -378,10 +416,7 @@ export default function CartPageContent() {
                       Submitting...
                     </>
                   ) : (
-                    <>
-                      <Send size={18} />
-                      Submit Order Request
-                    </>
+                    "Submit Order Request"
                   )}
                 </button>
               </form>
