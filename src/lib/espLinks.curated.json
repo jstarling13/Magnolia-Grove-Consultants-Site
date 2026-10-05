@@ -118,5 +118,23 @@
     "supplier": "Direct Caps",
     "asi": "asi/48015",
     "productNo": "7649"
+  },
+  "summit-sweater-fleece-vest-mens": {
+    "espId": "551716905",
+    "supplier": "Vantage Apparel",
+    "asi": "asi/93390",
+    "productNo": "3307"
+  },
+  "summit-sweater-fleece-vest-womens": {
+    "espId": "556282948",
+    "supplier": "Vantage Apparel",
+    "asi": "asi/93390",
+    "productNo": "3336"
+  },
+  "zen-quarter-zip-pullover": {
+    "espId": "551821068",
+    "supplier": "Vantage Apparel",
+    "asi": "asi/93390",
+    "productNo": "3450"
   }
 }

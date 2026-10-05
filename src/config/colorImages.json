@@ -156,5 +156,21 @@
     "Royal": "/images/merch/colors/6panel-premium-relaxed-golf-cap-royal.webp",
     "Sky Blue": "/images/merch/colors/6panel-premium-relaxed-golf-cap-sky-blue.webp",
     "White": "/images/merch/colors/6panel-premium-relaxed-golf-cap-white.webp"
+  },
+  "summit-sweater-fleece-vest-womens": {
+    "Iceberg Heather/Black": "/images/merch/colors/summit-sweater-fleece-vest-womens-iceberg-heather-black.webp",
+    "Iceberg Heather/Navy": "/images/merch/colors/summit-sweater-fleece-vest-womens-iceberg-heather-navy.webp"
+  },
+  "zen-quarter-zip-pullover": {
+    "Black": "/images/merch/colors/zen-quarter-zip-pullover-black.webp",
+    "Carolina Blue": "/images/merch/colors/zen-quarter-zip-pullover-carolina-blue.webp",
+    "Dark Grey": "/images/merch/colors/zen-quarter-zip-pullover-dark-grey.webp",
+    "Deep Maroon": "/images/merch/colors/zen-quarter-zip-pullover-deep-maroon.webp",
+    "Navy": "/images/merch/colors/zen-quarter-zip-pullover-navy.webp",
+    "Orange": "/images/merch/colors/zen-quarter-zip-pullover-orange.webp",
+    "Purple": "/images/merch/colors/zen-quarter-zip-pullover-purple.webp",
+    "Royal": "/images/merch/colors/zen-quarter-zip-pullover-royal.webp",
+    "Silver": "/images/merch/colors/zen-quarter-zip-pullover-silver.webp",
+    "Sport Red": "/images/merch/colors/zen-quarter-zip-pullover-sport-red.webp"
   }
 }
