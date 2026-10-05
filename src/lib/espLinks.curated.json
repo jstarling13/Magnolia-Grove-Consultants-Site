@@ -292,5 +292,23 @@
     "supplier": "Compass Industries Inc",
     "asi": "asi/46170",
     "productNo": "7920"
+  },
+  "bic-clic-stic-pen": {
+    "espId": "4988505",
+    "supplier": "Koozie Group",
+    "asi": "asi/40480",
+    "productNo": "CS"
+  },
+  "bamboo-desk-organizer": {
+    "espId": "554029861",
+    "supplier": "Evans Manufacturing, LLC",
+    "asi": "asi/52840",
+    "productNo": "2460"
+  },
+  "rpet-roll-up-picnic-blanket": {
+    "espId": "4888094",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "7026"
   }
 }

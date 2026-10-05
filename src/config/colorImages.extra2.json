@@ -133,5 +133,14 @@
   "cedar-creek-valor-pocket-knife": {
     "Black": "/images/merch/colors/cedar-creek-valor-pocket-knife-black.webp",
     "Green": "/images/merch/colors/cedar-creek-valor-pocket-knife-green.webp"
+  },
+  "rpet-roll-up-picnic-blanket": {
+    "Red Flap/Blkred Blanket": "/images/merch/colors/rpet-roll-up-picnic-blanket-red-flap-blkred-blanket.webp",
+    "Nav Flap/Grnnav Blanket": "/images/merch/colors/rpet-roll-up-picnic-blanket-nav-flap-grnnav-blanket.webp",
+    "Blk Flap/Blkgra Blanket": "/images/merch/colors/rpet-roll-up-picnic-blanket-blk-flap-blkgra-blanket.webp",
+    "Nav Flap/Navwht Blanket": "/images/merch/colors/rpet-roll-up-picnic-blanket-nav-flap-navwht-blanket.webp",
+    "Lime/Lt Blue": "/images/merch/colors/rpet-roll-up-picnic-blanket-lime-lt-blue.webp",
+    "Orange Multi": "/images/merch/colors/rpet-roll-up-picnic-blanket-orange-multi.webp",
+    "Red/Black": "/images/merch/colors/rpet-roll-up-picnic-blanket-red-black.webp"
   }
 }
