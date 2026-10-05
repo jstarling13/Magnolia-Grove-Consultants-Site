@@ -14,7 +14,7 @@
     ],
     "image": "/images/merch/44-arc-automatic-open-telescopic-folding-umbrella-85261.webp",
     "imageAlt": "44\" Arc Automatic Open Telescopic Folding Umbrella",
-    "colors": ["BLACK", "Forest Green", "NAVY BLUE", "RED", "ROYAL BLUE"]
+    "colors": ["Black", "Forest Green", "Navy Blue", "Red", "Royal Blue"]
   },
   {
     "id": "steal-umbrella-1-imprint-63089",
@@ -141,23 +141,6 @@
     "colors": ["Red", "Blue", "Yellow", "Green", "Orange", "Gold"]
   },
   {
-    "id": "on-sale-professional-golf-ball-49427",
-    "name": "ON SALE! Professional Golf Ball",
-    "category": "Outdoor & Sports",
-    "brand": "Essentials",
-    "description": "Golf balls with a rubber core and Surlyn top layer. Priced at 100 units.",
-    "tiers": [
-      [100, 2.55],
-      [250, 2.45],
-      [500, 2.35],
-      [1000, 2.25],
-      [2500, 2.15]
-    ],
-    "image": "/images/merch/on-sale-professional-golf-ball-49427.webp",
-    "imageAlt": "ON SALE! Professional Golf Ball",
-    "colors": ["White"]
-  },
-  {
     "id": "golf-tees-and-ball-marker-in-matchbook-card-57838",
     "name": "Golf Tees and Ball Marker in Matchbook Card",
     "category": "Outdoor & Sports",
@@ -187,22 +170,6 @@
     ],
     "image": "/images/merch/titleist-trufeel-02948.webp",
     "imageAlt": "Titleist TruFeel",
-    "colors": ["White", "Yellow"]
-  },
-  {
-    "id": "titleist-pro-v1-golf-ball-73365",
-    "name": "Titleist Pro V1 Golf Ball",
-    "category": "Outdoor & Sports",
-    "brand": "Titleist",
-    "description": "Golf balls with imprint options. Made in USA. Priced at 6 units.",
-    "tiers": [
-      [6, 82.3],
-      [12, 81.3],
-      [24, 80.3],
-      [48, 79.3]
-    ],
-    "image": "/images/merch/titleist-pro-v1-golf-ball-73365.webp",
-    "imageAlt": "Titleist Pro V1 Golf Ball",
     "colors": ["White", "Yellow"]
   },
   {
@@ -250,8 +217,8 @@
     ]
   },
   {
-    "id": "on-sale-twin-golf-balls-99966",
-    "name": "ON SALE! Twin Golf Balls",
+    "id": "twin-golf-balls-99966",
+    "name": "Twin Golf Balls",
     "category": "Outdoor & Sports",
     "brand": "Essentials",
     "description": "Clear plastic tube filled with 2 imprinted golf balls. Priced at 100 units.",
@@ -262,8 +229,8 @@
       [1000, 5.8],
       [2500, 5.6]
     ],
-    "image": "/images/merch/on-sale-twin-golf-balls-99966.webp",
-    "imageAlt": "ON SALE! Twin Golf Balls",
+    "image": "/images/merch/twin-golf-balls-99966.webp",
+    "imageAlt": "Twin Golf Balls",
     "colors": ["White"]
   },
   {
@@ -766,7 +733,7 @@
   },
   {
     "id": "port-authority-team-jacket-63233",
-    "name": "Port Authority Team Jacket.",
+    "name": "Port Authority Team Jacket",
     "category": "Apparel",
     "brand": "Port Authority",
     "description": "6 color options. Size: XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 96 units.",
@@ -777,7 +744,7 @@
       [1008, 89.38]
     ],
     "image": "/images/merch/port-authority-team-jacket-63233.webp",
-    "imageAlt": "Port Authority Team Jacket.",
+    "imageAlt": "Port Authority Team Jacket",
     "colors": [
       "Black/Ltoxf",
       "Brt Navy/Ltoxf",
@@ -978,7 +945,7 @@
     "name": "Women's Greenway Stretch Cotton Polo",
     "category": "Apparel",
     "brand": "Essentials",
-    "description": "Fixed Amount Discount Our golf-inspired and 95% cotton Greenway Stretch Cotton Polo offers comfortable style with durable double-needle stitching. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "description": "Our golf-inspired and 95% cotton Greenway Stretch Cotton Polo offers comfortable style with durable double-needle stitching. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
     "tiers": [
       [1, 43.5],
       [200, 43.5],
@@ -1059,15 +1026,15 @@
     "image": "/images/merch/price-buster-cap-00716.webp",
     "imageAlt": "Price Buster Cap",
     "colors": [
-      "BLACK",
-      "GRAY",
-      "KELLY GREEN",
-      "KHAKI",
-      "NAVY BLUE",
-      "ORANGE",
-      "PINK",
-      "ROYAL BLUE",
-      "WHITE",
+      "Black",
+      "Gray",
+      "Kelly Green",
+      "Khaki",
+      "Navy Blue",
+      "Orange",
+      "Pink",
+      "Royal Blue",
+      "White",
       "Red"
     ]
   },
@@ -1104,7 +1071,7 @@
     "name": "6 Panel Premier 112 Trucker Cap",
     "category": "Headwear",
     "brand": "Essentials",
-    "description": "Fixed Amount Discount DC Premium cotton twill cap six-panel trucker cap with mesh back and snapback closure. Priced at 12 units.",
+    "description": "DC Premium cotton twill cap six-panel trucker cap with mesh back and snapback closure. Priced at 12 units.",
     "tiers": [
       [12, 6.667],
       [48, 6.667],
@@ -1237,53 +1204,11 @@
     ]
   },
   {
-    "id": "6-panels-relaxed-golf-hat-dad-cap-19118",
-    "name": "6 Panels Relaxed Golf Hat Dad Cap",
-    "category": "Headwear",
-    "brand": "Essentials",
-    "description": "Pre-washed chino twill six-panel dad cap with low profile unstructured design, pre-curved bill, sweatband and slide buckle. Priced at 12 units.",
-    "tiers": [
-      [12, 6.667],
-      [48, 6.583],
-      [144, 6.5],
-      [576, 6.417],
-      [1008, 6.333]
-    ],
-    "image": "/images/merch/6-panels-relaxed-golf-hat-dad-cap-19118.webp",
-    "imageAlt": "6 Panels Relaxed Golf Hat Dad Cap",
-    "colors": [
-      "Black",
-      "Brown",
-      "Royal",
-      "Burgundy",
-      "Dark Green",
-      "Gold",
-      "Kelly Green",
-      "Khaki",
-      "Light Blue",
-      "Navy",
-      "Olive",
-      "Orange",
-      "Pink",
-      "Red",
-      "Tie Dyed Pink",
-      "Tie Dyed Navy",
-      "Yellow",
-      "Stone",
-      "Sky Blue",
-      "White",
-      "Silver",
-      "Gray",
-      "Multi Color",
-      "Assorted"
-    ]
-  },
-  {
     "id": "6-panel-poly-twill-baseball-cap-21849",
     "name": "6 Panel Poly Twill Baseball Cap",
     "category": "Headwear",
     "brand": "Essentials",
-    "description": "Fixed Amount Discount Cotton poly twill six-panel constructed baseball cap with pre-curved visor and hook and loop closure. Priced at 12 units.",
+    "description": "Cotton poly twill six-panel constructed baseball cap with pre-curved visor and hook and loop closure. Priced at 12 units.",
     "tiers": [
       [12, 4.167],
       [48, 4.083],
@@ -1444,7 +1369,7 @@
     "name": "Roll Cuff Beanie with Direct Embroidery",
     "category": "Headwear",
     "brand": "Essentials",
-    "description": "100% acrylic beanie with a classic rolled cuff design and eight available colors. Priced at 48 units.",
+    "description": "100% acrylic beanie with a classic rolled cuff design. Priced at 48 units.",
     "tiers": [
       [48, 12.5],
       [72, 11.58],
@@ -1650,5 +1575,1895 @@
     "image": "/images/merch/leeman-knit-beanie-with-fur-pompom-53414.webp",
     "imageAlt": "Leeman Knit Beanie With Fur PomPom",
     "colors": ["Black", "Cream", "Gray", "Blue-Navy"]
+  },
+  {
+    "id": "carhartt-ct104597-beanie-cap-sublimated-embroidered-patch-27350",
+    "name": "Carhartt CT104597 Beanie Cap Sublimated Embroidered Patch",
+    "category": "Headwear",
+    "brand": "Carhartt",
+    "description": "Sublimated Patch on Beanie Caps, Stocking Hats, Toboggan Hats, Pom Beanie, Beanie with Pom. Priced at 24 units.",
+    "tiers": [
+      [24, 53.92],
+      [72, 46.73],
+      [144, 41.2],
+      [576, 36.46]
+    ],
+    "image": "/images/merch/carhartt-ct104597-beanie-cap-sublimated-embroidered-patch-27350.webp",
+    "imageAlt": "Carhartt CT104597 Beanie Cap Sublimated Embroidered Patch",
+    "colors": [
+      "Black",
+      "Carhartt Brown",
+      "Heather Gray",
+      "Black/White Marbled",
+      "Brite Orange",
+      "Navy Blue",
+      "Brite Lime",
+      "Dark Brown/ Sandstone",
+      "Coal Heather"
+    ]
+  },
+  {
+    "id": "cold-weather-set-09588",
+    "name": "Cold Weather Set",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Hayden weather set with comfort and style customers will love. Priced at 48 units.",
+    "tiers": [
+      [48, 32.48],
+      [96, 28.24],
+      [144, 24.56],
+      [288, 21.36],
+      [576, 18.57]
+    ],
+    "image": "/images/merch/cold-weather-set-09588.webp",
+    "imageAlt": "Cold Weather Set",
+    "colors": ["Maroon Gray", "Black/Gray", "Gray", "Navy/Gray"]
+  },
+  {
+    "id": "12-inch-cuff-beanie-21841",
+    "name": "12 inch Cuff Beanie",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "12\" knit acrylic beanie in assorted colors. Priced at 12 units.",
+    "tiers": [
+      [12, 4.917],
+      [48, 4.917],
+      [144, 4.833],
+      [576, 4.75],
+      [1008, 4.667]
+    ],
+    "image": "/images/merch/12-inch-cuff-beanie-21841.webp",
+    "imageAlt": "12 inch Cuff Beanie",
+    "colors": [
+      "Black",
+      "Burgundy",
+      "Charcoal",
+      "Forest Green",
+      "Kelly Green",
+      "Light Brown",
+      "Neon Green",
+      "Neon Orange",
+      "Neon Pink",
+      "Neon Yellow",
+      "Red",
+      "Royal",
+      "Sky Blue",
+      "White",
+      "Navy"
+    ]
+  },
+  {
+    "id": "buffalo-plaid-knit-cap-scarf-and-text-gloves-combo-89764",
+    "name": "Buffalo Plaid Knit Cap, Scarf and Text Gloves Combo",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Acrylic Knit Scarf with finished hem on both ends, acrylic knit beanie and knit 3 finger activation text gloves. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 25 units.",
+    "tiers": [
+      [25, 36.7],
+      [50, 35.6],
+      [100, 34.98],
+      [250, 34.1],
+      [500, 33.6]
+    ],
+    "image": "/images/merch/buffalo-plaid-knit-cap-scarf-and-text-gloves-combo-89764.webp",
+    "imageAlt": "Buffalo Plaid Knit Cap, Scarf and Text Gloves Combo",
+    "colors": ["Black-Red", "Black-Royal"]
+  },
+  {
+    "id": "sportsman-sp12-beanie-cap-with-usa-made-sublimated-patch-88002",
+    "name": "Sportsman SP12 Beanie Cap with USA Made Sublimated Patch",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Made in the USA. Sublimated Patch on Beanie Caps, Stocking Hats, Toboggan Hats. Priced at 24 units.",
+    "tiers": [
+      [24, 21.1],
+      [72, 15.96],
+      [144, 13.74],
+      [576, 11.84]
+    ],
+    "image": "/images/merch/sportsman-sp12-beanie-cap-with-usa-made-sublimated-patch-88002.webp",
+    "imageAlt": "Sportsman SP12 Beanie Cap with USA Made Sublimated Patch",
+    "colors": [
+      "White",
+      "Black",
+      "Blaze Orange",
+      "Brown",
+      "Camel",
+      "Cardinal",
+      "Dark Heather Gray",
+      "Forest Green",
+      "Gold",
+      "Heather Brown",
+      "Heather Cardinal",
+      "Heather Charcoal",
+      "Heather Dark Royal",
+      "Heather Gray",
+      "Heather Kelly",
+      "Heather Navy",
+      "Heather Orange",
+      "Heather Purple",
+      "Heather Red",
+      "Kelly",
+      "Maroon",
+      "Navy Blue",
+      "Neon Fuchsia",
+      "Neon Green"
+    ]
+  },
+  {
+    "id": "20-oz-stainless-steel-insulated-tumbler-with-lid-and-straw-66442",
+    "name": "20 oz Stainless Steel Insulated Tumbler with Lid and Straw",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "20 oz. insulated stainless steel tumbler with lid and straw. Priced at 100 units.",
+    "tiers": [
+      [100, 10],
+      [500, 9.667],
+      [1000, 9.333],
+      [3000, 9.167],
+      [5000, 5.5]
+    ],
+    "image": "/images/merch/20-oz-stainless-steel-insulated-tumbler-with-lid-and-straw-66442.webp",
+    "imageAlt": "20 oz Stainless Steel Insulated Tumbler with Lid and Straw",
+    "colors": [
+      "Black",
+      "Navy Blue",
+      "White",
+      "Orange",
+      "Purple",
+      "Light Blue",
+      "Green",
+      "Red",
+      "Pink"
+    ]
+  },
+  {
+    "id": "16-oz-stemless-wine-tumbler-69654",
+    "name": "16 oz. Stemless Wine Tumbler",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "16 oz. stemless wine glass made of PET plastic. Made in USA. Priced at 125 units.",
+    "tiers": [
+      [125, 2.49],
+      [250, 2.4],
+      [500, 2.3],
+      [1000, 2.2],
+      [2500, 2.08]
+    ],
+    "image": "/images/merch/16-oz-stemless-wine-tumbler-69654.webp",
+    "imageAlt": "16 oz. Stemless Wine Tumbler",
+    "colors": ["Red", "Blue", "Green", "Orange", "Purple", "Clear"]
+  },
+  {
+    "id": "20-oz-travel-stainless-vacuum-insulated-coffee-cup-w-lid-43497",
+    "name": "20 oz. Travel Stainless Vacuum Insulated Coffee Cup w/ lid",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "In-Stock Now! 20 oz. Marselle Tumbler. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 5000 units.",
+    "tiers": [[5000, 4.3]],
+    "image": "/images/merch/20-oz-travel-stainless-vacuum-insulated-coffee-cup-w-lid-43497.webp",
+    "imageAlt": "20 oz. Travel Stainless Vacuum Insulated Coffee Cup w/ lid",
+    "colors": ["White", "Black", "Blue", "Red", "Green"]
+  },
+  {
+    "id": "20-oz-himalayan-tumbler-20426",
+    "name": "20 Oz. Himalayan Tumbler",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "20 Oz. Himalayan Tumbler. Stainless Steel Outer And Inner. Double Wall Construction For Insulation Of Hot Or Cold Liquids. Priced at 36 units.",
+    "tiers": [
+      [36, 12.23],
+      [72, 11.87],
+      [144, 11.52],
+      [288, 11.18],
+      [576, 10.85]
+    ],
+    "image": "/images/merch/20-oz-himalayan-tumbler-20426.webp",
+    "imageAlt": "20 Oz. Himalayan Tumbler",
+    "colors": [
+      "Blue",
+      "Charcoal",
+      "Clear Lid",
+      "Lime Lid",
+      "Red",
+      "Recycled Gold",
+      "Recycled Matte Black",
+      "Recycled Matte Gray",
+      "Recycled Metallic Blue",
+      "Recycled Metallic Green",
+      "Recycled Metallic Orange",
+      "Recycled Metallic Purple",
+      "Recycled Metallic Red",
+      "Recycled Metallic Teal",
+      "Recycled Maroon",
+      "Recycled Navy Blue",
+      "Recycled Silver With Clear",
+      "Recycled White"
+    ]
+  },
+  {
+    "id": "rtic-ceramic-lined-20-oz-essential-tumbler-89721",
+    "name": "RTIC® Ceramic Lined 20 oz Essential Tumbler",
+    "category": "Drinkware",
+    "brand": "RTIC",
+    "description": "RTIC Essential 20 oz Tumbler, vacuum insulated tumbler with flip-top closure and no-sweat exterior. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 12 units.",
+    "tiers": [
+      [12, 25.5],
+      [72, 25.05],
+      [144, 24.5],
+      [288, 24.05],
+      [576, 23.5]
+    ],
+    "image": "/images/merch/rtic-ceramic-lined-20-oz-essential-tumbler-89721.webp",
+    "imageAlt": "RTIC® Ceramic Lined 20 oz Essential Tumbler",
+    "colors": [
+      "Black",
+      "Deep Harbor",
+      "Dusty Rose",
+      "Graphite",
+      "Harvest",
+      "Olive",
+      "Pinetree",
+      "Pond",
+      "Beach",
+      "Navy Blue",
+      "White",
+      "Red",
+      "Trailblazer"
+    ]
+  },
+  {
+    "id": "little-hippo-mug-and-straw-lid-w-twist-closure-30oz-07205",
+    "name": "Little Hippo Mug & Straw Lid w/ Twist Closure - 30oz",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "30 oz. double wall insulated tumbler made of stainless steel with a lid and straw. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 50 units.",
+    "tiers": [
+      [50, 13.56],
+      [100, 13.15],
+      [250, 12.75],
+      [500, 12.36],
+      [1000, 11.99]
+    ],
+    "image": "/images/merch/little-hippo-mug-and-straw-lid-w-twist-closure-30oz-07205.webp",
+    "imageAlt": "Little Hippo Mug & Straw Lid w/ Twist Closure - 30oz",
+    "colors": [
+      "Black",
+      "Bright White",
+      "Gray",
+      "Navy Blue",
+      "Blue",
+      "Red",
+      "Orange",
+      "Lime Green",
+      "Purple"
+    ]
+  },
+  {
+    "id": "titus-20-oz-double-wall-stainless-insulated-tumbler-01910",
+    "name": "TiTUS® 20 oz Double Wall Stainless Insulated Tumbler",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "Promo Code Special Inspired by Yeti Style 20 oz premium tumbler, 18/8 Double Wall Food Grade FDA Approved Stainless Steel, Dishwasher safe! Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 12 units.",
+    "tiers": [
+      [12, 15.94],
+      [72, 15.63],
+      [144, 15.48],
+      [288, 15.33],
+      [576, 15.17]
+    ],
+    "image": "/images/merch/titus-20-oz-double-wall-stainless-insulated-tumbler-01910.webp",
+    "imageAlt": "TiTUS® 20 oz Double Wall Stainless Insulated Tumbler",
+    "colors": [
+      "White",
+      "Black",
+      "Grey",
+      "Navy Blue",
+      "Red",
+      "Pink",
+      "Green",
+      "Royal Blue",
+      "Stainless Steel",
+      "Light Blue"
+    ]
+  },
+  {
+    "id": "27-oz-stainless-steel-grip-travel-mug-92485",
+    "name": "27 oz. Stainless Steel Grip Travel Mug",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "Clearance 27 oz. stainless steel grip travel mug with spill prevention slide lock. Dimensions: 8\"H x 4\" W. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "tiers": [
+      [100, 7.79],
+      [250, 6.77],
+      [500, 5.89],
+      [1000, 5.45],
+      [2500, 5.33]
+    ],
+    "image": "/images/merch/27-oz-stainless-steel-grip-travel-mug-92485.webp",
+    "imageAlt": "27 oz. Stainless Steel Grip Travel Mug",
+    "colors": ["Blue", "Pearl White", "Red", "Teal"]
+  },
+  {
+    "id": "20-oz-full-color-himalayan-recycled-tumbler-47541",
+    "name": "20 Oz. Full Color Himalayan Recycled Tumbler",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "20 ounce double-wall insulated stainless steel tumbler with thumb-slide sipping lid. Priced at 36 units.",
+    "tiers": [
+      [36, 17.21],
+      [72, 16.71],
+      [144, 16.22],
+      [288, 15.75],
+      [576, 15.29]
+    ],
+    "image": "/images/merch/20-oz-full-color-himalayan-recycled-tumbler-47541.webp",
+    "imageAlt": "20 Oz. Full Color Himalayan Recycled Tumbler",
+    "colors": [
+      "Gold",
+      "Matte Gray",
+      "Metallic Blue",
+      "Metallic Green",
+      "Metallic Orange",
+      "Metallic Purple",
+      "Metallic Red",
+      "Metallic Teal",
+      "Maroon",
+      "Navy Blue",
+      "Blue",
+      "Charcoal",
+      "Clear",
+      "Lime",
+      "Red",
+      "White",
+      "Matte Black",
+      "Silver/Clear"
+    ]
+  },
+  {
+    "id": "rtic-20oz-essential-tumbler-15685",
+    "name": "RTIC 20oz Essential Tumbler",
+    "category": "Drinkware",
+    "brand": "RTIC",
+    "description": "A premium, insulated Tumbler with ceramic lining-for all-day cold and all-day great taste. Priced at 24 units.",
+    "tiers": [
+      [24, 24.99],
+      [48, 22.99],
+      [96, 20.99]
+    ],
+    "image": "/images/merch/rtic-20oz-essential-tumbler-15685.webp",
+    "imageAlt": "RTIC 20oz Essential Tumbler",
+    "colors": ["Black", "Navy Blue", "Graphite", "White"]
+  },
+  {
+    "id": "20-oz-stainless-steel-travel-mug-with-handle-24845",
+    "name": "20 oz Stainless Steel Travel Mug with Handle",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "20 oz. stainless steel travel mug with handle, plastic inner walls and a spill-resistant lid. Priced at 75 units.",
+    "tiers": [
+      [75, 8.25],
+      [150, 8.15],
+      [250, 8.05],
+      [500, 7.95],
+      [1000, 7.85]
+    ],
+    "image": "/images/merch/20-oz-stainless-steel-travel-mug-with-handle-24845.webp",
+    "imageAlt": "20 oz Stainless Steel Travel Mug with Handle",
+    "colors": ["Stainless Steel", "Matte Metallic Blue", "Matte Black", "Matte White"]
+  },
+  {
+    "id": "rtic-ceramic-lined-30-oz-essential-tumbler-89693",
+    "name": "RTIC® Ceramic Lined 30 oz Essential Tumbler",
+    "category": "Drinkware",
+    "brand": "RTIC",
+    "description": "RTIC 30 oz. ceramic lined stainless steel, vacuum insulated tumbler with flip-top closure and no-sweat exterior. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 12 units.",
+    "tiers": [
+      [12, 28.58],
+      [72, 27.93],
+      [144, 27.05],
+      [288, 26.62],
+      [576, 25.97]
+    ],
+    "image": "/images/merch/rtic-ceramic-lined-30-oz-essential-tumbler-89693.webp",
+    "imageAlt": "RTIC® Ceramic Lined 30 oz Essential Tumbler",
+    "colors": [
+      "White",
+      "Black",
+      "Navy Blue",
+      "Beach",
+      "Olive",
+      "Deep Harbor",
+      "Dusty Rose",
+      "Graphite",
+      "Pine Tree",
+      "Pond",
+      "Plum",
+      "Red",
+      "Harvest",
+      "Trailblazer",
+      "Vintage Rose Metallic"
+    ]
+  },
+  {
+    "id": "24-oz-plastic-sports-water-bottle-34845",
+    "name": "24 oz Plastic Sports Water Bottle",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "24 oz Plastic Sports Water Bottle with Euro body bubble design, and push pull lid. Made in USA. Priced at 150 units.",
+    "tiers": [
+      [150, 2.13],
+      [250, 2.03],
+      [500, 1.93],
+      [1000, 1.83],
+      [2500, 1.73]
+    ],
+    "image": "/images/merch/24-oz-plastic-sports-water-bottle-34845.webp",
+    "imageAlt": "24 oz Plastic Sports Water Bottle",
+    "colors": [
+      "Translucent Purple",
+      "Translucent Blue",
+      "Translucent Red",
+      "Translucent Green",
+      "Translucent Clear",
+      "Translucent Smoke",
+      "Translucent Orange",
+      "Translucent Aqua",
+      "Translucent Yellow"
+    ]
+  },
+  {
+    "id": "waterh-32-oz-smart-water-bottle-25609",
+    "name": "WaterH 32 oz Smart Water Bottle",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "32-ounce water bottle with insulation, real-time tracking, Bluetooth sync, and lid. Priced at 40 units.",
+    "tiers": [
+      [40, 53.6],
+      [80, 52.6],
+      [120, 51.6],
+      [240, 50.6],
+      [480, 49.6]
+    ],
+    "image": "/images/merch/waterh-32-oz-smart-water-bottle-25609.webp",
+    "imageAlt": "WaterH 32 oz Smart Water Bottle",
+    "colors": ["Black", "Blue", "White"]
+  },
+  {
+    "id": "20-oz-sports-bottle-89013",
+    "name": "20 Oz Sports Bottle",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "20 oz. sports bottle with push-pull, twist-on cap and a wide mouth opening. Priced at 100 units.",
+    "tiers": [
+      [100, 2.58],
+      [150, 2.58],
+      [200, 2.58],
+      [250, 2.56],
+      [300, 2.56]
+    ],
+    "image": "/images/merch/20-oz-sports-bottle-89013.webp",
+    "imageAlt": "20 Oz Sports Bottle",
+    "colors": [
+      "White Black",
+      "White Blue",
+      "White Clear",
+      "White Green",
+      "White Orange",
+      "White Pink",
+      "White Purple",
+      "White Red",
+      "White Translucent Blue",
+      "White Translucent Red",
+      "White Translucent Smoke",
+      "White White"
+    ]
+  },
+  {
+    "id": "32-oz-owala-freesip-stainless-insulated-bottle-with-handle-58399",
+    "name": "32 oz Owala Freesip Stainless Insulated Bottle with Handle",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "32 oz double wall 18/8 stainless steel thermal bottle with copper vacuum insulation. Priced at 24 units.",
+    "tiers": [
+      [24, 45.99],
+      [72, 43.99],
+      [144, 41.99]
+    ],
+    "image": "/images/merch/32-oz-owala-freesip-stainless-insulated-bottle-with-handle-58399.webp",
+    "imageAlt": "32 oz Owala Freesip Stainless Insulated Bottle with Handle",
+    "colors": [
+      "Shy Marshmallow",
+      "Very Very Dark",
+      "Terracotta Sunset",
+      "Coastal Mist",
+      "Summer Paradise",
+      "Rock On",
+      "80'S Ski Slope",
+      "Navy Nights"
+    ]
+  },
+  {
+    "id": "30-oz-owala-sway-stainless-water-bottle-with-handle-28363",
+    "name": "30 oz Owala Sway Stainless Water Bottle with Handle",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "30 oz insulated stainless steel bottle with FreeSip straw lid, push-button lock, contoured grip, and powder coated finish. Priced at 48 units.",
+    "tiers": [
+      [48, 46.99],
+      [72, 44.99],
+      [144, 42.99]
+    ],
+    "image": "/images/merch/30-oz-owala-sway-stainless-water-bottle-with-handle-28363.webp",
+    "imageAlt": "30 oz Owala Sway Stainless Water Bottle with Handle",
+    "colors": [
+      "Black",
+      "Lightly Toasted",
+      "Terracotta Sunsert",
+      "Beachfront",
+      "Eucalyptus Green",
+      "Sea Captain",
+      "Tangy Tango"
+    ]
+  },
+  {
+    "id": "32-oz-baltic-collection-water-bottle-05350",
+    "name": "32 oz. Baltic Collection Water Bottle",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "32 oz. BPA-free acrylic bottle with a leak resistant cap and wide mouth opening. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 48 units.",
+    "tiers": [
+      [48, 12.8],
+      [96, 11.15],
+      [144, 10.75],
+      [576, 10.25],
+      [1008, 10]
+    ],
+    "image": "/images/merch/32-oz-baltic-collection-water-bottle-05350.webp",
+    "imageAlt": "32 oz. Baltic Collection Water Bottle",
+    "colors": ["Blue", "Purple", "Clear", "Orange", "Red", "Green", "Smoke"]
+  },
+  {
+    "id": "26-oz-stainless-sports-water-bottle-73551",
+    "name": "26 oz. Stainless Sports Water Bottle",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "Free setup Stainless steel 26 oz. sports bottle, BPA free inside and out, with easy to twist cap. Dimensions: 10.75\" H x 2.75\" W. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "tiers": [
+      [100, 11.05],
+      [250, 10.65],
+      [500, 10.35],
+      [1000, 10.15],
+      [2500, 8.19]
+    ],
+    "image": "/images/merch/26-oz-stainless-sports-water-bottle-73551.webp",
+    "imageAlt": "26 oz. Stainless Sports Water Bottle",
+    "colors": ["Black", "Green", "Grey", "Metblue", "Red", "Silver", "White"]
+  },
+  {
+    "id": "roll-up-18-oz-foldable-water-bottle-with-matching-carabiner-72270",
+    "name": "Roll Up 18 oz Foldable Water Bottle With Matching Carabiner",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "18 oz. collapsible water bottle with carabiner. Priced at 175 units.",
+    "tiers": [
+      [175, 2.41],
+      [250, 2.19],
+      [500, 2.08],
+      [1000, 1.97],
+      [2500, 1.86]
+    ],
+    "image": "/images/merch/roll-up-18-oz-foldable-water-bottle-with-matching-carabiner-72270.webp",
+    "imageAlt": "Roll Up 18 oz Foldable Water Bottle With Matching Carabiner",
+    "colors": ["Black", "Blue", "Red", "Lime Green", "Orange"]
+  },
+  {
+    "id": "25oz-diversion-safe-insulated-water-bottle-with-storage-13889",
+    "name": "25oz Diversion Safe Insulated Water Bottle With Storage",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "25 oz insulated steel bottle with a concealed bottom storage compartment. Priced at 100 units.",
+    "tiers": [
+      [100, 26.633],
+      [300, 22.483],
+      [500, 21.533],
+      [1000, 20.833],
+      [3000, 20.367]
+    ],
+    "image": "/images/merch/25oz-diversion-safe-insulated-water-bottle-with-storage-13889.webp",
+    "imageAlt": "25oz Diversion Safe Insulated Water Bottle With Storage",
+    "colors": ["Silver", "Red", "Black", "White", "Navy"]
+  },
+  {
+    "id": "20-oz-water-bottles-with-push-cap-21414",
+    "name": "20 oz. Water Bottles with Push Cap",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "Free setup Water bottle made of high density polyethylene with ridged cap and easy-flow drinking push spout. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "tiers": [
+      [100, 1.73],
+      [250, 1.35],
+      [500, 1.23],
+      [1000, 1.15],
+      [2500, 1.11]
+    ],
+    "image": "/images/merch/20-oz-water-bottles-with-push-cap-21414.webp",
+    "imageAlt": "20 oz. Water Bottles with Push Cap",
+    "colors": [
+      "Black",
+      "Frosted",
+      "Kelly Green",
+      "Navy Blue",
+      "Neon Green",
+      "Neon Pink",
+      "Purple",
+      "Red",
+      "Reflex Blue",
+      "Silver",
+      "Teal",
+      "White",
+      "Yellow",
+      "Orange"
+    ]
+  },
+  {
+    "id": "showstopper-event-flooring-95710",
+    "name": "ShowStopper Event Flooring",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Premium custom sized and printed floors that elevate your brand presence with plush comfort, vibrant colors, and no-slip backing. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "tiers": [[1, 990]],
+    "image": "/images/merch/showstopper-event-flooring-95710.webp",
+    "imageAlt": "ShowStopper Event Flooring",
+    "colors": ["Full Digital Printing"]
+  },
+  {
+    "id": "event-flooring-91195",
+    "name": "Event Flooring",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "2 available packages: 10'x10' and 10'x20', comes with padding and wheeled hardcase for transport. Different sock colors available. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "tiers": [[1, 1994]],
+    "image": "/images/merch/event-flooring-91195.webp",
+    "imageAlt": "Event Flooring",
+    "colors": ["Stock Colors", "Full Digital Printing"]
+  },
+  {
+    "id": "rugs-55129",
+    "name": "Rugs",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "31.5\" x 51\" 1230 GSM Textured Front / Non-Skid Back Dornier Rug. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "tiers": [[1, 16.67]],
+    "image": "/images/merch/rugs-55129.webp",
+    "imageAlt": "Rugs",
+    "colors": ["White"]
+  },
+  {
+    "id": "custom-logo-rugs-polyester-3ft-x-3ft-57678",
+    "name": "Custom Logo Rugs - Polyester (3ft x 3ft)",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "100% polyester offer durable, vibrant branding with options for indoor/outdoor use or a plush velvet indoor finish. Priced at 1 unit.",
+    "tiers": [
+      [1, 48.83],
+      [10, 47.37],
+      [100, 47.37]
+    ],
+    "image": "/images/merch/custom-logo-rugs-polyester-3ft-x-3ft-57678.webp",
+    "imageAlt": "Custom Logo Rugs - Polyester (3ft x 3ft)",
+    "colors": ["Custom"]
+  },
+  {
+    "id": "sublimated-rug-63-x-84-69078",
+    "name": "Sublimated Rug 63\" x 84\"",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Custom 63\" x 84\" rugs by Sam's with textured front and non-skid back. Full color sublimation adds freshness and style anywhere. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 6 units.",
+    "tiers": [[6, 79.75]],
+    "image": "/images/merch/sublimated-rug-63-x-84-69078.webp",
+    "imageAlt": "Sublimated Rug 63\" x 84\"",
+    "colors": ["Assorted"]
+  },
+  {
+    "id": "32-x-20-washable-rug-87382",
+    "name": "32\" X 20\" Washable Rug",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "32\" x 20\" machine washable polyester floor rug. Priced at 48 units.",
+    "tiers": [
+      [48, 26.24],
+      [96, 22.82],
+      [144, 19.84],
+      [288, 17.25],
+      [576, 15]
+    ],
+    "image": "/images/merch/32-x-20-washable-rug-87382.webp",
+    "imageAlt": "32\" X 20\" Washable Rug",
+    "colors": ["White"]
+  },
+  {
+    "id": "custom-event-carpet-04034",
+    "name": "Custom Event Carpet",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "The Custom Event Carpet is a durable, tufted loop pile carpet with a slip-resistant rubber backing, ideal for high-traffic events. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "tiers": [
+      [1, 63],
+      [10, 61.1],
+      [100, 61.1]
+    ],
+    "image": "/images/merch/custom-event-carpet-04034.webp",
+    "imageAlt": "Custom Event Carpet",
+    "colors": ["Red", "Green", "White", "Gray", "Black"]
+  },
+  {
+    "id": "chenille-area-rugs-47109",
+    "name": "Chenille Area Rugs",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "48\" x 30\", 60\" x 48\" or 96\" x 60\" polyester Chenille rugs with whip stitch edges, sublimated imprint and anti-ski TPR padding. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 36 units.",
+    "tiers": [
+      [36, 43.87],
+      [72, 42.37],
+      [144, 40.97],
+      [300, 39.67],
+      [600, 38.45]
+    ],
+    "image": "/images/merch/chenille-area-rugs-47109.webp",
+    "imageAlt": "Chenille Area Rugs",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "3d-diatom-ooze-rugs-43354",
+    "name": "3D Diatom Ooze Rugs",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "3D Diatom Ooze Decorative Rugs Non-Slip Absorbent Area Rugs for Kitchen Bathroom Doorway Lovely Design Multi-size. Priced at 200 units.",
+    "tiers": [
+      [200, 5.067],
+      [500, 4.983],
+      [1000, 4.917],
+      [3000, 4.817],
+      [6000, 4.683]
+    ],
+    "image": "/images/merch/3d-diatom-ooze-rugs-43354.webp",
+    "imageAlt": "3D Diatom Ooze Rugs",
+    "colors": ["Gray", "Black", "Pink", "White"]
+  },
+  {
+    "id": "customizable-non-slip-area-rug-durable-and-stain-resistant-84536",
+    "name": "Customizable Non Slip Area Rug Durable and Stain Resistant",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Durable and stain resistant rug with non-slip backing. Customizable designs perfect for home or office spaces.Can be expedited. Priced at 50 units.",
+    "tiers": [
+      [50, 11.983],
+      [100, 11.567],
+      [200, 10.967],
+      [500, 10.517],
+      [1000, 10.4]
+    ],
+    "image": "/images/merch/customizable-non-slip-area-rug-durable-and-stain-resistant-84536.webp",
+    "imageAlt": "Customizable Non Slip Area Rug Durable and Stain Resistant",
+    "colors": ["Custom"]
+  },
+  {
+    "id": "colorful-ornate-patterned-round-custom-logo-area-rugs-64967",
+    "name": "Colorful Ornate Patterned Round Custom Logo Area Rugs",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "High - quality durable doormats, ornate patterns, custom logo, for home and commercial entrances. Priced at 15 units.",
+    "tiers": [
+      [15, 30.393],
+      [50, 28.638],
+      [100, 26.735],
+      [300, 18.328],
+      [500, 15.74]
+    ],
+    "image": "/images/merch/colorful-ornate-patterned-round-custom-logo-area-rugs-64967.webp",
+    "imageAlt": "Colorful Ornate Patterned Round Custom Logo Area Rugs",
+    "colors": ["Black", "Gold", "Blue", "Brown"]
+  },
+  {
+    "id": "3x5-olefin-carpet-mat-for-outdoor-or-indoor-21302",
+    "name": "3'x5' Olefin Carpet Mat For Outdoor Or Indoor",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Flocked Olefin Floor Mat. Priced at 30 units.",
+    "tiers": [
+      [30, 69.457],
+      [50, 66.667],
+      [100, 62.278]
+    ],
+    "image": "/images/merch/3x5-olefin-carpet-mat-for-outdoor-or-indoor-21302.webp",
+    "imageAlt": "3'x5' Olefin Carpet Mat For Outdoor Or Indoor",
+    "colors": [
+      "Black",
+      "Gray",
+      "Red",
+      "Navy Blue",
+      "Heather Red",
+      "Heather Blue",
+      "Heather Charcoal"
+    ]
+  },
+  {
+    "id": "coco-coir-outdoor-door-mat-31248",
+    "name": "Coco Coir Outdoor Door Mat",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "15.7\"L x 23.6\"W outdoor door mat made of natural coco coir. Priced at 100 units.",
+    "tiers": [
+      [100, 38.667],
+      [250, 37.667],
+      [500, 36.333],
+      [1000, 34.833],
+      [2500, 33.667]
+    ],
+    "image": "/images/merch/coco-coir-outdoor-door-mat-31248.webp",
+    "imageAlt": "Coco Coir Outdoor Door Mat",
+    "colors": ["Brown"]
+  },
+  {
+    "id": "6x10-indoor-door-mat-27056",
+    "name": "6'x10' Indoor Door Mat",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "24 color options. Size: 6 ' x 10 '. Priced at 1 unit.",
+    "tiers": [
+      [1, 2032.72],
+      [6, 1129.28],
+      [12, 1072.82],
+      [24, 1016.35],
+      [48, 969.6]
+    ],
+    "image": "/images/merch/6x10-indoor-door-mat-27056.webp",
+    "imageAlt": "6'x10' Indoor Door Mat",
+    "colors": [
+      "Light Blue",
+      "Clear Blue",
+      "Iridescent Blue",
+      "Medium Blue",
+      "Camouflage Blue",
+      "Bright Blue",
+      "Light Gray",
+      "Medium Gray",
+      "Bright Gray",
+      "Light Red",
+      "Dark Blue",
+      "Bright Red",
+      "Bright Purple",
+      "Light Green",
+      "Medium Green",
+      "Bright Green",
+      "Clear Yellow",
+      "Bright Yellow",
+      "Clear Brown",
+      "Bright Brown",
+      "Bright Orange",
+      "Bright Pink",
+      "Medium Black",
+      "Bright White"
+    ]
+  },
+  {
+    "id": "welcome-entrance-doormat-26327",
+    "name": "Welcome Entrance Doormat",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Value Discount on First Order Welcome Entrance Doormat. Priced at 5 units.",
+    "tiers": [
+      [5, 44.639],
+      [50, 24.579],
+      [100, 24.371],
+      [300, 23.605],
+      [500, 23.396]
+    ],
+    "image": "/images/merch/welcome-entrance-doormat-26327.webp",
+    "imageAlt": "Welcome Entrance Doormat",
+    "colors": ["Custom"]
+  },
+  {
+    "id": "coir-doormat-12571",
+    "name": "Coir Doormat",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Natural Coco Coir Doormat. Priced at 200 units.",
+    "tiers": [
+      [200, 54.75],
+      [300, 54.284],
+      [500, 50.427],
+      [800, 49.586],
+      [1000, 47.457]
+    ],
+    "image": "/images/merch/coir-doormat-12571.webp",
+    "imageAlt": "Coir Doormat",
+    "colors": ["Brown"]
+  },
+  {
+    "id": "led-light-up-music-sound-controlled-coir-doormat-47767",
+    "name": "LED Light-Up Music Sound-Controlled Coir Doormat",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Doormat for homes, parties, or events. Priced at 100 units.",
+    "tiers": [
+      [100, 37.383],
+      [300, 36.817],
+      [500, 36.25],
+      [1000, 19.083],
+      [3000, 18.517]
+    ],
+    "image": "/images/merch/led-light-up-music-sound-controlled-coir-doormat-47767.webp",
+    "imageAlt": "LED Light-Up Music Sound-Controlled Coir Doormat",
+    "colors": ["Green"]
+  },
+  {
+    "id": "anti-skid-doormat-water-absorption-floor-mat-51242",
+    "name": "Anti-Skid Doormat Water Absorption Floor Mat",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Keep your home clean and safe with our Anti-Skid Doormat Water Absorption Floor Mat. Priced at 300 units.",
+    "tiers": [
+      [300, 13.333],
+      [1000, 12.6],
+      [1500, 9.917],
+      [3000, 9.65],
+      [10000, 4.667]
+    ],
+    "image": "/images/merch/anti-skid-doormat-water-absorption-floor-mat-51242.webp",
+    "imageAlt": "Anti-Skid Doormat Water Absorption Floor Mat",
+    "colors": ["Black", "Blue", "Brown", "Gray", "Purple", "Red"]
+  },
+  {
+    "id": "carpet-household-outdoor-non-slip-mat-53806",
+    "name": "Carpet household outdoor non-slip mat",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Door mat. Priced at 200 units.",
+    "tiers": [
+      [200, 49.345],
+      [300, 43.298],
+      [400, 38.928],
+      [500, 35.368],
+      [600, 30.753]
+    ],
+    "image": "/images/merch/carpet-household-outdoor-non-slip-mat-53806.webp",
+    "imageAlt": "Carpet household outdoor non-slip mat",
+    "colors": ["Any/All Colors"]
+  },
+  {
+    "id": "sublimation-door-mat-04587",
+    "name": "Sublimation Door Mat",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "19.69\" x 31.5\" indoor doormat made of polyester. Priced at 50 units.",
+    "tiers": [
+      [50, 21.167],
+      [200, 18.95],
+      [400, 18.4],
+      [600, 17.483],
+      [800, 16.567]
+    ],
+    "image": "/images/merch/sublimation-door-mat-04587.webp",
+    "imageAlt": "Sublimation Door Mat",
+    "colors": ["Any/All Colors"]
+  },
+  {
+    "id": "natural-coir-door-mat-97453",
+    "name": "Natural Coir Door Mat",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "15.75\" x 23.62\" x 0.59\" door mat made of natural coconut coir. Priced at 100 units.",
+    "tiers": [
+      [100, 41.583],
+      [200, 38.183],
+      [400, 36.183],
+      [600, 34.317],
+      [800, 32.5]
+    ],
+    "image": "/images/merch/natural-coir-door-mat-97453.webp",
+    "imageAlt": "Natural Coir Door Mat",
+    "colors": ["Brown"]
+  },
+  {
+    "id": "heavy-duty-indoor-outdoor-entrance-door-mats-19928",
+    "name": "Heavy Duty Indoor Outdoor Entrance Door Mats",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "This floor mat is made of PVC and polyester, heavy-duty floor mat with various color, size 24\"x36\", custom logo by silkscreen. Priced at 100 units.",
+    "tiers": [
+      [100, 11.75],
+      [500, 11.433],
+      [1000, 11.383],
+      [2000, 11.283],
+      [3000, 11.183]
+    ],
+    "image": "/images/merch/heavy-duty-indoor-outdoor-entrance-door-mats-19928.webp",
+    "imageAlt": "Heavy Duty Indoor Outdoor Entrance Door Mats",
+    "colors": [
+      "Nickel Metal",
+      "Iridescent Blue",
+      "Metallic Green",
+      "Iridescent Pink",
+      "Chrome Metal"
+    ]
+  },
+  {
+    "id": "custom-outdoor-front-door-mat-42370",
+    "name": "Custom Outdoor Front Door Mat",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Custom Outdoor Front Door Mat,Doormat Inside Outside Mats Entryway Welcome Mats Non Slip Rubber Backing Funny Indoor Door mats. Priced at 5 units.",
+    "tiers": [
+      [5, 4.62],
+      [100, 4.2],
+      [250, 3.89],
+      [500, 3.7],
+      [1000, 3.59]
+    ],
+    "image": "/images/merch/custom-outdoor-front-door-mat-42370.webp",
+    "imageAlt": "Custom Outdoor Front Door Mat",
+    "colors": ["Custom"]
+  },
+  {
+    "id": "3x5-indoor-entrance-mat-38112",
+    "name": "3'x5' Indoor Entrance Mat",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "24 color options. Size: 3 ' x 5 '. Priced at 2 units.",
+    "tiers": [
+      [2, 508.18],
+      [6, 423.48],
+      [12, 338.78],
+      [24, 282.32],
+      [48, 268.21]
+    ],
+    "image": "/images/merch/3x5-indoor-entrance-mat-38112.webp",
+    "imageAlt": "3'x5' Indoor Entrance Mat",
+    "colors": [
+      "Light Blue",
+      "Iridescent Blue",
+      "Medium Blue",
+      "Camouflage Blue",
+      "Clear Blue",
+      "Bright Blue",
+      "Clear Gray",
+      "Light Gray",
+      "Bright Gray",
+      "Light Red",
+      "Dark Blue",
+      "Bright Red",
+      "Bright Purple",
+      "Light Green",
+      "Bright Green",
+      "Clear Green",
+      "Clear Yellow",
+      "Bright Yellow",
+      "Light Brown",
+      "Bright Brown",
+      "Bright Orange",
+      "Bright Pink",
+      "Medium Black",
+      "Bright White"
+    ]
+  },
+  {
+    "id": "5x10-outdoor-entrance-mat-69221",
+    "name": "5'x10' Outdoor Entrance Mat",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "24 color options. Size: 5 ' x 10 '. Priced at 1 unit.",
+    "tiers": [
+      [1, 1505.72],
+      [6, 894.02],
+      [12, 846.97],
+      [24, 799.91],
+      [48, 799.91]
+    ],
+    "image": "/images/merch/5x10-outdoor-entrance-mat-69221.webp",
+    "imageAlt": "5'x10' Outdoor Entrance Mat",
+    "colors": [
+      "Clear Blue",
+      "Light Blue",
+      "Camouflage Blue",
+      "Iridescent Blue",
+      "Medium Blue",
+      "Bright Blue",
+      "Clear Gray",
+      "Light Gray",
+      "Bright Gray",
+      "Light Red",
+      "Dark Blue",
+      "Bright Red",
+      "Bright Purple",
+      "Clear Green",
+      "Light Green",
+      "Bright Green",
+      "Light Yellow",
+      "Bright Yellow",
+      "Clear Brown",
+      "Bright Brown",
+      "Bright Orange",
+      "Bright Pink",
+      "Medium Black",
+      "Bright White"
+    ]
+  },
+  {
+    "id": "3x4-indoor-entrance-mat-68874",
+    "name": "3'x4' Indoor Entrance Mat",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "24 color options. Size: 3 ' x 4 '. Priced at 6 units.",
+    "tiers": [
+      [6, 406.55],
+      [12, 338.78],
+      [24, 271.03],
+      [48, 225.85],
+      [64, 214.57]
+    ],
+    "image": "/images/merch/3x4-indoor-entrance-mat-68874.webp",
+    "imageAlt": "3'x4' Indoor Entrance Mat",
+    "colors": [
+      "Clear Blue",
+      "Light Blue",
+      "Iridescent Blue",
+      "Medium Blue",
+      "Camouflage Blue",
+      "Bright Blue",
+      "Clear Gray",
+      "Dark Gray",
+      "Bright Gray",
+      "Medium Red",
+      "Dark Blue",
+      "Bright Red",
+      "Bright Purple",
+      "Light Green",
+      "Clear Green",
+      "Bright Green",
+      "Clear Yellow",
+      "Bright Yellow",
+      "Clear Brown",
+      "Bright Brown",
+      "Bright Orange",
+      "Bright Pink",
+      "Medium Black",
+      "Bright White"
+    ]
+  },
+  {
+    "id": "customizable-non-slip-entrance-rug-26948",
+    "name": "Customizable Non-Slip Entrance Rug",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Rug for entryways, bathrooms, kitchens, or hallways. Priced at 100 units.",
+    "tiers": [
+      [100, 9.183],
+      [300, 8.983],
+      [500, 8.783],
+      [1000, 8.583],
+      [3000, 4.233]
+    ],
+    "image": "/images/merch/customizable-non-slip-entrance-rug-26948.webp",
+    "imageAlt": "Customizable Non-Slip Entrance Rug",
+    "colors": ["Brown"]
+  },
+  {
+    "id": "rubber-backed-entrance-outdoor-indoor-logo-mat-6-x-12-69323",
+    "name": "Rubber Backed Entrance Outdoor/Indoor Logo Mat 6' x 12'",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "24 color options. Size: 6 ' x 12 '. Priced at 1 unit.",
+    "tiers": [
+      [1, 1854.39],
+      [6, 1287.38],
+      [12, 1219.63],
+      [24, 1151.87],
+      [48, 1151.87]
+    ],
+    "image": "/images/merch/rubber-backed-entrance-outdoor-indoor-logo-mat-6-x-12-69323.webp",
+    "imageAlt": "Rubber Backed Entrance Outdoor/Indoor Logo Mat 6' x 12'",
+    "colors": [
+      "Clear Purple",
+      "Metallic Blue",
+      "Light Blue",
+      "Light Yellow",
+      "Clear Blue",
+      "Bright Blue",
+      "Light Pink",
+      "Metallic Black",
+      "Medium Purple",
+      "Bright Red",
+      "Dark Blue",
+      "Dark Red",
+      "Light Purple",
+      "Medium Red",
+      "Medium Gray",
+      "Light Red",
+      "Bright Yellow",
+      "Medium Blue",
+      "Medium Green",
+      "Medium Yellow",
+      "Medium Pink",
+      "Clear Yellow",
+      "Medium Black",
+      "Bright White"
+    ]
+  },
+  {
+    "id": "30-x18-entrance-mat-84700",
+    "name": "30\"X18\" Entrance Mat",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "30\" x 18\" polyester and rubber entrance mat with non-slip backing. Priced at 50 units.",
+    "tiers": [
+      [50, 18.633],
+      [200, 16.2],
+      [500, 15.35],
+      [1000, 14.783],
+      [2000, 13.9]
+    ],
+    "image": "/images/merch/30-x18-entrance-mat-84700.webp",
+    "imageAlt": "30\"X18\" Entrance Mat",
+    "colors": ["Dark Gray"]
+  },
+  {
+    "id": "3x10-waterhog-classic-entrance-mats-75245",
+    "name": "3'x10' Waterhog Classic Entrance Mats",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "10 color options. Size: 3 ' x 10 ' x 0.375 '. Priced at 1 unit.",
+    "tiers": [
+      [1, 1086.31],
+      [6, 752.98],
+      [12, 728.33],
+      [24, 695.05],
+      [48, 664.39]
+    ],
+    "image": "/images/merch/3x10-waterhog-classic-entrance-mats-75245.webp",
+    "imageAlt": "3'x10' Waterhog Classic Entrance Mats",
+    "colors": [
+      "Medium White",
+      "Medium Black",
+      "Medium Red",
+      "Medium Green",
+      "Medium Blue",
+      "Medium Gray",
+      "Medium Yellow",
+      "Medium Brown",
+      "Medium Orange",
+      "Light Brown"
+    ]
+  },
+  {
+    "id": "4x6-ft-outdoor-logo-mat-70543",
+    "name": "4x6 Ft Outdoor Logo Mat",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "24 color options. Size: 4 ' x 6 '. Priced at 1 unit.",
+    "tiers": [
+      [1, 813.08],
+      [6, 542.05],
+      [12, 451.72],
+      [24, 429.13],
+      [48, 406.55]
+    ],
+    "image": "/images/merch/4x6-ft-outdoor-logo-mat-70543.webp",
+    "imageAlt": "4x6 Ft Outdoor Logo Mat",
+    "colors": [
+      "Light Blue",
+      "Clear Blue",
+      "Camouflage Blue",
+      "Medium Blue",
+      "Iridescent Blue",
+      "Bright Blue",
+      "Clear Gray",
+      "Light Gray",
+      "Bright Gray",
+      "Medium Red",
+      "Dark Blue",
+      "Bright Red",
+      "Bright Purple",
+      "Light Green",
+      "Medium Green",
+      "Bright Green",
+      "Light Yellow",
+      "Bright Yellow",
+      "Light Brown",
+      "Bright Brown",
+      "Bright Orange",
+      "Bright Pink",
+      "Medium Black",
+      "Bright White"
+    ]
+  },
+  {
+    "id": "3x10-outdoor-indoor-logo-mat-runner-72391",
+    "name": "3'x10' Outdoor/Indoor logo mat runner",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "24 color options. Size: 3 ' x 10 '. Priced at 1 unit.",
+    "tiers": [
+      [1, 903.43],
+      [6, 564.65],
+      [12, 536.41],
+      [24, 508.18],
+      [48, 479.94]
+    ],
+    "image": "/images/merch/3x10-outdoor-indoor-logo-mat-runner-72391.webp",
+    "imageAlt": "3'x10' Outdoor/Indoor logo mat runner",
+    "colors": [
+      "Clear Blue",
+      "Medium Blue",
+      "Bright Blue",
+      "Metallic Blue",
+      "Camouflage Blue",
+      "Iridescent Blue",
+      "Clear Gray",
+      "Light Gray",
+      "Bright Gray",
+      "Light Red",
+      "Dark Blue",
+      "Bright Red",
+      "Bright Purple",
+      "Light Green",
+      "Clear Green",
+      "Bright Green",
+      "Light Yellow",
+      "Bright Yellow",
+      "Light Brown",
+      "Bright Brown",
+      "Bright Orange",
+      "Bright Pink",
+      "Medium Black",
+      "Bright White"
+    ]
+  },
+  {
+    "id": "3-x-4-custom-indoor-and-outdoor-logo-mat-68875",
+    "name": "3' X 4' Custom Indoor & Outdoor Logo Mat",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Mat made of 100% tufted textile yarn with SBR Rubber backing, non-slip features, with detailed designs printed. Priced at 6 units.",
+    "tiers": [
+      [6, 293.62],
+      [12, 225.85],
+      [24, 214.57],
+      [48, 203.27]
+    ],
+    "image": "/images/merch/3-x-4-custom-indoor-and-outdoor-logo-mat-68875.webp",
+    "imageAlt": "3' X 4' Custom Indoor & Outdoor Logo Mat",
+    "colors": ["Black", "Gray", "Yellow", "Blue", "Multi Color"]
+  },
+  {
+    "id": "custom-indoor-and-outdoor-logo-mat-4x8-72348",
+    "name": "Custom Indoor & Outdoor Logo Mat )4'x8')",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "24 color options. Size: 4 ' x 8 '. Priced at 1 unit.",
+    "tiers": [
+      [1, 963.65],
+      [6, 602.28],
+      [12, 572.17],
+      [24, 542.05],
+      [48, 511.95]
+    ],
+    "image": "/images/merch/custom-indoor-and-outdoor-logo-mat-4x8-72348.webp",
+    "imageAlt": "Custom Indoor & Outdoor Logo Mat )4'x8')",
+    "colors": [
+      "Clear Blue",
+      "Light Blue",
+      "Medium Blue",
+      "Metallic Blue",
+      "Iridescent Blue",
+      "Bright Blue",
+      "Clear Gray",
+      "Light Gray",
+      "Bright Gray",
+      "Light Red",
+      "Dark Blue",
+      "Medium Red",
+      "Bright Purple",
+      "Clear Green",
+      "Light Green",
+      "Bright Green",
+      "Clear Yellow",
+      "Bright Yellow",
+      "Light Brown",
+      "Bright Brown",
+      "Bright Orange",
+      "Bright Pink",
+      "Medium Black",
+      "Bright White"
+    ]
+  },
+  {
+    "id": "floor-impressions-mats-72992",
+    "name": "Floor Impressions Mats",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Impressions Mats combine a 3/16\" thick nitrile rubber surface with digitally printed vinyl logos for durable and stylish branding. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "tiers": [
+      [1, 250.22],
+      [10, 242.7],
+      [100, 242.7]
+    ],
+    "image": "/images/merch/floor-impressions-mats-72992.webp",
+    "imageAlt": "Floor Impressions Mats",
+    "colors": ["Custom Colors"]
+  },
+  {
+    "id": "3-x-5-point-of-purchase-dye-sublimated-floor-mat-07115",
+    "name": "3' x 5' Point Of Purchase Dye Sublimated Floor Mat",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "3' x 5' floor mat made of needle-punch polyester with nitrile rubber borders and backing. Made in USA. Priced at 2 units.",
+    "tiers": [
+      [2, 140.22],
+      [6, 138.22],
+      [12, 130.76],
+      [26, 127.05]
+    ],
+    "image": "/images/merch/3-x-5-point-of-purchase-dye-sublimated-floor-mat-07115.webp",
+    "imageAlt": "3' x 5' Point Of Purchase Dye Sublimated Floor Mat",
+    "colors": ["White"]
+  },
+  {
+    "id": "berber-impressions-hd-floor-mat-4-x-6-63946",
+    "name": "Berber Impressions HD Floor Mat 4' x 6'",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "4' x 6' floor mat made of PET fabric with rubber backing. Made in USA. Priced at 1 unit.",
+    "tiers": [
+      [1, 407.48],
+      [10, 321.17],
+      [15, 282.29],
+      [20, 274.07],
+      [25, 266.08]
+    ],
+    "image": "/images/merch/berber-impressions-hd-floor-mat-4-x-6-63946.webp",
+    "imageAlt": "Berber Impressions HD Floor Mat 4' x 6'",
+    "colors": ["White"]
+  },
+  {
+    "id": "3-x-10-digiprint-hd-indoor-floor-mat-07101",
+    "name": "3' x 10' DigiPrint™ HD Indoor Floor Mat",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "3' x 10' indoor floor mat made of nylon yard with SBR rubber borders and backing. Made in USA. Priced at 2 units.",
+    "tiers": [
+      [2, 463.58],
+      [6, 461.58],
+      [12, 400.29],
+      [26, 379.95]
+    ],
+    "image": "/images/merch/3-x-10-digiprint-hd-indoor-floor-mat-07101.webp",
+    "imageAlt": "3' x 10' DigiPrint™ HD Indoor Floor Mat",
+    "colors": ["White"]
+  },
+  {
+    "id": "digiprint-hd-floor-mat-2x3-64266",
+    "name": "DigiPrint HD Floor Mat 2'x3'",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "2' x 3' floor mat made or fade-resistant and stain resistant PET material with digitally printed graphics. Made in USA. Priced at 1 unit.",
+    "tiers": [
+      [1, 245.12],
+      [10, 136.93],
+      [15, 74.76],
+      [20, 72.58],
+      [25, 70.47]
+    ],
+    "image": "/images/merch/digiprint-hd-floor-mat-2x3-64266.webp",
+    "imageAlt": "DigiPrint HD Floor Mat 2'x3'",
+    "colors": ["White"]
+  },
+  {
+    "id": "berber-impressions-hd-floor-mat-3-x-5-63864",
+    "name": "Berber Impressions HD Floor Mat 3' x 5'",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "3' x 5' floor mat made of PET fabric with rubber backing. Made in USA. Priced at 1 unit.",
+    "tiers": [
+      [1, 325.33],
+      [10, 215.32],
+      [15, 186.97],
+      [20, 181.52],
+      [25, 176.23]
+    ],
+    "image": "/images/merch/berber-impressions-hd-floor-mat-3-x-5-63864.webp",
+    "imageAlt": "Berber Impressions HD Floor Mat 3' x 5'",
+    "colors": ["White"]
+  },
+  {
+    "id": "home-living-room-carpet-19047",
+    "name": "Home Living Room Carpet",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Cotton Woven Rugs with Tassels, Grid Pattern, Washable Rug, Retro Runner for Living Room, Bedroom, Front Door, Kitchen. Priced at 20 units.",
+    "tiers": [
+      [20, 22.833],
+      [50, 19.667],
+      [200, 18.667],
+      [500, 17.167],
+      [1000, 10.667]
+    ],
+    "image": "/images/merch/home-living-room-carpet-19047.webp",
+    "imageAlt": "Home Living Room Carpet",
+    "colors": ["Black", "White"]
+  },
+  {
+    "id": "kitchen-rugs-and-mats-95480",
+    "name": "Kitchen Rugs And Mats",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "31.50\" x 19.69\" x 1.97\" polypropylene kitchen floor mats. Priced at 50 units.",
+    "tiers": [
+      [50, 18.45],
+      [520, 14.95],
+      [5000, 9.067],
+      [20000, 8.6],
+      [100000, 8.55]
+    ],
+    "image": "/images/merch/kitchen-rugs-and-mats-95480.webp",
+    "imageAlt": "Kitchen Rugs And Mats",
+    "colors": [
+      "Assorted",
+      "Blue",
+      "Clear",
+      "Gray",
+      "Green",
+      "Orange",
+      "Pink",
+      "Purple",
+      "White",
+      "Yellow"
+    ]
+  },
+  {
+    "id": "bathroom-rug-non-slip-mats-80078",
+    "name": "Bathroom Rug Non-Slip Mats",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "31.5\"L x 19.68\"W flannel and sponge bathroom mat. Priced at 200 units.",
+    "tiers": [
+      [200, 34.167],
+      [500, 32.667],
+      [1000, 32],
+      [2500, 31],
+      [5000, 29.667]
+    ],
+    "image": "/images/merch/bathroom-rug-non-slip-mats-80078.webp",
+    "imageAlt": "Bathroom Rug Non-Slip Mats",
+    "colors": [
+      "Gray",
+      "Black",
+      "Blue",
+      "Brown",
+      "Red",
+      "Purple",
+      "Pink",
+      "Orange",
+      "Yellow",
+      "White",
+      "Light Blue"
+    ]
+  },
+  {
+    "id": "brand-representative-graphic-mat-2-ft-72656",
+    "name": "Brand Representative Graphic Mat - 2 ft",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Logo Mats for Business Use - Commercial grade carpet logo rugs with nitrile rubber backing and photo-quality art. Made in America Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "tiers": [
+      [1, 289.43],
+      [2, 162.27],
+      [11, 84.12],
+      [26, 80.46]
+    ],
+    "image": "/images/merch/brand-representative-graphic-mat-2-ft-72656.webp",
+    "imageAlt": "Brand Representative Graphic Mat - 2 ft",
+    "colors": [
+      "Brown",
+      "Chestnut",
+      "Red Orange",
+      "Sunset Orange",
+      "Melon",
+      "Tangerine Orange",
+      "Burnt Sienna",
+      "Sepia",
+      "Orange",
+      "Burnt Orange",
+      "Copper",
+      "Mango Tango",
+      "Antique Brass",
+      "Desert Sand",
+      "Raw Sienna",
+      "Tumbleweed",
+      "Tan",
+      "Peach",
+      "Apricot",
+      "Carrot Orange",
+      "Almond",
+      "Gold",
+      "Goldenrod",
+      "Dandelion"
+    ]
+  },
+  {
+    "id": "brand-ambassador-logo-floor-mat-2-x-3-91649",
+    "name": "Brand Ambassador Logo Floor Mat - 2' x 3'",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Custom Door Mat and berber style logo rug. Durable Inlaid Construction for both Outdoor Logo Mat and Indoor Rug. Made in the USA Made in USA. Priced at 1 unit.",
+    "tiers": [
+      [1, 277.2],
+      [2, 252.45],
+      [11, 237.6]
+    ],
+    "image": "/images/merch/brand-ambassador-logo-floor-mat-2-x-3-91649.webp",
+    "imageAlt": "Brand Ambassador Logo Floor Mat - 2' x 3'",
+    "colors": [
+      "Black",
+      "Charcoal Gray",
+      "Silver",
+      "Sand Beige",
+      "White",
+      "Teak",
+      "Gold",
+      "Yellow",
+      "Beige",
+      "Copper",
+      "Taupe",
+      "Wood Brown",
+      "Chocolate Brown",
+      "Walnut Brown",
+      "Hunter",
+      "Forest Green",
+      "Emerald Green",
+      "Aqua Blue",
+      "Purple",
+      "Orange",
+      "Navy Blue",
+      "Steel",
+      "Sea Blue",
+      "Royal"
+    ]
+  },
+  {
+    "id": "bath-mat-40907",
+    "name": "Bath Mat",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Anti-Slip and Easy to Clean Modern Bath Mat for Safe and Stylish Bathroom Comfortable Absorbent Bathroom Mat Bath Mats. Priced at 40 units.",
+    "tiers": [
+      [40, 14.55],
+      [100, 13.5],
+      [300, 12.75],
+      [500, 11.25],
+      [1000, 7.95]
+    ],
+    "image": "/images/merch/bath-mat-40907.webp",
+    "imageAlt": "Bath Mat",
+    "colors": ["Blue", "Green", "Coffee"]
+  },
+  {
+    "id": "outdoor-or-indoor-brand-ambassador-logo-floor-mat-8-ft-91618",
+    "name": "Outdoor or Indoor Brand Ambassador Logo Floor Mat - 8 ft",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Entrance Matting and berber style logo rug. Durable Inlaid Construction for both Outdoor Logo Mat and Indoor Rug. Made in the USA Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "tiers": [
+      [1, 2327.28],
+      [2, 1745.46],
+      [11, 1629.09]
+    ],
+    "image": "/images/merch/outdoor-or-indoor-brand-ambassador-logo-floor-mat-8-ft-91618.webp",
+    "imageAlt": "Outdoor or Indoor Brand Ambassador Logo Floor Mat - 8 ft",
+    "colors": [
+      "Black",
+      "Charcoal Gray",
+      "Silver",
+      "Sand Beige",
+      "White",
+      "Teak",
+      "Gold",
+      "Yellow",
+      "Beige",
+      "Copper",
+      "Taupe",
+      "Wood Brown",
+      "Chocolate Brown",
+      "Walnut Brown",
+      "Hunter",
+      "Forest Green",
+      "Emerald Green",
+      "Aqua Blue",
+      "Purple",
+      "Orange",
+      "Navy Blue",
+      "Steel",
+      "Sea Blue",
+      "Royal"
+    ]
+  },
+  {
+    "id": "brand-diplomat-custom-branded-logo-rug-4-ft-91626",
+    "name": "Brand Diplomat Custom Branded Logo Rug - 4 ft",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Custom Logo Mat and industrial-grade custom logoed entry mat, custom-dyed carpet floor mats with nitrile rubber backing. Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "tiers": [
+      [1, 724.87],
+      [2, 543.88],
+      [11, 407.68],
+      [26, 303.81]
+    ],
+    "image": "/images/merch/brand-diplomat-custom-branded-logo-rug-4-ft-91626.webp",
+    "imageAlt": "Brand Diplomat Custom Branded Logo Rug - 4 ft",
+    "colors": [
+      "Brown",
+      "Chestnut",
+      "Red Orange",
+      "Sunset Orange",
+      "Melon",
+      "Tangerine",
+      "Burnt Sienna",
+      "Sepia",
+      "Orange",
+      "Burnt Orange",
+      "Copper",
+      "Mango Tango",
+      "Antique Brass",
+      "Desert Sand",
+      "Raw Sienna",
+      "Tumbleweed",
+      "Tan",
+      "Peach",
+      "Apricot",
+      "Carrot Orange",
+      "Almond",
+      "Gold",
+      "Goldenrod",
+      "Dandelion"
+    ]
+  },
+  {
+    "id": "custom-disposable-paper-car-floor-mats-67133",
+    "name": "Custom Disposable Paper Car Floor Mats",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Recyclable Disposable Paper Floor Mats No Dirt Foot Print for Commercial. Priced at 1000 units.",
+    "tiers": [
+      [1000, 0.81],
+      [2000, 0.73],
+      [5000, 0.33],
+      [10000, 0.27],
+      [20000, 0.22]
+    ],
+    "image": "/images/merch/custom-disposable-paper-car-floor-mats-67133.webp",
+    "imageAlt": "Custom Disposable Paper Car Floor Mats",
+    "colors": ["Brown", "White"]
+  },
+  {
+    "id": "pvc-car-anti-slip-floor-mats-four-piece-set-27670",
+    "name": "PVC Car Anti-Slip Floor Mats Four Piece Set",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "PVC Car Anti-Slip Floor Mats: Keep your car clean and stylish! Durable, waterproof, and easy to clean. Priced at 200 units.",
+    "tiers": [
+      [200, 33.333],
+      [500, 13.333],
+      [1000, 12.833],
+      [2000, 12.5],
+      [5000, 12.167]
+    ],
+    "image": "/images/merch/pvc-car-anti-slip-floor-mats-four-piece-set-27670.webp",
+    "imageAlt": "PVC Car Anti-Slip Floor Mats Four Piece Set",
+    "colors": ["Black", "Gray", "Yellow"]
+  },
+  {
+    "id": "4x8-indoor-welcome-mat-17411",
+    "name": "4'x8' Indoor Welcome Mat",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "24 color options. Size: 4 ' x 8 '. Priced at 1 unit.",
+    "tiers": [
+      [1, 1084.12],
+      [6, 722.75],
+      [12, 602.28],
+      [24, 572.17],
+      [48, 542.05]
+    ],
+    "image": "/images/merch/4x8-indoor-welcome-mat-17411.webp",
+    "imageAlt": "4'x8' Indoor Welcome Mat",
+    "colors": [
+      "Light Blue",
+      "Iridescent Blue",
+      "Medium Blue",
+      "Clear Blue",
+      "Metallic Blue",
+      "Bright Blue",
+      "Clear Gray",
+      "Medium Gray",
+      "Bright Gray",
+      "Light Red",
+      "Dark Blue",
+      "Bright Red",
+      "Bright Purple",
+      "Light Green",
+      "Clear Green",
+      "Bright Green",
+      "Clear Yellow",
+      "Bright Yellow",
+      "Clear Brown",
+      "Bright Brown",
+      "Bright Orange",
+      "Bright Pink",
+      "Medium Black",
+      "Bright White"
+    ]
+  },
+  {
+    "id": "door-mat-22209",
+    "name": "Door Mat",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "8 color options. Size: 15 \" x 23 \". Priced at 1000 units.",
+    "tiers": [
+      [1000, 4.583],
+      [2000, 4.55],
+      [3000, 4.517],
+      [5000, 4.483],
+      [6000, 4.45]
+    ],
+    "image": "/images/merch/door-mat-22209.webp",
+    "imageAlt": "Door Mat",
+    "colors": [
+      "Bright Blue",
+      "Clear Red",
+      "Camouflage Orange",
+      "Metallic Black",
+      "Bright Gray",
+      "Iridescent Pink",
+      "Iridescent White",
+      "Metallic Red"
+    ]
+  },
+  {
+    "id": "custom-design-non-slip-welcome-mat-18494",
+    "name": "Custom Design Non-Slip Welcome Mat",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Value Discount on First Order Custom Design Non-Slip Welcome Mat. Priced at 10 units.",
+    "tiers": [
+      [10, 37.928],
+      [100, 25.245],
+      [500, 24.167]
+    ],
+    "image": "/images/merch/custom-design-non-slip-welcome-mat-18494.webp",
+    "imageAlt": "Custom Design Non-Slip Welcome Mat",
+    "colors": ["Custom"]
   }
 ]

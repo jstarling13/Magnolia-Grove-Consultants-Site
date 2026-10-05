@@ -35,12 +35,6 @@
     "asi": "asi/57655",
     "productNo": "GOLFBALLC"
   },
-  "on-sale-professional-golf-ball-49427": {
-    "espId": "551549427",
-    "supplier": "STOPNGO Line",
-    "asi": "asi/57655",
-    "productNo": "GOLFBALL"
-  },
   "golf-tees-and-ball-marker-in-matchbook-card-57838": {
     "espId": "551757838",
     "supplier": "NC Custom (CI/Lanco)",
@@ -52,12 +46,6 @@
     "supplier": "Pro Golf Premiums Inc",
     "asi": "asi/79680",
     "productNo": "T6036B"
-  },
-  "titleist-pro-v1-golf-ball-73365": {
-    "espId": "7273365",
-    "supplier": "Gold Bond",
-    "asi": "asi/57653",
-    "productNo": "PV1"
   },
   "titleist-pro-v1-64384": {
     "espId": "556464384",
@@ -71,7 +59,7 @@
     "asi": "asi/73651",
     "productNo": "GTGS042"
   },
-  "on-sale-twin-golf-balls-99966": {
+  "twin-golf-balls-99966": {
     "espId": "7399966",
     "supplier": "STOPNGO Line",
     "asi": "asi/57655",
@@ -311,12 +299,6 @@
     "asi": "asi/61125",
     "productNo": "15087"
   },
-  "6-panels-relaxed-golf-hat-dad-cap-19118": {
-    "espId": "552519118",
-    "supplier": "Direct Caps",
-    "asi": "asi/48015",
-    "productNo": "7648"
-  },
   "6-panel-poly-twill-baseball-cap-21849": {
     "espId": "552521849",
     "supplier": "Direct Caps",
@@ -418,5 +400,485 @@
     "supplier": "Prime Line",
     "asi": "asi/79530",
     "productNo": "LG303"
+  },
+  "carhartt-ct104597-beanie-cap-sublimated-embroidered-patch-27350": {
+    "espId": "553527350",
+    "supplier": "Overnightline",
+    "asi": "asi/38195",
+    "productNo": "HATBEANIESUB3"
+  },
+  "cold-weather-set-09588": {
+    "espId": "553109588",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "1144"
+  },
+  "12-inch-cuff-beanie-21841": {
+    "espId": "552521841",
+    "supplier": "Direct Caps",
+    "asi": "asi/48015",
+    "productNo": "2562"
+  },
+  "buffalo-plaid-knit-cap-scarf-and-text-gloves-combo-89764": {
+    "espId": "553389764",
+    "supplier": "Suntex Industries",
+    "asi": "asi/90160",
+    "productNo": "BPB-BPS-TEXT"
+  },
+  "sportsman-sp12-beanie-cap-with-usa-made-sublimated-patch-88002": {
+    "espId": "553488002",
+    "supplier": "Overnightline",
+    "asi": "asi/38195",
+    "productNo": "HATBEANIESUB1"
+  },
+  "20-oz-stainless-steel-insulated-tumbler-with-lid-and-straw-66442": {
+    "espId": "555166442",
+    "supplier": "Core Gifts Promo",
+    "asi": "asi/46671",
+    "productNo": "CA8853"
+  },
+  "16-oz-stemless-wine-tumbler-69654": {
+    "espId": "552569654",
+    "supplier": "Jornik Manufacturing",
+    "asi": "asi/63549",
+    "productNo": "JK-5861"
+  },
+  "20-oz-travel-stainless-vacuum-insulated-coffee-cup-w-lid-43497": {
+    "espId": "552443497",
+    "supplier": "Opusline (Benmex)",
+    "asi": "asi/39820",
+    "productNo": "MP19"
+  },
+  "20-oz-himalayan-tumbler-20426": {
+    "espId": "550620426",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "5790"
+  },
+  "rtic-ceramic-lined-20-oz-essential-tumbler-89721": {
+    "espId": "555189721",
+    "supplier": "imprintID",
+    "asi": "asi/73651",
+    "productNo": "RTIC820"
+  },
+  "little-hippo-mug-and-straw-lid-w-twist-closure-30oz-07205": {
+    "espId": "554707205",
+    "supplier": "High Caliber Line USA",
+    "asi": "asi/43442",
+    "productNo": "S909"
+  },
+  "titus-20-oz-double-wall-stainless-insulated-tumbler-01910": {
+    "espId": "555301910",
+    "supplier": "imprintID",
+    "asi": "asi/73651",
+    "productNo": "TM20ID"
+  },
+  "27-oz-stainless-steel-grip-travel-mug-92485": {
+    "espId": "555092485",
+    "supplier": "BEL Promo",
+    "asi": "asi/39552",
+    "productNo": "ATM324"
+  },
+  "20-oz-full-color-himalayan-recycled-tumbler-47541": {
+    "espId": "553747541",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "55790"
+  },
+  "rtic-20oz-essential-tumbler-15685": {
+    "espId": "555615685",
+    "supplier": "HIRSCH",
+    "asi": "asi/61005",
+    "productNo": "RTIC-ESS20"
+  },
+  "20-oz-stainless-steel-travel-mug-with-handle-24845": {
+    "espId": "553724845",
+    "supplier": "Evans Manufacturing, LLC",
+    "asi": "asi/52840",
+    "productNo": "4155"
+  },
+  "rtic-ceramic-lined-30-oz-essential-tumbler-89693": {
+    "espId": "555189693",
+    "supplier": "imprintID",
+    "asi": "asi/73651",
+    "productNo": "RTIC930"
+  },
+  "24-oz-plastic-sports-water-bottle-34845": {
+    "espId": "5534845",
+    "supplier": "Evans Manufacturing, LLC",
+    "asi": "asi/52840",
+    "productNo": "4424"
+  },
+  "waterh-32-oz-smart-water-bottle-25609": {
+    "espId": "556125609",
+    "supplier": "Gold Bond",
+    "asi": "asi/57653",
+    "productNo": "BOOST32"
+  },
+  "20-oz-sports-bottle-89013": {
+    "espId": "555089013",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "EV20"
+  },
+  "32-oz-owala-freesip-stainless-insulated-bottle-with-handle-58399": {
+    "espId": "555058399",
+    "supplier": "ETS Express, LLC",
+    "asi": "asi/51197",
+    "productNo": "79404-G"
+  },
+  "30-oz-owala-sway-stainless-water-bottle-with-handle-28363": {
+    "espId": "556228363",
+    "supplier": "ETS Express, LLC",
+    "asi": "asi/51197",
+    "productNo": "80044-G"
+  },
+  "32-oz-baltic-collection-water-bottle-05350": {
+    "espId": "4905350",
+    "supplier": "Moderne Glass Company Inc",
+    "asi": "asi/71920",
+    "productNo": "24800"
+  },
+  "26-oz-stainless-sports-water-bottle-73551": {
+    "espId": "4973551",
+    "supplier": "BEL Promo",
+    "asi": "asi/39552",
+    "productNo": "ASB105"
+  },
+  "roll-up-18-oz-foldable-water-bottle-with-matching-carabiner-72270": {
+    "espId": "6772270",
+    "supplier": "Innovation Line",
+    "asi": "asi/62660",
+    "productNo": "6536"
+  },
+  "25oz-diversion-safe-insulated-water-bottle-with-storage-13889": {
+    "espId": "556713889",
+    "supplier": "Top Line Promos Inc",
+    "asi": "asi/91484",
+    "productNo": "CL076"
+  },
+  "20-oz-water-bottles-with-push-cap-21414": {
+    "espId": "550621414",
+    "supplier": "BEL Promo",
+    "asi": "asi/39552",
+    "productNo": "AWB20"
+  },
+  "showstopper-event-flooring-95710": {
+    "espId": "555795710",
+    "supplier": "Instent Industries",
+    "asi": "asi/94101",
+    "productNo": "300007"
+  },
+  "event-flooring-91195": {
+    "espId": "554991195",
+    "supplier": "Instent Industries",
+    "asi": "asi/94101",
+    "productNo": "300003"
+  },
+  "rugs-55129": {
+    "espId": "554255129",
+    "supplier": "Metro Textile",
+    "asi": "asi/70819",
+    "productNo": "SBRUG3151"
+  },
+  "custom-logo-rugs-polyester-3ft-x-3ft-57678": {
+    "espId": "553757678",
+    "supplier": "Giant Media LLC",
+    "asi": "asi/56729",
+    "productNo": "BBLRRSQ01-GM"
+  },
+  "sublimated-rug-63-x-84-69078": {
+    "espId": "556069078",
+    "supplier": "Sam's Shop Towels",
+    "asi": "asi/84749",
+    "productNo": "SR6384"
+  },
+  "32-x-20-washable-rug-87382": {
+    "espId": "555887382",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "10217"
+  },
+  "custom-event-carpet-04034": {
+    "espId": "555504034",
+    "supplier": "Giant Media LLC",
+    "asi": "asi/56729",
+    "productNo": "BBRDCPT01-GM"
+  },
+  "chenille-area-rugs-47109": {
+    "espId": "553247109",
+    "supplier": "Terry Town",
+    "asi": "asi/90913",
+    "productNo": ""
+  },
+  "3d-diatom-ooze-rugs-43354": {
+    "espId": "555143354",
+    "supplier": "Logo Maker Inc",
+    "asi": "asi/67856",
+    "productNo": "LMI52-JY"
+  },
+  "customizable-non-slip-area-rug-durable-and-stain-resistant-84536": {
+    "espId": "556084536",
+    "supplier": "ATX Promo Inc",
+    "asi": "asi/30184",
+    "productNo": "ATXEL049"
+  },
+  "colorful-ornate-patterned-round-custom-logo-area-rugs-64967": {
+    "espId": "555864967",
+    "supplier": "Eagleshout Gifts Business Inc",
+    "asi": "asi/51269",
+    "productNo": "EGKM0026"
+  },
+  "3x5-olefin-carpet-mat-for-outdoor-or-indoor-21302": {
+    "espId": "555421302",
+    "supplier": "Top Advg",
+    "asi": "asi/91466",
+    "productNo": "TPRF073"
+  },
+  "coco-coir-outdoor-door-mat-31248": {
+    "espId": "553731248",
+    "supplier": "I Promotion Pro Inc",
+    "asi": "asi/62098",
+    "productNo": "IPLL130A"
+  },
+  "6x10-indoor-door-mat-27056": {
+    "espId": "551227056",
+    "supplier": "Giraffe Technology",
+    "asi": "asi/56886",
+    "productNo": "GP-KB610"
+  },
+  "welcome-entrance-doormat-26327": {
+    "espId": "554926327",
+    "supplier": "Sprinters Advertising",
+    "asi": "asi/88891",
+    "productNo": "DM2415"
+  },
+  "coir-doormat-12571": {
+    "espId": "553512571",
+    "supplier": "ADA Promo Inc",
+    "asi": "asi/31551",
+    "productNo": "JLH4012"
+  },
+  "led-light-up-music-sound-controlled-coir-doormat-47767": {
+    "espId": "556047767",
+    "supplier": "Top Line Promos Inc",
+    "asi": "asi/91484",
+    "productNo": "SW3919"
+  },
+  "anti-skid-doormat-water-absorption-floor-mat-51242": {
+    "espId": "555451242",
+    "supplier": "Branding Your Brand Inc",
+    "asi": "asi/90200",
+    "productNo": "ZE8020"
+  },
+  "carpet-household-outdoor-non-slip-mat-53806": {
+    "espId": "555453806",
+    "supplier": "I Promotion Pro Inc",
+    "asi": "asi/62098",
+    "productNo": "IPLD294A"
+  },
+  "sublimation-door-mat-04587": {
+    "espId": "554404587",
+    "supplier": "I Promotion Pro Inc",
+    "asi": "asi/62098",
+    "productNo": "IPVW507A"
+  },
+  "natural-coir-door-mat-97453": {
+    "espId": "554297453",
+    "supplier": "I Promotion Pro Inc",
+    "asi": "asi/62098",
+    "productNo": "IPVW450A"
+  },
+  "heavy-duty-indoor-outdoor-entrance-door-mats-19928": {
+    "espId": "555019928",
+    "supplier": "SC Promo Inc",
+    "asi": "asi/87101",
+    "productNo": "ASC831"
+  },
+  "custom-outdoor-front-door-mat-42370": {
+    "espId": "555042370",
+    "supplier": "Lifeel Inc",
+    "asi": "asi/67386",
+    "productNo": "WL074"
+  },
+  "3x5-indoor-entrance-mat-38112": {
+    "espId": "552138112",
+    "supplier": "Giraffe Technology",
+    "asi": "asi/56886",
+    "productNo": "GP-KB35"
+  },
+  "5x10-outdoor-entrance-mat-69221": {
+    "espId": "551369221",
+    "supplier": "Giraffe Technology",
+    "asi": "asi/56886",
+    "productNo": "GP-KA510"
+  },
+  "3x4-indoor-entrance-mat-68874": {
+    "espId": "551368874",
+    "supplier": "Giraffe Technology",
+    "asi": "asi/56886",
+    "productNo": "GP-KB34"
+  },
+  "customizable-non-slip-entrance-rug-26948": {
+    "espId": "556026948",
+    "supplier": "Top Line Promos Inc",
+    "asi": "asi/91484",
+    "productNo": "SW3864"
+  },
+  "rubber-backed-entrance-outdoor-indoor-logo-mat-6-x-12-69323": {
+    "espId": "551369323",
+    "supplier": "Giraffe Technology",
+    "asi": "asi/56886",
+    "productNo": "GP-KA612"
+  },
+  "30-x18-entrance-mat-84700": {
+    "espId": "554484700",
+    "supplier": "I Promotion Pro Inc",
+    "asi": "asi/62098",
+    "productNo": "IPTM557A"
+  },
+  "3x10-waterhog-classic-entrance-mats-75245": {
+    "espId": "556175245",
+    "supplier": "Giraffe Technology",
+    "asi": "asi/56886",
+    "productNo": "GP-KW310"
+  },
+  "4x6-ft-outdoor-logo-mat-70543": {
+    "espId": "551370543",
+    "supplier": "Giraffe Technology",
+    "asi": "asi/56886",
+    "productNo": "GP-KB46"
+  },
+  "3x10-outdoor-indoor-logo-mat-runner-72391": {
+    "espId": "551972391",
+    "supplier": "Giraffe Technology",
+    "asi": "asi/56886",
+    "productNo": "GP-KA310"
+  },
+  "3-x-4-custom-indoor-and-outdoor-logo-mat-68875": {
+    "espId": "551368875",
+    "supplier": "Giraffe Technology",
+    "asi": "asi/56886",
+    "productNo": "GP-KA34"
+  },
+  "custom-indoor-and-outdoor-logo-mat-4x8-72348": {
+    "espId": "551972348",
+    "supplier": "Giraffe Technology",
+    "asi": "asi/56886",
+    "productNo": "GP-KA48"
+  },
+  "floor-impressions-mats-72992": {
+    "espId": "553372992",
+    "supplier": "Giant Media LLC",
+    "asi": "asi/56729",
+    "productNo": "LMFRIM01-GM"
+  },
+  "3-x-5-point-of-purchase-dye-sublimated-floor-mat-07115": {
+    "espId": "551507115",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "8904"
+  },
+  "berber-impressions-hd-floor-mat-4-x-6-63946": {
+    "espId": "555763946",
+    "supplier": "SnugZ USA",
+    "asi": "asi/88060",
+    "productNo": "LMBBI46"
+  },
+  "3-x-10-digiprint-hd-indoor-floor-mat-07101": {
+    "espId": "551507101",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "8905"
+  },
+  "digiprint-hd-floor-mat-2x3-64266": {
+    "espId": "555764266",
+    "supplier": "SnugZ USA",
+    "asi": "asi/88060",
+    "productNo": "LMDPHD23"
+  },
+  "berber-impressions-hd-floor-mat-3-x-5-63864": {
+    "espId": "555763864",
+    "supplier": "SnugZ USA",
+    "asi": "asi/88060",
+    "productNo": "LMBBI35"
+  },
+  "home-living-room-carpet-19047": {
+    "espId": "555619047",
+    "supplier": "Marketing Gifts Inc",
+    "asi": "asi/68835",
+    "productNo": "WB1811"
+  },
+  "kitchen-rugs-and-mats-95480": {
+    "espId": "555295480",
+    "supplier": "Branding Your Brand Inc",
+    "asi": "asi/90200",
+    "productNo": "AW086"
+  },
+  "bathroom-rug-non-slip-mats-80078": {
+    "espId": "553780078",
+    "supplier": "I Promotion Pro Inc",
+    "asi": "asi/62098",
+    "productNo": "IPPP209A"
+  },
+  "brand-representative-graphic-mat-2-ft-72656": {
+    "espId": "555072656",
+    "supplier": "Custom Business Mats Inc.",
+    "asi": "asi/46846",
+    "productNo": ""
+  },
+  "brand-ambassador-logo-floor-mat-2-x-3-91649": {
+    "espId": "552491649",
+    "supplier": "Custom Business Mats Inc.",
+    "asi": "asi/46846",
+    "productNo": ""
+  },
+  "bath-mat-40907": {
+    "espId": "555440907",
+    "supplier": "Marketing Gifts Inc",
+    "asi": "asi/68835",
+    "productNo": "MG607"
+  },
+  "outdoor-or-indoor-brand-ambassador-logo-floor-mat-8-ft-91618": {
+    "espId": "552491618",
+    "supplier": "Custom Business Mats Inc.",
+    "asi": "asi/46846",
+    "productNo": ""
+  },
+  "brand-diplomat-custom-branded-logo-rug-4-ft-91626": {
+    "espId": "552491626",
+    "supplier": "Custom Business Mats Inc.",
+    "asi": "asi/46846",
+    "productNo": ""
+  },
+  "custom-disposable-paper-car-floor-mats-67133": {
+    "espId": "553267133",
+    "supplier": "Credible Promo",
+    "asi": "asi/47207",
+    "productNo": "CPCW0259"
+  },
+  "pvc-car-anti-slip-floor-mats-four-piece-set-27670": {
+    "espId": "555527670",
+    "supplier": "Topromos Inc",
+    "asi": "asi/91271",
+    "productNo": "TPBH453A"
+  },
+  "4x8-indoor-welcome-mat-17411": {
+    "espId": "551217411",
+    "supplier": "Giraffe Technology",
+    "asi": "asi/56886",
+    "productNo": "GP-KB48"
+  },
+  "door-mat-22209": {
+    "espId": "555722209",
+    "supplier": "SC Promo Inc",
+    "asi": "asi/87101",
+    "productNo": "ASC14905"
+  },
+  "custom-design-non-slip-welcome-mat-18494": {
+    "espId": "554918494",
+    "supplier": "Sprinters Advertising",
+    "asi": "asi/88891",
+    "productNo": "DM2338"
   }
 }
