@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   bestTier,
@@ -155,5 +157,19 @@ describe("progressive disclosure math", () => {
     expect(nextBatchSize(8, 71)).toBe(24);
     expect(nextBatchSize(32, 40)).toBe(8);
     expect(nextBatchSize(40, 40)).toBe(0);
+  });
+});
+
+describe("client bundle hygiene", () => {
+  it("keeps the full catalog config (and its ESP price tiers) out of client components", () => {
+    const dir = path.resolve(__dirname, "../src/components/merchandise");
+    const offenders = fs
+      .readdirSync(dir)
+      .filter((file) => file.endsWith(".tsx"))
+      .filter((file) => {
+        const source = fs.readFileSync(path.join(dir, file), "utf8");
+        return source.includes('"use client"') && /config\/merchandiseConfig/.test(source);
+      });
+    expect(offenders).toEqual([]);
   });
 });

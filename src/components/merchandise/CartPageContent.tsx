@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Loader2 } from "lucide-react";
 import { useCart } from "@/components/merchandise/CartContext";
-import { merchandisePage } from "@/config/merchandiseConfig";
 import { formatPrice, isRealBrand, tierForQuantity, type CatalogProduct } from "@/lib/merchCatalog";
 import Turnstile from "@/components/Turnstile";
 
@@ -49,7 +48,18 @@ const inputClasses =
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-export default function CartPageContent({ catalog }: { catalog: CatalogProduct[] }) {
+interface CartPageContentProps {
+  catalog: CatalogProduct[];
+  /** Disclaimer copy from the config, passed in so this client bundle never imports the full catalog config. */
+  pricingDisclaimer: string;
+  deliveryEstimate: string;
+}
+
+export default function CartPageContent({
+  catalog,
+  pricingDisclaimer,
+  deliveryEstimate,
+}: CartPageContentProps) {
   const { items, updateQuantity, removeItem, clear } = useCart();
   const [fields, setFields] = useState<ContactFields>(initialFields);
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFields, string>>>({});
@@ -273,8 +283,8 @@ export default function CartPageContent({ catalog }: { catalog: CatalogProduct[]
                   </p>
                 </div>
                 <div className="mt-4 space-y-1 border-t border-gold/15 pt-4 text-xs leading-relaxed text-onyx/50">
-                  <p>{merchandisePage.pricingDisclaimer}</p>
-                  <p>{merchandisePage.deliveryEstimate}</p>
+                  <p>{pricingDisclaimer}</p>
+                  <p>{deliveryEstimate}</p>
                 </div>
               </div>
 
