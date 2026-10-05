@@ -13,6 +13,8 @@ export const CART_FORM_LIMITS = {
   notesMax: 2000,
   /** Largest quantity the API accepts on one cart line. */
   lineQuantityMax: 100000,
+  /** Distinct product/color lines the API accepts in one request. */
+  maxLines: 100,
 } as const;
 
 export const CART_FORM_MESSAGES = {

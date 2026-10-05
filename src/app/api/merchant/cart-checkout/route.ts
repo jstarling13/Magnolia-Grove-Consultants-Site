@@ -5,6 +5,7 @@ import {
   type PricedCartLineItem,
 } from "@/lib/merchOrders";
 import { getProductById } from "@/config/merchandiseConfig";
+import { CART_FORM_LIMITS } from "@/lib/cartFormRules";
 import { cleanLineColor, validateCart, type CartPricingProduct } from "@/lib/cartPricing";
 import { checkRateLimit } from "@/lib/ratelimit";
 import { CART_POLICY, EMAIL_TARGET_POLICY } from "@/lib/rateLimitPolicies";
@@ -16,8 +17,7 @@ import { getEspLink } from "@/lib/espLinks";
 
 export const runtime = "nodejs";
 
-/** Distinct product/color lines accepted in one request. */
-const MAX_CART_LINES = 100;
+const MAX_CART_LINES = CART_FORM_LIMITS.maxLines;
 
 export async function POST(request: NextRequest) {
   const ip = getClientIp(request);
