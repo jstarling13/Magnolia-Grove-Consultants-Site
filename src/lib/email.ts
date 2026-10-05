@@ -251,6 +251,24 @@ interface CartOrderNotificationPayload {
   total: number;
 }
 
+/**
+ * Internal ESP+ lookup details for one cart line. Business-inbox only: this
+ * helper is used by sendCartOrderNotification and nowhere customer-facing.
+ */
+function espDetailsHtml(item: PricedCartLineItem): string {
+  const parts: string[] = [];
+  if (item.espUrl) {
+    const label = item.espKind === "search" ? "Open in ESP+ (search link)" : "Open in ESP+";
+    parts.push(
+      `<a href="${escapeHtml(item.espUrl)}" style="color:${GOLD};text-decoration:underline;">${label}</a>`
+    );
+  }
+  if (item.supplier) parts.push(`Supplier: ${escapeHtml(item.supplier)}`);
+  if (item.productNo) parts.push(`Product no. ${escapeHtml(item.productNo)}`);
+  if (parts.length === 0) return "";
+  return `<div style="margin-top:2px;color:${MUTED};font-size:12px;">${parts.join(" &middot; ")}</div>`;
+}
+
 export async function sendCartOrderNotification(
   payload: CartOrderNotificationPayload
 ): Promise<SendResult> {
@@ -265,10 +283,10 @@ export async function sendCartOrderNotification(
     .map(
       (item) =>
         `<tr>
-          <td style="padding:6px 0;color:#e5e5e5;font-size:14px;">${item.name}</td>
-          <td style="padding:6px 0;color:#e5e5e5;font-size:14px;text-align:right;">${item.quantity}</td>
-          <td style="padding:6px 0;color:#e5e5e5;font-size:14px;text-align:right;">$${item.unitPrice.toFixed(2)}</td>
-          <td style="padding:6px 0;color:#e5e5e5;font-size:14px;text-align:right;">$${item.lineTotal.toFixed(2)}</td>
+          <td style="padding:6px 0;color:#e5e5e5;font-size:14px;">${escapeHtml(item.name)}${espDetailsHtml(item)}</td>
+          <td style="padding:6px 0;color:#e5e5e5;font-size:14px;text-align:right;vertical-align:top;">${item.quantity}</td>
+          <td style="padding:6px 0;color:#e5e5e5;font-size:14px;text-align:right;vertical-align:top;">$${item.unitPrice.toFixed(2)}</td>
+          <td style="padding:6px 0;color:#e5e5e5;font-size:14px;text-align:right;vertical-align:top;">$${item.lineTotal.toFixed(2)}</td>
         </tr>`
     )
     .join("");

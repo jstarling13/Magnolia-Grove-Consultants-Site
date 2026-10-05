@@ -116,3 +116,72 @@ describe("merch order payment panel", () => {
     expect(actions.updateMerchOrderStatus).toHaveBeenCalledWith(7, "ordered_in_esp");
   });
 });
+
+describe("merch order backend ESP details", () => {
+  beforeEach(() => vi.clearAllMocks());
+
+  const items = [
+    {
+      productId: "pen",
+      name: "Metal Pen",
+      quantity: 250,
+      unitPrice: 1.5,
+      lineTotal: 375,
+      espUrl: "https://espplus.com/products/555990121",
+      espKind: "product",
+      supplier: "Prime Line",
+      productNo: "OD618",
+    },
+    {
+      productId: "mug",
+      name: "Travel Mug",
+      quantity: 100,
+      unitPrice: 4,
+      lineTotal: 400,
+      espUrl: "https://espplus.com/products?q=Travel%20Mug&searchType=products",
+      espKind: "search",
+    },
+    { productId: "old", name: "Legacy Cap", quantity: 12, unitPrice: 5, lineTotal: 60 },
+  ];
+
+  it("shows an Open in ESP+ link per line, flagging search fallbacks", () => {
+    renderExpanded(merchRow({ items, notes: "Need by Friday", quotedTotal: 912.5 }));
+    const links = screen.getAllByRole("link", { name: "Open in ESP+" });
+    expect(links).toHaveLength(2);
+    expect(links[0]).toHaveAttribute("href", "https://espplus.com/products/555990121");
+    expect(links[0]).toHaveAttribute("target", "_blank");
+    expect(links[0].getAttribute("rel")).toContain("noreferrer");
+    const listText = screen.getAllByRole("listitem").map((li) => li.textContent);
+    expect(listText.some((t) => /Supplier: Prime Line/.test(t ?? ""))).toBe(true);
+    expect(listText.some((t) => /Product no\.\s+OD618/.test(t ?? ""))).toBe(true);
+    expect(listText.filter((t) => /\(search link\)/.test(t ?? ""))).toHaveLength(1);
+  });
+
+  it("renders a copyable backend order sheet with notes and quoted total", async () => {
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.defineProperty(navigator, "clipboard", { value: { writeText }, configurable: true });
+    renderExpanded(merchRow({ items, notes: "Need by Friday", quotedTotal: 912.5 }));
+
+    const sheet = (screen.getByLabelText("Backend order sheet") as HTMLTextAreaElement).value;
+    expect(sheet).toContain("250 x Metal Pen");
+    expect(sheet).toContain("ESP+ link: https://espplus.com/products/555990121");
+    expect(sheet).toContain("Supplier: Prime Line");
+    expect(sheet).toContain("Product no.: OD618");
+    expect(sheet).toContain("(search link)");
+    expect(sheet).toContain("12 x Legacy Cap");
+    expect(sheet).toContain("Customer notes: Need by Friday");
+    expect(sheet).toContain("Quoted total: $912.50");
+
+    fireEvent.click(screen.getByRole("button", { name: "Copy" }));
+    await waitFor(() => expect(writeText).toHaveBeenCalledWith(sheet));
+    expect(await screen.findByRole("button", { name: "Copied" })).toBeInTheDocument();
+  });
+
+  it("still renders orders stored before ESP fields existed", () => {
+    renderExpanded(merchRow({ items: [items[2]] }));
+    expect(screen.queryByRole("link", { name: "Open in ESP+" })).not.toBeInTheDocument();
+    expect((screen.getByLabelText("Backend order sheet") as HTMLTextAreaElement).value).toContain(
+      "12 x Legacy Cap"
+    );
+  });
+});

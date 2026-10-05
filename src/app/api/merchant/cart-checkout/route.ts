@@ -5,6 +5,7 @@ import { checkRateLimit } from "@/lib/ratelimit";
 import { verifyTurnstileToken } from "@/lib/turnstile";
 import { sendCartOrderNotification } from "@/lib/email";
 import { recordSubmission } from "@/lib/submissions";
+import { getEspLink } from "@/lib/espLinks";
 
 export const runtime = "nodejs";
 
@@ -68,12 +69,21 @@ export async function POST(request: NextRequest) {
       );
     }
     const tier = tierForQuantity(product, item.quantity);
+    // Backend-only supplier lookup for whoever places the ESP order. Looked up
+    // by our own product id, never taken from the client, and never returned
+    // in the API response.
+    const esp = getEspLink(product);
     pricedItems.push({
       productId: product.id,
       name: product.name,
       quantity: item.quantity,
       unitPrice: tier.price,
       lineTotal: Math.round(tier.price * item.quantity * 100) / 100,
+      espUrl: esp.url,
+      espKind: esp.kind,
+      ...(esp.supplier ? { supplier: esp.supplier } : {}),
+      ...(esp.asi ? { asi: esp.asi } : {}),
+      ...(esp.productNo ? { productNo: esp.productNo } : {}),
     });
   }
 
