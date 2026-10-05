@@ -88,5 +88,32 @@
     "Neon Yellow": "/images/merch/colors/12-inch-cuff-beanie-21841-neon-yellow.webp",
     "Sky Blue": "/images/merch/colors/12-inch-cuff-beanie-21841-sky-blue.webp",
     "Forest Green": "/images/merch/colors/12-inch-cuff-beanie-21841-forest-green.webp"
+  },
+  "golf-visor-54090": {
+    "Red": "/images/merch/colors/golf-visor-54090-red.webp",
+    "Royal": "/images/merch/colors/golf-visor-54090-royal.webp",
+    "White": "/images/merch/colors/golf-visor-54090-white.webp",
+    "Stone": "/images/merch/colors/golf-visor-54090-stone.webp",
+    "Black": "/images/merch/colors/golf-visor-54090-black.webp",
+    "Khaki": "/images/merch/colors/golf-visor-54090-khaki.webp",
+    "Navy": "/images/merch/colors/golf-visor-54090-navy.webp",
+    "Navy Blue": "/images/merch/colors/golf-visor-54090-navy-blue.webp",
+    "Brown": "/images/merch/colors/golf-visor-54090-brown.webp",
+    "Forest Green": "/images/merch/colors/golf-visor-54090-forest-green.webp",
+    "Lavender": "/images/merch/colors/golf-visor-54090-lavender.webp",
+    "Pink": "/images/merch/colors/golf-visor-54090-pink.webp",
+    "Sky Blue": "/images/merch/colors/golf-visor-54090-sky-blue.webp"
+  },
+  "berkley-bucket-hat-32732": {
+    "Black": "/images/merch/colors/berkley-bucket-hat-32732-black.webp",
+    "Navy Blue": "/images/merch/colors/berkley-bucket-hat-32732-navy-blue.webp",
+    "Red": "/images/merch/colors/berkley-bucket-hat-32732-red.webp",
+    "Beige": "/images/merch/colors/berkley-bucket-hat-32732-beige.webp",
+    "Light Blue": "/images/merch/colors/berkley-bucket-hat-32732-light-blue.webp",
+    "Orange": "/images/merch/colors/berkley-bucket-hat-32732-orange.webp",
+    "Pink": "/images/merch/colors/berkley-bucket-hat-32732-pink.webp",
+    "Royal Blue": "/images/merch/colors/berkley-bucket-hat-32732-royal-blue.webp",
+    "Brown": "/images/merch/colors/berkley-bucket-hat-32732-brown.webp",
+    "Olive": "/images/merch/colors/berkley-bucket-hat-32732-olive.webp"
   }
 }
