@@ -14,7 +14,9 @@
  * unchanged raw input the JSON files are byte-identical.
  */
 
+import crypto from "node:crypto";
 import fs from "node:fs/promises";
+import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import prettier from "prettier";
@@ -22,7 +24,10 @@ import {
   buildCatalog,
   checkOverrides,
   findLostProtectedIds,
+  checkCategoryOverrides,
   checkKeepApart,
+  findDuplicateImages,
+  parseCategoryOverrides,
   parseKeepApart,
   parseOverrides,
   renameColorImageKeys,
@@ -136,6 +141,8 @@ export function renderDedupeReport({
   curatedDuplicates,
   manualOverrides = [],
   keepApart = [],
+  imageDuplicates = [],
+  categoryMoved = [],
 }) {
   const who = (m) =>
     `${m.name} -- ${m.supplier || m.asi || "unknown vendor"} (rating ${m.rating}, ${m.reviews} reviews, score ${m.score})`;
@@ -151,6 +158,18 @@ export function renderDedupeReport({
   for (const o of manualOverrides) {
     lines.push(`- dropped: ${who(o.dropped)}`);
     lines.push(`  reason: ${o.reason}`);
+  }
+  lines.push("");
+  lines.push("## Category overrides applied", "");
+  for (const m of categoryMoved) {
+    lines.push(`- ${m.name}: ${m.from} -> ${m.to} (${m.reason})`);
+  }
+  lines.push("");
+  lines.push("## Duplicate images (byte-identical photos)", "");
+  for (const g of imageDuplicates) {
+    lines.push(`- KEPT: ${g.kept.product.name} (${g.kept.link.supplier})`);
+    for (const d of g.dropped)
+      lines.push(`  dropped (duplicate-image): ${d.product.name} (${d.link.supplier})`);
   }
   lines.push("");
   lines.push("## Kept apart on purpose (keepApart)", "");
@@ -216,40 +235,98 @@ export async function runImport(args) {
   const overridesJson = await readJsonIfExists(overridesFile, {});
   const overrides = parseOverrides(overridesJson);
   const keepApart = parseKeepApart(overridesJson);
-  const buildOpts = { curated: curated.products, dropEspIds: overrides, keepApart };
+  const categoryOverrides = parseCategoryOverrides(overridesJson);
+  // espIds already in the catalog win ties between equal twins, keeping existing ids stable
+  const previousLinks0 = await readJsonIfExists(linksFile, {});
+  const preferEspIds = Object.values(previousLinks0).map((l) => String(l?.espId ?? ""));
+  const buildOpts = {
+    preferEspIds,
+    curated: curated.products,
+    dropEspIds: overrides,
+    keepApart,
+    categoryOverrides,
+  };
 
-  // Select rows; fetch images for the winners; if a winner's image cannot be
-  // fetched, reject it and re-select so the cluster's runner-up is used.
+  // Select rows; fetch images for the winners. If a winner's image cannot be fetched it is
+  // rejected and the cluster's runner-up is used; products whose images are byte-identical
+  // are duplicates (best vendor kept), found by hashing the files, then re-selecting.
   const rejectedEspIds = new Set();
+  const duplicateImageEspIds = new Set();
+  const imageDuplicateGroups = [];
   const failures = [];
   const touched = new Set(); // ids downloaded during this run
+  // a dry run never writes into public/: new downloads go to a scratch directory
+  const storeDir = args.dryRun ? path.join(os.tmpdir(), "mg-catalog-dryrun-images") : imagesDir;
+  const imageFile = async (item) => {
+    for (const dir of args.dryRun ? [imagesDir, storeDir] : [imagesDir]) {
+      const file = path.join(dir, `${item.id}.webp`);
+      try {
+        if ((await fs.stat(file)).size > 0) return file;
+      } catch {
+        // keep looking
+      }
+    }
+    return null;
+  };
+  const ensure = async (item) => {
+    if (args.dryRun) {
+      const existing = await imageFile(item);
+      if (existing && !existing.startsWith(storeDir)) return { status: "exists", bytes: 0 };
+    }
+    return ensureImage(item, storeDir);
+  };
   let imageBytes = 0;
   let downloaded = 0;
   let reused = 0;
   let result;
-  if (args.images) await fs.mkdir(imagesDir, { recursive: true });
+  if (args.images) await fs.mkdir(storeDir, { recursive: true });
   for (let round = 0; round < 10; round++) {
-    result = buildCatalog(rows, { ...buildOpts, rejectedEspIds });
+    result = buildCatalog(rows, { ...buildOpts, rejectedEspIds, duplicateImageEspIds });
     if (!args.images) break;
-    const outcomes = await mapConcurrent(result.items, DOWNLOAD_CONCURRENCY, (item) =>
-      ensureImage(item, imagesDir)
-    );
-    let newFailures = 0;
+    const outcomes = await mapConcurrent(result.items, DOWNLOAD_CONCURRENCY, ensure);
+    let changed = 0;
     outcomes.forEach((outcome, i) => {
       const item = result.items[i];
       if (outcome.status === "failed") {
         rejectedEspIds.add(item.link.espId);
         failures.push({ espId: item.link.espId, name: item.product.name, error: outcome.error });
-        newFailures++;
+        changed++;
       } else if (outcome.status === "downloaded") {
         touched.add(item.id);
         downloaded++;
         imageBytes += outcome.bytes;
       }
     });
-    if (newFailures === 0) break;
+    if (changed === 0) {
+      const hashes = new Map();
+      for (const item of result.items) {
+        const file = await imageFile(item);
+        if (file) {
+          hashes.set(
+            item.link.espId,
+            crypto
+              .createHash("sha256")
+              .update(await fs.readFile(file))
+              .digest("hex")
+          );
+        }
+      }
+      const { losers, groups } = findDuplicateImages(result.items, hashes);
+      for (const l of losers) duplicateImageEspIds.add(l.espId);
+      imageDuplicateGroups.push(...groups);
+      changed = losers.length;
+    }
+    if (changed === 0) break;
   }
-  const { items, skipped, skippedDetail, clusters, curatedDuplicates, manualOverrides } = result;
+  const {
+    items,
+    skipped,
+    skippedDetail,
+    clusters,
+    curatedDuplicates,
+    manualOverrides,
+    categoryMoved,
+  } = result;
   reused = args.images ? items.length - items.filter((i) => touched.has(i.id)).length : 0;
 
   const publicRecords = items.map(toPublicRecord);
@@ -265,6 +342,7 @@ export async function runImport(args) {
 
   const rawEspIds = rows.map((r) => (Array.isArray(r) ? String(r[0]).trim() : ""));
   warnings.push(...checkKeepApart({ keepApart, rawEspIds }));
+  warnings.push(...checkCategoryOverrides({ categoryOverrides, rawEspIds }));
   const keptEspIds = new Set(items.map((i) => i.link.espId));
   const keepApartStatus = keepApart.map((g) => ({
     ...g,
@@ -347,13 +425,41 @@ export async function runImport(args) {
   await fs.writeFile(path.join(path.dirname(reportFile), ".gitignore"), "*\n");
   await fs.writeFile(
     reportFile,
-    renderDedupeReport({ clusters, curatedDuplicates, manualOverrides, keepApart: keepApartStatus })
+    renderDedupeReport({
+      clusters,
+      curatedDuplicates,
+      manualOverrides,
+      keepApart: keepApartStatus,
+      imageDuplicates: imageDuplicateGroups,
+      categoryMoved,
+    })
   );
   if (args.report) {
     await fs.writeFile(
       args.report,
       JSON.stringify(
-        { skipped, skippedDetail, failures, clusters, curatedDuplicates, manualOverrides },
+        {
+          skipped,
+          skippedDetail,
+          failures,
+          clusters,
+          curatedDuplicates,
+          manualOverrides,
+          categoryMoved,
+          imageDuplicates: imageDuplicateGroups.map((g) => ({
+            kept: g.kept.product.name,
+            dropped: g.dropped.map((d) => d.product.name),
+          })),
+          items: items.map((i) => ({
+            id: i.id,
+            espId: i.link.espId,
+            name: i.product.name,
+            category: i.product.category,
+            brand: i.product.brand,
+            tiers: i.product.tiers,
+            description: i.product.description,
+          })),
+        },
         null,
         2
       )
@@ -381,6 +487,7 @@ export async function runImport(args) {
     reportFile,
     warnings,
     colorKeysRenamed: renamedKeys.renamed,
+    categoryMoved: categoryMoved.length,
   };
 }
 
@@ -397,6 +504,10 @@ function printSummary(args, s) {
   line("dropped: low vendor rating", s.skipped["low-vendor-rating"] ?? 0);
   line("dropped: excluded supplier", s.skipped["excluded-supplier"] ?? 0);
   line("dropped: manual override", s.skipped["manual-override"] ?? 0);
+  line("dropped: moq too high (> 1000)", s.skipped["moq-too-high"] ?? 0);
+  line("dropped: first-tier price too high", s.skipped["price-too-high"] ?? 0);
+  line("dropped: duplicate image", s.skipped["duplicate-image"] ?? 0);
+  line("category overrides applied", s.categoryMoved);
   line("dropped: duplicate of curated", s.skipped["duplicate-of-curated"] ?? 0);
   line("dropped: duplicate, other vendor", s.skipped["duplicate-other-vendor"] ?? 0);
   line("dropped: duplicate, same vendor", s.skipped["duplicate-same-vendor"] ?? 0);

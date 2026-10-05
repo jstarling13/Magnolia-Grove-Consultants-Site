@@ -16,7 +16,8 @@
  * @typedef {{ name: string, category: string, brand: string, description: string,
  *   tiers: [number, number][], imageAlt: string, colors: string[] }} CleanProduct
  * @typedef {{ espId: string, supplier: string, asi: string, productNo: string }} EspLink
- * @typedef {{ id: string, imgId: string, product: CleanProduct, link: EspLink }} CatalogItem
+ * @typedef {{ rating: number, reviews: number, key: string }} Vendor
+ * @typedef {{ id: string, imgId: string, product: CleanProduct, link: EspLink, vendor: Vendor }} CatalogItem
  */
 
 // ---- Tunable rules (change here) -------------------------------------------
@@ -33,7 +34,10 @@ export const DUPLICATE_JACCARD = 0.75;
 // -----------------------------------------------------------------------------
 
 export const MAX_NAME_LENGTH = 140;
-export const MAX_TIER_PRICE = 3000;
+/** Imported products whose smallest tier quantity exceeds this are dropped ("moq-too-high"). */
+export const MAX_MIN_QUANTITY = 1000;
+/** Imported products whose first-tier unit price exceeds this are dropped ("price-too-high"). */
+export const MAX_FIRST_TIER_PRICE = 1500;
 export const MAX_COLORS = 30;
 export const MAX_TIERS = 5;
 export const MAX_SLUG_LENGTH = 60;
@@ -116,6 +120,15 @@ export const BRANDS = [
   "Storm Creek",
   "Johnnie-O",
   "Owala",
+  "Titus",
+  "Cayak",
+  "Branded Bills",
+  "WaterHog",
+  "WaterH",
+  "Cedar Creek",
+  "Scosche",
+  "S'well",
+  "Sportsman",
   "Imperial",
   "Puma",
   "OGIO",
@@ -186,13 +199,55 @@ export const BRANDS = [
 
 // Longest names first; precompiled matchers. Spaces in a brand match any run of
 // whitespace/hyphen so "Sport Tek" and "Sport-Tek" both hit.
+/**
+ * Brands that are also ordinary words or surnames. These only count when the
+ * name STARTS with them; every other brand is also found within the first
+ * BRAND_WINDOW words ("20 oz Owala FreeSip", "3x10 WaterHog Classic Mat").
+ */
+export const START_ONLY_BRANDS = new Set([
+  "Cross",
+  "Buck",
+  "Parker",
+  "Stanley",
+  "Wilson",
+  "Fossil",
+  "Columbia",
+  "Champion",
+  "Koozie",
+  "Pelican",
+  "Imperial",
+  "Ping",
+  "Otto",
+  "Next Level",
+  "Lifeguard",
+  "Badger",
+  "Marmot",
+  "Osprey",
+  "Gerber",
+  "Antigua",
+  "Simple Modern",
+  "Weber",
+  "Easton",
+  "Sportsman",
+  "Zero Restriction",
+]);
+/** How many leading words of a name may contain a (non start-only) brand. */
+export const BRAND_WINDOW = 5;
+
+/** Brands whose written form varies ("Bella + Canvas", "Bella Canvas", "Bella+Canvas"). */
+const BRAND_PATTERNS = {
+  "Bella+Canvas": "Bella(?:\\s*\\+\\s*|\\s+)Canvas",
+};
+
 const BRAND_MATCHERS = [...BRANDS]
   .sort((a, b) => b.length - a.length)
   .map((brand) => {
-    const body = brand
-      .split(/[\s-]+/)
-      .map((part) => part.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
-      .join("[\\s-]+");
+    const body =
+      BRAND_PATTERNS[brand] ??
+      brand
+        .split(/[\s-]+/)
+        .map((part) => part.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/'/g, "['\u2019]"))
+        .join("[\\s-]+");
     return { brand, re: new RegExp(`^${body}(?![A-Za-z0-9])`, "i") };
   });
 
@@ -361,6 +416,57 @@ export function stripBadge(description) {
   return collapseWhitespace(text);
 }
 
+/**
+ * Normalize measurement spacing: no space before inch/foot marks, one space
+ * around "x" between measurements. "6 ' x 10 ''" -> "6' x 10''",
+ * "4'x 6'" -> "4' x 6'", "32" X 20"" -> "32" x 20"". Digits-only "4x6" is left alone.
+ */
+export function normalizeMeasurements(value) {
+  return str(value)
+    .replace(/(\d)\s+(['"′″])/g, "$1$2")
+    .replace(/(\d\s*['"′″]+)\s*[xX×]\s*(?=\d)/g, "$1 x ")
+    .replace(/(\d)\s+[xX×]\s+(?=\d)/g, "$1 x ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+/** Drop unmatched ")" and "(" characters ("Logo Mat )4'x8')" -> "Logo Mat 4'x8'"). */
+export function dropUnbalancedParens(value) {
+  const chars = [...str(value)];
+  const open = [];
+  const drop = new Set();
+  chars.forEach((ch, i) => {
+    if (ch === "(") open.push(i);
+    else if (ch === ")") {
+      if (open.length) open.pop();
+      else drop.add(i);
+    }
+  });
+  for (const i of open) drop.add(i);
+  return chars.map((ch, i) => (drop.has(i) ? " " : ch)).join("");
+}
+
+/**
+ * Display name: starts from the id-safe cleanName() and additionally removes
+ * vendor/ops text (MOQ, Rush Service, "(1 Imprint)", "- Custom Imprint"),
+ * balances parentheses, normalizes measurement spacing and "oz" casing, and
+ * capitalizes a lowercase first letter. NEVER used to derive ids.
+ */
+export function cleanDisplayName(value) {
+  let name = cleanName(value);
+  name = name.replace(/\bMOQ[\s:.-]*\d[\d,]*\s*(?:pcs?|pieces?|units?|pk|sets?)?\b\.?/gi, " ");
+  name = name.replace(/\brush[\s-]+(?:service|production|order)\b/gi, " ");
+  name = name.replace(/^rush\s*[-–—:]\s*/i, "");
+  name = name.replace(/\(\s*\d+\s*(?:color\s+)?imprints?\s*\)/gi, " ");
+  name = name.replace(/\s*[-–—,:]\s*custom\s+imprint(?:ed)?\s*$/i, "");
+  name = dropUnbalancedParens(name);
+  name = normalizeMeasurements(name);
+  name = name.replace(/(\d)(\s*)oz\b/gi, "$1$2oz");
+  name = tidyPunctuation(name);
+  name = name.replace(/^[a-z]/, (c) => c.toUpperCase());
+  return name;
+}
+
 /** Short real acronyms/codes that stay upper-case inside a shouted color name. */
 export const COLOR_ACRONYMS = new Set([
   "UPF",
@@ -416,7 +522,8 @@ export function cleanColors(colors) {
 
 /**
  * Sort ascending by quantity, dedupe quantities (first occurrence wins),
- * drop non-positive quantities/prices, keep at most MAX_TIERS.
+ * drop non-positive quantities/prices, collapse runs of identical prices into
+ * the first tier of the run, keep at most MAX_TIERS.
  * Returns [[qty, price], ...] with raw ESP catalog prices (no markup).
  */
 export function cleanTiers(tiers) {
@@ -436,6 +543,8 @@ export function cleanTiers(tiers) {
   for (const tier of valid) {
     if (seen.has(tier[0])) continue;
     seen.add(tier[0]);
+    // consecutive tiers with the same price are one break: keep the FIRST of the run
+    if (out.length > 0 && out[out.length - 1][1] === tier[1]) continue;
     out.push(tier);
   }
   return out.slice(0, MAX_TIERS);
@@ -444,20 +553,26 @@ export function cleanTiers(tiers) {
 /** Detect a recognizable brand at the start of the name; "Essentials" if none. */
 export function detectBrand(name) {
   const text = collapseWhitespace(name).replace(/^[\u00ae\u2122\s]+/, "");
-  for (const { brand, re } of BRAND_MATCHERS) {
-    const match = re.exec(text);
-    if (!match) continue;
-    const exclude = BRAND_EXCLUDE_NEXT[brand];
-    if (exclude) {
-      const next =
-        text
-          .slice(match[0].length)
-          .trim()
-          .split(/[\s-]+/)[0]
-          ?.toLowerCase() ?? "";
-      if (exclude.includes(next)) continue;
+  const words = text.split(" ");
+  const limit = Math.min(words.length, BRAND_WINDOW);
+  for (let k = 0; k < limit; k++) {
+    const rest = words.slice(k).join(" ");
+    for (const { brand, re } of BRAND_MATCHERS) {
+      if (k > 0 && START_ONLY_BRANDS.has(brand)) continue;
+      const match = re.exec(rest);
+      if (!match) continue;
+      const exclude = BRAND_EXCLUDE_NEXT[brand];
+      if (exclude) {
+        const next =
+          rest
+            .slice(match[0].length)
+            .trim()
+            .split(/[\s-]+/)[0]
+            ?.toLowerCase() ?? "";
+        if (exclude.includes(next)) continue;
+      }
+      return brand;
     }
-    return brand;
   }
   return DEFAULT_BRAND;
 }
@@ -553,13 +668,15 @@ function tidyPunctuationKeepEnd(text) {
 }
 
 export function buildDescription({ rawDescription, colorCount, sizes, minQty, usa, multiGrid }) {
-  let base = cleanDescriptionText(rawDescription);
+  let base = normalizeMeasurements(cleanDescriptionText(rawDescription));
   if (!base) {
-    const parts = [];
-    if (colorCount > 0) parts.push(`${colorCount} color option${colorCount === 1 ? "" : "s"}.`);
-    const size = collapseWhitespace(sizes);
-    if (size) parts.push(`Size: ${size}.`);
-    base = parts.join(" ");
+    const size = normalizeMeasurements(collapseWhitespace(sizes));
+    // "<N> color options." on its own repeats what the swatches already show, so it
+    // is only written alongside a size line; with nothing else the description is
+    // just the "Priced at" tail (no facts are lost).
+    base = size
+      ? `${colorCount > 0 ? `${colorCount} color option${colorCount === 1 ? "" : "s"}. ` : ""}Size: ${size}.`
+      : "";
   } else if (!/[.!?)"'”]$/.test(base)) {
     base += ".";
   }
@@ -588,11 +705,13 @@ export const SKIP_REASONS = [
   "name-too-long",
   "no-tiers",
   "price-too-high",
+  "moq-too-high",
   "no-image",
   "image-failed",
   "duplicate-of-curated",
   "duplicate-same-vendor",
   "duplicate-other-vendor",
+  "duplicate-image",
   "manual-override",
   "id-collision",
 ];
@@ -624,6 +743,9 @@ export function compareCandidates(a, b) {
   const sb = vendorScore(b.vendor.rating, b.vendor.reviews);
   if (Math.abs(sa - sb) > 1e-9) return sb - sa;
   if (a.vendor.reviews !== b.vendor.reviews) return b.vendor.reviews - a.vendor.reviews;
+  // stability: between otherwise equal rows, keep the one already in the catalog so its
+  // id (referenced by carts, color photos, ESP links) does not flip when a twin appears
+  if (Boolean(a.preferred) !== Boolean(b.preferred)) return a.preferred ? -1 : 1;
   if (a.product.colors.length !== b.product.colors.length) {
     return b.product.colors.length - a.product.colors.length;
   }
@@ -757,7 +879,7 @@ export function isDuplicateName(nameA, nameB) {
  * { product, link, imgId, espId, vendor } (id not yet assigned; see buildCatalog).
  * The vendor gate runs first, before any other check.
  * @param {unknown} row
- * @returns {{ skip: string, product?: undefined } | { skip?: undefined, espId: string, imgId: string, product: CleanProduct, link: EspLink, vendor: { key: string, rating: number, reviews: number } }}
+ * @returns {{ skip: string, product?: undefined, idName?: undefined } | { skip?: undefined, espId: string, imgId: string, idName: string, product: CleanProduct, link: EspLink, vendor: { key: string, rating: number, reviews: number } }}
  */
 export function cleanRow(row) {
   if (!Array.isArray(row)) return { skip: "malformed-row" };
@@ -792,18 +914,18 @@ export function cleanRow(row) {
   const category = mapCategory(tagRaw);
   if (!category) return { skip: "unknown-tag" };
 
-  const name = cleanName(nameRaw);
+  // ids are ALWAYS derived from idName (the original cleanName output), so they stay
+  // stable no matter how the displayed name is polished.
+  const idName = cleanName(nameRaw);
+  if (!idName) return { skip: "empty-name" };
+  if (idName.length > MAX_NAME_LENGTH) return { skip: "name-too-long" };
+  const name = cleanDisplayName(nameRaw);
   if (!name) return { skip: "empty-name" };
-  if (name.length > MAX_NAME_LENGTH) return { skip: "name-too-long" };
 
-  const allPrices = Array.isArray(tiersRaw)
-    ? tiersRaw.map((t) => (Array.isArray(t) ? Number(t[1]) : NaN))
-    : [];
-  if (allPrices.some((p) => Number.isFinite(p) && p > MAX_TIER_PRICE)) {
-    return { skip: "price-too-high" };
-  }
   const tiers = cleanTiers(tiersRaw);
   if (tiers.length === 0) return { skip: "no-tiers" };
+  if (tiers[0][0] > MAX_MIN_QUANTITY) return { skip: "moq-too-high" };
+  if (tiers[0][1] > MAX_FIRST_TIER_PRICE) return { skip: "price-too-high" };
 
   const imgId = collapseWhitespace(imgIdRaw);
   if (!/^\d+$/.test(imgId)) return { skip: "no-image" };
@@ -826,6 +948,7 @@ export function cleanRow(row) {
     espId,
     imgId,
     vendor: { key: (asi || supplier).toLowerCase(), rating, reviews },
+    idName,
     product: {
       name,
       category,
@@ -876,7 +999,10 @@ function memberInfo(c) {
  *   curatedNames?: string[], curatedIds?: string[],
  *   rejectedEspIds?: Iterable<string>,
  *   dropEspIds?: { espId: string, reason: string }[],
- *   keepApart?: { espIds: string[], reason?: string }[]
+ *   keepApart?: { espIds: string[], reason?: string }[],
+ *   categoryOverrides?: { espId: string, category: string, reason: string }[],
+ *   duplicateImageEspIds?: Iterable<string>,
+ *   preferEspIds?: Iterable<string>
  * }} [opts] `rejectedEspIds`: rows whose image could not be fetched; excluded so a
  *   runner-up from the same cluster is selected instead.
  * @returns {{
@@ -885,7 +1011,8 @@ function memberInfo(c) {
  *   skippedDetail: { reason: string, espId?: string, name?: string }[],
  *   clusters: { kept: MemberInfo, dropped: (MemberInfo & { reason: string })[] }[],
  *   curatedDuplicates: { dropped: MemberInfo, curated: string }[],
- *   manualOverrides: { dropped: MemberInfo, reason: string }[]
+ *   manualOverrides: { dropped: MemberInfo, reason: string }[],
+ *   categoryMoved: { espId: string, name: string, from: string, to: string, reason: string }[]
  * }}
  */
 export function buildCatalog(rows, opts = {}) {
@@ -898,6 +1025,10 @@ export function buildCatalog(rows, opts = {}) {
   const rejected = new Set(opts.rejectedEspIds ?? []);
   const overrides = new Map((opts.dropEspIds ?? []).map((o) => [String(o.espId).trim(), o.reason]));
   const manualOverrides = [];
+  const categoryMoves = new Map((opts.categoryOverrides ?? []).map((o) => [o.espId, o]));
+  const categoryMoved = [];
+  const imageDuplicates = new Set(opts.duplicateImageEspIds ?? []);
+  const preferred = new Set(opts.preferEspIds ?? []);
 
   const skipped = {};
   const skippedDetail = [];
@@ -916,7 +1047,23 @@ export function buildCatalog(rows, opts = {}) {
       skip(cleaned.skip, { espId: Array.isArray(row) ? str(row[0]) : undefined });
       continue;
     }
+    // category overrides (scripts/data/import-overrides.json) apply before clustering
+    const move = categoryMoves.get(cleaned.espId);
+    if (move && move.category !== cleaned.product.category) {
+      categoryMoved.push({
+        espId: cleaned.espId,
+        name: cleaned.product.name,
+        from: cleaned.product.category,
+        to: move.category,
+        reason: move.reason,
+      });
+      cleaned.product.category = move.category;
+    }
     const detail = { espId: cleaned.espId, name: cleaned.product.name };
+    if (imageDuplicates.has(cleaned.espId)) {
+      skip("duplicate-image", detail);
+      continue;
+    }
     if (rejected.has(cleaned.espId)) {
       skip("image-failed", detail);
       continue;
@@ -945,6 +1092,7 @@ export function buildCatalog(rows, opts = {}) {
     }
     candidates.push({
       ...cleaned,
+      preferred: preferred.has(cleaned.espId),
       idx: candidates.length,
       tokens: significantTokens(cleaned.product.name),
     });
@@ -1046,16 +1194,24 @@ export function buildCatalog(rows, opts = {}) {
   const taken = new Map(curatedIds.map((id) => [id, ""]));
   const items = [];
   for (const w of winners) {
-    const id = makeUniqueId(w.product.name, w.espId, taken);
+    const id = makeUniqueId(w.idName, w.espId, taken);
     if (!id) {
       skip("id-collision", { espId: w.espId, name: w.product.name });
       continue;
     }
     taken.set(id, w.espId);
-    items.push({ id, imgId: w.imgId, product: w.product, link: w.link });
+    items.push({ id, imgId: w.imgId, product: w.product, link: w.link, vendor: w.vendor });
   }
 
-  return { items, skipped, skippedDetail, clusters, curatedDuplicates, manualOverrides };
+  return {
+    items,
+    skipped,
+    skippedDetail,
+    clusters,
+    curatedDuplicates,
+    manualOverrides,
+    categoryMoved,
+  };
 }
 
 // ---- Manual overrides / safety checks ---------------------------------------
@@ -1083,6 +1239,76 @@ export function parseOverrides(json) {
     if (entry.keepCuratedId) out.keepCuratedId = collapseWhitespace(entry.keepCuratedId);
     return out;
   });
+}
+
+/**
+ * Validate the categoryOverrides section: espId -> category (must be a known
+ * site category) with a reason.
+ * @returns {{ espId: string, category: string, reason: string }[]}
+ */
+export function parseCategoryOverrides(json) {
+  const list = json?.categoryOverrides ?? [];
+  if (!Array.isArray(list))
+    throw new Error("import-overrides.json: categoryOverrides must be an array");
+  const known = new Set(Object.values(TAG_TO_CATEGORY));
+  const seen = new Set();
+  return list.map((entry, i) => {
+    const espId = collapseWhitespace(entry?.espId);
+    const category = collapseWhitespace(entry?.category);
+    const reason = collapseWhitespace(entry?.reason);
+    if (!espId) throw new Error(`import-overrides.json: categoryOverrides[${i}] has no espId`);
+    if (!known.has(category)) {
+      throw new Error(
+        `import-overrides.json: categoryOverrides[${i}] unknown category "${category}"`
+      );
+    }
+    if (!reason) throw new Error(`import-overrides.json: categoryOverrides[${i}] has no reason`);
+    if (seen.has(espId))
+      throw new Error(`import-overrides.json: duplicate category override ${espId}`);
+    seen.add(espId);
+    return { espId, category, reason };
+  });
+}
+
+/** Warn about category overrides whose espId is in no raw file. */
+export function checkCategoryOverrides({ categoryOverrides, rawEspIds }) {
+  const raw = new Set(rawEspIds);
+  return categoryOverrides
+    .filter((o) => !raw.has(o.espId))
+    .map(
+      (o) =>
+        `stale category override: espId ${o.espId} is not present in any raw file (${o.reason})`
+    );
+}
+
+/**
+ * Products whose (compressed) images are byte-identical are duplicates. Keep the
+ * best one by the usual ranking (vendor score, reviews, colors, price, espId) and
+ * return the rest as losers.
+ * @param {CatalogItem[]} items
+ * @param {Map<string, string>} hashByEspId espId -> content hash
+ * @returns {{ losers: { espId: string, keptEspId: string }[], groups: { kept: CatalogItem, dropped: CatalogItem[] }[] }}
+ */
+export function findDuplicateImages(items, hashByEspId) {
+  const byHash = new Map();
+  for (const item of items) {
+    const hash = hashByEspId.get(item.link.espId);
+    if (!hash) continue;
+    if (!byHash.has(hash)) byHash.set(hash, []);
+    byHash.get(hash).push(item);
+  }
+  const losers = [];
+  const groups = [];
+  for (const members of byHash.values()) {
+    if (members.length < 2) continue;
+    const ranked = [...members].sort((a, b) =>
+      compareCandidates({ ...a, espId: a.link.espId }, { ...b, espId: b.link.espId })
+    );
+    const [kept, ...dropped] = ranked;
+    groups.push({ kept, dropped });
+    for (const d of dropped) losers.push({ espId: d.link.espId, keptEspId: kept.link.espId });
+  }
+  return { losers, groups };
 }
 
 /**

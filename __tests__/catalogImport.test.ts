@@ -4,7 +4,18 @@ import os from "node:os";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import sharp from "sharp";
+import berberRows from "./fixtures/catalogImport.berber.fixture.json";
+import idSnapshot from "./fixtures/catalogIds.snapshot.json";
 import {
+  MAX_FIRST_TIER_PRICE,
+  MAX_MIN_QUANTITY,
+  checkCategoryOverrides,
+  cleanDisplayName,
+  dropUnbalancedParens,
+  findDuplicateImages,
+  normalizeMeasurements,
+  parseCategoryOverrides,
+  START_ONLY_BRANDS,
   checkKeepApart,
   parseKeepApart,
   checkOverrides,
@@ -150,7 +161,18 @@ describe("description / badge / colors", () => {
         usa: 0,
         multiGrid: 0,
       })
-    ).toBe("1 color option. Priced at 1 unit.");
+    ).toBe("Priced at 1 unit.");
+    // alongside a size line the color count is kept
+    expect(
+      buildDescription({
+        rawDescription: "",
+        colorCount: 1,
+        sizes: "6 ' x 10 ''",
+        minQty: 1,
+        usa: 0,
+        multiGrid: 0,
+      })
+    ).toBe("1 color option. Size: 6' x 10''. Priced at 1 unit.");
   });
 
   it("does not repeat Made in USA when the supplier text already says it", () => {
@@ -213,7 +235,8 @@ describe("brand detection", () => {
   });
 
   it("falls back to Essentials for unbranded, mid-name and partial-word matches", () => {
-    expect(detectBrand("Classic Nike Tee")).toBe("Essentials");
+    expect(detectBrand("Classic Nike Tee")).toBe("Nike"); // within the first words
+    expect(detectBrand("Our Very Special Classic Tee Nike")).toBe("Essentials"); // too late
     expect(detectBrand("Nikeish Tee")).toBe("Essentials");
     expect(detectBrand("Buckle Tote")).toBe("Essentials");
     expect(detectBrand("Cross Body Bag")).toBe("Essentials");
@@ -829,7 +852,7 @@ describe("description cleanup", () => {
     );
   });
 
-  it("falls back to the '<n> color options.' pattern when nothing is left", () => {
+  it("drops the bare '<n> color options.' boilerplate when nothing else would remain", () => {
     expect(
       buildDescription({
         rawDescription: "Trending Comes in eight colors.",
@@ -839,7 +862,7 @@ describe("description cleanup", () => {
         usa: 0,
         multiGrid: 0,
       })
-    ).toBe("8 color options. Priced at 12 units.");
+    ).toBe("Priced at 12 units.");
   });
 
   it("never leaves a color-count claim that disagrees with the real color list", () => {
@@ -1079,5 +1102,354 @@ describe("vendor discount badges in descriptions", () => {
     expect(
       cleanDescriptionText("Percentage Discount Men's polyester pique knit polo shirts.")
     ).toBe("Men's polyester pique knit polo shirts.");
+  });
+});
+
+// ---- storefront QA round: brands, names, categories, extremes, duplicate images ------
+
+/** Id exactly as the importer derives it for a raw name + espId. */
+function idFor(rawName: string, espId: string, taken = new Map<string, string>()) {
+  const row = mk({ espId, name: rawName });
+  const cleaned = cleanRow(row);
+  return makeUniqueId(cleaned.idName!, espId, taken);
+}
+
+describe("brand detection within the first words", () => {
+  it("canonicalizes Bella + Canvas in every written form", () => {
+    for (const name of [
+      "Bella + Canvas Unisex Sueded T-Shirt",
+      "Bella Canvas Men's Triblend Tee",
+      "Bella+Canvas Unisex Sponge Fleece Hoodie",
+      "BELLA CANVAS 3001 Tee",
+    ]) {
+      expect(detectBrand(name), name).toBe("Bella+Canvas");
+    }
+  });
+
+  it("finds brands that follow a size or other leading words", () => {
+    expect(detectBrand("32 oz Owala Freesip Stainless Insulated Bottle")).toBe("Owala");
+    expect(detectBrand("TiTUS® 20 oz Double Wall Tumbler")).toBe("Titus");
+    expect(detectBrand("3' x 10' Waterhog Classic Entrance Mats")).toBe("WaterHog");
+    expect(detectBrand("WaterHog Impressions HD Floor Mat 4' x 6'")).toBe("WaterHog");
+    expect(detectBrand("20 oz RTIC Ceramic Lined Tumbler")).toBe("RTIC");
+    expect(detectBrand("Custom JBL Clip 5 Speaker")).toBe("JBL");
+    expect(detectBrand("S’well® Wine Tumbler - 14oz")).toBe("S'well");
+  });
+
+  it("detects the other named brands", () => {
+    const cases: [string, string][] = [
+      ["Cayak Lightweight Stretch Hoodie", "Cayak"],
+      ["Branded Bills 545 Bare Curved Rope Cap", "Branded Bills"],
+      ["Sportsman SP12 Beanie Cap", "Sportsman"],
+      ["WaterH 32 oz Smart Water Bottle", "WaterH"],
+      ["Cedar Creek® Ice Chest", "Cedar Creek"],
+      ["Port & Company® Core Cotton Tee", "Port & Company"],
+      ["Port Authority Team Jacket", "Port Authority"],
+      ["Devon & Jones Men's Polo", "Devon & Jones"],
+      ["Richardson 112 Trucker", "Richardson"],
+      ["Carhartt Watch Hat", "Carhartt"],
+      ["Gildan Ultra Cotton Tee", "Gildan"],
+      ["Hanes Beefy-T", "Hanes"],
+      ["Titleist Pro V1", "Titleist"],
+    ];
+    for (const [name, brand] of cases) expect(detectBrand(name), name).toBe(brand);
+  });
+
+  it("never invents a brand and keeps ambiguous words start-only", () => {
+    expect(detectBrand("Mini Windproof Pocket Umbrella")).toBe("Essentials");
+    expect(detectBrand("Rugged Sportsman Hat")).toBe("Essentials");
+    expect(detectBrand("Premium Cross Body Bag")).toBe("Essentials");
+    expect(detectBrand("Nikeish Tee")).toBe("Essentials");
+    expect(detectBrand("WaterHogs Mat")).toBe("Essentials");
+    expect(START_ONLY_BRANDS.has("Sportsman")).toBe(true);
+  });
+});
+
+describe("display names", () => {
+  it("strips vendor/ops text", () => {
+    expect(cleanDisplayName("MOQ 50PCS Full Color Adjustable Trucker Hat Mesh Back")).toBe(
+      "Full Color Adjustable Trucker Hat Mesh Back"
+    );
+    expect(cleanDisplayName("Full Color Adjustable Boonie Hat Rush Service")).toBe(
+      "Full Color Adjustable Boonie Hat"
+    );
+    expect(cleanDisplayName("Rush - Cotton 6-Panel Baseball Cap w/ Metal Tuck Buckle")).toBe(
+      "Cotton 6-Panel Baseball Cap w/ Metal Tuck Buckle"
+    );
+    expect(cleanDisplayName("Steal Umbrella (1 Imprint)")).toBe("Steal Umbrella");
+    expect(cleanDisplayName("Storm 2 Umbrella (2 Imprints)")).toBe("Storm 2 Umbrella");
+    expect(cleanDisplayName("Golf Ball, Marker Poker Chip & Tee Set Tube - Custom Imprint")).toBe(
+      "Golf Ball, Marker Poker Chip & Tee Set Tube"
+    );
+  });
+
+  it("fixes stray parentheses, prime spacing, oz casing and a lowercase first letter", () => {
+    expect(cleanDisplayName("Custom Indoor & Outdoor Logo Mat )4'x8')")).toBe(
+      "Custom Indoor & Outdoor Logo Mat 4' x 8'"
+    );
+    expect(cleanDisplayName("WaterHog Impressions HD Floor Mat 4'x 6'")).toBe(
+      "WaterHog Impressions HD Floor Mat 4' x 6'"
+    );
+    expect(cleanDisplayName("6 ' x 10 '' Door Mat")).toBe("6' x 10'' Door Mat");
+    expect(cleanDisplayName('32" X 20" Washable Rug')).toBe('32" x 20" Washable Rug');
+    expect(cleanDisplayName("20 Oz. Himalayan Tumbler")).toBe("20 oz. Himalayan Tumbler");
+    expect(cleanDisplayName("16 OZ Mug")).toBe("16 oz Mug");
+    expect(cleanDisplayName("golf visor")).toBe("Golf visor");
+    expect(cleanDisplayName("Port Authority Team Jacket.")).toBe("Port Authority Team Jacket");
+  });
+
+  it("keeps balanced parentheses and trademark marks", () => {
+    expect(dropUnbalancedParens("Mat (Large) )")).toBe("Mat (Large)  ");
+    expect(cleanDisplayName("TiTUS® Notebook (A5)")).toBe("TiTUS® Notebook (A5)");
+  });
+
+  it("normalizes measurement spacing without touching bare 4x6", () => {
+    expect(normalizeMeasurements("Size: 6 ' x 10 '")).toBe("Size: 6' x 10'");
+    expect(normalizeMeasurements('22.5 " x 22.5 " x 5.5 "')).toBe('22.5" x 22.5" x 5.5"');
+    expect(normalizeMeasurements("4x6 Ft")).toBe("4x6 Ft");
+  });
+
+  it("cleans the Size line in descriptions", () => {
+    expect(
+      buildDescription({
+        rawDescription: "Door mat.",
+        colorCount: 2,
+        sizes: "6 ' x 10 '",
+        minQty: 5,
+        usa: 0,
+        multiGrid: 0,
+      })
+    ).toBe("Door mat. Priced at 5 units.");
+    const row = mk({ espId: "9500", name: "Mat" });
+    row[5] = "6 ' x 10 '";
+    expect(cleanRow(row).product?.description).toBe(
+      "1 color option. Size: 6' x 10'. Priced at 1 unit."
+    );
+  });
+});
+
+describe("ids stay stable (derived from the original name, never the display name)", () => {
+  it("keeps the id even though the displayed name changes", () => {
+    const row = mk({ espId: "555764425", name: "WaterHog Impressions HD Floor Mat 4'x 6'" });
+    const cleaned = cleanRow(row);
+    expect(cleaned.product?.name).toBe("WaterHog Impressions HD Floor Mat 4' x 6'");
+    expect(idFor("WaterHog Impressions HD Floor Mat 4'x 6'", "555764425")).toBe(
+      "waterhog-impressions-hd-floor-mat-4x-6-64425"
+    );
+    expect(idFor("Steal Umbrella (1 Imprint)", "553663089")).toBe("steal-umbrella-1-imprint-63089");
+    expect(idFor("MOQ 50PCS Full Color Adjustable Trucker Hat Mesh Back", "552613561")).toBe(
+      "moq-50pcs-full-color-adjustable-trucker-hat-mesh-back-13561"
+    );
+    expect(idFor("golf visor", "550000001")).toBe("golf-visor-00001");
+  });
+
+  it("reproduces every id in the snapshot of the current raw files", () => {
+    const entries = idSnapshot as { id: string; espId: string; rawName: string }[];
+    expect(entries.length).toBeGreaterThan(300);
+    const bad: string[] = [];
+    for (const { id, espId, rawName } of entries) {
+      const idName = cleanRow(mk({ espId, name: rawName })).idName ?? cleanName(rawName);
+      const slug = slugify(idName);
+      const digits = espId.replace(/\D/g, "");
+      const ok =
+        [5, 8, 12].some((n) => id === `${slug}-${digits.slice(-n).padStart(n, "0")}`) ||
+        id === `${slug}-${digits}`;
+      if (!ok) bad.push(`${id} != ${slug}-<suffix of ${espId}>`);
+    }
+    expect(bad).toEqual([]);
+  });
+
+  it("keeps the id of an existing twin when an equal new row appears", () => {
+    const NAME = "Wireless Bluetooth Earbuds with Charging Case";
+    const rows = [
+      mk({ espId: "1001", name: NAME, colors: ["Black"] }),
+      mk({ espId: "1002", name: NAME, colors: ["Black", "White"] }), // would win on colors
+    ];
+    expect(buildCatalog(rows).items[0].link.espId).toBe("1002");
+    expect(buildCatalog(rows, { preferEspIds: ["1001"] }).items[0].link.espId).toBe("1001");
+    // a clearly better vendor still wins
+    const better = [
+      mk({ espId: "1001", name: NAME, asi: "asi/1", rating: 4.6, reviews: 20 }),
+      mk({ espId: "1002", name: NAME, asi: "asi/2", rating: 5, reviews: 300 }),
+    ];
+    expect(buildCatalog(better, { preferEspIds: ["1001"] }).items[0].link.espId).toBe("1002");
+  });
+});
+
+describe("category overrides", () => {
+  const entry = { espId: "7001", category: "Kids & Toys", reason: "it is a toy" };
+
+  it("moves the product, reports it, and clusters by the new category", () => {
+    const rows = [
+      mk({ espId: "7001", name: "Plush Dog With Shirt", tag: "apparel" }),
+      mk({ espId: "7002", name: "Plush Dog With Shirt", tag: "kids" }),
+    ];
+    const without = buildCatalog(rows);
+    expect(without.items).toHaveLength(2);
+    const result = buildCatalog(rows, { categoryOverrides: [entry] });
+    expect(result.categoryMoved).toEqual([
+      expect.objectContaining({ espId: "7001", from: "Apparel", to: "Kids & Toys" }),
+    ]);
+    expect(result.items.every((i) => i.product.category === "Kids & Toys")).toBe(true);
+    expect(result.items).toHaveLength(1); // now the same category, so the twins are merged
+  });
+
+  it("validates the section and warns on stale espIds", () => {
+    expect(parseCategoryOverrides({ categoryOverrides: [entry] })).toEqual([entry]);
+    expect(() =>
+      parseCategoryOverrides({ categoryOverrides: [{ ...entry, category: "Nope" }] })
+    ).toThrow(/unknown category/);
+    expect(() => parseCategoryOverrides({ categoryOverrides: [{ ...entry, reason: "" }] })).toThrow(
+      /reason/
+    );
+    expect(parseCategoryOverrides({})).toEqual([]);
+    expect(checkCategoryOverrides({ categoryOverrides: [entry], rawEspIds: ["1"] })[0]).toMatch(
+      /stale category override: espId 7001/
+    );
+    expect(checkCategoryOverrides({ categoryOverrides: [entry], rawEspIds: ["7001"] })).toEqual([]);
+  });
+
+  it("ships the five requested moves", async () => {
+    const file = JSON.parse(
+      await fs.readFile(path.join(__dirname, "../scripts/data/import-overrides.json"), "utf8")
+    );
+    const moves = Object.fromEntries(
+      parseCategoryOverrides(file).map((o) => [o.espId, o.category])
+    );
+    expect(moves).toEqual({
+      "554079367": "Kids & Toys",
+      "553267133": "Automotive",
+      "555527670": "Automotive",
+      "553109588": "Apparel",
+      "553389764": "Apparel",
+    });
+  });
+});
+
+describe("extreme minimums and prices", () => {
+  const withTiers = (tiers: number[][]) => {
+    const row = mk({ espId: "8100", name: "Thing" });
+    row[6] = tiers;
+    return cleanRow(row);
+  };
+
+  it("drops a minimum quantity above 1000 but keeps exactly 1000", () => {
+    expect(MAX_MIN_QUANTITY).toBe(1000);
+    expect(withTiers([[1001, 1]]).skip).toBe("moq-too-high");
+    expect(withTiers([[5000, 4.3]]).skip).toBe("moq-too-high");
+    expect(withTiers([[1000, 1]]).skip).toBeUndefined();
+  });
+
+  it("drops a first-tier unit price above $1500 but keeps exactly $1500", () => {
+    expect(MAX_FIRST_TIER_PRICE).toBe(1500);
+    expect(
+      withTiers([
+        [1, 1505.72],
+        [10, 900],
+      ]).skip
+    ).toBe("price-too-high");
+    expect(
+      withTiers([
+        [1, 1500],
+        [10, 900],
+      ]).skip
+    ).toBeUndefined();
+    expect(withTiers([[1, 99]]).skip).toBeUndefined();
+  });
+
+  it("collapses consecutive identical prices into the first tier of the run", () => {
+    expect(
+      cleanTiers([
+        [1, 28.43],
+        [10, 28.43],
+        [50, 28.43],
+        [100, 25],
+        [200, 25],
+        [500, 20],
+        [1000, 28.43],
+      ])
+    ).toEqual([
+      [1, 28.43],
+      [100, 25],
+      [500, 20],
+      [1000, 28.43],
+    ]);
+    expect(
+      cleanTiers([
+        [12, 5],
+        [24, 5],
+      ])
+    ).toEqual([[12, 5]]);
+  });
+
+  it("counts each reason in buildCatalog", () => {
+    const rows = [
+      (() => {
+        const r = mk({ espId: "8201", name: "Huge Minimum" });
+        r[6] = [[5000, 4.3]];
+        return r;
+      })(),
+      (() => {
+        const r = mk({ espId: "8202", name: "Pricey Item" });
+        r[6] = [[1, 2400]];
+        return r;
+      })(),
+      mk({ espId: "8203", name: "Fine Item" }),
+    ];
+    const { skipped, items } = buildCatalog(rows);
+    expect(skipped["moq-too-high"]).toBe(1);
+    expect(skipped["price-too-high"]).toBe(1);
+    expect(items).toHaveLength(1);
+  });
+});
+
+describe("duplicate images", () => {
+  const rows = berberRows as unknown[][];
+
+  it("the Berber 4x6 and 3x5 mats are separate products by name and tokens", () => {
+    const result = buildCatalog(rows);
+    expect(result.items).toHaveLength(2); // different sizes survive name clustering
+  });
+
+  it("keeps one of two products whose images are byte-identical (best vendor rules)", () => {
+    const { items } = buildCatalog(rows);
+    const hashes = new Map(items.map((i) => [i.link.espId, "same-image-bytes"]));
+    const { losers, groups } = findDuplicateImages(items, hashes);
+    expect(losers).toHaveLength(1);
+    expect(groups).toHaveLength(1);
+    // same vendor, same reviews, same colors: the cheaper first tier (3x5) is kept
+    expect(groups[0].kept.link.espId).toBe("555763864");
+    expect(losers[0]).toEqual({ espId: "555763946", keptEspId: "555763864" });
+
+    const final = buildCatalog(rows, { duplicateImageEspIds: losers.map((l) => l.espId) });
+    expect(final.items.map((i) => i.link.espId)).toEqual(["555763864"]);
+    expect(final.skipped["duplicate-image"]).toBe(1);
+  });
+
+  it("leaves products with different image bytes alone", () => {
+    const { items } = buildCatalog(rows);
+    const hashes = new Map(items.map((i) => [i.link.espId, `hash-${i.link.espId}`]));
+    expect(findDuplicateImages(items, hashes).losers).toEqual([]);
+    expect(findDuplicateImages(items, new Map()).losers).toEqual([]);
+  });
+
+  it("prefers the higher-scoring vendor when images match across vendors", () => {
+    const a = mk({
+      espId: "6001",
+      name: "Alpha Mat 3' x 5'",
+      asi: "asi/1",
+      rating: 4.5,
+      reviews: 20,
+    });
+    const b = mk({
+      espId: "6002",
+      name: "Beta Rug 4' x 6'",
+      asi: "asi/2",
+      rating: 4.9,
+      reviews: 300,
+    });
+    const { items } = buildCatalog([a, b]);
+    const hashes = new Map(items.map((i) => [i.link.espId, "x"]));
+    expect(findDuplicateImages(items, hashes).groups[0].kept.link.espId).toBe("6002");
   });
 });
