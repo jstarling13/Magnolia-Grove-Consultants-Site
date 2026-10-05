@@ -3,6 +3,7 @@ import type { LeadFormPayload, StrategySessionPayload, PaymentRequestPayload } f
 import type { MerchOrderRequestPayload, PricedCartLineItem } from "./merchOrders";
 import { describeLineColor } from "./merchBackendSheet";
 import { buildTrackingUrl, formatOrderReference, recognizeCarrier } from "./merchOrders";
+import { buildOrderTrackingUrl, parseOrderRef } from "./orderTracking";
 
 const hasResendConfig =
   Boolean(process.env.RESEND_API_KEY) && Boolean(process.env.CONTACT_EMAIL_FROM);
@@ -448,6 +449,19 @@ export interface BuiltEmail {
 // Customer: request confirmation (sent right after a cart is submitted)
 // ---------------------------------------------------------------------------
 
+/**
+ * "Track your order" link block for the customer order emails. Empty when
+ * ORDER_LINK_SECRET is unset (or the order has no id), so emails simply go out
+ * without it. Accepts the numeric id or a reference such as "MG-00042".
+ */
+export function trackOrderLinkHtml(order: number | string | undefined): string {
+  const id = typeof order === "string" ? parseOrderRef(order) : order;
+  if (id === undefined) return "";
+  const url = buildOrderTrackingUrl(id);
+  if (!url) return "";
+  return `<p style="margin:16px 0;font-size:14px;"><a href="${escapeHtml(url)}" style="color:${GOLD};font-weight:700;text-decoration:underline;">Track your order &rarr;</a><br/><span style="color:${MUTED};font-size:12px;">See the current status of your order any time.</span></p>`;
+}
+
 export interface MerchRequestConfirmationPayload {
   email: string;
   firstName: string;
@@ -477,6 +491,7 @@ export function buildMerchRequestConfirmationEmail(
         `<span style="color:${MUTED};font-size:12px;">Unit prices reflect the quantity tier for each product across all of its colors. This estimate does not yet include decoration, shipping, or tax.</span>`
       ),
       payload.notes?.trim() ? row("Your Notes", multiline(payload.notes.trim())) : "",
+      trackOrderLinkHtml(payload.orderRef),
       `<h2 style="color:#ffffff;font-size:16px;margin:24px 0 8px;">What happens next</h2>`,
       `<ol style="color:#e5e5e5;font-size:14px;line-height:1.7;margin:0 0 16px;padding-left:20px;">
         <li>We confirm decoration, shipping, and sales tax for your order.</li>
@@ -556,6 +571,7 @@ export async function sendMerchPaymentLinkEmail(
      ${row("Order Reference", orderRef)}
      ${row("Total Due", `$${payload.total.toFixed(2)}`)}
      <p style="margin:24px 0;"><a href="${escapeHtml(payload.paymentUrl)}" style="display:inline-block;background:${GOLD};color:${ONYX};font-size:14px;font-weight:700;text-decoration:none;border-radius:6px;padding:12px 24px;">Pay Securely Online &rarr;</a></p>
+     ${trackOrderLinkHtml(payload.orderId)}
      <p style="color:${MUTED};font-size:12px;line-height:1.6;">Payment is processed by Square. Card details never touch our site. Questions? Just reply to this email.</p>`
   );
 
@@ -599,6 +615,7 @@ export function buildMerchPaidEmail(payload: MerchPaidEmailPayload): BuiltEmail 
       paragraph(
         "We are placing your order with our supplier now. We will email you again with tracking details when it ships."
       ),
+      trackOrderLinkHtml(payload.orderId),
       paragraph(
         `<span style="color:${MUTED};font-size:12px;">Keep this email as your receipt. Questions? Just reply and mention ${escapeHtml(orderRef)}.</span>`
       ),
@@ -669,6 +686,7 @@ export function buildMerchShippedEmail(payload: MerchShippedEmailPayload): Built
             `<span style="color:${MUTED};font-size:12px;">Use the tracking number above on ${escapeHtml(carrierName)}'s website to follow your package.</span>`
           ),
       items.length ? customerItemsTable(items) : "",
+      trackOrderLinkHtml(payload.orderId),
       paragraph(
         `<span style="color:${MUTED};font-size:12px;">Tracking can take a few hours to show movement after a label is created. Questions? Just reply and mention ${escapeHtml(orderRef)}.</span>`
       ),

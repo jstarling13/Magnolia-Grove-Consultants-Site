@@ -28,4 +28,10 @@ describe("VerticalGate", () => {
       unmount();
     }
   });
+
+  it("never interrupts an order status link from a customer's email", () => {
+    pathname = "/orders/MG-00042";
+    const { container } = render(<VerticalGate />);
+    expect(container.textContent).not.toContain("Which one are you?");
+  });
 });
