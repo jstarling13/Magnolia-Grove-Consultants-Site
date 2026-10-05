@@ -1,0 +1,14 @@
+{
+  "dropEspIds": [
+    {
+      "espId": "7273365",
+      "reason": "Titleist Pro V1 Golf Ball from Gold Bond (4.5 stars, 50 reviews) is the same ball as espId 556464384 (Titleist Pro V1, Pro Golf Premiums, 5 stars, 11 reviews), which scores higher and is cheaper.",
+      "keepEspId": "556464384"
+    },
+    {
+      "espId": "552519118",
+      "reason": "6 Panels Relaxed Golf Hat Dad Cap (Direct Caps) duplicates the curated product 6panel-premium-relaxed-golf-cap, which has verified color photos. Curated wins.",
+      "keepCuratedId": "6panel-premium-relaxed-golf-cap"
+    }
+  ]
+}
