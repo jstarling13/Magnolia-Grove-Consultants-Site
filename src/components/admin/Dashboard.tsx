@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState, useTransition, type ChangeEvent } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { LogOut, ChevronDown, Plus, Trash2, CheckCircle2, Clock, Loader2 } from "lucide-react";
 import {
@@ -708,6 +709,12 @@ export default function Dashboard({
           <p className="mt-1 text-sm text-onyx/60">Magnolia Grove Consultants</p>
         </div>
         <div className="flex items-center gap-4">
+          <Link
+            href="/admin/orders"
+            className="rounded-md border border-gold/25 px-4 py-2 text-sm text-onyx/80 transition-colors hover:border-gold/50 hover:text-onyx"
+          >
+            Merch Orders
+          </Link>
           {username && <span className="text-sm text-onyx/80">Logged in as {username}</span>}
           <button
             onClick={handleLogout}
