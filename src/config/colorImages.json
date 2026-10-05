@@ -136,5 +136,25 @@
     "Navy Blazer": "/images/merch/colors/brooks-brothers-mesh-polo-womens-navy-blazer.webp",
     "Soft Mint": "/images/merch/colors/brooks-brothers-mesh-polo-womens-soft-mint.webp",
     "White": "/images/merch/colors/brooks-brothers-mesh-polo-womens-white.webp"
+  },
+  "6panel-upf-stretch-cap": {
+    "Royal": "/images/merch/colors/6panel-upf-stretch-cap-royal.webp",
+    "Red": "/images/merch/colors/6panel-upf-stretch-cap-red.webp",
+    "Black": "/images/merch/colors/6panel-upf-stretch-cap-black.webp",
+    "Navy": "/images/merch/colors/6panel-upf-stretch-cap-navy.webp",
+    "Neon Orange": "/images/merch/colors/6panel-upf-stretch-cap-neon-orange.webp",
+    "White": "/images/merch/colors/6panel-upf-stretch-cap-white.webp",
+    "Charcoal Gray": "/images/merch/colors/6panel-upf-stretch-cap-charcoal-gray.webp"
+  },
+  "6panel-premium-relaxed-golf-cap": {
+    "Black": "/images/merch/colors/6panel-premium-relaxed-golf-cap-black.webp",
+    "Kelly Green": "/images/merch/colors/6panel-premium-relaxed-golf-cap-kelly-green.webp",
+    "Light Blue": "/images/merch/colors/6panel-premium-relaxed-golf-cap-light-blue.webp",
+    "Navy": "/images/merch/colors/6panel-premium-relaxed-golf-cap-navy.webp",
+    "Orange": "/images/merch/colors/6panel-premium-relaxed-golf-cap-orange.webp",
+    "Pink": "/images/merch/colors/6panel-premium-relaxed-golf-cap-pink.webp",
+    "Royal": "/images/merch/colors/6panel-premium-relaxed-golf-cap-royal.webp",
+    "Sky Blue": "/images/merch/colors/6panel-premium-relaxed-golf-cap-sky-blue.webp",
+    "White": "/images/merch/colors/6panel-premium-relaxed-golf-cap-white.webp"
   }
 }

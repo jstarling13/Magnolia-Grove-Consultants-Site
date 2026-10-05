@@ -106,5 +106,17 @@
     "supplier": "Ball Pro",
     "asi": "asi/38120",
     "productNo": "A-JMKO1460"
+  },
+  "6panel-upf-stretch-cap": {
+    "espId": "551782499",
+    "supplier": "Otto Intl Inc",
+    "asi": "asi/75350",
+    "productNo": "19-1256"
+  },
+  "6panel-premium-relaxed-golf-cap": {
+    "espId": "555795880",
+    "supplier": "Direct Caps",
+    "asi": "asi/48015",
+    "productNo": "7649"
   }
 }
