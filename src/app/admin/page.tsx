@@ -1,6 +1,7 @@
 import { cookies } from "next/headers";
 import { sql } from "@/lib/db";
 import { ADMIN_SESSION_COOKIE, verifySessionToken } from "@/lib/adminAuth";
+import { syncAwaitingMerchPayments } from "@/lib/merchPayments";
 import Dashboard, { type SubmissionRow } from "@/components/admin/Dashboard";
 
 export const dynamic = "force-dynamic";
@@ -15,6 +16,8 @@ export default async function AdminPage() {
     ORDER BY created_at DESC
     LIMIT 200
   `) as SubmissionRow[];
+
+  await syncAwaitingMerchPayments(submissions);
 
   return (
     <Dashboard

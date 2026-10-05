@@ -27,7 +27,8 @@ const initialFields: ContactFields = {
 };
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const DEFAULT_ERROR = "Something went wrong. Please double-check your info or email ben@magnoliagrovega.com.";
+const DEFAULT_ERROR =
+  "Something went wrong. Please double-check your info or email ben@magnoliagrovega.com.";
 
 function validate(fields: ContactFields): Partial<Record<keyof ContactFields, string>> {
   const errors: Partial<Record<keyof ContactFields, string>> = {};
@@ -133,8 +134,9 @@ export default function CartPageContent() {
           </div>
           <h1 className="mt-6 text-2xl text-onyx">Order Request Received</h1>
           <p className="mt-3 max-w-md text-base leading-relaxed text-onyx/60">
-            We&apos;ll confirm final pricing, decoration, shipping, and tax, then place the order
-            with our supplier and follow up by email.
+            Nothing has been charged. We&apos;ll email you a final quote covering decoration,
+            shipping, and tax, with a secure link to pay. We place the order with our supplier once
+            your payment clears.
           </p>
           <Link
             href="/merchandise"
@@ -196,9 +198,7 @@ export default function CartPageContent() {
                       >
                         {line.product.name}
                       </Link>
-                      <p className="mt-1 text-xs text-onyx/50">
-                        ${line.unitPrice.toFixed(2)}/unit
-                      </p>
+                      <p className="mt-1 text-xs text-onyx/50">${line.unitPrice.toFixed(2)}/unit</p>
                       <div className="mt-2 flex items-center gap-3">
                         <input
                           type="number"
@@ -247,8 +247,8 @@ export default function CartPageContent() {
               >
                 <h2 className="text-xl text-onyx">Submit Your Order Request</h2>
                 <p className="mt-2 text-sm text-onyx/60">
-                  We&apos;ll review this, confirm final pricing, and place the order with our
-                  supplier on your behalf.
+                  Nothing is charged yet. We&apos;ll email you a final quote with a secure payment
+                  link, and place the order with our supplier once you&apos;ve paid.
                 </p>
 
                 <input
@@ -264,7 +264,10 @@ export default function CartPageContent() {
 
                 <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="firstName" className="mb-2 block text-sm font-medium text-onyx/80">
+                    <label
+                      htmlFor="firstName"
+                      className="mb-2 block text-sm font-medium text-onyx/80"
+                    >
                       First Name
                     </label>
                     <input
@@ -283,7 +286,10 @@ export default function CartPageContent() {
                   </div>
 
                   <div>
-                    <label htmlFor="lastName" className="mb-2 block text-sm font-medium text-onyx/80">
+                    <label
+                      htmlFor="lastName"
+                      className="mb-2 block text-sm font-medium text-onyx/80"
+                    >
                       Last Name
                     </label>
                     <input

@@ -310,3 +310,56 @@ export async function sendCartOrderNotification(
 
   return { sent: true };
 }
+
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+export interface MerchPaymentLinkEmailPayload {
+  email: string;
+  firstName: string;
+  orderId: number;
+  total: number;
+  paymentUrl: string;
+}
+
+/** Sent to the customer once an admin has confirmed the final quote and generated the Square link. */
+export async function sendMerchPaymentLinkEmail(
+  payload: MerchPaymentLinkEmailPayload
+): Promise<SendResult> {
+  if (!resend || !hasResendConfig) {
+    console.warn(
+      "[email] RESEND_API_KEY / CONTACT_EMAIL_FROM not set — skipping merch payment link email."
+    );
+    return { sent: false, reason: "not_configured" };
+  }
+
+  const html = emailShell(
+    "Your Merchandise Quote Is Ready",
+    `<p style="color:#e5e5e5;font-size:14px;line-height:1.6;">Hi ${escapeHtml(payload.firstName) || "there"},</p>
+     <p style="color:#e5e5e5;font-size:14px;line-height:1.6;">We've confirmed the final pricing for your merchandise order, including decoration, shipping, and tax. We place the order with our supplier as soon as payment clears.</p>
+     ${row("Order", `#${payload.orderId}`)}
+     ${row("Total Due", `$${payload.total.toFixed(2)}`)}
+     <p style="margin:24px 0;"><a href="${escapeHtml(payload.paymentUrl)}" style="display:inline-block;background:${GOLD};color:${ONYX};font-size:14px;font-weight:700;text-decoration:none;border-radius:6px;padding:12px 24px;">Pay Securely Online &rarr;</a></p>
+     <p style="color:${MUTED};font-size:12px;line-height:1.6;">Payment is processed by Square. Card details never touch our site. Questions? Just reply to this email.</p>`
+  );
+
+  const { error } = await resend.emails.send({
+    from: process.env.CONTACT_EMAIL_FROM!,
+    to: payload.email,
+    replyTo: process.env.CONTACT_EMAIL_TO || "ben@magnoliagrovega.com",
+    subject: `Your Merchandise Quote Is Ready — Order #${payload.orderId}`,
+    html,
+  });
+
+  if (error) {
+    console.error("[email] Resend rejected sendMerchPaymentLinkEmail:", error);
+    return { sent: false, reason: error.message };
+  }
+
+  return { sent: true };
+}

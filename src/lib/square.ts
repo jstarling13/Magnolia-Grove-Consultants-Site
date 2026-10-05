@@ -19,6 +19,8 @@ export interface CreatePaymentLinkParams {
   memo: string;
   amountCents: number;
   buyerEmail: string;
+  /** Selects the thank-you page copy shown after payment. Defaults to "payment" (invoices). */
+  redirectSource?: "payment" | "merch";
 }
 
 export interface SquareCheckoutResult {
@@ -55,7 +57,7 @@ export async function createPaymentLink(
           location_id: process.env.SQUARE_LOCATION_ID,
         },
         checkout_options: {
-          redirect_url: `${siteUrl}/thank-you?source=payment&email=${encodeURIComponent(params.buyerEmail)}`,
+          redirect_url: `${siteUrl}/thank-you?source=${params.redirectSource ?? "payment"}&email=${encodeURIComponent(params.buyerEmail)}`,
         },
         pre_populated_data: {
           buyer_email: params.buyerEmail,

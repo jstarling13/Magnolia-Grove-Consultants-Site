@@ -25,6 +25,12 @@ const copyBySource = {
     headline: "Your Strategy Session Is Locked In.",
     message: bookingPage.successMessage,
   },
+  merch: {
+    eyebrow: "Payment Received",
+    headline: "Thank You — We're Placing Your Order.",
+    message:
+      "Your payment cleared. We're placing your merchandise order with our supplier now and will email you proofs and shipping updates.",
+  },
   default: {
     eyebrow: "Submission Received",
     headline: "Thank You.",
@@ -35,7 +41,9 @@ const copyBySource = {
 export default async function ThankYouPage({ searchParams }: ThankYouPageProps) {
   const { source, email } = await searchParams;
   const copy =
-    source === "lead" || source === "strategy" ? copyBySource[source] : copyBySource.default;
+    source === "lead" || source === "strategy" || source === "merch"
+      ? copyBySource[source]
+      : copyBySource.default;
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-cream px-6 py-24 text-center">
@@ -48,12 +56,14 @@ export default async function ThankYouPage({ searchParams }: ThankYouPageProps) 
         {copy.message}
       </p>
 
-      <div className="mt-8 flex max-w-md items-start gap-3 rounded-lg border border-gold/20 bg-cream-200 px-5 py-4 text-left shadow-card">
-        <CalendarClock size={18} className="mt-0.5 shrink-0 text-gold-dark" />
-        <p className="text-xs leading-relaxed text-onyx/60">
-          A calendar invite with your advisory call details will arrive in your inbox shortly.
-        </p>
-      </div>
+      {source !== "merch" && (
+        <div className="mt-8 flex max-w-md items-start gap-3 rounded-lg border border-gold/20 bg-cream-200 px-5 py-4 text-left shadow-card">
+          <CalendarClock size={18} className="mt-0.5 shrink-0 text-gold-dark" />
+          <p className="text-xs leading-relaxed text-onyx/60">
+            A calendar invite with your advisory call details will arrive in your inbox shortly.
+          </p>
+        </div>
+      )}
 
       <CreateAccountPrompt email={email} />
 

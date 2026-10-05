@@ -51,12 +51,15 @@ export interface PricedCartLineItem {
  * Lifecycle for a merch order request, per CLAUDE_HANDOFF.md's integration
  * checklist: no order is ever placed with the supplier automatically — an
  * admin manually orders through ESP and updates status to reflect that.
+ * The customer pays the full quoted amount first, so ESP is never ordered
+ * on the business's own money.
  */
 export const MERCH_ORDER_STATUSES = [
   "new",
   "reviewing",
   "quoted",
-  "approved",
+  "awaiting_payment",
+  "paid",
   "ordered_in_esp",
   "fulfilled",
   "cancelled",
@@ -68,8 +71,46 @@ export const MERCH_ORDER_STATUS_LABELS: Record<MerchOrderStatus, string> = {
   new: "New",
   reviewing: "Reviewing",
   quoted: "Quoted",
-  approved: "Approved",
+  awaiting_payment: "Awaiting Payment",
+  paid: "Paid",
   ordered_in_esp: "Ordered in ESP",
   fulfilled: "Fulfilled",
   cancelled: "Cancelled",
 };
+
+const REQUIRES_PAYMENT: readonly MerchOrderStatus[] = ["ordered_in_esp", "fulfilled"];
+
+export type StatusChangeResult = { ok: true } | { ok: false; error: string };
+
+/** Blocks moving an order to a supplier-ordered state until payment is confirmed. */
+export function canSetMerchStatus(
+  data: Record<string, unknown>,
+  target: MerchOrderStatus
+): StatusChangeResult {
+  if (REQUIRES_PAYMENT.includes(target) && typeof data.paidAt !== "string") {
+    return {
+      ok: false,
+      error:
+        "Payment hasn't been received yet — send the payment link and wait for it to clear before ordering from ESP.",
+    };
+  }
+  return { ok: true };
+}
+
+const MAX_QUOTE_DOLLARS = 250_000;
+
+export type QuoteAmountResult = { ok: true; cents: number } | { ok: false; error: string };
+
+/** Validates an admin-entered final quote and converts it to whole cents. */
+export function parseQuoteAmount(input: number): QuoteAmountResult {
+  if (!Number.isFinite(input) || input <= 0) {
+    return { ok: false, error: "Enter a quote greater than $0." };
+  }
+  if (input > MAX_QUOTE_DOLLARS) {
+    return {
+      ok: false,
+      error: `Quotes above $${MAX_QUOTE_DOLLARS.toLocaleString("en-US")} need to be invoiced manually.`,
+    };
+  }
+  return { ok: true, cents: Math.round(input * 100) };
+}

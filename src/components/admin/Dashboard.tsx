@@ -8,6 +8,7 @@ import {
   addDeliverable,
   deleteDeliverable,
   updateMerchOrderStatus,
+  sendMerchPaymentLink,
 } from "@/app/admin/actions";
 import { MERCH_ORDER_STATUSES, MERCH_ORDER_STATUS_LABELS } from "@/lib/merchOrders";
 
@@ -40,6 +41,12 @@ const HIDDEN_FIELDS = new Set([
   "status",
   "items",
   "total",
+  "quotedTotal",
+  "quotedAt",
+  "paymentLinkId",
+  "paymentUrl",
+  "paidAt",
+  "paidManually",
 ]);
 
 interface CartLineItemDTO {
@@ -227,11 +234,13 @@ function MerchOrderStatusControl({
 }) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
+  const [error, setError] = useState("");
 
   function handleChange(event: ChangeEvent<HTMLSelectElement>) {
     const status = event.target.value;
     startTransition(async () => {
-      await updateMerchOrderStatus(submissionId, status);
+      const result = await updateMerchOrderStatus(submissionId, status);
+      setError(result.ok ? "" : result.error);
       router.refresh();
     });
   }
@@ -242,7 +251,8 @@ function MerchOrderStatusControl({
         Order Status
       </label>
       <p className="mt-1 text-xs text-onyx/60">
-        No order is placed with ESP automatically — update this after you manually order it.
+        No order is placed with ESP automatically — only order it after it shows as Paid, then
+        update this.
       </p>
       <select
         value={currentStatus || "new"}
@@ -257,6 +267,116 @@ function MerchOrderStatusControl({
         ))}
       </select>
       {isPending && <span className="ml-2 text-xs text-onyx/60">Saving…</span>}
+      {error && <p className="mt-2 text-xs text-red-500">{error}</p>}
+    </div>
+  );
+}
+
+function MerchPaymentPanel({
+  submissionId,
+  data,
+}: {
+  submissionId: number;
+  data: Record<string, unknown>;
+}) {
+  const router = useRouter();
+  const status = String(data.status ?? "new");
+  const estimate = typeof data.total === "number" ? data.total : undefined;
+  const quoted = typeof data.quotedTotal === "number" ? data.quotedTotal : undefined;
+  const paymentUrl = typeof data.paymentUrl === "string" ? data.paymentUrl : "";
+  const paidAt = typeof data.paidAt === "string" ? data.paidAt : "";
+
+  const [amount, setAmount] = useState(String(quoted ?? estimate ?? ""));
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+  const [isPending, startTransition] = useTransition();
+
+  if (status === "cancelled") return null;
+
+  if (paidAt) {
+    return (
+      <div className="mt-4 border-t border-gold/15 pt-4">
+        <span className="text-xs font-semibold uppercase tracking-wide text-gold-dark">
+          Payment
+        </span>
+        <p className="mt-1 text-sm font-semibold text-onyx">
+          Paid{quoted !== undefined ? ` $${quoted.toFixed(2)}` : ""} on {formatDate(paidAt)}
+          {data.paidManually === true ? " (marked paid manually)" : ""}
+        </p>
+        <p className="mt-1 text-xs text-onyx/60">Cleared — safe to place the ESP order.</p>
+      </div>
+    );
+  }
+
+  function handleSend() {
+    setError("");
+    setMessage("");
+    startTransition(async () => {
+      const result = await sendMerchPaymentLink(submissionId, Number(amount));
+      if (!result.ok) {
+        setError(result.error);
+        return;
+      }
+      setMessage(
+        result.emailed
+          ? "Payment link emailed to the customer."
+          : "Link created, but the email didn't send — copy the link below and send it yourself."
+      );
+      router.refresh();
+    });
+  }
+
+  return (
+    <div className="mt-4 border-t border-gold/15 pt-4">
+      <span className="text-xs font-semibold uppercase tracking-wide text-gold-dark">
+        Final Quote &amp; Payment
+      </span>
+      <p className="mt-1 text-xs text-onyx/60">
+        Enter the full amount including decoration, shipping, and tax. The customer pays this before
+        you order from ESP.
+      </p>
+      <div className="mt-2 flex flex-wrap items-center gap-3">
+        <div className="flex items-center gap-1 rounded-md border border-gold/25 bg-cream px-3 py-2 text-sm text-onyx">
+          <span className="text-onyx/60">$</span>
+          <input
+            type="number"
+            min="0"
+            step="0.01"
+            value={amount}
+            onChange={(event) => setAmount(event.target.value)}
+            aria-label="Final quote amount in dollars"
+            className="w-28 bg-transparent focus:outline-none"
+          />
+        </div>
+        <button
+          type="button"
+          onClick={handleSend}
+          disabled={isPending}
+          className="rounded-md bg-gold px-4 py-2 text-sm font-semibold text-onyx transition-colors hover:bg-gold-bright disabled:opacity-60"
+        >
+          {isPending ? "Sending…" : paymentUrl ? "Resend New Payment Link" : "Send Payment Link"}
+        </button>
+      </div>
+      {estimate !== undefined && (
+        <p className="mt-1 text-xs text-onyx/50">Cart estimate was ${estimate.toFixed(2)}.</p>
+      )}
+      {paymentUrl && (
+        <p className="mt-2 break-all text-xs text-onyx/70">
+          Current link:{" "}
+          <a
+            href={paymentUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="text-gold-dark underline"
+          >
+            {paymentUrl}
+          </a>
+          {quoted !== undefined && <> (${quoted.toFixed(2)})</>}. Resending creates a new link —
+          don&apos;t reuse the old one.
+        </p>
+      )}
+      {message && <p className="mt-2 text-xs text-onyx/80">{message}</p>}
+      {error && <p className="mt-2 text-xs text-red-500">{error}</p>}
     </div>
   );
 }
@@ -339,19 +459,21 @@ export default function Dashboard({
       </div>
 
       <div className="mt-8 flex flex-wrap gap-2">
-        {(["all", "lead", "strategy_session", "payment_request", "merch_order"] as const).map((type) => (
-          <button
-            key={type}
-            onClick={() => setFilter(type)}
-            className={`rounded-full border px-4 py-1.5 text-xs font-medium transition-colors ${
-              filter === type
-                ? "border-gold bg-gold text-onyx"
-                : "border-gold/25 text-onyx/80 hover:border-gold/50"
-            }`}
-          >
-            {type === "all" ? "All" : TYPE_LABELS[type]}
-          </button>
-        ))}
+        {(["all", "lead", "strategy_session", "payment_request", "merch_order"] as const).map(
+          (type) => (
+            <button
+              key={type}
+              onClick={() => setFilter(type)}
+              className={`rounded-full border px-4 py-1.5 text-xs font-medium transition-colors ${
+                filter === type
+                  ? "border-gold bg-gold text-onyx"
+                  : "border-gold/25 text-onyx/80 hover:border-gold/50"
+              }`}
+            >
+              {type === "all" ? "All" : TYPE_LABELS[type]}
+            </button>
+          )
+        )}
       </div>
 
       <div className="mt-6 space-y-3">
@@ -423,7 +545,10 @@ export default function Dashboard({
                       </p>
                       <ul className="mt-2 space-y-1.5">
                         {row.data.items.map((item) => (
-                          <li key={item.productId} className="flex justify-between text-sm text-onyx">
+                          <li
+                            key={item.productId}
+                            className="flex justify-between text-sm text-onyx"
+                          >
                             <span>
                               {item.name} × {item.quantity}
                             </span>
@@ -439,6 +564,10 @@ export default function Dashboard({
                         </p>
                       )}
                     </div>
+                  )}
+
+                  {row.type === "merch_order" && (
+                    <MerchPaymentPanel submissionId={row.id} data={row.data} />
                   )}
 
                   {row.type === "merch_order" && (
