@@ -120,5 +120,21 @@
     "Orange": "/images/merch/colors/gildan-ultra-cotton-tshirt-orange.webp",
     "Safety Orange": "/images/merch/colors/gildan-ultra-cotton-tshirt-safety-orange.webp",
     "Texas Orange": "/images/merch/colors/gildan-ultra-cotton-tshirt-texas-orange.webp"
+  },
+  "owala-freesip-bottle-24oz": {
+    "Shy Marshmallow": "/images/merch/colors/owala-freesip-bottle-24oz-shy-marshmallow.webp"
+  },
+  "brooks-brothers-mesh-polo-mens": {
+    "Charter Blue": "/images/merch/colors/brooks-brothers-mesh-polo-mens-charter-blue.webp",
+    "Rich Red": "/images/merch/colors/brooks-brothers-mesh-polo-mens-rich-red.webp",
+    "Soft Mint": "/images/merch/colors/brooks-brothers-mesh-polo-mens-soft-mint.webp",
+    "White": "/images/merch/colors/brooks-brothers-mesh-polo-mens-white.webp"
+  },
+  "brooks-brothers-mesh-polo-womens": {
+    "Charter Blue": "/images/merch/colors/brooks-brothers-mesh-polo-womens-charter-blue.webp",
+    "Deep Black": "/images/merch/colors/brooks-brothers-mesh-polo-womens-deep-black.webp",
+    "Navy Blazer": "/images/merch/colors/brooks-brothers-mesh-polo-womens-navy-blazer.webp",
+    "Soft Mint": "/images/merch/colors/brooks-brothers-mesh-polo-womens-soft-mint.webp",
+    "White": "/images/merch/colors/brooks-brothers-mesh-polo-womens-white.webp"
   }
 }

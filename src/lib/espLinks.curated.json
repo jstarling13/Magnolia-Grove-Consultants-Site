@@ -64,5 +64,29 @@
     "supplier": "BEL Promo",
     "asi": "asi/39552",
     "productNo": "AG2000"
+  },
+  "owala-freesip-bottle-24oz": {
+    "espId": "555058382",
+    "supplier": "ETS Express, LLC",
+    "asi": "asi/51197",
+    "productNo": "78836-G"
+  },
+  "samsonite-weekender-duffel": {
+    "espId": "555729613",
+    "supplier": "Gemline",
+    "asi": "asi/56070",
+    "productNo": "102225"
+  },
+  "brooks-brothers-mesh-polo-mens": {
+    "espId": "555114452",
+    "supplier": "SanMar",
+    "asi": "asi/84863",
+    "productNo": "BB18220"
+  },
+  "brooks-brothers-mesh-polo-womens": {
+    "espId": "555802620",
+    "supplier": "SanMar",
+    "asi": "asi/84863",
+    "productNo": "BB18221"
   }
 }
