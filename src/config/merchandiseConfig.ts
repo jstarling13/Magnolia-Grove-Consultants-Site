@@ -26,6 +26,7 @@
 
 import type { ImprintArea, MerchPriceTier, MerchProduct } from "@/types";
 import colorImageMapJson from "./colorImages.json";
+import importedProductsJson from "./importedProducts.json";
 
 export const MARKUP_RATE = 0.05;
 
@@ -58,6 +59,7 @@ export const merchandisePage = {
 
 export const merchandiseCategories = [
   "Apparel",
+  "Headwear",
   "Drinkware",
   "Bags",
   "Tech Accessories",
@@ -65,6 +67,8 @@ export const merchandiseCategories = [
   "Event & Signage",
   "Knives & Tools",
   "Gifts & Entertaining",
+  "Outdoor & Sports",
+  "Health & Wellness",
 ] as const;
 
 // Real products sourced from live ESP+ search (espplus.com), September 2026.
@@ -541,7 +545,7 @@ const curatedProducts: MerchProduct[] = [
   {
     id: "imperial-original-performance-cap",
     name: "Imperial The Original Performance Cap",
-    category: "Apparel",
+    category: "Headwear",
     brand: "Imperial",
     description:
       "A structured, unstructured-brim performance cap in 33 colors — the widest color range of any cap in the catalog.",
@@ -670,7 +674,7 @@ const curatedProducts: MerchProduct[] = [
   {
     id: "6panel-upf-stretch-cap",
     name: "6-Panel UPF 50+ Cool Comfort Stretch Cap",
-    category: "Apparel",
+    category: "Headwear",
     brand: "Essentials",
     description:
       "A structured, stretch-fit performance cap in 7 colors — built for a cleaner, more finished look than a mesh trucker back.",
@@ -688,7 +692,7 @@ const curatedProducts: MerchProduct[] = [
   {
     id: "6panel-premium-relaxed-golf-cap",
     name: "6 Panel Premium Relaxed Golf Cap",
-    category: "Apparel",
+    category: "Headwear",
     brand: "Essentials",
     description:
       "A relaxed-fit golf dad cap in 20 colors — an affordable, casual everyday option. Priced at 12 units.",
@@ -1460,7 +1464,68 @@ function withColorImages(product: MerchProduct): MerchProduct {
   return extra ? { ...product, colorImages: { ...product.colorImages, ...extra } } : product;
 }
 
-export const products: MerchProduct[] = curatedProducts.map(withColorImages);
+/**
+ * Bulk-imported catalog (scripts/importCatalog.mjs). importedProducts.json
+ * holds raw ESP "Catalog Price" tiers only; the 5% markup is applied here,
+ * once, through tiers() — the same path every curated product uses. The file
+ * never carries ESP ids, suppliers or product numbers (it ships to browsers).
+ */
+export interface ImportedProductRecord {
+  id: string;
+  name: string;
+  category: string;
+  brand: string;
+  description: string;
+  /** [quantity, ESP catalog price] pairs, ascending by quantity. */
+  tiers: [quantity: number, espPrice: number][];
+  image: string;
+  imageAlt: string;
+  colors: string[];
+}
+
+export function isImportedProductRecord(value: unknown): value is ImportedProductRecord {
+  if (typeof value !== "object" || value === null) return false;
+  const r = value as Record<string, unknown>;
+  return (
+    typeof r.id === "string" &&
+    typeof r.name === "string" &&
+    typeof r.category === "string" &&
+    typeof r.brand === "string" &&
+    typeof r.description === "string" &&
+    typeof r.image === "string" &&
+    typeof r.imageAlt === "string" &&
+    Array.isArray(r.colors) &&
+    r.colors.every((c) => typeof c === "string") &&
+    Array.isArray(r.tiers) &&
+    r.tiers.length > 0 &&
+    r.tiers.every(
+      (t) =>
+        Array.isArray(t) && t.length === 2 && typeof t[0] === "number" && typeof t[1] === "number"
+    )
+  );
+}
+
+export function toImportedProduct(record: ImportedProductRecord): MerchProduct {
+  return {
+    id: record.id,
+    name: record.name,
+    category: record.category,
+    brand: record.brand,
+    description: record.description,
+    priceTiers: tiers(record.tiers),
+    image: record.image,
+    imageAlt: record.imageAlt,
+    colors: record.colors,
+  };
+}
+
+const importedProducts: MerchProduct[] = (importedProductsJson as unknown[])
+  .filter(isImportedProductRecord)
+  .map(toImportedProduct);
+
+export const products: MerchProduct[] = [...curatedProducts, ...importedProducts].map(
+  withColorImages
+);
 
 // Reasonable default logo placement per category, used when a product has
 // no `imprintArea` of its own. Values are % of the image box; top/left are
@@ -1474,6 +1539,12 @@ const CATEGORY_IMPRINT_DEFAULTS: Record<string, ImprintArea> = {
   "Tech Accessories": { top: 50, left: 50, width: 22 },
   "Office & Writing": { top: 50, left: 50, width: 22 },
   "Event & Signage": { top: 50, left: 50, width: 22 },
+  // Caps/visors: logo sits on the front panel, above center and fairly small.
+  Headwear: { top: 38, left: 50, width: 20 },
+  // Mixed bag (balls, towels, umbrellas, coolers...): centered, mid-size.
+  "Outdoor & Sports": { top: 50, left: 50, width: 22 },
+  // Bottles, kits, sanitizer, etc.: lower-center like drinkware, slightly smaller.
+  "Health & Wellness": { top: 48, left: 50, width: 22 },
 };
 
 const FALLBACK_IMPRINT: ImprintArea = { top: 50, left: 50, width: 22 };
