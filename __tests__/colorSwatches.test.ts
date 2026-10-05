@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { cleanColorName, swatchBackground, swatchColor, swatchInfo } from "@/lib/colorSwatches";
+import {
+  cleanColorName,
+  colorKey,
+  swatchBackground,
+  swatchColor,
+  swatchInfo,
+} from "@/lib/colorSwatches";
 
 describe("cleanColorName", () => {
   it("strips the supplier 'Show less' / 'Show more' suffix defensively", () => {
@@ -17,7 +23,7 @@ describe("cleanColorName", () => {
 describe("swatchInfo: common ESP color names", () => {
   it.each([
     ["Navy Blue", "#1b2a4a"],
-    ["Royal Blue", "#2748c0"],
+    ["Royal Blue", "#2a50a8"],
     ["Forest Green", "#284b33"],
     ["Hunter Green", "#2e4d3a"],
     ["Carolina Blue", "#7bafd4"],
@@ -103,8 +109,9 @@ describe("swatchInfo: two-tone names", () => {
     expect(swatchInfo("Heather-Gray")).toEqual({ kind: "solid", colors: ["#9a9a9a"] });
   });
 
-  it("falls back to the one known part when the other is unrecognised", () => {
-    expect(swatchInfo("Black/Zorp")).toEqual({ kind: "solid", colors: ["#111111"] });
+  it("stays unknown when any part is unrecognised, instead of showing half the name", () => {
+    expect(swatchInfo("Black/Zorp")).toEqual({ kind: "unknown", colors: ["#e4e0d6"] });
+    expect(swatchInfo("Red Flap/Blkred Blanket").kind).toBe("unknown");
   });
 
   it("renders splits as a hard-stop diagonal gradient", () => {
@@ -124,5 +131,118 @@ describe("swatchInfo: multi and unknown", () => {
   it("gives unrecognised names a neutral fallback flagged unknown", () => {
     expect(swatchInfo("Mystery Tint 9921")).toEqual({ kind: "unknown", colors: ["#e4e0d6"] });
     expect(swatchBackground(swatchInfo(""))).toBe("#e4e0d6");
+  });
+});
+
+describe("vendor color names", () => {
+  it.each([
+    ["Anthracite", "#43484d"],
+    ["Cool Grey", "#81848a"],
+    ["Storm", "#5d6d7e"],
+    ["Iron", "#5a5d62"],
+    ["Sapphire", "#1b66c7"],
+    ["Chrome", "#d0d2d5"],
+    ["Brass", "#b5a642"],
+    ["Bamboo", "#d8c08c"],
+    ["Clear", "#eef2f4"],
+    ["Natural", "#ede6d6"],
+    ["Gold", "#c8a951"],
+    ["Silver", "#c7c9cc"],
+  ])("%s resolves to %s", (name, hex) => {
+    expect(swatchInfo(name)).toEqual({ kind: "solid", colors: [hex] });
+  });
+
+  it("prefers a specific hue over a bare base color", () => {
+    expect(swatchColor("Mint Green")).toBe(swatchColor("Mint"));
+    expect(swatchColor("Steel Blue")).not.toBe(swatchColor("Steel"));
+    expect(swatchColor("Stone Blue")).not.toBe(swatchColor("Stone"));
+  });
+
+  it("reads translucent plastics as a lighter version of their color", () => {
+    const lightness = (hex: string) =>
+      [1, 3, 5].reduce((sum, i) => sum + Number.parseInt(hex.slice(i, i + 2), 16), 0);
+    expect(lightness(swatchColor("Translucent Blue"))).toBeGreaterThan(
+      lightness(swatchColor("Blue"))
+    );
+    expect(swatchColor("Clear Lid")).toBe(swatchColor("Clear"));
+  });
+
+  it("renders camouflage as a pattern of its typical tones", () => {
+    expect(swatchInfo("Woodland Camouflage").kind).toBe("split");
+    expect(swatchInfo("Desert Digital Camouflage").colors).not.toEqual(
+      swatchInfo("Woodland Camouflage").colors
+    );
+    // A camo item in a named color keeps that color.
+    expect(swatchInfo("Camouflage White")).toEqual(swatchInfo("White"));
+  });
+
+  it("treats 'several colors' labels as multi and a bare 'Custom' as unknown", () => {
+    for (const name of ["Various", "Stock Colors", "Any/All Colors", "Custom (full-color print)"]) {
+      expect(swatchInfo(name).kind, name).toBe("multi");
+    }
+    expect(swatchInfo("Custom").kind).toBe("unknown");
+  });
+
+  it("splits 'White Blue' style names into body + trim and keeps 'White White' solid", () => {
+    expect(swatchInfo("White Blue").colors).toEqual([swatchColor("White"), swatchColor("Blue")]);
+    expect(swatchInfo("White White").kind).toBe("solid");
+    expect(swatchInfo("White Blend").kind).toBe("solid");
+  });
+});
+
+describe("case, whitespace and vendor-code handling", () => {
+  it.each([
+    ["Navy-040", "Navy"],
+    ["Navy 040", "Navy"],
+    ["Navy - 040", "Navy"],
+    ["Neon Yellow 364", "Neon Yellow"],
+    ["Cottage Blue 293 C", "Cottage Blue"],
+    ["Red 3", "Red"],
+    ["Black (A)", "Black"],
+    ["  royal   BLUE  ", "Royal Blue"],
+  ])("%s resolves like %s", (name, plain) => {
+    expect(swatchInfo(name)).toEqual(swatchInfo(plain));
+  });
+
+  it("keeps heather variants distinct from their base color", () => {
+    expect(swatchColor("Black Heather - 104")).not.toBe(swatchColor("Black"));
+    expect(swatchColor("Navy Heather - 240")).not.toBe(swatchColor("Navy"));
+  });
+
+  it("lets an exact vendor name with its code beat the keyword guess", () => {
+    expect(swatchColor("Black Heather - 104")).toBe("#2e2f33");
+    expect(swatchColor("Black Heather")).toBe("#7f7c7d");
+  });
+
+  it("colorKey drops case, punctuation, codes and variant letters", () => {
+    expect(colorKey("  Black Heather - 104 ")).toBe("black heather");
+    expect(colorKey("Navy-040")).toBe("navy");
+    expect(colorKey("Navy (B)")).toBe("navy");
+    expect(colorKey("Lt Blue")).toBe("light blue");
+  });
+
+  it("never changes the displayed name", () => {
+    expect(cleanColorName("Navy Heather - 240")).toBe("Navy Heather - 240");
+  });
+});
+
+describe("vendor two-tone codes", () => {
+  it.each([
+    ["Black/Ltoxf", 2],
+    ["Royal_White", 2],
+    ["Blue-Reflex-White", 2],
+    ["Biscuit/True Blue", 2],
+    ["Lime/Lt Blue", 2],
+    ["Jet Gray-Black", 2],
+    ["Heather-White", 2],
+    ["Charcoal-Neon Green", 2],
+  ])("%s becomes a %i-tone split", (name, tones) => {
+    const info = swatchInfo(name);
+    expect(info.kind).toBe("split");
+    expect(info.colors).toHaveLength(tones);
+  });
+
+  it("reads 'Jersey-Black' as the color, not a two-tone", () => {
+    expect(swatchInfo("Jersey-Black")).toEqual(swatchInfo("Black"));
   });
 });
