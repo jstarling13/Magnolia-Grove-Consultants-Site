@@ -9,6 +9,7 @@
     "lint": "next lint",
     "test": "vitest run",
     "format": "prettier --write .",
+    "catalog:import": "node scripts/importCatalog.mjs",
     "prepare": "husky"
   },
   "dependencies": {
