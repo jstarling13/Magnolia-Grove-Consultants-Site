@@ -30,7 +30,7 @@ import importedProductsJson from "./importedProducts.json";
 
 export const MARKUP_RATE = 0.05;
 
-function clientPrice(espPrice: number): number {
+export function clientPrice(espPrice: number): number {
   return Math.round(espPrice * (1 + MARKUP_RATE) * 100) / 100;
 }
 
