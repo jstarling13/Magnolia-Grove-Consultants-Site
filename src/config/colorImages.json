@@ -71,5 +71,26 @@
     "Collegiate Green": "/images/merch/colors/adidas-ultimate365-quarter-zip-mens-collegiate-green.webp",
     "Grey Three Melange": "/images/merch/colors/adidas-ultimate365-quarter-zip-mens-grey-three-melange.webp",
     "Onix": "/images/merch/colors/adidas-ultimate365-quarter-zip-mens-onix.webp"
+  },
+  "adidas-spacer-quarter-zip-womens": {
+    "Black": "/images/merch/colors/adidas-spacer-quarter-zip-womens-black.webp",
+    "Collegiate Navy": "/images/merch/colors/adidas-spacer-quarter-zip-womens-collegiate-navy.webp",
+    "Core White": "/images/merch/colors/adidas-spacer-quarter-zip-womens-core-white.webp",
+    "Grey Five": "/images/merch/colors/adidas-spacer-quarter-zip-womens-grey-five.webp",
+    "Halo Blue": "/images/merch/colors/adidas-spacer-quarter-zip-womens-halo-blue.webp",
+    "Silver Pebble": "/images/merch/colors/adidas-spacer-quarter-zip-womens-silver-pebble.webp"
+  },
+  "storm-creek-front-runner-vest-mens": {
+    "Black": "/images/merch/colors/storm-creek-front-runner-vest-mens-black.webp",
+    "Jet Gray-Black": "/images/merch/colors/storm-creek-front-runner-vest-mens-jet-gray-black.webp",
+    "Titanium Gray": "/images/merch/colors/storm-creek-front-runner-vest-mens-titanium-gray.webp"
+  },
+  "storm-creek-front-runner-vest-womens": {
+    "Black": "/images/merch/colors/storm-creek-front-runner-vest-womens-black.webp",
+    "Platinum Gray": "/images/merch/colors/storm-creek-front-runner-vest-womens-platinum-gray.webp",
+    "Navy Blue": "/images/merch/colors/storm-creek-front-runner-vest-womens-navy-blue.webp",
+    "White": "/images/merch/colors/storm-creek-front-runner-vest-womens-white.webp",
+    "Jet Gray-Black": "/images/merch/colors/storm-creek-front-runner-vest-womens-jet-gray-black.webp",
+    "Titanium Gray": "/images/merch/colors/storm-creek-front-runner-vest-womens-titanium-gray.webp"
   }
 }

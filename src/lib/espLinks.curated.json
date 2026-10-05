@@ -28,5 +28,29 @@
     "supplier": "S&S Activewear",
     "asi": "asi/84358",
     "productNo": "A401"
+  },
+  "adidas-spacer-quarter-zip-womens": {
+    "espId": "554831359",
+    "supplier": "S&S Activewear",
+    "asi": "asi/84358",
+    "productNo": "A589"
+  },
+  "callaway-lightweight-quarter-zip": {
+    "espId": "552575827",
+    "supplier": "Ball Pro",
+    "asi": "asi/38120",
+    "productNo": "A-CGM742"
+  },
+  "storm-creek-front-runner-vest-mens": {
+    "espId": "550125396",
+    "supplier": "Storm Creek",
+    "asi": "asi/89879",
+    "productNo": "3120"
+  },
+  "storm-creek-front-runner-vest-womens": {
+    "espId": "550125452",
+    "supplier": "Storm Creek",
+    "asi": "asi/89879",
+    "productNo": "3125"
   }
 }
