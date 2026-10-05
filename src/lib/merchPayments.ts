@@ -103,3 +103,28 @@ export async function syncAwaitingMerchPayments(rows: SyncableRow[]): Promise<vo
     })
   );
 }
+
+/**
+ * Webhook entry point: loads every merch order currently awaiting payment (a
+ * small set, capped defensively) and runs the normal sync over them. The
+ * webhook never maps Square event ids to orders itself; each candidate is
+ * verified against Square's API by syncAwaitingMerchPayments, so a replayed
+ * or forged-but-signed event cannot mark anything paid on its own. Safe under
+ * concurrent duplicate deliveries because the status transition and the
+ * receipt claim are both conditional UPDATEs.
+ *
+ * Returns how many orders were examined. Throws if the lookup itself fails so
+ * the caller can ask Square to retry.
+ */
+export async function syncAllAwaitingMerchPayments(): Promise<number> {
+  const rows = (await sql`
+    SELECT id, type, data
+    FROM submissions
+    WHERE type = 'merch_order' AND data->>'status' = 'awaiting_payment'
+    ORDER BY id
+    LIMIT 200
+  `) as SyncableRow[];
+  if (!rows || rows.length === 0) return 0;
+  await syncAwaitingMerchPayments(rows);
+  return rows.length;
+}
