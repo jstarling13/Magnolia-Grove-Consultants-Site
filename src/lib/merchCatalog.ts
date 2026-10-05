@@ -64,6 +64,17 @@ function truncate(text: string, max: number): string {
 }
 
 /**
+ * Canonical color list for a product: supplier debris stripped, blanks
+ * dropped, duplicates removed. The storefront, the cart and the checkout
+ * API all validate against this one list, so a color the shopper picked
+ * always compares equal to what the server expects.
+ */
+export function normalizeColors(colors: readonly string[] | undefined): string[] {
+  if (!colors) return [];
+  return Array.from(new Set(colors.map(cleanColorName).filter(Boolean)));
+}
+
+/**
  * Projects a config product to the slim storefront model. Deliberately an
  * allow-list: only the fields below survive, so adding cost/supplier fields
  * to the config can never leak through this path. Tiers are re-mapped to
@@ -74,9 +85,7 @@ export function toCatalogProduct(
   imprintArea: ImprintArea,
   options: { truncateDescription?: boolean } = {}
 ): CatalogProduct {
-  const colors = product.colors
-    ? Array.from(new Set(product.colors.map(cleanColorName).filter(Boolean)))
-    : undefined;
+  const colors = normalizeColors(product.colors);
 
   let colorImages: Record<string, string> | undefined;
   if (product.colorImages) {
@@ -96,7 +105,7 @@ export function toCatalogProduct(
       : product.description,
     image: product.image,
     imageAlt: product.imageAlt,
-    colors: colors && colors.length > 0 ? colors : undefined,
+    colors: colors.length > 0 ? colors : undefined,
     colorImages,
     tiers: product.priceTiers
       .map((tier) => ({ quantity: tier.quantity, price: tier.price }))

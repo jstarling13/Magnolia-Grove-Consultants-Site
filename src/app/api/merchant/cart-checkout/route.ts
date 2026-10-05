@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { cartCheckoutSchema, type PricedCartLineItem } from "@/lib/merchOrders";
-import { getProductById, tierForQuantity } from "@/config/merchandiseConfig";
+import { getProductById } from "@/config/merchandiseConfig";
+import { cleanLineColor, validateCart, type CartPricingProduct } from "@/lib/cartPricing";
 import { checkRateLimit } from "@/lib/ratelimit";
 import { verifyTurnstileToken } from "@/lib/turnstile";
 import { sendCartOrderNotification } from "@/lib/email";
@@ -56,43 +57,58 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  // Prices are never trusted from the client — every line is recalculated
-  // here from the same catalog data the site renders, using each product's
-  // real ESP-derived quantity-break pricing.
-  const pricedItems: PricedCartLineItem[] = [];
-  for (const item of payload.items) {
-    const product = getProductById(item.productId);
-    if (!product) {
-      return NextResponse.json(
-        { success: false, error: "Your cart contains a product that's no longer available." },
-        { status: 400 }
-      );
-    }
-    const tier = tierForQuantity(product, item.quantity);
-    // Backend-only supplier lookup for whoever places the ESP order. Looked up
-    // by our own product id, never taken from the client, and never returned
-    // in the API response.
-    const esp = getEspLink(product);
-    pricedItems.push({
-      productId: product.id,
-      name: product.name,
-      quantity: item.quantity,
-      unitPrice: tier.price,
-      lineTotal: Math.round(tier.price * item.quantity * 100) / 100,
-      espUrl: esp.url,
-      espKind: esp.kind,
-      ...(esp.supplier ? { supplier: esp.supplier } : {}),
-      ...(esp.asi ? { asi: esp.asi } : {}),
-      ...(esp.productNo ? { productNo: esp.productNo } : {}),
-    });
+  // Nothing is trusted from the client: every line is validated (product
+  // exists, color is required and exact for colored products, minimum order
+  // met) and priced here from the same catalog data the site renders. The
+  // shared tier comes from the product's total quantity across color lines,
+  // using the same rule as the cart page (src/lib/cartPricing.ts).
+  const lookup = (productId: string): CartPricingProduct | undefined => {
+    const product = getProductById(productId);
+    return product
+      ? { id: product.id, name: product.name, colors: product.colors, tiers: product.priceTiers }
+      : undefined;
+  };
+  const lines = payload.items.map((item) => ({
+    productId: item.productId,
+    color: cleanLineColor(item.color),
+    quantity: item.quantity,
+  }));
+  const validation = validateCart(lines, lookup);
+  if (!validation.ok) {
+    return NextResponse.json({ success: false, error: validation.error }, { status: 400 });
   }
 
+  const pricedItems: PricedCartLineItem[] = validation.pricing.lines.map(
+    ({ line, unitPrice, lineTotal }) => {
+      const product = getProductById(line.productId)!;
+      // Backend-only supplier lookup for whoever places the ESP order. Looked up
+      // by our own product id, never taken from the client, and never returned
+      // in the API response.
+      const esp = getEspLink(product);
+      return {
+        productId: product.id,
+        name: product.name,
+        ...(line.color ? { color: line.color } : {}),
+        quantity: line.quantity,
+        unitPrice,
+        lineTotal,
+        espUrl: esp.url,
+        espKind: esp.kind,
+        ...(esp.supplier ? { supplier: esp.supplier } : {}),
+        ...(esp.asi ? { asi: esp.asi } : {}),
+        ...(esp.productNo ? { productNo: esp.productNo } : {}),
+      };
+    }
+  );
+
   const totalUnits = pricedItems.reduce((sum, item) => sum + item.quantity, 0);
-  const grandTotal = Math.round(pricedItems.reduce((sum, item) => sum + item.lineTotal, 0) * 100) / 100;
+  const grandTotal =
+    Math.round(pricedItems.reduce((sum, item) => sum + item.lineTotal, 0) * 100) / 100;
+  const uniqueNames = Array.from(new Set(pricedItems.map((item) => item.name)));
   const productSummary =
     pricedItems.length === 1
-      ? pricedItems[0].name
-      : `${pricedItems.length} items (${pricedItems.map((item) => item.name).join(", ")})`;
+      ? `${pricedItems[0].name}${pricedItems[0].color ? ` (${pricedItems[0].color})` : ""}`
+      : `${pricedItems.length} items (${uniqueNames.join(", ")})`;
 
   try {
     // No supplier order is ever placed automatically here — this just
