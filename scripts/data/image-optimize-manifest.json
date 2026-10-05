@@ -1,0 +1,2379 @@
+{
+  "version": 1,
+  "settings": {
+    "maxDimension": 1000,
+    "minBytes": 92160,
+    "colorsMinBytes": 153600,
+    "note": "sha256 and byte sizes are of the files at the time of the run; entries are keyed by path relative to public/images/merch"
+  },
+  "files": {
+    "6panel-premium-relaxed-golf-cap.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 498490,
+        "sha256": "e039dbedd091ce19864d12064e772dd311232c6decc446b85f1984a171eccfe0",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 74548,
+        "sha256": "a1f78bce584e760e56528b19f8722dba6310ef23fc8207e5d91852e84fbf11ac",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.403,
+        "colorMad64": 0.448,
+        "psnr": 38.344
+      }
+    },
+    "6panel-upf-stretch-cap.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 260697,
+        "sha256": "8e6f96a4506c5a258ad1618154d1553d2112abdf9867fd039fe7cc022ac96a0c",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 39746,
+        "sha256": "501a8d0d253f2b1836e2d5e1aaea65be1fef09e29e6ac29130c79a5f2aacab66",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.305,
+        "colorMad64": 0.306,
+        "psnr": 42.74
+      }
+    },
+    "8pc-bbq-grill-tool-set.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 395120,
+        "sha256": "e5cc74604d54a084891ce4af0a26043e0dfd073dc361ebaed01842be2ca5dac1",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 57826,
+        "sha256": "ac74dfff7f09ef478139f20a3511053fa091d109de7460dd90293867b5dd40fb",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.368,
+        "colorMad64": 0.374,
+        "psnr": 36.412
+      }
+    },
+    "adidas-performance-polo-mens.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 291723,
+        "sha256": "14581b68d41e36b68454dba3d6b5753854f94bafd5c82f3428083a3f50a5e9aa",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 45951,
+        "sha256": "a55610385aaa0df9fddd8641dbf8672bc15078bb6283e821bff6fe6662552f6c",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.296,
+        "colorMad64": 0.34,
+        "psnr": 42.669
+      }
+    },
+    "adidas-performance-polo-womens.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 225492,
+        "sha256": "611c9b79c1307aa37cfe1865e0231837ad9ff74e4304a8119716918f06a7c159",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 37036,
+        "sha256": "4363a5b374867bc1a71c5a6d19e88abf0024cdf1f6a37013779c73341fa6986f",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.282,
+        "colorMad64": 0.288,
+        "psnr": 44.392
+      }
+    },
+    "adidas-spacer-quarter-zip-womens.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 395060,
+        "sha256": "e20849d12290105fd161733e7b560f3071ab3bcdbdcb0875824ef37d52773038",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 67289,
+        "sha256": "b4d25a41cf06a654db457210512a4c34b267d7c77fb01971d7264c1f868839d4",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.354,
+        "colorMad64": 0.364,
+        "psnr": 39.57
+      }
+    },
+    "adidas-ultimate365-quarter-zip-mens.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 462393,
+        "sha256": "17d9506457677b1cd46e81f4a4cd267dcf18c158f6d29318316f7b5605cc444d",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 77002,
+        "sha256": "1a172cbec10bb46bad82e0109657a441c33697b3fab61ebf446d1cdf13cd7d8d",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.352,
+        "colorMad64": 0.371,
+        "psnr": 37.905
+      }
+    },
+    "astor-bamboo-cheese-board-knife-set.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 545974,
+        "sha256": "cff0f6344211694c5ae0e3ced3d5235df421d5c8d45bc4838337abec2d464af8",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 80731,
+        "sha256": "c67c04f43f543704d40e6522a5361b96f7b69c282c88410e5a2c083517e11cb5",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.513,
+        "colorMad64": 0.576,
+        "psnr": 41.477
+      }
+    },
+    "bamboo-desk-organizer.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 200769,
+        "sha256": "888463d3696c2b69b751355f35c95aaf31c7c69436551fd36432c8746b2ddee1",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 31907,
+        "sha256": "278ca1c06f0720d420d8e868589858cd7d0d03abc1218fe81693c530871126d6",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.132,
+        "colorMad64": 0.146,
+        "psnr": 42.698
+      }
+    },
+    "bic-clic-stic-pen.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 220180,
+        "sha256": "c4e9eb44269df450477bcee05561f646f7e1aca443c56a617e44ef8603a2a508",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 40891,
+        "sha256": "f771e5621a5243cba6a1c8ca0bf0491a756ada6d9b443e515fac8967e9566f2e",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.29,
+        "colorMad64": 0.32,
+        "psnr": 40.68
+      }
+    },
+    "brooks-brothers-mesh-polo-mens-deep-black.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 189335,
+        "sha256": "9c4bff791e37b5fca14b8ff787b6deb81cb77acdac5be2a91e063bfd12a8f8bf",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 31320,
+        "sha256": "1f1e468223e9bc20416deaa85e0279b2e2e4ac3911b98cae31f39d8ffefa90a3",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.226,
+        "colorMad64": 0.235,
+        "psnr": 43.767
+      }
+    },
+    "brooks-brothers-mesh-polo-mens-navy-blazer.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 227289,
+        "sha256": "d705284413214566b68ba20b0c6f58911171c854f65bd8a1e3ed9c6ec19e36bf",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 34505,
+        "sha256": "c1609b83ca7e255bf7d8b4d31cc3688b9b2fb91e62c235741174509446d34e1b",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.225,
+        "colorMad64": 0.245,
+        "psnr": 43.547
+      }
+    },
+    "brooks-brothers-mesh-polo-mens.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 227289,
+        "sha256": "d705284413214566b68ba20b0c6f58911171c854f65bd8a1e3ed9c6ec19e36bf",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 34505,
+        "sha256": "c1609b83ca7e255bf7d8b4d31cc3688b9b2fb91e62c235741174509446d34e1b",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.225,
+        "colorMad64": 0.245,
+        "psnr": 43.547
+      }
+    },
+    "brooks-brothers-mesh-polo-womens.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 224856,
+        "sha256": "5e1672f052909aaee93e416e8b029996b1ef552b6c029515f56e90f5a1ac2f1a",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 35710,
+        "sha256": "9520285f2f512560cabaae06f6f4991de8e9b12c915e3e528580e6bf336f8b07",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.207,
+        "colorMad64": 0.228,
+        "psnr": 43.276
+      }
+    },
+    "buck-bantam-285-blw-lockback-knife.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 121949,
+        "sha256": "c2937d9f1aea3a8ae8e7e86a9613fd1eda8bcb97c71cebfcfe91d579546c725e",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 19020,
+        "sha256": "e330356502e2fca6321ca91db83dfa2dc6367e7a25916dcd335535dd78572ac5",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.109,
+        "colorMad64": 0.108,
+        "psnr": 45.339
+      }
+    },
+    "callaway-lightweight-quarter-zip.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 230678,
+        "sha256": "ba6528a79404c50598090c28f6f39cde60884b6ac677d5cd17a10cdff39be291",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 35773,
+        "sha256": "6eed7e947bed2d7a283d70bfe4160ad9cbb8e42e4b7c7c607a60d21d1029de83",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.292,
+        "colorMad64": 0.317,
+        "psnr": 45.133
+      }
+    },
+    "carbon-fiber-pickleball-set.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 335922,
+        "sha256": "acce0ece4f7035100ce7771e069c1d2fcc0905a049929d2d46424eabf39d849d",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 58761,
+        "sha256": "ab5a70146fda4026294787ad62f1a9973527401c4768fad46c4a58cdec1119ab",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.398,
+        "colorMad64": 0.413,
+        "psnr": 39.821
+      }
+    },
+    "cedar-creek-valor-pocket-knife.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 329850,
+        "sha256": "c38ecc71e77c01cdac48258c8631f9c6db613bca2c949002f451ce5246524c0e",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 59751,
+        "sha256": "3e488de5b9db3e1ebead53db38aacbc327900a59bdcc8d7d04f3b5e9e04d471a",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.406,
+        "colorMad64": 0.407,
+        "psnr": 38.236
+      }
+    },
+    "ceramic-mug-11oz.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 340366,
+        "sha256": "4ff69c4e7da7b331ae22b41b4755d18186e6256395c81017d99c888e77a3a5a7",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 62998,
+        "sha256": "836af8f72c870f567449dec34a0f9d432219cf50178a25419e72d2474f7e3ecb",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.435,
+        "colorMad64": 0.46,
+        "psnr": 41.269
+      }
+    },
+    "classic-hardcover-notebook.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 188554,
+        "sha256": "8d6310528e1df04cfde22ebb2c7092f2ff9138ce921455de741ad162f334d9c5",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 32422,
+        "sha256": "1260dd1433fe21e60e2b283089c8672dc05c6c28f1a3e2e69c110c878629abc1",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.357,
+        "colorMad64": 0.392,
+        "psnr": 44.965
+      }
+    },
+    "classic-swivel-usb-drive.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 190785,
+        "sha256": "1646ab2d2a23517f03dd45200e3ae4de9caafbc48d5f4a429beb2697cf66d3be",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 33043,
+        "sha256": "ffe58e9ddb1e485ceadd496280ba1e829d1e5a7173fb3691a438cb8307f7f0fd",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.237,
+        "colorMad64": 0.259,
+        "psnr": 45.802
+      }
+    },
+    "cotton-canvas-tote-7oz.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 278898,
+        "sha256": "a8fd871a94f7f0e0071563c820ca2c6c61bdc8bb0af6a9bad89b53b4ab5fe4d0",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 48715,
+        "sha256": "01c6f576cd5de8ea73c659dcce171f98245d45d30bf995f0ba92148ec0773098",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.353,
+        "colorMad64": 0.377,
+        "psnr": 42.283
+      }
+    },
+    "cross-classic-century-pen.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 101951,
+        "sha256": "5682e023175a130d56747f445d3141eef194a5edb4fc96f9e42c6dc9e09ac0c1",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 19112,
+        "sha256": "ccaa45228a69f3a78aab12cd3547d72fd08401fee4802d11947ec20f2fb90fa1",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.093,
+        "colorMad64": 0.088,
+        "psnr": 46.137
+      }
+    },
+    "die-cut-stickers.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 506850,
+        "sha256": "29a2f4b875e08ff9b18303b06a719d41897c1def7bbd148c9093d1bd94294c55",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 77210,
+        "sha256": "92d26eb95f8f78a5a8deadc1bd16863ae68f1be026fc027989d3f52ff917947b",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.492,
+        "colorMad64": 0.548,
+        "psnr": 41.902
+      }
+    },
+    "fletcher-rpet-laptop-backpack.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 410799,
+        "sha256": "be0a90d64fd2e6d5d2e65744176c2833f110ba83ddc8ba04ffe23f5ff071051c",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 45473,
+        "sha256": "84a18418abe2a8031f5b199aaa5081a505c9e7997c9f9baa6934c4c3502f6a79",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.246,
+        "colorMad64": 0.253,
+        "psnr": 38.411
+      }
+    },
+    "flexfit-performance-trucker-cap.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 447465,
+        "sha256": "5f620077549496e9b6cf5d73a029b322d14496e17598ee6b9f7bf4a90dc9746c",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 65587,
+        "sha256": "924383e7f16cf6573279ede0d0963aa4711ffa91345e0f3e1f1c6c95fa0b78fa",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.31,
+        "colorMad64": 0.318,
+        "psnr": 38.723
+      }
+    },
+    "gildan-ultra-cotton-tshirt.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 313282,
+        "sha256": "de085a2ad8ed01cb69e96e6663fe8e187f34f2bf8c22572a0b39c8dd15f36514",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 51480,
+        "sha256": "4ef8c27f8352525cc2b1cec9a08fdb67cdbf91aa883bcc52233ecf2c36429c5b",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.313,
+        "colorMad64": 0.318,
+        "psnr": 41.942
+      }
+    },
+    "gusset-shopping-tote.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 126107,
+        "sha256": "2880588921c0d5037df04d6549283565e777c192c51885e72f71c41858ec1352",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 21867,
+        "sha256": "e2c3b130404be74362a5d8221a43ef26821323f13d8842cb9f4583451ee88a8d",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.208,
+        "colorMad64": 0.213,
+        "psnr": 44.972
+      }
+    },
+    "holderness-bourne-westland-pullover.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 204133,
+        "sha256": "3d4c71db6986b720944bcccb3eed9af7c9ff7223fc7d44c05a8becc071c99a29",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 28182,
+        "sha256": "3bde4648d9afbda1ac843e030cacde72bd69a64340b1852783ad13f3de396231",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.215,
+        "colorMad64": 0.245,
+        "psnr": 45.237
+      }
+    },
+    "imperial-original-performance-cap.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 315979,
+        "sha256": "ecf4e70b4e97fe3c01a0b5ff5e474e499c64739ec36fdf5a19c54915a04e26a2",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 43736,
+        "sha256": "fe7053bcf3548c230830b76b304bf26aa298357ec953223025c17f515cc42423",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.256,
+        "colorMad64": 0.296,
+        "psnr": 45.82
+      }
+    },
+    "insulated-travel-mug-16oz.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 436446,
+        "sha256": "dd2d5f0a58db0153df5faabb0e0ca58ae415f2f6c6d2d7cc70b1da427712128f",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 75188,
+        "sha256": "2d2b24a01550e0f5dbee236072d7a90b611a4c1fd844bd5584eedf2aa50d564d",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.553,
+        "colorMad64": 0.583,
+        "psnr": 41.073
+      }
+    },
+    "johnnie-o-sully-quarter-zip.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 350330,
+        "sha256": "52402d9436d77222cdb409943537433afa0ffa1330c33fe2dc82326a6940cc87",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 49100,
+        "sha256": "e0f9d0f27598ed9d9ca8107f0c9690d42f2446e4f4fa6a8b1e7238d2c8150db8",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.306,
+        "colorMad64": 0.324,
+        "psnr": 41.1
+      }
+    },
+    "knit-roll-cuff-beanie-cap-21800.webp": {
+      "format": "webp",
+      "original": {
+        "bytes": 181612,
+        "sha256": "c69298b34040905849b7a2c5ca5d63a2783c505d7769eec3c2c085c06bf82fcf",
+        "width": 900,
+        "height": 900,
+        "hasAlpha": true
+      },
+      "status": "kept",
+      "reason": "only -2% smaller (needs >= 25%)"
+    },
+    "leatherman-rev-multi-tool.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 229587,
+        "sha256": "b98ed27abee3ba7c4379769825723d44601956cafc665a9fc526d2e65acd9eaa",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 41290,
+        "sha256": "ec59d8b5f2486bf521a624946e65d23671b71e63df478991a3e073072f8316b6",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.246,
+        "colorMad64": 0.251,
+        "psnr": 41.028
+      }
+    },
+    "magsafe-power-bank.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 204366,
+        "sha256": "33426c4c0e89b0f7f5740b334f70b4ba0ebc333e8783fa96e091c7fdb371fbb5",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 40927,
+        "sha256": "82ce5cf8c40e58111c4572a31371d031e85d764b295bd545bb71d99cbb8bff75",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.424,
+        "colorMad64": 0.424,
+        "psnr": 44.446
+      }
+    },
+    "mesa-vest.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 289800,
+        "sha256": "51989293b3a419dfca4f1926503b508ae1c70e9a100b2c5d02617d19b3a4b75d",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 48139,
+        "sha256": "c5a945f2e198d2931d72d06267623667bc072a35154492006c017bb9d7083e73",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.28,
+        "colorMad64": 0.282,
+        "psnr": 40.344
+      }
+    },
+    "micro-mag-bluetooth-speaker.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 349580,
+        "sha256": "d81125f786e8b352339c83dcb3c98d243be615cd5c4e0780d6e6bc5e36ad2bcc",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 52486,
+        "sha256": "5c27f741a064dce55017c574bf67bda1692dacbece60632e2b67060ac086497b",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.346,
+        "colorMad64": 0.386,
+        "psnr": 41.172
+      }
+    },
+    "neoprene-laptop-sleeve.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 388801,
+        "sha256": "c2a807eebcfe63104881b0cd581672cbe22b3cc6f4424cd281af5936ffc01ced",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 58252,
+        "sha256": "b052c67a01dd25d96242f9024dcfc52dd91f3359443c35ce8e190277a6f8930b",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.581,
+        "colorMad64": 0.667,
+        "psnr": 40.18
+      }
+    },
+    "nike-dri-fit-polo.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 189816,
+        "sha256": "accd0ff6873993af97c59590933e5bd53234e55d5303c60af89d10c83d507985",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 31242,
+        "sha256": "2923811695dbe5441530ea646dd3880fe81bebebb110f680a28ab34bdbb0c6fa",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.229,
+        "colorMad64": 0.244,
+        "psnr": 44.429
+      }
+    },
+    "nike-therma-fit-quarter-zip-fleece.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 187849,
+        "sha256": "fbfc30b05cbc32a7a1fc94fa533a46d52a0049e117bcbfd3e8a377a63e014992",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 31125,
+        "sha256": "93441fa12a097331c08427204e3f7593b292069a38ecbede1fe439114a938392",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.25,
+        "colorMad64": 0.243,
+        "psnr": 44.171
+      }
+    },
+    "non-woven-drawstring-backpack.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 555717,
+        "sha256": "ae4d729a0bee808a558fe37b2bc1ff533cd41c05c7a3c65f25d018e4992607fe",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 75245,
+        "sha256": "0f0bb9a4aeb4e01d96fc278acfb7bedf7719127daaf085ae950fb6fdb7258230",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.423,
+        "colorMad64": 0.474,
+        "psnr": 37.939
+      }
+    },
+    "non-woven-recycled-tote.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 250914,
+        "sha256": "c9322bdd40fa0c68ff83e1ea85cd24de1ea0dd6ea1f93b84a9bad33d09df1b16",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 48146,
+        "sha256": "784a502db2f59ff7ec630a8c46ca1f47c9f15ab71576083206c13517715225d5",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.522,
+        "colorMad64": 0.533,
+        "psnr": 40.449
+      }
+    },
+    "omega-mesh-tech-polo.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 250529,
+        "sha256": "b291fadf4dae31318456040ab531cdde5f336e214773c91c6410bf7d7bacb287",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 39180,
+        "sha256": "6f9d8e8775da76ad6dc4b61ab7a187073d2a0e3a1b7cee2b5bca19d007ae7d6e",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.244,
+        "colorMad64": 0.274,
+        "psnr": 43.439
+      }
+    },
+    "owala-freesip-24oz.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 163265,
+        "sha256": "cb64d5db398fe3181976b762c4bda5949ae20d7956b240cfe191eb6bd9d64ef0",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 20791,
+        "sha256": "299c3a3476b8a8d85531805fe3c8a7c56a8297ae9d904d327ca5c0c5735eb6b4",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.136,
+        "colorMad64": 0.164,
+        "psnr": 47.654
+      }
+    },
+    "peter-millar-essex-vest-black.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 184793,
+        "sha256": "b3efe875dda9f2c0c04bde62e3e00e3ba0e9ff0d188a183e2e96cb7b782102bd",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 28001,
+        "sha256": "eff98e3c4fd1050a88f24a88b097832cefb1042e84d75896fb222d876bbe57c6",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.21,
+        "colorMad64": 0.211,
+        "psnr": 46.932
+      }
+    },
+    "peter-millar-essex-vest-dark-olive.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 215891,
+        "sha256": "7d05f7c48c876cc5b9499a3880c0d171968a9083eb25ac48810e3ff5cdfbbcf2",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 31546,
+        "sha256": "aa69340c2123ace23390910dfa5dbdc2f89cae85694c7c2aae6920f5d2b299ca",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.205,
+        "colorMad64": 0.234,
+        "psnr": 46.083
+      }
+    },
+    "peter-millar-essex-vest-navy.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 198587,
+        "sha256": "a94e0adc8be3ce63cc9041de21462ef21ac0a9353e6df9abdf5e824c714fc796",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 27921,
+        "sha256": "25a18e6049de41d06e8ca0447c64388ff88d5dc3903bd0b40a84c849065366e7",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.228,
+        "colorMad64": 0.23,
+        "psnr": 46.25
+      }
+    },
+    "peter-millar-essex-vest.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 184793,
+        "sha256": "b3efe875dda9f2c0c04bde62e3e00e3ba0e9ff0d188a183e2e96cb7b782102bd",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 28001,
+        "sha256": "eff98e3c4fd1050a88f24a88b097832cefb1042e84d75896fb222d876bbe57c6",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.21,
+        "colorMad64": 0.211,
+        "psnr": 46.932
+      }
+    },
+    "peter-millar-galway-stretch-vest.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 121242,
+        "sha256": "22ff9b2cdaf4f51802c805b9a4ce182c39e7566cf9b05e65cce66d37104c1572",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 21817,
+        "sha256": "46edf61807d44e7aeabea12ff0e056e9f20058bda2b31e2a7426b72ce4cdbc81",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.244,
+        "colorMad64": 0.254,
+        "psnr": 46.454
+      }
+    },
+    "peter-millar-galway-vest-black.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 110491,
+        "sha256": "c416a2acba28389292a6f7e5df3069dc91c843d320f6a1faa7224927dd26637b",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 19731,
+        "sha256": "a748f8b56e2fb0136b6c0e7c1157d3ff395ca1f47466fb98a6fa2d02767acf3e",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.233,
+        "colorMad64": 0.255,
+        "psnr": 48.58
+      }
+    },
+    "peter-millar-galway-vest-iron.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 117967,
+        "sha256": "a391abba37db070ffd1eef8d578ebbeabb4e8491727fa87a3e911b290d706ec4",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 20481,
+        "sha256": "ab28697fd4fdd85d6a78bcb5602e336395cb1403b763c2a7fdc5355f99b0149e",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.251,
+        "colorMad64": 0.265,
+        "psnr": 49.207
+      }
+    },
+    "peter-millar-galway-vest-navy.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 121242,
+        "sha256": "22ff9b2cdaf4f51802c805b9a4ce182c39e7566cf9b05e65cce66d37104c1572",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 21817,
+        "sha256": "46edf61807d44e7aeabea12ff0e056e9f20058bda2b31e2a7426b72ce4cdbc81",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.244,
+        "colorMad64": 0.254,
+        "psnr": 46.454
+      }
+    },
+    "peter-millar-hales-polo-cottage-blue.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 422840,
+        "sha256": "1fc7a60f1011cc1588fe526e7a8dc829ec824946b750b2007202dec57cb3cd17",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 67721,
+        "sha256": "128171da4b04a82c42a30545750febf3a3cff5cb79a1e260296442ef15038023",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.254,
+        "colorMad64": 0.314,
+        "psnr": 40.931
+      }
+    },
+    "peter-millar-hales-polo-navy.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 587920,
+        "sha256": "83ab6000f34004c5d7ddd779415a85aa703989c5c349a5cc6ad37755bff9c8ac",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 93974,
+        "sha256": "47350f6c29b1c4897325a4b8fbf4bfc8f93a83bafa7644af2651ef4bc2fda068",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 1.071,
+        "colorMad64": 1.062,
+        "psnr": 35.887
+      }
+    },
+    "peter-millar-hales-polo.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 660371,
+        "sha256": "00fe7993e446bff3d329880eacaf4b26a23c0db9a463975d887cb400875909e8",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 102684,
+        "sha256": "9d983d0ca6837efaacae9b3710857ebf2169acef27456d7d6d6ca59ad629d146",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.959,
+        "colorMad64": 0.996,
+        "psnr": 35.645
+      }
+    },
+    "peter-millar-jubilee-polo-black.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 596264,
+        "sha256": "82725d6fa7a62d544637e9c4d3ff8463d92c043cf89b19c123c6a02c1bc8d941",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 95264,
+        "sha256": "b93c729bf2579aa46829023f353398343e78ec0e1e524fe85823784b22914644",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.871,
+        "colorMad64": 0.873,
+        "psnr": 35.404
+      }
+    },
+    "peter-millar-jubilee-polo-cottage-blue.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 403291,
+        "sha256": "8e838a8a94e8a97f38e68f888ecfcc9b9c79e9f839c3d64a3188d1e3cd5cee55",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 53547,
+        "sha256": "243c53c55f1a2d9ea0003865da709f456a337daf19ac849a09a9ba644afddfcf",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.302,
+        "colorMad64": 0.325,
+        "psnr": 42.197
+      }
+    },
+    "peter-millar-jubilee-polo-iron.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 498937,
+        "sha256": "c5f51a1df859cd4d7d04c5c7f70466a52d6379234478e6763c559442050707ab",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 82484,
+        "sha256": "37bb107355f1cf1d486a3f4ba2f264eb5b342bec8610e7d7ebb3e1a84b07b3fc",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.973,
+        "colorMad64": 0.984,
+        "psnr": 37.922
+      }
+    },
+    "peter-millar-jubilee-polo-navy.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 585764,
+        "sha256": "1eb1e37a9d5689d18606d61734f0a783451de099a7238a34471443bce7a8acf9",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 89601,
+        "sha256": "6efdfab538c82a621505f2062431c006b57d78ce83316cf827b98d846e22bd78",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 1.131,
+        "colorMad64": 1.275,
+        "psnr": 35.565
+      }
+    },
+    "peter-millar-jubilee-polo-red-coral.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 539775,
+        "sha256": "fb0aa231008a2ee0b24729e5a99a0cce891330b29245e091c6a7d7407977a13a",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 78562,
+        "sha256": "710d1165a087edb0867b36585daad1af2e0f0dcea7d2134ab70a87ec2ea03f9b",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.711,
+        "colorMad64": 0.717,
+        "psnr": 37.805
+      }
+    },
+    "peter-millar-jubilee-striped-polo.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 596264,
+        "sha256": "82725d6fa7a62d544637e9c4d3ff8463d92c043cf89b19c123c6a02c1bc8d941",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 95264,
+        "sha256": "b93c729bf2579aa46829023f353398343e78ec0e1e524fe85823784b22914644",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.871,
+        "colorMad64": 0.873,
+        "psnr": 35.404
+      }
+    },
+    "peter-millar-perth-quarter-zip-mens.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 97017,
+        "sha256": "575054ceaaded1ed81824c99709a7e1a30b4a48218463e19f49521dd593461a2",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 15562,
+        "sha256": "60976d2d167962e950b2c3aef101953bfbe840f3cc3075e503644208665c9e0c",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.175,
+        "colorMad64": 0.185,
+        "psnr": 50.39
+      }
+    },
+    "peter-millar-perth-quarter-zip-womens.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 129334,
+        "sha256": "2ae1a01b6d2f2895ddf6e5343a08e860ed47006e5ea833a2ddb7ec227e8642d2",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 21480,
+        "sha256": "01093401dcebf1ee7e3fcb7ef7cb7fb049fef4a46fa24cd6ce84067e5495550a",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.248,
+        "colorMad64": 0.255,
+        "psnr": 48.11
+      }
+    },
+    "peter-millar-perth-qz-mens-black.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 97017,
+        "sha256": "575054ceaaded1ed81824c99709a7e1a30b4a48218463e19f49521dd593461a2",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 15562,
+        "sha256": "60976d2d167962e950b2c3aef101953bfbe840f3cc3075e503644208665c9e0c",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.175,
+        "colorMad64": 0.185,
+        "psnr": 50.39
+      }
+    },
+    "peter-millar-perth-qz-mens-blue3.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 193370,
+        "sha256": "e8a43fe5ce4ec936a152cf95adda52f3cdbc099df3d30532cde229da0d9c4de7",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 32056,
+        "sha256": "f8fce6c9580ff2fb6449dafc4e60b4a9406b27e84f05c9d94a34eec79d34569b",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.263,
+        "colorMad64": 0.271,
+        "psnr": 44.201
+      }
+    },
+    "peter-millar-perth-qz-mens-cottage-blue.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 105804,
+        "sha256": "8c7ebf1bad504d1d14cc31bea17d6a098a94ebdf2dd51618bb11af80dad4c0c6",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 16292,
+        "sha256": "41245d918600a3b016579fbe212e07e67ea800161a121608e244485818d2f435",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.111,
+        "colorMad64": 0.122,
+        "psnr": 50.513
+      }
+    },
+    "peter-millar-perth-qz-mens-iron.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 111481,
+        "sha256": "e8a5a52cbbaf420b986d1c38fb2664bbceaa6dfde05e4f2e09294d0581eb9a8b",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 17732,
+        "sha256": "3218862a8328417f2aa52ed1856fab9383b4f7ecd7bb4a124e108a39bb8c56e6",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.174,
+        "colorMad64": 0.168,
+        "psnr": 50.932
+      }
+    },
+    "peter-millar-perth-qz-mens-navy.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 108090,
+        "sha256": "3fb7d60d546c69f3bd66846d4c9f24cadb72b02ee24b7e874826ac564a615ede",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 16976,
+        "sha256": "47dec0945e08b02a5a0eda31e303fd2e2aef337ed3328b8278e3386a7218230e",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.176,
+        "colorMad64": 0.206,
+        "psnr": 49.826
+      }
+    },
+    "peter-millar-perth-qz-mens-red3.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 183172,
+        "sha256": "98500f5bce0130aa986f086750acabe59c6d5853edadb06b6df332b4958785c8",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 30472,
+        "sha256": "25b546a6d2258f9feaa16fd44befa324405a75e3a98b2923c00cca46ef4ae075",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.241,
+        "colorMad64": 0.266,
+        "psnr": 44.546
+      }
+    },
+    "peter-millar-perth-qz-womens-black.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 129334,
+        "sha256": "2ae1a01b6d2f2895ddf6e5343a08e860ed47006e5ea833a2ddb7ec227e8642d2",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 21480,
+        "sha256": "01093401dcebf1ee7e3fcb7ef7cb7fb049fef4a46fa24cd6ce84067e5495550a",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.248,
+        "colorMad64": 0.255,
+        "psnr": 48.11
+      }
+    },
+    "peter-millar-perth-qz-womens-navy.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 143326,
+        "sha256": "b03cfc4b28755a16ee66f3005f1e126701b99ae51e72c35cb49f582dff9fc3d7",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 23207,
+        "sha256": "bccd2a3648c0c08758604ea01438a658ce6855d97a275cb7fa090b19d82fdafa",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.229,
+        "colorMad64": 0.243,
+        "psnr": 45.806
+      }
+    },
+    "peter-millar-perth-qz-womens-pine-brook.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 133433,
+        "sha256": "ae11d0b591385438ac87ed6386d498dfb271f902575cc690094855354a584077",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 22894,
+        "sha256": "6a3163d2ce3d92a61a8cb829da26b43f64b73e64197be974c0887a9b6fdfaeb8",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.212,
+        "colorMad64": 0.227,
+        "psnr": 46.566
+      }
+    },
+    "peter-millar-perth-qz-womens-rainwater.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 182137,
+        "sha256": "7501b5a890f18f5a329853720f0993e26da65153a3786b2071923e3d64518264",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 27332,
+        "sha256": "6822836d904006dd7d3ce13efa953d582921991ec5ad4551181cc02bc4c1e33f",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.222,
+        "colorMad64": 0.231,
+        "psnr": 46.204
+      }
+    },
+    "peter-millar-perth-qz-womens-red3.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 215687,
+        "sha256": "2386e102761ae162fd051bb60e2b71b764e7404561a00687328fc37ff9e588bc",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 29166,
+        "sha256": "978deee136173ac19a8b20e780cc793d3bb34ce3308095d050758d4802b479fd",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.179,
+        "colorMad64": 0.223,
+        "psnr": 45.406
+      }
+    },
+    "peter-millar-perth-qz-womens-white.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 104632,
+        "sha256": "6eaf797b1daad3ada09da4c9ecbe833f34b47385458a2fa10c2eabc69669bdbd",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 16185,
+        "sha256": "cc226feeb3efa47d50a93b72aa773c343c42f9f3e69e1c848c22477122d76dac",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.154,
+        "colorMad64": 0.149,
+        "psnr": 50.544
+      }
+    },
+    "peter-millar-pine-hoodie-black.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 118192,
+        "sha256": "a435103fdb50d49e2f363e54809a1e891270a76060d817f17088ca204e6ca3f8",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 19421,
+        "sha256": "c89ea4a93f61cf8c8e95230ba70cbf262a43e35134063b52525380dab07668cf",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.243,
+        "colorMad64": 0.282,
+        "psnr": 46.77
+      }
+    },
+    "peter-millar-pine-hoodie-fresh-mint.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 221557,
+        "sha256": "0d217ecf2a83f78caf3811131db19a4a93e6ad6d0394995ed81e47fd21a3b6da",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 25256,
+        "sha256": "6935c0e20a9f58ab6fbaa4db78f70f2bb235003c2cb9b0d4e8b933f943ef1df9",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.201,
+        "colorMad64": 0.218,
+        "psnr": 46.044
+      }
+    },
+    "peter-millar-pine-hoodie-gale-grey.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 152111,
+        "sha256": "3b66337d0a3aadc6f0d7798cd01a27bff826bc2920afacd5960ce83fbb44b1d0",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 20663,
+        "sha256": "37f67bcbbccd1bf6c86086a47844da3796a0297bd528af8865792c776e02109d",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.213,
+        "colorMad64": 0.223,
+        "psnr": 47.627
+      }
+    },
+    "peter-millar-pine-hoodie-navy.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 136056,
+        "sha256": "435a3891bfc16ccfd4015238ef476364822fbeff81f1294dbaad5576015bd71c",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 22955,
+        "sha256": "103fa43a681bf61887966c4e9721a6b4ff7b16845b82a8b5f4039224f3d46700",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.249,
+        "colorMad64": 0.263,
+        "psnr": 45.295
+      }
+    },
+    "peter-millar-pine-hoodie-red3.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 243646,
+        "sha256": "6cc01cc8079280e6116f0b520489cfb798f9dd1cf62839703b5f2d53607b8ddf",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 32033,
+        "sha256": "65eabf2eaca5cc7b8bf41941a8d927456405acdac9e3ea7b7fce3406f4aa4c2d",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.201,
+        "colorMad64": 0.244,
+        "psnr": 45.335
+      }
+    },
+    "peter-millar-pine-hoodie-sport-navy.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 187798,
+        "sha256": "b554105cc09a258543d7d6eb1949846264de4c54a4f894a09d81af5e87638dc0",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 24981,
+        "sha256": "9925335a190476f4c9f626eb4595fc16580d1d5f8bb8ab48c89c0dd63f927a49",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.205,
+        "colorMad64": 0.212,
+        "psnr": 46.566
+      }
+    },
+    "peter-millar-pine-performance-hoodie.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 118192,
+        "sha256": "a435103fdb50d49e2f363e54809a1e891270a76060d817f17088ca204e6ca3f8",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 19421,
+        "sha256": "c89ea4a93f61cf8c8e95230ba70cbf262a43e35134063b52525380dab07668cf",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.243,
+        "colorMad64": 0.282,
+        "psnr": 46.77
+      }
+    },
+    "peter-millar-polo-mens.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 279106,
+        "sha256": "f53471e65a2ead8ad9d2a004483c29733371349570c6abd48a40af550dffcdb2",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 27333,
+        "sha256": "0244062c880d3a6da088ddba04f841b8c5b588bd7431dc0854216c049a321a8e",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.337,
+        "colorMad64": 0.344,
+        "psnr": 44.113
+      }
+    },
+    "peter-millar-solid-polo-mens-black.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 279106,
+        "sha256": "f53471e65a2ead8ad9d2a004483c29733371349570c6abd48a40af550dffcdb2",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 27333,
+        "sha256": "0244062c880d3a6da088ddba04f841b8c5b588bd7431dc0854216c049a321a8e",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.337,
+        "colorMad64": 0.344,
+        "psnr": 44.113
+      }
+    },
+    "peter-millar-solid-polo-mens-cottage-blue.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 226090,
+        "sha256": "1aaab1f399008a57e18471282c00552a69e6779bdaa58af12c7fb23c04aede1d",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 28654,
+        "sha256": "dac53024c04f8e08b27b32ae3be092c240a3d14324b676949009f734bb76dc00",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.282,
+        "colorMad64": 0.312,
+        "psnr": 45.038
+      }
+    },
+    "peter-millar-solid-polo-mens-iron.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 236829,
+        "sha256": "2c3a3723e08b38c891ecc82768d31c90b0b43e6f9a20a307aec9b1a9bf3e1179",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 26969,
+        "sha256": "ad4145771bf7439565cda52a8d5933dfd2a18b2ad7f5304648c0ade74c54b5a1",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.293,
+        "colorMad64": 0.286,
+        "psnr": 47.49
+      }
+    },
+    "peter-millar-solid-polo-mens-navy.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 280677,
+        "sha256": "18b4fb7fc02e044ff0af98813d90386eb612fe3cd66a91aa78120034600c28db",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 27901,
+        "sha256": "472ec4dc28708965e339506e3806287437b990e52735d12c9eef4ee2ae4e4ae9",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.328,
+        "colorMad64": 0.374,
+        "psnr": 44.221
+      }
+    },
+    "peter-millar-solid-polo-mens-white.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 108569,
+        "sha256": "a5d9bd917aab4f88d5097d93349cfd200a60fe774b5c6ea0e214d462cf9db5a3",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 16135,
+        "sha256": "effdf851471c0ffc11b2b9ab2f39efcc505ccfb785dd5abc81eab0e521082a05",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.173,
+        "colorMad64": 0.196,
+        "psnr": 48.661
+      }
+    },
+    "peter-millar-solid-polo-womens-black.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 119099,
+        "sha256": "6e68b2d1b6b5323c6a0ea6f0317ab7d098452d59e358e80ff853721f75ed6434",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 18901,
+        "sha256": "0df034c9e773175493803dd4d82226d2a7f24a9350c8a53fb9ae66aa01fdeebf",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.181,
+        "colorMad64": 0.208,
+        "psnr": 45.893
+      }
+    },
+    "peter-millar-solid-polo-womens-navy.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 122147,
+        "sha256": "51bd136026a363fd3a88cf39b4edd616db40814efaff45920932c87aa35ce34b",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 19092,
+        "sha256": "2157729cfdd74e0cf9522accdc49136bf0c345fb5092ad08d1ed1bd2f72fbb75",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.168,
+        "colorMad64": 0.198,
+        "psnr": 45.929
+      }
+    },
+    "polar-30oz-tumbler.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 233807,
+        "sha256": "a444ee8237565ec77e0c1f1761f0468b74a6b64ec1ae668f6a7707cb2f3f74b5",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 42277,
+        "sha256": "d56acf944e9179497933c4c795cc5308ada2c87c102ab7684da1ebfbe0957225",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.359,
+        "colorMad64": 0.378,
+        "psnr": 44.337
+      }
+    },
+    "pu-leather-magnetic-phone-wallet.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 323855,
+        "sha256": "479f96f28a1f2d79d1c6ec2617bad8e150a2aa6b571c99fa463c22712f27bf22",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 56678,
+        "sha256": "c041e18cd60ce5184e90d2383345f67e36d4e141cddbf19e72ca32bb38a54e82",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.452,
+        "colorMad64": 0.482,
+        "psnr": 43.092
+      }
+    },
+    "rain-gauge.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 250471,
+        "sha256": "3700b24816758effe289f00a4b0eace674efa8f82170f7930da9ce2906644e85",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 49993,
+        "sha256": "2bbf99b603d65aba715c3834017a1d3744c2721cb3b47042d3e771414934862e",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.374,
+        "colorMad64": 0.403,
+        "psnr": 43.455
+      }
+    },
+    "retractable-banner-stand.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 249046,
+        "sha256": "ace49f03434636ebe50a5b62c827b794b6f025133e429de9aafb54385e76151e",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 47469,
+        "sha256": "e9159dd535b73df94b504e94f54d0aa784044533cc801132f8d294ff7190ac51",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.403,
+        "colorMad64": 0.433,
+        "psnr": 40.248
+      }
+    },
+    "rpet-roll-up-picnic-blanket.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 586847,
+        "sha256": "b124acd3713f6ce7147d2994ac2adbcb0fbc75b259b604784cbf819af492ed0b",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 94299,
+        "sha256": "9a0eac04630f4ba95e07eed78f9456af1238a7cf933105237421c6fedd2022e6",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.487,
+        "colorMad64": 0.524,
+        "psnr": 35.277
+      }
+    },
+    "samsonite-weekender-duffel.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 190959,
+        "sha256": "786a4e68f86433b9bd4a517696f8608e5abe1038aa4044b55b31333f0c477956",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 30724,
+        "sha256": "462190b55741b0339cbad659fe0d91d69951edbbd6b247ebf4583fc7c70925e5",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.305,
+        "colorMad64": 0.305,
+        "psnr": 43.929
+      }
+    },
+    "silkscreen-lanyard.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 531958,
+        "sha256": "4bc98a06856fb8b05c3128ea8eeecddde0959451fc28b3e970dcd049e7767559",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 105498,
+        "sha256": "093383092741f6a2f5f8b8785f9c31825826f5c0ca16751635231cd365f407f2",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.788,
+        "colorMad64": 0.828,
+        "psnr": 39.557
+      }
+    },
+    "storm-creek-front-runner-vest-mens.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 281611,
+        "sha256": "9f2a90ebe0cdf09eadfd5ddb151691aad51822793756563a931bd9e703f487a0",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 44715,
+        "sha256": "c8f2a850b5ff0bd5726a4e05fe799cde1eaece54abd48591a4334041c81c9cdb",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.251,
+        "colorMad64": 0.264,
+        "psnr": 41.622
+      }
+    },
+    "storm-creek-front-runner-vest-womens.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 257066,
+        "sha256": "40c858c32ae16719e5d36e1c5c790568597aec73f84845d16d6231ecbe6df860",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 41278,
+        "sha256": "4fd5886f1044590007ab98388a1bd873f95fcb097f9b791b90e09689c8579caa",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.227,
+        "colorMad64": 0.24,
+        "psnr": 41.812
+      }
+    },
+    "summit-sweater-fleece-vest-mens.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 498486,
+        "sha256": "0ec67b75c686d271f8d01aaf14c7b137aa07fb361922200c069d445dbf04fc07",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 74833,
+        "sha256": "6df3972cd1278a6faa798b19ad8870723c66c3b90421033487d2edd524e65e76",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.303,
+        "colorMad64": 0.314,
+        "psnr": 37.97
+      }
+    },
+    "summit-sweater-fleece-vest-womens.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 345301,
+        "sha256": "0ad90f747664c063372eacaf7d041425763469a6d50cc009229a665baa017d6b",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 61617,
+        "sha256": "8a72d524f5ea416dafef5b5c16db0726f0f83e065607b6f5c390fcd65926f324",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.281,
+        "colorMad64": 0.281,
+        "psnr": 36.466
+      }
+    },
+    "sweatshirt-sport-hoodie-65485.webp": {
+      "format": "webp",
+      "original": {
+        "bytes": 101020,
+        "sha256": "d6c275e66d8b355ed8193dceae9a782c8a569b593448146829f884c7ce576465",
+        "width": 900,
+        "height": 900,
+        "hasAlpha": false
+      },
+      "status": "kept",
+      "reason": "only 2% smaller (needs >= 25%)"
+    },
+    "textured-linen-notebook.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 479095,
+        "sha256": "6df8c6b61050223656a1db7250c8107841c5ce15824d71fb7ecfd968353fb884",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 76092,
+        "sha256": "1c46fba6d4af69fbb09367d09f2e413d8b442c2fa688afe84bc0affed6597058",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.483,
+        "colorMad64": 0.506,
+        "psnr": 40.033
+      }
+    },
+    "the-decision-maker-padfolio.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 284285,
+        "sha256": "a1d6b82e15aea0910f394612ae5f7cdfdf12be2e216031bd4e57c13efba2093a",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 46857,
+        "sha256": "9c6b93fe02434948965e054d1533ccab68689587f0ebba667614e24ac1a3a487",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.351,
+        "colorMad64": 0.376,
+        "psnr": 44.339
+      }
+    },
+    "u-go-travel-toiletry-kit.webp": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 673427,
+        "sha256": "033d1ee6038e89654fb69be91cf8587428206a18e5ee9e219ac77f9307ed8e4b",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 118794,
+        "sha256": "f60210ccb170e6e60fc4b505c18f58937cb15a8aba8639e5a12c6e780192f288",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.797,
+        "colorMad64": 0.846,
+        "psnr": 35.131
+      }
+    },
+    "under-armour-drive-midlayer-pullover.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 312450,
+        "sha256": "d84cfd2baf8e26b117584f4b3b14925beff4602d6dfd4d0172be26859e51c70f",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 34277,
+        "sha256": "be7b6edcd73312fa31dea9a710f019cdde18da07518055a3257e64030bdafa3f",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.307,
+        "colorMad64": 0.344,
+        "psnr": 44.387
+      }
+    },
+    "wireless-charging-pad.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 322459,
+        "sha256": "36a71a8562115dd66d4ed8553d02f2597813f1b9b79de61f1dc3ef9e7cedd4f2",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 49721,
+        "sha256": "0dbd900b5b1b8cce5b0214fe6c90ff93620b2899792d7249d15f13e2b63ff35c",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.359,
+        "colorMad64": 0.391,
+        "psnr": 40.208
+      }
+    },
+    "womens-winter-long-sleeve-sherpa-jacket-coat-51244.webp": {
+      "format": "webp",
+      "original": {
+        "bytes": 98794,
+        "sha256": "3894c628153ffa3cfc8e1781ae4c2e84e755c9c109c2793bf6ef80fe6cba583e",
+        "width": 900,
+        "height": 900,
+        "hasAlpha": true
+      },
+      "status": "kept",
+      "reason": "only 0% smaller (needs >= 25%)"
+    },
+    "zen-quarter-zip-pullover.jpg": {
+      "format": "jpeg",
+      "original": {
+        "bytes": 207568,
+        "sha256": "e6a5309e2d6ba555ea649683d0bc361fcf443e5453072f490dd0c3dd7dcc55d8",
+        "width": 1200,
+        "height": 1200,
+        "hasAlpha": false
+      },
+      "status": "optimized",
+      "optimized": {
+        "bytes": 30691,
+        "sha256": "8fd70a719c36bb9c840c4543693403fe2fd65a5c4bc7eec4c8abdafe769c9202",
+        "width": 1000,
+        "height": 1000
+      },
+      "metrics": {
+        "mad64": 0.225,
+        "colorMad64": 0.232,
+        "psnr": 44.289
+      }
+    }
+  }
+}

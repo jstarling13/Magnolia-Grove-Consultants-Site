@@ -10,6 +10,7 @@
     "test": "vitest run",
     "format": "prettier --write .",
     "catalog:import": "node scripts/importCatalog.mjs",
+    "images:optimize": "node scripts/optimizeImages.mjs",
     "prepare": "husky"
   },
   "dependencies": {
