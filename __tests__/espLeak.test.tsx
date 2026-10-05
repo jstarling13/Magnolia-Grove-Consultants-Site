@@ -19,7 +19,8 @@ vi.mock("next/navigation", () => ({
   useSearchParams: () => new URLSearchParams(),
 }));
 
-import { products } from "@/config/merchandiseConfig";
+import { merchandisePage, products } from "@/config/merchandiseConfig";
+import { getCartCatalog } from "@/lib/merchStorefront";
 import { CartProvider } from "@/components/merchandise/CartContext";
 import CartPageContent from "@/components/merchandise/CartPageContent";
 import type { PricedCartLineItem } from "@/lib/merchOrders";
@@ -93,7 +94,11 @@ describe("ESP link leak prevention", () => {
     );
     const { container } = render(
       <CartProvider>
-        <CartPageContent />
+        <CartPageContent
+          catalog={getCartCatalog()}
+          pricingDisclaimer={merchandisePage.pricingDisclaimer}
+          deliveryEstimate={merchandisePage.deliveryEstimate}
+        />
       </CartProvider>
     );
     expect(container.innerHTML.toLowerCase()).not.toContain("espplus");
