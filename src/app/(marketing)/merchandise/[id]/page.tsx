@@ -78,7 +78,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                   Merchandise
                 </Link>
               </li>
-              <li aria-hidden="true" className="shrink-0 text-muted/50">
+              <li aria-hidden="true" className="shrink-0 text-muted/70">
                 /
               </li>
               <li className="shrink-0">
@@ -89,7 +89,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                   {product.category}
                 </Link>
               </li>
-              <li aria-hidden="true" className="hidden shrink-0 text-muted/50 sm:block">
+              <li aria-hidden="true" className="hidden shrink-0 text-muted/70 sm:block">
                 /
               </li>
               <li aria-current="page" className="hidden min-w-0 truncate text-white/60 sm:block">
@@ -108,7 +108,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
             <div className="min-w-0">
               {isRealBrand(product.brand) && (
-                <p className="text-xs font-semibold uppercase tracking-wide text-gold-dark">
+                <p className="text-xs font-semibold uppercase tracking-wide text-gold-text">
                   {product.brand}
                 </p>
               )}
@@ -137,13 +137,13 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 {/* A single price has nothing to compare, so skip the one-row table. */}
                 {product.tiers.length > 1 && (
                   <>
-                    <h2 className="text-xs font-semibold uppercase tracking-wide text-onyx/50">
+                    <h2 className="text-xs font-semibold uppercase tracking-wide text-onyx/60">
                       Pricing by Quantity
                     </h2>
                     <table className="mt-3 w-full max-w-sm overflow-hidden rounded-md border border-gold/25 text-sm">
                       <caption className="sr-only">Price per unit by order quantity</caption>
                       <thead className="bg-cream-100">
-                        <tr className="text-left text-xs uppercase tracking-wide text-onyx/50">
+                        <tr className="text-left text-xs uppercase tracking-wide text-onyx/60">
                           <th scope="col" className="px-4 py-2.5 font-semibold">
                             Quantity
                           </th>
@@ -170,10 +170,10 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                     </table>
                   </>
                 )}
-                <p className="mt-3 text-xs leading-relaxed text-onyx/50">
+                <p className="mt-3 text-xs leading-relaxed text-onyx/60">
                   {merchandisePage.pricingDisclaimer}
                 </p>
-                <p className="mt-1 text-xs leading-relaxed text-onyx/50">
+                <p className="mt-1 text-xs leading-relaxed text-onyx/60">
                   {merchandisePage.deliveryEstimate}
                 </p>
               </div>
@@ -199,7 +199,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               </h2>
               <Link
                 href={categoryHref}
-                className="shrink-0 text-xs font-semibold text-gold-dark underline-offset-2 hover:underline"
+                className="shrink-0 text-xs font-semibold text-gold-text underline-offset-2 hover:underline"
               >
                 View all
               </Link>

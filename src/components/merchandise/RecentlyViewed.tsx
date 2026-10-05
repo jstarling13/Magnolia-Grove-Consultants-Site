@@ -15,6 +15,9 @@ interface LookupEntry {
 
 const LOOKUP_URL = "/merchandise/lookup.json";
 
+/** Card width: w-36 (144px) on phones, w-40 (160px) from the sm breakpoint. */
+export const THUMBNAIL_SIZES = "(min-width: 640px) 160px, 144px";
+
 let lookupPromise: Promise<Record<string, LookupEntry>> | undefined;
 
 /** One shared fetch per page load; a failure is retried on the next mount. */
@@ -99,12 +102,14 @@ export default function RecentlyViewed({
                 className="group block h-full overflow-hidden rounded-lg border border-gold/25 bg-cream-100/85 transition-colors hover:border-gold/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-dark"
               >
                 <div className="relative aspect-square w-full border-b border-gold/15 bg-cream-100">
+                  {/* Decorative on purpose: the product name sits in the same link, so
+                      alt text here would make a screen reader read the name twice. */}
                   {item.image ? (
                     <Image
                       src={item.image}
                       alt=""
                       fill
-                      sizes="160px"
+                      sizes={THUMBNAIL_SIZES}
                       className="object-contain object-center p-3"
                     />
                   ) : null}

@@ -68,3 +68,84 @@ describe("selectRelated", () => {
     expect(pool).toEqual(copy);
   });
 });
+
+describe("selectRelated relevance", () => {
+  interface N extends P {
+    name: string;
+  }
+  const n = (id: string, name: string, price: number, brand = "Essentials"): N => ({
+    ...p(id, price, brand),
+    name,
+  });
+
+  const gildanTee = n("gildan-tee", "Gildan Ultra Cotton T-Shirt", 9.5, "Gildan");
+
+  it("shows similar items before an unrelated one, even a cheaper nearer-priced one", () => {
+    const pool = [
+      n("plush-dog", '6" Plush Big Paw Dog with Shirt', 9.4),
+      n("rain-jacket", "Packable Lightweight Rain Jacket With Hood", 9.6),
+      n("port-tee", "Port & Company Core Cotton T-Shirt", 12, "Port & Company"),
+      n("gildan-ls", "Gildan Ultra Cotton Long Sleeve T-Shirt", 14, "Gildan"),
+    ];
+    const ids = selectRelated(gildanTee, pool).map((x) => x.id);
+    expect(ids.slice(0, 2).sort()).toEqual(["gildan-ls", "port-tee"]);
+    expect(ids.indexOf("plush-dog")).toBeGreaterThan(1);
+    expect(ids.indexOf("rain-jacket")).toBeGreaterThan(1);
+  });
+
+  it("treats tee, tshirt and t-shirt as the same kind of product", () => {
+    const pool = [
+      n("hat", "Wool Beanie", 9.5),
+      n("tee", "Dye-sublimated V-Neck Tee", 30),
+      n("tshirt", "Crew TShirts", 40),
+    ];
+    expect(
+      selectRelated(gildanTee, pool, 2)
+        .map((x) => x.id)
+        .sort()
+    ).toEqual(["tee", "tshirt"]);
+  });
+
+  it("ranks a near-identical name first, then the same brand, then the unrelated", () => {
+    const pool = [
+      n("same-brand-other", "Gildan Heavy Blend Hooded Sweatshirt", 25, "Gildan"),
+      n("lookalike", "Ultra Cotton T-Shirt", 25),
+      n("loose", "Canvas Apron", 9.5),
+    ];
+    expect(selectRelated(gildanTee, pool).map((x) => x.id)).toEqual([
+      "lookalike",
+      "same-brand-other",
+      "loose",
+    ]);
+  });
+
+  it("ignores sizes, filler words and the brand's own name when comparing names", () => {
+    const a = n("a", "Women's 5.4 oz Cotton Tee", 10);
+    const b = n("b", "Gildan Unisex Cotton Tee", 10, "Gildan");
+    const c = n("c", "Women's 5.4 oz Wool Scarf", 10);
+    // a shares "cotton" and "tee" with the current name; c shares only filler and the size.
+    const result = selectRelated(n("cur", "Men's 3.4 oz Cotton Tee", 10), [c, a, b]);
+    expect(result.map((x) => x.id)).toEqual(["a", "b", "c"]);
+  });
+
+  it("is deterministic and order-independent with names in play", () => {
+    const pool = [
+      n("b", "Cotton Tee", 10),
+      n("a", "Cotton Tee", 10),
+      n("c", "Cotton Tee Long Sleeve", 10),
+      n("d", "Apron", 10),
+    ];
+    const forward = selectRelated(gildanTee, pool).map((x) => x.id);
+    expect(selectRelated(gildanTee, [...pool].reverse()).map((x) => x.id)).toEqual(forward);
+    expect(forward.slice(0, 2)).toEqual(["a", "b"]);
+  });
+
+  it("copes with missing or empty names and a one-item category", () => {
+    const noName = { ...p("no-name", 9.5), name: undefined };
+    expect(selectRelated(gildanTee, [noName]).map((x) => x.id)).toEqual(["no-name"]);
+    expect(selectRelated({ ...gildanTee, name: "" }, [n("x", "", 9)]).map((x) => x.id)).toEqual([
+      "x",
+    ]);
+    expect(selectRelated(gildanTee, [gildanTee])).toEqual([]);
+  });
+});

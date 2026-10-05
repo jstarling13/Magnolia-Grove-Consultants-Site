@@ -99,7 +99,7 @@ export default function ProductDetailActions({ product }: { product: CatalogProd
         <div>
           <label
             htmlFor="quantity"
-            className="block text-xs font-semibold uppercase tracking-wide text-onyx/50"
+            className="block text-xs font-semibold uppercase tracking-wide text-onyx/60"
           >
             Quantity
           </label>
@@ -130,7 +130,7 @@ export default function ProductDetailActions({ product }: { product: CatalogProd
               {cleanColorName(selectedColor)} x {quantity}
             </p>
           )}
-          <p className="text-xs text-onyx/50">
+          <p className="text-xs text-onyx/60">
             {singleTier
               ? `${formatPrice(activeTier.price)} / unit`
               : `${formatPrice(activeTier.price)} / unit at ${activeTier.quantity}+`}
@@ -179,7 +179,7 @@ export default function ProductDetailActions({ product }: { product: CatalogProd
             <p className="mt-1">
               <Link
                 href="/merchandise/cart"
-                className="font-semibold text-gold-dark hover:underline"
+                className="font-semibold text-gold-text hover:underline"
               >
                 View cart →
               </Link>

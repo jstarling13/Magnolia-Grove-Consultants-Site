@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { products } from "@/config/merchandiseConfig";
 import { pillars } from "@/config/pillarsConfig";
-import { buildMerchSitemapEntries } from "@/lib/merchSeo";
+import { buildMerchSitemapEntries, resolveLastModified } from "@/lib/merchSeo";
 import { getStorefrontCategories } from "@/lib/merchStorefront";
 import { getSiteUrl } from "@/lib/siteUrl";
 
@@ -17,9 +17,18 @@ const staticRoutes = [
   "/booking",
 ];
 
+/**
+ * One timestamp for every <lastmod>, fixed when this module loads (at build
+ * time for the static sitemap) rather than on each request. Pages and the
+ * product catalog are compiled into the build, so they change only when a new
+ * build ships; a per-request date would claim every URL changed every time a
+ * crawler fetched the file. Set SITEMAP_LASTMOD (an ISO date) to pin it.
+ */
+const LAST_MODIFIED = resolveLastModified(process.env.SITEMAP_LASTMOD);
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = getSiteUrl();
-  const now = new Date();
+  const now = LAST_MODIFIED;
 
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
     url: `${siteUrl}${route}`,

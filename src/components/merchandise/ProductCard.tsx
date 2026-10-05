@@ -68,7 +68,7 @@ function ProductCard({ product, priority = false, compact = false }: ProductCard
 
       <div className="flex flex-1 flex-col p-4 sm:p-5">
         {/* Reserved line so titles align whether or not the brand is shown. */}
-        <p className="h-4 truncate text-[11px] font-semibold uppercase leading-4 tracking-wide text-gold-dark">
+        <p className="h-4 truncate text-[11px] font-semibold uppercase leading-4 tracking-wide text-gold-text">
           {isRealBrand(product.brand) ? product.brand : null}
         </p>
 
@@ -112,14 +112,14 @@ function ProductCard({ product, priority = false, compact = false }: ProductCard
         )}
 
         <div className={`${compact ? "mt-3" : "mt-auto"} border-t border-gold/15 pt-3`}>
-          <p className="flex flex-wrap items-baseline gap-x-1.5 text-xs text-onyx/50">
+          <p className="flex flex-wrap items-baseline gap-x-1.5 text-xs text-onyx/60">
             {product.tiers.length > 1 && <span>From</span>}
             <span className="font-heading text-xl font-bold text-onyx">
               {formatPrice(first.price)}
             </span>
             <span>at {first.quantity}+ units</span>
           </p>
-          <p className="mt-0.5 h-4 text-xs leading-4 text-onyx/50">
+          <p className="mt-0.5 h-4 text-xs leading-4 text-onyx/60">
             {hasRange ? `As low as ${formatPrice(best.price)} at ${best.quantity}+ units` : null}
           </p>
         </div>

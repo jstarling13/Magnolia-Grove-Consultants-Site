@@ -55,6 +55,10 @@ const config: Config = {
           DEFAULT: "#c4a878",
           bright: "#d4bc96",
           dark: "#a48a5e",
+          // Small-text gold for light surfaces: gold-dark is only 3.0-3.3:1
+          // on cream, so eyebrows and text links use this one (4.7:1 or
+          // better on every cream tier). Decorative uses keep gold-dark.
+          text: "#7d6228",
         },
         muted: {
           DEFAULT: "#cccccc",
