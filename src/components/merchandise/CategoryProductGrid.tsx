@@ -12,10 +12,10 @@ import {
   categoriesNeeded,
   growVisible,
   isSortKey,
-  matchesQuery,
   nextBatchSize,
   realBrands,
   searchHaystack,
+  searchProducts,
   sortProducts,
   type CatalogProduct,
   type SortKey,
@@ -137,11 +137,10 @@ export default function CategoryProductGrid({
 
   const results = useMemo(() => {
     if (!ready) return products;
-    const matching = products.filter(
-      (product) =>
-        (brand === ALL || product.brand === brand) &&
-        (!query || matchesQuery(haystackOf(product), query))
-    );
+    const byBrand =
+      brand === ALL ? products : products.filter((product) => product.brand === brand);
+    // Ranked by relevance (name, brand, category, color, description).
+    const matching = query ? searchProducts(byBrand, query, haystackOf) : byBrand;
     return sortProducts(matching, sort);
   }, [ready, products, brand, query, sort, haystackOf]);
 
@@ -231,7 +230,7 @@ export default function CategoryProductGrid({
           <button
             type="button"
             onClick={clearFilters}
-            className="text-sm font-semibold text-gold-dark underline-offset-2 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-dark"
+            className="text-sm font-semibold text-gold-text underline-offset-2 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-dark"
           >
             Clear filters
           </button>
@@ -244,7 +243,7 @@ export default function CategoryProductGrid({
           <button
             type="button"
             onClick={() => void load([category])}
-            className="font-semibold text-gold-dark underline-offset-2 hover:underline"
+            className="font-semibold text-gold-text underline-offset-2 hover:underline"
           >
             Try again
           </button>
@@ -268,7 +267,7 @@ export default function CategoryProductGrid({
 
           {resultCount > FOCUSED_INITIAL_VISIBLE && (
             <div className="mt-8 flex flex-col items-center gap-3">
-              <p className="text-xs text-onyx/50" aria-live="polite">
+              <p className="text-xs text-onyx/60" aria-live="polite">
                 Showing {shown} of {resultCount}
               </p>
               <div className="flex flex-wrap justify-center gap-3">

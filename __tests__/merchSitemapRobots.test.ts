@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { merchandiseCategories, products } from "@/config/merchandiseConfig";
 import robots from "@/app/robots";
 import sitemap from "@/app/sitemap";
@@ -33,6 +33,31 @@ describe("sitemap()", () => {
       /\/(admin|account|api|merchandise\/cart(?:\/|$)|lookup\.json)/
     );
     expect(urls.join("\n")).not.toMatch(/espplus/i);
+  });
+});
+
+describe("sitemap() lastmod", () => {
+  afterEach(() => vi.useRealTimers());
+
+  it("is the same on every call, however much time passes between requests", () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date("2031-01-01T00:00:00Z"));
+    const first = sitemap();
+    vi.setSystemTime(new Date("2031-06-01T00:00:00Z"));
+    const second = sitemap();
+    expect(second.map((entry) => entry.lastModified)).toEqual(
+      first.map((entry) => entry.lastModified)
+    );
+    const stamps = new Set(first.map((entry) => String(entry.lastModified)));
+    expect(stamps.size).toBe(1);
+  });
+
+  it("is not the time of the request", () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date("2040-01-01T00:00:00Z"));
+    for (const entry of sitemap()) {
+      expect(new Date(entry.lastModified as Date).getFullYear()).toBeLessThan(2040);
+    }
   });
 });
 

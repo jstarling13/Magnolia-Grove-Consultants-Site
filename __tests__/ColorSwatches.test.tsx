@@ -59,6 +59,26 @@ describe("ColorSwatches", () => {
     expect(screen.queryByText("2 colors")).not.toBeInTheDocument();
   });
 
+  it("hides the count (but keeps the live line) when a heading already prints it", () => {
+    const { rerender, container } = render(
+      <ColorSwatches colors={["Red", "Blue"]} onSelect={() => {}} showLabel hideCount />
+    );
+    expect(screen.queryByText("2 colors")).not.toBeInTheDocument();
+    const live = container.querySelector("[aria-live='polite']");
+    expect(live).toBeInTheDocument();
+    expect(live).toBeEmptyDOMElement();
+    rerender(
+      <ColorSwatches
+        colors={["Red", "Blue"]}
+        onSelect={() => {}}
+        selected="Blue"
+        showLabel
+        hideCount
+      />
+    );
+    expect(container.querySelector("[aria-live='polite']")).toHaveTextContent("Color: Blue");
+  });
+
   it("uses singular wording for a single color", () => {
     render(<ColorSwatches colors={["Black"]} showLabel />);
     expect(screen.getByText("1 color")).toBeInTheDocument();
@@ -89,6 +109,75 @@ describe("ColorSwatches", () => {
     expect(toggle).toHaveAttribute("aria-expanded", "true");
     fireEvent.click(toggle);
     expect(screen.getAllByRole("button", { name: /^Select color/ })).toHaveLength(10);
+  });
+
+  describe("touch targets", () => {
+    it("pads md swatches to a 44px button (28px dot + 8px each side)", () => {
+      render(<ColorSwatches colors={["Red"]} size="md" onSelect={() => {}} />);
+      const button = screen.getByRole("button", { name: "Select color Red" });
+      expect(button.className).toMatch(/(^|\s)p-2(\s|$)/);
+      const dot = button.firstElementChild as HTMLElement;
+      expect(dot.className).toMatch(/(^|\s)h-7(\s|$)/);
+      expect(dot.className).toMatch(/(^|\s)w-7(\s|$)/);
+      // 28px + 2 x 8px = 44px; swatches sit edge to edge so hit areas never overlap.
+      expect(button.parentElement?.className).toMatch(/gap-0(\s|$)/);
+    });
+
+    it("keeps card (sm) swatches compact", () => {
+      render(<ColorSwatches colors={["Red"]} size="sm" onSelect={() => {}} />);
+      expect(screen.getByRole("button", { name: "Select color Red" }).className).toMatch(
+        /(^|\s)p-0\.5(\s|$)/
+      );
+    });
+
+    it("rings the dot, not the 44px button, when a md swatch is selected", () => {
+      render(<ColorSwatches colors={["Red"]} size="md" selected="Red" onSelect={() => {}} />);
+      const button = screen.getByRole("button", { name: "Select color Red" });
+      expect(button.className).not.toMatch(/ring-2/);
+      expect((button.firstElementChild as HTMLElement).className).toMatch(/ring-2/);
+    });
+  });
+
+  describe("'Show all N colors' disclosure", () => {
+    const sixty = Array.from({ length: 60 }, (_, i) => `Color ${i + 1}`);
+
+    it("shows the first rows, then every color behind one keyboard-operable toggle", () => {
+      render(<ColorSwatches colors={sixty} max={14} size="md" showAllLabel onSelect={() => {}} />);
+      expect(screen.getAllByRole("button", { name: /^Select color/ })).toHaveLength(14);
+
+      const toggle = screen.getByRole("button", { name: "Show all 60 colors" });
+      expect(toggle).toHaveAttribute("aria-expanded", "false");
+      expect(toggle).toHaveAttribute("aria-controls");
+      expect(toggle.tagName).toBe("BUTTON");
+      expect(toggle.className).toMatch(/min-h-\[44px\]/);
+
+      toggle.focus();
+      fireEvent.click(toggle);
+      expect(screen.getAllByRole("button", { name: /^Select color/ })).toHaveLength(60);
+      const fewer = screen.getByRole("button", { name: "Show fewer" });
+      expect(fewer).toHaveAttribute("aria-expanded", "true");
+      fireEvent.click(fewer);
+      expect(screen.getAllByRole("button", { name: /^Select color/ })).toHaveLength(14);
+    });
+
+    it("never hides the selected color inside the collapsed part", () => {
+      render(
+        <ColorSwatches
+          colors={sixty}
+          max={14}
+          size="md"
+          showAllLabel
+          selected="Color 40"
+          onSelect={() => {}}
+        />
+      );
+      expect(screen.getByRole("button", { name: "Select color Color 40" })).toHaveAttribute(
+        "aria-pressed",
+        "true"
+      );
+      expect(screen.getAllByRole("button", { name: /^Select color/ })).toHaveLength(15);
+      expect(screen.getByRole("button", { name: "Show all 60 colors" })).toBeInTheDocument();
+    });
   });
 
   it("shows all 30 colors by default", () => {

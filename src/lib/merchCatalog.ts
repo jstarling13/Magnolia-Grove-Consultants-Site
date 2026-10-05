@@ -254,23 +254,123 @@ export function sortProducts(list: CatalogProduct[], sort: SortKey): CatalogProd
   return sorted;
 }
 
-/** Lower-cased searchable text for a product; compute once per product. */
+// ---------------------------------------------------------------------------
+// Search
+// ---------------------------------------------------------------------------
+//
+// Matching is on word boundaries: a term matches a word that starts with it,
+// so "red" finds "Red" and "Reddish" but not "colored", "tailored" or
+// "powered". Plain substring matching is only a fallback for a query that has
+// no word match anywhere (see searchProducts), so a fragment such as "shirt"
+// still finds a one-word "TShirt" when nothing better exists.
+//
+// Results are ranked by where the term was found (name, then brand, category,
+// color, description) and then by how exact the match is (whole word, then
+// word prefix, then substring).
+
+/** Separates the searchable fields inside a haystack string. */
+const FIELD_SEPARATOR = "\u001f";
+/** Search fields in rank order; a lower index ranks higher. */
+const SEARCH_FIELDS = ["name", "brand", "category", "color", "description"] as const;
+/** Each field step outweighs every match kind (whole word, prefix, substring). */
+const FIELD_STEP = 10;
+
+/** Lower-cased text reduced to words (letters and digits) joined by single spaces. */
+function normalizeSearchText(text: string): string {
+  return text
+    .toLowerCase()
+    .split(/[^\p{L}\p{N}]+/u)
+    .filter(Boolean)
+    .join(" ");
+}
+
+/**
+ * Searchable text for a product, one normalized field per entry of
+ * SEARCH_FIELDS joined by FIELD_SEPARATOR. Compute once per product and pass
+ * it to matchesQuery / searchProducts.
+ */
 export function searchHaystack(product: CatalogProduct): string {
   return [
     product.name,
     product.brand,
     product.category,
+    (product.colors ?? []).join(" "),
     product.description,
-    ...(product.colors ?? []),
   ]
-    .join(" ")
-    .toLowerCase();
+    .map(normalizeSearchText)
+    .join(FIELD_SEPARATOR);
 }
 
-/** Every whitespace-separated term must appear (AND semantics). */
+function queryTerms(query: string): string[] {
+  return query.split(/\s+/).map(normalizeSearchText).filter(Boolean);
+}
+
+/**
+ * Rank score of one term in a haystack (lower is better), or null when it is
+ * not there. `substring` also accepts a match inside a word.
+ */
+function termScore(fields: readonly string[], term: string, substring: boolean): number | null {
+  let best: number | null = null;
+  for (let index = 0; index < fields.length; index++) {
+    const padded = ` ${fields[index]} `;
+    let kind: number;
+    if (padded.includes(` ${term} `)) kind = 0;
+    else if (padded.includes(` ${term}`)) kind = 1;
+    else if (substring && padded.includes(term)) kind = 2;
+    else continue;
+    const score = index * FIELD_STEP + kind;
+    if (best === null || score < best) best = score;
+  }
+  return best;
+}
+
+function queryScore(haystack: string, terms: readonly string[], substring: boolean): number | null {
+  const fields = haystack.split(FIELD_SEPARATOR);
+  let total = 0;
+  for (const term of terms) {
+    const score = termScore(fields, term, substring);
+    if (score === null) return null;
+    total += score;
+  }
+  return total;
+}
+
+/**
+ * Every whitespace-separated term must start a word somewhere in the product
+ * (AND semantics, case-insensitive; punctuation is ignored, so "t-shirt"
+ * finds "T-Shirt"). An empty query matches everything.
+ */
 export function matchesQuery(haystack: string, query: string): boolean {
-  const terms = query.toLowerCase().split(/\s+/).filter(Boolean);
-  return terms.every((term) => haystack.includes(term));
+  const terms = queryTerms(query);
+  return terms.length === 0 || queryScore(haystack, terms, false) !== null;
+}
+
+/**
+ * Filters and ranks `items` for a search query: best field (name, brand,
+ * category, color, description) first, then whole word before word prefix,
+ * then the input order. Only when no item has a word match at all does it
+ * fall back to substring matches, so a short term never drags in unrelated
+ * words. An empty query returns the items unchanged.
+ */
+export function searchProducts<T>(
+  items: readonly T[],
+  query: string,
+  haystackOf: (item: T) => string
+): T[] {
+  const terms = queryTerms(query);
+  if (terms.length === 0) return [...items];
+  const rank = (substring: boolean) =>
+    items
+      .map((item, index) => ({
+        item,
+        index,
+        score: queryScore(haystackOf(item), terms, substring),
+      }))
+      .filter((entry): entry is { item: T; index: number; score: number } => entry.score !== null)
+      .sort((a, b) => a.score - b.score || a.index - b.index)
+      .map((entry) => entry.item);
+  const words = rank(false);
+  return words.length > 0 ? words : rank(true);
 }
 
 // ---------------------------------------------------------------------------

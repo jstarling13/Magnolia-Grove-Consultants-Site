@@ -129,7 +129,14 @@ describe("product page purchase panel", () => {
     it("keeps the standard-photo note when a color has no photo of its own", () => {
       renderPage(product({ colors, colorImages: { Navy: "/images/merch/vest-navy.webp" } }));
       fireEvent.click(swatch("Iron"));
-      expect(screen.getByText(/Showing the standard product photo/)).toBeInTheDocument();
+      expect(
+        screen.getByText(
+          "This color doesn't have its own photo yet. The photo shows our standard sample - ask us for the exact color."
+        )
+      ).toBeInTheDocument();
+      // A color with its own photo gets no note.
+      fireEvent.click(swatch("Navy"));
+      expect(screen.queryByText(/doesn't have its own photo/)).not.toBeInTheDocument();
     });
 
     it("updates the price line with the selected color and quantity", () => {
@@ -168,7 +175,7 @@ describe("product page purchase panel", () => {
 
     it("does not show the missing-photo note for an auto-selected color", () => {
       renderPage(product({ colors: ["Natural"] }));
-      expect(screen.queryByText(/Showing the standard product photo/)).not.toBeInTheDocument();
+      expect(screen.queryByText(/doesn't have its own photo/)).not.toBeInTheDocument();
     });
   });
 

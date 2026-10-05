@@ -1,6 +1,9 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import RecentlyViewed, { resetRecentLookupCache } from "@/components/merchandise/RecentlyViewed";
+import RecentlyViewed, {
+  THUMBNAIL_SIZES,
+  resetRecentLookupCache,
+} from "@/components/merchandise/RecentlyViewed";
 import { RECENT_STORAGE_KEY } from "@/lib/merchRecent";
 
 const LOOKUP = {
@@ -78,5 +81,51 @@ describe("RecentlyViewed", () => {
     const second = render(<RecentlyViewed />);
     await waitFor(() => expect(fetchMock).toHaveBeenCalled());
     expect(second.container).toBeEmptyDOMElement();
+  });
+
+  describe("thumbnails", () => {
+    async function renderStrip() {
+      window.localStorage.setItem(RECENT_STORAGE_KEY, JSON.stringify(["a", "c"]));
+      stubLookup();
+      const view = render(<RecentlyViewed />);
+      await screen.findAllByRole("link");
+      return view;
+    }
+
+    it("are decorative, because each sits in a link next to the visible product name", async () => {
+      const { container } = await renderStrip();
+      const images = container.querySelectorAll("img");
+      expect(images).toHaveLength(2);
+      for (const image of images) {
+        expect(image).toHaveAttribute("alt", "");
+        // The name is in the same link, so the image would only repeat it.
+        const link = image.closest("a")!;
+        expect(link.textContent).toContain(link.querySelector("p")!.textContent);
+      }
+    });
+
+    it("leave each link with a single, non-repeating accessible name", async () => {
+      await renderStrip();
+      expect(screen.getByRole("link", { name: /^Alpha Tee\b/ })).toBeInTheDocument();
+      expect(screen.queryByRole("link", { name: /Alpha Tee.*Alpha Tee/ })).not.toBeInTheDocument();
+    });
+
+    it("tell the browser the real rendered width instead of the full-screen default", async () => {
+      expect(THUMBNAIL_SIZES).toBe("(min-width: 640px) 160px, 144px");
+      const { container } = await renderStrip();
+      for (const image of container.querySelectorAll("img")) {
+        expect(image).toHaveAttribute("sizes", THUMBNAIL_SIZES);
+        // Lazy, so off-screen thumbnails are not fetched until scrolled near.
+        expect(image).toHaveAttribute("loading", "lazy");
+      }
+    });
+
+    it("render no image at all when a product has none", async () => {
+      window.localStorage.setItem(RECENT_STORAGE_KEY, JSON.stringify(["b"]));
+      stubLookup();
+      const { container } = render(<RecentlyViewed />);
+      await screen.findAllByRole("link");
+      expect(container.querySelector("img")).toBeNull();
+    });
   });
 });

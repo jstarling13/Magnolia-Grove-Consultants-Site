@@ -18,10 +18,10 @@ import {
   countByCategory,
   growVisible,
   isSortKey,
-  matchesQuery,
   nextBatchSize,
   realBrands,
   searchHaystack,
+  searchProducts,
   sortProducts,
   type CatalogProduct,
   type CatalogView,
@@ -263,17 +263,13 @@ export default function ProductCatalog({
 
   // Search + brand narrow the result set; the category chips then slice it.
   const narrowing = view.brand !== ALL || view.query !== "";
-  const matching = useMemo(
-    () =>
-      narrowing
-        ? known.filter(
-            (product) =>
-              (view.brand === ALL || product.brand === view.brand) &&
-              (!view.query || matchesQuery(haystackOf(product), view.query))
-          )
-        : known,
-    [narrowing, known, view.brand, view.query, haystackOf]
-  );
+  const matching = useMemo(() => {
+    if (!narrowing) return known;
+    const byBrand =
+      view.brand === ALL ? known : known.filter((product) => product.brand === view.brand);
+    // Ranked by relevance (name, brand, category, color, description).
+    return view.query ? searchProducts(byBrand, view.query, haystackOf) : byBrand;
+  }, [narrowing, known, view.brand, view.query, haystackOf]);
 
   // Unfiltered counts come from the server totals so they are right before
   // the rest of a category has loaded.
@@ -444,7 +440,7 @@ export default function ProductCatalog({
           <button
             type="button"
             onClick={clearFilters}
-            className="text-sm font-semibold text-gold-dark underline-offset-2 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-dark"
+            className="text-sm font-semibold text-gold-text underline-offset-2 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-dark"
           >
             Clear filters
           </button>
@@ -457,7 +453,7 @@ export default function ProductCatalog({
           <button
             type="button"
             onClick={() => void load(missing)}
-            className="font-semibold text-gold-dark underline-offset-2 hover:underline"
+            className="font-semibold text-gold-text underline-offset-2 hover:underline"
           >
             Try again
           </button>
@@ -551,13 +547,13 @@ const CatalogSections = memo(function CatalogSections({
                 {name}
               </h2>
               <div className="flex items-baseline gap-4">
-                <span className="text-xs font-medium text-onyx/50">
+                <span className="text-xs font-medium text-onyx/60">
                   {total} {total === 1 ? "item" : "items"}
                 </span>
                 <Link
                   href={categoryPath(name)}
                   aria-label={`View all ${name}`}
-                  className="text-xs font-semibold text-gold-dark underline-offset-2 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-dark"
+                  className="text-xs font-semibold text-gold-text underline-offset-2 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-dark"
                 >
                   View all
                 </Link>
@@ -577,7 +573,7 @@ const CatalogSections = memo(function CatalogSections({
 
             {total > initialVisible && (
               <div className="mt-8 flex flex-col items-center gap-3">
-                <p className="text-xs text-onyx/50" aria-live="polite">
+                <p className="text-xs text-onyx/60" aria-live="polite">
                   Showing {shown} of {total}
                 </p>
                 <div className="flex flex-wrap justify-center gap-3">
@@ -644,7 +640,7 @@ function CategoryChip({
       }`}
     >
       {label}
-      <span className={`text-xs tabular-nums ${active ? "text-white/70" : "text-onyx/50"}`}>
+      <span className={`text-xs tabular-nums ${active ? "text-white/70" : "text-onyx/60"}`}>
         {count}
       </span>
     </button>

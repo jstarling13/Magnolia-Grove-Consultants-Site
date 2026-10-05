@@ -9,6 +9,7 @@ import {
   nextBatchSize,
   nextTier,
   searchHaystack,
+  searchProducts,
   sortProducts,
   startingTier,
   tierForQuantity,
@@ -144,6 +145,123 @@ describe("search", () => {
     expect(matchesQuery(hay, "cotton FOREST")).toBe(true);
     expect(matchesQuery(hay, "cotton red")).toBe(false);
     expect(matchesQuery(hay, "   ")).toBe(true);
+  });
+
+  it("matches words that start with the term, not text inside a word", () => {
+    const colored = product({
+      id: "c",
+      name: "Colored Tailored Powered Jacket",
+      description: "Shredded and hundred-percent restored.",
+    });
+    const hay = searchHaystack(colored);
+    expect(matchesQuery(hay, "red")).toBe(false);
+    expect(matchesQuery(hay, "color")).toBe(true);
+    expect(matchesQuery(hay, "tailor")).toBe(true);
+    expect(matchesQuery(hay, "colored jac")).toBe(true);
+    expect(
+      matchesQuery(searchHaystack(product({ id: "r", colors: ["Red", "Dark Red"] })), "red")
+    ).toBe(true);
+  });
+
+  it("ignores punctuation and case so t-shirt, T Shirt and 20oz-style terms still work", () => {
+    const hay = searchHaystack(product({ id: "t", name: "Men's Short-Sleeve T-Shirt 3.4 oz" }));
+    expect(matchesQuery(hay, "t-shirt")).toBe(true);
+    expect(matchesQuery(hay, "T SHIRT")).toBe(true);
+    expect(matchesQuery(hay, "short sleeve")).toBe(true);
+    expect(matchesQuery(hay, "men's")).toBe(true);
+    expect(matchesQuery(hay, "3.4")).toBe(true);
+    expect(matchesQuery(hay, "&")).toBe(true);
+  });
+
+  it("finds accented words with plain prefixes", () => {
+    expect(matchesQuery(searchHaystack(product({ id: "e", name: "Café Mug" })), "caf")).toBe(true);
+  });
+});
+
+describe("searchProducts", () => {
+  const hay = (p: CatalogProduct) => searchHaystack(p);
+  const ids = (list: CatalogProduct[]) => list.map((p) => p.id);
+
+  it("drops 'colored/tailored/powered' for the query 'red' and keeps real red items", () => {
+    const list = [
+      product({ id: "colored", name: "Colored Pencils", description: "Tailored and powered." }),
+      product({ id: "mug", name: "Mug", colors: ["Red", "Blue"] }),
+      product({ id: "tee", name: "Red Tee" }),
+    ];
+    expect(ids(searchProducts(list, "red", hay))).toEqual(["tee", "mug"]);
+  });
+
+  it("ranks name above brand above category above color above description", () => {
+    const list = [
+      product({ id: "desc", name: "Aaa", description: "Great for any pine event." }),
+      product({ id: "color", name: "Bbb", colors: ["Pine"] }),
+      product({ id: "category", name: "Ccc", category: "Pine Goods" }),
+      product({ id: "brand", name: "Ddd", brand: "Pine" }),
+      product({ id: "name", name: "Eee Pine" }),
+    ];
+    expect(ids(searchProducts(list, "pine", hay))).toEqual([
+      "name",
+      "brand",
+      "category",
+      "color",
+      "desc",
+    ]);
+  });
+
+  it("ranks a whole word above a longer word that merely starts with the term", () => {
+    const list = [
+      product({ id: "prefix", name: "Redwood Planter" }),
+      product({ id: "whole", name: "Red Planter" }),
+    ];
+    expect(ids(searchProducts(list, "red", hay))).toEqual(["whole", "prefix"]);
+  });
+
+  it("lets a better field beat a better match kind (name prefix over description whole word)", () => {
+    const list = [
+      product({ id: "desc-whole", name: "Zzz", description: "Comes in red." }),
+      product({ id: "name-prefix", name: "Redwood Chair" }),
+    ];
+    expect(ids(searchProducts(list, "red", hay))).toEqual(["name-prefix", "desc-whole"]);
+  });
+
+  it("keeps the input order among equal matches", () => {
+    const list = [product({ id: "b", name: "Red B" }), product({ id: "a", name: "Red A" })];
+    expect(ids(searchProducts(list, "red", hay))).toEqual(["b", "a"]);
+  });
+
+  it("requires every term (AND), summing their ranks", () => {
+    const list = [
+      product({ id: "navy-tee", name: "Tee", colors: ["Navy"] }),
+      product({ id: "navy-mug", name: "Mug", colors: ["Navy"] }),
+      product({ id: "tee-navy-name", name: "Navy Tee" }),
+    ];
+    expect(ids(searchProducts(list, "navy tee", hay))).toEqual(["tee-navy-name", "navy-tee"]);
+  });
+
+  it("falls back to substring matches only when no product has a word match", () => {
+    const list = [
+      product({ id: "one-word", name: "Gildan TShirt" }),
+      product({ id: "other", name: "Mug" }),
+    ];
+    // "shirt" starts no word anywhere, so the substring fallback finds the one-word "TShirt".
+    expect(ids(searchProducts(list, "shirt", hay))).toEqual(["one-word"]);
+    // Once one product has a real word match, substring-only products are left out.
+    const withWord = [...list, product({ id: "real", name: "Dress Shirt" })];
+    expect(ids(searchProducts(withWord, "shirt", hay))).toEqual(["real"]);
+  });
+
+  it("returns every item for an empty query and nothing for a miss, without mutating input", () => {
+    const list = [product({ id: "a" }), product({ id: "b" })];
+    expect(ids(searchProducts(list, "  ", hay))).toEqual(["a", "b"]);
+    expect(searchProducts(list, "zzzz", hay)).toEqual([]);
+    expect(ids(list)).toEqual(["a", "b"]);
+  });
+
+  it("does not match across the field boundary", () => {
+    const list = [product({ id: "x", name: "Mug", brand: "Acme", category: "Drinkware" })];
+    expect(searchProducts(list, "mug acme drinkware", hay)).toHaveLength(1);
+    // "mugacme" would only exist if the name and brand text ran together.
+    expect(searchProducts(list, "mugacme", hay)).toEqual([]);
   });
 });
 

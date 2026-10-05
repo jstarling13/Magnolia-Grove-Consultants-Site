@@ -55,6 +55,28 @@ export function priceRange(product: Pick<CatalogProduct, "tiers">): { low: numbe
 type JsonLd = Record<string, unknown>;
 
 /**
+ * Entries of a color list that describe how an item is decorated or sold
+ * rather than a color ("Custom (full-color print)", "Assorted", "Any Pms
+ * Color", "Full Bleed"). The catalog data should not contain them; this is the
+ * safety net for structured data, where a non-color in `color` is wrong.
+ */
+const NOT_A_COLOR =
+  /\b(?:custom|assorted|full[\s-]?colou?r|full[\s-]?bleed|any\s+pms|imprint\w*|sublimat\w*|your\s+(?:logo|design))\b/i;
+
+/** Real colors only, trimmed and without repeats, in their original order. */
+export function structuredDataColors(colors: readonly string[] | undefined): string[] {
+  const seen = new Set<string>();
+  const result: string[] = [];
+  for (const color of colors ?? []) {
+    const name = color.trim();
+    if (!name || NOT_A_COLOR.test(name) || seen.has(name.toLowerCase())) continue;
+    seen.add(name.toLowerCase());
+    result.push(name);
+  }
+  return result;
+}
+
+/**
  * schema.org Product with an AggregateOffer over the quantity-break prices.
  *
  * Availability is deliberately omitted. Items are decorated to order with a
@@ -82,7 +104,8 @@ export function buildProductJsonLd(product: CatalogProduct, siteUrl: string): Js
   if (product.image) data.image = [absoluteUrl(product.image, siteUrl)];
   if (isRealBrand(product.brand)) data.brand = { "@type": "Brand", name: product.brand.trim() };
   data.category = product.category;
-  if (product.colors && product.colors.length > 0) data.color = [...product.colors];
+  const colors = structuredDataColors(product.colors);
+  if (colors.length > 0) data.color = colors;
   data.offers = {
     "@type": "AggregateOffer",
     priceCurrency: "USD",
@@ -183,11 +206,21 @@ export function buildCategoryMetadata(
 // Sitemap
 // ---------------------------------------------------------------------------
 
+/**
+ * The date to publish as <lastmod>: `override` when it parses as a date,
+ * otherwise `fallback`. The caller picks a fixed fallback (a build time), never
+ * "now" on each request.
+ */
+export function resolveLastModified(override: string | undefined, fallback = new Date()): Date {
+  const parsed = override?.trim() ? new Date(override.trim()) : undefined;
+  return parsed && !Number.isNaN(parsed.getTime()) ? parsed : fallback;
+}
+
 export function buildMerchSitemapEntries(
   siteUrl: string,
   categories: readonly string[],
   productIds: readonly string[],
-  lastModified: Date = new Date()
+  lastModified: Date
 ): MetadataRoute.Sitemap {
   return [
     {

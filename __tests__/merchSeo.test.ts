@@ -10,6 +10,7 @@ import {
   buildProductMetadata,
   cleanDescription,
   priceRange,
+  resolveLastModified,
   serializeJsonLd,
 } from "@/lib/merchSeo";
 import { getStorefrontProduct } from "@/lib/merchStorefront";
@@ -124,6 +125,30 @@ describe("buildProductJsonLd", () => {
     expect(generic).not.toHaveProperty("brand");
     expect(generic).not.toHaveProperty("color");
     expect(generic).not.toHaveProperty("image");
+  });
+
+  it("leaves non-colors out of the color array and keeps real ones", () => {
+    const withJunk = buildProductJsonLd(
+      make({
+        colors: [
+          "Navy",
+          "Custom (full-color print)",
+          "Assorted",
+          "Any Pms Color",
+          "Full Bleed",
+          "Gray (Pms Cool Gray 8C)",
+          "Multi Color",
+          "navy",
+        ],
+      }),
+      SITE
+    ) as Record<string, any>;
+    expect(withJunk.color).toEqual(["Navy", "Gray (Pms Cool Gray 8C)", "Multi Color"]);
+  });
+
+  it("omits the color property when every entry is a non-color", () => {
+    const only = buildProductJsonLd(make({ colors: ["Custom (full-color print)"] }), SITE);
+    expect(only).not.toHaveProperty("color");
   });
 
   it("handles a single-tier product", () => {
@@ -246,9 +271,44 @@ describe("buildCategoryMetadata", () => {
   });
 });
 
+describe("resolveLastModified", () => {
+  const fallback = new Date("2026-03-01T12:00:00Z");
+
+  it("uses a valid override and ignores a blank or unparseable one", () => {
+    expect(resolveLastModified("2026-02-01", fallback).toISOString()).toBe(
+      "2026-02-01T00:00:00.000Z"
+    );
+    expect(resolveLastModified(undefined, fallback)).toBe(fallback);
+    expect(resolveLastModified("  ", fallback)).toBe(fallback);
+    expect(resolveLastModified("not a date", fallback)).toBe(fallback);
+  });
+});
+
+describe("structured data for the real catalog", () => {
+  it("never lists a decoration option as a color", () => {
+    for (const config of products) {
+      const slim = getStorefrontProduct(config.id)!;
+      const ld = buildProductJsonLd(slim, SITE) as Record<string, unknown>;
+      for (const color of (ld.color as string[] | undefined) ?? []) {
+        expect(color, config.id).not.toMatch(/custom|full[\s-]?colou?r|assorted|full[\s-]?bleed/i);
+      }
+    }
+  });
+});
+
 describe("buildMerchSitemapEntries", () => {
-  const entries = buildMerchSitemapEntries(SITE, ["Apparel", "Outdoor & Sports"], ["a", "b"]);
+  const stamp = new Date("2026-01-15T00:00:00Z");
+  const entries = buildMerchSitemapEntries(
+    SITE,
+    ["Apparel", "Outdoor & Sports"],
+    ["a", "b"],
+    stamp
+  );
   const urls = entries.map((e) => e.url);
+
+  it("stamps every entry with the date it is given, never the current time", () => {
+    for (const entry of entries) expect(entry.lastModified).toBe(stamp);
+  });
 
   it("lists the catalog, every category and every product", () => {
     expect(urls).toEqual([
