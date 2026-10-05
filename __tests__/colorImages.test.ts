@@ -1,0 +1,37 @@
+import { existsSync } from "node:fs";
+import path from "node:path";
+import { describe, expect, it } from "vitest";
+import colorImageMap from "@/config/colorImages.json";
+import { products } from "@/config/merchandiseConfig";
+
+const entries = Object.entries(colorImageMap as Record<string, Record<string, string>>);
+
+describe("per-color photo data", () => {
+  it("only references products that exist", () => {
+    const ids = new Set(products.map((p) => p.id));
+    const unknown = entries.map(([id]) => id).filter((id) => !ids.has(id));
+    expect(unknown).toEqual([]);
+  });
+
+  it("uses exact color names from each product's color list", () => {
+    const bad: string[] = [];
+    for (const [id, byColor] of entries) {
+      const colors = new Set(products.find((p) => p.id === id)?.colors ?? []);
+      for (const color of Object.keys(byColor)) {
+        if (!colors.has(color)) bad.push(`${id}: "${color}"`);
+      }
+    }
+    expect(bad).toEqual([]);
+  });
+
+  it("points every photo at a file that exists", () => {
+    const missing: string[] = [];
+    for (const [id, byColor] of entries) {
+      for (const [color, src] of Object.entries(byColor)) {
+        if (!existsSync(path.join(process.cwd(), "public", src)))
+          missing.push(`${id}/${color}: ${src}`);
+      }
+    }
+    expect(missing).toEqual([]);
+  });
+});
