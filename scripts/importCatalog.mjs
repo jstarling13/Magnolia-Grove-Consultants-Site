@@ -46,12 +46,13 @@ function parseArgs(argv) {
   return args;
 }
 
-/** ids + names of the hand-curated products, read from merchandiseConfig.ts. */
+/** ids, names and categories of the hand-curated products, read from merchandiseConfig.ts. */
 export function readCuratedProducts(source) {
   const start = source.indexOf("const curatedProducts");
   const end = source.indexOf("// Per-color photos");
-  if (start < 0 || end < 0)
+  if (start < 0 || end < 0) {
     throw new Error("Could not locate curatedProducts in merchandiseConfig.ts");
+  }
   const block = source.slice(start, end);
   const ids = [...block.matchAll(/^ {4}id:\s*"([^"]+)"/gm)].map((m) => m[1]);
   const names = [...block.matchAll(/^ {4}name:\s*("(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*')/gm)].map(
@@ -60,10 +61,18 @@ export function readCuratedProducts(source) {
       return lit[0] === '"' ? JSON.parse(lit) : lit.slice(1, -1).replace(/\\(.)/g, "$1");
     }
   );
-  if (ids.length === 0 || ids.length !== names.length) {
-    throw new Error(`Curated parse mismatch: ${ids.length} ids vs ${names.length} names`);
+  const categories = [...block.matchAll(/^ {4}category:\s*"([^"]+)"/gm)].map((m) => m[1]);
+  if (ids.length === 0 || ids.length !== names.length || ids.length !== categories.length) {
+    throw new Error(
+      `Curated parse mismatch: ${ids.length} ids, ${names.length} names, ${categories.length} categories`
+    );
   }
-  return { ids, names };
+  return {
+    ids,
+    names,
+    categories,
+    products: ids.map((id, i) => ({ id, name: names[i], category: categories[i] })),
+  };
 }
 
 async function readRawRows(rawDir) {
@@ -100,59 +109,147 @@ async function writeIfChanged(file, content) {
   return true;
 }
 
+const MANIFEST_REL = "scripts/data/import-manifest.json";
+const REPORT_REL = "scripts/out/dedupe-report.md";
+
+async function readJsonIfExists(file, fallback) {
+  try {
+    return JSON.parse(await fs.readFile(file, "utf8"));
+  } catch {
+    return fallback;
+  }
+}
+
+/** Human-readable report of every duplicate cluster and curated duplicate. */
+export function renderDedupeReport({ clusters, curatedDuplicates }) {
+  const who = (m) =>
+    `${m.name} -- ${m.supplier || m.asi || "unknown vendor"} (rating ${m.rating}, ${m.reviews} reviews, score ${m.score})`;
+  const lines = ["# Catalog dedupe report", ""];
+  lines.push(`Clusters with more than one member: ${clusters.length}`);
+  lines.push(
+    `Imported items dropped as duplicates of curated products: ${curatedDuplicates.length}`
+  );
+  lines.push("");
+  lines.push("## Duplicate clusters", "");
+  clusters.forEach((c, i) => {
+    lines.push(`### Cluster ${i + 1}: ${c.kept.category}`);
+    lines.push(`- KEPT: ${who(c.kept)}`);
+    for (const d of c.dropped) lines.push(`- dropped (${d.reason}): ${who(d)}`);
+    lines.push("");
+  });
+  lines.push("## Duplicates of curated products (curated wins)", "");
+  for (const d of curatedDuplicates) {
+    lines.push(`- dropped: ${who(d.dropped)}`);
+    lines.push(`  matches curated: ${d.curated}`);
+  }
+  lines.push("");
+  return lines.join("\n");
+}
+
+/**
+ * Delete generated images that are no longer selected. Only ids the importer
+ * itself produced are ever candidates: the previous manifest, the previous
+ * importedProducts.json, and files downloaded this run. Never touches anything else.
+ */
+export async function removeOrphanImages({ imagesDir, previousIds, selectedIds }) {
+  const selected = new Set(selectedIds);
+  const removed = [];
+  for (const id of [...new Set(previousIds)].sort()) {
+    if (selected.has(id) || !/^[a-z0-9-]+$/.test(id)) continue;
+    const file = path.join(imagesDir, `${id}.webp`);
+    try {
+      await fs.unlink(file);
+      removed.push(id);
+    } catch {
+      // already gone
+    }
+  }
+  return removed;
+}
+
 export async function runImport(args) {
   const root = args.root;
   const imagesDir = path.join(root, "public/images/merch");
   const productsFile = path.join(root, "src/config/importedProducts.json");
   const linksFile = path.join(root, "src/lib/espLinks.imported.json");
+  const manifestFile = path.join(root, MANIFEST_REL);
+  const reportFile = path.join(root, REPORT_REL);
 
   const curated = readCuratedProducts(
     await fs.readFile(path.join(REPO_ROOT, "src/config/merchandiseConfig.ts"), "utf8")
   );
   const { rows, files, badFiles, done } = await readRawRows(args.raw);
-  const { items, skipped, skippedDetail } = buildCatalog(rows, {
-    curatedNames: curated.names,
-    curatedIds: curated.ids,
-  });
+  const buildOpts = { curated: curated.products };
 
-  // Images: keep a product only if its image exists / downloads.
+  // Select rows; fetch images for the winners; if a winner's image cannot be
+  // fetched, reject it and re-select so the cluster's runner-up is used.
+  const rejectedEspIds = new Set();
+  const failures = [];
+  const touched = new Set(); // ids downloaded during this run
   let imageBytes = 0;
   let downloaded = 0;
   let reused = 0;
-  let kept = items;
-  if (args.images) {
-    await fs.mkdir(imagesDir, { recursive: true });
-    const results = await mapConcurrent(items, DOWNLOAD_CONCURRENCY, (item) =>
+  let result;
+  if (args.images) await fs.mkdir(imagesDir, { recursive: true });
+  for (let round = 0; round < 10; round++) {
+    result = buildCatalog(rows, { ...buildOpts, rejectedEspIds });
+    if (!args.images) break;
+    const outcomes = await mapConcurrent(result.items, DOWNLOAD_CONCURRENCY, (item) =>
       ensureImage(item, imagesDir)
     );
-    kept = [];
-    results.forEach((result, i) => {
-      if (result.status === "failed") {
-        skipped["image-failed"] = (skipped["image-failed"] ?? 0) + 1;
-        skippedDetail.push({
-          reason: "image-failed",
-          espId: items[i].link.espId,
-          name: items[i].product.name,
-          error: result.error,
-        });
-        return;
+    let newFailures = 0;
+    outcomes.forEach((outcome, i) => {
+      const item = result.items[i];
+      if (outcome.status === "failed") {
+        rejectedEspIds.add(item.link.espId);
+        failures.push({ espId: item.link.espId, name: item.product.name, error: outcome.error });
+        newFailures++;
+      } else if (outcome.status === "downloaded") {
+        touched.add(item.id);
+        downloaded++;
+        imageBytes += outcome.bytes;
       }
-      if (result.status === "downloaded") downloaded++;
-      else reused++;
-      imageBytes += result.bytes;
-      kept.push(items[i]);
     });
+    if (newFailures === 0) break;
   }
+  const { items, skipped, skippedDetail, clusters, curatedDuplicates } = result;
+  reused = args.images ? items.length - items.filter((i) => touched.has(i.id)).length : 0;
 
-  const publicRecords = kept.map(toPublicRecord);
-  const links = Object.fromEntries(kept.map((item) => [item.id, item.link]));
+  const publicRecords = items.map(toPublicRecord);
+  const links = Object.fromEntries(items.map((item) => [item.id, item.link]));
 
+  let orphansRemoved = [];
   if (!args.dryRun) {
+    const previousProducts = await readJsonIfExists(productsFile, []);
+    const manifest = await readJsonIfExists(manifestFile, { generated: [] });
     await writeIfChanged(productsFile, await formatJson(root, JSON.stringify(publicRecords)));
     await writeIfChanged(linksFile, await formatJson(root, JSON.stringify(links)));
+    if (args.images) {
+      orphansRemoved = await removeOrphanImages({
+        imagesDir,
+        previousIds: [
+          ...(manifest.generated ?? []),
+          ...previousProducts.map((p) => p.id),
+          ...touched,
+        ],
+        selectedIds: items.map((i) => i.id),
+      });
+      await fs.mkdir(path.dirname(manifestFile), { recursive: true });
+      await writeIfChanged(
+        manifestFile,
+        await formatJson(root, JSON.stringify({ generated: items.map((i) => i.id).sort() }))
+      );
+    }
   }
+  // report lives in a self-ignoring scripts/out directory (never committed)
+  await fs.mkdir(path.dirname(reportFile), { recursive: true });
+  await fs.writeFile(path.join(path.dirname(reportFile), ".gitignore"), "*\n");
+  await fs.writeFile(reportFile, renderDedupeReport({ clusters, curatedDuplicates }));
   if (args.report) {
-    await fs.writeFile(args.report, JSON.stringify({ skipped, skippedDetail }, null, 2));
+    await fs.writeFile(
+      args.report,
+      JSON.stringify({ skipped, skippedDetail, failures, clusters, curatedDuplicates }, null, 2)
+    );
   }
 
   const perCategory = {};
@@ -167,10 +264,13 @@ export async function runImport(args) {
     rowsRead: rows.length,
     imported: publicRecords.length,
     skipped,
+    clusters: clusters.length,
     perCategory,
     imagesDownloaded: downloaded,
     imagesReused: reused,
     imageMbAdded: imageBytes / 1024 / 1024,
+    orphansRemoved,
+    reportFile,
   };
 }
 
@@ -184,6 +284,12 @@ function printSummary(args, s) {
   );
   for (const bad of s.badFiles) line("  unreadable file", `${bad.file}: ${bad.error}`);
   line("rows read", s.rowsRead);
+  line("dropped: low vendor rating", s.skipped["low-vendor-rating"] ?? 0);
+  line("dropped: excluded supplier", s.skipped["excluded-supplier"] ?? 0);
+  line("dropped: duplicate of curated", s.skipped["duplicate-of-curated"] ?? 0);
+  line("dropped: duplicate, other vendor", s.skipped["duplicate-other-vendor"] ?? 0);
+  line("dropped: duplicate, same vendor", s.skipped["duplicate-same-vendor"] ?? 0);
+  line("duplicate clusters (>1 member)", s.clusters);
   line("imported", s.imported);
   const skipTotal = Object.values(s.skipped).reduce((a, b) => a + b, 0);
   line("skipped", skipTotal);
@@ -195,6 +301,8 @@ function printSummary(args, s) {
   line("images downloaded", s.imagesDownloaded);
   line("images already present", s.imagesReused);
   line("image MB added", s.imageMbAdded.toFixed(2));
+  line("orphan images removed", s.orphansRemoved.length);
+  line("dedupe report", s.reportFile);
   if (args.dryRun) console.log("  (dry run: no JSON files written)");
   if (!args.images) console.log("  (--no-images: images were NOT checked or downloaded)");
 }

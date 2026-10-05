@@ -10,15 +10,21 @@ import {
   cleanColors,
   cleanRow,
   cleanTiers,
+  compareCandidates,
   detectBrand,
+  isDuplicateName,
   makeUniqueId,
   normalizeName,
+  significantTokens,
   slugify,
   stripBadge,
   toPublicRecord,
+  vendorScore,
+  MIN_VENDOR_RATING,
+  MIN_VENDOR_REVIEWS,
 } from "../scripts/lib/catalogClean.mjs";
 import { compressImage, ensureImage, mapConcurrent } from "../scripts/lib/catalogImages.mjs";
-import { readCuratedProducts } from "../scripts/importCatalog.mjs";
+import { readCuratedProducts, removeOrphanImages } from "../scripts/importCatalog.mjs";
 import {
   MARKUP_RATE,
   isImportedProductRecord,
@@ -106,8 +112,8 @@ describe("description / badge / colors", () => {
       "5",
       "s",
       "asi/1",
-      0,
-      0,
+      4.8,
+      50,
       0,
       "apparel",
       0,
@@ -215,8 +221,10 @@ describe("buildCatalog on the synthetic fixture", () => {
 
   it("skips each bad row for the right reason", () => {
     expect(result.skipped).toEqual({
-      "duplicate-espid": 1,
-      "duplicate-supplier-productno": 1,
+      "low-vendor-rating": 2,
+      "excluded-supplier": 1,
+      "duplicate-other-vendor": 1, // same espId listed by another vendor
+      "duplicate-same-vendor": 1, // same supplier + product number
       "no-tiers": 1,
       "price-too-high": 1,
       "no-image": 1,
@@ -252,6 +260,7 @@ describe("buildCatalog on the synthetic fixture", () => {
     const collisions = result.items.filter((i) => i.product.name === "Fixture Collision Item");
     expect(collisions[0].id).toBe("fixture-collision-item-12345");
     expect(collisions[1].id).not.toBe(collisions[0].id);
+    expect(collisions[1].id).toBe("fixture-collision-item-00012345");
     expect(ids).not.toContain("nike-dri-fit-polo");
   });
 
@@ -449,5 +458,296 @@ describe("image pipeline", () => {
     });
     expect(out).toEqual([2, 4, 6, 8, 10, 12, 14, 16, 18]);
     expect(peak).toBeLessThanOrEqual(4);
+  });
+});
+
+// ---- vendor gate, vendor score, duplicate clusters --------------------------
+
+interface RowOpts {
+  espId: string;
+  name: string;
+  tag?: string;
+  rating?: number;
+  reviews?: number;
+  asi?: string;
+  supplier?: string;
+  productNo?: string;
+  colors?: string[];
+  price?: number;
+}
+
+/** Build a raw positional row with sensible defaults (good vendor, valid image id). */
+function mk(o: RowOpts): unknown[] {
+  return [
+    o.espId,
+    o.productNo ?? `PN-${o.espId}`,
+    o.name,
+    "",
+    o.colors ?? ["Black"],
+    "",
+    [[1, o.price ?? 10]],
+    "12345",
+    o.supplier ?? `Vendor ${o.asi ?? "asi/1"}`,
+    o.asi ?? "asi/1",
+    o.rating ?? 4.8,
+    o.reviews ?? 100,
+    0,
+    o.tag ?? "drinkware",
+    0,
+  ];
+}
+
+describe("vendor quality gate", () => {
+  it("keeps the thresholds as named constants", () => {
+    expect(MIN_VENDOR_RATING).toBe(4.5);
+    expect(MIN_VENDOR_REVIEWS).toBe(10);
+  });
+
+  it("requires rating >= 4.5 AND reviews >= 10", () => {
+    expect(cleanRow(mk({ espId: "1", name: "A", rating: 4.5, reviews: 10 })).skip).toBeUndefined();
+    expect(cleanRow(mk({ espId: "1", name: "A", rating: 4.49, reviews: 500 })).skip).toBe(
+      "low-vendor-rating"
+    );
+    expect(cleanRow(mk({ espId: "1", name: "A", rating: 5, reviews: 9 })).skip).toBe(
+      "low-vendor-rating"
+    );
+    const missing = mk({ espId: "1", name: "A" });
+    missing[10] = undefined;
+    expect(cleanRow(missing).skip).toBe("low-vendor-rating");
+  });
+
+  it("always excludes supplier asi/38120 (Ball Pro), however well rated", () => {
+    expect(
+      cleanRow(mk({ espId: "1", name: "A", asi: "asi/38120", rating: 5, reviews: 999 })).skip
+    ).toBe("excluded-supplier");
+  });
+
+  it("runs before every other check", () => {
+    const bad = mk({ espId: "", name: "", tag: "nope", rating: 3, reviews: 1 });
+    expect(cleanRow(bad).skip).toBe("low-vendor-rating");
+    const excluded = mk({ espId: "", name: "", tag: "nope", asi: "asi/38120" });
+    expect(cleanRow(excluded).skip).toBe("excluded-supplier");
+  });
+});
+
+describe("vendor score and ranking", () => {
+  it("is the bayesian average toward 4.0 with weight 10", () => {
+    expect(vendorScore(5, 10)).toBeCloseTo((5 * 10 + 4 * 10) / 20, 10);
+    expect(vendorScore(4.5, 90)).toBeCloseTo((4.5 * 90 + 40) / 100, 10);
+    // a perfect rating on few reviews loses to a slightly lower one on many
+    expect(vendorScore(5, 10)).toBeLessThan(vendorScore(4.8, 400));
+  });
+
+  it("breaks ties by reviews, then colors, then first-tier price, then espId", () => {
+    const base = (over: object) => ({
+      espId: "100",
+      vendor: { rating: 4.8, reviews: 100 },
+      product: { colors: ["a"], tiers: [[1, 10]] },
+      ...over,
+    });
+    // equal score (same rating+reviews): colors decide
+    expect(
+      compareCandidates(
+        base({ product: { colors: ["a", "b"], tiers: [[1, 10]] } }) as never,
+        base({}) as never
+      )
+    ).toBeLessThan(0);
+    // then lower price
+    expect(
+      compareCandidates(
+        base({ product: { colors: ["a"], tiers: [[1, 9]] } }) as never,
+        base({}) as never
+      )
+    ).toBeLessThan(0);
+    // then smaller espId
+    expect(compareCandidates(base({ espId: "099" }) as never, base({}) as never)).toBeLessThan(0);
+    expect(compareCandidates(base({}) as never, base({}) as never)).toBe(0);
+  });
+});
+
+describe("duplicate detection", () => {
+  it("does not merge a single item with a bundled set (verified Jaccard < 0.75)", () => {
+    expect(isDuplicateName("Pickleball Paddle", "Pickleball Paddle Set with balls and bag")).toBe(
+      false
+    );
+  });
+
+  it("keeps different sizes separate", () => {
+    expect(isDuplicateName("30 oz Tumbler", "20 oz Tumbler")).toBe(false);
+    expect(isDuplicateName("Stainless Steel Tumbler 30 oz", "Stainless Steel Tumbler 20 oz")).toBe(
+      false
+    );
+  });
+
+  it("keeps gender / sleeve-length variants separate even in long names", () => {
+    expect(
+      isDuplicateName(
+        "Port Authority Short Sleeve Easy Care Shirt",
+        "Port Authority Long Sleeve Easy Care Shirt"
+      )
+    ).toBe(false);
+    expect(
+      isDuplicateName(
+        "Brand Dri Fit Moisture Wicking Performance Polo Shirt Mens",
+        "Brand Dri Fit Moisture Wicking Performance Polo Shirt Womens"
+      )
+    ).toBe(false);
+  });
+
+  it("merges the same item despite filler, plurals, units spacing and trademark marks", () => {
+    expect(
+      isDuplicateName("Custom Logo 16oz Stainless Steel Tumblers", "16 oz. Stainless Steel Tumbler")
+    ).toBe(true);
+    expect(isDuplicateName("Men's Polo Shirt, Classic Fit", "Mens Polo Shirts Classic Fit")).toBe(
+      true
+    );
+    expect(isDuplicateName("Nike® Dri-FIT™ Polo", "NIKE Dri FIT Polo")).toBe(true);
+    expect(isDuplicateName("Premium Quality Mug", "Mug")).toBe(true);
+  });
+
+  it("tokenizes: drops filler, keeps numbers and units, stems plurals", () => {
+    expect([...significantTokens("The New Custom 20 oz. Water Bottles w/ Lid")].sort()).toEqual([
+      "20",
+      "bottle",
+      "lid",
+      "oz",
+      "water",
+    ]);
+  });
+});
+
+describe("one row kept per duplicate cluster", () => {
+  const NAME = "Stainless Steel Insulated Tumbler 20 oz";
+
+  it("keeps the best-scoring vendor's row across vendors", () => {
+    const rows = [
+      mk({ espId: "1001", name: NAME, asi: "asi/1", rating: 4.6, reviews: 20, price: 5 }),
+      mk({ espId: "1002", name: NAME, asi: "asi/2", rating: 4.9, reviews: 300, price: 9 }),
+      mk({ espId: "1003", name: NAME + " Custom", asi: "asi/3", rating: 5, reviews: 10 }),
+    ];
+    const { items, clusters, skipped } = buildCatalog(rows);
+    expect(items).toHaveLength(1);
+    expect(items[0].link.espId).toBe("1002");
+    expect(clusters).toHaveLength(1);
+    expect(clusters[0].kept.espId).toBe("1002");
+    expect(clusters[0].dropped.map((d) => d.reason)).toEqual([
+      "duplicate-other-vendor",
+      "duplicate-other-vendor",
+    ]);
+    expect(skipped["duplicate-other-vendor"]).toBe(2);
+  });
+
+  it("within one vendor prefers more colors, then the lower first-tier price", () => {
+    const rows = [
+      mk({ espId: "2001", name: NAME, colors: ["a"], price: 3 }),
+      mk({ espId: "2002", name: NAME, colors: ["a", "b", "c"], price: 8 }),
+      mk({ espId: "2003", name: NAME, colors: ["a", "b", "c"], price: 7 }),
+    ];
+    const { items, skipped } = buildCatalog(rows);
+    expect(items.map((i) => i.link.espId)).toEqual(["2003"]);
+    expect(skipped["duplicate-same-vendor"]).toBe(2);
+  });
+
+  it("merges via same espId or same supplier+productNo even with different names", () => {
+    const rows = [
+      mk({ espId: "3001", name: "Alpha Widget", productNo: "X1", supplier: "Co", asi: "asi/5" }),
+      mk({
+        espId: "3002",
+        name: "Totally Different Name",
+        productNo: "x1",
+        supplier: "co",
+        asi: "asi/5",
+      }),
+      mk({ espId: "3003", name: "Another Thing Entirely", tag: "bags" }),
+      mk({ espId: "3003", name: "Another Thing Entirely Again", tag: "gifts" }),
+    ];
+    expect(buildCatalog(rows).items).toHaveLength(2);
+  });
+
+  it("never keeps two rows from one cluster, and keeps separate products separate", () => {
+    const rows = [
+      mk({ espId: "4001", name: "Pickleball Paddle" }),
+      mk({ espId: "4002", name: "Pickleball Paddle Set with balls and bag" }),
+      mk({ espId: "4003", name: "30 oz Tumbler" }),
+      mk({ espId: "4004", name: "20 oz Tumbler" }),
+      mk({ espId: "4005", name: "30 oz Tumbler", asi: "asi/9" }),
+    ];
+    const { items, clusters } = buildCatalog(rows);
+    expect(items).toHaveLength(4);
+    expect(clusters).toHaveLength(1);
+    const kept = new Set(clusters.flatMap((c) => [c.kept, ...c.dropped]).map((m) => m.espId));
+    expect(kept).toEqual(new Set(["4003", "4005"]));
+  });
+
+  it("does not compare across categories", () => {
+    const rows = [
+      mk({ espId: "5001", name: "Classic Logo Cap", tag: "headwear" }),
+      mk({ espId: "5002", name: "Classic Logo Cap", tag: "apparel" }),
+    ];
+    expect(buildCatalog(rows).items).toHaveLength(2);
+  });
+
+  it("is order independent: same rows kept whatever the input order", () => {
+    const rows = [
+      mk({ espId: "6001", name: NAME, asi: "asi/1", rating: 4.6, reviews: 20 }),
+      mk({ espId: "6002", name: NAME, asi: "asi/2", rating: 4.9, reviews: 300 }),
+      mk({ espId: "6003", name: "Something Else Entirely" }),
+    ];
+    const keep = (r: unknown[]) =>
+      buildCatalog(r)
+        .items.map((i) => i.link.espId)
+        .sort();
+    expect(keep(rows)).toEqual(keep([...rows].reverse()));
+  });
+
+  it("falls back to the runner-up when the winner's image is rejected", () => {
+    const rows = [
+      mk({ espId: "7001", name: NAME, asi: "asi/1", rating: 4.6, reviews: 20 }),
+      mk({ espId: "7002", name: NAME, asi: "asi/2", rating: 4.9, reviews: 300 }),
+    ];
+    const { items, skipped } = buildCatalog(rows, { rejectedEspIds: ["7002"] });
+    expect(items.map((i) => i.link.espId)).toEqual(["7001"]);
+    expect(skipped["image-failed"]).toBe(1);
+  });
+
+  it("curated always wins, but only within the same category (or an exact name)", () => {
+    const curated = [
+      { id: "cur-tumbler", name: "Stainless Steel Insulated Tumbler 20 oz", category: "Drinkware" },
+    ];
+    const near = mk({ espId: "8001", name: "20 oz Stainless Steel Insulated Tumblers" });
+    const otherCat = mk({
+      espId: "8002",
+      name: "20 oz Stainless Steel Insulated Tumblers",
+      tag: "gifts",
+    });
+    const result = buildCatalog([near, otherCat], { curated });
+    expect(result.skipped["duplicate-of-curated"]).toBe(1);
+    expect(result.items.map((i) => i.link.espId)).toEqual(["8002"]);
+    expect(result.curatedDuplicates[0].curated).toBe(curated[0].name);
+    // curated ids are never reused
+    expect(result.items[0].id).not.toBe("cur-tumbler");
+  });
+});
+
+describe("orphan image cleanup", () => {
+  it("deletes only previously generated images that are no longer selected", async () => {
+    const dir = await fs.mkdtemp(path.join(os.tmpdir(), "catalog-orphans-"));
+    const touch = (name: string) => fs.writeFile(path.join(dir, name), "x");
+    await touch("old-item-11111.webp"); // generated earlier, no longer selected
+    await touch("kept-item-22222.webp"); // generated earlier, still selected
+    await touch("peter-millar-curated.webp"); // curated asset: never in the manifest
+    await touch("notes.txt");
+    const removed = await removeOrphanImages({
+      imagesDir: dir,
+      previousIds: ["old-item-11111", "kept-item-22222", "already-gone-33333", "../evil"],
+      selectedIds: ["kept-item-22222", "new-item-44444"],
+    });
+    expect(removed).toEqual(["old-item-11111"]);
+    expect((await fs.readdir(dir)).sort()).toEqual([
+      "kept-item-22222.webp",
+      "notes.txt",
+      "peter-millar-curated.webp",
+    ]);
+    await fs.rm(dir, { recursive: true, force: true });
   });
 });

@@ -19,6 +19,19 @@
  * @typedef {{ id: string, imgId: string, product: CleanProduct, link: EspLink }} CatalogItem
  */
 
+// ---- Tunable rules (change here) -------------------------------------------
+/** Vendor quality gate: a row is skipped unless BOTH minimums are met. */
+export const MIN_VENDOR_RATING = 4.5;
+export const MIN_VENDOR_REVIEWS = 10;
+/** Suppliers (ASI numbers) whose data is known to be broken; always skipped. */
+export const EXCLUDED_SUPPLIER_ASIS = ["asi/38120"]; // Ball Pro
+/** Bayesian vendor score = (rating*reviews + PRIOR_RATING*PRIOR_WEIGHT) / (reviews + PRIOR_WEIGHT). */
+export const VENDOR_PRIOR_RATING = 4.0;
+export const VENDOR_PRIOR_WEIGHT = 10;
+/** Two same-category products are duplicates at or above this token Jaccard. */
+export const DUPLICATE_JACCARD = 0.75;
+// -----------------------------------------------------------------------------
+
 export const MAX_NAME_LENGTH = 140;
 export const MAX_TIER_PRICE = 3000;
 export const MAX_COLORS = 30;
@@ -397,6 +410,8 @@ export function buildDescription({ rawDescription, colorCount, sizes, minQty, us
 }
 
 export const SKIP_REASONS = [
+  "excluded-supplier",
+  "low-vendor-rating",
   "malformed-row",
   "unknown-tag",
   "empty-name",
@@ -404,18 +419,174 @@ export const SKIP_REASONS = [
   "no-tiers",
   "price-too-high",
   "no-image",
-  "duplicate-espid",
-  "duplicate-supplier-productno",
-  "duplicate-of-curated",
-  "id-collision",
   "image-failed",
+  "duplicate-of-curated",
+  "duplicate-same-vendor",
+  "duplicate-other-vendor",
+  "id-collision",
 ];
+
+// ---- Vendor score -----------------------------------------------------------
+
+/** Bayesian-smoothed vendor rating: few reviews are pulled toward the prior. */
+export function vendorScore(rating, reviews) {
+  const r = Number(rating);
+  const n = Number(reviews);
+  if (!Number.isFinite(r) || !Number.isFinite(n) || n < 0) return -Infinity;
+  return (r * n + VENDOR_PRIOR_RATING * VENDOR_PRIOR_WEIGHT) / (n + VENDOR_PRIOR_WEIGHT);
+}
+
+/** True when the vendor passes the quality gate (rating AND review count). */
+export function passesVendorGate(rating, reviews) {
+  return Number(rating) >= MIN_VENDOR_RATING && Number(reviews) >= MIN_VENDOR_REVIEWS;
+}
+
+/**
+ * Ranking comparator: negative when `a` should be kept over `b`.
+ * Higher vendor score, more reviews, more colors, lower first-tier price,
+ * then lexicographically smaller espId (deterministic).
+ * @param {{ vendor: { rating: number, reviews: number }, product: CleanProduct, espId: string }} a
+ * @param {{ vendor: { rating: number, reviews: number }, product: CleanProduct, espId: string }} b
+ */
+export function compareCandidates(a, b) {
+  const sa = vendorScore(a.vendor.rating, a.vendor.reviews);
+  const sb = vendorScore(b.vendor.rating, b.vendor.reviews);
+  if (Math.abs(sa - sb) > 1e-9) return sb - sa;
+  if (a.vendor.reviews !== b.vendor.reviews) return b.vendor.reviews - a.vendor.reviews;
+  if (a.product.colors.length !== b.product.colors.length) {
+    return b.product.colors.length - a.product.colors.length;
+  }
+  const pa = a.product.tiers[0][1];
+  const pb = b.product.tiers[0][1];
+  if (pa !== pb) return pa - pb;
+  return a.espId < b.espId ? -1 : a.espId > b.espId ? 1 : 0;
+}
+
+// ---- Duplicate detection ----------------------------------------------------
+
+/** Marketing filler that never distinguishes one product from another. */
+export const NAME_STOPWORDS = new Set([
+  "the",
+  "a",
+  "an",
+  "with",
+  "w",
+  "and",
+  "for",
+  "of",
+  "in",
+  "new",
+  "custom",
+  "personalized",
+  "promotional",
+  "imprinted",
+  "logo",
+  "branded",
+  "popular",
+  "premium",
+  "quality",
+  "best",
+  "high",
+  "standard",
+  "deluxe",
+]);
+
+/**
+ * Tokens that flip what the product IS (gender, age group, sleeve length...).
+ * If two names differ by one of these they are never merged, even when the
+ * rest of a long name matches at >= DUPLICATE_JACCARD.
+ */
+export const DISCRIMINATOR_TOKENS = new Set([
+  "men",
+  "women",
+  "ladies",
+  "lady",
+  "youth",
+  "kid",
+  "boy",
+  "girl",
+  "toddler",
+  "infant",
+  "short",
+  "long",
+  "sleeveless",
+  "hooded",
+  "hoodie",
+  "quarter",
+  "full",
+  "half",
+  "mini",
+  "jumbo",
+]);
+
+/** Light singular stem: shirts -> shirt, batteries -> battery, glasses -> glass. */
+export function stemToken(token) {
+  if (token.length <= 3) return token;
+  if (token.endsWith("ies")) return `${token.slice(0, -3)}y`;
+  if (token.endsWith("sses")) return token.slice(0, -2);
+  if (/(ss|us|is)$/.test(token)) return token;
+  if (token.endsWith("s")) return token.slice(0, -1);
+  return token;
+}
+
+/**
+ * Significant-token set for duplicate comparison: lowercase, no (R)/(TM) or
+ * punctuation, filler dropped, numbers and units kept (split "16oz" -> "16",
+ * "oz" so spacing differences do not matter), light plural stem.
+ * @returns {Set<string>}
+ */
+export function significantTokens(name) {
+  const text = str(name)
+    .replace(/[®™©]/g, "")
+    .normalize("NFKD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase()
+    .replace(/['‘’`]/g, "")
+    .replace(/w\//g, " w ")
+    .replace(/(\d)([a-z])/g, "$1 $2")
+    .replace(/([a-z])(\d)/g, "$1 $2")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+  const tokens = new Set();
+  for (const raw of text.split(" ")) {
+    if (!raw || NAME_STOPWORDS.has(raw)) continue;
+    const stem = stemToken(raw);
+    if (NAME_STOPWORDS.has(stem)) continue;
+    tokens.add(stem);
+  }
+  return tokens;
+}
+
+export function jaccard(a, b) {
+  if (a.size === 0 || b.size === 0) return 0;
+  let inter = 0;
+  const [small, large] = a.size <= b.size ? [a, b] : [b, a];
+  for (const t of small) if (large.has(t)) inter++;
+  return inter / (a.size + b.size - inter);
+}
+
+/** Same-category duplicate test on two significant-token sets. */
+export function isDuplicateTokens(a, b) {
+  const min = Math.min(a.size, b.size);
+  const max = Math.max(a.size, b.size);
+  if (min === 0 || min / max < DUPLICATE_JACCARD) return false; // cannot reach the threshold
+  if (jaccard(a, b) < DUPLICATE_JACCARD) return false;
+  for (const t of a) if (!b.has(t) && (DISCRIMINATOR_TOKENS.has(t) || /\d/.test(t))) return false;
+  for (const t of b) if (!a.has(t) && (DISCRIMINATOR_TOKENS.has(t) || /\d/.test(t))) return false;
+  return true;
+}
+
+/** True when two product names (same category assumed) are duplicates. */
+export function isDuplicateName(nameA, nameB) {
+  return isDuplicateTokens(significantTokens(nameA), significantTokens(nameB));
+}
 
 /**
  * Clean ONE raw row. Returns { skip: reason } or
- * { product, link, imgId, espId } (id not yet assigned; see buildCatalog).
+ * { product, link, imgId, espId, vendor } (id not yet assigned; see buildCatalog).
+ * The vendor gate runs first, before any other check.
  * @param {unknown} row
- * @returns {{ skip: string, product?: undefined } | { skip?: undefined, espId: string, imgId: string, product: CleanProduct, link: EspLink }}
+ * @returns {{ skip: string, product?: undefined } | { skip?: undefined, espId: string, imgId: string, product: CleanProduct, link: EspLink, vendor: { key: string, rating: number, reviews: number } }}
  */
 export function cleanRow(row) {
   if (!Array.isArray(row)) return { skip: "malformed-row" };
@@ -430,12 +601,19 @@ export function cleanRow(row) {
     imgIdRaw,
     supplierRaw,
     asiRaw,
-    ,
-    ,
+    ratingRaw,
+    reviewsRaw,
     usaRaw,
     tagRaw,
     multiGridRaw,
   ] = row;
+
+  // 1) vendor quality gate -- before anything else
+  const asi = collapseWhitespace(asiRaw);
+  if (EXCLUDED_SUPPLIER_ASIS.includes(asi.toLowerCase())) return { skip: "excluded-supplier" };
+  const rating = Number(ratingRaw);
+  const reviews = Number(reviewsRaw);
+  if (!passesVendorGate(rating, reviews)) return { skip: "low-vendor-rating" };
 
   const espId = collapseWhitespace(espIdRaw);
   if (!espId || idSuffix(espId) === null) return { skip: "malformed-row" };
@@ -472,9 +650,11 @@ export function cleanRow(row) {
     multiGrid,
   });
 
+  const supplier = collapseWhitespace(supplierRaw);
   return {
     espId,
     imgId,
+    vendor: { key: (asi || supplier).toLowerCase(), rating, reviews },
     product: {
       name,
       category,
@@ -486,77 +666,191 @@ export function cleanRow(row) {
     },
     link: {
       espId,
-      supplier: collapseWhitespace(supplierRaw),
-      asi: collapseWhitespace(asiRaw),
+      supplier,
+      asi,
       productNo: collapseWhitespace(productNoRaw),
     },
   };
 }
 
 /**
- * Clean, validate and dedupe all raw rows (already concatenated in
+ * @typedef {{ espId: string, name: string, category: string, supplier: string, asi: string,
+ *   rating: number, reviews: number, score: number }} MemberInfo
+ */
+function memberInfo(c) {
+  return {
+    espId: c.espId,
+    name: c.product.name,
+    category: c.product.category,
+    supplier: c.link.supplier,
+    asi: c.link.asi,
+    rating: c.vendor.rating,
+    reviews: c.vendor.reviews,
+    score: Math.round(vendorScore(c.vendor.rating, c.vendor.reviews) * 1000) / 1000,
+  };
+}
+
+/**
+ * Clean, gate, dedupe and select all raw rows (already concatenated in
  * deterministic order). Pure and deterministic.
  *
+ * Order: vendor gate + row quality gates -> drop duplicates of curated items
+ * -> cluster the rest (same espId, same supplier+productNo, or same category
+ * with token Jaccard >= DUPLICATE_JACCARD) -> keep ONE row per cluster, from
+ * the best-scoring vendor. Output keeps raw row order.
+ *
  * @param {unknown[]} rows
- * @param {{ curatedNames?: string[], curatedIds?: string[] }} [opts]
+ * @param {{
+ *   curated?: { id: string, name: string, category?: string }[],
+ *   curatedNames?: string[], curatedIds?: string[],
+ *   rejectedEspIds?: Iterable<string>
+ * }} [opts] `rejectedEspIds`: rows whose image could not be fetched; excluded so a
+ *   runner-up from the same cluster is selected instead.
  * @returns {{
  *   items: CatalogItem[],
  *   skipped: Record<string, number>,
- *   skippedDetail: { reason: string, espId?: string, name?: string }[]
+ *   skippedDetail: { reason: string, espId?: string, name?: string }[],
+ *   clusters: { kept: MemberInfo, dropped: (MemberInfo & { reason: string })[] }[],
+ *   curatedDuplicates: { dropped: MemberInfo, curated: string }[]
  * }}
  */
 export function buildCatalog(rows, opts = {}) {
-  const curatedNames = new Set((opts.curatedNames ?? []).map(normalizeName));
-  const taken = new Map((opts.curatedIds ?? []).map((id) => [id, ""]));
-  const seenEsp = new Set();
-  const seenSupplierNo = new Set();
-  const items = [];
+  const curated = opts.curated ?? [...(opts.curatedNames ?? []).map((name) => ({ id: "", name }))];
+  const curatedIds = [...(opts.curatedIds ?? []), ...curated.map((c) => c.id).filter(Boolean)];
+  const curatedNorm = new Set(curated.map((c) => normalizeName(c.name)));
+  const curatedTokens = curated
+    .filter((c) => c.category)
+    .map((c) => ({ ...c, tokens: significantTokens(c.name) }));
+  const rejected = new Set(opts.rejectedEspIds ?? []);
+
   const skipped = {};
   const skippedDetail = [];
-
   const skip = (reason, extra = {}) => {
     skipped[reason] = (skipped[reason] ?? 0) + 1;
     skippedDetail.push({ reason, ...extra });
   };
 
+  // ---- 1) per-row cleaning and gates ---------------------------------------
+  /** @type {any[]} */
+  const candidates = [];
+  const curatedDuplicates = [];
   for (const row of rows) {
     const cleaned = cleanRow(row);
     if (cleaned.skip) {
       skip(cleaned.skip, { espId: Array.isArray(row) ? str(row[0]) : undefined });
       continue;
     }
-    const { espId, imgId, product, link } = cleaned;
-    const detail = { espId, name: product.name };
-
-    if (seenEsp.has(espId)) {
-      skip("duplicate-espid", detail);
+    const detail = { espId: cleaned.espId, name: cleaned.product.name };
+    if (rejected.has(cleaned.espId)) {
+      skip("image-failed", detail);
       continue;
     }
-    const supplierKey =
-      link.supplier && link.productNo
-        ? `${link.supplier.toLowerCase()}|${link.productNo.toLowerCase()}`
-        : null;
-    if (supplierKey && seenSupplierNo.has(supplierKey)) {
-      skip("duplicate-supplier-productno", detail);
-      continue;
+    // ---- 2) duplicates of curated products: curated always wins -------------
+    const norm = normalizeName(cleaned.product.name);
+    let curatedMatch = curatedNorm.has(norm)
+      ? curated.find((c) => normalizeName(c.name) === norm)
+      : undefined;
+    if (!curatedMatch) {
+      const tokens = significantTokens(cleaned.product.name);
+      curatedMatch = curatedTokens.find(
+        (c) => c.category === cleaned.product.category && isDuplicateTokens(tokens, c.tokens)
+      );
     }
-    if (curatedNames.has(normalizeName(product.name))) {
+    if (curatedMatch) {
       skip("duplicate-of-curated", detail);
+      curatedDuplicates.push({ dropped: memberInfo(cleaned), curated: curatedMatch.name });
       continue;
     }
-    const id = makeUniqueId(product.name, espId, taken);
-    if (!id) {
-      skip("id-collision", detail);
-      continue;
-    }
-
-    seenEsp.add(espId);
-    if (supplierKey) seenSupplierNo.add(supplierKey);
-    taken.set(id, espId);
-    items.push({ id, imgId, product, link });
+    candidates.push({
+      ...cleaned,
+      idx: candidates.length,
+      tokens: significantTokens(cleaned.product.name),
+    });
   }
 
-  return { items, skipped, skippedDetail };
+  // ---- 3) cluster (union-find) -----------------------------------------------
+  const parent = candidates.map((_, i) => i);
+  const find = (i) => {
+    while (parent[i] !== i) {
+      parent[i] = parent[parent[i]];
+      i = parent[i];
+    }
+    return i;
+  };
+  const union = (a, b) => {
+    const ra = find(a);
+    const rb = find(b);
+    if (ra !== rb) parent[Math.max(ra, rb)] = Math.min(ra, rb);
+  };
+  const byEsp = new Map();
+  const bySupplierNo = new Map();
+  const byCategory = new Map();
+  for (const c of candidates) {
+    if (byEsp.has(c.espId)) union(c.idx, byEsp.get(c.espId));
+    else byEsp.set(c.espId, c.idx);
+    if (c.link.supplier && c.link.productNo) {
+      const key = `${c.link.supplier.toLowerCase()}|${c.link.productNo.toLowerCase()}`;
+      if (bySupplierNo.has(key)) union(c.idx, bySupplierNo.get(key));
+      else bySupplierNo.set(key, c.idx);
+    }
+    const cat = c.product.category;
+    if (!byCategory.has(cat)) byCategory.set(cat, []);
+    byCategory.get(cat).push(c);
+  }
+  for (const list of byCategory.values()) {
+    for (let i = 0; i < list.length; i++) {
+      for (let j = i + 1; j < list.length; j++) {
+        if (
+          find(list[i].idx) !== find(list[j].idx) &&
+          isDuplicateTokens(list[i].tokens, list[j].tokens)
+        ) {
+          union(list[i].idx, list[j].idx);
+        }
+      }
+    }
+  }
+
+  const clusterMap = new Map();
+  for (const c of candidates) {
+    const root = find(c.idx);
+    if (!clusterMap.has(root)) clusterMap.set(root, []);
+    clusterMap.get(root).push(c);
+  }
+
+  // ---- 4) keep exactly one row per cluster ------------------------------------
+  const winners = [];
+  const clusters = [];
+  for (const members of clusterMap.values()) {
+    const ranked = [...members].sort(compareCandidates);
+    const winner = ranked[0];
+    winners.push(winner);
+    if (members.length > 1) {
+      const dropped = ranked.slice(1).map((m) => {
+        const sameVendor = m.vendor.key === winner.vendor.key;
+        const reason = sameVendor ? "duplicate-same-vendor" : "duplicate-other-vendor";
+        skip(reason, { espId: m.espId, name: m.product.name });
+        return { ...memberInfo(m), reason };
+      });
+      clusters.push({ kept: memberInfo(winner), dropped });
+    }
+  }
+  winners.sort((a, b) => a.idx - b.idx);
+  clusters.sort((a, b) => (a.kept.name < b.kept.name ? -1 : a.kept.name > b.kept.name ? 1 : 0));
+
+  // ---- 5) ids ---------------------------------------------------------------
+  const taken = new Map(curatedIds.map((id) => [id, ""]));
+  const items = [];
+  for (const w of winners) {
+    const id = makeUniqueId(w.product.name, w.espId, taken);
+    if (!id) {
+      skip("id-collision", { espId: w.espId, name: w.product.name });
+      continue;
+    }
+    taken.set(id, w.espId);
+    items.push({ id, imgId: w.imgId, product: w.product, link: w.link });
+  }
+
+  return { items, skipped, skippedDetail, clusters, curatedDuplicates };
 }
 
 /**
