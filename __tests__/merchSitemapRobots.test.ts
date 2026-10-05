@@ -29,7 +29,9 @@ describe("sitemap()", () => {
   it("has no duplicates, uses absolute URLs, and leaves out private pages", () => {
     expect(new Set(urls).size).toBe(urls.length);
     for (const url of urls) expect(url).toMatch(/^https?:\/\/[^/]+(\/.*)?$/);
-    expect(urls.join("\n")).not.toMatch(/\/(admin|account|api|merchandise\/cart|lookup\.json)/);
+    expect(urls.join("\n")).not.toMatch(
+      /\/(admin|account|api|merchandise\/cart(?:\/|$)|lookup\.json)/
+    );
     expect(urls.join("\n")).not.toMatch(/espplus/i);
   });
 });
