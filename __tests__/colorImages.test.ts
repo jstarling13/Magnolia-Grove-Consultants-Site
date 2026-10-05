@@ -4,9 +4,10 @@ import { describe, expect, it } from "vitest";
 import colorImageMap from "@/config/colorImages.json";
 import colorImagesExtra1 from "@/config/colorImages.extra1.json";
 import colorImagesExtra2 from "@/config/colorImages.extra2.json";
+import colorImagesExtra3 from "@/config/colorImages.extra3.json";
 import { products } from "@/config/merchandiseConfig";
 
-const entries = [colorImageMap, colorImagesExtra1, colorImagesExtra2].flatMap((map) =>
+const entries = [colorImageMap, colorImagesExtra1, colorImagesExtra2, colorImagesExtra3].flatMap((map) =>
   Object.entries(map as Record<string, Record<string, string>>)
 );
 
