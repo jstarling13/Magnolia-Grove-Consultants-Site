@@ -28,6 +28,8 @@ import type { ImprintArea, MerchPriceTier, MerchProduct } from "@/types";
 import colorImageMapJson from "./colorImages.json";
 import colorImagesExtra1 from "./colorImages.extra1.json";
 import colorImagesExtra2 from "./colorImages.extra2.json";
+import colorImagesExtra4 from "./colorImages.extra4.json";
+import colorImagesExtra5 from "./colorImages.extra5.json";
 import colorImagesExtra3 from "./colorImages.extra3.json";
 import importedProductsJson from "./importedProducts.json";
 import hiddenProductsJson from "./hiddenProducts.json";
@@ -83,6 +85,7 @@ export const merchandiseCategories = [
   "Seasonal & Holiday",
   "Kids & Toys",
   "Awards & Recognition",
+  "Print & Collateral",
 ] as const;
 
 // Real products sourced from live ESP+ search (espplus.com), September 2026.
@@ -1492,7 +1495,9 @@ const colorImageOverrides = mergeColorImageMaps(
   colorImageMapJson as ColorImageMap,
   colorImagesExtra1 as ColorImageMap,
   colorImagesExtra2 as ColorImageMap,
-  colorImagesExtra3 as ColorImageMap
+  colorImagesExtra3 as ColorImageMap,
+  colorImagesExtra4 as ColorImageMap,
+  colorImagesExtra5 as ColorImageMap
 );
 
 // Replacement main photos (productId -> /images/merch/alt/...), used when the supplier's
@@ -1617,6 +1622,8 @@ export const CATEGORY_IMPRINT_DEFAULTS: Record<string, ImprintArea> = {
   "Seasonal & Holiday": { top: 50, left: 50, width: 24 },
   "Kids & Toys": { top: 50, left: 50, width: 22 },
   "Awards & Recognition": { top: 50, left: 50, width: 30 },
+  // Printed pieces (door hangers, postcards, folders, magnets): logo centered and large.
+  "Print & Collateral": { top: 50, left: 50, width: 40 },
   // Boards, blankets, kits: centered, mid-size.
   "Gifts & Entertaining": { top: 50, left: 50, width: 22 },
   // Blades and handles are small and photographed at angles; keep it modest.

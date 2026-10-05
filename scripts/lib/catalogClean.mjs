@@ -61,6 +61,7 @@ export const TAG_TO_CATEGORY = {
   seasonal: "Seasonal & Holiday",
   kids: "Kids & Toys",
   awards: "Awards & Recognition",
+  print: "Print & Collateral",
   // legacy tags from the first scrape batch
   umbrellas: "Outdoor & Sports",
   golf: "Outdoor & Sports",

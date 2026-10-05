@@ -5,11 +5,18 @@ import colorImageMap from "@/config/colorImages.json";
 import colorImagesExtra1 from "@/config/colorImages.extra1.json";
 import colorImagesExtra2 from "@/config/colorImages.extra2.json";
 import colorImagesExtra3 from "@/config/colorImages.extra3.json";
+import colorImagesExtra4 from "@/config/colorImages.extra4.json";
+import colorImagesExtra5 from "@/config/colorImages.extra5.json";
 import { products } from "@/config/merchandiseConfig";
 
-const entries = [colorImageMap, colorImagesExtra1, colorImagesExtra2, colorImagesExtra3].flatMap((map) =>
-  Object.entries(map as Record<string, Record<string, string>>)
-);
+const entries = [
+  colorImageMap,
+  colorImagesExtra1,
+  colorImagesExtra2,
+  colorImagesExtra3,
+  colorImagesExtra4,
+  colorImagesExtra5,
+].flatMap((map) => Object.entries(map as Record<string, Record<string, string>>));
 
 describe("per-color photo data", () => {
   it("only references products that exist", () => {
