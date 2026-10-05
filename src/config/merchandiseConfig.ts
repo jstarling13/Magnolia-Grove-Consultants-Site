@@ -69,6 +69,7 @@ export const merchandiseCategories = [
   "Gifts & Entertaining",
   "Outdoor & Sports",
   "Health & Wellness",
+  "Home & Decor",
 ] as const;
 
 // Real products sourced from live ESP+ search (espplus.com), September 2026.
@@ -1545,6 +1546,8 @@ const CATEGORY_IMPRINT_DEFAULTS: Record<string, ImprintArea> = {
   "Outdoor & Sports": { top: 50, left: 50, width: 22 },
   // Bottles, kits, sanitizer, etc.: lower-center like drinkware, slightly smaller.
   "Health & Wellness": { top: 48, left: 50, width: 22 },
+  // Rugs and floor mats: the logo is printed large across the center.
+  "Home & Decor": { top: 50, left: 50, width: 40 },
 };
 
 const FALLBACK_IMPRINT: ImprintArea = { top: 50, left: 50, width: 22 };

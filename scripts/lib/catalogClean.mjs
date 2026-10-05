@@ -51,6 +51,7 @@ export const TAG_TO_CATEGORY = {
   tools: "Knives & Tools",
   outdoor: "Outdoor & Sports",
   wellness: "Health & Wellness",
+  home: "Home & Decor",
   // legacy tags from the first scrape batch
   umbrellas: "Outdoor & Sports",
   golf: "Outdoor & Sports",
