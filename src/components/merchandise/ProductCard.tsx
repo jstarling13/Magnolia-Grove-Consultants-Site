@@ -4,6 +4,7 @@ import { memo, useState } from "react";
 import Link from "next/link";
 import ColorSwatches from "@/components/merchandise/ColorSwatches";
 import ProductImageWithLogo from "@/components/merchandise/ProductImageWithLogo";
+import { trackSelectItem } from "@/lib/merchAnalytics";
 import {
   bestTier,
   formatPrice,
@@ -59,6 +60,7 @@ function ProductCard({ product, priority = false, compact = false }: ProductCard
           <Link
             href={`${detailHref}${colorQuery}`}
             title={product.name}
+            onClick={() => trackSelectItem(product, { color: selectedColor, related: compact })}
             className="after:absolute after:inset-0 after:rounded-lg focus-visible:outline-none focus-visible:after:ring-2 focus-visible:after:ring-gold-dark"
           >
             {product.name}

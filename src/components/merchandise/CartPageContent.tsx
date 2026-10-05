@@ -1,6 +1,14 @@
 "use client";
 
-import { useId, useMemo, useState, type ChangeEvent, type FormEvent } from "react";
+import {
+  useEffect,
+  useId,
+  useMemo,
+  useRef,
+  useState,
+  type ChangeEvent,
+  type FormEvent,
+} from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Loader2 } from "lucide-react";
@@ -14,6 +22,13 @@ import {
   type CartPricingProduct,
   type ProductPricingSummary,
 } from "@/lib/cartPricing";
+import {
+  trackBeginCheckout,
+  trackGenerateLead,
+  trackRemoveFromCart,
+  trackViewCart,
+  type CartEventLine,
+} from "@/lib/merchAnalytics";
 import { formatPrice, isRealBrand, normalizeColors, type CatalogProduct } from "@/lib/merchCatalog";
 import Turnstile from "@/components/Turnstile";
 
@@ -145,6 +160,47 @@ export default function CartPageContent({
     [lines]
   );
   const subtotal = cart.subtotal;
+  const eventLines = useMemo<CartEventLine[]>(
+    () =>
+      groups.flatMap((group) =>
+        group.lines.map((line) => ({
+          product: group.product,
+          color: line.color,
+          quantity: line.item.quantity,
+          unitPrice: line.unitPrice,
+        }))
+      ),
+    [groups]
+  );
+  const viewedCart = useRef(false);
+  const startedCheckout = useRef(false);
+
+  // The cart loads from localStorage after mount, so wait for the first non-empty cart.
+  useEffect(() => {
+    if (viewedCart.current || eventLines.length === 0) return;
+    viewedCart.current = true;
+    trackViewCart(eventLines, subtotal);
+  }, [eventLines, subtotal]);
+
+  function handleFormFocus() {
+    if (startedCheckout.current) return;
+    startedCheckout.current = true;
+    trackBeginCheckout(eventLines, subtotal);
+  }
+
+  function handleRemove(productId: string, color?: string) {
+    const group = groups.find((entry) => entry.product.id === productId);
+    const line = group?.lines.find((entry) => entry.item.color === color);
+    if (group && line) {
+      trackRemoveFromCart({
+        product: group.product,
+        color: line.color,
+        quantity: line.item.quantity,
+        unitPrice: line.unitPrice,
+      });
+    }
+    removeItem(productId, color);
+  }
   const belowMinimumGroups = groups.filter((group) => group.summary.belowMinimum);
   const linesNeedingColor = lines.filter((line) => line.needsColor);
   const blockedReason =
@@ -198,6 +254,7 @@ export default function CartPageContent({
       setOrderRef(typeof data.orderRef === "string" ? data.orderRef : "");
       setConfirmationEmailed(data.confirmationEmailed === true);
       setStatus("success");
+      trackGenerateLead(eventLines, subtotal);
       clear();
       setFields(initialFields);
     } catch {
@@ -269,7 +326,7 @@ export default function CartPageContent({
                     <CartProductGroup
                       group={group}
                       onQuantity={updateQuantity}
-                      onRemove={removeItem}
+                      onRemove={handleRemove}
                       onChooseColor={changeColor}
                     />
                   </li>
@@ -300,6 +357,7 @@ export default function CartPageContent({
               <form
                 noValidate
                 onSubmit={handleSubmit}
+                onFocus={handleFormFocus}
                 className="relative mt-10 rounded-lg border border-gold/25 bg-cream-100/85 p-6 sm:p-10"
               >
                 <h2 className="text-xl text-onyx">Submit Your Order Request</h2>

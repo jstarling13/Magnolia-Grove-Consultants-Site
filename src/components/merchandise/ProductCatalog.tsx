@@ -5,6 +5,7 @@ import Link from "next/link";
 import ProductCard from "@/components/merchandise/ProductCard";
 import LogoDropzone from "@/components/merchandise/LogoDropzone";
 import RecentlyViewed from "@/components/merchandise/RecentlyViewed";
+import { useMerchBrowseAnalytics } from "@/hooks/useMerchBrowseAnalytics";
 import { categoryPath } from "@/lib/merchSlug";
 import {
   FOCUSED_INITIAL_VISIBLE,
@@ -159,6 +160,11 @@ export default function ProductCatalog({ products, categories }: ProductCatalogP
   const hasFilters = category !== ALL || brand !== ALL || query !== "" || queryInput !== "";
   const initialVisible = category === ALL ? INITIAL_VISIBLE : FOCUSED_INITIAL_VISIBLE;
   const visibleCounts = disclosure.key === filterKey ? disclosure.counts : {};
+  useMerchBrowseAnalytics(
+    category === ALL ? "All products" : category,
+    () => groups.flatMap((group) => group.items.slice(0, initialVisible)),
+    query
+  );
 
   const setVisible = useCallback(
     (name: string, count: number) =>

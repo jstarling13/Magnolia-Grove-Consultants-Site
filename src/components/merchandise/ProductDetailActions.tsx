@@ -6,6 +6,7 @@ import { useCart } from "@/components/merchandise/CartContext";
 import { useProductSelection } from "@/components/merchandise/ProductSelectionContext";
 import { cleanColorName } from "@/lib/colorSwatches";
 import { lineTotal as priceLine, minimumOrderQuantity } from "@/lib/cartPricing";
+import { trackAddToCart, trackViewItem } from "@/lib/merchAnalytics";
 import { formatPrice, nextTier, tierForQuantity, type CatalogProduct } from "@/lib/merchCatalog";
 
 export default function ProductDetailActions({ product }: { product: CatalogProduct }) {
@@ -30,6 +31,10 @@ export default function ProductDetailActions({ product }: { product: CatalogProd
   const upcomingTier = useMemo(() => nextTier(product, combined), [product, combined]);
   const lineTotal = priceLine(activeTier.price, quantity);
 
+  useEffect(() => {
+    trackViewItem(product);
+  }, [product]);
+
   // Picking a different color starts a new add, so drop the old confirmation.
   useEffect(() => {
     setAdded(null);
@@ -44,6 +49,7 @@ export default function ProductDetailActions({ product }: { product: CatalogProd
   function handleAddToCart() {
     if (!requireColor()) return;
     addItem(product.id, quantity, selectedColor);
+    trackAddToCart({ product, color: selectedColor, quantity, unitPrice: activeTier.price });
     setAdded({ color: selectedColor, quantity });
   }
 
