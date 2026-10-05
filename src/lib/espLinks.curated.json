@@ -1,1 +1,32 @@
-{}
+{
+  "nike-dri-fit-polo": {
+    "espId": "553421569",
+    "supplier": "SanMar",
+    "asi": "asi/84863",
+    "productNo": "NKDC1963"
+  },
+  "nike-therma-fit-quarter-zip-fleece": {
+    "espId": "554016857",
+    "supplier": "SanMar",
+    "asi": "asi/84863",
+    "productNo": "CN9492"
+  },
+  "adidas-performance-polo-mens": {
+    "espId": "552068896",
+    "supplier": "S&S Activewear",
+    "asi": "asi/84358",
+    "productNo": "A230"
+  },
+  "adidas-performance-polo-womens": {
+    "espId": "552068897",
+    "supplier": "S&S Activewear",
+    "asi": "asi/84358",
+    "productNo": "A231"
+  },
+  "adidas-ultimate365-quarter-zip-mens": {
+    "espId": "552372098",
+    "supplier": "S&S Activewear",
+    "asi": "asi/84358",
+    "productNo": "A401"
+  }
+}

@@ -1,1 +1,75 @@
-{}
+{
+  "nike-dri-fit-polo": {
+    "Anthracite": "/images/merch/colors/nike-dri-fit-polo-anthracite.webp",
+    "Black": "/images/merch/colors/nike-dri-fit-polo-black.webp",
+    "Blue Tint": "/images/merch/colors/nike-dri-fit-polo-blue-tint.webp",
+    "Brilliant Orange": "/images/merch/colors/nike-dri-fit-polo-brilliant-orange.webp",
+    "Cool Grey": "/images/merch/colors/nike-dri-fit-polo-cool-grey.webp",
+    "Court Purple": "/images/merch/colors/nike-dri-fit-polo-court-purple.webp",
+    "Game Royal": "/images/merch/colors/nike-dri-fit-polo-game-royal.webp",
+    "Gorge Green": "/images/merch/colors/nike-dri-fit-polo-gorge-green.webp",
+    "Gym Blue": "/images/merch/colors/nike-dri-fit-polo-gym-blue.webp",
+    "Lucid Green": "/images/merch/colors/nike-dri-fit-polo-lucid-green.webp",
+    "Mint": "/images/merch/colors/nike-dri-fit-polo-mint.webp",
+    "Navy": "/images/merch/colors/nike-dri-fit-polo-navy.webp",
+    "Team Red": "/images/merch/colors/nike-dri-fit-polo-team-red.webp",
+    "Tidal Blue": "/images/merch/colors/nike-dri-fit-polo-tidal-blue.webp",
+    "University Red": "/images/merch/colors/nike-dri-fit-polo-university-red.webp",
+    "Urban Lilac": "/images/merch/colors/nike-dri-fit-polo-urban-lilac.webp",
+    "Valor Blue": "/images/merch/colors/nike-dri-fit-polo-valor-blue.webp",
+    "Varsity Maize": "/images/merch/colors/nike-dri-fit-polo-varsity-maize.webp",
+    "Vivid Pink": "/images/merch/colors/nike-dri-fit-polo-vivid-pink.webp",
+    "White": "/images/merch/colors/nike-dri-fit-polo-white.webp"
+  },
+  "nike-therma-fit-quarter-zip-fleece": {
+    "Team Anthracite": "/images/merch/colors/nike-therma-fit-quarter-zip-fleece-team-anthracite.webp",
+    "Team Black": "/images/merch/colors/nike-therma-fit-quarter-zip-fleece-team-black.webp",
+    "Team Dark Green": "/images/merch/colors/nike-therma-fit-quarter-zip-fleece-team-dark-green.webp",
+    "Team Navy": "/images/merch/colors/nike-therma-fit-quarter-zip-fleece-team-navy.webp",
+    "Team Royal": "/images/merch/colors/nike-therma-fit-quarter-zip-fleece-team-royal.webp",
+    "Team Scarlet": "/images/merch/colors/nike-therma-fit-quarter-zip-fleece-team-scarlet.webp"
+  },
+  "adidas-performance-polo-mens": {
+    "Black": "/images/merch/colors/adidas-performance-polo-mens-black.webp",
+    "Collegiate Green": "/images/merch/colors/adidas-performance-polo-mens-collegiate-green.webp",
+    "Collegiate Red": "/images/merch/colors/adidas-performance-polo-mens-collegiate-red.webp",
+    "Collegiate Royal": "/images/merch/colors/adidas-performance-polo-mens-collegiate-royal.webp",
+    "Grey Three": "/images/merch/colors/adidas-performance-polo-mens-grey-three.webp",
+    "Navy": "/images/merch/colors/adidas-performance-polo-mens-navy.webp",
+    "White": "/images/merch/colors/adidas-performance-polo-mens-white.webp",
+    "Collegiate Gold": "/images/merch/colors/adidas-performance-polo-mens-collegiate-gold.webp",
+    "Collegiate Purple": "/images/merch/colors/adidas-performance-polo-mens-collegiate-purple.webp",
+    "Maroon": "/images/merch/colors/adidas-performance-polo-mens-maroon.webp",
+    "Orange": "/images/merch/colors/adidas-performance-polo-mens-orange.webp",
+    "Bliss Pink": "/images/merch/colors/adidas-performance-polo-mens-bliss-pink.webp",
+    "Clear Mint": "/images/merch/colors/adidas-performance-polo-mens-clear-mint.webp",
+    "Team Light Blue": "/images/merch/colors/adidas-performance-polo-mens-team-light-blue.webp"
+  },
+  "adidas-performance-polo-womens": {
+    "Black": "/images/merch/colors/adidas-performance-polo-womens-black.webp",
+    "Collegiate Red": "/images/merch/colors/adidas-performance-polo-womens-collegiate-red.webp",
+    "Collegiate Royal": "/images/merch/colors/adidas-performance-polo-womens-collegiate-royal.webp",
+    "Grey Three": "/images/merch/colors/adidas-performance-polo-womens-grey-three.webp",
+    "Navy": "/images/merch/colors/adidas-performance-polo-womens-navy.webp",
+    "White": "/images/merch/colors/adidas-performance-polo-womens-white.webp",
+    "Collegiate Purple": "/images/merch/colors/adidas-performance-polo-womens-collegiate-purple.webp",
+    "Maroon": "/images/merch/colors/adidas-performance-polo-womens-maroon.webp",
+    "Collegiate Green": "/images/merch/colors/adidas-performance-polo-womens-collegiate-green.webp",
+    "Bliss Pink": "/images/merch/colors/adidas-performance-polo-womens-bliss-pink.webp",
+    "Clear Mint": "/images/merch/colors/adidas-performance-polo-womens-clear-mint.webp",
+    "Team Light Blue": "/images/merch/colors/adidas-performance-polo-womens-team-light-blue.webp"
+  },
+  "adidas-ultimate365-quarter-zip-mens": {
+    "Black": "/images/merch/colors/adidas-ultimate365-quarter-zip-mens-black.webp",
+    "Black Heather": "/images/merch/colors/adidas-ultimate365-quarter-zip-mens-black-heather.webp",
+    "Collegiate Navy": "/images/merch/colors/adidas-ultimate365-quarter-zip-mens-collegiate-navy.webp",
+    "Collegiate Royal": "/images/merch/colors/adidas-ultimate365-quarter-zip-mens-collegiate-royal.webp",
+    "Grey Three": "/images/merch/colors/adidas-ultimate365-quarter-zip-mens-grey-three.webp",
+    "Power Red": "/images/merch/colors/adidas-ultimate365-quarter-zip-mens-power-red.webp",
+    "White": "/images/merch/colors/adidas-ultimate365-quarter-zip-mens-white.webp",
+    "Blue Fusion": "/images/merch/colors/adidas-ultimate365-quarter-zip-mens-blue-fusion.webp",
+    "Collegiate Green": "/images/merch/colors/adidas-ultimate365-quarter-zip-mens-collegiate-green.webp",
+    "Grey Three Melange": "/images/merch/colors/adidas-ultimate365-quarter-zip-mens-grey-three-melange.webp",
+    "Onix": "/images/merch/colors/adidas-ultimate365-quarter-zip-mens-onix.webp"
+  }
+}
