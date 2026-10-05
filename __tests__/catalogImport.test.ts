@@ -1069,3 +1069,15 @@ describe("keepApart", () => {
     expect(ids.has(MAT_B)).toBe(true);
   });
 });
+
+describe("vendor discount badges in descriptions", () => {
+  it("strips 'Value Discount on First Order' and 'Percentage Discount' labels but keeps the real description", async () => {
+    const { cleanDescriptionText } = await import("../scripts/lib/catalogClean.mjs");
+    expect(cleanDescriptionText("Value Discount on First Order Welcome Entrance Doormat.")).toBe(
+      "Welcome Entrance Doormat."
+    );
+    expect(
+      cleanDescriptionText("Percentage Discount Men's polyester pique knit polo shirts.")
+    ).toBe("Men's polyester pique knit polo shirts.");
+  });
+});

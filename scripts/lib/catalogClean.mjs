@@ -251,6 +251,7 @@ const SALE_GUARD = "(?:yard|garage|bake|estate|rummage|craft|point[- ]of|bill of
  */
 const PROMO_PATTERNS = [
   /\bfixed[\s-]+amount[\s-]+discount\b/i,
+  /\b(?:percentage|value)[\s-]+discount(?:[\s-]+on[\s-]+first[\s-]+order)?\b/i,
   /\b\d+(?:\.\d+)?\s*%\s*off\b/i,
   /%\s*off\b/i,
   /\blimited[\s-]+time\b/i,
@@ -495,7 +496,7 @@ const IMPRINT_CONTEXT =
  */
 export function stripLeadingPromoLabels(text) {
   const label =
-    /^(?:fixed[\s-]+amount[\s-]+discount|on\s+sale|sale|\d+(?:\.\d+)?\s*%\s*off|limited[\s-]+time(?:\s+(?:offer|only|deal))?|free\s+shipping)\b[\s!:.\-\u2013\u2014]*/i;
+    /^(?:fixed[\s-]+amount[\s-]+discount|(?:percentage|value)[\s-]+discount(?:[\s-]+on[\s-]+first[\s-]+order)?|on\s+sale|sale|\d+(?:\.\d+)?\s*%\s*off|limited[\s-]+time(?:\s+(?:offer|only|deal))?|free\s+shipping)\b[\s!:.\-\u2013\u2014]*/i;
   let out = str(text).trim();
   for (let i = 0; i < 4 && label.test(out); i++) {
     const rest = out.replace(label, "").trimStart();

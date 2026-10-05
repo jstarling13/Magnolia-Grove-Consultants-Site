@@ -26,7 +26,7 @@ const configSource = readFileSync(
   "utf8"
 );
 
-const PRICED_AT = /\. Priced at (\d+) units?\.$/;
+const PRICED_AT = /[.!?] Priced at (\d+) units?\.$/;
 const COLOR_DEBRIS = /show\s+(more|less)/i;
 const IMAGE_EXT = /\.(webp|jpe?g|png)$/i;
 
@@ -193,7 +193,10 @@ describe("catalog integrity", () => {
   it("does not claim a color count that disagrees with the colors list", () => {
     expectNone(
       violations((p) => {
-        const claim = p.description.match(/\b(\d+)[ -]colou?rs?\b/i);
+        // "4 color process imprint" describes the print method, not the product's color options.
+        const claim = p.description.match(
+          /\b(\d+)[ -]colou?rs?\b(?!\s*(?:process|imprint|print|logo|ink|screen|decoration|stitch|embroider))/i
+        );
         if (!claim) return null;
         const actual = p.colors?.length ?? 0;
         return Number(claim[1]) === actual ? null : `says ${claim[1]} colors but lists ${actual}`;
