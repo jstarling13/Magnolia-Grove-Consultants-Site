@@ -22,9 +22,11 @@ interface ProductCardProps {
   product: CatalogProduct;
   /** First visible row: load eagerly so it counts toward LCP. */
   priority?: boolean;
+  /** Smaller card for rows such as "More in <category>": no blurb or swatches. */
+  compact?: boolean;
 }
 
-function ProductCard({ product, priority = false }: ProductCardProps) {
+function ProductCard({ product, priority = false, compact = false }: ProductCardProps) {
   const [selectedColor, setSelectedColor] = useState<string | undefined>(undefined);
 
   const first = startingTier(product);
@@ -63,26 +65,32 @@ function ProductCard({ product, priority = false }: ProductCardProps) {
           </Link>
         </h3>
 
-        <p className="mt-1.5 line-clamp-2 min-h-[2.5rem] text-sm leading-5 text-onyx/60">
-          {product.description}
-        </p>
+        {!compact && (
+          <>
+            <p className="mt-1.5 line-clamp-2 min-h-[2.5rem] text-sm leading-5 text-onyx/60">
+              {product.description}
+            </p>
 
-        {/* Fixed-height slot: cards with no colors keep the same height. */}
-        <div className="relative z-10 mt-3 min-h-[3.25rem]">
-          {colors.length > 0 && (
-            <ColorSwatches
-              colors={colors}
-              max={CARD_SWATCH_LIMIT}
-              size="sm"
-              showLabel
-              selected={selectedColor}
-              onSelect={(color) => setSelectedColor((prev) => (prev === color ? undefined : color))}
-              moreHref={`${detailHref}#colors`}
-            />
-          )}
-        </div>
+            {/* Fixed-height slot: cards with no colors keep the same height. */}
+            <div className="relative z-10 mt-3 min-h-[3.25rem]">
+              {colors.length > 0 && (
+                <ColorSwatches
+                  colors={colors}
+                  max={CARD_SWATCH_LIMIT}
+                  size="sm"
+                  showLabel
+                  selected={selectedColor}
+                  onSelect={(color) =>
+                    setSelectedColor((prev) => (prev === color ? undefined : color))
+                  }
+                  moreHref={`${detailHref}#colors`}
+                />
+              )}
+            </div>
+          </>
+        )}
 
-        <div className="mt-auto border-t border-gold/15 pt-3">
+        <div className={`${compact ? "mt-3" : "mt-auto"} border-t border-gold/15 pt-3`}>
           <p className="flex flex-wrap items-baseline gap-x-1.5 text-xs text-onyx/50">
             {product.tiers.length > 1 && <span>From</span>}
             <span className="font-heading text-xl font-bold text-onyx">

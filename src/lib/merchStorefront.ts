@@ -13,7 +13,9 @@ import {
   merchandiseCategories,
   products,
 } from "@/config/merchandiseConfig";
-import { toCatalogProduct, type CatalogProduct } from "@/lib/merchCatalog";
+import { startingTier, toCatalogProduct, type CatalogProduct } from "@/lib/merchCatalog";
+import { selectRelated } from "@/lib/merchRelated";
+import { findCategoryBySlug } from "@/lib/merchSlug";
 
 export interface StorefrontCatalog {
   /** Categories that currently have products, in display order. */
@@ -49,5 +51,75 @@ export function getStorefrontProduct(id: string): CatalogProduct | undefined {
 export function getCartCatalog(): CatalogProduct[] {
   return products.map((product) =>
     toCatalogProduct({ ...product, description: "" }, getImprintArea(product))
+  );
+}
+
+/** Categories that currently have products, in display order. */
+export function getStorefrontCategories(): string[] {
+  return merchandiseCategories.filter((category) =>
+    products.some((product) => product.category === category)
+  );
+}
+
+/** Card-sized products of one category slug, or undefined for an unknown slug. */
+export function getCategoryCatalog(
+  slug: string
+): { category: string; products: CatalogProduct[] } | undefined {
+  const category = findCategoryBySlug(slug, getStorefrontCategories());
+  if (!category) return undefined;
+  const group = groupByCategory(products.filter((product) => product.category === category))[0];
+  return {
+    category,
+    products: group.items.map((product) =>
+      toCatalogProduct(product, getImprintArea(product), { truncateDescription: true })
+    ),
+  };
+}
+
+/**
+ * "More in <category>": up to four other products from the same category,
+ * as card-sized products. Only the chosen few are returned, so the rest of
+ * the catalog never reaches the browser.
+ */
+export function getRelatedProducts(id: string): CatalogProduct[] {
+  const current = getProductById(id);
+  if (!current) return [];
+  const sameCategory = products
+    .filter((product) => product.category === current.category)
+    .map((product) =>
+      toCatalogProduct(product, getImprintArea(product), { truncateDescription: true })
+    );
+  return selectRelated(
+    toCatalogProduct(current, getImprintArea(current), { truncateDescription: true }),
+    sameCategory
+  );
+}
+
+export interface RecentLookupEntry {
+  id: string;
+  name: string;
+  image?: string;
+  startingPrice: number;
+}
+
+/**
+ * Minimal id -> display lookup for the "Recently viewed" strip. Served as a
+ * static JSON file and fetched only when the shopper has history, which
+ * keeps the full catalog out of every page's payload.
+ */
+export function getRecentLookup(): Record<string, RecentLookupEntry> {
+  return Object.fromEntries(
+    products.map((product) => {
+      const slim = toCatalogProduct({ ...product, description: "" }, getImprintArea(product));
+      return [
+        slim.id,
+        {
+          id: slim.id,
+          name: slim.name,
+          ...(slim.image && { image: slim.image }),
+          startingPrice: startingTier(slim).price,
+        },
+      ];
+    })
   );
 }

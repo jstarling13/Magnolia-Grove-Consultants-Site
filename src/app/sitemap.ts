@@ -1,7 +1,9 @@
 import type { MetadataRoute } from "next";
+import { products } from "@/config/merchandiseConfig";
 import { pillars } from "@/config/pillarsConfig";
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://magnolia-grove-consultants.vercel.app";
+import { buildMerchSitemapEntries } from "@/lib/merchSeo";
+import { getStorefrontCategories } from "@/lib/merchStorefront";
+import { getSiteUrl } from "@/lib/siteUrl";
 
 const staticRoutes = [
   "",
@@ -16,6 +18,7 @@ const staticRoutes = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const siteUrl = getSiteUrl();
   const now = new Date();
 
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
@@ -32,5 +35,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticEntries, ...pillarEntries];
+  const merchEntries = buildMerchSitemapEntries(
+    siteUrl,
+    getStorefrontCategories(),
+    products.map((product) => product.id),
+    now
+  );
+
+  return [...staticEntries, ...pillarEntries, ...merchEntries];
 }
