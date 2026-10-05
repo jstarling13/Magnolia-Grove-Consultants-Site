@@ -1,8 +1,11 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import ProductCard from "@/components/merchandise/ProductCard";
 import LogoDropzone from "@/components/merchandise/LogoDropzone";
+import RecentlyViewed from "@/components/merchandise/RecentlyViewed";
+import { categoryPath } from "@/lib/merchSlug";
 import {
   FOCUSED_INITIAL_VISIBLE,
   INITIAL_VISIBLE,
@@ -297,6 +300,7 @@ export default function ProductCatalog({ products, categories }: ProductCatalogP
         </div>
       ) : (
         <div className="mt-8 space-y-14">
+          {!hasFilters && <RecentlyViewed />}
           {groups.map(({ category: name, items }, groupIndex) => {
             const shown = Math.min(visibleCounts[name] ?? initialVisible, items.length);
             const batch = nextBatchSize(shown, items.length);
@@ -314,9 +318,18 @@ export default function ProductCatalog({ products, categories }: ProductCatalogP
                   >
                     {name}
                   </h2>
-                  <span className="text-xs font-medium text-onyx/50">
-                    {items.length} {items.length === 1 ? "item" : "items"}
-                  </span>
+                  <div className="flex items-baseline gap-4">
+                    <span className="text-xs font-medium text-onyx/50">
+                      {items.length} {items.length === 1 ? "item" : "items"}
+                    </span>
+                    <Link
+                      href={categoryPath(name)}
+                      aria-label={`View all ${name}`}
+                      className="text-xs font-semibold text-gold-dark underline-offset-2 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-dark"
+                    >
+                      View all
+                    </Link>
+                  </div>
                 </div>
 
                 <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">

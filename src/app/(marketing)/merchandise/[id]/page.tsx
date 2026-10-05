@@ -3,11 +3,22 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { merchandisePage, products } from "@/config/merchandiseConfig";
 import CartLink from "@/components/merchandise/CartLink";
+import ProductCard from "@/components/merchandise/ProductCard";
 import ProductDetailActions from "@/components/merchandise/ProductDetailActions";
 import ProductGallery from "@/components/merchandise/ProductGallery";
 import { ProductSelectionProvider } from "@/components/merchandise/ProductSelectionContext";
+import RecentlyViewed from "@/components/merchandise/RecentlyViewed";
 import { bestTier, formatPrice, isRealBrand, startingTier } from "@/lib/merchCatalog";
-import { getStorefrontProduct } from "@/lib/merchStorefront";
+import {
+  buildBreadcrumbJsonLd,
+  buildProductJsonLd,
+  buildProductMetadata,
+  productPath,
+  serializeJsonLd,
+} from "@/lib/merchSeo";
+import { categoryPath } from "@/lib/merchSlug";
+import { getRelatedProducts, getStorefrontProduct } from "@/lib/merchStorefront";
+import { getSiteUrl } from "@/lib/siteUrl";
 
 interface ProductPageProps {
   params: Promise<{ id: string }>;
@@ -17,10 +28,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   const { id } = await params;
   const product = getStorefrontProduct(id);
   if (!product) return { title: "Product Not Found | Magnolia Grove Consultants" };
-  return {
-    title: `${product.name} | Magnolia Grove Consultants`,
-    description: product.description,
-  };
+  return buildProductMetadata(product, getSiteUrl());
 }
 
 export function generateStaticParams() {
@@ -34,10 +42,30 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
   const first = startingTier(product);
   const best = bestTier(product);
-  const categoryHref = `/merchandise?category=${encodeURIComponent(product.category)}`;
+  const categoryHref = categoryPath(product.category);
+  const related = getRelatedProducts(product.id);
+  const siteUrl = getSiteUrl();
+  const jsonLd = [
+    buildProductJsonLd(product, siteUrl),
+    buildBreadcrumbJsonLd(
+      [
+        { name: "Merchandise", path: "/merchandise" },
+        { name: product.category, path: categoryHref },
+        { name: product.name, path: productPath(product.id) },
+      ],
+      siteUrl
+    ),
+  ];
 
   return (
     <>
+      {jsonLd.map((data, index) => (
+        <script
+          key={index}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(data) }}
+        />
+      ))}
       <section className="relative bg-onyx px-6 py-8 sm:px-8 lg:px-12">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
           <nav aria-label="Breadcrumb" className="min-w-0">
@@ -143,6 +171,41 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
           </div>
         </ProductSelectionProvider>
       </section>
+
+      {related.length > 0 && (
+        <section
+          aria-labelledby="related-heading"
+          className="bg-cream-100 px-6 py-14 sm:px-8 lg:px-12"
+        >
+          <div className="mx-auto max-w-6xl">
+            <div className="flex items-baseline justify-between gap-4 border-b border-gold/20 pb-2">
+              <h2
+                id="related-heading"
+                className="font-heading text-lg uppercase tracking-wide text-onyx/80"
+              >
+                More in {product.category}
+              </h2>
+              <Link
+                href={categoryHref}
+                className="shrink-0 text-xs font-semibold text-gold-dark underline-offset-2 hover:underline"
+              >
+                View all
+              </Link>
+            </div>
+            <div className="mt-6 grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-4">
+              {related.map((item) => (
+                <ProductCard key={item.id} product={item} compact />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <RecentlyViewed
+        currentId={product.id}
+        className="bg-cream px-6 py-14 sm:px-8 lg:px-12"
+        innerClassName="mx-auto max-w-6xl"
+      />
     </>
   );
 }

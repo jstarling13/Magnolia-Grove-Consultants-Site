@@ -8,6 +8,8 @@ import CartLink from "@/components/merchandise/CartLink";
 export const metadata: Metadata = {
   title: "Merchandise | Magnolia Grove Consultants",
   description: merchandisePage.subtitle,
+  // ?category=, ?q= and ?sort= are views of this page, not separate pages.
+  alternates: { canonical: "/merchandise" },
 };
 
 export default function MerchandisePage() {

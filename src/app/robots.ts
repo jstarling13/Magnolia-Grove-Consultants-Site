@@ -1,14 +1,26 @@
 import type { MetadataRoute } from "next";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://magnolia-grove-consultants.vercel.app";
+import { getSiteUrl } from "@/lib/siteUrl";
+
+// The storefront (/merchandise, category and product pages) is crawlable;
+// only private, transactional and API paths are kept out.
+export const DISALLOWED_PATHS = [
+  "/api/",
+  "/admin",
+  "/account",
+  "/thank-you",
+  "/payment",
+  "/merchandise/cart",
+  "/merchandise/lookup.json",
+];
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/api/", "/thank-you", "/payment"],
+      disallow: DISALLOWED_PATHS,
     },
-    sitemap: `${siteUrl}/sitemap.xml`,
+    sitemap: `${getSiteUrl()}/sitemap.xml`,
   };
 }

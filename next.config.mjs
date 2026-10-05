@@ -52,6 +52,9 @@ const nextConfig = {
       // /results predates the full Track Record page and is now a thin
       // subset of it — consolidate SEO authority onto /case-studies.
       { source: "/results", destination: "/case-studies", permanent: true },
+      // There is no category index; the catalog lists every category. Without
+      // this the URL would be read as a product page with the id "category".
+      { source: "/merchandise/category", destination: "/merchandise", permanent: false },
     ];
   },
 };
