@@ -52,5 +52,17 @@
     "supplier": "Storm Creek",
     "asi": "asi/89879",
     "productNo": "3125"
+  },
+  "imperial-original-performance-cap": {
+    "espId": "553329087",
+    "supplier": "Kati Sportcap & Bag",
+    "asi": "asi/64140",
+    "productNo": "X210P"
+  },
+  "gildan-ultra-cotton-tshirt": {
+    "espId": "550989561",
+    "supplier": "BEL Promo",
+    "asi": "asi/39552",
+    "productNo": "AG2000"
   }
 }

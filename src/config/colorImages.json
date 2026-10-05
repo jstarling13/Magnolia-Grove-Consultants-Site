@@ -92,5 +92,33 @@
     "White": "/images/merch/colors/storm-creek-front-runner-vest-womens-white.webp",
     "Jet Gray-Black": "/images/merch/colors/storm-creek-front-runner-vest-womens-jet-gray-black.webp",
     "Titanium Gray": "/images/merch/colors/storm-creek-front-runner-vest-womens-titanium-gray.webp"
+  },
+  "imperial-original-performance-cap": {
+    "Black": "/images/merch/colors/imperial-original-performance-cap-black.webp",
+    "Dark Gray": "/images/merch/colors/imperial-original-performance-cap-dark-gray.webp",
+    "Forest": "/images/merch/colors/imperial-original-performance-cap-forest.webp",
+    "Khaki": "/images/merch/colors/imperial-original-performance-cap-khaki.webp",
+    "Lavender": "/images/merch/colors/imperial-original-performance-cap-lavender.webp",
+    "Light Pink": "/images/merch/colors/imperial-original-performance-cap-light-pink.webp",
+    "Olive": "/images/merch/colors/imperial-original-performance-cap-olive.webp",
+    "Orange": "/images/merch/colors/imperial-original-performance-cap-orange.webp",
+    "White": "/images/merch/colors/imperial-original-performance-cap-white.webp"
+  },
+  "gildan-ultra-cotton-tshirt": {
+    "Black": "/images/merch/colors/gildan-ultra-cotton-tshirt-black.webp",
+    "White": "/images/merch/colors/gildan-ultra-cotton-tshirt-white.webp",
+    "Red": "/images/merch/colors/gildan-ultra-cotton-tshirt-red.webp",
+    "Purple": "/images/merch/colors/gildan-ultra-cotton-tshirt-purple.webp",
+    "Light Pink": "/images/merch/colors/gildan-ultra-cotton-tshirt-light-pink.webp",
+    "Sport Gray": "/images/merch/colors/gildan-ultra-cotton-tshirt-sport-gray.webp",
+    "Dark Chocolate": "/images/merch/colors/gildan-ultra-cotton-tshirt-dark-chocolate.webp",
+    "Forest Green": "/images/merch/colors/gildan-ultra-cotton-tshirt-forest-green.webp",
+    "Maroon": "/images/merch/colors/gildan-ultra-cotton-tshirt-maroon.webp",
+    "Natural": "/images/merch/colors/gildan-ultra-cotton-tshirt-natural.webp",
+    "Safety Green": "/images/merch/colors/gildan-ultra-cotton-tshirt-safety-green.webp",
+    "Lime": "/images/merch/colors/gildan-ultra-cotton-tshirt-lime.webp",
+    "Orange": "/images/merch/colors/gildan-ultra-cotton-tshirt-orange.webp",
+    "Safety Orange": "/images/merch/colors/gildan-ultra-cotton-tshirt-safety-orange.webp",
+    "Texas Orange": "/images/merch/colors/gildan-ultra-cotton-tshirt-texas-orange.webp"
   }
 }
