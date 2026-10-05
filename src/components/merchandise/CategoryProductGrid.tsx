@@ -1,17 +1,20 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import ProductCard from "@/components/merchandise/ProductCard";
 import { useMerchBrowseAnalytics } from "@/hooks/useMerchBrowseAnalytics";
+import { useCategoryCards } from "@/components/merchandise/useCategoryCards";
 import {
+  FILTER_ALL as ALL,
   FOCUSED_INITIAL_VISIBLE,
   SHOW_MORE_STEP,
   SORT_OPTIONS,
+  categoriesNeeded,
   growVisible,
-  isRealBrand,
   isSortKey,
   matchesQuery,
   nextBatchSize,
+  realBrands,
   searchHaystack,
   sortProducts,
   type CatalogProduct,
@@ -19,13 +22,21 @@ import {
 } from "@/lib/merchCatalog";
 
 interface CategoryProductGridProps {
-  /** Products of one category, in "featured" order. */
+  /**
+   * Products of one category, in "featured" order. The page ships only the
+   * first screenful; the rest is fetched on demand (Show more, search, sort,
+   * brand filter). Passing every product also works (nothing is fetched).
+   */
   products: CatalogProduct[];
   category: string;
+  /** How many products the category has in all. Defaults to `products.length`. */
+  total?: number;
+  /** Every real brand in the category. Defaults to the brands in `products`. */
+  brands?: string[];
 }
 
-const ALL = "All";
 const SEARCH_DEBOUNCE_MS = 200;
+/** The first row (up to 4 cards) is on screen on a desktop and is the LCP candidate there. */
 const PRIORITY_CARDS = 4;
 
 const controlClasses =
@@ -36,7 +47,12 @@ const controlClasses =
  * Same behavior and shareable URL params (?q=&sort=&brand=) as the main
  * catalog, minus the category chips.
  */
-export default function CategoryProductGrid({ products, category }: CategoryProductGridProps) {
+export default function CategoryProductGrid({
+  products: initialProducts,
+  category,
+  total: totalProp,
+  brands: brandsProp,
+}: CategoryProductGridProps) {
   const [queryInput, setQueryInput] = useState("");
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState<SortKey>("featured");
@@ -47,18 +63,29 @@ export default function CategoryProductGrid({ products, category }: CategoryProd
     count: FOCUSED_INITIAL_VISIBLE,
   });
   const [urlReady, setUrlReady] = useState(false);
+  // True while "Show more" waits for the rest of the category to arrive.
+  const [busy, setBusy] = useState(false);
+  const { loaded, failed: failedByCategory, load } = useCategoryCards();
 
-  const brands = useMemo(
-    () =>
-      Array.from(new Set(products.map((product) => product.brand)))
-        .filter(isRealBrand)
-        .sort((a, b) => a.localeCompare(b)),
-    [products]
-  );
-  const haystacks = useMemo(
-    () => new Map(products.map((product) => [product.id, searchHaystack(product)])),
-    [products]
-  );
+  const total = totalProp ?? initialProducts.length;
+  const complete = loaded[category] !== undefined || initialProducts.length >= total;
+  const products = loaded[category] ?? initialProducts;
+  const brands = useMemo(() => brandsProp ?? realBrands(products), [brandsProp, products]);
+  const haystacks = useRef(new Map<string, string>());
+  const haystackOf = useCallback((product: CatalogProduct) => {
+    let text = haystacks.current.get(product.id);
+    if (text === undefined) {
+      text = searchHaystack(product);
+      haystacks.current.set(product.id, text);
+    }
+    return text;
+  }, []);
+  const completeRef = useRef(complete);
+  completeRef.current = complete;
+  /** Starts fetching the rest of the category (focus on a control). */
+  const warm = useCallback(() => {
+    if (!completeRef.current) void load([category]);
+  }, [load, category]);
 
   useEffect(() => {
     const timer = window.setTimeout(() => setQuery(queryInput.trim()), SEARCH_DEBOUNCE_MS);
@@ -97,20 +124,45 @@ export default function CategoryProductGrid({ products, category }: CategoryProd
     }
   }, [urlReady, brand, sort, query]);
 
+  // Searching, brand-filtering and sorting need the whole category. Until it
+  // is here the page keeps showing the unfiltered first cards with a
+  // "Loading" note, never a half-filtered list.
+  const needsAll = categoriesNeeded({ category: ALL, brand, query, sort }, [category]).length > 0;
+  const ready = complete || !needsAll;
+  const failed = !ready && Boolean(failedByCategory[category]);
+  const loading = !ready && !failed;
+  useEffect(() => {
+    if (needsAll && !complete) void load([category]);
+  }, [needsAll, complete, load, category]);
+
   const results = useMemo(() => {
+    if (!ready) return products;
     const matching = products.filter(
       (product) =>
         (brand === ALL || product.brand === brand) &&
-        (!query || matchesQuery(haystacks.get(product.id) ?? "", query))
+        (!query || matchesQuery(haystackOf(product), query))
     );
     return sortProducts(matching, sort);
-  }, [products, brand, query, sort, haystacks]);
+  }, [ready, products, brand, query, sort, haystackOf]);
 
   const hasFilters = brand !== ALL || query !== "" || queryInput !== "";
+  // Without a search, brand filter or sort the view is the whole category,
+  // so its size is the real total even while only the first cards are here.
+  const resultCount = ready && needsAll ? results.length : total;
   const visible = disclosure.key === filterKey ? disclosure.count : FOCUSED_INITIAL_VISIBLE;
-  const shown = Math.min(visible, results.length);
-  const batch = nextBatchSize(shown, results.length);
+  const shown = Math.min(visible, resultCount);
+  const batch = nextBatchSize(shown, resultCount);
   useMerchBrowseAnalytics(category, () => results.slice(0, FOCUSED_INITIAL_VISIBLE), query);
+
+  async function showMore() {
+    if (!completeRef.current) {
+      setBusy(true);
+      const ok = await load([category]);
+      setBusy(false);
+      if (!ok) return;
+    }
+    setDisclosure({ key: filterKey, count: growVisible(shown, resultCount, SHOW_MORE_STEP) });
+  }
 
   function clearFilters() {
     setQueryInput("");
@@ -125,6 +177,7 @@ export default function CategoryProductGrid({ products, category }: CategoryProd
           type="search"
           value={queryInput}
           onChange={(event) => setQueryInput(event.target.value)}
+          onFocus={warm}
           placeholder={`Search ${category.toLowerCase()}`}
           aria-label={`Search ${category}`}
           className={`${controlClasses} col-span-2 w-full sm:col-span-1`}
@@ -134,6 +187,8 @@ export default function CategoryProductGrid({ products, category }: CategoryProd
           <select
             value={sort}
             onChange={(event) => setSort(event.target.value as SortKey)}
+            onFocus={warm}
+            onPointerDown={warm}
             className={`${controlClasses} w-full font-medium`}
           >
             {SORT_OPTIONS.map((option) => (
@@ -149,6 +204,8 @@ export default function CategoryProductGrid({ products, category }: CategoryProd
             <select
               value={brand}
               onChange={(event) => setBrand(event.target.value)}
+              onFocus={warm}
+              onPointerDown={warm}
               className={`${controlClasses} w-full font-medium`}
             >
               <option value={ALL}>All Brands</option>
@@ -164,9 +221,11 @@ export default function CategoryProductGrid({ products, category }: CategoryProd
 
       <div className="mt-5 flex min-h-[2rem] flex-wrap items-center justify-between gap-3">
         <p role="status" className="text-sm text-onyx/60">
-          {results.length === 0
-            ? "No products found"
-            : `Showing ${results.length} ${results.length === 1 ? "product" : "products"}`}
+          {loading
+            ? "Loading products…"
+            : resultCount === 0
+              ? "No products found"
+              : `Showing ${resultCount} ${resultCount === 1 ? "product" : "products"}`}
         </p>
         {hasFilters && (
           <button
@@ -179,7 +238,20 @@ export default function CategoryProductGrid({ products, category }: CategoryProd
         )}
       </div>
 
-      {results.length === 0 ? (
+      {failed && (
+        <p role="alert" className="mt-3 text-sm text-onyx/70">
+          We couldn&apos;t load the full list.{" "}
+          <button
+            type="button"
+            onClick={() => void load([category])}
+            className="font-semibold text-gold-dark underline-offset-2 hover:underline"
+          >
+            Try again
+          </button>
+        </p>
+      )}
+
+      {resultCount === 0 ? (
         <div className="mt-8 rounded-lg border border-dashed border-gold/40 px-6 py-14 text-center">
           <p className="text-base font-semibold text-onyx">No products match your filters.</p>
           <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-onyx/60">
@@ -187,32 +259,31 @@ export default function CategoryProductGrid({ products, category }: CategoryProd
           </p>
         </div>
       ) : (
-        <>
+        <div aria-busy={loading}>
           <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">
             {results.slice(0, shown).map((product, index) => (
               <ProductCard key={product.id} product={product} priority={index < PRIORITY_CARDS} />
             ))}
           </div>
 
-          {results.length > FOCUSED_INITIAL_VISIBLE && (
+          {resultCount > FOCUSED_INITIAL_VISIBLE && (
             <div className="mt-8 flex flex-col items-center gap-3">
               <p className="text-xs text-onyx/50" aria-live="polite">
-                Showing {shown} of {results.length}
+                Showing {shown} of {resultCount}
               </p>
               <div className="flex flex-wrap justify-center gap-3">
                 {batch > 0 && (
                   <button
                     type="button"
                     aria-label={`Show ${batch} more ${batch === 1 ? "product" : "products"}`}
-                    onClick={() =>
-                      setDisclosure({
-                        key: filterKey,
-                        count: growVisible(shown, results.length, SHOW_MORE_STEP),
-                      })
-                    }
-                    className="rounded-md border border-gold/40 px-6 py-2.5 text-sm font-semibold text-onyx transition-colors hover:border-gold hover:bg-gold/10"
+                    aria-busy={busy}
+                    disabled={busy}
+                    onPointerEnter={warm}
+                    onFocus={warm}
+                    onClick={() => void showMore()}
+                    className="rounded-md border border-gold/40 px-6 py-2.5 text-sm font-semibold text-onyx transition-colors hover:border-gold hover:bg-gold/10 disabled:cursor-wait disabled:opacity-60"
                   >
-                    Show {batch} more
+                    {busy ? "Loading…" : `Show ${batch} more`}
                   </button>
                 )}
                 {shown > FOCUSED_INITIAL_VISIBLE && (
@@ -232,7 +303,7 @@ export default function CategoryProductGrid({ products, category }: CategoryProd
               </div>
             </div>
           )}
-        </>
+        </div>
       )}
     </div>
   );

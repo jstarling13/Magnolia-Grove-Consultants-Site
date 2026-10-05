@@ -114,6 +114,27 @@ export function toCatalogProduct(
   };
 }
 
+/**
+ * Lean projection for product cards, applied to every list the storefront
+ * ships to the browser (initial cards and the lazily fetched remainder), so a
+ * card looks the same before and after more products arrive.
+ *
+ * A card only ever prints the starting and the best tier, so the middle tiers
+ * are dropped: `tiers[0]` and `tiers[tiers.length - 1]` (and whether there is
+ * more than one) are unchanged, which is everything startingTier, bestTier
+ * and the price sort read. imageAlt is dropped when it just repeats the name,
+ * because the image falls back to the name anyway.
+ */
+export function toCardProduct(product: CatalogProduct): CatalogProduct {
+  const { tiers, imageAlt, ...rest } = product;
+  const card: CatalogProduct = {
+    ...rest,
+    tiers: tiers.length > 2 ? [tiers[0], tiers[tiers.length - 1]] : tiers,
+  };
+  if (imageAlt && imageAlt !== product.name) card.imageAlt = imageAlt;
+  return card;
+}
+
 export function startingTier(product: Pick<CatalogProduct, "tiers">): CatalogTier {
   return product.tiers[0];
 }
@@ -227,4 +248,58 @@ export function growVisible(current: number, total: number, step = SHOW_MORE_STE
 /** How many items the next "Show more" click will reveal. */
 export function nextBatchSize(current: number, total: number, step = SHOW_MORE_STEP): number {
   return Math.max(0, Math.min(step, total - current));
+}
+
+/** Value of the "no filter" choice in the category chips and brand select. */
+export const FILTER_ALL = "All";
+
+/** Number of products in each category. */
+export function countByCategory(
+  products: readonly Pick<CatalogProduct, "category">[]
+): Record<string, number> {
+  const counts: Record<string, number> = {};
+  for (const product of products) counts[product.category] = (counts[product.category] ?? 0) + 1;
+  return counts;
+}
+
+/** The first `limit` products of every category, keeping the input order. */
+export function firstPerCategory<T extends Pick<CatalogProduct, "category">>(
+  products: readonly T[],
+  limit: number
+): T[] {
+  const seen: Record<string, number> = {};
+  return products.filter((product) => {
+    const count = (seen[product.category] ?? 0) + 1;
+    seen[product.category] = count;
+    return count <= limit;
+  });
+}
+
+/** Distinct real (name) brands, alphabetical; "Essentials" is left out. */
+export function realBrands(products: readonly Pick<CatalogProduct, "brand">[]): string[] {
+  return Array.from(new Set(products.map((product) => product.brand)))
+    .filter(isRealBrand)
+    .sort((a, b) => a.localeCompare(b));
+}
+
+export interface CatalogView {
+  category: string;
+  brand: string;
+  query: string;
+  sort: SortKey;
+}
+
+/**
+ * Which categories must be fully loaded before this view can be computed
+ * correctly. The server only ships the first cards of each category; with no
+ * narrowing the shown cards are exactly those, so nothing more is needed.
+ * Searching, brand filtering and sorting reorder or drop cards across the
+ * whole catalog, so they need every category; focusing a single category
+ * (which starts deeper) needs just that one.
+ */
+export function categoriesNeeded(view: CatalogView, categories: readonly string[]): string[] {
+  if (view.brand !== FILTER_ALL || view.query !== "" || view.sort !== "featured") {
+    return [...categories];
+  }
+  return view.category !== FILTER_ALL ? [view.category] : [];
 }
