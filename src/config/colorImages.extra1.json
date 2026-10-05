@@ -115,5 +115,24 @@
     "Royal Blue": "/images/merch/colors/berkley-bucket-hat-32732-royal-blue.webp",
     "Brown": "/images/merch/colors/berkley-bucket-hat-32732-brown.webp",
     "Olive": "/images/merch/colors/berkley-bucket-hat-32732-olive.webp"
+  },
+  "hoodies-sweatshirts-52363": {
+    "Black": "/images/merch/colors/hoodies-sweatshirts-52363-black.webp",
+    "Yellow": "/images/merch/colors/hoodies-sweatshirts-52363-yellow.webp"
+  },
+  "carhartt-ct104597-beanie-cap-sublimated-embroidered-patch-27350": {
+    "Black": "/images/merch/colors/carhartt-ct104597-beanie-cap-sublimated-embroidered-patch-27350-black.webp",
+    "Carhartt Brown": "/images/merch/colors/carhartt-ct104597-beanie-cap-sublimated-embroidered-patch-27350-carhartt-brown.webp",
+    "Heather Gray": "/images/merch/colors/carhartt-ct104597-beanie-cap-sublimated-embroidered-patch-27350-heather-gray.webp",
+    "Black/White Marbled": "/images/merch/colors/carhartt-ct104597-beanie-cap-sublimated-embroidered-patch-27350-black-white-marbled.webp",
+    "Brite Orange": "/images/merch/colors/carhartt-ct104597-beanie-cap-sublimated-embroidered-patch-27350-brite-orange.webp",
+    "Navy Blue": "/images/merch/colors/carhartt-ct104597-beanie-cap-sublimated-embroidered-patch-27350-navy-blue.webp",
+    "Brite Lime": "/images/merch/colors/carhartt-ct104597-beanie-cap-sublimated-embroidered-patch-27350-brite-lime.webp",
+    "Dark Brown/ Sandstone": "/images/merch/colors/carhartt-ct104597-beanie-cap-sublimated-embroidered-patch-27350-dark-brown-sandstone.webp",
+    "Coal Heather": "/images/merch/colors/carhartt-ct104597-beanie-cap-sublimated-embroidered-patch-27350-coal-heather.webp"
+  },
+  "stock-camo-polyester-6-panel-baseball-cap-32878": {
+    "Desert Digital Camouflage": "/images/merch/colors/stock-camo-polyester-6-panel-baseball-cap-32878-desert-digital-camouflage.webp",
+    "Navy Digital Camo": "/images/merch/colors/stock-camo-polyester-6-panel-baseball-cap-32878-navy-digital-camo.webp"
   }
 }
