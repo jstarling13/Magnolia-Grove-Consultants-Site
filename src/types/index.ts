@@ -178,4 +178,11 @@ export interface ImprintArea {
   top: number;
   left: number;
   width: number;
+  /**
+   * True when the supplier photo can't carry a believable logo overlay
+   * (lifestyle scene, several products in one shot, sample artwork already
+   * printed where a logo would go). The preview then shows a short note
+   * instead of a misplaced logo. Set per product in imprintAreas.json.
+   */
+  hide?: boolean;
 }
