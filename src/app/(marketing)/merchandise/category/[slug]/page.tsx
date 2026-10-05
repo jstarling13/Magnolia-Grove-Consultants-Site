@@ -6,7 +6,12 @@ import CategoryProductGrid from "@/components/merchandise/CategoryProductGrid";
 import RecentlyViewed from "@/components/merchandise/RecentlyViewed";
 import { buildBreadcrumbJsonLd, buildCategoryMetadata, serializeJsonLd } from "@/lib/merchSeo";
 import { categoryPath, categorySlug } from "@/lib/merchSlug";
-import { getCategoryCatalog, getStorefrontCategories } from "@/lib/merchStorefront";
+import { FOCUSED_INITIAL_VISIBLE } from "@/lib/merchCatalog";
+import {
+  getCategoryCards,
+  getCategoryCatalog,
+  getStorefrontCategories,
+} from "@/lib/merchStorefront";
 import { getSiteUrl } from "@/lib/siteUrl";
 
 interface CategoryPageProps {
@@ -30,6 +35,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   if (!catalog) notFound();
 
   const { category, products } = catalog;
+  // Only the first screenful is sent with the page; the rest of the category
+  // is fetched from cards.json when the shopper asks for it.
+  const { cards, brands } = getCategoryCards(slug)!;
   const others = getStorefrontCategories().filter((name) => name !== category);
   const breadcrumbJsonLd = buildBreadcrumbJsonLd(
     [
@@ -86,7 +94,12 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         className="scroll-mt-24 bg-cream px-6 py-16 sm:px-8 lg:px-12 lg:py-20"
       >
         <div className="mx-auto max-w-8xl">
-          <CategoryProductGrid products={products} category={category} />
+          <CategoryProductGrid
+            products={cards.slice(0, FOCUSED_INITIAL_VISIBLE)}
+            total={cards.length}
+            brands={brands}
+            category={category}
+          />
         </div>
       </section>
 

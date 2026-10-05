@@ -13,7 +13,16 @@ import {
   merchandiseCategories,
   products,
 } from "@/config/merchandiseConfig";
-import { startingTier, toCatalogProduct, type CatalogProduct } from "@/lib/merchCatalog";
+import {
+  INITIAL_VISIBLE,
+  countByCategory,
+  firstPerCategory,
+  realBrands,
+  startingTier,
+  toCardProduct,
+  toCatalogProduct,
+  type CatalogProduct,
+} from "@/lib/merchCatalog";
 import { selectRelated } from "@/lib/merchRelated";
 import { findCategoryBySlug } from "@/lib/merchSlug";
 
@@ -24,6 +33,16 @@ export interface StorefrontCatalog {
   products: CatalogProduct[];
 }
 
+export interface StorefrontInitialCatalog {
+  categories: string[];
+  /** Only the first cards of each category, in "featured" order. */
+  products: CatalogProduct[];
+  /** Full size of every category, so counts are right before the rest loads. */
+  categoryTotals: Record<string, number>;
+  /** Every real brand in the full catalog, for the brand filter. */
+  brands: string[];
+}
+
 export function getStorefrontCatalog(): StorefrontCatalog {
   const groups = groupByCategory(products);
   return {
@@ -32,9 +51,30 @@ export function getStorefrontCatalog(): StorefrontCatalog {
     ),
     products: groups.flatMap((group) =>
       group.items.map((product) =>
-        toCatalogProduct(product, getImprintArea(product), { truncateDescription: true })
+        toCardProduct(
+          toCatalogProduct(product, getImprintArea(product), { truncateDescription: true })
+        )
       )
     ),
+  };
+}
+
+/**
+ * What the main catalog page ships up front: the first `perCategory` cards of
+ * each category plus the totals and brand list the controls need. The rest of
+ * each category is fetched from its static cards.json when the shopper asks
+ * for it (Show more, search, sort, brand filter), so the page's HTML and RSC
+ * payload stay the same size however large the catalog grows.
+ */
+export function getStorefrontInitialCatalog(
+  perCategory = INITIAL_VISIBLE
+): StorefrontInitialCatalog {
+  const full = getStorefrontCatalog();
+  return {
+    categories: full.categories,
+    products: firstPerCategory(full.products, perCategory),
+    categoryTotals: countByCategory(full.products),
+    brands: realBrands(full.products),
   };
 }
 
@@ -77,6 +117,19 @@ export function getCategoryCatalog(
 }
 
 /**
+ * Lean cards for every product of one category, served as static JSON by the
+ * category's cards.json route and used for the first screenful on its page.
+ */
+export function getCategoryCards(
+  slug: string
+): { category: string; cards: CatalogProduct[]; brands: string[] } | undefined {
+  const catalog = getCategoryCatalog(slug);
+  if (!catalog) return undefined;
+  const cards = catalog.products.map(toCardProduct);
+  return { category: catalog.category, cards, brands: realBrands(cards) };
+}
+
+/**
  * "More in <category>": up to four other products from the same category,
  * as card-sized products. Only the chosen few are returned, so the rest of
  * the catalog never reaches the browser.
@@ -92,7 +145,7 @@ export function getRelatedProducts(id: string): CatalogProduct[] {
   return selectRelated(
     toCatalogProduct(current, getImprintArea(current), { truncateDescription: true }),
     sameCategory
-  );
+  ).map(toCardProduct);
 }
 
 export interface RecentLookupEntry {
