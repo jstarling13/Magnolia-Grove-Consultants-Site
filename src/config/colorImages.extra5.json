@@ -285,5 +285,25 @@
     "Red": "/images/merch/colors/2-aa-led-mini-maglite-10245-red.webp",
     "Black": "/images/merch/colors/2-aa-led-mini-maglite-10245-black.webp",
     "Copper": "/images/merch/colors/2-aa-led-mini-maglite-10245-copper.webp"
+  },
+  "mini-backpack-first-aid-kit-04459": {
+    "Black-Blue": "/images/merch/colors/mini-backpack-first-aid-kit-04459-black-blue.webp",
+    "Black-Grey": "/images/merch/colors/mini-backpack-first-aid-kit-04459-black-grey.webp",
+    "Black-Lime": "/images/merch/colors/mini-backpack-first-aid-kit-04459-black-lime.webp",
+    "Black-Orange": "/images/merch/colors/mini-backpack-first-aid-kit-04459-black-orange.webp",
+    "Black-Red": "/images/merch/colors/mini-backpack-first-aid-kit-04459-black-red.webp"
+  },
+  "personal-first-aid-kit-07978": {
+    "Red": "/images/merch/colors/personal-first-aid-kit-07978-red.webp",
+    "Black": "/images/merch/colors/personal-first-aid-kit-07978-black.webp",
+    "Blue": "/images/merch/colors/personal-first-aid-kit-07978-blue.webp",
+    "Green": "/images/merch/colors/personal-first-aid-kit-07978-green.webp"
+  },
+  "phone-stand-and-screen-cleaner-combo-key-chain-57780": {
+    "White": "/images/merch/colors/phone-stand-and-screen-cleaner-combo-key-chain-57780-white.webp",
+    "Blue": "/images/merch/colors/phone-stand-and-screen-cleaner-combo-key-chain-57780-blue.webp",
+    "Lime": "/images/merch/colors/phone-stand-and-screen-cleaner-combo-key-chain-57780-lime.webp",
+    "Red": "/images/merch/colors/phone-stand-and-screen-cleaner-combo-key-chain-57780-red.webp",
+    "Black": "/images/merch/colors/phone-stand-and-screen-cleaner-combo-key-chain-57780-black.webp"
   }
 }
