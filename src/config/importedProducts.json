@@ -11067,5 +11067,793 @@
     "image": "/images/merch/3-pack-crayons-28596.webp",
     "imageAlt": "3 Pack Crayons",
     "colors": ["Blue", "Yellow"]
+  },
+  {
+    "id": "latex-confetti-balloon-01808",
+    "name": "Latex Confetti Balloon",
+    "category": "Kids & Toys",
+    "brand": "Essentials",
+    "description": "Latex confetti balloon. Priced at 100 units.",
+    "tiers": [
+      [100, 3.7],
+      [200, 3.5],
+      [300, 3.26],
+      [500, 3.24],
+      [1000, 3.1]
+    ],
+    "image": "/images/merch/latex-confetti-balloon-01808.webp",
+    "imageAlt": "Latex Confetti Balloon",
+    "colors": ["White"]
+  },
+  {
+    "id": "custom-latex-balloon-01829",
+    "name": "Custom Latex Balloon",
+    "category": "Kids & Toys",
+    "brand": "Essentials",
+    "description": "Latex custom balloon. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "tiers": [
+      [100, 0.548],
+      [200, 0.532],
+      [300, 0.28],
+      [500, 0.188]
+    ],
+    "image": "/images/merch/custom-latex-balloon-01829.webp",
+    "imageAlt": "Custom Latex Balloon",
+    "colors": ["Custom Print"]
+  },
+  {
+    "id": "11-custom-latex-balloons-59186",
+    "name": "11\" Custom Latex Balloons",
+    "category": "Kids & Toys",
+    "brand": "Essentials",
+    "description": "11\" Latex custom balloons. Priced at 100 units.",
+    "tiers": [
+      [100, 0.72],
+      [200, 0.48],
+      [500, 0.29]
+    ],
+    "image": "/images/merch/11-custom-latex-balloons-59186.webp",
+    "imageAlt": "11\" Custom Latex Balloons",
+    "colors": ["Purple", "Red", "Orange", "Black", "Blue", "Green", "Yellow", "White", "Pink"]
+  },
+  {
+    "id": "custom-mylar-balloon-01859",
+    "name": "Custom Mylar Balloon",
+    "category": "Kids & Toys",
+    "brand": "Essentials",
+    "description": "Mylar custom balloon. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "tiers": [
+      [100, 0.9],
+      [200, 0.8],
+      [300, 0.73],
+      [500, 0.62],
+      [1000, 0.55]
+    ],
+    "image": "/images/merch/custom-mylar-balloon-01859.webp",
+    "imageAlt": "Custom Mylar Balloon"
+  },
+  {
+    "id": "11-latex-party-balloon-always-made-in-the-usa-43362",
+    "name": "11\" Latex Party Balloon - Always Made in the USA",
+    "category": "Kids & Toys",
+    "brand": "Essentials",
+    "description": "11\"-12\" Latex Party Balloons are an inexpensive way to throw a party, advertise an open house, promote your business, or decorate! Made in USA. Priced at 50 units.",
+    "tiers": [
+      [50, 1.45],
+      [100, 1.26],
+      [250, 0.72],
+      [500, 0.44],
+      [1000, 0.35]
+    ],
+    "image": "/images/merch/11-latex-party-balloon-always-made-in-the-usa-43362.webp",
+    "imageAlt": "11\" Latex Party Balloon - Always Made in the USA",
+    "colors": [
+      "Baby Pink",
+      "Crystal Red",
+      "Orange",
+      "Yellow",
+      "Lime Green",
+      "Medium Green",
+      "Teal",
+      "Crystal Blue",
+      "Royal Blue",
+      "Baby Blue",
+      "Crystal Purple",
+      "Lavender",
+      "White",
+      "Burgundy",
+      "Black",
+      "Metallic Gold",
+      "Metallic Silver"
+    ]
+  },
+  {
+    "id": "2-x-2-custom-temporary-tattoos-10481",
+    "name": "2\" x 2\" Custom Temporary Tattoos",
+    "category": "Kids & Toys",
+    "brand": "Essentials",
+    "description": "2\" x 2\" Custom Temporary Tattoos. Priced at 100 units.",
+    "tiers": [
+      [100, 1.29],
+      [200, 0.98],
+      [300, 0.68],
+      [400, 0.66],
+      [500, 0.54]
+    ],
+    "image": "/images/merch/2-x-2-custom-temporary-tattoos-10481.webp",
+    "imageAlt": "2\" x 2\" Custom Temporary Tattoos",
+    "colors": ["Multi"]
+  },
+  {
+    "id": "1-5-x-2-custom-temporary-tattoos-10495",
+    "name": "1.5\" x 2\" Custom Temporary Tattoos",
+    "category": "Kids & Toys",
+    "brand": "Essentials",
+    "description": "1 color option. Size: 1.5\" x 2\". Priced at 100 units.",
+    "tiers": [
+      [100, 0.99],
+      [200, 0.95],
+      [300, 0.9],
+      [400, 0.59],
+      [500, 0.46]
+    ],
+    "image": "/images/merch/1-5-x-2-custom-temporary-tattoos-10495.webp",
+    "imageAlt": "1.5\" x 2\" Custom Temporary Tattoos",
+    "colors": ["Multi"]
+  },
+  {
+    "id": "new-custom-temporary-tattoos-all-sizes-12995",
+    "name": "New Custom Temporary Tattoos - All Sizes",
+    "category": "Kids & Toys",
+    "brand": "Essentials",
+    "description": "Popular, custom full color, printed and precut water-based tattoos are safe & clean. Quality tattoo sheets. All sizes available. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "tiers": [
+      [100, 0.78],
+      [300, 0.5],
+      [500, 0.42]
+    ],
+    "image": "/images/merch/new-custom-temporary-tattoos-all-sizes-12995.webp",
+    "imageAlt": "New Custom Temporary Tattoos - All Sizes"
+  },
+  {
+    "id": "all-white-incredible-expanding-flying-disc-toy-82304",
+    "name": "All-White Incredible Expanding Flying Disc Toy",
+    "category": "Kids & Toys",
+    "brand": "Essentials",
+    "description": "Expanding flying toy expands from 4 3/4\" disc to 7 3/4\" ring. Priced at 150 units.",
+    "tiers": [
+      [150, 2.66],
+      [250, 2.59],
+      [500, 2.52],
+      [1000, 2.45]
+    ],
+    "image": "/images/merch/all-white-incredible-expanding-flying-disc-toy-82304.webp",
+    "imageAlt": "All-White Incredible Expanding Flying Disc Toy",
+    "colors": ["White"]
+  },
+  {
+    "id": "septim-flying-discs-36480",
+    "name": "Septim Flying Discs",
+    "category": "Kids & Toys",
+    "brand": "Essentials",
+    "description": "9.25\" flying discs made of recyclable plastic. Made in USA. Priced at 100 units.",
+    "tiers": [
+      [100, 1.68],
+      [250, 1.63],
+      [500, 1.59],
+      [1000, 1.53],
+      [2500, 1.51]
+    ],
+    "image": "/images/merch/septim-flying-discs-36480.webp",
+    "imageAlt": "Septim Flying Discs",
+    "colors": [
+      "Aqua",
+      "Black",
+      "Green",
+      "Light Blue",
+      "Navy Blue",
+      "Neon Green",
+      "Neon Pink",
+      "Orange",
+      "Purple",
+      "Red",
+      "Reflex Blue",
+      "Silver",
+      "White",
+      "Yellow"
+    ]
+  },
+  {
+    "id": "the-incredible-expanding-flying-disc-toy-05430",
+    "name": "The Incredible Expanding Flying Disc Toy",
+    "category": "Kids & Toys",
+    "brand": "Essentials",
+    "description": "4 3/4\" flying solid round disc toy that expands to 7 3/4\" ring-shaped size in flight. Priced at 150 units.",
+    "tiers": [
+      [150, 1.34],
+      [250, 1.29],
+      [500, 1.24],
+      [1000, 1.19],
+      [2500, 1.14]
+    ],
+    "image": "/images/merch/the-incredible-expanding-flying-disc-toy-05430.webp",
+    "imageAlt": "The Incredible Expanding Flying Disc Toy",
+    "colors": [
+      "Multi color",
+      "Blue-White",
+      "Orange-White",
+      "Red-White",
+      "Yellow-White",
+      "Green-White"
+    ]
+  },
+  {
+    "id": "custom-sticker-sheet-4-in-x-6-in-08930",
+    "name": "Custom Sticker Sheet 4 in x 6 in",
+    "category": "Kids & Toys",
+    "brand": "Essentials",
+    "description": "1 color option. Size: 4\" x 6\". Priced at 25 units.",
+    "tiers": [
+      [25, 3.2],
+      [50, 2.16],
+      [100, 1.62],
+      [125, 1.51],
+      [175, 1.39]
+    ],
+    "image": "/images/merch/custom-sticker-sheet-4-in-x-6-in-08930.webp",
+    "imageAlt": "Custom Sticker Sheet 4 in x 6 in",
+    "colors": ["White"]
+  },
+  {
+    "id": "vinyl-sticker-sheet-78833",
+    "name": "Vinyl Sticker Sheet",
+    "category": "Kids & Toys",
+    "brand": "Essentials",
+    "description": "Sheet of stickers made from your choice of matte or gloss 6mil vinyl. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 50 units.",
+    "tiers": [
+      [50, 2.65],
+      [100, 2.33],
+      [250, 1.63],
+      [500, 1.07],
+      [750, 1.02]
+    ],
+    "image": "/images/merch/vinyl-sticker-sheet-78833.webp",
+    "imageAlt": "Vinyl Sticker Sheet",
+    "colors": ["White"]
+  },
+  {
+    "id": "full-color-removeable-kiss-cut-sticker-sheet-17641",
+    "name": "Full Color Removeable Kiss-Cut Sticker Sheet",
+    "category": "Kids & Toys",
+    "brand": "Essentials",
+    "description": "6 mil vinyl custom shaped stickers on sheets of 4\" x 6\", 5\" x 7\" or 6\" x 8\" sizes. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 150 units.",
+    "tiers": [
+      [150, 1.85],
+      [250, 1.7],
+      [500, 1.55],
+      [1000, 1.45]
+    ],
+    "image": "/images/merch/full-color-removeable-kiss-cut-sticker-sheet-17641.webp",
+    "imageAlt": "Full Color Removeable Kiss-Cut Sticker Sheet",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "push-pop-square-stress-reliever-keychain-20357",
+    "name": "Push Pop Square Stress Reliever Keychain",
+    "category": "Kids & Toys",
+    "brand": "Essentials",
+    "description": "Push Pop Square Stress Reliever Keychain. Priced at 100 units.",
+    "tiers": [
+      [100, 1.85],
+      [250, 1.8],
+      [500, 1.75],
+      [1000, 1.7],
+      [2500, 1.65]
+    ],
+    "image": "/images/merch/push-pop-square-stress-reliever-keychain-20357.webp",
+    "imageAlt": "Push Pop Square Stress Reliever Keychain",
+    "colors": ["Black", "Lime", "Navy Blue", "Red", "Royal Blue", "White"]
+  },
+  {
+    "id": "round-spring-thing-toy-48302",
+    "name": "Round Spring Thing Toy",
+    "category": "Kids & Toys",
+    "brand": "Essentials",
+    "description": "Walking coiled spring toy made of PVC in an assortment of colors. Priced at 200 units.",
+    "tiers": [
+      [200, 2.06],
+      [600, 1.94],
+      [1200, 1.81],
+      [2600, 1.7]
+    ],
+    "image": "/images/merch/round-spring-thing-toy-48302.webp",
+    "imageAlt": "Round Spring Thing Toy",
+    "colors": ["Blue", "White", "Rainbow"]
+  },
+  {
+    "id": "3-in-1pop-fidget-spinner-stress-relief-bracelet-wristband-97644",
+    "name": "3-in-1Pop Fidget Spinner Stress Relief Bracelet Wristband",
+    "category": "Kids & Toys",
+    "brand": "Essentials",
+    "description": "The bracelet fidget spinner wristband features a spinning windmill design that effectively helps relieve anxiety and stress. Priced at 100 units.",
+    "tiers": [
+      [100, 4.238],
+      [300, 2.94],
+      [500, 2.563],
+      [1000, 2.338],
+      [3000, 1.648]
+    ],
+    "image": "/images/merch/3-in-1pop-fidget-spinner-stress-relief-bracelet-wristband-97644.webp",
+    "imageAlt": "3-in-1Pop Fidget Spinner Stress Relief Bracelet Wristband",
+    "colors": [
+      "Red",
+      "Purple",
+      "Black",
+      "Gray",
+      "Green",
+      "Yellow And Blue",
+      "Red And Blue",
+      "Pastel",
+      "Powder Blue"
+    ]
+  },
+  {
+    "id": "fun-foam-putty-63716",
+    "name": "Fun Foam Putty",
+    "category": "Kids & Toys",
+    "brand": "Essentials",
+    "description": "Soft modeling foam beads that stick together and can be formed into fun shapes. Priced at 250 units.",
+    "tiers": [
+      [250, 1.14],
+      [500, 1.11],
+      [1000, 1.05],
+      [2500, 0.96],
+      [5000, 0.93]
+    ],
+    "image": "/images/merch/fun-foam-putty-63716.webp",
+    "imageAlt": "Fun Foam Putty",
+    "colors": ["Blue", "Purple", "Green", "Yellow", "Orange", "Red", "Multi Color"]
+  },
+  {
+    "id": "jade-glass-circle-award-on-base-medium-79684",
+    "name": "Jade Glass Circle Award on Base - Medium",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "5 1/2\" x 5 3/8\" jade glass circle award on base. Priced at 1 unit.",
+    "tiers": [
+      [1, 110],
+      [3, 104],
+      [6, 91.75]
+    ],
+    "image": "/images/merch/jade-glass-circle-award-on-base-medium-79684.webp",
+    "imageAlt": "Jade Glass Circle Award on Base - Medium",
+    "colors": ["Jade"]
+  },
+  {
+    "id": "custom-shape-free-stand-acrylic-awards-46430",
+    "name": "Custom-Shape Free Stand Acrylic Awards",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Made of acrylic material, cutting by laser cutters, this awards can be any shape you want. Full color logo is available. Priced at 50 units.",
+    "tiers": [
+      [50, 12.5],
+      [100, 11.167],
+      [500, 10.333],
+      [1000, 9.667],
+      [5000, 9]
+    ],
+    "image": "/images/merch/custom-shape-free-stand-acrylic-awards-46430.webp",
+    "imageAlt": "Custom-Shape Free Stand Acrylic Awards",
+    "colors": [
+      "Black",
+      "Pink",
+      "Purple",
+      "Green",
+      "Orange",
+      "Burgundy",
+      "Navy Blue",
+      "Gold",
+      "Royal Blue",
+      "Light Blue",
+      "Silver",
+      "Maroon",
+      "Teal"
+    ]
+  },
+  {
+    "id": "medium-starphire-glass-award-on-solid-aluminum-base-32322",
+    "name": "Medium Starphire Glass Award on Solid Aluminum Base",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "5 1/2\" x 9\" starphire glass award on solid aluminum base. Priced at 1 unit.",
+    "tiers": [
+      [1, 216],
+      [3, 200],
+      [6, 185]
+    ],
+    "image": "/images/merch/medium-starphire-glass-award-on-solid-aluminum-base-32322.webp",
+    "imageAlt": "Medium Starphire Glass Award on Solid Aluminum Base",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "8-1-2-round-cosmic-acrylic-award-w-silver-base-65032",
+    "name": "8 1/2\" Round Cosmic Acrylic Award w/ Silver Base",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Promo Code Special 8 1/2\" acrylic and aluminum award with a silver base and laser engraving that shows as a frosty imprint. Priced at 6 units.",
+    "tiers": [
+      [6, 66.22],
+      [12, 60.34],
+      [36, 57.96],
+      [66, 55.61]
+    ],
+    "image": "/images/merch/8-1-2-round-cosmic-acrylic-award-w-silver-base-65032.webp",
+    "imageAlt": "8 1/2\" Round Cosmic Acrylic Award w/ Silver Base",
+    "colors": ["Clear-Silver"]
+  },
+  {
+    "id": "windermere-plaque-8x10-63369",
+    "name": "Windermere Plaque, 8x10",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "8\" x 10\" acrylic plaque with unique cuts and finishes. Priced at 6 units.",
+    "tiers": [
+      [6, 126],
+      [25, 115],
+      [50, 106]
+    ],
+    "image": "/images/merch/windermere-plaque-8x10-63369.webp",
+    "imageAlt": "Windermere Plaque, 8x10",
+    "colors": ["Clear-Blue"]
+  },
+  {
+    "id": "lexicon-plaque-silver-94773",
+    "name": "Lexicon Plaque - Silver",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "The tightly beveled edges of the starfire crystal plate echo the Lexicon's black beveled glass edges. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "tiers": [
+      [1, 85.5],
+      [7, 84],
+      [13, 82.5],
+      [25, 81],
+      [50, 79.5]
+    ],
+    "image": "/images/merch/lexicon-plaque-silver-94773.webp",
+    "imageAlt": "Lexicon Plaque - Silver",
+    "colors": ["Silver"]
+  },
+  {
+    "id": "full-color-speed-challenge-coin-with-rope-border-73383",
+    "name": "Full Color Speed Challenge Coin with Rope Border",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "1.75\" die cast zinc alloy 2-sided challenge coins with full color imprint and rope border. Priced at 25 units.",
+    "tiers": [
+      [25, 6],
+      [50, 4.98],
+      [100, 4.5]
+    ],
+    "image": "/images/merch/full-color-speed-challenge-coin-with-rope-border-73383.webp",
+    "imageAlt": "Full Color Speed Challenge Coin with Rope Border",
+    "colors": ["Matte Nickel", "Antique Brass"]
+  },
+  {
+    "id": "die-struck-soft-enamel-medals-1-5-3-92365",
+    "name": "Die Struck Soft Enamel Medals, 1.5\"-3\"",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Soft enamel round medals in three sizes and finishes. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 50 units.",
+    "tiers": [
+      [50, 4.99],
+      [100, 3.91],
+      [250, 3.03],
+      [500, 2.67],
+      [1000, 2.34]
+    ],
+    "image": "/images/merch/die-struck-soft-enamel-medals-1-5-3-92365.webp",
+    "imageAlt": "Die Struck Soft Enamel Medals, 1.5\"-3\"",
+    "colors": ["Nickel", "Brass", "Black Nickel", "Copper", "Gold"]
+  },
+  {
+    "id": "shiny-and-sandblast-medals-sizes-1-5-3-11051",
+    "name": "Shiny & Sandblast Medals - Sizes 1.5\"-3\"",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Custom shiny sandblast medals - your unique award. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 50 units.",
+    "tiers": [
+      [50, 4.75],
+      [100, 3.71],
+      [250, 2.87],
+      [500, 2.54],
+      [1000, 2.08]
+    ],
+    "image": "/images/merch/shiny-and-sandblast-medals-sizes-1-5-3-11051.webp",
+    "imageAlt": "Shiny & Sandblast Medals - Sizes 1.5\"-3\"",
+    "colors": ["Brass", "Nickel", "Black Nickel", "Copper"]
+  },
+  {
+    "id": "uv-printed-baseball-medals-74342",
+    "name": "UV Printed Baseball Medals",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "UV Printed Baseball Medals for Events. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 50 units.",
+    "tiers": [
+      [50, 5.48],
+      [100, 4.91],
+      [300, 4.31],
+      [500, 4.15],
+      [1000, 4.07]
+    ],
+    "image": "/images/merch/uv-printed-baseball-medals-74342.webp",
+    "imageAlt": "UV Printed Baseball Medals",
+    "colors": [
+      "Shiny Gold",
+      "Shiny Silver",
+      "Shiny Copper",
+      "Antique Gold",
+      "Antique Silver",
+      "Antique Copper"
+    ]
+  },
+  {
+    "id": "3-speed-medal-3d-wreath-and-star-border-67992",
+    "name": "3\" Speed Medal 3D Wreath & Star Border",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "3\" die cast medals with wreath and star border and full color imprint. Priced at 50 units.",
+    "tiers": [
+      [50, 6.5],
+      [100, 6.1],
+      [250, 5.5]
+    ],
+    "image": "/images/merch/3-speed-medal-3d-wreath-and-star-border-67992.webp",
+    "imageAlt": "3\" Speed Medal 3D Wreath & Star Border",
+    "colors": ["Antique Copper", "Antique Nickel", "Antique Brass"]
+  },
+  {
+    "id": "custom-molded-pvc-rubber-lapel-pin-35230",
+    "name": "Custom Molded PVC Rubber Lapel Pin",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Custom molded PVC rubber lapel pin with two-dimensional design, nail and military clutch. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 500 units.",
+    "tiers": [
+      [500, 1.72],
+      [1000, 1.54],
+      [2500, 1.42],
+      [5000, 1.36],
+      [10000, 1.32]
+    ],
+    "image": "/images/merch/custom-molded-pvc-rubber-lapel-pin-35230.webp",
+    "imageAlt": "Custom Molded PVC Rubber Lapel Pin",
+    "colors": ["Multi color"]
+  },
+  {
+    "id": "2-custom-full-color-sublimated-award-ribbon-2-x-8-39138",
+    "name": "2\" Custom Full-Color Sublimated Award Ribbon - 2\" x 8\"",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "2\" x 8\" custom satin award ribbon with vibrant full-color sublimation printing. Priced at 1 unit.",
+    "tiers": [
+      [1, 1.42],
+      [100, 1.22],
+      [500, 1.15],
+      [1000, 0.94],
+      [5000, 0.8]
+    ],
+    "image": "/images/merch/2-custom-full-color-sublimated-award-ribbon-2-x-8-39138.webp",
+    "imageAlt": "2\" Custom Full-Color Sublimated Award Ribbon - 2\" x 8\"",
+    "colors": ["Any Pms Color"]
+  },
+  {
+    "id": "customizable-motivational-prize-honorable-ribbon-award-badge-32968",
+    "name": "Customizable motivational prize honorable ribbon award badge",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "This personalized award ribbon honors achievements warmlyeye-catching, making every win feel special.Rush service is available. Priced at 300 units.",
+    "tiers": [
+      [300, 0.933],
+      [500, 0.917],
+      [1000, 0.9],
+      [2000, 0.883],
+      [5000, 0.8]
+    ],
+    "image": "/images/merch/customizable-motivational-prize-honorable-ribbon-award-badge-32968.webp",
+    "imageAlt": "Customizable motivational prize honorable ribbon award badge",
+    "colors": ["Red", "Blue", "Pink", "White", "Yellow"]
+  },
+  {
+    "id": "2-custom-award-ribbon-one-color-hot-stamp-2-x-8-38820",
+    "name": "2\" Custom Award Ribbon - One-Color Hot Stamp - 2\" x 8\"",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "2\" x 8\" custom award satin ribbon with crisp one-color hot-stamp printing. Priced at 1 unit.",
+    "tiers": [
+      [1, 1.04],
+      [100, 0.89],
+      [500, 0.74],
+      [1000, 0.64],
+      [5000, 0.6]
+    ],
+    "image": "/images/merch/2-custom-award-ribbon-one-color-hot-stamp-2-x-8-38820.webp",
+    "imageAlt": "2\" Custom Award Ribbon - One-Color Hot Stamp - 2\" x 8\"",
+    "colors": [
+      "Red",
+      "Burgundy",
+      "Navy Blue",
+      "Black",
+      "Gray",
+      "Orange",
+      "White",
+      "Gold",
+      "Royal Blue",
+      "Green",
+      "Pink",
+      "Yellow",
+      "Light Blue",
+      "Silver",
+      "Brown",
+      "Purple"
+    ]
+  },
+  {
+    "id": "5-1-2-rosette-12-long-with-3-streamers-78142",
+    "name": "5 1/2\" Rosette 12\" long with 3 Streamers",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Rosette with 3 streamers, 2\" middle dovetail and 1 5/8\" sides angled, 12\" length. Priced at 10 units.",
+    "tiers": [
+      [10, 13.2],
+      [25, 9.7],
+      [50, 9.1],
+      [100, 8.5],
+      [250, 8.1]
+    ],
+    "image": "/images/merch/5-1-2-rosette-12-long-with-3-streamers-78142.webp",
+    "imageAlt": "5 1/2\" Rosette 12\" long with 3 Streamers",
+    "colors": [
+      "Black",
+      "Hunter",
+      "Green",
+      "Teal",
+      "Baby Blue",
+      "Blue",
+      "Navy",
+      "Purple",
+      "Maroon",
+      "Red",
+      "Pink",
+      "Orange",
+      "White",
+      "Egg Shell",
+      "Yellow",
+      "Gold",
+      "Lavender",
+      "Peacock"
+    ]
+  },
+  {
+    "id": "executive-certificate-holders-8-corners-35613",
+    "name": "Executive Certificate Holders - 8 Corners",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Change to: Vinyl certificate holder with foam padding in the front and back, and 8 corners standard to hold 2 8.5\"H x 11\"W inserts Made in USA. Priced at 50 units.",
+    "tiers": [
+      [50, 22.61],
+      [100, 17.79],
+      [250, 14.72],
+      [500, 13.44]
+    ],
+    "image": "/images/merch/executive-certificate-holders-8-corners-35613.webp",
+    "imageAlt": "Executive Certificate Holders - 8 Corners",
+    "colors": ["Blue", "Black", "Green", "Burgundy Red"]
+  },
+  {
+    "id": "tuck-flap-certificate-folder-43221",
+    "name": "Tuck Flap Certificate Folder",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Tuck Flap Certificate Folder for 8\" x 10\" or 8.5\" x 11\" sizes, choose from 5 deluxe linen stock colors gold foil-stamped on front Made in USA. Priced at 50 units.",
+    "tiers": [
+      [50, 6.13],
+      [100, 5],
+      [250, 4.19],
+      [500, 3.75],
+      [1000, 3.03]
+    ],
+    "image": "/images/merch/tuck-flap-certificate-folder-43221.webp",
+    "imageAlt": "Tuck Flap Certificate Folder",
+    "colors": [
+      "Blue Linen",
+      "Burgundy Linen",
+      "Black Linen",
+      "Ivory Linen",
+      "White Linen",
+      "Green Linen"
+    ]
+  },
+  {
+    "id": "roxbury-certificate-holder-54701",
+    "name": "Roxbury Certificate Holder",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Your graduates will value their hard-earned certificate more when they are presented in our textured linen folder. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 50 units.",
+    "tiers": [
+      [50, 4.35],
+      [100, 4.18],
+      [200, 4.03],
+      [300, 3.88]
+    ],
+    "image": "/images/merch/roxbury-certificate-holder-54701.webp",
+    "imageAlt": "Roxbury Certificate Holder",
+    "colors": ["Black", "White"]
+  },
+  {
+    "id": "waterman-expert-ballpoint-pen-black-with-gold-trim-15608",
+    "name": "Waterman Expert Ballpoint Pen - Black with Gold Trim",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Ballpoint pen with a black barrel and gold accents. Priced at 15 units.",
+    "tiers": [
+      [15, 241.15],
+      [30, 223.92],
+      [45, 209],
+      [60, 195.93],
+      [75, 187.15]
+    ],
+    "image": "/images/merch/waterman-expert-ballpoint-pen-black-with-gold-trim-15608.webp",
+    "imageAlt": "Waterman Expert Ballpoint Pen - Black with Gold Trim",
+    "colors": ["Black-Gold"]
+  },
+  {
+    "id": "bamboo-cutting-board-for-kitchen-christmas-engraving-gift-93254",
+    "name": "Bamboo cutting board for kitchen christmas engraving gift",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Our bamboo cutting board offers reliable durability and style for daily meal preparation. Rush service is available. Priced at 50 units.",
+    "tiers": [
+      [50, 5.667],
+      [100, 5.6],
+      [200, 5.517],
+      [500, 5.483],
+      [1000, 5.117]
+    ],
+    "image": "/images/merch/bamboo-cutting-board-for-kitchen-christmas-engraving-gift-93254.webp",
+    "imageAlt": "Bamboo cutting board for kitchen christmas engraving gift",
+    "colors": ["Brown"]
+  },
+  {
+    "id": "cross-calais-lustrous-chrome-ball-point-pen-05092",
+    "name": "Cross Calais Lustrous Chrome Ball-Point Pen",
+    "category": "Awards & Recognition",
+    "brand": "Cross",
+    "description": "Sophisticated chrome ballpoint pen with gift box included. Priced at 6 units.",
+    "tiers": [
+      [6, 99.72],
+      [12, 63.25],
+      [100, 61.13],
+      [250, 60.12],
+      [500, 59.15]
+    ],
+    "image": "/images/merch/cross-calais-lustrous-chrome-ball-point-pen-05092.webp",
+    "imageAlt": "Cross Calais Lustrous Chrome Ball-Point Pen",
+    "colors": ["Chrome"]
+  },
+  {
+    "id": "gift-pen-25102",
+    "name": "Gift Pen",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Gift Pen is for trade show, event, meeting. Priced at 500 units.",
+    "tiers": [
+      [500, 1.233],
+      [1000, 0.983],
+      [3000, 0.933],
+      [5000, 0.867],
+      [10000, 0.817]
+    ],
+    "image": "/images/merch/gift-pen-25102.webp",
+    "imageAlt": "Gift Pen",
+    "colors": ["Red", "Gold", "Purple", "Blue", "Pink", "Black", "White", "Silver", "Green"]
   }
 ]
