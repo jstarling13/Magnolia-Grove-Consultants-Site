@@ -2,9 +2,13 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import colorImageMap from "@/config/colorImages.json";
+import colorImagesExtra1 from "@/config/colorImages.extra1.json";
+import colorImagesExtra2 from "@/config/colorImages.extra2.json";
 import { products } from "@/config/merchandiseConfig";
 
-const entries = Object.entries(colorImageMap as Record<string, Record<string, string>>);
+const entries = [colorImageMap, colorImagesExtra1, colorImagesExtra2].flatMap((map) =>
+  Object.entries(map as Record<string, Record<string, string>>)
+);
 
 describe("per-color photo data", () => {
   it("only references products that exist", () => {

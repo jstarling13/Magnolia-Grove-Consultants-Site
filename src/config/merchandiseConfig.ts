@@ -26,6 +26,8 @@
 
 import type { ImprintArea, MerchPriceTier, MerchProduct } from "@/types";
 import colorImageMapJson from "./colorImages.json";
+import colorImagesExtra1 from "./colorImages.extra1.json";
+import colorImagesExtra2 from "./colorImages.extra2.json";
 import importedProductsJson from "./importedProducts.json";
 
 export const MARKUP_RATE = 0.05;
@@ -1412,7 +1414,24 @@ const curatedProducts: MerchProduct[] = [
 
 // Per-color photos live in colorImages.json (productId -> color -> image path)
 // so they can be sourced in bulk without touching individual product entries.
-const colorImageOverrides = colorImageMapJson as Record<string, Record<string, string>>;
+type ColorImageMap = Record<string, Record<string, string>>;
+
+// Several agents add photos in parallel, each into its own file; they are merged here.
+function mergeColorImageMaps(...maps: ColorImageMap[]): ColorImageMap {
+  const merged: ColorImageMap = {};
+  for (const map of maps) {
+    for (const [productId, byColor] of Object.entries(map)) {
+      merged[productId] = { ...merged[productId], ...byColor };
+    }
+  }
+  return merged;
+}
+
+const colorImageOverrides = mergeColorImageMaps(
+  colorImageMapJson as ColorImageMap,
+  colorImagesExtra1 as ColorImageMap,
+  colorImagesExtra2 as ColorImageMap
+);
 
 function withColorImages(product: MerchProduct): MerchProduct {
   const extra = colorImageOverrides[product.id];
