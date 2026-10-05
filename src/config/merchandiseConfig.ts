@@ -1469,7 +1469,8 @@ export interface ImportedProductRecord {
   tiers: [quantity: number, espPrice: number][];
   image: string;
   imageAlt: string;
-  colors: string[];
+  /** Omitted when the product has no real color options (no swatches, no color step). */
+  colors?: string[];
 }
 
 export function isImportedProductRecord(value: unknown): value is ImportedProductRecord {
@@ -1483,8 +1484,8 @@ export function isImportedProductRecord(value: unknown): value is ImportedProduc
     typeof r.description === "string" &&
     typeof r.image === "string" &&
     typeof r.imageAlt === "string" &&
-    Array.isArray(r.colors) &&
-    r.colors.every((c) => typeof c === "string") &&
+    (r.colors === undefined ||
+      (Array.isArray(r.colors) && r.colors.every((c) => typeof c === "string"))) &&
     Array.isArray(r.tiers) &&
     r.tiers.length > 0 &&
     r.tiers.every(
@@ -1504,7 +1505,7 @@ export function toImportedProduct(record: ImportedProductRecord): MerchProduct {
     priceTiers: tiers(record.tiers),
     image: record.image,
     imageAlt: record.imageAlt,
-    colors: record.colors,
+    colors: record.colors && record.colors.length > 0 ? record.colors : undefined,
   };
 }
 
