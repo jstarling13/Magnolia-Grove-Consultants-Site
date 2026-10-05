@@ -178,6 +178,26 @@ const COLOR_KEYWORDS: Record<string, string> = {
   chocolate: "#4a2f22",
   saddle: "#7a4a2b",
   "castle rock": "#8f9396",
+  // ---- additions (second pass: bags, tech, drinkware, event, home, outdoor) ----
+  eggplant: "#614051",
+  granite: "#676767",
+  cerulean: "#2a7fba",
+  champagne: "#f3e2c4",
+  fuschia: "#d1349a",
+  marigold: "#eaa221",
+  blueberry: "#44519a",
+  teakwood: "#a47c48",
+  chalk: "#ececea",
+  elephant: "#8b8d90",
+  grasshopper: "#8ab43c",
+  "angel food": "#f6edd3",
+  "cambridge blue": "#a3c1ad",
+  "cornflower blue": "#6495ed",
+  "fluorescent blue": "#1f51ff",
+  "cherry blossom": "#f1c5cf",
+  "robbins egg": "#8dd3d0",
+  "robin egg": "#8dd3d0",
+  "hot green": "#1fbf4a",
   // ---- additions: standard color words seen in the vendor catalog ----
   // blues / teals
   sapphire: "#1b66c7",
@@ -392,7 +412,14 @@ export const NAMED_COLORS: Record<string, string | readonly string[]> = {
   "calm waters": "#8fc1cf",
   "coastal fjord": "#3f6b7c",
   "lightly toasted": "#d9bf94",
+  // Pantone chips whose number matters (the code is part of the shade)
+  "cool grey 6": "#a7a8aa",
+  "cool grey 8": "#888b8d",
+  "warm grey 1": "#d7d2cb",
+  "pink red pms 193": "#bf0f3e",
+  "dark white white c": "#fafafa",
   // two/three-tone names the splitter cannot read
+  "dune warm gray black": ["#b5aea4", "#111111"],
   "blue reflex": "#0033a0",
   "blue reflex white": ["#0033a0", "#fafafa"],
   "iceberg heather black": ["#b9bcc0", "#111111"],
@@ -411,7 +438,7 @@ const MULTI_COLORS = ["#c8102e", "#f4d03f", "#2f6b3a", "#2a63c7"];
  * against the normalised name. A bare "Custom" is NOT here: it names no color.
  */
 const MULTI_PATTERN =
-  /\b(assorted|multi|multicolou?r|rainbow|various)\b|^(any all colors|stock colors|custom colors|custom shell colors|full digital printing|custom full color print)$/;
+  /\b(assorted|multi|multicolou?r|rainbow|various)\b|^(any all colors|all colors|stock colors|custom colors|custom shell colors|full digital printing|custom full color print|pms color match|full imprint avail|fullcolor avail|cmyk)$/;
 const MAX_TONES = 3;
 const HEATHER_NEUTRAL = "#a8a8a8";
 
@@ -564,11 +591,11 @@ function resolveSingle(phrase: string): string | null {
   return result;
 }
 
-const CAMO_WORDS = /\b(camouflage|camo|digital|woodland|desert|arid|terrain|classic|urban)\b/g;
+const CAMO_WORDS = /\b(camouflage|camo\d*|digital|woodland|desert|arid|terrain|classic|urban)\b/g;
 
 /** A pattern name ("Woodland Camouflage") with no color in it becomes a tone set. */
 function resolveCamo(text: string): readonly string[] | null {
-  if (!/\bcamo(uflage)?\b/.test(text)) return null;
+  if (!/\bcamo(uflage)?\d*\b/.test(text)) return null;
   const rest = text.replace(CAMO_WORDS, " ").replace(/\s+/g, " ").trim();
   if (rest && resolveSingle(rest)) return null;
   if (/\bdesert\b/.test(text)) return CAMO_TONES.desert;

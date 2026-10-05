@@ -27,6 +27,15 @@ const INTENTIONALLY_UNMAPPED: Record<string, string> = {
   // Not a color at all.
   Custom: "print/decoration option, names no color",
   Sublimated: "decoration method, names no color",
+  Standard: "imprint/stock option, names no color",
+  Soccer: "ball-type option on stress balls, not a color",
+  Basketball: "ball-type option on stress balls, not a color",
+  Baseball: "ball-type option on stress balls, not a color",
+  Tennis: "ball-type option on stress balls, not a color",
+  Rugby: "ball-type option on stress balls, not a color",
+  Volleyball: "ball-type option on stress balls, not a color",
+  Golf: "ball-type option on stress balls, not a color",
+  Venom: "YETI marketing name, hue unclear",
   // Marketing names with no color meaning and no photo or vendor chart to read from.
   "80'S Ski Slope": "Owala marketing name",
   Beachfront: "Owala marketing name",
