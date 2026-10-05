@@ -6,6 +6,8 @@
 
 export interface BackendSheetItem {
   name: string;
+  /** Color the customer chose; absent on legacy lines and uncolored products. */
+  color?: string;
   quantity: number;
   espUrl?: string;
   espKind?: "product" | "search";
@@ -20,7 +22,16 @@ export interface BackendSheetOrder {
   quotedTotal?: number;
 }
 
-export function buildBackendOrderSheet(order: BackendSheetOrder, items: BackendSheetItem[]): string {
+/** Back-office wording for a line's color, including lines saved without one. */
+export function describeLineColor(color: string | undefined): string {
+  const value = color?.trim();
+  return value ? `Color: ${value}` : "Color: not specified";
+}
+
+export function buildBackendOrderSheet(
+  order: BackendSheetOrder,
+  items: BackendSheetItem[]
+): string {
   const lines: string[] = [];
   const header = ["Backend order sheet"];
   if (order.orderId !== undefined) header.push(`Order #${order.orderId}`);
@@ -29,8 +40,11 @@ export function buildBackendOrderSheet(order: BackendSheetOrder, items: BackendS
 
   items.forEach((item, index) => {
     lines.push(`${index + 1}. ${item.quantity} x ${item.name}`);
+    lines.push(`   ${describeLineColor(item.color)}`);
     if (item.espUrl) {
-      lines.push(`   ESP+ link: ${item.espUrl}${item.espKind === "search" ? " (search link)" : ""}`);
+      lines.push(
+        `   ESP+ link: ${item.espUrl}${item.espKind === "search" ? " (search link)" : ""}`
+      );
     }
     if (item.supplier) lines.push(`   Supplier: ${item.supplier}`);
     if (item.productNo) lines.push(`   Product no.: ${item.productNo}`);

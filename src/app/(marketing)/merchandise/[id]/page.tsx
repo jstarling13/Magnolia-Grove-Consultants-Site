@@ -5,6 +5,7 @@ import { merchandisePage, products } from "@/config/merchandiseConfig";
 import CartLink from "@/components/merchandise/CartLink";
 import ProductDetailActions from "@/components/merchandise/ProductDetailActions";
 import ProductGallery from "@/components/merchandise/ProductGallery";
+import { ProductSelectionProvider } from "@/components/merchandise/ProductSelectionContext";
 import { bestTier, formatPrice, isRealBrand, startingTier } from "@/lib/merchCatalog";
 import { getStorefrontProduct } from "@/lib/merchStorefront";
 
@@ -73,72 +74,74 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
       </section>
 
       <section className="bg-cream px-6 py-12 sm:px-8 lg:px-12 lg:py-20">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-14">
-          <ProductGallery product={product} />
+        <ProductSelectionProvider product={product}>
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-14">
+            <ProductGallery product={product} />
 
-          <div className="min-w-0">
-            {isRealBrand(product.brand) && (
-              <p className="text-xs font-semibold uppercase tracking-wide text-gold-dark">
-                {product.brand}
+            <div className="min-w-0">
+              {isRealBrand(product.brand) && (
+                <p className="text-xs font-semibold uppercase tracking-wide text-gold-dark">
+                  {product.brand}
+                </p>
+              )}
+              <h1 className="mt-1 text-3xl text-onyx sm:text-4xl">{product.name}</h1>
+
+              <p className="mt-4 flex flex-wrap items-baseline gap-x-2 text-sm text-onyx/60">
+                {product.tiers.length > 1 && <span>From</span>}
+                <span className="font-heading text-3xl font-bold text-onyx">
+                  {formatPrice(first.price)}
+                </span>
+                <span>per unit at {first.quantity}+ units</span>
               </p>
-            )}
-            <h1 className="mt-1 text-3xl text-onyx sm:text-4xl">{product.name}</h1>
+              {best.price < first.price && (
+                <p className="mt-1 text-sm text-onyx/60">
+                  As low as {formatPrice(best.price)} per unit at {best.quantity}+ units
+                </p>
+              )}
 
-            <p className="mt-4 flex flex-wrap items-baseline gap-x-2 text-sm text-onyx/60">
-              {product.tiers.length > 1 && <span>From</span>}
-              <span className="font-heading text-3xl font-bold text-onyx">
-                {formatPrice(first.price)}
-              </span>
-              <span>per unit at {first.quantity}+ units</span>
-            </p>
-            {best.price < first.price && (
-              <p className="mt-1 text-sm text-onyx/60">
-                As low as {formatPrice(best.price)} per unit at {best.quantity}+ units
-              </p>
-            )}
+              <p className="mt-5 text-base leading-relaxed text-onyx/70">{product.description}</p>
 
-            <p className="mt-5 text-base leading-relaxed text-onyx/70">{product.description}</p>
-
-            <div className="mt-8">
-              <h2 className="text-xs font-semibold uppercase tracking-wide text-onyx/50">
-                Pricing by Quantity
-              </h2>
-              <table className="mt-3 w-full max-w-sm overflow-hidden rounded-md border border-gold/25 text-sm">
-                <caption className="sr-only">Price per unit by order quantity</caption>
-                <thead className="bg-cream-100">
-                  <tr className="text-left text-xs uppercase tracking-wide text-onyx/50">
-                    <th scope="col" className="px-4 py-2.5 font-semibold">
-                      Quantity
-                    </th>
-                    <th scope="col" className="px-4 py-2.5 text-right font-semibold">
-                      Price / Unit
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {product.tiers.map((tier) => (
-                    <tr key={tier.quantity} className="border-t border-gold/15">
-                      <th scope="row" className="px-4 py-2.5 text-left font-normal text-onyx/80">
-                        {tier.quantity}+ units
+              <div className="mt-8">
+                <h2 className="text-xs font-semibold uppercase tracking-wide text-onyx/50">
+                  Pricing by Quantity
+                </h2>
+                <table className="mt-3 w-full max-w-sm overflow-hidden rounded-md border border-gold/25 text-sm">
+                  <caption className="sr-only">Price per unit by order quantity</caption>
+                  <thead className="bg-cream-100">
+                    <tr className="text-left text-xs uppercase tracking-wide text-onyx/50">
+                      <th scope="col" className="px-4 py-2.5 font-semibold">
+                        Quantity
                       </th>
-                      <td className="px-4 py-2.5 text-right font-semibold tabular-nums text-onyx">
-                        {formatPrice(tier.price)}
-                      </td>
+                      <th scope="col" className="px-4 py-2.5 text-right font-semibold">
+                        Price / Unit
+                      </th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-              <p className="mt-3 text-xs leading-relaxed text-onyx/50">
-                {merchandisePage.pricingDisclaimer}
-              </p>
-              <p className="mt-1 text-xs leading-relaxed text-onyx/50">
-                {merchandisePage.deliveryEstimate}
-              </p>
-            </div>
+                  </thead>
+                  <tbody>
+                    {product.tiers.map((tier) => (
+                      <tr key={tier.quantity} className="border-t border-gold/15">
+                        <th scope="row" className="px-4 py-2.5 text-left font-normal text-onyx/80">
+                          {tier.quantity}+ units
+                        </th>
+                        <td className="px-4 py-2.5 text-right font-semibold tabular-nums text-onyx">
+                          {formatPrice(tier.price)}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                <p className="mt-3 text-xs leading-relaxed text-onyx/50">
+                  {merchandisePage.pricingDisclaimer}
+                </p>
+                <p className="mt-1 text-xs leading-relaxed text-onyx/50">
+                  {merchandisePage.deliveryEstimate}
+                </p>
+              </div>
 
-            <ProductDetailActions product={product} />
+              <ProductDetailActions product={product} />
+            </div>
           </div>
-        </div>
+        </ProductSelectionProvider>
       </section>
     </>
   );

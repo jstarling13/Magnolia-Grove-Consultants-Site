@@ -41,12 +41,13 @@ export function getStorefrontProduct(id: string): CatalogProduct | undefined {
   return product ? toCatalogProduct(product, getImprintArea(product)) : undefined;
 }
 
-/** Everything the cart page needs to render lines for any product id. */
+/**
+ * Everything the cart page needs to render lines for any product id: name,
+ * photo, tiers (customer-facing prices only), and the colors with their
+ * per-color photos. Descriptions are left out to keep the payload small.
+ */
 export function getCartCatalog(): CatalogProduct[] {
   return products.map((product) =>
-    toCatalogProduct(
-      { ...product, description: "", colors: undefined, colorImages: undefined },
-      getImprintArea(product)
-    )
+    toCatalogProduct({ ...product, description: "" }, getImprintArea(product))
   );
 }

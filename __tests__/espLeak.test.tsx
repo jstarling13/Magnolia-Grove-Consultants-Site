@@ -28,6 +28,7 @@ import type { PricedCartLineItem } from "@/lib/merchOrders";
 const espItem: PricedCartLineItem = {
   productId: "pen",
   name: "Metal & Co. Pen",
+  color: "Navy <Blue>",
   quantity: 250,
   unitPrice: 1.5,
   lineTotal: 375,
@@ -58,7 +59,10 @@ describe("ESP link leak prevention", () => {
       email: "pat@example.com",
       phone: "5555555",
       notes: "",
-      items: [espItem, { ...espItem, productId: "mug", espKind: "search", supplier: undefined }],
+      items: [
+        espItem,
+        { ...espItem, productId: "mug", color: undefined, espKind: "search", supplier: undefined },
+      ],
       total: 750,
     });
     expect(sent.emails).toHaveLength(1);
@@ -70,6 +74,10 @@ describe("ESP link leak prevention", () => {
     expect(html).toContain("OD618");
     expect(html).toContain("Metal &amp; Co. Pen");
     expect(html).not.toContain("Prime <Line>");
+    // Back-office-only color line: escaped, and "not specified" for lines without one.
+    expect(html).toContain("Color: Navy &lt;Blue&gt;");
+    expect(html).not.toContain("Navy <Blue>");
+    expect(html).toContain("Color: not specified");
   });
 
   it("never puts ESP data in the customer payment-link email", async () => {
@@ -85,12 +93,15 @@ describe("ESP link leak prevention", () => {
     expect(sent.emails[0].to).toBe("pat@example.com");
     expect(sent.emails[0].html.toLowerCase()).not.toContain("espplus");
     expect(sent.emails[0].html.toLowerCase()).not.toContain("supplier:");
+    expect(sent.emails[0].html).not.toContain("Color: ");
   });
 
   it("keeps the cart page and thank-you page copy free of ESP links", async () => {
     window.localStorage.setItem(
       "mg-merch-cart",
-      JSON.stringify([{ productId: products[0].id, quantity: 250 }])
+      JSON.stringify([
+        { productId: products[0].id, color: products[0].colors?.[0], quantity: 250 },
+      ])
     );
     const { container } = render(
       <CartProvider>

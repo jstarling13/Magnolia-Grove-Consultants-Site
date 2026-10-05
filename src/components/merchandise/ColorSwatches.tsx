@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useId, useState, type Ref } from "react";
 import Link from "next/link";
 import { cleanColorName, swatchBackground, swatchInfo } from "@/lib/colorSwatches";
 
@@ -20,6 +20,10 @@ interface ColorSwatchesProps {
   moreHref?: string;
   /** Show the selected color's name (or the color count) above the swatches. */
   showLabel?: boolean;
+  /** Ref to the swatch group, so a parent can move focus to it (e.g. after a validation error). */
+  groupRef?: Ref<HTMLDivElement>;
+  /** id of an element describing the group (an inline error, for instance). */
+  describedBy?: string;
   className?: string;
 }
 
@@ -50,6 +54,8 @@ export default function ColorSwatches({
   onSelect,
   moreHref,
   showLabel = false,
+  groupRef,
+  describedBy,
   className = "",
 }: ColorSwatchesProps) {
   const [expanded, setExpanded] = useState(false);
@@ -79,9 +85,14 @@ export default function ColorSwatches({
       )}
       <div
         id={listId}
+        ref={groupRef}
         role="group"
         aria-label="Available colors"
-        className={`flex flex-wrap items-center ${size === "sm" ? "gap-0.5" : "gap-1"}`}
+        aria-describedby={describedBy}
+        tabIndex={groupRef ? -1 : undefined}
+        className={`flex w-fit max-w-full flex-wrap items-center rounded-md focus:outline focus:outline-2 focus:outline-offset-4 focus:outline-gold-dark ${
+          size === "sm" ? "gap-0.5" : "gap-1"
+        }`}
       >
         {visible.map((color) => {
           const isSelected = selected === color;

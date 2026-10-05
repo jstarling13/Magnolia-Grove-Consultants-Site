@@ -1,23 +1,26 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import ColorSwatches, { colorCountLabel } from "@/components/merchandise/ColorSwatches";
 import ProductImageWithLogo from "@/components/merchandise/ProductImageWithLogo";
+import {
+  COLOR_REQUIRED_MESSAGE,
+  useProductSelection,
+} from "@/components/merchandise/ProductSelectionContext";
 import type { CatalogProduct } from "@/lib/merchCatalog";
 
 export default function ProductGallery({ product }: { product: CatalogProduct }) {
-  const [selectedColor, setSelectedColor] = useState<string | undefined>(undefined);
-  const colors = product.colors ?? [];
+  const {
+    colors,
+    selectedColor,
+    autoSelected,
+    selectColor,
+    clearColor,
+    colorError,
+    swatchGroupRef,
+  } = useProductSelection();
   const imageSrc = selectedColor ? product.colorImages?.[selectedColor] : undefined;
-  const missingPhoto = Boolean(selectedColor) && !imageSrc;
-
-  // Cards link here with ?color=<name> so the color a shopper picked carries
-  // over. Read after mount (not during render) to keep hydration clean.
-  useEffect(() => {
-    const requested = new URLSearchParams(window.location.search).get("color");
-    if (requested && colors.includes(requested)) setSelectedColor(requested);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [product.id]);
+  // Only explain a missing photo when the shopper picked the color themselves.
+  const missingPhoto = Boolean(selectedColor) && !autoSelected && !imageSrc;
 
   return (
     <div>
@@ -37,10 +40,10 @@ export default function ProductGallery({ product }: { product: CatalogProduct })
             <h2 className="text-xs font-semibold uppercase tracking-wide text-onyx/50">
               {colors.length === 1 ? "Color" : `Colors (${colors.length})`}
             </h2>
-            {selectedColor && (
+            {selectedColor && !autoSelected && (
               <button
                 type="button"
-                onClick={() => setSelectedColor(undefined)}
+                onClick={clearColor}
                 className="text-xs font-semibold text-gold-dark hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-dark"
               >
                 Clear selection
@@ -54,8 +57,16 @@ export default function ProductGallery({ product }: { product: CatalogProduct })
             size="md"
             showLabel
             selected={selectedColor}
-            onSelect={(color) => setSelectedColor((prev) => (prev === color ? undefined : color))}
+            onSelect={selectColor}
+            groupRef={swatchGroupRef}
+            describedBy={colorError ? "color-error" : undefined}
           />
+
+          {colorError && (
+            <p id="color-error" role="alert" className="mt-2 text-sm font-semibold text-red-600">
+              {COLOR_REQUIRED_MESSAGE}
+            </p>
+          )}
 
           {/* Reserved line so the note appearing never shifts the page. */}
           <p className="mt-2 min-h-[1.25rem] text-xs leading-5 text-onyx/50" aria-live="polite">

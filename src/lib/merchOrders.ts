@@ -28,6 +28,10 @@ export const cartCheckoutSchema = z.object({
     .array(
       z.object({
         productId: z.string().trim().min(1).max(100),
+        // Which color the customer chose. Whether it is required, and whether
+        // it is one of the product's real colors, is checked server-side
+        // against the catalog (see validateCart), not here.
+        color: z.string().trim().max(100).optional(),
         quantity: z.number().int().positive().max(100000),
       })
     )
@@ -42,6 +46,8 @@ export type CartCheckoutPayload = z.infer<typeof cartCheckoutSchema>;
 export interface PricedCartLineItem {
   productId: string;
   name: string;
+  /** Color the customer chose; absent for products without colors and for orders stored before colors were recorded. */
+  color?: string;
   quantity: number;
   unitPrice: number;
   lineTotal: number;

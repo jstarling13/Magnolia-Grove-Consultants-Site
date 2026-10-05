@@ -1,6 +1,7 @@
 import { Resend } from "resend";
 import type { LeadFormPayload, StrategySessionPayload, PaymentRequestPayload } from "./validation";
 import type { MerchOrderRequestPayload, PricedCartLineItem } from "./merchOrders";
+import { describeLineColor } from "./merchBackendSheet";
 
 const hasResendConfig =
   Boolean(process.env.RESEND_API_KEY) && Boolean(process.env.CONTACT_EMAIL_FROM);
@@ -283,7 +284,7 @@ export async function sendCartOrderNotification(
     .map(
       (item) =>
         `<tr>
-          <td style="padding:6px 0;color:#e5e5e5;font-size:14px;">${escapeHtml(item.name)}${espDetailsHtml(item)}</td>
+          <td style="padding:6px 0;color:#e5e5e5;font-size:14px;">${escapeHtml(item.name)}<div style="margin-top:2px;color:${MUTED};font-size:12px;">${escapeHtml(describeLineColor(item.color))}</div>${espDetailsHtml(item)}</td>
           <td style="padding:6px 0;color:#e5e5e5;font-size:14px;text-align:right;vertical-align:top;">${item.quantity}</td>
           <td style="padding:6px 0;color:#e5e5e5;font-size:14px;text-align:right;vertical-align:top;">$${item.unitPrice.toFixed(2)}</td>
           <td style="padding:6px 0;color:#e5e5e5;font-size:14px;text-align:right;vertical-align:top;">$${item.lineTotal.toFixed(2)}</td>
