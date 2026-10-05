@@ -310,5 +310,53 @@
     "supplier": "Hit Promotional Products",
     "asi": "asi/61125",
     "productNo": "7026"
+  },
+  "u-go-travel-toiletry-kit": {
+    "espId": "551713003",
+    "supplier": "Safety Made",
+    "asi": "asi/84514",
+    "productNo": "T61"
+  },
+  "rain-gauge": {
+    "espId": "552614261",
+    "supplier": "WOWLine",
+    "asi": "asi/98360",
+    "productNo": "GRDN1"
+  },
+  "8pc-bbq-grill-tool-set": {
+    "espId": "551848731",
+    "supplier": "Prime Line",
+    "asi": "asi/79530",
+    "productNo": "T407"
+  },
+  "pickleball-paddle": {
+    "espId": "555967928",
+    "supplier": "Prime Line",
+    "asi": "asi/79530",
+    "productNo": "OD618"
+  },
+  "carbon-fiber-pickleball-set": {
+    "espId": "555990121",
+    "supplier": "Prime Gifts Inc",
+    "asi": "asi/79539",
+    "productNo": "RS6335"
+  },
+  "astor-bamboo-cheese-board-knife-set": {
+    "espId": "551767653",
+    "supplier": "STOPNGO Line",
+    "asi": "asi/57655",
+    "productNo": "CHZBRD1014"
+  },
+  "classic-hardcover-notebook": {
+    "espId": "554050467",
+    "supplier": "Branding Your Brand Inc",
+    "asi": "asi/90200",
+    "productNo": "BYB028"
+  },
+  "gusset-shopping-tote": {
+    "espId": "552078087",
+    "supplier": "Tekweld",
+    "asi": "asi/90807",
+    "productNo": "BAG201-4CP"
   }
 }
