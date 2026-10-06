@@ -10,6 +10,8 @@ export const RELATED_LIMIT = 4;
 /** `name` is optional so callers without one (and older tests) still work. */
 type RelatedInput = Pick<CatalogProduct, "id" | "category" | "brand" | "tiers"> & {
   name?: string;
+  /** Product type; a product of the same type is a closer match than one of another type. */
+  type?: string;
 };
 
 /**
@@ -21,6 +23,8 @@ type RelatedInput = Pick<CatalogProduct, "id" | "category" | "brand" | "tiers"> 
  */
 const NAME_WEIGHT = 3;
 const BRAND_WEIGHT = 1;
+/** Same product type: worth less than a shared brand, but it breaks ties between look-alikes. */
+const TYPE_WEIGHT = 0.5;
 
 /** Words that say nothing about what the product is. */
 const STOP_WORDS = new Set([
@@ -117,7 +121,8 @@ function brandWords(brand: string): Set<string> {
  * Relevance is name similarity (shared product-type words, ignoring brand
  * names, sizes and filler like "Men's") plus a bonus for the same real brand
  * (an "Essentials" match means nothing, so it doesn't count). Ties go to the
- * nearest starting price, then to the id, so the order never varies.
+ * nearest starting price, then to the id, so the order never varies. A product
+ * of the same type (see config/productTypes) scores a little higher.
  * A category with fewer other products simply returns fewer; it is never
  * padded from other categories.
  */
@@ -139,7 +144,10 @@ export function selectRelated<T extends RelatedInput>(
       const similarity = dice(nameTokens(current.name, exclude), nameTokens(product.name, exclude));
       return {
         product,
-        score: NAME_WEIGHT * similarity + (sameBrand ? BRAND_WEIGHT : 0),
+        score:
+          NAME_WEIGHT * similarity +
+          (sameBrand ? BRAND_WEIGHT : 0) +
+          (current.type !== undefined && product.type === current.type ? TYPE_WEIGHT : 0),
         priceGap: Math.abs(startingTier(product).price - currentPrice),
       };
     })

@@ -68,6 +68,8 @@ export default function MerchandisePage() {
               categories={catalog.categories}
               categoryTotals={catalog.categoryTotals}
               brands={catalog.brands}
+              types={catalog.types}
+              blockTotals={catalog.blockTotals}
               priceBuckets={catalog.priceBuckets}
             />
           </div>

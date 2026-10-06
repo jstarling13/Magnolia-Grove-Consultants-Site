@@ -7,6 +7,8 @@
  * Query string (every key is omitted at its default):
  *   category=Apparel   hub only; a category name
  *   brand=Nike         a real brand
+ *   type=Polos         a product type of the chosen category (on the hub only
+ *                      together with category=)
  *   q=mug              search text
  *   sort=price-asc     any SortKey other than "featured"
  *   usa=1              made in the USA
@@ -36,6 +38,8 @@ export interface CatalogParams {
   category: string;
   /** FILTER_ALL when no brand is chosen. */
   brand: string;
+  /** FILTER_ALL when no product type is chosen. */
+  type: string;
   /** Trimmed search text. */
   query: string;
   sort: SortKey;
@@ -45,6 +49,7 @@ export interface CatalogParams {
 export const DEFAULT_PARAMS: CatalogParams = {
   category: FILTER_ALL,
   brand: FILTER_ALL,
+  type: FILTER_ALL,
   query: "",
   sort: "featured",
   filters: NO_FILTERS,
@@ -55,6 +60,10 @@ export interface ParseContext {
   /** The hub's categories; omit on a category page (the path is the category). */
   categories?: readonly string[];
   brands: readonly string[];
+  /** A category page's own product types ("type=" is checked against them). */
+  types?: readonly string[];
+  /** The hub's product types by category ("type=" is checked against the chosen category's). */
+  typesByCategory?: Readonly<Record<string, readonly string[]>>;
 }
 
 const QUERY_MAX = 120;
@@ -79,11 +88,17 @@ export function parseCatalogParams(search: string, context: ParseContext): Catal
   const params = new URLSearchParams(search);
   const category = params.get("category");
   const brand = params.get("brand");
+  const type = params.get("type");
   const sort = params.get("sort");
   const minQty = Number(params.get("minqty"));
+  const chosenCategory = category && context.categories?.includes(category) ? category : FILTER_ALL;
+  const knownTypes =
+    context.types ??
+    (chosenCategory !== FILTER_ALL ? context.typesByCategory?.[chosenCategory] : undefined);
   return {
-    category: category && context.categories?.includes(category) ? category : FILTER_ALL,
+    category: chosenCategory,
     brand: brand && context.brands.includes(brand) ? brand : FILTER_ALL,
+    type: type && knownTypes?.includes(type) ? type : FILTER_ALL,
     query: (params.get("q") ?? "").trim().slice(0, QUERY_MAX),
     sort: isSortKey(sort) ? sort : "featured",
     filters: {
@@ -110,6 +125,7 @@ export function applyCatalogParams(search: string, params: CatalogParams): strin
   const { filters } = params;
   put("category", params.category === FILTER_ALL ? null : params.category);
   put("brand", params.brand === FILTER_ALL ? null : params.brand);
+  put("type", params.type === FILTER_ALL ? null : params.type);
   put("q", params.query || null);
   put("sort", params.sort === "featured" ? null : params.sort);
   put("usa", filters.usa ? "1" : null);
@@ -124,6 +140,7 @@ export function sameParams(a: CatalogParams, b: CatalogParams): boolean {
   return (
     a.category === b.category &&
     a.brand === b.brand &&
+    a.type === b.type &&
     a.query === b.query &&
     a.sort === b.sort &&
     filtersKey(a.filters) === filtersKey(b.filters)
@@ -237,6 +254,9 @@ export function activeFilterChips(params: CatalogParams): FilterChip[] {
   if (params.brand !== FILTER_ALL) {
     chips.push({ key: "brand", label: `Brand: ${params.brand}`, remove: { brand: FILTER_ALL } });
   }
+  if (params.type !== FILTER_ALL) {
+    chips.push({ key: "type", label: `Type: ${params.type}`, remove: { type: FILTER_ALL } });
+  }
   if (filters.usa) {
     chips.push({
       key: "usa",
@@ -276,9 +296,10 @@ export function activeFilterChips(params: CatalogParams): FilterChip[] {
 }
 
 /** Everything the "Clear all" control resets. The sort order is a preference, not a filter. */
-export const CLEAR_ALL: Pick<CatalogParams, "category" | "brand" | "query" | "filters"> = {
+export const CLEAR_ALL: Pick<CatalogParams, "category" | "brand" | "type" | "query" | "filters"> = {
   category: FILTER_ALL,
   brand: FILTER_ALL,
+  type: FILTER_ALL,
   query: "",
   filters: NO_FILTERS,
 };
@@ -288,6 +309,7 @@ export function hasActiveParams(params: CatalogParams, queryInput = ""): boolean
   return (
     params.category !== FILTER_ALL ||
     params.brand !== FILTER_ALL ||
+    params.type !== FILTER_ALL ||
     params.query !== "" ||
     queryInput !== "" ||
     hasProductFilters(params.filters)

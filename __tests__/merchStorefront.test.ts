@@ -1,11 +1,14 @@
 import { describe, expect, it } from "vitest";
 import { products } from "@/config/merchandiseConfig";
 import { categorySlug } from "@/lib/merchSlug";
+import { blockKey, summarizeCardTypes } from "@/lib/merchCatalog";
 import {
+  getCategoryCards,
   getCategoryCatalog,
   getRecentLookup,
   getRelatedProducts,
   getStorefrontCategories,
+  getStorefrontInitialCatalog,
 } from "@/lib/merchStorefront";
 
 describe("getCategoryCatalog", () => {
@@ -62,5 +65,54 @@ describe("getRecentLookup", () => {
       ).toBe(true);
     }
     expect(JSON.stringify(lookup)).not.toMatch(/espPrice|espUrl|espId|supplier|espplus/i);
+  });
+});
+
+describe("product types in the storefront data", () => {
+  it("every card carries its type, and the category list is in type then brand-block order", () => {
+    for (const category of getStorefrontCategories()) {
+      const { cards, types } = getCategoryCards(categorySlug(category))!;
+      expect(cards.every((card) => typeof card.type === "string" && card.type !== "")).toBe(true);
+      // the summary lists the types in the order the cards come in, and counts them all
+      expect(summarizeCardTypes(cards).map((t) => t.label)).toEqual(types.map((t) => t.label));
+      expect(types.reduce((sum, t) => sum + t.count, 0)).toBe(cards.length);
+      for (const entry of types) {
+        const ofType = cards.filter((card) => card.type === entry.label);
+        expect(ofType).toHaveLength(entry.count);
+        expect(new Set(ofType.map((card) => card.brand)).size).toBe(entry.blocks);
+      }
+    }
+  });
+
+  it("the hub's first cards are the first cards of each category's own list", () => {
+    const initial = getStorefrontInitialCatalog();
+    for (const category of initial.categories) {
+      const first = initial.products.filter((p) => p.category === category);
+      const { cards } = getCategoryCards(categorySlug(category))!;
+      expect(first.map((p) => p.id)).toEqual(cards.slice(0, first.length).map((p) => p.id));
+      expect(initial.types[category].reduce((sum, t) => sum + t.count, 0)).toBe(cards.length);
+    }
+  });
+
+  it("sends the full size of every brand block that shows among the first cards", () => {
+    const initial = getStorefrontInitialCatalog();
+    for (const category of initial.categories) {
+      const { cards } = getCategoryCards(categorySlug(category))!;
+      for (const card of initial.products.filter((p) => p.category === category)) {
+        const expected = cards.filter((c) => c.type === card.type && c.brand === card.brand).length;
+        expect(initial.blockTotals[blockKey(category, card.type!, card.brand)]).toBe(expected);
+      }
+    }
+  });
+
+  it("keeps cost and supplier data out of the type data", () => {
+    const text = JSON.stringify(getStorefrontInitialCatalog().types);
+    expect(text).not.toMatch(/espPrice|espUrl|espId|supplier|espplus/i);
+  });
+
+  it("related products come from the same category and favour the same type", () => {
+    const polo = products.find((p) => p.category === "Apparel" && /Polo/.test(p.name))!;
+    const related = getRelatedProducts(polo.id);
+    expect(related.some((r) => r.type === "Polos")).toBe(true);
   });
 });

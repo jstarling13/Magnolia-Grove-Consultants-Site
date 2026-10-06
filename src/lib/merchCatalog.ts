@@ -23,6 +23,11 @@ export interface CatalogProduct {
   category: string;
   /** Brand on the product's own label; "Essentials" means unbranded. */
   brand: string;
+  /**
+   * Product type within the category ("Polos", "Tumblers"), set by the server
+   * adapter on storefront lists so the page can group and filter by it.
+   */
+  type?: string;
   description: string;
   /** Size-pricing caveat for the product page; absent on ordinary products. */
   priceNote?: string;
@@ -49,6 +54,7 @@ interface SourceProduct {
   name: string;
   category: string;
   brand: string;
+  type?: string;
   description: string;
   priceNote?: string;
   image?: string;
@@ -112,6 +118,7 @@ export function toCatalogProduct(
     name: product.name,
     category: product.category,
     brand: product.brand,
+    ...(product.type ? { type: product.type } : {}),
     description: options.truncateDescription
       ? truncate(product.description, CARD_DESCRIPTION_MAX)
       : product.description,
@@ -269,7 +276,7 @@ export type SortKey = "featured" | "price-asc" | "price-desc" | "moq-asc" | "col
 /**
  * "featured" is the default and the URL's absence of ?sort=. It means
  * relevance: the search ranking when there is a query, otherwise the order the
- * server supplied (name brands first, then price high to low).
+ * server supplied (product type, then one block per brand, see groupByCategory).
  */
 export const SORT_OPTIONS: { value: SortKey; label: string }[] = [
   { value: "featured", label: "Relevance" },
@@ -838,6 +845,8 @@ export function realBrands(products: readonly Pick<CatalogProduct, "brand">[]): 
 export interface CatalogView {
   category: string;
   brand: string;
+  /** FILTER_ALL, or a product type of `category`. */
+  type?: string;
   query: string;
   sort: SortKey;
   /** Absent means no product filters. */
@@ -855,6 +864,7 @@ export interface CatalogView {
 export function categoriesNeeded(view: CatalogView, categories: readonly string[]): string[] {
   if (
     view.brand !== FILTER_ALL ||
+    (view.type !== undefined && view.type !== FILTER_ALL && view.category === FILTER_ALL) ||
     view.query !== "" ||
     view.sort !== "featured" ||
     (view.filters !== undefined && hasProductFilters(view.filters))
@@ -862,4 +872,146 @@ export function categoriesNeeded(view: CatalogView, categories: readonly string[
     return [...categories];
   }
   return view.category !== FILTER_ALL ? [view.category] : [];
+}
+
+// ---------------------------------------------------------------------------
+// Product types: counts, chips and the type / brand-block grouping
+// ---------------------------------------------------------------------------
+
+/** One product type of a category: its label, product count and how many brand blocks it holds. */
+export interface TypeSummary {
+  label: string;
+  count: number;
+  /** Brand blocks in the type; 1 means the page shows no brand sub-headings. */
+  blocks: number;
+}
+
+/** Separates the parts of a block key. */
+const KEY_SEPARATOR = "\u001f";
+
+/** Key of one brand block in a map of block totals. */
+export function blockKey(category: string, type: string, brand: string): string {
+  return [category, type, brand].join(KEY_SEPARATOR);
+}
+
+/**
+ * Types (and their counts) of a list of cards, in the order they first appear.
+ * The server supplies cards already ordered by type, so that is the display
+ * order. Cards without a type are counted under "Other".
+ */
+export function summarizeCardTypes(
+  cards: readonly Pick<CatalogProduct, "type" | "brand">[]
+): TypeSummary[] {
+  const found = new Map<string, { count: number; brands: Set<string> }>();
+  for (const card of cards) {
+    const label = card.type ?? "Other";
+    const entry = found.get(label) ?? { count: 0, brands: new Set<string>() };
+    entry.count += 1;
+    entry.brands.add(card.brand);
+    found.set(label, entry);
+  }
+  return Array.from(found, ([label, entry]) => ({
+    label,
+    count: entry.count,
+    blocks: entry.brands.size,
+  }));
+}
+
+/** Cards of one type; every card when `type` is FILTER_ALL or undefined. */
+export function filterByType<T extends Pick<CatalogProduct, "type">>(
+  cards: readonly T[],
+  type: string | undefined
+): T[] {
+  return type === undefined || type === FILTER_ALL
+    ? [...cards]
+    : cards.filter((card) => (card.type ?? "Other") === type);
+}
+
+export interface BrandBlock {
+  brand: string;
+  items: CatalogProduct[];
+  /** Products in the whole block, including cards that have not loaded yet. */
+  total: number;
+}
+
+export interface TypeGroup {
+  type: string;
+  /** Products of the type in all, including cards that have not loaded yet. */
+  total: number;
+  /** False when the type has a single brand block: the page skips the brand sub-heading. */
+  showBrands: boolean;
+  blocks: BrandBlock[];
+}
+
+/**
+ * Splits cards (already in type, brand-block order) into one group per type
+ * and one block per brand run inside it. `known` carries the full counts when
+ * only the first cards of a category are here; without it the counts are the
+ * cards' own.
+ */
+export function groupCardsByType(
+  items: readonly CatalogProduct[],
+  category: string,
+  known?: { types?: readonly TypeSummary[]; blockTotals?: Readonly<Record<string, number>> }
+): TypeGroup[] {
+  const groups: TypeGroup[] = [];
+  const own = new Map<string, { count: number; brands: Set<string> }>();
+  for (const item of items) {
+    const type = item.type ?? "Other";
+    const entry = own.get(type) ?? { count: 0, brands: new Set<string>() };
+    entry.count += 1;
+    entry.brands.add(item.brand);
+    own.set(type, entry);
+  }
+  for (const item of items) {
+    const type = item.type ?? "Other";
+    let group = groups[groups.length - 1];
+    if (!group || group.type !== type) {
+      const summary = known?.types?.find((entry) => entry.label === type);
+      const mine = own.get(type)!;
+      group = {
+        type,
+        total: summary?.count ?? mine.count,
+        showBrands: (summary?.blocks ?? mine.brands.size) > 1,
+        blocks: [],
+      };
+      groups.push(group);
+    }
+    let block = group.blocks[group.blocks.length - 1];
+    if (!block || block.brand !== item.brand) {
+      block = {
+        brand: item.brand,
+        items: [],
+        total: known?.blockTotals?.[blockKey(category, type, item.brand)] ?? 0,
+      };
+      group.blocks.push(block);
+    }
+    block.items.push(item);
+  }
+  for (const group of groups) {
+    for (const block of group.blocks) block.total = Math.max(block.total, block.items.length);
+  }
+  return groups;
+}
+
+/**
+ * Full size of the brand blocks of one category, keyed by blockKey. With a
+ * `limit`, only the blocks that show among the first `limit` cards are
+ * counted: those are the only ones the page needs before the rest loads.
+ */
+export function blockTotalsFor(
+  cards: readonly Pick<CatalogProduct, "type" | "brand">[],
+  category: string,
+  limit?: number
+): Record<string, number> {
+  const counts: Record<string, number> = {};
+  for (const card of cards) {
+    const key = blockKey(category, card.type ?? "Other", card.brand);
+    counts[key] = (counts[key] ?? 0) + 1;
+  }
+  if (limit === undefined) return counts;
+  const wanted = new Set(
+    cards.slice(0, limit).map((card) => blockKey(category, card.type ?? "Other", card.brand))
+  );
+  return Object.fromEntries(Object.entries(counts).filter(([key]) => wanted.has(key)));
 }

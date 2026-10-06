@@ -14,7 +14,7 @@ import {
 import { brand } from "@/config/siteConfig";
 import { buildBreadcrumbJsonLd, buildCategoryMetadata, serializeJsonLd } from "@/lib/merchSeo";
 import { categoryPath, categorySlug } from "@/lib/merchSlug";
-import { FOCUSED_INITIAL_VISIBLE, toCatalogProduct } from "@/lib/merchCatalog";
+import { FOCUSED_INITIAL_VISIBLE, blockTotalsFor, toCatalogProduct } from "@/lib/merchCatalog";
 import {
   getCategoryCards,
   getCategoryCatalog,
@@ -73,7 +73,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const { category, products } = catalog;
   // Only the first screenful is sent with the page; the rest of the category
   // is fetched from cards.json when the shopper asks for it.
-  const { cards, brands } = getCategoryCards(slug)!;
+  const { cards, brands, types } = getCategoryCards(slug)!;
   const others = getStorefrontCategories().filter((name) => name !== category);
   const copy = getCategoryCopy(category);
   // Facts come from the full (untruncated) live products of this category.
@@ -160,6 +160,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             products={cards.slice(0, FOCUSED_INITIAL_VISIBLE)}
             total={cards.length}
             brands={brands}
+            types={types}
+            blockTotals={blockTotalsFor(cards, category, FOCUSED_INITIAL_VISIBLE)}
             category={category}
           />
         </div>

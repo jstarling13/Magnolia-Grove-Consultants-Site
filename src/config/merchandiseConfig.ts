@@ -18,13 +18,19 @@
  * catalogued before quantity breaks were tracked and only have a single
  * tier — real data, just not the full ESP breakdown yet.
  *
- * `brand` groups the catalog and drives display order (see
- * ProductCatalog.tsx): items from recognizable name brands are shown before
- * unbranded/private-label "Essentials" items as a quality anchor.
+ * `brand` groups the catalog: inside each product type the storefront shows one block
+ * per brand (deepest assortment first), with unbranded "Essentials" items as the last
+ * block (see groupByCategory and productTypes.ts).
  * ============================================================================
  */
 
 import type { ImprintArea, MerchPriceTier, MerchProduct } from "@/types";
+import {
+  orderByTypeAndBrand,
+  productTypeOf,
+  summarizeTypes,
+  type TypeSummary,
+} from "./productTypes";
 import colorImageMapJson from "./colorImages.json";
 import colorImagesExtra1 from "./colorImages.extra1.json";
 import colorImagesExtra2 from "./colorImages.extra2.json";
@@ -1810,17 +1816,26 @@ export function groupByBrand(list: MerchProduct[]): { brand: string; items: Merc
   return groups;
 }
 
+/** True when at least one color of the product has its own real photo. */
+function hasColorPhotos(product: MerchProduct): boolean {
+  return Object.keys(product.colorImages ?? {}).length > 0;
+}
+
 /**
- * Groups products by category (in the fixed merchandiseCategories order —
- * how shoppers actually browse: "I need drinkware," not "I want Peter
- * Millar"). Within each category, name-brand items still lead and
- * "Essentials" private-label items still trail, same anchoring effect as
- * groupByBrand, just applied inside each category instead of across the
- * whole catalog.
+ * Groups products by category (in the fixed merchandiseCategories order: how
+ * shoppers actually browse, "I need drinkware," not "I want Peter Millar")
+ * and merchandises each category like a catalog:
+ *   1. product type, in the taxonomy's display order (see productTypes.ts);
+ *   2. inside a type, one block per brand: the brand with the most products
+ *      in the type first (ties A to Z), unbranded "Essentials" always the
+ *      last block, so name brands are never interleaved with it;
+ *   3. inside a block: products with per-color photos first, then the lowest
+ *      starting customer price, then name A to Z.
+ * `types` summarises the category in that order (counts and brand blocks).
  */
 export function groupByCategory(
   list: MerchProduct[]
-): { category: string; items: MerchProduct[] }[] {
+): { category: string; items: MerchProduct[]; types: TypeSummary[] }[] {
   const byCategory = new Map<string, MerchProduct[]>();
   for (const product of list) {
     const group = byCategory.get(product.category);
@@ -1830,12 +1845,23 @@ export function groupByCategory(
 
   return merchandiseCategories
     .filter((category) => byCategory.has(category))
-    .map((category) => ({
-      category,
-      items: [...byCategory.get(category)!].sort((a, b) => {
-        if (a.brand === "Essentials" && b.brand !== "Essentials") return 1;
-        if (b.brand === "Essentials" && a.brand !== "Essentials") return -1;
-        return startingPrice(b) - startingPrice(a);
-      }),
-    }));
+    .map((category) => {
+      const entries = byCategory.get(category)!.map((product) => ({
+        product,
+        type: productTypeOf(product),
+        brand: product.brand,
+        hasColorPhotos: hasColorPhotos(product),
+        price: startingPrice(product),
+        name: product.name,
+      }));
+      const items = orderByTypeAndBrand(entries, category).map((entry) => entry.product);
+      return {
+        category,
+        items,
+        types: summarizeTypes(
+          items.map((product) => ({ type: productTypeOf(product), brand: product.brand })),
+          category
+        ),
+      };
+    });
 }

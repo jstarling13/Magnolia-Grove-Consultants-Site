@@ -17,6 +17,7 @@ import {
   searchProducts,
   sortProducts,
   startingTier,
+  summarizeCardTypes,
   type CatalogProduct,
   type ProductFilters,
 } from "@/lib/merchCatalog";
@@ -38,7 +39,18 @@ import {
 const catalog = getStorefrontCatalog();
 const PRODUCTS = catalog.products;
 const BRANDS = realBrands(PRODUCTS);
-const CONTEXT = { categories: catalog.categories, brands: BRANDS };
+const TYPES_BY_CATEGORY = Object.fromEntries(
+  catalog.categories.map((name) => [
+    name,
+    summarizeCardTypes(PRODUCTS.filter((p) => p.category === name)).map((t) => t.label),
+  ])
+);
+const CONTEXT = {
+  categories: catalog.categories,
+  brands: BRANDS,
+  typesByCategory: TYPES_BY_CATEGORY,
+};
+const FIRST_TYPE = TYPES_BY_CATEGORY[catalog.categories[0]][0];
 
 function make(id: string, overrides: Partial<CatalogProduct> = {}): CatalogProduct {
   return {
@@ -313,6 +325,24 @@ describe("priceBuckets", () => {
   });
 });
 
+describe("categoriesNeeded with a type", () => {
+  const base = { category: FILTER_ALL, brand: FILTER_ALL, query: "", sort: "featured" as const };
+
+  it("needs only the focused category to filter it by type", () => {
+    expect(
+      categoriesNeeded({ ...base, category: "Apparel", type: "Polos" }, ["Apparel", "Bags"])
+    ).toEqual(["Apparel"]);
+  });
+
+  it("needs every category for a type with none chosen, and nothing for the plain view", () => {
+    expect(categoriesNeeded({ ...base, type: "Polos" }, ["Apparel", "Bags"])).toEqual([
+      "Apparel",
+      "Bags",
+    ]);
+    expect(categoriesNeeded({ ...base, type: FILTER_ALL }, ["Apparel", "Bags"])).toEqual([]);
+  });
+});
+
 describe("URL state", () => {
   const withFilters = (filters: Partial<ProductFilters>): ProductFilters => ({
     ...NO_FILTERS,
@@ -323,9 +353,11 @@ describe("URL state", () => {
     { ...DEFAULT_PARAMS, category: catalog.categories[1] },
     { ...DEFAULT_PARAMS, brand: BRANDS[0], query: "water bottle", sort: "moq-asc" },
     { ...DEFAULT_PARAMS, sort: "colors-desc", filters: withFilters({ manyColors: true }) },
+    { ...DEFAULT_PARAMS, category: catalog.categories[0], type: FIRST_TYPE },
     {
       category: catalog.categories[0],
       brand: BRANDS[2],
+      type: FIRST_TYPE,
       query: "t-shirt & tank",
       sort: "price-desc",
       filters: {
@@ -353,7 +385,7 @@ describe("URL state", () => {
 
   it("writes nothing for the defaults and short keys for the rest", () => {
     expect(applyCatalogParams("", DEFAULT_PARAMS)).toBe("");
-    const search = applyCatalogParams("", samples[4]);
+    const search = applyCatalogParams("", samples[5]);
     const keys = [...new URLSearchParams(search).keys()].sort();
     expect(keys).toEqual([
       "brand",
@@ -364,6 +396,7 @@ describe("URL state", () => {
       "price",
       "q",
       "sort",
+      "type",
       "usa",
     ]);
     expect(new URLSearchParams(search).get("price")).toBe("2.5-15");
@@ -392,6 +425,25 @@ describe("URL state", () => {
     expect(parseCatalogParams("category=Apparel", { brands: BRANDS }).category).toBe(FILTER_ALL);
   });
 
+  it("round-trips the product type and drops one that is not the category's", () => {
+    const search = applyCatalogParams("", {
+      ...DEFAULT_PARAMS,
+      category: "Apparel",
+      type: "Hoodies & Sweatshirts",
+    });
+    expect(new URLSearchParams(search).get("type")).toBe("Hoodies & Sweatshirts");
+    expect(parseCatalogParams(search, CONTEXT).type).toBe("Hoodies & Sweatshirts");
+    // the same label means nothing in another category, or with no category on the hub
+    expect(parseCatalogParams("category=Drinkware&type=Polos", CONTEXT).type).toBe(FILTER_ALL);
+    expect(parseCatalogParams("type=Polos", CONTEXT).type).toBe(FILTER_ALL);
+    expect(parseCatalogParams("category=Apparel&type=Nope", CONTEXT).type).toBe(FILTER_ALL);
+    // a category page checks against its own types, with no category in the URL
+    expect(
+      parseCatalogParams("type=Polos", { brands: BRANDS, types: ["Polos", "Other"] }).type
+    ).toBe("Polos");
+    expect(applyCatalogParams("type=Polos&q=x", { ...DEFAULT_PARAMS, query: "x" })).toBe("q=x");
+  });
+
   it("caps an absurdly long search", () => {
     expect(parseCatalogParams(`q=${"a".repeat(500)}`, CONTEXT).query.length).toBeLessThanOrEqual(
       120
@@ -409,6 +461,7 @@ describe("active filter chips", () => {
   const full: CatalogParams = {
     category: "Apparel",
     brand: "Nike",
+    type: "Polos",
     query: "tee",
     sort: "name",
     filters: { usa: true, photos: true, manyColors: true, minQty: 100, price: { min: 5, max: 15 } },
@@ -418,6 +471,7 @@ describe("active filter chips", () => {
     expect(activeFilterChips(full).map((chip) => chip.label)).toEqual([
       "Search: tee",
       "Brand: Nike",
+      "Type: Polos",
       "Made in USA",
       "Price: $5 to $15",
       "Minimum order: 100 or fewer",
@@ -439,12 +493,13 @@ describe("active filter chips", () => {
     }
   });
 
-  it("Clear all resets the search, brand, category and filters but keeps the sort", () => {
+  it("Clear all resets the search, brand, type, category and filters but keeps the sort", () => {
     const cleared = { ...full, ...CLEAR_ALL };
     expect(cleared.sort).toBe("name");
     expect(hasActiveParams(cleared)).toBe(false);
     expect(hasActiveParams(full)).toBe(true);
     expect(hasActiveParams(DEFAULT_PARAMS, "typing")).toBe(true);
     expect(hasActiveParams({ ...DEFAULT_PARAMS, category: "Apparel" })).toBe(true);
+    expect(hasActiveParams({ ...DEFAULT_PARAMS, type: "Polos" })).toBe(true);
   });
 });

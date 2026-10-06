@@ -11,19 +11,29 @@ import { useCatalogParams } from "@/hooks/useCatalogParams";
 import { useMerchBrowseAnalytics } from "@/hooks/useMerchBrowseAnalytics";
 import { useCategoryCards } from "@/components/merchandise/useCategoryCards";
 import {
+  CARD_GRID_CLASSES,
+  TypeChips,
+  TypeSections,
+} from "@/components/merchandise/ProductTypeNav";
+import {
   FILTER_ALL as ALL,
   FOCUSED_INITIAL_VISIBLE,
   NO_FILTERS,
   SHOW_MORE_STEP,
+  blockTotalsFor,
   categoriesNeeded,
+  filterByType,
   filterProducts,
   growVisible,
+  hasProductFilters,
   nextBatchSize,
   realBrands,
   searchHaystack,
   searchProducts,
   sortProducts,
+  summarizeCardTypes,
   type CatalogProduct,
+  type TypeSummary,
 } from "@/lib/merchCatalog";
 import {
   activeFilterChips,
@@ -47,6 +57,10 @@ interface CategoryProductGridProps {
   brands?: string[];
   /** Price filter choices; defaults to buckets from the products on hand. */
   priceBuckets?: PriceBucket[];
+  /** The category's product types with full counts, in display order. Defaults to the types of `products`. */
+  types?: TypeSummary[];
+  /** Full size of the brand blocks among the first cards, by blockKey. Defaults to counting `products`. */
+  blockTotals?: Record<string, number>;
 }
 
 /** The first row (up to 4 cards) is on screen on a desktop and is the LCP candidate there. */
@@ -63,6 +77,8 @@ export default function CategoryProductGrid({
   total: totalProp,
   brands: brandsProp,
   priceBuckets: bucketsProp,
+  types: typesProp,
+  blockTotals: blockTotalsProp,
 }: CategoryProductGridProps) {
   const [disclosure, setDisclosure] = useState<{ key: string; count: number } | null>(null);
   // True while "Show more" waits for the rest of the category to arrive.
@@ -73,9 +89,15 @@ export default function CategoryProductGrid({
   const complete = loaded[category] !== undefined || initialProducts.length >= total;
   const products = loaded[category] ?? initialProducts;
   const brands = useMemo(() => brandsProp ?? realBrands(products), [brandsProp, products]);
-  const { params, queryInput, onQueryInput, update } = useCatalogParams({ brands });
-  const { brand, query, sort, filters } = params;
-  const filterKey = `${brand}|${query}|${sort}|${filtersKey(filters)}`;
+  const types = useMemo(() => typesProp ?? summarizeCardTypes(products), [typesProp, products]);
+  const typeLabels = useMemo(() => types.map((type) => type.label), [types]);
+  const hasTypes = types.length > 0 && products.some((product) => product.type);
+  const { params, queryInput, onQueryInput, update } = useCatalogParams({
+    brands,
+    types: typeLabels,
+  });
+  const { brand, type, query, sort, filters } = params;
+  const filterKey = `${brand}|${type}|${query}|${sort}|${filtersKey(filters)}`;
   const haystacks = useRef(new Map<string, string>());
   const haystackOf = useCallback((product: CatalogProduct) => {
     let text = haystacks.current.get(product.id);
@@ -96,7 +118,7 @@ export default function CategoryProductGrid({
   // is here the page keeps showing the unfiltered first cards with a
   // "Loading" note, never a half-filtered list.
   const needsAll =
-    categoriesNeeded({ category: ALL, brand, query, sort, filters }, [category]).length > 0;
+    categoriesNeeded({ category: ALL, brand, type, query, sort, filters }, [category]).length > 0;
   const ready = complete || !needsAll;
   const failed = !ready && Boolean(failedByCategory[category]);
   const loading = !ready && !failed;
@@ -104,16 +126,45 @@ export default function CategoryProductGrid({
     if (needsAll && !complete) void load([category]);
   }, [needsAll, complete, load, category]);
 
-  const results = useMemo(() => {
+  // Brand, search and product filters narrow the category; the type chips then
+  // slice what is left, so each chip's count is what choosing it would show.
+  const narrowed = useMemo(() => {
     if (!ready) return products;
     const byBrand =
       brand === ALL ? products : products.filter((product) => product.brand === brand);
     const byFilters = filterProducts(byBrand, filters);
     // Ranked by relevance (name, brand, category, color, description); the
     // sort keeps that ranking as its tie-break.
-    const matching = query ? searchProducts(byFilters, query, haystackOf) : byFilters;
-    return sortProducts(matching, sort);
-  }, [ready, products, brand, query, sort, filters, haystackOf]);
+    return query ? searchProducts(byFilters, query, haystackOf) : byFilters;
+  }, [ready, products, brand, query, filters, haystackOf]);
+  const results = useMemo(
+    () => (ready ? sortProducts(filterByType(narrowed, type), sort) : products),
+    [ready, narrowed, products, type, sort]
+  );
+  const narrowing = ready && (brand !== ALL || query !== "" || hasProductFilters(filters));
+  const chipTypes = useMemo<TypeSummary[]>(() => {
+    if (!narrowing) return types;
+    const counts = summarizeCardTypes(narrowed);
+    return types.map((entry) => ({
+      ...entry,
+      count: counts.find((c) => c.label === entry.label)?.count ?? 0,
+    }));
+  }, [narrowing, types, narrowed]);
+  // The organised view: a sub-heading per type and per brand block. A search or
+  // any other sort is one flat list (best matches, cheapest...).
+  const sectioned = hasTypes && sort === "featured" && query === "";
+  // Counts for the sub-headings: the whole category once it is here, otherwise
+  // the totals the server sent for the first cards.
+  const known = useMemo(
+    () =>
+      ready && complete
+        ? {
+            types: summarizeCardTypes(results),
+            blockTotals: blockTotalsFor(results, category),
+          }
+        : { types, blockTotals: blockTotalsProp ?? blockTotalsFor(products, category) },
+    [ready, complete, results, category, types, blockTotalsProp, products]
+  );
 
   const hasFilters = hasActiveParams(params, queryInput);
   const chips = useMemo(() => activeFilterChips(params), [params]);
@@ -140,7 +191,7 @@ export default function CategoryProductGrid({
   }
 
   function clearFilters() {
-    update({ brand: ALL, query: "", filters: NO_FILTERS });
+    update({ brand: ALL, type: ALL, query: "", filters: NO_FILTERS });
   }
 
   const statusText = loading
@@ -167,6 +218,16 @@ export default function CategoryProductGrid({
         priceBuckets={priceBuckets}
         onIntent={warm}
       />
+
+      {hasTypes && (
+        <TypeChips
+          types={chipTypes}
+          active={type}
+          allValue={ALL}
+          onSelect={(next) => update({ type: next })}
+          onIntent={warm}
+        />
+      )}
 
       <FilterStatus
         idPrefix="category"
@@ -211,11 +272,24 @@ export default function CategoryProductGrid({
         </div>
       ) : (
         <div aria-busy={loading}>
-          <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">
-            {results.slice(0, shown).map((product, index) => (
-              <ProductCard key={product.id} product={product} priority={index < PRIORITY_CARDS} />
-            ))}
-          </div>
+          {sectioned ? (
+            <div className="mt-6">
+              <TypeSections
+                items={results.slice(0, shown)}
+                category={category}
+                known={known}
+                typeLevel={2}
+                priorityCards={PRIORITY_CARDS}
+                idPrefix="category"
+              />
+            </div>
+          ) : (
+            <div className={`mt-6 ${CARD_GRID_CLASSES}`}>
+              {results.slice(0, shown).map((product, index) => (
+                <ProductCard key={product.id} product={product} priority={index < PRIORITY_CARDS} />
+              ))}
+            </div>
+          )}
 
           {resultCount > FOCUSED_INITIAL_VISIBLE && (
             <div className="mt-8 flex flex-col items-center gap-3">
