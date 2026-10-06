@@ -19,6 +19,11 @@
  *   CREATE TABLE IF NOT EXISTS admin_session_revocations (...)       (admin sign-out revocation)
  *   SELECT valid_after_ms FROM admin_session_revocations WHERE username = $1
  *   INSERT INTO admin_session_revocations ... ON CONFLICT ... (keeps the later time)
+ *   CREATE TABLE / CREATE INDEX IF NOT EXISTS for order_files (customer logo uploads)
+ *   INSERT INTO order_files (...) SELECT $1::int, ..., decode($5::text, 'base64')
+ *     WHERE (SELECT count(*) FROM order_files WHERE order_id = $6::int) < $7::int RETURNING id
+ *   SELECT id, filename, mime, size, created_at FROM order_files WHERE order_id = $1 ORDER BY id
+ *   SELECT id, ..., encode(data, 'base64') AS data_b64 FROM order_files WHERE id = $1 AND order_id = $2
  *
  *   <set>   := data = data || $n::jsonb              (shallow jsonb merge)
  *            | data = data || $n::jsonb || jsonb_build_object('auditLog', <array or '[]'> || $m::jsonb)
@@ -42,6 +47,16 @@ export interface StoredSubmission {
   data: Record<string, unknown>;
   created_at: string;
   read_at: string | null;
+}
+
+export interface StoredOrderFile {
+  id: number;
+  order_id: number;
+  filename: string;
+  mime: string;
+  size: number;
+  data: Buffer;
+  created_at: string;
 }
 
 export interface LoggedQuery {
@@ -115,11 +130,65 @@ export class FakeSubmissionsDb {
 
   /** username -> valid_after_ms, for the admin session revocation table. */
   readonly revocations = new Map<string, number>();
+  /** Rows of the order_files table (customer logo uploads). */
+  readonly orderFiles: StoredOrderFile[] = [];
+  private nextFileId = 1;
 
   private execute(text: string, values: unknown[]): unknown[] {
     let match: RegExpMatchArray | null;
 
     if (/^CREATE TABLE IF NOT EXISTS admin_session_revocations \(/.test(text)) return [];
+    if (/^CREATE TABLE IF NOT EXISTS order_files \(/.test(text)) return [];
+    if (
+      /^CREATE INDEX IF NOT EXISTS order_files_order_id_idx ON order_files \(order_id\)$/.test(text)
+    ) {
+      return [];
+    }
+    if (
+      /^INSERT INTO order_files \(order_id, filename, mime, size, data\) SELECT \$1::int, \$2::text, \$3::text, \$4::int, decode\(\$5::text, 'base64'\) WHERE \(SELECT count\(\*\) FROM order_files WHERE order_id = \$6::int\) < \$7::int RETURNING id$/.test(
+        text
+      )
+    ) {
+      const [orderId, filename, mime, size, base64, countOrderId, max] = values;
+      const existing = this.orderFiles.filter((f) => f.order_id === Number(countOrderId)).length;
+      if (!(existing < Number(max))) return [];
+      const row: StoredOrderFile = {
+        id: this.nextFileId++,
+        order_id: Number(orderId),
+        filename: String(filename),
+        mime: String(mime),
+        size: Number(size),
+        data: Buffer.from(String(base64), "base64"),
+        created_at: new Date(this.clock()).toISOString(),
+      };
+      this.orderFiles.push(row);
+      return [{ id: row.id }];
+    }
+    if (
+      /^SELECT id, filename, mime, size, created_at FROM order_files WHERE order_id = \$1 ORDER BY id$/.test(
+        text
+      )
+    ) {
+      return this.orderFiles
+        .filter((f) => f.order_id === Number(values[0]))
+        .sort((a, b) => a.id - b.id)
+        .map(({ data: _data, ...summary }) => {
+          void _data;
+          return { ...summary };
+        });
+    }
+    if (
+      /^SELECT id, filename, mime, size, created_at, encode\(data, 'base64'\) AS data_b64 FROM order_files WHERE id = \$1 AND order_id = \$2$/.test(
+        text
+      )
+    ) {
+      return this.orderFiles
+        .filter((f) => f.id === Number(values[0]) && f.order_id === Number(values[1]))
+        .map(({ data, order_id: _orderId, ...summary }) => {
+          void _orderId;
+          return { ...summary, data_b64: data.toString("base64") };
+        });
+    }
     if (/^SELECT valid_after_ms FROM admin_session_revocations WHERE username = \$1$/.test(text)) {
       const at = this.revocations.get(String(values[0]));
       return at === undefined ? [] : [{ valid_after_ms: String(at) }]; // BIGINT comes back as text

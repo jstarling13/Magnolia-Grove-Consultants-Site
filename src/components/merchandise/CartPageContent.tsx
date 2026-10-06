@@ -27,12 +27,17 @@ import {
   type CartFieldErrors,
 } from "@/lib/cartFormRules";
 import {
-  ARTWORK_CONFIRMATION_PROMISE,
-  ARTWORK_INSTRUCTIONS,
+  LOGO_ATTACHED,
+  LOGO_ATTACH_FAILED,
+  LOGO_CART_INTRO,
+  LOGO_REPLY_ON_CART,
   cartContactEmail,
   cartSendFailureMessage,
+  logoAttachFailedNoEmail,
   shopperErrorMessage,
 } from "@/lib/cartShopperMessages";
+import { uploadOrderLogo } from "@/lib/uploadOrderLogo";
+import OrderLogoField from "@/components/merchandise/OrderLogoField";
 import { cleanColorName } from "@/lib/colorSwatches";
 import {
   cartLineKey,
@@ -76,6 +81,9 @@ const DEFAULT_ERROR = cartSendFailureMessage();
 const FIELD_ERRORS_SUMMARY = "Please fix the highlighted fields and submit again.";
 
 type Status = "idle" | "submitting" | "success" | "error";
+
+/** What happened to the shopper's logo: none chosen, stored with the order, or the upload failed. */
+type LogoOutcome = "none" | "attached" | "failed";
 
 interface DisplayLine {
   item: CartLineItem;
@@ -137,6 +145,8 @@ export default function CartPageContent({
   const [orderRef, setOrderRef] = useState("");
   const [confirmationEmailed, setConfirmationEmailed] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState("");
+  const [logoFile, setLogoFile] = useState<File | null>(null);
+  const [logoOutcome, setLogoOutcome] = useState<LogoOutcome>("none");
   const errorBannerRef = useRef<HTMLParagraphElement>(null);
   const successHeadingRef = useRef<HTMLHeadingElement>(null);
 
@@ -306,6 +316,7 @@ export default function CartPageContent({
         body: JSON.stringify({
           ...fields,
           turnstileToken,
+          ...(logoFile ? { hasLogo: true } : {}),
           items: lines.map((line) => ({
             productId: line.item.productId,
             ...(line.color ? { color: line.color } : {}),
@@ -340,8 +351,23 @@ export default function CartPageContent({
         return;
       }
 
-      setOrderRef(typeof data.orderRef === "string" ? data.orderRef : "");
+      const savedRef = typeof data.orderRef === "string" ? data.orderRef : "";
+
+      // Step two: the order is saved, so a logo problem never undoes it. The
+      // file goes in its own multipart request with the token this order's
+      // response carried; if anything fails, the confirmation says so.
+      let outcome: LogoOutcome = "none";
+      if (logoFile) {
+        const token = typeof data.logoUploadToken === "string" ? data.logoUploadToken : "";
+        const uploaded =
+          savedRef && token ? await uploadOrderLogo(logoFile, savedRef, token) : { ok: false };
+        outcome = uploaded.ok ? "attached" : "failed";
+      }
+
+      setOrderRef(savedRef);
       setConfirmationEmailed(data.confirmationEmailed === true);
+      setLogoOutcome(outcome);
+      setLogoFile(null);
       setStatus("success");
       trackGenerateLead(eventLines, subtotal);
       clear();
@@ -367,9 +393,9 @@ export default function CartPageContent({
             Order Request Received
           </h1>
           <p className="mt-3 max-w-md text-base leading-relaxed text-onyx/60">
-            Nothing has been charged. We&apos;ll email you a final quote covering decoration,
-            shipping, and tax, with a secure link to pay. We place the order once your payment
-            clears.
+            Nothing has been charged. We will place your logo on your items and email you a final
+            quote with shipping, setup and any other costs, with a secure link to pay. We place the
+            order once your payment clears.
           </p>
           {orderRef && (
             <p className="mt-6 text-sm text-onyx/80">
@@ -380,15 +406,22 @@ export default function CartPageContent({
             </p>
           )}
           <p className="mt-4 max-w-md text-sm leading-relaxed text-onyx/80">
-            {confirmationEmailed ? (
-              ARTWORK_INSTRUCTIONS
+            {logoOutcome === "attached" ? (
+              LOGO_ATTACHED
+            ) : logoOutcome === "failed" ? (
+              confirmationEmailed ? (
+                LOGO_ATTACH_FAILED
+              ) : (
+                logoAttachFailedNoEmail(orderRef || undefined)
+              )
+            ) : confirmationEmailed ? (
+              LOGO_REPLY_ON_CART
             ) : (
               <>
                 Send your logo files (vector PDF, AI, EPS or PNG) to {cartContactEmail() ?? "us"}
                 {orderRef ? ` and mention ${orderRef}` : ""}.
               </>
-            )}{" "}
-            {ARTWORK_CONFIRMATION_PROMISE}
+            )}
           </p>
           <Link
             href="/merchandise"
@@ -504,12 +537,10 @@ export default function CartPageContent({
                 className="relative mt-10 rounded-lg border border-gold/25 bg-cream-100/85 p-6 sm:p-10"
               >
                 <h2 className="text-xl text-onyx">Submit Your Order Request</h2>
+                <p className="mt-2 text-sm text-onyx/60">{LOGO_CART_INTRO}</p>
                 <p className="mt-2 text-sm text-onyx/60">
-                  Nothing is charged yet. We&apos;ll email you a final quote with a secure payment
-                  link, and place the order once you&apos;ve paid.
-                </p>
-                <p className="mt-2 text-sm text-onyx/60">
-                  {ARTWORK_INSTRUCTIONS} {ARTWORK_CONFIRMATION_PROMISE}
+                  The final quote comes with a secure payment link, and we place the order once
+                  you&apos;ve paid.
                 </p>
 
                 <input
@@ -643,6 +674,8 @@ export default function CartPageContent({
                       </p>
                     )}
                   </div>
+
+                  <OrderLogoField file={logoFile} onFileChange={setLogoFile} />
                 </div>
 
                 <div className="mt-6">

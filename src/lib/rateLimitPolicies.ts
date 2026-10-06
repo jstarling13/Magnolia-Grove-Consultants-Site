@@ -80,3 +80,19 @@ export const MIGRATE_POLICY: RateLimitPolicy = {
 
 /** Unauthenticated catalog search proxy that spends vendor API quota. */
 export const CATALOG_POLICY: RateLimitPolicy = { name: "catalog", limit: 30, windowSeconds: 600 };
+
+/** Logo uploads, per IP. One logo per order is typical; a few retries are allowed. */
+export const LOGO_UPLOAD_IP_POLICY: RateLimitPolicy = {
+  name: "logo-upload-ip",
+  limit: 12,
+  windowSeconds: 3600,
+  failClosed: true,
+};
+
+/** Logo uploads, per order, so a leaked upload token cannot be hammered from many addresses. */
+export const LOGO_UPLOAD_ORDER_POLICY: RateLimitPolicy = {
+  name: "logo-upload-order",
+  limit: 8,
+  windowSeconds: 3600,
+  failClosed: true,
+};

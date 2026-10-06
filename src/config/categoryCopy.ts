@@ -5,12 +5,14 @@
  * Rules for everything written here:
  *  - No numbers are typed into prose. Counts, prices and quantities come from
  *    computeCategoryFacts(), which reads the live products of the category.
- *  - FAQ answers only describe how the store works today: a request is sent
- *    (nothing is charged), we confirm artwork details before quoting the final
- *    price, the quote covers decoration, shipping and tax, payment is by a
- *    Square link, and logo files are sent by replying to the confirmation
- *    email. Turnaround, shipping cost, proofs, guarantees and returns are not
- *    defined anywhere, so they are never promised here.
+ *  - FAQ answers only describe how the store works today, in the owner's
+ *    order: the client sends a request from the cart (optionally attaching
+ *    their logo there, or replying to the confirmation email with it), we put
+ *    the logo on the items, we finalize the quote with shipping, setup and
+ *    other costs and send it with a Square payment link, and we place the order
+ *    once the client has paid. Nothing is charged before that. Turnaround,
+ *    shipping cost, mockups, proofs, guarantees and returns are not defined
+ *    anywhere, so they are never promised here.
  *
  * This file is customer-safe: it works from the slim CatalogProduct model
  * (customer prices) and never touches supplier data.
@@ -42,13 +44,14 @@ export interface CategoryCopy {
 // Shared statements, each one matching how the order flow actually works.
 // ---------------------------------------------------------------------------
 
-const NO_CHARGE = "Sending a request does not charge you.";
+const NO_CHARGE =
+  "Sending a request does not charge you; nothing is charged until you approve the quote and pay.";
 const QUOTE_STEP =
-  "We confirm artwork details with you before quoting the final price, and the quote covers decoration, shipping and sales tax.";
+  "We place your logo on your items and send you a final quote with shipping, setup and any other costs.";
 const PAY_STEP =
   "The quote comes with a secure Square link to pay, and we place the order after payment clears.";
 const LOGO_FILES =
-  "Reply to your confirmation email with your logo files (vector PDF, AI, EPS or PNG).";
+  "Attach your logo to your request on the cart page, or reply to the confirmation email with it (vector PDF, AI, EPS or PNG).";
 const PREVIEW =
   "To see a rough preview first, upload your logo on the main merchandise page; previews appear on product photos where one is available.";
 const TIERS =
@@ -112,7 +115,7 @@ export const categoryCopy: Record<string, CategoryCopy> = {
       },
       {
         question: "Is anything charged when I send my headwear request?",
-        answer: `${NO_CHARGE} After we confirm the details, we email a final quote. ${PAY_STEP}`,
+        answer: `${NO_CHARGE} We place your logo on your items and email a final quote. ${PAY_STEP}`,
       },
     ],
   },
@@ -181,7 +184,7 @@ export const categoryCopy: Record<string, CategoryCopy> = {
       },
       {
         question: "What does the price on a product page include?",
-        answer: `It is a per-unit price at the quantity shown. It does not yet include setup, decoration, shipping or tax; those are confirmed in your final quote. ${PAY_STEP}`,
+        answer: `It is a per-unit price at the quantity shown. It does not yet include setup, shipping or other costs; those are in your final quote. ${PAY_STEP}`,
       },
     ],
   },
@@ -242,7 +245,7 @@ export const categoryCopy: Record<string, CategoryCopy> = {
     faqs: [
       {
         question: "How do I find the price for the quantity I need?",
-        answer: `${TIERS} The final price is confirmed in your quote, after decoration, shipping and tax are known.`,
+        answer: `${TIERS} The final price is in your quote, once shipping, setup and any other costs are known.`,
       },
       {
         question: "How is a logo added to a knife or flashlight?",
@@ -250,7 +253,7 @@ export const categoryCopy: Record<string, CategoryCopy> = {
       },
       {
         question: "What happens after I send my request?",
-        answer: `${NO_CHARGE} We review the request and confirm the details. ${PAY_STEP}`,
+        answer: `${NO_CHARGE} We place your logo on your items and finalize the quote. ${PAY_STEP}`,
       },
     ],
   },
@@ -403,7 +406,7 @@ export const categoryCopy: Record<string, CategoryCopy> = {
     faqs: [
       {
         question: "Can I send a request for a seasonal item early?",
-        answer: `You can send a request whenever you are ready. ${NO_CHARGE} Your quote confirms the details of the order. ${PAY_STEP}`,
+        answer: `You can send a request whenever you are ready. ${NO_CHARGE} The final quote has the full cost of the order. ${PAY_STEP}`,
       },
       {
         question: "How do I add my logo or a message?",

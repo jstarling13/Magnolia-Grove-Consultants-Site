@@ -15,6 +15,7 @@ import { verifyTurnstileToken } from "@/lib/turnstile";
 import { sendCartOrderNotification, sendMerchRequestConfirmation } from "@/lib/email";
 import { recordSubmission } from "@/lib/submissions";
 import { getEspLink } from "@/lib/espLinks";
+import { createLogoUploadToken } from "@/lib/orderLogoToken";
 
 export const runtime = "nodejs";
 
@@ -131,6 +132,8 @@ export async function POST(request: NextRequest) {
 
   let orderRef: string | undefined;
   let confirmationEmailed = false;
+  let logoUploadToken: string | undefined;
+  const hasLogo = payload.hasLogo === true;
 
   try {
     // No supplier order is ever placed automatically here — this just
@@ -152,6 +155,13 @@ export async function POST(request: NextRequest) {
     // Undefined only if the database write failed (it logs rather than throws).
     orderRef = submissionId !== undefined ? formatOrderReference(submissionId) : undefined;
 
+    // A short-lived permission to attach a logo to this one order. Without a
+    // saved order (or a signing secret) there is none, and the browser falls
+    // back to asking the shopper to reply with the file.
+    if (hasLogo && submissionId !== undefined) {
+      logoUploadToken = createLogoUploadToken(submissionId) ?? undefined;
+    }
+
     const notification = await sendCartOrderNotification({
       orderRef,
       firstName: payload.firstName,
@@ -161,6 +171,7 @@ export async function POST(request: NextRequest) {
       notes: payload.notes || "",
       items: pricedItems,
       total: grandTotal,
+      logoComing: Boolean(logoUploadToken),
     });
     if (!notification.sent) {
       // The reason (missing email key, provider rejection) is for the server
@@ -195,6 +206,7 @@ export async function POST(request: NextRequest) {
         ),
         total: grandTotal,
         notes: payload.notes || "",
+        logoAttached: Boolean(logoUploadToken),
       });
       confirmationEmailed = confirmation.sent;
     } catch (confirmationError) {
@@ -202,15 +214,13 @@ export async function POST(request: NextRequest) {
     }
   } catch (error) {
     console.error("[api/merchant/cart-checkout] failed:", error);
-    return NextResponse.json(
-      { success: false, error: cartSendFailureMessage() },
-      { status: 500 }
-    );
+    return NextResponse.json({ success: false, error: cartSendFailureMessage() }, { status: 500 });
   }
 
   return NextResponse.json({
     success: true,
     ...(orderRef ? { orderRef } : {}),
     confirmationEmailed,
+    ...(logoUploadToken ? { logoUploadToken } : {}),
   });
 }

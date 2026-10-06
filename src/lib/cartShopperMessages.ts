@@ -40,11 +40,42 @@ export function shopperErrorMessage(status: unknown, serverMessage: unknown): st
   return isClientError && message ? message : cartSendFailureMessage();
 }
 
-/** On the cart page, where the confirmation email has not been sent yet. */
-export const ARTWORK_INSTRUCTIONS =
-  "Send your logo files (vector PDF, AI, EPS or PNG) by replying to the confirmation email.";
-/** Inside the confirmation email itself. */
-export const ARTWORK_INSTRUCTIONS_IN_EMAIL =
-  "Send your logo files (vector PDF, AI, EPS or PNG) by replying to this confirmation email.";
-export const ARTWORK_CONFIRMATION_PROMISE =
-  "We'll confirm artwork details with you before quoting the final price.";
+/**
+ * How the order process is described to shoppers. It matches what the team
+ * actually does: the client sends a request, we put their logo on all of the
+ * products, we finalize the quote (shipping, setup and other costs) and send
+ * it with a payment link, and we place the order once the client has paid.
+ * Nothing here promises mockups or proofs, because none are sent.
+ */
+
+/** Intro to the logo field on the cart page. */
+export const LOGO_CART_INTRO =
+  "Attach your logo (optional). We will place it on your items and send you a final quote with shipping, setup and any other costs. Nothing is charged until you approve the quote and pay.";
+
+/** Shown when the request went through but the logo could not be stored. */
+export const LOGO_ATTACH_FAILED =
+  "Your request was sent. We could not attach your logo; reply to the confirmation email with it.";
+
+/** Same, for the rare case that no confirmation email could be sent. */
+export function logoAttachFailedNoEmail(orderRef: string | undefined): string {
+  const email = cartContactEmail();
+  return `Your request was sent. We could not attach your logo; email it to ${email ?? "us"}${
+    orderRef ? ` and mention ${orderRef}` : ""
+  }.`;
+}
+
+/** Confirmation on the cart page after the logo was stored. */
+export const LOGO_ATTACHED = "Your logo is attached to your request.";
+
+/** On the cart page after a request with no logo attached. */
+export const LOGO_REPLY_ON_CART =
+  "Reply to the confirmation email with your logo (vector PDF, AI, EPS or PNG).";
+
+/** Inside the confirmation email, when no logo was attached. */
+export const LOGO_REPLY_IN_EMAIL =
+  "Reply to this email with your logo (vector PDF, AI, EPS or PNG).";
+
+/** Inside the confirmation email: what happens to the request. */
+export function requestReceivedSentence(orderRef: string | undefined): string {
+  return `We have your request${orderRef ? ` ${orderRef}` : ""}. We will place your logo on your items and email you a final quote with shipping and other costs.`;
+}
