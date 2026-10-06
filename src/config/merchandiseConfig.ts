@@ -35,6 +35,7 @@ import colorImagesExtra7 from "./colorImages.extra7.json";
 import colorImagesExtra3 from "./colorImages.extra3.json";
 import importedProductsJson from "./importedProducts.json";
 import hiddenProductsJson from "./hiddenProducts.json";
+import photoReviewedJson from "./photoReviewed.json";
 import imageOverridesJson from "./imageOverrides.json";
 
 export const MARKUP_RATE = 0.05;
@@ -1639,8 +1640,21 @@ export const allProducts: MerchProduct[] = [...curatedProducts, ...importedProdu
   withColorImages
 );
 
+// Imported products go live only after their main photo has been checked for other
+// companies' logos, sample imprints and faces. New imports stay off the storefront until
+// their id is added to photoReviewed.json (curated products are always reviewed).
+const photoReviewedIds = new Set(photoReviewedJson as string[]);
+const curatedIds = new Set(curatedProducts.map((product) => product.id));
+
+/** Imported products whose photos have not been reviewed yet (kept off the storefront). */
+export const unreviewedProducts: MerchProduct[] = allProducts.filter(
+  (product) => !curatedIds.has(product.id) && !photoReviewedIds.has(product.id)
+);
+
 export const products: MerchProduct[] = allProducts.filter(
-  (product) => !hiddenProductIds.has(product.id)
+  (product) =>
+    !hiddenProductIds.has(product.id) &&
+    (curatedIds.has(product.id) || photoReviewedIds.has(product.id))
 );
 
 import imprintAreasJson from "./imprintAreas.json";
