@@ -1119,28 +1119,6 @@
         "psnr": 49.207
       }
     },
-    "peter-millar-galway-vest-navy.webp": {
-      "format": "jpeg",
-      "original": {
-        "bytes": 121242,
-        "sha256": "22ff9b2cdaf4f51802c805b9a4ce182c39e7566cf9b05e65cce66d37104c1572",
-        "width": 1200,
-        "height": 1200,
-        "hasAlpha": false
-      },
-      "status": "optimized",
-      "optimized": {
-        "bytes": 21817,
-        "sha256": "46edf61807d44e7aeabea12ff0e056e9f20058bda2b31e2a7426b72ce4cdbc81",
-        "width": 1000,
-        "height": 1000
-      },
-      "metrics": {
-        "mad64": 0.244,
-        "colorMad64": 0.254,
-        "psnr": 46.454
-      }
-    },
     "peter-millar-hales-polo-cottage-blue.webp": {
       "format": "jpeg",
       "original": {
