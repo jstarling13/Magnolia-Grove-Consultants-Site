@@ -196,7 +196,7 @@ describe("catalog integrity", () => {
       violations((p) => {
         // "4 color process imprint" describes the print method, not the product's color options.
         const claim = p.description.match(
-          /\b(\d+)[ -]colou?rs?\b(?!\s*(?:process|imprint|print|logo|ink|screen|decoration|stitch|embroider))/i
+          /\b(\d+)[ -]colou?rs?\b(?!\s*(?:process|imprint|print|logo|ink|screen|silk[\s-]?screen|decoration|stitch|embroider))/i
         );
         if (!claim) return null;
         const actual = p.colors?.length ?? 0;

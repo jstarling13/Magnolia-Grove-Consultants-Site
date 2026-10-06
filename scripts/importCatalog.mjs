@@ -25,6 +25,8 @@ import {
   checkNameOverrides,
   checkOverrides,
   findLostProtectedIds,
+  findSuspectPricing,
+  findThirdPartyBrandProducts,
   checkCategoryOverrides,
   checkKeepApart,
   findDuplicateImages,
@@ -128,6 +130,7 @@ async function writeIfChanged(file, content) {
 
 const MANIFEST_REL = "scripts/data/import-manifest.json";
 const REPORT_REL = "scripts/out/dedupe-report.md";
+const THIRD_PARTY_REL = "scripts/out/third-party-brand-products.md";
 const OVERRIDES_REL = "scripts/data/import-overrides.json";
 
 async function readJsonIfExists(file, fallback) {
@@ -136,6 +139,21 @@ async function readJsonIfExists(file, fallback) {
   } catch {
     return fallback;
   }
+}
+
+/** Machine-readable list of third-party consumer-brand products for the owner's trademark decision. */
+export function renderThirdPartyBrandReport(products) {
+  const lines = [
+    "# Third-party consumer-brand products",
+    "",
+    "Report only. Nothing is hidden or removed: whether to keep selling these as custom products is a business decision for the owner.",
+    "",
+    "```json",
+    JSON.stringify(products, null, 2),
+    "```",
+    "",
+  ];
+  return lines.join("\n");
 }
 
 /** Human-readable report of every duplicate cluster and curated duplicate. */
@@ -147,6 +165,7 @@ export function renderDedupeReport({
   imageDuplicates = [],
   categoryMoved = [],
   renamed = [],
+  suspectPricing = [],
 }) {
   const who = (m) =>
     `${m.name} -- ${m.supplier || m.asi || "unknown vendor"} (rating ${m.rating}, ${m.reviews} reviews, score ${m.score})`;
@@ -172,6 +191,17 @@ export function renderDedupeReport({
   lines.push("## Names changed (display name only; ids never change)", "");
   for (const r of renamed) {
     lines.push(`- ${r.from} -> ${r.to} (${r.reason})`);
+  }
+  lines.push("");
+  lines.push("## Suspect pricing (report only; prices are never changed)", "");
+  lines.push(
+    "Check these against the ESP+ sheets: tiers that may be per-1000 / per-pack, 10x the category median, or a very steep volume drop.",
+    ""
+  );
+  for (const s of suspectPricing) {
+    lines.push(
+      `- ${s.id}: ${s.name} (${s.category}) first tier ${s.firstTier[0]} @ $${s.firstTier[1]}, last tier ${s.lastTier[0]} @ $${s.lastTier[1]}, category median $${s.categoryMedian} -- ${s.reasons.join(", ")}`
+    );
   }
   lines.push("");
   lines.push("## Duplicate images (byte-identical photos)", "");
@@ -405,6 +435,8 @@ export async function runImport(args) {
   } = result;
   reused = args.images ? items.length - items.filter((i) => touched.has(i.id)).length : 0;
 
+  const suspectPricing = findSuspectPricing(items);
+  const thirdPartyBrandProducts = findThirdPartyBrandProducts(items);
   const publicRecords = items.map(toPublicRecord);
   const links = Object.fromEntries(items.map((item) => [item.id, item.link]));
 
@@ -536,7 +568,12 @@ export async function runImport(args) {
       imageDuplicates: imageDuplicateGroups,
       categoryMoved,
       renamed,
+      suspectPricing,
     })
+  );
+  await fs.writeFile(
+    path.join(root, THIRD_PARTY_REL),
+    renderThirdPartyBrandReport(thirdPartyBrandProducts)
   );
   if (args.report) {
     await fs.writeFile(
@@ -551,6 +588,8 @@ export async function runImport(args) {
           manualOverrides,
           categoryMoved,
           renamed,
+          suspectPricing,
+          thirdPartyBrandProducts,
           imageDuplicates: imageDuplicateGroups.map((g) => ({
             kept: g.kept.product.name,
             dropped: g.dropped.map((d) => d.product.name),
@@ -597,6 +636,8 @@ export async function runImport(args) {
     colorPhotosDeleted: unreferencedPhotos,
     colorMoves: remapped.moves,
     categoryMoved: categoryMoved.length,
+    suspectPricing: suspectPricing.length,
+    thirdPartyBrandProducts: thirdPartyBrandProducts.length,
     namesChanged: renamed.length,
     sizePriced: publicRecords.filter((r) => r.priceNote).length,
   };
@@ -620,6 +661,8 @@ function printSummary(args, s) {
   line("dropped: duplicate image", s.skipped["duplicate-image"] ?? 0);
   line("category overrides applied", s.categoryMoved);
   line("names changed (display only)", s.namesChanged);
+  line("suspect pricing (report only)", s.suspectPricing);
+  line("third-party brand products (report)", s.thirdPartyBrandProducts);
   line("products with a size price note", s.sizePriced);
   line("dropped: duplicate of curated", s.skipped["duplicate-of-curated"] ?? 0);
   line("dropped: duplicate, other vendor", s.skipped["duplicate-other-vendor"] ?? 0);

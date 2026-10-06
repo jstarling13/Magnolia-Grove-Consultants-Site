@@ -329,7 +329,7 @@ describe("size-priced products (priceNote)", () => {
 });
 
 describe("thin descriptions", () => {
-  it("adds only facts from the row: color count, size, first volume break", () => {
+  it("adds only the size line from the row; the color count and volume break are never written", () => {
     expect(
       buildDescription({
         rawDescription: "Door mat.",
@@ -340,9 +340,7 @@ describe("thin descriptions", () => {
         multiGrid: 0,
         enrich: { name: "Door Mat", breakQty: 2000 },
       })
-    ).toBe(
-      `Door mat. 8 color options. Size: 15" x 23". Price per unit drops at 2000 units. Priced at 1000 units.`
-    );
+    ).toBe(`Door mat. Size: 15" x 23". Priced at 1000 units.`);
   });
 
   it("leaves descriptions that already say enough untouched", () => {
@@ -357,6 +355,29 @@ describe("thin descriptions", () => {
         enrich: { name: "Bottle", breakQty: 48 },
       })
     ).toBe("Insulated stainless steel bottle with a flip lid. Priced at 24 units.");
+  });
+
+  it("lists a short color list after the name when the row offers no other facts", () => {
+    expect(
+      buildDescription({
+        rawDescription: "",
+        sizes: "",
+        minQty: 12,
+        usa: 0,
+        multiGrid: 0,
+        enrich: { name: "Titleist TruFeel", colors: ["White", "Yellow"] },
+      })
+    ).toBe("Titleist TruFeel. Available in White and Yellow. Priced at 12 units.");
+    expect(
+      buildDescription({
+        rawDescription: "",
+        sizes: "",
+        minQty: 50,
+        usa: 0,
+        multiGrid: 0,
+        enrich: { name: "Polo Shirts", colors: ["A", "B", "C", "D", "E"] },
+      })
+    ).toBe("Polo Shirts. Priced at 50 units.");
   });
 
   it("falls back to the product name when the row offers no facts at all", () => {

@@ -71,6 +71,9 @@ export const TAG_TO_CATEGORY = {
   kids: "Kids & Toys",
   awards: "Awards & Recognition",
   print: "Print & Collateral",
+  // Newer scrapes can tag these directly; the importer also assigns them with CATEGORY_RULES.
+  giveaway: "Promo Giveaways",
+  badges: "Lanyards & Badges",
   // legacy tags from the first scrape batch
   umbrellas: "Outdoor & Sports",
   golf: "Outdoor & Sports",
@@ -205,6 +208,37 @@ export const BRANDS = [
   "Gillette",
   "Duracell",
   "Energizer",
+  // named brands that used to fall through to "Essentials"
+  "Apple",
+  "Beats",
+  "Hershey",
+  "Snickers",
+  "Payday",
+  "M&M's",
+  "Mike and Ike",
+  "Waterman",
+  "Kershaw",
+  "Maglite",
+  "Opinel",
+  "Perry Ellis",
+  "Native Union",
+  "Toasteez",
+  "Grosche",
+  "Hydrapeak",
+  "Himalayan",
+  "Intrepid",
+  "Free Fly",
+  "Vynex",
+  "Frame-It",
+  "OtterBox",
+  "Red Cup Living",
+  "Kool Pak",
+  "Kan-Tastic",
+  "CORE365",
+  "Team 365",
+  "J America",
+  "Alternative",
+  "Wyld Gear",
 ].filter((b, i, arr) => arr.indexOf(b) === i);
 
 // Longest names first; precompiled matchers. Spaces in a brand match any run of
@@ -240,13 +274,27 @@ export const START_ONLY_BRANDS = new Set([
   "Easton",
   "Sportsman",
   "Zero Restriction",
+  "Alternative",
+  "J America",
+  "Team 365",
+  "Free Fly",
 ]);
 /** How many leading words of a name may contain a (non start-only) brand. */
 export const BRAND_WINDOW = 5;
 
 /** Brands whose written form varies ("Bella + Canvas", "Bella Canvas", "Bella+Canvas"). */
 const BRAND_PATTERNS = {
-  "Bella+Canvas": "Bella(?:\\s*\\+\\s*|\\s+)Canvas",
+  // "Bella + Canvas", "Bella Canvas", "BELLA+CANVAS" and the short "Bella Women's ..." form
+  "Bella+Canvas": "Bella(?:\\s*\\+\\s*|\\s+)Canvas|Bella(?=\\s+(?:women|men|youth|unisex|toddler|baby)\\b)",
+  // only the consumer-electronics products, never "Apple Cider Mix" or an apple-shaped item
+  Apple: "Apple(?=\\s+(?:air\\s?pods?|watch|i?pad|i?phone|mac\\s?book|air\\s?tag)\\b)",
+  Beats: "Beats(?=\\s+(?:by\\s+dr\\.?\\s*dre|solo|studio|fit|flex|pill)\\b)",
+  "Mike and Ike": "Mike[\\s-]+and[\\s-]+Ikes?",
+  "M&M's": "M\\s*&\\s*M['\u2019]?s",
+  Hershey: "Hershey(?:['\u2019]s)?",
+  "Perry Ellis": "Perry[\\s-]+Ellis",
+  // "Alternative 3/4-Sleeve Raglan Henley", "Alternative Eco-Jersey ...", never "Alternative Fuel"
+  Alternative: "Alternative(?=\\s+(?:apparel\\b|eco\\b|\\d))",
 };
 
 const BRAND_MATCHERS = [...BRANDS]
@@ -258,7 +306,7 @@ const BRAND_MATCHERS = [...BRANDS]
         .split(/[\s-]+/)
         .map((part) => part.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/'/g, "['\u2019]"))
         .join("[\\s-]+");
-    return { brand, re: new RegExp(`^${body}(?![A-Za-z0-9])`, "i") };
+    return { brand, re: new RegExp(`^(?:${body})(?![A-Za-z0-9])`, "i") };
   });
 
 /**
@@ -325,6 +373,7 @@ const PROMO_PATTERNS = [
   /\b\d+(?:\.\d+)?\s*%\s*off\b/i,
   /%\s*off\b/i,
   /\blimited[\s-]+time\b/i,
+  /\bclose[\s-]?out\b/i,
   /\bfree\s+shipping\b/i,
   /\bclick\s+here\b/i,
   /\bon\s+sale\b/i,
@@ -594,6 +643,203 @@ export function normalizeNameCase(value) {
       .join("");
   });
   return out.join(" ");
+}
+
+// ---- Vendor ops text, typos and cut-off names (display name only) --------------------
+
+/** Words in a name (letters and digits). */
+function nameWords(value) {
+  return str(value).match(/[A-Za-z0-9]+/g) ?? [];
+}
+
+/** Spelling slips seen in supplier names; display only, so ids never change. */
+export const NAME_TYPOS = [
+  [/\breuseable\b/gi, "reusable"],
+  [/\bremoveable\b/gi, "removable"],
+  [/\badjustible\b/gi, "adjustable"],
+];
+
+function matchCase(found, fix) {
+  if (found === found.toUpperCase() && found.length > 1) return fix.toUpperCase();
+  return found[0] === found[0].toUpperCase() ? fix[0].toUpperCase() + fix.slice(1) : fix;
+}
+
+/** Spelling fixes plus doubled inch marks ("40'' x 100'" -> '40" x 100\''). */
+export function fixNameTypos(value) {
+  let name = collapseWhitespace(value);
+  for (const [re, fix] of NAME_TYPOS) name = name.replace(re, (found) => matchCase(found, fix));
+  return name.replace(/(\d)\s*''/g, '$1"');
+}
+
+// separator after a leading label: punctuation, a spaced dash, or plain space ("Budget-Friendly" is not a label)
+const LABEL_SEP = "(?:\\s*[:!]+\\s*|\\s+[-\\u2013\\u2014]\\s+|\\s+)";
+const LEADING_OPS_LABELS = new RegExp(
+  `^(?:special(?:\\s+offer)?\\s*!+\\s*|special\\s*[:\\u2013\\u2014-]\\s+|` +
+    `in[\\s-]stock${LABEL_SEP}|best[\\s-]+value${LABEL_SEP}|most[\\s-]+popular${LABEL_SEP}|` +
+    `quick[\\s-]?ship${LABEL_SEP}|price[\\s-]*saver${LABEL_SEP}|` +
+    `new(?!\\s+(?:era|balance|york|england|englander|jersey|orleans|hampshire|mexico|zealand)\\b)${LABEL_SEP}|` +
+    `budget(?!\\s+(?:planner|book|binder|tracker|calendar|journal)\\b)${LABEL_SEP})`,
+  "i"
+);
+const USA_MADE = "(?:usa[\\s-]+made|made[\\s-]+in[\\s-]+(?:the[\\s-]+)?(?:usa|u\\.s\\.a\\.?))";
+
+/**
+ * Display-name cleanup of vendor ops/marketing text: "Special!", "QuickShip", "In Stock", "Rush",
+ * "Best Value", "Most Popular", "New", "Pricebuster" / "Price Saver" / "Budget" lead-ins, and (only
+ * when the supplier flags the product as made in the USA, so the fact survives in the description)
+ * "USA Made" / "Made in the USA" prefixes and suffixes. A name that would shrink to fewer than two
+ * words is left as the typo-fixed original, so a nameOverrides entry can supply a real one.
+ * Display only: ids always come from the original cleanName() output.
+ */
+export function stripVendorNameNoise(value, { usa = false } = {}) {
+  const fixed = fixNameTypos(value);
+  let name = fixed;
+  for (let i = 0; i < 3 && LEADING_OPS_LABELS.test(name); i++) {
+    name = name.replace(LEADING_OPS_LABELS, "");
+  }
+  name = name
+    .replace(/\s*[-–—]\s*quick[\s-]?ship\b/gi, " ")
+    .replace(/\bquick[\s-]?ship\b/gi, " ")
+    .replace(/\bprice[\s-]*buster\b/gi, " ")
+    // "(Printed in USA - Rush)" keeps the printed-in-USA fact and loses the ops word
+    .replace(/\(([^)]*)\)/g, (whole, inner) => {
+      if (!/\brush\b/i.test(inner)) return whole;
+      const rest = inner.replace(/\s*[-–—,]?\s*\brush\b\s*[-–—,]?\s*/gi, " ").trim();
+      return /[A-Za-z0-9]/.test(rest) ? `(${rest})` : " ";
+    })
+    .replace(/\s*[-–—]\s*rush\s*$/i, "");
+  if (usa) {
+    name = name
+      .replace(new RegExp(`^${USA_MADE}(?=[\\s:!-])[\\s:!\\u2013\\u2014-]*`, "i"), "")
+      .replace(new RegExp(`^(\\S+)\\s+${USA_MADE}\\s+(?=\\S)`, "i"), "$1 ")
+      .replace(new RegExp(`\\s*\\(${USA_MADE}\\)`, "gi"), "")
+      .replace(new RegExp(`[\\s,\\-\\u2013\\u2014]+(?:always\\s+)?${USA_MADE}(?=\\s*[.]?(?:\\s+size\\b|\\s+[SML]\\b|\\s*$))`, "i"), "");
+  }
+  // trailing size fragments left as sentences ("... Blanket. Size L", "... Blanket. L.")
+  name = name.replace(/\.\s+(?:size\s+)?(XS|S|M|L|XL|XXL)\.?\s*$/i, (_, size) => `, Size ${size.toUpperCase()}`);
+  name = tidyPunctuation(dropUnbalancedParens(name))
+    .replace(/(?:\s+[-–—])+$/g, "")
+    .replace(/^(?:[-–—]\s*)+/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+  name = name.replace(/^[a-z]/, (c) => c.toUpperCase());
+  return nameWords(name).length >= 2 ? name : fixed;
+}
+
+/** Cleaned names at least this long may have been cut off by the supplier's 60 character field. */
+export const TRUNCATED_NAME_MIN_LENGTH = 56;
+const DANGLING_WORDS = new Set([
+  "w",
+  "wit",
+  "wi",
+  "with",
+  "and",
+  "or",
+  "for",
+  "in",
+  "of",
+  "the",
+  "a",
+  "an",
+  "to",
+  "on",
+  "at",
+  "by",
+  "from",
+]);
+/** Raw names this long (the supplier limit is 60) are where a fragment of 3-4 letters is trusted to be a cut-off word. */
+const TRUNCATED_NAME_STRONG_LENGTH = 59;
+/** Word starts the supplier's 60 character limit has been seen to leave behind ("... Domestic Prod"). */
+const KNOWN_CUT_FRAGMENTS = new Set(["prod", "produ", "produc", "ins", "insu"]);
+const SHORT_WORDS_TO_KEEP = new Set([
+  "oz",
+  "lb",
+  "uv",
+  "pu",
+  "tv",
+  "ac",
+  "dc",
+  "hd",
+  "xl",
+  "id",
+  "pc",
+  "qi",
+  "us",
+  "ml",
+  "mm",
+  "cm",
+  "ft",
+  "gb",
+  "tb",
+  "3d",
+  "4k",
+]);
+
+/** Lowercase letter-only words of 3+ letters from names too short to have been cut off (a vocabulary of whole words). */
+export function buildNameVocab(names) {
+  const vocab = new Set();
+  for (const raw of names) {
+    const name = cleanName(raw);
+    if (name.length >= TRUNCATED_NAME_MIN_LENGTH || /(?:\.{3}|…)\s*$/.test(str(raw))) continue;
+    for (const word of name.toLowerCase().match(/[a-z]{3,}/g) ?? []) vocab.add(word);
+  }
+  return vocab;
+}
+
+function completesLonger(letters, vocab, extra = 1) {
+  if (!vocab) return false;
+  for (const word of vocab) {
+    if (word.length >= letters.length + extra && word.startsWith(letters)) return true;
+  }
+  return false;
+}
+
+/**
+ * Supplier names are cut at 60 characters, often mid-word ("... Insulated S", "... T-Shirt wit",
+ * "... Sweat..."). The dangling fragment is dropped so the name ends on a whole word; nothing is
+ * ever added. `rawLength` is the length of the cleaned raw name; `ellipsis` says the raw name ended
+ * in "...". `vocab` (see buildNameVocab) lets a fragment of 4 or fewer letters ("Ins", "Prod",
+ * "with Car") be recognized as the start of a longer word.
+ * @param {string} value
+ * @param {{ rawLength?: number, ellipsis?: boolean, vocab?: Set<string> }} [options]
+ */
+export function trimCutOffName(value, { rawLength = 0, ellipsis = false, vocab } = {}) {
+  let name = collapseWhitespace(value);
+  if (!ellipsis && !(rawLength >= TRUNCATED_NAME_MIN_LENGTH)) return name;
+  for (let guard = 0; guard < 4; guard++) {
+    const words = name.split(" ");
+    if (words.length < 3) break;
+    const last = words[words.length - 1];
+    const prev = words[words.length - 2] ?? "";
+    const letters = last.replace(/[^A-Za-z]/g, "").toLowerCase();
+    const prevLetters = prev.replace(/[^A-Za-z]/g, "").toLowerCase();
+    const hasDigit = /\d/.test(last);
+    let cut = false;
+    const strong = rawLength >= TRUNCATED_NAME_STRONG_LENGTH;
+    if (!letters && !hasDigit) cut = true; // "-", "&", "w/"
+    else if (letters === "in" && /\d/.test(prev)) cut = false; // "10.5x2.5x5 in": inches, not a cut
+    else if (DANGLING_WORDS.has(letters)) cut = true;
+    else if (letters.length === 1 && /^size$/i.test(prev)) cut = false; // "Size L"
+    else if (!hasDigit && letters.length <= 2 && !SHORT_WORDS_TO_KEEP.has(letters)) cut = true;
+    else if (!hasDigit && letters.length >= 3) {
+      if (ellipsis && guard === 0 && completesLonger(letters, vocab)) cut = true;
+      else if (strong && KNOWN_CUT_FRAGMENTS.has(letters)) cut = true;
+      else if (strong && letters.length <= 4 && vocab && !vocab.has(letters) && completesLonger(letters, vocab))
+        cut = true;
+      else if (
+        strong &&
+        letters.length <= 4 &&
+        (DANGLING_WORDS.has(prevLetters) || prev === "-") &&
+        completesLonger(letters, vocab, 3)
+      )
+        cut = true;
+    }
+    if (!cut) break;
+    name = words.slice(0, -1).join(" ");
+    name = name.replace(/\s*[-–—,&/]+\s*$/, "").trim();
+    ellipsis = false;
+  }
+  return tidyPunctuation(dropUnbalancedParens(name)) || collapseWhitespace(value);
 }
 
 // ---- Sizes and size-priced products ----------------------------------------------
@@ -909,6 +1155,96 @@ export function normalizeName(name) {
     .trim();
 }
 
+/**
+ * Keyword category rules, applied to the display name after the raw tag has chosen a category.
+ * First matching rule wins; `from` limits a rule to products the scraper put in those categories
+ * (omitted = any category). An explicit categoryOverrides entry in import-overrides.json always
+ * beats a rule. Each rule's cluster is listed in __tests__/catalogQuality.test.ts.
+ * @type {{ id: string, to: string, from?: string[], re: RegExp, reason: string }[]}
+ */
+export const CATEGORY_RULES = [
+  {
+    id: "lanyards-and-badges",
+    to: "Lanyards & Badges",
+    from: ["Event & Signage", "Awards & Recognition", "Print & Collateral", "Office & Writing"],
+    re: /\blanyards?\b|\bbadge[\s-]+(?:holders?|reels?)\b|\b(?:name|id|employee|security)[\s-]+badges?\b/i,
+    reason: "Lanyards, badge holders and name badges are their own shopping category.",
+  },
+  {
+    id: "awards",
+    to: "Awards & Recognition",
+    from: ["Gifts & Entertaining"],
+    re: /\b(?:awards?|plaques?|trophy|trophies|crystal|challenge[\s-]+coins?|coins?|lapel[\s-]+pins?|medallions?|medals?)\b/i,
+    reason: "Awards, plaques, trophies, coins and lapel pins belong with Awards & Recognition.",
+  },
+  {
+    id: "pens",
+    to: "Office & Writing",
+    from: ["Awards & Recognition", "Gifts & Entertaining"],
+    re: /\bpens?\b(?!\s+holders?)/i,
+    reason: "Pens belong with Office & Writing.",
+  },
+  {
+    id: "cutting-boards",
+    to: "Gifts & Entertaining",
+    from: ["Awards & Recognition"],
+    re: /\bcutting[\s-]+boards?\b/i,
+    reason: "A cutting board is a gift item, not an award.",
+  },
+  {
+    id: "bumper-stickers",
+    to: "Automotive",
+    re: /\bbumper[\s-]+stickers?\b/i,
+    reason: "Bumper stickers belong with Automotive.",
+  },
+  {
+    id: "promo-giveaways",
+    to: "Promo Giveaways",
+    from: [
+      "Event & Signage",
+      "Gifts & Entertaining",
+      "Kids & Toys",
+      "Seasonal & Holiday",
+      "Health & Wellness",
+      "Outdoor & Sports",
+    ],
+    re: new RegExp(
+      [
+        "\\bstress[\\s-]+balls?\\b",
+        "\\bpush[\\s-]?pop\\b",
+        "\\bhand(?:[\\s-]?held)?\\s+fans?\\b",
+        "\\bhandheld\\s+(?:\\w+\\s+)?fans?\\b",
+        "\\bfoldable\\s+(?:nylon\\s+)?fans?\\b",
+        "\\bclappers?\\b",
+        "\\bnoise[\\s-]?makers?\\b",
+        "\\bfoam\\s+fingers?\\b",
+        "\\bwristbands?\\b",
+        "\\bsilicone\\s+bands?\\b",
+        "\\bchunky\\s+bands?\\b",
+        "\\bbuttons?\\b",
+      ].join("|"),
+      "i"
+    ),
+    reason:
+      "Stress balls, hand fans, clappers, noise makers, foam fingers, wristbands, buttons and push-pop toys are low-cost promo giveaways.",
+  },
+];
+
+/**
+ * The category a rule moves a product to, or null. Pure; `name` is the display name.
+ * @param {{ name: string, category: string }} input
+ * @returns {{ category: string, ruleId: string, reason: string } | null}
+ */
+export function categoryFromRules({ name, category }) {
+  for (const rule of CATEGORY_RULES) {
+    if (rule.from && !rule.from.includes(category)) continue;
+    if (!rule.re.test(str(name))) continue;
+    if (rule.to === category) return null;
+    return { category: rule.to, ruleId: rule.id, reason: rule.reason };
+  }
+  return null;
+}
+
 export function mapCategory(tag) {
   return TAG_TO_CATEGORY[str(tag).trim().toLowerCase()] ?? null;
 }
@@ -1000,29 +1336,68 @@ export const THIN_DESCRIPTION_WORDS = 4;
 const MAX_SIZE_FACT_LENGTH = 80;
 
 /**
- * Facts for a thin description, drawn only from the row: color count, size line and the
- * first volume break. Nothing is invented; with no facts at all the product name is the body.
+ * Fix a unit typo in a size string, but only when the data itself makes the unit unambiguous:
+ * a third measurement under one foot after two foot measurements is a thickness in inches
+ * ("3' x 10' x 0.375'" -> '3\' x 10\' x 0.375"'), and a size written ONLY with doubled
+ * apostrophes is in inches ("3.3'' x 2.1''" -> '3.3" x 2.1"'). Anything mixed or unclear is
+ * left exactly as the supplier wrote it.
  */
-function thinDescriptionFacts({ base, colorCount, size, breakQty, name }) {
+export function fixSizeUnits(value) {
+  let text = normalizeMeasurements(value);
+  text = text.replace(
+    /(\d+(?:\.\d+)?')\s*x\s*(\d+(?:\.\d+)?')\s*x\s*(0?\.\d+)'(?!')/g,
+    (whole, a, b, c) => (Number.parseFloat(a) >= 2 && Number.parseFloat(b) >= 2 ? `${a} x ${b} x ${c}"` : whole)
+  );
+  if (/\d''/.test(text) && !/\d'(?!')/.test(text)) text = text.replace(/(\d)''/g, '$1"');
+  return text;
+}
+
+/** A size like "2.25 D" or "9" has no unit, so it says nothing the name or photo does not. */
+const UNITLESS_SIZE = /^[\d./\s]+(?:\s*(?:d|dia|l|w|h|t))?\.?$/i;
+
+/**
+ * The size line worth showing in a description: the supplier's size field, tidied, when it is
+ * short and carries a unit or apparel sizes; "" for unit-less fragments ("2.25 D", "31/2 D").
+ */
+export function informativeSize(sizes) {
+  const size = fixSizeUnits(collapseWhitespace(sizes));
+  if (!size || size.length > MAX_SIZE_FACT_LENGTH) return "";
+  if (UNITLESS_SIZE.test(size)) return "";
+  return size;
+}
+
+/** "A, B and C" */
+function joinColors(colors) {
+  return colors.length < 2
+    ? colors.join("")
+    : `${colors.slice(0, -1).join(", ")} and ${colors[colors.length - 1]}`;
+}
+
+/**
+ * Facts for a thin description, drawn only from the row: the size line, or (with nothing else)
+ * the product name and, for a short list, its colors. The color COUNT and the volume break are
+ * never written: the swatches and the price table already show them.
+ */
+function thinDescriptionFacts({ base, size, colors, name }) {
   const facts = [];
-  if (colorCount > 1 && !/\bcolou?rs?\b/i.test(base)) facts.push(`${colorCount} color options.`);
-  if (size && size.length <= MAX_SIZE_FACT_LENGTH && !base.includes(size))
-    facts.push(`Size: ${size}.`);
-  if (breakQty) facts.push(`Price per unit drops at ${breakQty} units.`);
-  if (!base && facts.length === 0 && name) facts.push(`${name.replace(/[.!?]+$/, "")}.`);
+  if (size && !base.includes(size)) facts.push(`Size: ${size}.`);
+  if (!base && facts.length === 0 && name) {
+    facts.push(`${name.replace(/[.!?]+$/, "")}.`);
+    if (colors.length >= 2 && colors.length <= 4) facts.push(`Available in ${joinColors(colors)}.`);
+  }
   return facts;
 }
 
 /**
- * @param {{ rawDescription: string, colorCount: number, sizes: string, minQty: number,
- *   usa: unknown, multiGrid: unknown, sizePriced?: boolean, enrich?: { name?: string, breakQty?: number } }} input
+ * @param {{ rawDescription: string, colorCount?: number, sizes: string, minQty: number,
+ *   usa: unknown, multiGrid: unknown, sizePriced?: boolean, enrich?: { name?: string, colors?: string[], breakQty?: number } }} input
+ *   `colorCount` and `enrich.breakQty` are accepted but never written (the swatches and the price table show them).
  *   `sizePriced`: the page shows PRICE_NOTE_SIZE, so the generic "base size or option" sentence is dropped.
  *   `enrich`: when given, a thin body (under THIN_DESCRIPTION_WORDS words) is extended with
- *   facts from the row; the importer always passes it.
+ *   facts from the row (size, or the name and a short color list); the importer always passes it.
  */
 export function buildDescription({
   rawDescription,
-  colorCount,
   sizes,
   minQty,
   usa,
@@ -1030,25 +1405,20 @@ export function buildDescription({
   sizePriced = false,
   enrich,
 }) {
-  let base = normalizeMeasurements(cleanDescriptionText(rawDescription));
-  const size = normalizeMeasurements(collapseWhitespace(sizes));
+  let base = fixSizeUnits(cleanDescriptionText(rawDescription));
+  const size = informativeSize(sizes);
   if (!base) {
-    // "<N> color options." on its own repeats what the swatches already show, so it
-    // is only written alongside a size line; with nothing else the description is
-    // just the "Priced at" tail (no facts are lost) unless the importer enriches it.
-    base = size
-      ? `${colorCount > 0 ? `${colorCount} color option${colorCount === 1 ? "" : "s"}. ` : ""}Size: ${size}.`
-      : "";
-  } else if (!(/[.!?)'”]$/.test(base) || (/"$/.test(base) && !/\d"$/.test(base)))) {
+    // the color count is not stated: the swatches already show it
+    base = size ? `Size: ${size}.` : "";
+  } else if (!(/[.!?)'\u201d]$/.test(base) || (/"$/.test(base) && !/\d"$/.test(base)))) {
     // A closing quote ends a sentence, but a digit followed by " is an inch mark.
     base += ".";
   }
   if (enrich && wordCount(base) < THIN_DESCRIPTION_WORDS) {
     const facts = thinDescriptionFacts({
       base,
-      colorCount,
       size: size && !base.includes("Size:") ? size : "",
-      breakQty: enrich.breakQty,
+      colors: enrich.colors ?? [],
       name: enrich.name,
     });
     base = [base, ...facts].filter(Boolean).join(" ");
@@ -1106,12 +1476,15 @@ export function passesVendorGate(rating, reviews) {
 
 /**
  * Ranking comparator: negative when `a` should be kept over `b`.
- * Higher vendor score, more reviews, more colors, lower first-tier price,
+ * Rows with protected (hand-sourced photo / link) ids first, then
+ * higher vendor score, more reviews, more colors, lower first-tier price,
  * then lexicographically smaller espId (deterministic).
  * @param {{ vendor: { rating: number, reviews: number }, product: CleanProduct, espId: string }} a
  * @param {{ vendor: { rating: number, reviews: number }, product: CleanProduct, espId: string }} b
  */
 export function compareCandidates(a, b) {
+  // a row carrying hand-sourced color photos / curated links is never the one dropped
+  if (Boolean(a.protectedRow) !== Boolean(b.protectedRow)) return a.protectedRow ? -1 : 1;
   const sa = vendorScore(a.vendor.rating, a.vendor.reviews);
   const sb = vendorScore(b.vendor.rating, b.vendor.reviews);
   if (Math.abs(sa - sb) > 1e-9) return sb - sa;
@@ -1294,7 +1667,7 @@ export function isDuplicateName(nameA, nameB) {
  * @param {unknown} row
  * @returns {{ skip: string, product?: undefined, idName?: undefined, colorMap?: undefined } | { skip?: undefined, espId: string, imgId: string, idName: string, colorMap: Record<string, string | null>, product: CleanProduct, link: EspLink, vendor: { key: string, rating: number, reviews: number } }}
  */
-export function cleanRow(row) {
+export function cleanRow(row, ctx = {}) {
   if (!Array.isArray(row)) return { skip: "malformed-row" };
   const [
     espIdRaw,
@@ -1332,8 +1705,16 @@ export function cleanRow(row) {
   const idName = cleanName(nameRaw);
   if (!idName) return { skip: "empty-name" };
   if (idName.length > MAX_NAME_LENGTH) return { skip: "name-too-long" };
-  const name = normalizeNameCase(cleanDisplayName(nameRaw));
+  const usa = Number(usaRaw) === 1 ? 1 : 0;
+  // display name: cut-off tail, vendor ops text and typos removed, then consistent casing
+  const cutOff = trimCutOffName(cleanDisplayName(nameRaw), {
+    rawLength: idName.length,
+    ellipsis: /(?:\.{3}|\u2026)\s*$/.test(str(nameRaw)),
+    vocab: ctx.vocab,
+  });
+  const name = normalizeNameCase(stripVendorNameNoise(cutOff, { usa: usa === 1 }));
   if (!name) return { skip: "empty-name" };
+  const nameBeforePolish = normalizeNameCase(cleanDisplayName(nameRaw));
 
   const tiers = cleanTiers(tiersRaw);
   if (tiers.length === 0) return { skip: "no-tiers" };
@@ -1344,19 +1725,17 @@ export function cleanRow(row) {
   if (!/^\d+$/.test(imgId)) return { skip: "no-image" };
 
   const { colors, map: colorMap } = colorNameMap(colorsRaw);
-  const usa = Number(usaRaw) === 1 ? 1 : 0;
   const multiGrid = Number(multiGridRaw) === 1 ? 1 : 0;
 
   const sizePriced = isSizePriced({ multiGrid, sizes: sizesRaw, name });
   const description = buildDescription({
     rawDescription: descRaw,
-    colorCount: Math.min(colors.length, MAX_COLORS),
     sizes: sizesRaw,
     minQty: tiers[0][0],
     usa,
     multiGrid,
     sizePriced,
-    enrich: { name, breakQty: tiers[1]?.[0] },
+    enrich: { name, colors: colors.slice(0, MAX_COLORS) },
   });
 
   const supplier = collapseWhitespace(supplierRaw);
@@ -1365,6 +1744,7 @@ export function cleanRow(row) {
     imgId,
     vendor: { key: (asi || supplier).toLowerCase(), rating, reviews },
     idName,
+    nameBeforePolish,
     colorMap,
     sizes: collapseWhitespace(sizesRaw),
     product: {
@@ -1466,13 +1846,27 @@ export function buildCatalog(rows, opts = {}) {
   /** @type {any[]} */
   const candidates = [];
   const curatedDuplicates = [];
+  const cleanCtx = { vocab: buildNameVocab(rows.map((r) => (Array.isArray(r) ? r[2] : ""))) };
   for (const row of rows) {
-    const cleaned = cleanRow(row);
+    const cleaned = cleanRow(row, cleanCtx);
     if (cleaned.skip) {
       skip(cleaned.skip, { espId: Array.isArray(row) ? str(row[0]) : undefined });
       continue;
     }
-    // category overrides (scripts/data/import-overrides.json) apply before clustering
+    // keyword category rules, then explicit category overrides (scripts/data/import-overrides.json),
+    // both before clustering so duplicates are only compared inside the final category
+    const ruleMove = categoryFromRules(cleaned.product);
+    if (ruleMove && !categoryMoves.has(cleaned.espId)) {
+      categoryMoved.push({
+        espId: cleaned.espId,
+        name: cleaned.product.name,
+        from: cleaned.product.category,
+        to: ruleMove.category,
+        reason: ruleMove.reason,
+        rule: ruleMove.ruleId,
+      });
+      cleaned.product.category = ruleMove.category;
+    }
     const move = categoryMoves.get(cleaned.espId);
     if (move && move.category !== cleaned.product.category) {
       categoryMoved.push({
@@ -1639,6 +2033,14 @@ export function buildCatalog(rows, opts = {}) {
   // ids are derived from idName in step 6 and are NOT affected by anything below
   const renamed = [];
   for (const w of winners) {
+    if (w.nameBeforePolish && w.nameBeforePolish !== w.product.name) {
+      renamed.push({
+        espId: w.espId,
+        from: w.nameBeforePolish,
+        to: w.product.name,
+        reason: "vendor ops text, typo or cut-off fragment removed",
+      });
+    }
     const override = nameOverrides.get(w.espId);
     const name = override ? override.name : improveGenericName(w.product.name, w.sizes);
     if (name === w.product.name) continue;
@@ -1707,6 +2109,100 @@ export function buildCatalog(rows, opts = {}) {
     renamed,
     nameCollisions,
   };
+}
+
+// ---- Report-only checks (never shipped to the client) -----------------------------------
+
+/** First-tier unit price above this multiple of its category's median is flagged. */
+export const SUSPECT_MEDIAN_MULTIPLE = 10;
+/** A first-tier price at least this many times the last tier (3+ tiers) is a steep volume drop. */
+export const SUSPECT_STEEP_DROP = 4;
+/** Items normally sold for a few cents to a few dollars each; a high unit price may be per-1000 / per-pack. */
+const SMALL_FORMAT_ITEM =
+  /\b(?:letterheads?|envelopes?|stickers?|labels?|magnets?|mints?|buttermints?|candy|candies|buttons?|pins?|decals?|coasters?|bookmarks?|flyers?|postcards?|brochures?|notepads?|tattoos?|balloons?|keychains?|ornaments?)\b/i;
+
+function median(values) {
+  const sorted = [...values].sort((a, b) => a - b);
+  const mid = sorted.length >> 1;
+  return sorted.length % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
+}
+
+/**
+ * Report-only price sanity check on RAW ESP catalog tiers (prices are never changed). Flags:
+ *  - over-10x-category-median: first-tier unit price over 10 times the category median;
+ *  - steep-volume-drop: first tier at least 4 times the last tier across 3+ tiers;
+ *  - small-format-unit-price: a small printed/consumable item (letterhead, magnet, mint, sticker...)
+ *    whose first-tier price is over $10 and over 3 times the category median, i.e. the tiers may be
+ *    per-1000 or per-pack prices. Those are `per1000Suspect`.
+ * @param {CatalogItem[]} items
+ * @returns {{ id: string, espId: string, name: string, category: string, firstTier: [number, number],
+ *   lastTier: [number, number], categoryMedian: number, reasons: string[], per1000Suspect: boolean }[]}
+ */
+export function findSuspectPricing(items) {
+  const byCategory = new Map();
+  for (const item of items) {
+    const list = byCategory.get(item.product.category) ?? [];
+    list.push(item.product.tiers[0][1]);
+    byCategory.set(item.product.category, list);
+  }
+  const medians = new Map(
+    [...byCategory].map(([category, prices]) => [category, prices.length >= 5 ? median(prices) : 0])
+  );
+  const out = [];
+  for (const item of items) {
+    const { tiers, category, name } = item.product;
+    const [firstQty, first] = tiers[0];
+    const last = tiers[tiers.length - 1][1];
+    const categoryMedian = medians.get(category) ?? 0;
+    const reasons = [];
+    if (categoryMedian > 0 && first > SUSPECT_MEDIAN_MULTIPLE * categoryMedian)
+      reasons.push("over-10x-category-median");
+    if (tiers.length >= 3 && first >= SUSPECT_STEEP_DROP * last) reasons.push("steep-volume-drop");
+    const per1000 =
+      categoryMedian > 0 &&
+      SMALL_FORMAT_ITEM.test(name) &&
+      first > 10 &&
+      first > 3 * categoryMedian;
+    if (per1000) reasons.push("small-format-unit-price");
+    if (reasons.length === 0) continue;
+    out.push({
+      id: item.id,
+      espId: item.link.espId,
+      name,
+      category,
+      firstTier: [firstQty, first],
+      lastTier: tiers[tiers.length - 1],
+      categoryMedian: Math.round(categoryMedian * 100) / 100,
+      reasons,
+      per1000Suspect: per1000,
+    });
+  }
+  return out.sort(
+    (a, b) =>
+      Number(b.per1000Suspect) - Number(a.per1000Suspect) ||
+      b.firstTier[1] / (b.categoryMedian || 1) - a.firstTier[1] / (a.categoryMedian || 1)
+  );
+}
+
+/** Named third-party consumer brands (a business decision for the owner; nothing is hidden or removed). */
+export const THIRD_PARTY_CONSUMER_BRANDS = [
+  "Apple",
+  "Beats",
+  "Hershey",
+  "Snickers",
+  "Payday",
+  "M&M's",
+  "Mike and Ike",
+  "Maglite",
+];
+
+/** Products whose detected brand is a third-party consumer brand (report-only). */
+export function findThirdPartyBrandProducts(items) {
+  const brands = new Set(THIRD_PARTY_CONSUMER_BRANDS);
+  return items
+    .filter((item) => brands.has(item.product.brand))
+    .map((item) => ({ id: item.id, name: item.product.name, brand: item.product.brand }))
+    .sort((a, b) => (a.brand < b.brand ? -1 : a.brand > b.brand ? 1 : a.id < b.id ? -1 : 1));
 }
 
 // ---- Manual overrides / safety checks ---------------------------------------
