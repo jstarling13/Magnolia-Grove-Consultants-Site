@@ -374,11 +374,19 @@ describe("big-ticket group", () => {
   });
 
   it("leaves volume items, cheap singles and clothing alone", () => {
-    expect(isBigTicket({ category: "Home & Decor", priceTiers: tiers(100, 140) })).toBe(false);
+    expect(isBigTicket({ category: "Home & Decor", priceTiers: tiers(100, 12) })).toBe(false);
     expect(isBigTicket({ category: "Awards & Recognition", priceTiers: tiers(1, 29) })).toBe(false);
     expect(isBigTicket({ category: "Apparel", priceTiers: tiers(1, 150) })).toBe(false);
     expect(isBigTicket({ category: "Headwear", priceTiers: tiers(1, 80) })).toBe(false);
-    expect(isBigTicket({ category: "Bags", priceTiers: tiers(25, 60) })).toBe(false);
+    expect(isBigTicket({ category: "Bags", priceTiers: tiers(25, 40) })).toBe(false);
+  });
+
+  it("flags a large minimum order even when the unit price is low", () => {
+    expect(isBigTicket({ category: "Home & Decor", priceTiers: tiers(1000, 4.81) })).toBe(true);
+    expect(isBigTicket({ category: "Knives & Tools", priceTiers: tiers(1000, 34.65) })).toBe(true);
+    expect(isBigTicket({ category: "Office & Writing", priceTiers: tiers(100, 14.99) })).toBe(
+      false
+    );
   });
 
   it("is the last named group of every non-clothing category, and absent from clothing", () => {
