@@ -1,1 +1,418 @@
-{}
+{
+  "40-oz-hydrapeak-voyager-travel-mug-90494": {
+    "Black": "/images/merch/colors/40-oz-hydrapeak-voyager-travel-mug-90494-black.webp",
+    "Navy Blue": "/images/merch/colors/40-oz-hydrapeak-voyager-travel-mug-90494-navy-blue.webp",
+    "Grey": "/images/merch/colors/40-oz-hydrapeak-voyager-travel-mug-90494-grey.webp"
+  },
+  "bella-canvas-youth-triblend-short-sleeve-t-shirt-90336": {
+    "Athletic Grey": "/images/merch/colors/bella-canvas-youth-triblend-short-sleeve-t-shirt-90336-athletic-grey.webp",
+    "Blue": "/images/merch/colors/bella-canvas-youth-triblend-short-sleeve-t-shirt-90336-blue.webp",
+    "Green": "/images/merch/colors/bella-canvas-youth-triblend-short-sleeve-t-shirt-90336-green.webp",
+    "Grey": "/images/merch/colors/bella-canvas-youth-triblend-short-sleeve-t-shirt-90336-grey.webp",
+    "Mauve": "/images/merch/colors/bella-canvas-youth-triblend-short-sleeve-t-shirt-90336-mauve.webp",
+    "Maroon": "/images/merch/colors/bella-canvas-youth-triblend-short-sleeve-t-shirt-90336-maroon.webp",
+    "Mustard": "/images/merch/colors/bella-canvas-youth-triblend-short-sleeve-t-shirt-90336-mustard.webp",
+    "Navy": "/images/merch/colors/bella-canvas-youth-triblend-short-sleeve-t-shirt-90336-navy.webp",
+    "Olive": "/images/merch/colors/bella-canvas-youth-triblend-short-sleeve-t-shirt-90336-olive.webp",
+    "Orange": "/images/merch/colors/bella-canvas-youth-triblend-short-sleeve-t-shirt-90336-orange.webp",
+    "Peach": "/images/merch/colors/bella-canvas-youth-triblend-short-sleeve-t-shirt-90336-peach.webp",
+    "Red": "/images/merch/colors/bella-canvas-youth-triblend-short-sleeve-t-shirt-90336-red.webp",
+    "Oatmeal": "/images/merch/colors/bella-canvas-youth-triblend-short-sleeve-t-shirt-90336-oatmeal.webp",
+    "Black": "/images/merch/colors/bella-canvas-youth-triblend-short-sleeve-t-shirt-90336-black.webp",
+    "Teal": "/images/merch/colors/bella-canvas-youth-triblend-short-sleeve-t-shirt-90336-teal.webp",
+    "True Royal": "/images/merch/colors/bella-canvas-youth-triblend-short-sleeve-t-shirt-90336-true-royal.webp",
+    "Charity Pink": "/images/merch/colors/bella-canvas-youth-triblend-short-sleeve-t-shirt-90336-charity-pink.webp"
+  },
+  "port-and-company-5-4-oz-100-cotton-long-sleeve-t-shirt-65911": {
+    "Light Blue": "/images/merch/colors/port-and-company-5-4-oz-100-cotton-long-sleeve-t-shirt-65911-light-blue.webp",
+    "Ash": "/images/merch/colors/port-and-company-5-4-oz-100-cotton-long-sleeve-t-shirt-65911-ash.webp",
+    "Athletic Heather": "/images/merch/colors/port-and-company-5-4-oz-100-cotton-long-sleeve-t-shirt-65911-athletic-heather.webp",
+    "Athletic Maroon": "/images/merch/colors/port-and-company-5-4-oz-100-cotton-long-sleeve-t-shirt-65911-athletic-maroon.webp",
+    "Charcoal": "/images/merch/colors/port-and-company-5-4-oz-100-cotton-long-sleeve-t-shirt-65911-charcoal.webp",
+    "Dark Green": "/images/merch/colors/port-and-company-5-4-oz-100-cotton-long-sleeve-t-shirt-65911-dark-green.webp",
+    "Dark Heather Grey": "/images/merch/colors/port-and-company-5-4-oz-100-cotton-long-sleeve-t-shirt-65911-dark-heather-grey.webp",
+    "Gold": "/images/merch/colors/port-and-company-5-4-oz-100-cotton-long-sleeve-t-shirt-65911-gold.webp",
+    "Jetblack": "/images/merch/colors/port-and-company-5-4-oz-100-cotton-long-sleeve-t-shirt-65911-jetblack.webp",
+    "Kelly": "/images/merch/colors/port-and-company-5-4-oz-100-cotton-long-sleeve-t-shirt-65911-kelly.webp",
+    "Navy Blue": "/images/merch/colors/port-and-company-5-4-oz-100-cotton-long-sleeve-t-shirt-65911-navy-blue.webp",
+    "Orange": "/images/merch/colors/port-and-company-5-4-oz-100-cotton-long-sleeve-t-shirt-65911-orange.webp",
+    "Purple": "/images/merch/colors/port-and-company-5-4-oz-100-cotton-long-sleeve-t-shirt-65911-purple.webp"
+  },
+  "pack-n-go-pullover-14864": {
+    "Black": "/images/merch/colors/pack-n-go-pullover-14864-black.webp",
+    "Forest": "/images/merch/colors/pack-n-go-pullover-14864-forest.webp",
+    "Maroon": "/images/merch/colors/pack-n-go-pullover-14864-maroon.webp",
+    "Navy": "/images/merch/colors/pack-n-go-pullover-14864-navy.webp",
+    "Purple": "/images/merch/colors/pack-n-go-pullover-14864-purple.webp",
+    "Red": "/images/merch/colors/pack-n-go-pullover-14864-red.webp",
+    "Royal": "/images/merch/colors/pack-n-go-pullover-14864-royal.webp",
+    "White": "/images/merch/colors/pack-n-go-pullover-14864-white.webp",
+    "Grey": "/images/merch/colors/pack-n-go-pullover-14864-grey.webp",
+    "Olive": "/images/merch/colors/pack-n-go-pullover-14864-olive.webp",
+    "Mint": "/images/merch/colors/pack-n-go-pullover-14864-mint.webp",
+    "Hot Pink": "/images/merch/colors/pack-n-go-pullover-14864-hot-pink.webp",
+    "Neon Yellow": "/images/merch/colors/pack-n-go-pullover-14864-neon-yellow.webp"
+  },
+  "port-authority-extended-size-long-sleeve-easy-care-shirt-03405": {
+    "Bark": "/images/merch/colors/port-authority-extended-size-long-sleeve-easy-care-shirt-03405-bark.webp",
+    "Brt Lavender": "/images/merch/colors/port-authority-extended-size-long-sleeve-easy-care-shirt-03405-brt-lavender.webp",
+    "Clover Green": "/images/merch/colors/port-authority-extended-size-long-sleeve-easy-care-shirt-03405-clover-green.webp",
+    "Court Green": "/images/merch/colors/port-authority-extended-size-long-sleeve-easy-care-shirt-03405-court-green.webp",
+    "Light Pink": "/images/merch/colors/port-authority-extended-size-long-sleeve-easy-care-shirt-03405-light-pink.webp",
+    "Maui Blue": "/images/merch/colors/port-authority-extended-size-long-sleeve-easy-care-shirt-03405-maui-blue.webp",
+    "Stone": "/images/merch/colors/port-authority-extended-size-long-sleeve-easy-care-shirt-03405-stone.webp",
+    "Teal Green": "/images/merch/colors/port-authority-extended-size-long-sleeve-easy-care-shirt-03405-teal-green.webp",
+    "Yellow": "/images/merch/colors/port-authority-extended-size-long-sleeve-easy-care-shirt-03405-yellow.webp",
+    "Strong Blue": "/images/merch/colors/port-authority-extended-size-long-sleeve-easy-care-shirt-03405-strong-blue.webp"
+  },
+  "classic-polyester-drawstring-bags-94667": {
+    "Black": "/images/merch/colors/classic-polyester-drawstring-bags-94667-black.webp",
+    "Burgundy": "/images/merch/colors/classic-polyester-drawstring-bags-94667-burgundy.webp",
+    "Orange": "/images/merch/colors/classic-polyester-drawstring-bags-94667-orange.webp",
+    "Purple": "/images/merch/colors/classic-polyester-drawstring-bags-94667-purple.webp",
+    "Red": "/images/merch/colors/classic-polyester-drawstring-bags-94667-red.webp",
+    "Royal Blue": "/images/merch/colors/classic-polyester-drawstring-bags-94667-royal-blue.webp",
+    "Lime Green": "/images/merch/colors/classic-polyester-drawstring-bags-94667-lime-green.webp",
+    "White": "/images/merch/colors/classic-polyester-drawstring-bags-94667-white.webp",
+    "Yellow": "/images/merch/colors/classic-polyester-drawstring-bags-94667-yellow.webp"
+  },
+  "40-oz-intrepid-recycled-stainless-steel-tumbler-97724": {
+    "Recycled Beige": "/images/merch/colors/40-oz-intrepid-recycled-stainless-steel-tumbler-97724-recycled-beige.webp",
+    "Recycled Black": "/images/merch/colors/40-oz-intrepid-recycled-stainless-steel-tumbler-97724-recycled-black.webp",
+    "Recycled Light Blue": "/images/merch/colors/40-oz-intrepid-recycled-stainless-steel-tumbler-97724-recycled-light-blue.webp",
+    "Recycled Blue": "/images/merch/colors/40-oz-intrepid-recycled-stainless-steel-tumbler-97724-recycled-blue.webp",
+    "Recycled Gray": "/images/merch/colors/40-oz-intrepid-recycled-stainless-steel-tumbler-97724-recycled-gray.webp",
+    "Recycled Lime": "/images/merch/colors/40-oz-intrepid-recycled-stainless-steel-tumbler-97724-recycled-lime.webp",
+    "Recycled Navy Blue": "/images/merch/colors/40-oz-intrepid-recycled-stainless-steel-tumbler-97724-recycled-navy-blue.webp",
+    "Recycled Orange": "/images/merch/colors/40-oz-intrepid-recycled-stainless-steel-tumbler-97724-recycled-orange.webp",
+    "Recycled Pink": "/images/merch/colors/40-oz-intrepid-recycled-stainless-steel-tumbler-97724-recycled-pink.webp",
+    "Recycled Purple": "/images/merch/colors/40-oz-intrepid-recycled-stainless-steel-tumbler-97724-recycled-purple.webp",
+    "Recycled Red": "/images/merch/colors/40-oz-intrepid-recycled-stainless-steel-tumbler-97724-recycled-red.webp",
+    "Recycled White": "/images/merch/colors/40-oz-intrepid-recycled-stainless-steel-tumbler-97724-recycled-white.webp"
+  },
+  "platform-ladies-posicharge-tough-tee-03945": {
+    "Atomic Blue": "/images/merch/colors/platform-ladies-posicharge-tough-tee-03945-atomic-blue.webp",
+    "True Royal": "/images/merch/colors/platform-ladies-posicharge-tough-tee-03945-true-royal.webp",
+    "White": "/images/merch/colors/platform-ladies-posicharge-tough-tee-03945-white.webp",
+    "Black": "/images/merch/colors/platform-ladies-posicharge-tough-tee-03945-black.webp",
+    "Dark Smoke Gray": "/images/merch/colors/platform-ladies-posicharge-tough-tee-03945-dark-smoke-gray.webp",
+    "Deep Red": "/images/merch/colors/platform-ladies-posicharge-tough-tee-03945-deep-red.webp",
+    "Neon Green": "/images/merch/colors/platform-ladies-posicharge-tough-tee-03945-neon-green.webp",
+    "Neon Yellow": "/images/merch/colors/platform-ladies-posicharge-tough-tee-03945-neon-yellow.webp",
+    "Pink Raspberry": "/images/merch/colors/platform-ladies-posicharge-tough-tee-03945-pink-raspberry.webp",
+    "Silver": "/images/merch/colors/platform-ladies-posicharge-tough-tee-03945-silver.webp",
+    "True Navy": "/images/merch/colors/platform-ladies-posicharge-tough-tee-03945-true-navy.webp"
+  },
+  "gildan-ultra-cotton-100-cotton-long-sleeve-t-shirt-wit-32581": {
+    "Safety Orange": "/images/merch/colors/gildan-ultra-cotton-100-cotton-long-sleeve-t-shirt-wit-32581-safety-orange.webp",
+    "Safety Green": "/images/merch/colors/gildan-ultra-cotton-100-cotton-long-sleeve-t-shirt-wit-32581-safety-green.webp",
+    "Navy": "/images/merch/colors/gildan-ultra-cotton-100-cotton-long-sleeve-t-shirt-wit-32581-navy.webp",
+    "Sport Gray": "/images/merch/colors/gildan-ultra-cotton-100-cotton-long-sleeve-t-shirt-wit-32581-sport-gray.webp",
+    "White": "/images/merch/colors/gildan-ultra-cotton-100-cotton-long-sleeve-t-shirt-wit-32581-white.webp",
+    "Black": "/images/merch/colors/gildan-ultra-cotton-100-cotton-long-sleeve-t-shirt-wit-32581-black.webp"
+  },
+  "carhartt-gilliam-jacket-73779": {
+    "Moss": "/images/merch/colors/carhartt-gilliam-jacket-73779-moss.webp",
+    "Navy": "/images/merch/colors/carhartt-gilliam-jacket-73779-navy.webp",
+    "Shadow Gray": "/images/merch/colors/carhartt-gilliam-jacket-73779-shadow-gray.webp",
+    "Black": "/images/merch/colors/carhartt-gilliam-jacket-73779-black.webp"
+  },
+  "womens-heathered-eco-logic-stretch-quarter-zip-93231": {
+    "Graphite Heather": "/images/merch/colors/womens-heathered-eco-logic-stretch-quarter-zip-93231-graphite-heather.webp",
+    "Light Grey Heather": "/images/merch/colors/womens-heathered-eco-logic-stretch-quarter-zip-93231-light-grey-heather.webp",
+    "Light Royal Heather": "/images/merch/colors/womens-heathered-eco-logic-stretch-quarter-zip-93231-light-royal-heather.webp"
+  },
+  "mens-heathered-eco-logic-stretch-quarter-zip-93289": {
+    "Navy Heather": "/images/merch/colors/mens-heathered-eco-logic-stretch-quarter-zip-93289-navy-heather.webp",
+    "Graphite Heather": "/images/merch/colors/mens-heathered-eco-logic-stretch-quarter-zip-93289-graphite-heather.webp",
+    "Light Royal Heather": "/images/merch/colors/mens-heathered-eco-logic-stretch-quarter-zip-93289-light-royal-heather.webp"
+  },
+  "22oz-stadium-cups-89079": {
+    "Black": "/images/merch/colors/22oz-stadium-cups-89079-black.webp",
+    "Clear": "/images/merch/colors/22oz-stadium-cups-89079-clear.webp",
+    "Granite": "/images/merch/colors/22oz-stadium-cups-89079-granite.webp",
+    "Navy Blue": "/images/merch/colors/22oz-stadium-cups-89079-navy-blue.webp",
+    "Kelly Green": "/images/merch/colors/22oz-stadium-cups-89079-kelly-green.webp",
+    "Orange": "/images/merch/colors/22oz-stadium-cups-89079-orange.webp",
+    "Purple": "/images/merch/colors/22oz-stadium-cups-89079-purple.webp",
+    "Red": "/images/merch/colors/22oz-stadium-cups-89079-red.webp",
+    "Reflex Blue": "/images/merch/colors/22oz-stadium-cups-89079-reflex-blue.webp",
+    "Soft Pink": "/images/merch/colors/22oz-stadium-cups-89079-soft-pink.webp",
+    "Teal": "/images/merch/colors/22oz-stadium-cups-89079-teal.webp",
+    "White": "/images/merch/colors/22oz-stadium-cups-89079-white.webp",
+    "Yellow": "/images/merch/colors/22oz-stadium-cups-89079-yellow.webp"
+  },
+  "kan-tastic-33219": {
+    "Black": "/images/merch/colors/kan-tastic-33219-black.webp",
+    "Burgundy": "/images/merch/colors/kan-tastic-33219-burgundy.webp",
+    "Camouflage": "/images/merch/colors/kan-tastic-33219-camouflage.webp",
+    "White": "/images/merch/colors/kan-tastic-33219-white.webp",
+    "Yellow": "/images/merch/colors/kan-tastic-33219-yellow.webp"
+  },
+  "12-oz-slim-fit-kan-tastic-82875": {
+    "Black": "/images/merch/colors/12-oz-slim-fit-kan-tastic-82875-black.webp",
+    "Gray": "/images/merch/colors/12-oz-slim-fit-kan-tastic-82875-gray.webp",
+    "Green": "/images/merch/colors/12-oz-slim-fit-kan-tastic-82875-green.webp",
+    "Navy Blue": "/images/merch/colors/12-oz-slim-fit-kan-tastic-82875-navy-blue.webp",
+    "Orange": "/images/merch/colors/12-oz-slim-fit-kan-tastic-82875-orange.webp",
+    "Red": "/images/merch/colors/12-oz-slim-fit-kan-tastic-82875-red.webp",
+    "Royal Blue": "/images/merch/colors/12-oz-slim-fit-kan-tastic-82875-royal-blue.webp"
+  },
+  "victorinox-classic-10178": {
+    "Red": "/images/merch/colors/victorinox-classic-10178-red.webp"
+  },
+  "custom-jbl-clip-5-portable-waterproof-bluetooth-speaker-82937": {
+    "Medium Black - Black C": "/images/merch/colors/custom-jbl-clip-5-portable-waterproof-bluetooth-speaker-82937-medium-black-black-c.webp",
+    "Dark Blue": "/images/merch/colors/custom-jbl-clip-5-portable-waterproof-bluetooth-speaker-82937-dark-blue.webp",
+    "Dark White - White C": "/images/merch/colors/custom-jbl-clip-5-portable-waterproof-bluetooth-speaker-82937-dark-white-white-c.webp",
+    "Iridescent Red": "/images/merch/colors/custom-jbl-clip-5-portable-waterproof-bluetooth-speaker-82937-iridescent-red.webp"
+  },
+  "jbl-flip-7-portable-waterproof-and-drop-proof-speaker-46910": {
+    "Medium Black - Black C": "/images/merch/colors/jbl-flip-7-portable-waterproof-and-drop-proof-speaker-46910-medium-black-black-c.webp",
+    "Dark White - White C": "/images/merch/colors/jbl-flip-7-portable-waterproof-and-drop-proof-speaker-46910-dark-white-white-c.webp"
+  },
+  "custom-jbl-vibe-beam-2-true-wireless-noise-canceling-earbuds-03749": {
+    "Medium Black - Black C": "/images/merch/colors/custom-jbl-vibe-beam-2-true-wireless-noise-canceling-earbuds-03749-medium-black-black-c.webp",
+    "Dark White - White C": "/images/merch/colors/custom-jbl-vibe-beam-2-true-wireless-noise-canceling-earbuds-03749-dark-white-white-c.webp"
+  },
+  "perry-ellis-big-and-tall-heathered-woven-mens-dress-shirt-89050": {
+    "Caviar": "/images/merch/colors/perry-ellis-big-and-tall-heathered-woven-mens-dress-shirt-89050-caviar.webp",
+    "Classy Navy": "/images/merch/colors/perry-ellis-big-and-tall-heathered-woven-mens-dress-shirt-89050-classy-navy.webp",
+    "Blue": "/images/merch/colors/perry-ellis-big-and-tall-heathered-woven-mens-dress-shirt-89050-blue.webp",
+    "Quiet Shade": "/images/merch/colors/perry-ellis-big-and-tall-heathered-woven-mens-dress-shirt-89050-quiet-shade.webp",
+    "White": "/images/merch/colors/perry-ellis-big-and-tall-heathered-woven-mens-dress-shirt-89050-white.webp"
+  },
+  "igloo-day-chiller-recycled-poly-lunch-bag-cooler-04354": {
+    "Brilliant Blue": "/images/merch/colors/igloo-day-chiller-recycled-poly-lunch-bag-cooler-04354-brilliant-blue.webp",
+    "Black": "/images/merch/colors/igloo-day-chiller-recycled-poly-lunch-bag-cooler-04354-black.webp",
+    "Cloud White": "/images/merch/colors/igloo-day-chiller-recycled-poly-lunch-bag-cooler-04354-cloud-white.webp"
+  },
+  "minkie-sherpa-recycled-polyester-baby-blanket-58387": {
+    "Elephant": "/images/merch/colors/minkie-sherpa-recycled-polyester-baby-blanket-58387-elephant.webp",
+    "Petal Pink": "/images/merch/colors/minkie-sherpa-recycled-polyester-baby-blanket-58387-petal-pink.webp",
+    "Hush Blue": "/images/merch/colors/minkie-sherpa-recycled-polyester-baby-blanket-58387-hush-blue.webp"
+  },
+  "titus-executive-companion-a5-notebook-with-pen-and-elastic-84893": {
+    "Black": "/images/merch/colors/titus-executive-companion-a5-notebook-with-pen-and-elastic-84893-black.webp",
+    "Blue": "/images/merch/colors/titus-executive-companion-a5-notebook-with-pen-and-elastic-84893-blue.webp",
+    "Brown": "/images/merch/colors/titus-executive-companion-a5-notebook-with-pen-and-elastic-84893-brown.webp"
+  },
+  "titus-melange-pu-leather-a5-executive-notebook-with-elastic-84906": {
+    "Blue": "/images/merch/colors/titus-melange-pu-leather-a5-executive-notebook-with-elastic-84906-blue.webp",
+    "Dark Brown": "/images/merch/colors/titus-melange-pu-leather-a5-executive-notebook-with-elastic-84906-dark-brown.webp",
+    "Gray": "/images/merch/colors/titus-melange-pu-leather-a5-executive-notebook-with-elastic-84906-gray.webp"
+  },
+  "monthly-desk-planner-leatherette-21450": {
+    "Black": "/images/merch/colors/monthly-desk-planner-leatherette-21450-black.webp",
+    "Navy Blue": "/images/merch/colors/monthly-desk-planner-leatherette-21450-navy-blue.webp",
+    "Burgundy": "/images/merch/colors/monthly-desk-planner-leatherette-21450-burgundy.webp",
+    "Green": "/images/merch/colors/monthly-desk-planner-leatherette-21450-green.webp",
+    "Carbon Fiber": "/images/merch/colors/monthly-desk-planner-leatherette-21450-carbon-fiber.webp",
+    "Metallic Weave Red": "/images/merch/colors/monthly-desk-planner-leatherette-21450-metallic-weave-red.webp",
+    "Metallic Weave Royal Blue": "/images/merch/colors/monthly-desk-planner-leatherette-21450-metallic-weave-royal-blue.webp"
+  },
+  "perfect-journal-flexible-trekker-covers-63112": {
+    "Natural": "/images/merch/colors/perfect-journal-flexible-trekker-covers-63112-natural.webp",
+    "Black": "/images/merch/colors/perfect-journal-flexible-trekker-covers-63112-black.webp",
+    "Hot Pink": "/images/merch/colors/perfect-journal-flexible-trekker-covers-63112-hot-pink.webp",
+    "Navy": "/images/merch/colors/perfect-journal-flexible-trekker-covers-63112-navy.webp"
+  },
+  "luxsling-soft-pu-premium-shoulder-backpack-54567": {
+    "Black": "/images/merch/colors/luxsling-soft-pu-premium-shoulder-backpack-54567-black.webp",
+    "Navy Blue": "/images/merch/colors/luxsling-soft-pu-premium-shoulder-backpack-54567-navy-blue.webp"
+  },
+  "odyssey-pack-recycled-cotton-canvas-backpack-88469": {
+    "Dark Green-Black": "/images/merch/colors/odyssey-pack-recycled-cotton-canvas-backpack-88469-dark-green-black.webp",
+    "Dune Warm Gray-Black": "/images/merch/colors/odyssey-pack-recycled-cotton-canvas-backpack-88469-dune-warm-gray-black.webp",
+    "Navy Blue-Black": "/images/merch/colors/odyssey-pack-recycled-cotton-canvas-backpack-88469-navy-blue-black.webp"
+  },
+  "anywhere-rpet-drawstring-bag-01035": {
+    "Black": "/images/merch/colors/anywhere-rpet-drawstring-bag-01035-black.webp",
+    "Gray": "/images/merch/colors/anywhere-rpet-drawstring-bag-01035-gray.webp",
+    "Navy Blue": "/images/merch/colors/anywhere-rpet-drawstring-bag-01035-navy-blue.webp",
+    "Tan": "/images/merch/colors/anywhere-rpet-drawstring-bag-01035-tan.webp"
+  },
+  "swell-wine-tumbler-14oz-15749": {
+    "Angel Food": "/images/merch/colors/swell-wine-tumbler-14oz-15749-angel-food.webp",
+    "Onyx": "/images/merch/colors/swell-wine-tumbler-14oz-15749-onyx.webp",
+    "Teakwood": "/images/merch/colors/swell-wine-tumbler-14oz-15749-teakwood.webp"
+  },
+  "16-oz-coffee-tumbler-with-handle-93567": {
+    "Black": "/images/merch/colors/16-oz-coffee-tumbler-with-handle-93567-black.webp"
+  },
+  "grosche-international-inc-40-oz-aspen-vacuum-insulated-s-02688": {
+    "Cream White": "/images/merch/colors/grosche-international-inc-40-oz-aspen-vacuum-insulated-s-02688-cream-white.webp",
+    "Graphite Black": "/images/merch/colors/grosche-international-inc-40-oz-aspen-vacuum-insulated-s-02688-graphite-black.webp",
+    "Mountain Blue": "/images/merch/colors/grosche-international-inc-40-oz-aspen-vacuum-insulated-s-02688-mountain-blue.webp",
+    "Sand Beige": "/images/merch/colors/grosche-international-inc-40-oz-aspen-vacuum-insulated-s-02688-sand-beige.webp",
+    "Steel Grey": "/images/merch/colors/grosche-international-inc-40-oz-aspen-vacuum-insulated-s-02688-steel-grey.webp"
+  },
+  "journal-notebook-with-sticky-notes-and-flags-41946": {
+    "Black": "/images/merch/colors/journal-notebook-with-sticky-notes-and-flags-41946-black.webp",
+    "Light Blue": "/images/merch/colors/journal-notebook-with-sticky-notes-and-flags-41946-light-blue.webp",
+    "White": "/images/merch/colors/journal-notebook-with-sticky-notes-and-flags-41946-white.webp"
+  },
+  "60-arc-jumbo-golf-umbrella-48490": {
+    "Black": "/images/merch/colors/60-arc-jumbo-golf-umbrella-48490-black.webp",
+    "Blue-Reflex": "/images/merch/colors/60-arc-jumbo-golf-umbrella-48490-blue-reflex.webp",
+    "Black-White": "/images/merch/colors/60-arc-jumbo-golf-umbrella-48490-black-white.webp",
+    "Blue-Reflex-White": "/images/merch/colors/60-arc-jumbo-golf-umbrella-48490-blue-reflex-white.webp"
+  },
+  "stowaway-sticky-jotter-with-pen-30850": {
+    "Blue": "/images/merch/colors/stowaway-sticky-jotter-with-pen-30850-blue.webp",
+    "Natural": "/images/merch/colors/stowaway-sticky-jotter-with-pen-30850-natural.webp",
+    "White": "/images/merch/colors/stowaway-sticky-jotter-with-pen-30850-white.webp"
+  },
+  "atherton-compact-sticky-notes-and-flags-notepad-notebook-93065": {
+    "White": "/images/merch/colors/atherton-compact-sticky-notes-and-flags-notepad-notebook-93065-white.webp",
+    "Blue": "/images/merch/colors/atherton-compact-sticky-notes-and-flags-notepad-notebook-93065-blue.webp",
+    "Black": "/images/merch/colors/atherton-compact-sticky-notes-and-flags-notepad-notebook-93065-black.webp"
+  },
+  "sticky-book-59282": {
+    "Yellow": "/images/merch/colors/sticky-book-59282-yellow.webp",
+    "Blue": "/images/merch/colors/sticky-book-59282-blue.webp",
+    "Blue-Navy": "/images/merch/colors/sticky-book-59282-blue-navy.webp",
+    "Silver": "/images/merch/colors/sticky-book-59282-silver.webp",
+    "White": "/images/merch/colors/sticky-book-59282-white.webp"
+  },
+  "push-pop-square-stress-reliever-keychain-20357": {
+    "Black": "/images/merch/colors/push-pop-square-stress-reliever-keychain-20357-black.webp",
+    "Lime": "/images/merch/colors/push-pop-square-stress-reliever-keychain-20357-lime.webp",
+    "Navy Blue": "/images/merch/colors/push-pop-square-stress-reliever-keychain-20357-navy-blue.webp",
+    "Red": "/images/merch/colors/push-pop-square-stress-reliever-keychain-20357-red.webp",
+    "Royal Blue": "/images/merch/colors/push-pop-square-stress-reliever-keychain-20357-royal-blue.webp",
+    "White": "/images/merch/colors/push-pop-square-stress-reliever-keychain-20357-white.webp"
+  },
+  "push-pop-stress-reliever-keychain-56072": {
+    "Black": "/images/merch/colors/push-pop-stress-reliever-keychain-56072-black.webp",
+    "Lime": "/images/merch/colors/push-pop-stress-reliever-keychain-56072-lime.webp",
+    "Orange": "/images/merch/colors/push-pop-stress-reliever-keychain-56072-orange.webp",
+    "Red": "/images/merch/colors/push-pop-stress-reliever-keychain-56072-red.webp",
+    "Royal Blue": "/images/merch/colors/push-pop-stress-reliever-keychain-56072-royal-blue.webp",
+    "Yellow": "/images/merch/colors/push-pop-stress-reliever-keychain-56072-yellow.webp"
+  },
+  "luxury-beach-towel-04581": {
+    "Gold": "/images/merch/colors/luxury-beach-towel-04581-gold.webp",
+    "Grey": "/images/merch/colors/luxury-beach-towel-04581-grey.webp",
+    "Lime Green": "/images/merch/colors/luxury-beach-towel-04581-lime-green.webp",
+    "Red": "/images/merch/colors/luxury-beach-towel-04581-red.webp"
+  },
+  "12-w-x-12-h-heavy-duty-golf-towel-with-clip-the-wedge-74565": {
+    "Red": "/images/merch/colors/12-w-x-12-h-heavy-duty-golf-towel-with-clip-the-wedge-74565-red.webp",
+    "Royal Blue": "/images/merch/colors/12-w-x-12-h-heavy-duty-golf-towel-with-clip-the-wedge-74565-royal-blue.webp",
+    "Black": "/images/merch/colors/12-w-x-12-h-heavy-duty-golf-towel-with-clip-the-wedge-74565-black.webp"
+  },
+  "two-compartment-lunch-pail-bag-69885": {
+    "Gray/Lime": "/images/merch/colors/two-compartment-lunch-pail-bag-69885-gray-lime.webp",
+    "Gray/Orange": "/images/merch/colors/two-compartment-lunch-pail-bag-69885-gray-orange.webp",
+    "Gray/Red": "/images/merch/colors/two-compartment-lunch-pail-bag-69885-gray-red.webp",
+    "Gray/Royal Blue": "/images/merch/colors/two-compartment-lunch-pail-bag-69885-gray-royal-blue.webp"
+  },
+  "3-in-1-charging-cable-with-phone-stand-2-0-10044": {
+    "Black": "/images/merch/colors/3-in-1-charging-cable-with-phone-stand-2-0-10044-black.webp",
+    "Orange": "/images/merch/colors/3-in-1-charging-cable-with-phone-stand-2-0-10044-orange.webp",
+    "White": "/images/merch/colors/3-in-1-charging-cable-with-phone-stand-2-0-10044-white.webp",
+    "Blue": "/images/merch/colors/3-in-1-charging-cable-with-phone-stand-2-0-10044-blue.webp",
+    "Lime": "/images/merch/colors/3-in-1-charging-cable-with-phone-stand-2-0-10044-lime.webp",
+    "Red": "/images/merch/colors/3-in-1-charging-cable-with-phone-stand-2-0-10044-red.webp"
+  },
+  "4-in-1-charging-cable-and-screen-cleaner-set-32930": {
+    "Black": "/images/merch/colors/4-in-1-charging-cable-and-screen-cleaner-set-32930-black.webp",
+    "Blue": "/images/merch/colors/4-in-1-charging-cable-and-screen-cleaner-set-32930-blue.webp",
+    "Lime": "/images/merch/colors/4-in-1-charging-cable-and-screen-cleaner-set-32930-lime.webp",
+    "Orange": "/images/merch/colors/4-in-1-charging-cable-and-screen-cleaner-set-32930-orange.webp",
+    "Red": "/images/merch/colors/4-in-1-charging-cable-and-screen-cleaner-set-32930-red.webp",
+    "White": "/images/merch/colors/4-in-1-charging-cable-and-screen-cleaner-set-32930-white.webp"
+  },
+  "the-incredible-expanding-flying-disc-toy-05430": {
+    "Green-White": "/images/merch/colors/the-incredible-expanding-flying-disc-toy-05430-green-white.webp",
+    "Orange-White": "/images/merch/colors/the-incredible-expanding-flying-disc-toy-05430-orange-white.webp",
+    "Red-White": "/images/merch/colors/the-incredible-expanding-flying-disc-toy-05430-red-white.webp",
+    "Yellow-White": "/images/merch/colors/the-incredible-expanding-flying-disc-toy-05430-yellow-white.webp",
+    "Multi color": "/images/merch/colors/the-incredible-expanding-flying-disc-toy-05430-multi-color.webp"
+  },
+  "hand-clapper-noise-maker-48157": {
+    "Blue": "/images/merch/colors/hand-clapper-noise-maker-48157-blue.webp",
+    "White": "/images/merch/colors/hand-clapper-noise-maker-48157-white.webp",
+    "Red": "/images/merch/colors/hand-clapper-noise-maker-48157-red.webp",
+    "Purple": "/images/merch/colors/hand-clapper-noise-maker-48157-purple.webp",
+    "Orange": "/images/merch/colors/hand-clapper-noise-maker-48157-orange.webp"
+  },
+  "round-spring-thing-toy-48302": {
+    "Blue": "/images/merch/colors/round-spring-thing-toy-48302-blue.webp",
+    "White": "/images/merch/colors/round-spring-thing-toy-48302-white.webp",
+    "Rainbow": "/images/merch/colors/round-spring-thing-toy-48302-rainbow.webp"
+  },
+  "8-in-1-aluminum-multi-tool-kit-15547": {
+    "Black": "/images/merch/colors/8-in-1-aluminum-multi-tool-kit-15547-black.webp",
+    "Blue": "/images/merch/colors/8-in-1-aluminum-multi-tool-kit-15547-blue.webp",
+    "Red": "/images/merch/colors/8-in-1-aluminum-multi-tool-kit-15547-red.webp"
+  },
+  "15-oz-full-color-el-grande-mug-81752": {
+    "Black": "/images/merch/colors/15-oz-full-color-el-grande-mug-81752-black.webp",
+    "Cobalt Blue": "/images/merch/colors/15-oz-full-color-el-grande-mug-81752-cobalt-blue.webp",
+    "White": "/images/merch/colors/15-oz-full-color-el-grande-mug-81752-white.webp"
+  },
+  "special-usb-dual-port-car-portable-charger-27702": {
+    "Black": "/images/merch/colors/special-usb-dual-port-car-portable-charger-27702-black.webp",
+    "Red": "/images/merch/colors/special-usb-dual-port-car-portable-charger-27702-red.webp",
+    "Silver": "/images/merch/colors/special-usb-dual-port-car-portable-charger-27702-silver.webp",
+    "White": "/images/merch/colors/special-usb-dual-port-car-portable-charger-27702-white.webp",
+    "Dark Blue": "/images/merch/colors/special-usb-dual-port-car-portable-charger-27702-dark-blue.webp",
+    "Light Blue": "/images/merch/colors/special-usb-dual-port-car-portable-charger-27702-light-blue.webp"
+  },
+  "throne-cell-phone-and-tablet-stand-89173": {
+    "Black": "/images/merch/colors/throne-cell-phone-and-tablet-stand-89173-black.webp",
+    "Blue": "/images/merch/colors/throne-cell-phone-and-tablet-stand-89173-blue.webp",
+    "White": "/images/merch/colors/throne-cell-phone-and-tablet-stand-89173-white.webp"
+  },
+  "cutting-edge-laptop-messenger-72558": {
+    "Black": "/images/merch/colors/cutting-edge-laptop-messenger-72558-black.webp",
+    "Gray": "/images/merch/colors/cutting-edge-laptop-messenger-72558-gray.webp",
+    "Blue-Reflex": "/images/merch/colors/cutting-edge-laptop-messenger-72558-blue-reflex.webp"
+  },
+  "northlake-quickship-swivel-usb-flash-drive-61409": {
+    "Medium Black - Black C": "/images/merch/colors/northlake-quickship-swivel-usb-flash-drive-61409-medium-black-black-c.webp",
+    "Camouflage Blue - Reflex Blue C": "/images/merch/colors/northlake-quickship-swivel-usb-flash-drive-61409-camouflage-blue-reflex-blue-c.webp",
+    "Dark White - White C": "/images/merch/colors/northlake-quickship-swivel-usb-flash-drive-61409-dark-white-white-c.webp",
+    "Iridescent Red": "/images/merch/colors/northlake-quickship-swivel-usb-flash-drive-61409-iridescent-red.webp"
+  },
+  "color-blocked-pack-n-go-pullover-10769": {
+    "Navy/Forest": "/images/merch/colors/color-blocked-pack-n-go-pullover-10769-navy-forest.webp",
+    "Grey/White": "/images/merch/colors/color-blocked-pack-n-go-pullover-10769-grey-white.webp",
+    "Navy/White": "/images/merch/colors/color-blocked-pack-n-go-pullover-10769-navy-white.webp"
+  },
+  "multi-retractable-3-in-1-usb-charging-cable-15594": {
+    "Black": "/images/merch/colors/multi-retractable-3-in-1-usb-charging-cable-15594-black.webp",
+    "Blue": "/images/merch/colors/multi-retractable-3-in-1-usb-charging-cable-15594-blue.webp",
+    "Red": "/images/merch/colors/multi-retractable-3-in-1-usb-charging-cable-15594-red.webp"
+  },
+  "truckee-water-resistant-cell-phone-accessories-case-57364": {
+    "Clear-Red": "/images/merch/colors/truckee-water-resistant-cell-phone-accessories-case-57364-clear-red.webp",
+    "Clear-Blue": "/images/merch/colors/truckee-water-resistant-cell-phone-accessories-case-57364-clear-blue.webp",
+    "Clear-Black": "/images/merch/colors/truckee-water-resistant-cell-phone-accessories-case-57364-clear-black.webp",
+    "Clear-Lime Green": "/images/merch/colors/truckee-water-resistant-cell-phone-accessories-case-57364-clear-lime-green.webp"
+  },
+  "magnetic-clip-bluetooth-speaker-fm-radio-clock-night-light-47231": {
+    "Beige": "/images/merch/colors/magnetic-clip-bluetooth-speaker-fm-radio-clock-night-light-47231-beige.webp",
+    "Dark Gray": "/images/merch/colors/magnetic-clip-bluetooth-speaker-fm-radio-clock-night-light-47231-dark-gray.webp",
+    "Green": "/images/merch/colors/magnetic-clip-bluetooth-speaker-fm-radio-clock-night-light-47231-green.webp",
+    "Pink": "/images/merch/colors/magnetic-clip-bluetooth-speaker-fm-radio-clock-night-light-47231-pink.webp",
+    "Red": "/images/merch/colors/magnetic-clip-bluetooth-speaker-fm-radio-clock-night-light-47231-red.webp"
+  },
+  "mini-bluetooth-5-3-speaker-lightweight-portable-lanyard-50310": {
+    "Green": "/images/merch/colors/mini-bluetooth-5-3-speaker-lightweight-portable-lanyard-50310-green.webp"
+  },
+  "alamo-metal-pen-97790": {
+    "Black": "/images/merch/colors/alamo-metal-pen-97790-black.webp",
+    "White": "/images/merch/colors/alamo-metal-pen-97790-white.webp",
+    "Blue": "/images/merch/colors/alamo-metal-pen-97790-blue.webp"
+  },
+  "bamboo-cheese-board-charcuterie-set-05344": {
+    "Black": "/images/merch/colors/bamboo-cheese-board-charcuterie-set-05344-black.webp",
+    "Blue": "/images/merch/colors/bamboo-cheese-board-charcuterie-set-05344-blue.webp",
+    "Lime": "/images/merch/colors/bamboo-cheese-board-charcuterie-set-05344-lime.webp",
+    "Red": "/images/merch/colors/bamboo-cheese-board-charcuterie-set-05344-red.webp",
+    "White": "/images/merch/colors/bamboo-cheese-board-charcuterie-set-05344-white.webp"
+  }
+}
