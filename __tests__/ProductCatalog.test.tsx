@@ -134,7 +134,7 @@ describe("ProductCatalog search, sort and empty state", () => {
     expect(screen.getByRole("status")).toHaveTextContent("Showing 1 product");
   });
 
-  it("shows an empty state with Clear filters, and clearing restores everything", () => {
+  it("shows an empty state with Clear all, and clearing restores everything", () => {
     renderCatalog();
     type("zzzz-no-such-thing");
     act(() => {
@@ -146,13 +146,13 @@ describe("ProductCatalog search, sort and empty state", () => {
       "#request"
     );
 
-    const clear = screen.getAllByRole("button", { name: "Clear filters" })[0];
+    const clear = screen.getAllByRole("button", { name: "Clear all" })[0];
     fireEvent.click(clear);
     act(() => {
       vi.advanceTimersByTime(250);
     });
     expect(screen.getByRole("status")).toHaveTextContent("Showing 35 products");
-    expect(screen.queryByRole("button", { name: "Clear filters" })).toBeNull();
+    expect(screen.queryByRole("button", { name: "Clear all" })).toBeNull();
   });
 
   it("sorts by price within each category", () => {

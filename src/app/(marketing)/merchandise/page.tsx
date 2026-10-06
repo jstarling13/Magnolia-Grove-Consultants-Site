@@ -68,6 +68,7 @@ export default function MerchandisePage() {
               categories={catalog.categories}
               categoryTotals={catalog.categoryTotals}
               brands={catalog.brands}
+              priceBuckets={catalog.priceBuckets}
             />
           </div>
         </section>

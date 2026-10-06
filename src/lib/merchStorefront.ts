@@ -25,6 +25,7 @@ import {
   type CartProduct,
   type CatalogProduct,
 } from "@/lib/merchCatalog";
+import { priceBucketsFor, type PriceBucket } from "@/lib/merchFilters";
 import { selectRelated } from "@/lib/merchRelated";
 import { findCategoryBySlug } from "@/lib/merchSlug";
 
@@ -43,6 +44,8 @@ export interface StorefrontInitialCatalog {
   categoryTotals: Record<string, number>;
   /** Every real brand in the full catalog, for the brand filter. */
   brands: string[];
+  /** Price filter choices cut from the full catalog's first-tier prices. */
+  priceBuckets: PriceBucket[];
 }
 
 export function getStorefrontCatalog(): StorefrontCatalog {
@@ -77,6 +80,7 @@ export function getStorefrontInitialCatalog(
     products: firstPerCategory(full.products, perCategory),
     categoryTotals: countByCategory(full.products),
     brands: realBrands(full.products),
+    priceBuckets: priceBucketsFor(full.products),
   };
 }
 

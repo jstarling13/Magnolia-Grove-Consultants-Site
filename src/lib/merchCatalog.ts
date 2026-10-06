@@ -31,6 +31,11 @@ export interface CatalogProduct {
   colors?: string[];
   /** Real photo per color, keyed by an entry in `colors`. */
   colorImages?: Record<string, string>;
+  /**
+   * Explicit made-in-USA flag, when the catalog data carries one (see
+   * isMadeInUsa for what is used when it does not).
+   */
+  usa?: boolean;
   /** Sorted ascending by quantity; never empty. */
   tiers: CatalogTier[];
   imprintArea: ImprintArea;
@@ -48,6 +53,7 @@ interface SourceProduct {
   imageAlt?: string;
   colors?: string[];
   colorImages?: Record<string, string>;
+  usa?: boolean;
   priceTiers: { quantity: number; price: number }[];
 }
 
@@ -107,6 +113,7 @@ export function toCatalogProduct(
       ? truncate(product.description, CARD_DESCRIPTION_MAX)
       : product.description,
     ...(product.priceNote ? { priceNote: product.priceNote } : {}),
+    ...(typeof product.usa === "boolean" ? { usa: product.usa } : {}),
     image: product.image,
     imageAlt: product.imageAlt,
     colors: colors.length > 0 ? colors : undefined,
@@ -248,12 +255,19 @@ export function suggestsQuote(product: Pick<CatalogProduct, "tiers" | "priceNote
 // Sorting / filtering
 // ---------------------------------------------------------------------------
 
-export type SortKey = "featured" | "price-asc" | "price-desc" | "name";
+export type SortKey = "featured" | "price-asc" | "price-desc" | "moq-asc" | "colors-desc" | "name";
 
+/**
+ * "featured" is the default and the URL's absence of ?sort=. It means
+ * relevance: the search ranking when there is a query, otherwise the order the
+ * server supplied (name brands first, then price high to low).
+ */
 export const SORT_OPTIONS: { value: SortKey; label: string }[] = [
-  { value: "featured", label: "Featured" },
+  { value: "featured", label: "Relevance" },
   { value: "price-asc", label: "Price: Low to High" },
   { value: "price-desc", label: "Price: High to Low" },
+  { value: "moq-asc", label: "Lowest Minimum Order" },
+  { value: "colors-desc", label: "Most Colors" },
   { value: "name", label: "Name: A to Z" },
 ];
 
@@ -262,9 +276,10 @@ export function isSortKey(value: string | null | undefined): value is SortKey {
 }
 
 /**
- * Sorts a copy of `list`. "featured" keeps the order the server supplied
- * (name brands first, then price high to low); the others are stable, with
- * featured order as the tie-break.
+ * Sorts a copy of `list`. "featured" keeps the order of `list` (search
+ * relevance, or the server's featured order); the others are stable, with
+ * that order as the tie-break. Price is the first tier's customer price and
+ * minimum order is the first tier's quantity.
  */
 export function sortProducts(list: CatalogProduct[], sort: SortKey): CatalogProduct[] {
   if (sort === "featured") return list;
@@ -278,6 +293,12 @@ export function sortProducts(list: CatalogProduct[], sort: SortKey): CatalogProd
     case "price-desc":
       sorted.sort((a, b) => startingTier(b).price - startingTier(a).price || byRank(a, b));
       break;
+    case "moq-asc":
+      sorted.sort((a, b) => startingTier(a).quantity - startingTier(b).quantity || byRank(a, b));
+      break;
+    case "colors-desc":
+      sorted.sort((a, b) => (b.colors?.length ?? 0) - (a.colors?.length ?? 0) || byRank(a, b));
+      break;
     case "name":
       sorted.sort(
         (a, b) =>
@@ -287,6 +308,96 @@ export function sortProducts(list: CatalogProduct[], sort: SortKey): CatalogProd
       break;
   }
   return sorted;
+}
+
+// ---------------------------------------------------------------------------
+// Product filters
+// ---------------------------------------------------------------------------
+
+/** Customer-price range on the first tier: `min` inclusive, `max` exclusive, null = open. */
+export interface PriceRange {
+  min: number | null;
+  max: number | null;
+}
+
+export interface ProductFilters {
+  /** Only products that state they are made in the USA. */
+  usa: boolean;
+  /** Only products with at least one real color photo. */
+  photos: boolean;
+  /** Only products with MANY_COLORS or more colors. */
+  manyColors: boolean;
+  /** Only products whose smallest order is at most this many units. */
+  minQty: number | null;
+  price: PriceRange | null;
+}
+
+export const MANY_COLORS = 10;
+/** Choices for the minimum-quantity filter ("any" is the absence of a choice). */
+export const MIN_QTY_CHOICES = [25, 100, 250] as const;
+
+export const NO_FILTERS: ProductFilters = {
+  usa: false,
+  photos: false,
+  manyColors: false,
+  minQty: null,
+  price: null,
+};
+
+export function hasProductFilters(filters: ProductFilters): boolean {
+  return (
+    filters.usa ||
+    filters.photos ||
+    filters.manyColors ||
+    filters.minQty !== null ||
+    filters.price !== null
+  );
+}
+
+const USA_STATEMENT =
+  /made[\s-]+in[\s-]+(?:the[\s-]+)?(?:usa|u\.s\.a?\.?|united states)|usa[\s-]+made/i;
+const usaCache = new WeakMap<CatalogProduct, boolean>();
+
+/**
+ * True when the product says it is made in the USA. The catalog stores no
+ * separate flag (the importer turns the supplier's flag into a "Made in the
+ * USA." sentence at the start of the description), so an explicit `usa`
+ * field wins when present and otherwise the name and description must
+ * state it outright ("Made in USA", "USA made"). "Printed in USA" and
+ * "USA Decorated" are not made-in claims. A product that says nothing is
+ * unknown, not foreign, and is simply left out of the filter.
+ */
+export function isMadeInUsa(product: CatalogProduct): boolean {
+  if (typeof product.usa === "boolean") return product.usa;
+  let known = usaCache.get(product);
+  if (known === undefined) {
+    known = USA_STATEMENT.test(`${product.name} ${product.description}`);
+    usaCache.set(product, known);
+  }
+  return known;
+}
+
+export function hasColorPhotos(product: Pick<CatalogProduct, "colorImages">): boolean {
+  return Object.keys(product.colorImages ?? {}).length > 0;
+}
+
+export function matchesFilters(product: CatalogProduct, filters: ProductFilters): boolean {
+  if (filters.usa && !isMadeInUsa(product)) return false;
+  if (filters.photos && !hasColorPhotos(product)) return false;
+  if (filters.manyColors && (product.colors?.length ?? 0) < MANY_COLORS) return false;
+  const first = startingTier(product);
+  if (filters.minQty !== null && first.quantity > filters.minQty) return false;
+  if (filters.price) {
+    const { min, max } = filters.price;
+    if (min !== null && first.price < min) return false;
+    if (max !== null && first.price >= max) return false;
+  }
+  return true;
+}
+
+/** Products that pass every filter, keeping their order; `list` itself when none is set. */
+export function filterProducts(list: CatalogProduct[], filters: ProductFilters): CatalogProduct[] {
+  return hasProductFilters(filters) ? list.filter((p) => matchesFilters(p, filters)) : list;
 }
 
 // ---------------------------------------------------------------------------
@@ -621,18 +732,25 @@ export interface CatalogView {
   brand: string;
   query: string;
   sort: SortKey;
+  /** Absent means no product filters. */
+  filters?: ProductFilters;
 }
 
 /**
  * Which categories must be fully loaded before this view can be computed
  * correctly. The server only ships the first cards of each category; with no
  * narrowing the shown cards are exactly those, so nothing more is needed.
- * Searching, brand filtering and sorting reorder or drop cards across the
- * whole catalog, so they need every category; focusing a single category
- * (which starts deeper) needs just that one.
+ * Searching, brand and product filtering and sorting reorder or drop cards
+ * across the whole catalog, so they need every category; focusing a single
+ * category (which starts deeper) needs just that one.
  */
 export function categoriesNeeded(view: CatalogView, categories: readonly string[]): string[] {
-  if (view.brand !== FILTER_ALL || view.query !== "" || view.sort !== "featured") {
+  if (
+    view.brand !== FILTER_ALL ||
+    view.query !== "" ||
+    view.sort !== "featured" ||
+    (view.filters !== undefined && hasProductFilters(view.filters))
+  ) {
     return [...categories];
   }
   return view.category !== FILTER_ALL ? [view.category] : [];

@@ -61,7 +61,7 @@ describe("CategoryProductGrid", () => {
       vi.advanceTimersByTime(250);
     });
     expect(screen.getAllByRole("article")).toHaveLength(1);
-    fireEvent.click(screen.getAllByRole("button", { name: "Clear filters" })[0]);
+    fireEvent.click(screen.getAllByRole("button", { name: "Clear all" })[0]);
     expect(screen.getAllByRole("article")).toHaveLength(24);
   });
 
