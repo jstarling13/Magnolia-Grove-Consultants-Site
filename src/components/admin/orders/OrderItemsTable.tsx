@@ -78,7 +78,7 @@ export default function OrderItemsTable({
                       href={href}
                       target="_blank"
                       rel="noreferrer"
-                      className="font-medium text-gold-dark underline underline-offset-2 hover:text-onyx"
+                      className="font-medium text-gold-text underline underline-offset-2 hover:text-onyx"
                     >
                       Open in ESP+
                     </a>

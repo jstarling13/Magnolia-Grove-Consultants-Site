@@ -178,6 +178,125 @@ export function parseQuoteAmount(input: number): QuoteAmountResult {
   return { ok: true, cents: Math.round(input * 100) };
 }
 
+export const MAX_QUOTE_EXTRA_LABEL = 60;
+
+export interface QuoteExtra {
+  /** What the extra charge is for, e.g. "Shipping" or "Setup fee". */
+  label: string;
+  /** Dollars, rounded to whole cents. */
+  amount: number;
+}
+
+export type QuoteExtraResult =
+  { ok: true; extra: QuoteExtra | null } | { ok: false; error: string };
+
+/**
+ * Validates the optional shipping / setup line an admin adds to a quote. An
+ * empty or zero line means "no extra"; a charge needs a short plain-text label.
+ */
+export function parseQuoteExtra(
+  input: { label?: unknown; amount?: unknown } | null | undefined
+): QuoteExtraResult {
+  if (!input) return { ok: true, extra: null };
+  const amount = typeof input.amount === "number" ? input.amount : Number(input.amount ?? 0);
+  const label = String(input.label ?? "")
+    // eslint-disable-next-line no-control-regex
+    .replace(/[\u0000-\u001f\u007f]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (!Number.isFinite(amount) || amount < 0) {
+    return { ok: false, error: "The shipping or setup amount can't be negative." };
+  }
+  if (amount === 0) return { ok: true, extra: null };
+  if (amount > MAX_QUOTE_DOLLARS) {
+    return { ok: false, error: "The shipping or setup amount is too large." };
+  }
+  if (!label) return { ok: false, error: "Add a short label for the shipping or setup charge." };
+  if (label.length > MAX_QUOTE_EXTRA_LABEL) {
+    return {
+      ok: false,
+      error: `Keep the shipping or setup label under ${MAX_QUOTE_EXTRA_LABEL} characters.`,
+    };
+  }
+  return { ok: true, extra: { label, amount: Math.round(amount * 100) / 100 } };
+}
+
+// ---------------------------------------------------------------------------
+// Audit trail (stored as data.auditLog, newest last). Orders placed before this
+// existed simply have no log; every reader treats a missing or malformed log as empty.
+// ---------------------------------------------------------------------------
+
+export type AuditKind = "status" | "quote" | "payment" | "esp_order" | "shipped";
+
+export interface AuditEntry {
+  /** ISO timestamp. */
+  at: string;
+  /** Admin username, or "Square" when payment was detected automatically. */
+  by: string;
+  kind: AuditKind;
+  from?: MerchOrderStatus;
+  to?: MerchOrderStatus;
+  detail?: string;
+}
+
+const AUDIT_KINDS: readonly AuditKind[] = ["status", "quote", "payment", "esp_order", "shipped"];
+export const MAX_AUDIT_ENTRIES = 200;
+
+function asStatus(value: unknown): MerchOrderStatus | undefined {
+  return MERCH_ORDER_STATUSES.includes(value as MerchOrderStatus)
+    ? (value as MerchOrderStatus)
+    : undefined;
+}
+
+export function makeAuditEntry(entry: {
+  by: string;
+  kind: AuditKind;
+  from?: unknown;
+  to?: unknown;
+  detail?: string;
+  at?: string;
+}): AuditEntry {
+  const from = asStatus(entry.from);
+  const to = asStatus(entry.to);
+  return {
+    at: entry.at ?? new Date().toISOString(),
+    by: entry.by.trim().slice(0, 60) || "Unknown",
+    kind: entry.kind,
+    ...(from ? { from } : {}),
+    ...(to ? { to } : {}),
+    ...(entry.detail ? { detail: entry.detail.slice(0, 300) } : {}),
+  };
+}
+
+/** The stored audit entries, oldest first. Anything malformed is dropped. */
+export function readAuditLog(data: Record<string, unknown>): AuditEntry[] {
+  if (!Array.isArray(data.auditLog)) return [];
+  const entries: AuditEntry[] = [];
+  for (const raw of data.auditLog as unknown[]) {
+    if (!raw || typeof raw !== "object") continue;
+    const item = raw as Record<string, unknown>;
+    if (typeof item.at !== "string" || !Number.isFinite(Date.parse(item.at))) continue;
+    if (typeof item.by !== "string" || !item.by) continue;
+    if (!AUDIT_KINDS.includes(item.kind as AuditKind)) continue;
+    entries.push(
+      makeAuditEntry({
+        at: item.at,
+        by: item.by,
+        kind: item.kind as AuditKind,
+        from: item.from,
+        to: item.to,
+        ...(typeof item.detail === "string" ? { detail: item.detail } : {}),
+      })
+    );
+  }
+  return entries.sort((a, b) => Date.parse(a.at) - Date.parse(b.at)).slice(-MAX_AUDIT_ENTRIES);
+}
+
+/** JSON array text for the `auditLog` append in the UPDATE statements ("[]" when there is nothing to add). */
+export function auditEntriesJson(entries: (AuditEntry | undefined)[]): string {
+  return JSON.stringify(entries.filter((entry): entry is AuditEntry => Boolean(entry)));
+}
+
 /**
  * Customer-facing order reference, derived from the saved submission id so it
  * needs no extra column: id 42 becomes "MG-00042". Ids past five digits just

@@ -1,16 +1,22 @@
 import Link from "next/link";
 import {
+  buildAuditTrail,
   buildOrderSheetText,
   buildOrderTimeline,
+  buildQuoteSuggestion,
   computeAttentionFlags,
   contactOf,
   formatOrderDate,
   normalizeStatus,
+  readQuoteBreakdown,
   type OrderItem,
   type OrderRecord,
 } from "@/lib/adminOrders";
 import { MERCH_ORDER_STATUS_LABELS, formatOrderReference } from "@/lib/merchOrders";
+import { buildEspReorderText } from "@/lib/merchBackendSheet";
 import { AttentionFlags, OrderStatusBadge } from "./OrderBadges";
+import EspReorderBlock from "./EspReorderBlock";
+import OrderAuditTrail from "./OrderAuditTrail";
 import OrderItemsTable from "./OrderItemsTable";
 import OrderPrintSheet from "./OrderPrintSheet";
 import OrderSheetActions from "./OrderSheetActions";
@@ -47,6 +53,10 @@ export default function OrderDetail({
     data,
     items,
   });
+  const reorderText = buildEspReorderText(reference, items);
+  const audit = buildAuditTrail(order.createdAt, data);
+  const quoteSuggestion = buildQuoteSuggestion(items);
+  const breakdown = readQuoteBreakdown(data);
   const notes = typeof data.notes === "string" ? data.notes.trim() : "";
   const estimate = money(data.total);
   const quoted = money(data.quotedTotal);
@@ -58,7 +68,7 @@ export default function OrderDetail({
   return (
     <>
       <div className="mx-auto max-w-5xl px-6 py-10 sm:px-8 print:hidden" data-screen-view>
-        <Link href={backHref} className="text-xs font-medium text-gold-dark underline">
+        <Link href={backHref} className="text-xs font-medium text-gold-text underline">
           All orders
         </Link>
 
@@ -82,7 +92,7 @@ export default function OrderDetail({
           aria-label="Customer"
           className="mt-6 rounded-lg border border-gold/25 bg-cream-100 p-5"
         >
-          <h2 className="text-xs font-semibold uppercase tracking-wide text-gold-dark">Customer</h2>
+          <h2 className="text-xs font-semibold uppercase tracking-wide text-gold-text">Customer</h2>
           <dl className="mt-3 grid gap-4 text-sm sm:grid-cols-3">
             <div>
               <dt className="text-xs uppercase tracking-wide text-onyx/60">Name</dt>
@@ -94,7 +104,7 @@ export default function OrderDetail({
                 {contact.email ? (
                   <a
                     href={`mailto:${contact.email}`}
-                    className="text-gold-dark underline underline-offset-2"
+                    className="text-gold-text underline underline-offset-2"
                   >
                     {contact.email}
                   </a>
@@ -107,7 +117,7 @@ export default function OrderDetail({
               <dt className="text-xs uppercase tracking-wide text-onyx/60">Phone</dt>
               <dd className="mt-0.5">
                 {contact.phone ? (
-                  <a href={phoneHref} className="text-gold-dark underline underline-offset-2">
+                  <a href={phoneHref} className="text-gold-text underline underline-offset-2">
                     {contact.phone}
                   </a>
                 ) : (
@@ -123,13 +133,19 @@ export default function OrderDetail({
             aria-label="Items"
             className="min-w-0 rounded-lg border border-gold/25 bg-cream-100 p-5"
           >
-            <h2 className="text-xs font-semibold uppercase tracking-wide text-gold-dark">Items</h2>
+            <h2 className="text-xs font-semibold uppercase tracking-wide text-gold-text">Items</h2>
             <div className="mt-3">
               <OrderItemsTable items={items} fallbackText={fallbackText} />
             </div>
             {(estimate || quoted) && (
               <div className="mt-4 space-y-1 border-t border-gold/15 pt-3 text-right text-sm">
                 {estimate && <p className="text-onyx/70">Cart estimate: {estimate}</p>}
+                {quoted && breakdown?.extra && (
+                  <p className="text-onyx/70">
+                    Items ${breakdown.itemsSubtotal.toFixed(2)} + {breakdown.extra.label} $
+                    {breakdown.extra.amount.toFixed(2)}
+                  </p>
+                )}
                 {quoted && <p className="font-semibold text-onyx">Quoted total: {quoted}</p>}
               </div>
             )}
@@ -139,7 +155,7 @@ export default function OrderDetail({
             aria-label="Timeline"
             className="rounded-lg border border-gold/25 bg-cream-100 p-5"
           >
-            <h2 className="text-xs font-semibold uppercase tracking-wide text-gold-dark">
+            <h2 className="text-xs font-semibold uppercase tracking-wide text-gold-text">
               Timeline
             </h2>
             <div className="mt-3">
@@ -148,11 +164,13 @@ export default function OrderDetail({
           </section>
         </div>
 
+        {items.length > 0 && <EspReorderBlock text={reorderText} />}
+
         <section
           aria-label="Customer notes"
           className="mt-6 rounded-lg border border-gold/25 bg-cream-100 p-5"
         >
-          <h2 className="text-xs font-semibold uppercase tracking-wide text-gold-dark">
+          <h2 className="text-xs font-semibold uppercase tracking-wide text-gold-text">
             Customer notes
           </h2>
           <p className="mt-2 whitespace-pre-wrap text-sm text-onyx">
@@ -161,10 +179,12 @@ export default function OrderDetail({
         </section>
 
         <div className="mt-6 space-y-6">
-          <OrderPaymentPanel id={order.id} data={data} />
+          <OrderPaymentPanel id={order.id} data={data} quote={quoteSuggestion} />
           <OrderFulfillmentPanel id={order.id} data={data} />
           <OrderStatusControl id={order.id} currentStatus={status} />
         </div>
+
+        <OrderAuditTrail rows={audit.rows} hasHistory={audit.hasHistory} />
       </div>
 
       <OrderPrintSheet

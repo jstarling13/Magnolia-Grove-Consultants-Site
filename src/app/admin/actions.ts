@@ -10,23 +10,37 @@ import type { SubmissionRow } from "@/components/admin/Dashboard";
 import {
   MERCH_ORDER_STATUSES,
   MERCH_ORDER_STATUS_LABELS,
+  auditEntriesJson,
   canSetMerchStatus,
   formatOrderReference,
+  makeAuditEntry,
   parseEspOrderNumber,
   parseQuoteAmount,
+  parseQuoteExtra,
   parseShipment,
   type MerchOrderStatus,
   type StatusChangeResult,
 } from "@/lib/merchOrders";
+import {
+  buildQuoteSuggestion,
+  normalizeStatus,
+  readOrderItems,
+  suggestedQuoteTotal,
+} from "@/lib/adminOrders";
 import { ADMIN_SESSION_COOKIE } from "@/lib/adminAuth";
 import { getVerifiedAdminSession } from "@/lib/adminSessions";
 
 // Middleware guards /admin pages, but server actions are separately
 // invokable endpoints — so the actions that move money or send customer
 // email re-check the admin session themselves.
-async function isAdminSession(): Promise<boolean> {
+async function adminUsername(): Promise<string | null> {
   const cookieStore = await cookies();
-  return Boolean(await getVerifiedAdminSession(cookieStore.get(ADMIN_SESSION_COOKIE)?.value));
+  const session = await getVerifiedAdminSession(cookieStore.get(ADMIN_SESSION_COOKIE)?.value);
+  return session ? session.username : null;
+}
+
+async function isAdminSession(): Promise<boolean> {
+  return (await adminUsername()) !== null;
 }
 
 export async function markSubmissionRead(id: number): Promise<void> {
@@ -46,7 +60,8 @@ export async function updateMerchOrderStatus(
   id: number,
   status: string
 ): Promise<StatusChangeResult> {
-  if (!(await isAdminSession())) return { ok: false, error: "Not authorized." };
+  const admin = await adminUsername();
+  if (!admin) return { ok: false, error: "Not authorized." };
   if (!MERCH_ORDER_STATUSES.includes(status as MerchOrderStatus)) {
     return { ok: false, error: "Unknown status." };
   }
@@ -63,9 +78,22 @@ export async function updateMerchOrderStatus(
     // Payment arrived outside Square (check, bank transfer) — the admin is
     // vouching for it, so it's flagged and timestamped rather than silent.
     const patch = { status, paidAt: new Date().toISOString(), paidManually: true };
+    const entry = auditEntriesJson([
+      makeAuditEntry({
+        by: admin,
+        kind: "payment",
+        from: rows[0].data.status ?? "new",
+        to: "paid",
+        detail: "Marked paid manually",
+      }),
+    ]);
     const updated = (await sql`
       UPDATE submissions
-      SET data = data || ${JSON.stringify(patch)}::jsonb
+      SET data = data || ${JSON.stringify(patch)}::jsonb || jsonb_build_object(
+        'auditLog',
+        CASE WHEN jsonb_typeof(data->'auditLog') = 'array' THEN data->'auditLog' ELSE '[]'::jsonb END
+          || ${entry}::jsonb
+      )
       WHERE id = ${id} AND type = 'merch_order' AND data->>'paidAt' IS NULL
       RETURNING id
     `) as { id: number }[];
@@ -91,9 +119,25 @@ export async function updateMerchOrderStatus(
           "The order is cancelled, but Square could not cancel its payment link. Delete the link in the Square dashboard so the customer cannot still pay it.";
       }
     }
+    const from = normalizeStatus(rows[0].data.status);
+    const entry = auditEntriesJson([
+      from === status
+        ? undefined
+        : makeAuditEntry({
+            by: admin,
+            kind: "status",
+            from,
+            to: status,
+            ...(warning ? { detail: "Square payment link could not be cancelled" } : {}),
+          }),
+    ]);
     await sql`
       UPDATE submissions
-      SET data = jsonb_set(data, '{status}', to_jsonb(${status}::text))
+      SET data = data || ${JSON.stringify({ status })}::jsonb || jsonb_build_object(
+        'auditLog',
+        CASE WHEN jsonb_typeof(data->'auditLog') = 'array' THEN data->'auditLog' ELSE '[]'::jsonb END
+          || ${entry}::jsonb
+      )
       WHERE id = ${id} AND type = 'merch_order'
     `;
     revalidatePath("/admin");
@@ -121,12 +165,17 @@ const LOCKED_STATUSES: readonly MerchOrderStatus[] = [
  */
 export async function sendMerchPaymentLink(
   id: number,
-  quotedTotal: number
+  quotedTotal: number,
+  /** Optional shipping / setup line included in the total. Saved with the quote. */
+  extraLine?: { label: string; amount: number }
 ): Promise<SendPaymentLinkResult> {
-  if (!(await isAdminSession())) return { ok: false, error: "Not authorized." };
+  const admin = await adminUsername();
+  if (!admin) return { ok: false, error: "Not authorized." };
 
   const amount = parseQuoteAmount(quotedTotal);
   if (!amount.ok) return amount;
+  const extra = parseQuoteExtra(extraLine);
+  if (!extra.ok) return extra;
 
   const rows = (await sql`
     SELECT data FROM submissions WHERE id = ${id} AND type = 'merch_order'
@@ -201,17 +250,41 @@ export async function sendMerchPaymentLink(
     superseded.push(previousLinkId);
   }
 
+  // How the number was built, saved with the quote. The items subtotal is
+  // recomputed here from the stored lines, never taken from the browser.
+  const itemsSubtotal = buildQuoteSuggestion(readOrderItems(data)).itemsSubtotal;
+  const quoteBreakdown = {
+    itemsSubtotal,
+    extra: extra.extra,
+    suggestedTotal: suggestedQuoteTotal(itemsSubtotal, extra.extra),
+  };
   const patch = {
     status: "awaiting_payment",
     quotedTotal: amount.cents / 100,
     quotedAt: new Date().toISOString(),
     paymentLinkId: link.id ?? "",
     paymentUrl: link.url,
+    quoteBreakdown,
     ...(superseded.length > 0 ? { supersededPaymentLinkIds: superseded } : {}),
   };
+  const entry = auditEntriesJson([
+    makeAuditEntry({
+      by: admin,
+      kind: "quote",
+      from: data.status ?? "new",
+      to: "awaiting_payment",
+      detail: `$${(amount.cents / 100).toFixed(2)}${
+        extra.extra ? ` including ${extra.extra.label} $${extra.extra.amount.toFixed(2)}` : ""
+      }${previousLinkId ? " (replaced the earlier payment link)" : ""}`,
+    }),
+  ]);
   await sql`
     UPDATE submissions
-    SET data = data || ${JSON.stringify(patch)}::jsonb
+    SET data = data || ${JSON.stringify(patch)}::jsonb || jsonb_build_object(
+        'auditLog',
+        CASE WHEN jsonb_typeof(data->'auditLog') = 'array' THEN data->'auditLog' ELSE '[]'::jsonb END
+          || ${entry}::jsonb
+      )
     WHERE id = ${id} AND type = 'merch_order'
   `;
 
@@ -238,7 +311,8 @@ export async function recordEspOrder(
   id: number,
   espOrderNumber: string
 ): Promise<RecordEspOrderResult> {
-  if (!(await isAdminSession())) return { ok: false, error: "Not authorized." };
+  const admin = await adminUsername();
+  if (!admin) return { ok: false, error: "Not authorized." };
 
   const parsed = parseEspOrderNumber(espOrderNumber);
   if (!parsed.ok) return parsed;
@@ -263,9 +337,22 @@ export async function recordEspOrder(
           espOrderedAt:
             typeof data.espOrderedAt === "string" ? data.espOrderedAt : new Date().toISOString(),
         };
+  const entry = auditEntriesJson([
+    makeAuditEntry({
+      by: admin,
+      kind: "esp_order",
+      from: data.status ?? "new",
+      to: patch.status ?? data.status,
+      detail: `ESP order ${parsed.value}`,
+    }),
+  ]);
   await sql`
     UPDATE submissions
-    SET data = data || ${JSON.stringify(patch)}::jsonb
+    SET data = data || ${JSON.stringify(patch)}::jsonb || jsonb_build_object(
+        'auditLog',
+        CASE WHEN jsonb_typeof(data->'auditLog') = 'array' THEN data->'auditLog' ELSE '[]'::jsonb END
+          || ${entry}::jsonb
+      )
     WHERE id = ${id} AND type = 'merch_order'
   `;
   revalidatePath("/admin");
@@ -284,7 +371,8 @@ export async function markMerchShipped(
   id: number,
   input: { carrier: string; trackingNumber: string }
 ): Promise<MarkShippedResult> {
-  if (!(await isAdminSession())) return { ok: false, error: "Not authorized." };
+  const admin = await adminUsername();
+  if (!admin) return { ok: false, error: "Not authorized." };
 
   const shipment = parseShipment(input);
   if (!shipment.ok) return shipment;
@@ -308,9 +396,24 @@ export async function markMerchShipped(
     trackingNumber: shipment.value.trackingNumber,
     shippedAt: typeof data.shippedAt === "string" ? data.shippedAt : new Date().toISOString(),
   };
+  const entry = auditEntriesJson([
+    makeAuditEntry({
+      by: admin,
+      kind: "shipped",
+      from: data.status ?? "new",
+      to: "fulfilled",
+      detail: `${shipment.value.carrier} ${shipment.value.trackingNumber}${
+        typeof data.shippedAt === "string" ? " (tracking updated)" : ""
+      }`,
+    }),
+  ]);
   await sql`
     UPDATE submissions
-    SET data = data || ${JSON.stringify(patch)}::jsonb
+    SET data = data || ${JSON.stringify(patch)}::jsonb || jsonb_build_object(
+        'auditLog',
+        CASE WHEN jsonb_typeof(data->'auditLog') = 'array' THEN data->'auditLog' ELSE '[]'::jsonb END
+          || ${entry}::jsonb
+      )
     WHERE id = ${id} AND type = 'merch_order'
   `;
 

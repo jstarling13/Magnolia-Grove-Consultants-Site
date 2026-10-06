@@ -14,7 +14,17 @@ import {
   parseEspOrderNumber,
   parseShipment,
 } from "@/lib/merchOrders";
-import { formatOrderDate, safeHttpUrl, type RawData } from "@/lib/adminOrders";
+import {
+  describeQuoteLine,
+  formatOrderDate,
+  readQuoteBreakdown,
+  roundMoney,
+  safeHttpUrl,
+  suggestedQuoteTotal,
+  type QuoteSuggestion,
+  type RawData,
+} from "@/lib/adminOrders";
+import { parseQuoteExtra } from "@/lib/merchOrders";
 
 /**
  * The detail page's working panels. They carry no business rules of their own:
@@ -24,19 +34,44 @@ import { formatOrderDate, safeHttpUrl, type RawData } from "@/lib/adminOrders";
  */
 
 const inputClass =
-  "w-full rounded-md border border-gold/25 bg-cream px-3 py-2 text-sm text-onyx focus:outline-none focus:ring-2 focus:ring-gold/60";
+  "w-full rounded-md border border-onyx/50 bg-cream px-3 py-2 text-sm text-onyx focus:outline-none focus-visible:ring-2 focus-visible:ring-onyx focus-visible:ring-offset-2";
 const labelClass = "text-xs font-medium text-onyx/70";
-const headingClass = "text-xs font-semibold uppercase tracking-wide text-gold-dark";
+const headingClass = "text-xs font-semibold uppercase tracking-wide text-gold-text";
 
-export function OrderPaymentPanel({ id, data }: { id: number; data: RawData }) {
+const EMPTY_QUOTE: QuoteSuggestion = { lines: [], itemsSubtotal: 0, unpricedLines: 0 };
+
+function formatMoney(value: number): string {
+  return `$${value.toFixed(2)}`;
+}
+
+export function OrderPaymentPanel({
+  id,
+  data,
+  quote = EMPTY_QUOTE,
+}: {
+  id: number;
+  data: RawData;
+  /** Line math from the stored tier prices; the amount field starts from its subtotal. */
+  quote?: QuoteSuggestion;
+}) {
   const router = useRouter();
   const status = String(data.status ?? "new");
   const estimate = typeof data.total === "number" ? data.total : undefined;
   const quoted = typeof data.quotedTotal === "number" ? data.quotedTotal : undefined;
   const paymentUrl = typeof data.paymentUrl === "string" ? data.paymentUrl : "";
   const paidAt = typeof data.paidAt === "string" ? data.paidAt : "";
+  const savedExtra = readQuoteBreakdown(data)?.extra ?? null;
+  const hasLines = quote.lines.length > 0;
 
-  const [amount, setAmount] = useState(String(quoted ?? estimate ?? ""));
+  const [extraLabel, setExtraLabel] = useState(savedExtra?.label ?? "");
+  const [extraAmount, setExtraAmount] = useState(savedExtra ? savedExtra.amount.toFixed(2) : "");
+  // A previous quote wins; otherwise start from the items (or the cart estimate for lines with no prices).
+  const [amount, setAmount] = useState(() => {
+    if (quoted !== undefined) return String(quoted);
+    if (hasLines) return suggestedQuoteTotal(quote.itemsSubtotal, savedExtra).toFixed(2);
+    return estimate !== undefined ? String(estimate) : "";
+  });
+  const [followsSuggestion, setFollowsSuggestion] = useState(quoted === undefined && hasLines);
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [isPending, startTransition] = useTransition();
@@ -56,11 +91,35 @@ export function OrderPaymentPanel({ id, data }: { id: number; data: RawData }) {
     );
   }
 
+  const parsedExtra = parseQuoteExtra({ label: extraLabel, amount: extraAmount });
+  const extra = parsedExtra.ok ? parsedExtra.extra : null;
+  const suggested = suggestedQuoteTotal(quote.itemsSubtotal, extra);
+  const difference = roundMoney(Number(amount) - suggested);
+
+  function handleExtraChange(label: string, extraValue: string) {
+    setExtraLabel(label);
+    setExtraAmount(extraValue);
+    if (!followsSuggestion) return;
+    const next = parseQuoteExtra({ label: label || "Extra", amount: extraValue });
+    setAmount(suggestedQuoteTotal(quote.itemsSubtotal, next.ok ? next.extra : null).toFixed(2));
+  }
+
+  function handleResetToSuggested() {
+    setAmount(suggested.toFixed(2));
+    setFollowsSuggestion(true);
+  }
+
   function handleSend() {
     setError("");
     setMessage("");
+    if (!parsedExtra.ok) {
+      setError(parsedExtra.error);
+      return;
+    }
     startTransition(async () => {
-      const result = await sendMerchPaymentLink(id, Number(amount));
+      const result = parsedExtra.extra
+        ? await sendMerchPaymentLink(id, Number(amount), parsedExtra.extra)
+        : await sendMerchPaymentLink(id, Number(amount));
       if (!result.ok) {
         setError(result.error);
         return;
@@ -75,44 +134,137 @@ export function OrderPaymentPanel({ id, data }: { id: number; data: RawData }) {
   }
 
   const href = safeHttpUrl(paymentUrl);
+  const focusRing =
+    "focus:outline-none focus-visible:ring-2 focus-visible:ring-onyx focus-visible:ring-offset-2";
+  const fieldClass = `rounded-md border border-onyx/50 bg-cream px-3 py-2 text-sm text-onyx ${focusRing}`;
 
   return (
     <section className="rounded-lg border border-gold/25 bg-cream-100 p-5">
       <h2 className={headingClass}>Final Quote &amp; Payment</h2>
-      <p className="mt-1 text-xs text-onyx/60">
+      <p className="mt-1 text-xs text-onyx/70">
         Enter the full amount including decoration, shipping, and tax. The customer pays this before
-        you order from ESP.
+        you order from ESP. Nothing is sent until you press the button.
       </p>
+
+      {hasLines && (
+        <div className="mt-3 rounded-md border border-onyx/20 bg-cream p-3 text-sm">
+          <h3 className="text-xs font-semibold uppercase tracking-wide text-onyx/80">
+            Suggested from the items
+          </h3>
+          <ul aria-label="Quote line math" className="mt-2 space-y-1 text-onyx">
+            {quote.lines.map((line, index) => (
+              <li key={`${line.label}-${index}`} className="flex flex-wrap justify-between gap-x-4">
+                <span>{line.label}</span>
+                <span className="tabular-nums text-onyx/80">{describeQuoteLine(line)}</span>
+              </li>
+            ))}
+            {extra && (
+              <li className="flex flex-wrap justify-between gap-x-4">
+                <span>{extra.label}</span>
+                <span className="tabular-nums text-onyx/80">{formatMoney(extra.amount)}</span>
+              </li>
+            )}
+          </ul>
+          <p className="mt-2 flex justify-between gap-4 border-t border-onyx/15 pt-2 font-semibold text-onyx">
+            <span>Suggested total</span>
+            <span className="tabular-nums">{formatMoney(suggested)}</span>
+          </p>
+          {quote.unpricedLines > 0 && (
+            <p className="mt-1 text-xs text-red-800">
+              {quote.unpricedLines} {quote.unpricedLines === 1 ? "line has" : "lines have"} no saved
+              price and {quote.unpricedLines === 1 ? "isn't" : "aren't"} counted. Add{" "}
+              {quote.unpricedLines === 1 ? "it" : "them"} to the amount yourself.
+            </p>
+          )}
+        </div>
+      )}
+
+      <fieldset className="mt-3">
+        <legend className={labelClass}>Shipping or setup charge (optional)</legend>
+        <div className="mt-1 flex flex-wrap items-center gap-3">
+          <div>
+            <label htmlFor={`quote-extra-label-${id}`} className="sr-only">
+              Charge label, for example Shipping or Setup fee
+            </label>
+            <input
+              id={`quote-extra-label-${id}`}
+              value={extraLabel}
+              onChange={(event) => handleExtraChange(event.target.value, extraAmount)}
+              placeholder="Label (Shipping, Setup fee)"
+              maxLength={60}
+              className={`${fieldClass} w-56`}
+            />
+          </div>
+          <div className="flex items-center gap-1 rounded-md border border-onyx/50 bg-cream px-3 py-2 text-sm text-onyx focus-within:ring-2 focus-within:ring-onyx focus-within:ring-offset-2">
+            <span className="text-onyx/70" aria-hidden="true">
+              $
+            </span>
+            <label htmlFor={`quote-extra-amount-${id}`} className="sr-only">
+              Charge amount in dollars
+            </label>
+            <input
+              id={`quote-extra-amount-${id}`}
+              type="number"
+              min="0"
+              step="0.01"
+              value={extraAmount}
+              onChange={(event) => handleExtraChange(extraLabel, event.target.value)}
+              className="w-24 bg-transparent focus:outline-none"
+            />
+          </div>
+        </div>
+      </fieldset>
+
       <div className="mt-3 flex flex-wrap items-center gap-3">
-        <div className="flex items-center gap-1 rounded-md border border-gold/25 bg-cream px-3 py-2 text-sm text-onyx">
-          <span className="text-onyx/60">$</span>
+        <div className="flex items-center gap-1 rounded-md border border-onyx/50 bg-cream px-3 py-2 text-sm text-onyx focus-within:ring-2 focus-within:ring-onyx focus-within:ring-offset-2">
+          <span className="text-onyx/70" aria-hidden="true">
+            $
+          </span>
           <input
             type="number"
             min="0"
             step="0.01"
             value={amount}
-            onChange={(event) => setAmount(event.target.value)}
+            onChange={(event) => {
+              setAmount(event.target.value);
+              setFollowsSuggestion(false);
+            }}
             aria-label="Final quote amount in dollars"
             className="w-28 bg-transparent focus:outline-none"
           />
         </div>
+        {hasLines && (
+          <button
+            type="button"
+            onClick={handleResetToSuggested}
+            className={`rounded-md border border-onyx/50 px-3 py-2 text-sm font-medium text-onyx hover:bg-cream-200 ${focusRing}`}
+          >
+            Reset to suggested
+          </button>
+        )}
         <button
           type="button"
           onClick={handleSend}
           disabled={isPending}
-          className="rounded-md bg-gold px-4 py-2 text-sm font-semibold text-onyx transition-colors hover:bg-gold-bright disabled:opacity-60"
+          className={`rounded-md border border-onyx bg-onyx px-4 py-2 text-sm font-semibold text-cream transition-colors hover:bg-onyx-100 disabled:opacity-60 ${focusRing}`}
         >
           {isPending ? "Sending…" : paymentUrl ? "Resend New Payment Link" : "Send Payment Link"}
         </button>
       </div>
+      {hasLines && Number.isFinite(difference) && Math.abs(difference) >= 0.005 && (
+        <p className="mt-1 text-xs text-onyx/80">
+          This is {formatMoney(Math.abs(difference))} {difference > 0 ? "above" : "below"} the
+          suggested total.
+        </p>
+      )}
       {estimate !== undefined && (
-        <p className="mt-1 text-xs text-onyx/50">Cart estimate was ${estimate.toFixed(2)}.</p>
+        <p className="mt-1 text-xs text-onyx/70">Cart estimate was ${estimate.toFixed(2)}.</p>
       )}
       {paymentUrl && (
         <p className="mt-2 break-all text-xs text-onyx/70">
           Current link:{" "}
           {href ? (
-            <a href={href} target="_blank" rel="noreferrer" className="text-gold-dark underline">
+            <a href={href} target="_blank" rel="noreferrer" className="text-gold-text underline">
               {paymentUrl}
             </a>
           ) : (
@@ -122,8 +274,16 @@ export function OrderPaymentPanel({ id, data }: { id: number; data: RawData }) {
           don&apos;t reuse the old one.
         </p>
       )}
-      {message && <p className="mt-2 text-xs text-onyx/80">{message}</p>}
-      {error && <p className="mt-2 text-xs text-red-600">{error}</p>}
+      {message && (
+        <p role="status" className="mt-2 text-xs text-onyx/80">
+          {message}
+        </p>
+      )}
+      {error && (
+        <p role="alert" className="mt-2 text-xs text-red-800">
+          {error}
+        </p>
+      )}
     </section>
   );
 }
@@ -236,7 +396,7 @@ export function OrderFulfillmentPanel({ id, data }: { id: number; data: RawData 
           </button>
         </div>
         {espMessage && <p className="mt-2 text-xs text-onyx/80">{espMessage}</p>}
-        {espError && <p className="mt-2 text-xs text-red-600">{espError}</p>}
+        {espError && <p className="mt-2 text-xs text-red-800">{espError}</p>}
       </div>
 
       <div className="mt-4">
@@ -290,7 +450,7 @@ export function OrderFulfillmentPanel({ id, data }: { id: number; data: RawData 
               : "Mark shipped & email customer"}
         </button>
         {shipMessage && <p className="mt-2 text-xs text-onyx/80">{shipMessage}</p>}
-        {shipError && <p className="mt-2 text-xs text-red-600">{shipError}</p>}
+        {shipError && <p className="mt-2 text-xs text-red-800">{shipError}</p>}
       </div>
     </section>
   );
@@ -324,7 +484,7 @@ export function OrderStatusControl({ id, currentStatus }: { id: number; currentS
         value={currentStatus || "new"}
         onChange={handleChange}
         disabled={isPending}
-        className="mt-2 rounded-md border border-gold/25 bg-cream px-3 py-2 text-sm text-onyx focus:outline-none focus:ring-2 focus:ring-gold/60 disabled:opacity-60"
+        className="mt-2 rounded-md border border-onyx/50 bg-cream px-3 py-2 text-sm text-onyx focus:outline-none focus-visible:ring-2 focus-visible:ring-onyx focus-visible:ring-offset-2 disabled:opacity-60"
       >
         {MERCH_ORDER_STATUSES.map((status) => (
           <option key={status} value={status}>
@@ -333,7 +493,7 @@ export function OrderStatusControl({ id, currentStatus }: { id: number; currentS
         ))}
       </select>
       {isPending && <span className="ml-2 text-xs text-onyx/60">Saving…</span>}
-      {error && <p className="mt-2 text-xs text-red-600">{error}</p>}
+      {error && <p className="mt-2 text-xs text-red-800">{error}</p>}
     </section>
   );
 }

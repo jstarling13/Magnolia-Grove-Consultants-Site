@@ -19,7 +19,7 @@ export default function OrderSheetActions({ sheetText }: { sheetText: string }) 
   }
 
   const buttonClass =
-    "rounded-md border border-gold/40 px-4 py-2 text-sm font-semibold text-onyx transition-colors hover:bg-gold/10";
+    "rounded-md border border-onyx/50 px-4 py-2 text-sm font-semibold text-onyx transition-colors hover:bg-cream-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-onyx focus-visible:ring-offset-2";
 
   return (
     <div className="flex flex-wrap items-center gap-3 print:hidden">
@@ -39,7 +39,7 @@ export default function OrderSheetActions({ sheetText }: { sheetText: string }) 
           value={sheetText}
           rows={Math.min(14, sheetText.split("\n").length)}
           onFocus={(event) => event.currentTarget.select()}
-          className="w-full rounded-md border border-gold/25 bg-cream px-3 py-2 font-mono text-xs text-onyx focus:outline-none focus:ring-2 focus:ring-gold/60"
+          className="w-full rounded-md border border-onyx/50 bg-cream px-3 py-2 font-mono text-xs text-onyx focus:outline-none focus-visible:ring-2 focus-visible:ring-onyx focus-visible:ring-offset-2"
         />
       )}
     </div>

@@ -1826,3 +1826,202 @@ describe("other emails the merch/contact forms send", () => {
     }
   });
 });
+
+// ===========================================================================
+// (6) Audit trail and the quote breakdown, across a real lifecycle
+// ===========================================================================
+
+describe("6. audit trail and quote breakdown", () => {
+  const auditOf = (id: number) =>
+    (world.db.data(id).auditLog ?? []) as {
+      at: string;
+      by: string;
+      kind: string;
+      from?: string;
+      to?: string;
+      detail?: string;
+    }[];
+
+  it("records who did what and when through quote, payment, ESP order and shipping", async () => {
+    const order = await placeOrder(app);
+    app.signInAsAdmin("ben");
+    advanceClock(60 * 60 * 1000);
+    const quote = await app.actions.sendMerchPaymentLink(order.id, 2500.5, {
+      label: "Shipping",
+      amount: 50,
+    });
+    expect(quote.ok).toBe(true);
+
+    advanceClock(60 * 60 * 1000);
+    customerPays(order.id);
+    expect((await deliverWebhook(app)).status).toBe(200);
+
+    app.signInAsAdmin("jordan");
+    advanceClock(60 * 60 * 1000);
+    expect(await app.actions.recordEspOrder(order.id, "PO-1")).toEqual({ ok: true });
+    advanceClock(60 * 60 * 1000);
+    const shipped = await app.actions.markMerchShipped(order.id, {
+      carrier: "UPS",
+      trackingNumber: "1Z999AA10123456784",
+    });
+    expect(shipped.ok).toBe(true);
+
+    const log = auditOf(order.id);
+    expect(log.map((e) => [e.by, e.kind, e.from, e.to])).toEqual([
+      ["ben", "quote", "new", "awaiting_payment"],
+      ["Square", "payment", "awaiting_payment", "paid"],
+      ["jordan", "esp_order", "paid", "ordered_in_esp"],
+      ["jordan", "shipped", "ordered_in_esp", "fulfilled"],
+    ]);
+    // Real times, oldest first.
+    const times = log.map((e) => Date.parse(e.at));
+    expect(times).toEqual([...times].sort((a, b) => a - b));
+    expect(new Set(times).size).toBe(4);
+    expect(log[0].detail).toBe("$2500.50 including Shipping $50.00");
+    expect(log[3].detail).toContain("UPS 1Z999AA10123456784");
+
+    // The same data renders as an audit trail.
+    const { buildAuditTrail } = await import("@/lib/adminOrders");
+    const trail = buildAuditTrail(START_TIME, world.db.data(order.id));
+    expect(trail.rows.map((r) => r.by)).toEqual(["Customer", "ben", "Square", "jordan", "jordan"]);
+  });
+
+  it("a status change is logged with the previous and new status; choosing the same status adds nothing", async () => {
+    const id = seedOrder({ status: "new" });
+    app.signInAsAdmin("ben");
+    expect(await app.actions.updateMerchOrderStatus(id, "reviewing")).toEqual({ ok: true });
+    expect(await app.actions.updateMerchOrderStatus(id, "reviewing")).toEqual({ ok: true });
+    expect(await app.actions.updateMerchOrderStatus(id, "cancelled")).toEqual({ ok: true });
+    expect(auditOf(id).map((e) => [e.by, e.kind, e.from, e.to])).toEqual([
+      ["ben", "status", "new", "reviewing"],
+      ["ben", "status", "reviewing", "cancelled"],
+    ]);
+    expect(world.db.data(id).status).toBe("cancelled");
+  });
+
+  it("marking an order paid by hand is logged against the admin who vouched for it", async () => {
+    const id = seedOrder({ status: "awaiting_payment" });
+    app.signInAsAdmin("jordan");
+    expect(await app.actions.updateMerchOrderStatus(id, "paid")).toEqual({ ok: true });
+    expect(auditOf(id)).toMatchObject([
+      {
+        by: "jordan",
+        kind: "payment",
+        from: "awaiting_payment",
+        to: "paid",
+        detail: "Marked paid manually",
+      },
+    ]);
+    expect(world.db.data(id)).toMatchObject({ paidManually: true, status: "paid" });
+  });
+
+  it("orders stored before audit logging still work and start a log on the next change", async () => {
+    const id = seedOrder({ status: "reviewing" }); // no auditLog key at all
+    expect(world.db.data(id)).not.toHaveProperty("auditLog");
+    app.signInAsAdmin("ben");
+    expect(await app.actions.updateMerchOrderStatus(id, "quoted")).toEqual({ ok: true });
+    expect(auditOf(id)).toHaveLength(1);
+    // Unrelated stored fields are untouched.
+    expect(world.db.data(id)).toMatchObject({ status: "quoted", total: DEFAULT_CART_TOTAL });
+  });
+
+  it("a refused action writes no audit entry", async () => {
+    const id = seedOrder({ status: "awaiting_payment" });
+    app.signInAsAdmin("ben");
+    const refused = await app.actions.updateMerchOrderStatus(id, "ordered_in_esp");
+    expect(refused.ok).toBe(false);
+    expect(world.db.data(id)).not.toHaveProperty("auditLog");
+  });
+
+  it("a signed-out caller changes nothing and logs nothing", async () => {
+    const id = seedOrder({ status: "new" });
+    app.signOut();
+    expect(await app.actions.updateMerchOrderStatus(id, "reviewing")).toMatchObject({ ok: false });
+    expect(world.db.data(id)).not.toHaveProperty("auditLog");
+  });
+
+  describe("the quote breakdown saved with the quote", () => {
+    it("stores the items subtotal computed on the server, the extra line and the suggested total", async () => {
+      const order = await placeOrder(app);
+      app.signInAsAdmin("ben");
+      await app.actions.sendMerchPaymentLink(order.id, 2500, { label: "Setup fee", amount: 25 });
+      const data = world.db.data(order.id);
+      expect(data.quoteBreakdown).toEqual({
+        itemsSubtotal: DEFAULT_CART_TOTAL,
+        extra: { label: "Setup fee", amount: 25 },
+        suggestedTotal: Math.round((DEFAULT_CART_TOTAL + 25) * 100) / 100,
+      });
+      // The admin's own total is what the customer is charged, not the suggestion.
+      expect(data.quotedTotal).toBe(2500);
+      expect(world.square.links.get("LINK_FAKE_1")).toMatchObject({ amountCents: 250000 });
+    });
+
+    it("saves a breakdown without an extra line too", async () => {
+      const order = await placeOrder(app);
+      app.signInAsAdmin("ben");
+      await app.actions.sendMerchPaymentLink(order.id, DEFAULT_QUOTE);
+      expect(world.db.data(order.id).quoteBreakdown).toMatchObject({
+        itemsSubtotal: DEFAULT_CART_TOTAL,
+        extra: null,
+      });
+    });
+
+    it("an invalid extra line is refused before any Square link or email", async () => {
+      const order = await placeOrder(app);
+      world.outbox.clear();
+      app.signInAsAdmin("ben");
+      for (const extra of [
+        { label: "", amount: 10 },
+        { label: "Shipping", amount: -5 },
+        { label: "x".repeat(80), amount: 5 },
+      ]) {
+        expect(
+          await app.actions.sendMerchPaymentLink(order.id, DEFAULT_QUOTE, extra)
+        ).toMatchObject({
+          ok: false,
+        });
+      }
+      expect(world.square.linkCreateCalls()).toHaveLength(0);
+      expect(world.outbox.delivered).toHaveLength(0);
+      expect(world.db.data(order.id).status).toBe("new");
+      expect(world.db.data(order.id)).not.toHaveProperty("auditLog");
+    });
+
+    it("a re-quote adds a second audit entry and says it replaced the earlier link", async () => {
+      const order = await placeOrder(app);
+      app.signInAsAdmin("ben");
+      await app.actions.sendMerchPaymentLink(order.id, 2000);
+      await app.actions.sendMerchPaymentLink(order.id, 2100);
+      const log = auditOf(order.id);
+      expect(log).toHaveLength(2);
+      expect(log[1]).toMatchObject({ from: "awaiting_payment", to: "awaiting_payment" });
+      expect(log[1].detail).toContain("replaced the earlier payment link");
+    });
+  });
+
+  describe("customer-facing output never carries the audit trail or admin names", () => {
+    it("emails and the public order view contain neither", async () => {
+      const order = await placeOrder(app);
+      app.signInAsAdmin("ben-the-owner");
+      await app.actions.sendMerchPaymentLink(order.id, DEFAULT_QUOTE, {
+        label: "Shipping",
+        amount: 40,
+      });
+      customerPays(order.id);
+      await deliverWebhook(app);
+      await app.actions.recordEspOrder(order.id, "PO-1");
+      await app.actions.markMerchShipped(order.id, { carrier: "UPS", trackingNumber: "1Z999AA1" });
+
+      for (const email of world.outbox.toCustomers) {
+        const text = `${email.subject} ${email.html}`;
+        expect(text).not.toContain("ben-the-owner");
+        expect(text).not.toMatch(/audit|quoteBreakdown|detected automatically/i);
+      }
+
+      const { toOrderView } = await import("@/app/orders/orderView");
+      const view = JSON.stringify(toOrderView(order.id, world.db.data(order.id), START_TIME));
+      expect(view).not.toContain("ben-the-owner");
+      expect(view).not.toMatch(/auditLog|quoteBreakdown|Square|Shipping/);
+    });
+  });
+});

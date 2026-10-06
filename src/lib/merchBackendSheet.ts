@@ -61,3 +61,30 @@ export function buildBackendOrderSheet(
   }
   return lines.join("\n");
 }
+
+/**
+ * Plain text for re-ordering an order's lines from the supplier in ESP+: per
+ * line the product, color, quantity, sizes and imprint notes, and the internal
+ * ESP+ link. No customer contact or pricing, so it can be pasted straight into
+ * a supplier order or note. Admin-only (the link is backend data).
+ */
+export function buildEspReorderText(reference: string, items: BackendSheetItem[]): string {
+  const lines: string[] = [`ESP+ reorder - ${reference}`, ""];
+  if (items.length === 0) lines.push("No lines recorded.");
+  items.forEach((item, index) => {
+    lines.push(`${index + 1}. ${item.name}`);
+    lines.push(`   ${describeLineColor(item.color)}`);
+    lines.push(`   Quantity: ${item.quantity}`);
+    lines.push(`   Sizes: ${item.sizes?.trim() || "none given"}`);
+    lines.push(`   Imprint notes: ${item.imprintNotes?.trim() || "none given"}`);
+    if (item.supplier) lines.push(`   Supplier: ${item.supplier}`);
+    if (item.productNo) lines.push(`   Product no.: ${item.productNo}`);
+    lines.push(
+      item.espUrl
+        ? `   ESP+ link: ${item.espUrl}${item.espKind === "search" ? " (search link, find the exact product)" : ""}`
+        : "   ESP+ link: none on file"
+    );
+    if (index < items.length - 1) lines.push("");
+  });
+  return lines.join("\n");
+}
