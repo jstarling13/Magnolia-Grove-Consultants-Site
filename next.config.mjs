@@ -1,7 +1,34 @@
+import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+// Old product ids that no longer have a page (merged into another product by the
+// importer's duplicate rules, or dropped) -> the product that replaced them, or a
+// category landing page when there is no clear replacement. A value starting with
+// "/" is a path; anything else is a live product id. Hidden products are not in
+// this map on purpose: they stay 404.
+const productRedirects = JSON.parse(
+  fs.readFileSync(path.join(__dirname, "src/config/productRedirects.json"), "utf8")
+);
+
+// One rule per destination (the old ids that share it are a regex alternation), so
+// the list evaluated at the edge stays short. Ids are lowercase letters, digits and
+// hyphens, so they are safe inside the pattern. Next also matches the trailing-slash
+// variant of every source.
+function productRedirectRules() {
+  const byDestination = new Map();
+  for (const [oldId, target] of Object.entries(productRedirects)) {
+    const destination = target.startsWith("/") ? target : `/merchandise/${target}`;
+    byDestination.set(destination, [...(byDestination.get(destination) ?? []), oldId]);
+  }
+  return [...byDestination].map(([destination, oldIds]) => ({
+    source: `/merchandise/:oldId(${oldIds.join("|")})`,
+    destination,
+    permanent: true,
+  }));
+}
 
 // Next.js dev mode's HMR/React Refresh runtime uses eval() for module
 // wrapping — without 'unsafe-eval' here, client components never hydrate
@@ -88,6 +115,7 @@ const nextConfig = {
       // There is no category index; the catalog lists every category. Without
       // this the URL would be read as a product page with the id "category".
       { source: "/merchandise/category", destination: "/merchandise", permanent: false },
+      ...productRedirectRules(),
     ];
   },
 };
