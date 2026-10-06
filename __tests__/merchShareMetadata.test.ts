@@ -145,14 +145,40 @@ describe("share title", () => {
 });
 
 describe("share description", () => {
-  it("is the real description, trimmed to 155 characters at a word boundary", () => {
+  it("is the real description when it says enough, trimmed to 155 characters at a word boundary", () => {
     const long = buildShareDescription(
       make({ description: "Sturdy canvas tote bag. ".repeat(20) })
     );
     expect(long.length).toBeLessThanOrEqual(155);
     expect(long.startsWith("Sturdy canvas tote bag.")).toBe(true);
     expect(long.endsWith("…")).toBe(true);
-    expect(buildShareDescription(make())).toBe("Soft cotton tee in a classic fit.");
+    const enough =
+      "Soft cotton tee in a classic fit with a tagless collar and a double-needle hem.";
+    expect(buildShareDescription(make({ description: enough }))).toBe(enough);
+  });
+
+  it("composes a description from the product's own fields when the copy is thin", () => {
+    expect(buildShareDescription(make())).toBe(
+      "Cotton Tee with your logo from Nike. Soft cotton tee in a classic fit. Available in 3 colors. Minimum order 50."
+    );
+    // unbranded items and names that already carry the brand leave the brand out
+    expect(buildShareDescription(make({ brand: "Essentials" }))).toMatch(
+      /^Cotton Tee with your logo\. /
+    );
+    expect(buildShareDescription(make({ name: "Nike Cotton Tee" }))).toMatch(
+      /^Nike Cotton Tee with your logo\. /
+    );
+    // a lone size line is never the whole snippet; one color and no tiers add no sentence
+    const sizeOnly = buildShareDescription(
+      make({ description: "Size: XS, S, M, L, XL.", colors: ["Navy"], tiers: [] })
+    );
+    expect(sizeOnly).toBe(
+      "Cotton Tee with your logo from Nike. Size: XS, S, M, L, XL. Listed in Apparel."
+    );
+    // thousands separators in the minimum
+    expect(buildShareDescription(make({ tiers: [{ quantity: 1000, price: 1 }] }))).toContain(
+      "Minimum order 1,000."
+    );
   });
 
   it("drops the size-pricing boilerplate and the units tail", () => {
@@ -163,13 +189,16 @@ describe("share description", () => {
             "Clear 0.5 oz bottle. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 96 units.",
         })
       )
-    ).toBe("Clear 0.5 oz bottle.");
+    ).toBe(
+      "Cotton Tee with your logo from Nike. Clear 0.5 oz bottle. Available in 3 colors. Minimum order 50."
+    );
   });
 
-  it("builds a sentence from the name when the description is empty", () => {
+  it("composes from the name, brand, colors and minimum when the description is empty", () => {
     const text = buildShareDescription(make({ description: "Priced at 12 units." }));
-    expect(text).toContain("Cotton Tee by Nike");
-    expect(text).toContain("Magnolia Grove Consultants");
+    expect(text).toBe(
+      "Cotton Tee with your logo from Nike. Available in 3 colors. Minimum order 50."
+    );
   });
 });
 
@@ -187,7 +216,12 @@ describe("no supplier or ESP terms in preview metadata", () => {
       expect(text, config.id).not.toMatch(FORBIDDEN);
       expect(m.openGraph.title.length, config.id).toBeLessThanOrEqual(70);
       expect(m.openGraph.description.length, config.id).toBeLessThanOrEqual(155);
-      expect(m.openGraph.description.length, config.id).toBeGreaterThan(0);
+      expect(m.openGraph.description.length, config.id).toBeGreaterThanOrEqual(70);
+      expect(m.description, config.id).toBe(m.openGraph.description);
+      expect(m.description, config.id).not.toMatch(/^Size:/i);
+      expect(m.description, config.id).not.toMatch(/\bMOQ\b|Priced at|\basi\/|ESP\b/);
+      // never ends mid-word: ends in punctuation or the ellipsis the word-boundary cut adds
+      expect(m.description, config.id).toMatch(/[.!?"')…]$/);
       expect(m.openGraph.images[0].url, config.id).toMatch(
         new RegExp(`^${SITE}/images/merch/[^?]+\\.(?:webp|jpg)$`)
       );

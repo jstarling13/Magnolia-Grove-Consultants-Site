@@ -658,6 +658,7 @@ export const NAME_TYPOS = [
   [/\breuseable\b/gi, "reusable"],
   [/\bremoveable\b/gi, "removable"],
   [/\badjustible\b/gi, "adjustable"],
+  [/\bsticket\b/gi, "sticker"],
 ];
 
 function matchCase(found, fix) {
@@ -669,7 +670,9 @@ function matchCase(found, fix) {
 export function fixNameTypos(value) {
   let name = collapseWhitespace(value);
   for (const [re, fix] of NAME_TYPOS) name = name.replace(re, (found) => matchCase(found, fix));
-  return name.replace(/(\d)\s*''/g, '$1"');
+  return name
+    .replace(/(\d)\s*''/g, '$1"')
+    .replace(/\b(open|over|on|in)\s+[-\u2013\u2014]\s+(ear)\b/gi, "$1-$2");
 }
 
 // separator after a leading label: punctuation, a spaced dash, or plain space ("Budget-Friendly" is not a label)
@@ -682,6 +685,8 @@ const LEADING_OPS_LABELS = new RegExp(
     `budget(?!\\s+(?:planner|book|binder|tracker|calendar|journal)\\b)${LABEL_SEP})`,
   "i"
 );
+const YEAR_KEEP =
+  /\b(?:calendars?|planners?|elections?|world\s+cup|olympics?|season|schedules?|graduation|class\s+of|anniversary|edition|championship|tournament|reunion|conference|convention)\b/i;
 const USA_MADE = "(?:usa[\\s-]+made|made[\\s-]+in[\\s-]+(?:the[\\s-]+)?(?:usa|u\\.s\\.a\\.?))";
 
 /**
@@ -698,10 +703,17 @@ export function stripVendorNameNoise(value, { usa = false } = {}) {
   for (let i = 0; i < 3 && LEADING_OPS_LABELS.test(name); i++) {
     name = name.replace(LEADING_OPS_LABELS, "");
   }
+  // a leading model-year marketing prefix ("2025 Open-Ear Earbuds"); dated products (calendars,
+  // events, elections) keep their year, and "America250" is not a bare year token
+  if (!YEAR_KEEP.test(name)) name = name.replace(/^(?:19|20)\d\d\s+(?=[A-Za-z])/, "");
   name = name
     .replace(/\s*[-–—]\s*quick[\s-]?ship\b/gi, " ")
     .replace(/\bquick[\s-]?ship\b/gi, " ")
     .replace(/\bprice[\s-]*buster\b/gi, " ")
+    .replace(/[\s,\-\u2013\u2014]*\bin[\s-]stock\b/gi, " ")
+    // variant codes the supplier hangs on the end: "Cooler Bag - B", "Lanyard Combo-B"
+    .replace(/\s+[-\u2013\u2014]\s*[A-D]\s*$/, "")
+    .replace(/(\bCombo)\s*-\s*[A-D]\s*$/, "$1")
     // "(Printed in USA - Rush)" keeps the printed-in-USA fact and loses the ops word
     .replace(/\(([^)]*)\)/g, (whole, inner) => {
       if (!/\brush\b/i.test(inner)) return whole;
@@ -1270,8 +1282,8 @@ export function mapCategory(tag) {
 
 /**
  * Description: raw text minus badge word, or a factual fallback built only
- * from the row's own color count and sizes. Always ends with the "Priced at"
- * sentence matching the curated style.
+ * from the row's own sizes, name and colors. It no longer ends with a "Priced at N units."
+ * sentence: the price table shows every minimum.
  */
 const NUM_WORD =
   "(?:\\d+|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|(?:twenty|thirty|forty|fifty|sixty)(?:[- ](?:one|two|three|four|five|six|seven|eight|nine))?)";
@@ -1301,6 +1313,22 @@ export function stripLeadingPromoLabels(text) {
     out = rest;
   }
   return out;
+}
+
+/**
+ * Supplier copy often opens with the bare label "Product" ("Product America250 youth crewneck ...").
+ * The label is dropped when a descriptive phrase follows; "Product dimensions: ..." style
+ * sentences keep their word because there it is part of the sentence.
+ */
+const PRODUCT_LABEL_KEEP =
+  /^(?:trending|new|hot|popular|best[\s-]*seller|dimensions?|size|sizes|weight|details?|specifications?|specs?|features?|information|description|name|number|no\b|code|material|materials|color|colors|colou?rs?|is|are|was|has|have|can|will|may|comes?|includes?|ships?|and|or|of|with)\b/i;
+export function stripLeadingProductLabel(text) {
+  const out = str(text).trim();
+  const m = out.match(/^product\s*[:\-\u2013\u2014]?\s+(?=\S)/i);
+  if (!m) return out;
+  const rest = out.slice(m[0].length);
+  if (PRODUCT_LABEL_KEEP.test(rest)) return out;
+  return rest.replace(/^[a-z]/, (c) => c.toUpperCase());
 }
 
 // ---- Supplier promises -------------------------------------------------------
@@ -1333,6 +1361,9 @@ const PROMISE_FRAGMENTS = [
   /\b24\s*\/\s*7\s+customer\s+service\s*[.!]*/gi,
   // "fast turnaround time", "Lightning fast turnaround"
   /(?:[,;]\s*(?:and\s+)?)?\b(?:(?:lightning|super|really)[\s-]+)?(?:fast|quick|rapid)[\s-]+turn[\s-]?around(?:\s+time)?\b/gi,
+  // "(MOQ 100)", ", MOQ 10pcs": the price table shows the minimums
+  /\(\s*MOQ\b[^)]*\)/gi,
+  /[,;]?\s*\bMOQ\b[\s:.\-]*(?:of\s+)?\d[\d,]*\s*(?:pcs?|pieces?|units?|pk|packs?|sets?)?\b/gi,
   // ", #1 Seller"
   /[,;\s]*#\s?1\s+(?:seller|selling)\b/gi,
 ];
@@ -1356,6 +1387,7 @@ export const PROMISE_PATTERNS = [
   /\bships?\s+(?:in|within|same|next)\b/i,
   /\bin[\s-]stock\b/i,
   /\bquick[\s-]?ship\b/i,
+  /\bMOQ\b/i,
   /#\s?1\b/,
   /\b(?:best|top)[\s-]*sell(?:er|ing)\b/i,
   /\bin\s+the\s+(?:industry|marketplace)\b/i,
@@ -1426,11 +1458,13 @@ export function stripSupplierPromises(raw) {
  * color text). Never adds words. Returns "" when nothing meaningful is left.
  */
 export function cleanDescriptionText(raw) {
-  const text = stripLeadingPromoLabels(stripBadge(raw));
+  const text = stripLeadingProductLabel(stripLeadingPromoLabels(stripBadge(raw)));
   const sentences = text.split(/(?<=[.!?])\s+(?=[A-Z0-9"“(])/);
   const kept = [];
   for (let sentence of sentences) {
     if (hasPromoText(sentence)) continue;
+    // the price table shows every minimum, so a "Priced at 50 units." sentence is never kept
+    if (/^Priced at [\d,]+ units?\.?$/i.test(sentence.trim())) continue;
     if (!IMPRINT_CONTEXT.test(sentence)) {
       sentence = sentence.replace(COLOR_COUNT_CLAIM, "\u0001");
     }
@@ -1527,9 +1561,9 @@ function thinDescriptionFacts({ base, size, colors, name }) {
 }
 
 /**
- * @param {{ rawDescription: string, colorCount?: number, sizes: string, minQty: number,
+ * @param {{ rawDescription: string, colorCount?: number, sizes: string, minQty?: number,
  *   usa: unknown, multiGrid: unknown, sizePriced?: boolean, enrich?: { name?: string, colors?: string[], breakQty?: number } }} input
- *   `colorCount` and `enrich.breakQty` are accepted but never written (the swatches and the price table show them).
+ *   `colorCount`, `minQty` and `enrich.breakQty` are accepted but never written (the swatches and the price table show them).
  *   `sizePriced`: the page shows PRICE_NOTE_SIZE, so the generic "base size or option" sentence is dropped.
  *   `enrich`: when given, a thin body (under THIN_DESCRIPTION_WORDS words) is extended with
  *   facts from the row (size, or the name and a short color list); the importer always passes it.
@@ -1537,7 +1571,6 @@ function thinDescriptionFacts({ base, size, colors, name }) {
 export function buildDescription({
   rawDescription,
   sizes,
-  minQty,
   usa,
   multiGrid,
   sizePriced = false,
@@ -1573,7 +1606,7 @@ export function buildDescription({
       "Pricing shown is for the base size or option; other sizes or options may cost more."
     );
   }
-  sentences.push(`Priced at ${minQty} unit${minQty === 1 ? "" : "s"}.`);
+  // no "Priced at N units." tail: the price table on the page already shows every minimum
   return sentences.join(" ");
 }
 

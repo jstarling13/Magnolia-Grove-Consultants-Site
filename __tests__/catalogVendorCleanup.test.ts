@@ -27,6 +27,8 @@ import {
   parseOverrides,
   stripSupplierPromises,
   stripVendorNameNoise,
+  stripLeadingProductLabel,
+  cleanDescriptionText,
   trimCutOffName,
 } from "../scripts/lib/catalogClean.mjs";
 import importedProductsJson from "../src/config/importedProducts.json";
@@ -266,11 +268,9 @@ describe("description facts", () => {
 
   it("builds a factual description for products that had only 'Priced at N units.'", () => {
     // Devon & Jones polo, S'well tumbler, Titleist, caps and sunglasses had no supplier text and no size
-    expect(cleaned("555581136").description).toBe(
-      "Devon & Jones Men's Short-Sleeve Polo Shirts. Priced at 50 units."
-    );
+    expect(cleaned("555581136").description).toBe("Devon & Jones Men's Short-Sleeve Polo Shirts.");
     expect(cleaned("555815749").description).toBe(
-      "S'well® Wine Tumbler - 14oz. Available in Angel Food, Onyx and Teakwood. Priced at 48 units."
+      "S'well® Wine Tumbler - 14oz. Available in Angel Food, Onyx and Teakwood."
     );
   });
 
@@ -280,22 +280,27 @@ describe("description facts", () => {
     expect(informativeSize("9")).toBe("");
     expect(informativeSize(`15 " x 23 "`)).toBe(`15" x 23"`);
     expect(informativeSize("XS, S, M, L, XL")).toBe("XS, S, M, L, XL");
-    expect(cleaned("556210823").description).toBe(
-      "2.25 Inch Round Custom Buttons. Priced at 100 units."
-    );
+    expect(cleaned("556210823").description).toBe("2.25 Inch Round Custom Buttons.");
   });
 
-  it("keeps the 'Priced at N units.' tail contract", () => {
+  it("never writes a 'Priced at N units.' sentence (the price table shows the minimum)", () => {
     expect(
-      buildDescription({ rawDescription: "", sizes: "", minQty: 1, usa: 0, multiGrid: 0 })
-    ).toBe("Priced at 1 unit.");
-    expect(cleaned("556175245").description).toMatch(/ Priced at 1 unit\.$/);
+      buildDescription({
+        rawDescription: "Mug. Priced at 1 unit.",
+        sizes: "",
+        minQty: 1,
+        usa: 0,
+        multiGrid: 0,
+      })
+    ).not.toMatch(/Priced at \d+ units?\.$/);
+    expect(cleaned("556175245").description).not.toMatch(/Priced at/);
+    expect(cleaned("556175245").description.trim()).not.toBe("");
   });
 
   it("fixes size unit typos only when the data makes the unit unambiguous", () => {
     // a third measurement under one foot after two foot measurements is a thickness in inches
     expect(fixSizeUnits("3 ' x 10 ' x 0.375 '")).toBe(`3' x 10' x 0.375"`);
-    expect(cleaned("556175245").description).toBe(`Size: 3' x 10' x 0.375". Priced at 1 unit.`);
+    expect(cleaned("556175245").description).toBe(`Size: 3' x 10' x 0.375".`);
     // a size written only with doubled apostrophes is in inches
     expect(fixSizeUnits("3.3'' x 2.1''")).toBe(`3.3" x 2.1"`);
     // not unambiguous: left exactly as written
@@ -757,87 +762,83 @@ describe("supplier promises are removed from descriptions (terms: 2-3 weeks, eve
     [
       "Rush service is available.",
       "Practical desk lamp with a touch dimmer. Rush service is available.",
-      "Practical desk lamp with a touch dimmer. Priced at 50 units.",
+      "Practical desk lamp with a touch dimmer.",
     ],
     [
       "Rush services available! tail glued on",
       "Holder for business cards.Rush services available!",
-      "Holder for business cards. Priced at 50 units.",
+      "Holder for business cards.",
     ],
     [
       "Rush Service. fragment",
       "Printed logo on the gloves. Rush Service.",
-      "Printed logo on the gloves. Priced at 50 units.",
+      "Printed logo on the gloves.",
     ],
     [
       "leading Free setup",
       "Free setup Stainless steel 26 oz. sports bottle with twist cap.",
-      "Stainless steel 26 oz. sports bottle with twist cap. Priced at 50 units.",
+      "Stainless steel 26 oz. sports bottle with twist cap.",
     ],
     [
       "free imprint offer",
       "40 oz. stainless steel vacuum bottle with free 1 color silkscreen imprint on 1 side.",
-      "40 oz. stainless steel vacuum bottle. Priced at 50 units.",
+      "40 oz. stainless steel vacuum bottle.",
     ],
     [
       "free ground shipping",
       "Custom AirPods 4 with premium imprinting and free ground shipping.",
-      "Custom AirPods 4 with premium imprinting. Priced at 50 units.",
+      "Custom AirPods 4 with premium imprinting.",
     ],
     [
       "Ready Inventory tail",
       'Hand held 4" x 6" USA polyester flag - Ready Inventory In New Jersey - Ships In 3+ Days.',
-      'Hand held 4" x 6" USA polyester flag. Priced at 50 units.',
+      'Hand held 4" x 6" USA polyester flag.',
     ],
     [
       "QuickShip",
       "Solo Buds QuickShip in 3 or 1 day with premium imprint.",
-      "Solo Buds with premium imprint. Priced at 50 units.",
+      "Solo Buds with premium imprint.",
     ],
     [
       "quick ship in a list",
       "Custom shaped, USA made, low minimum and quick ship.",
-      "Custom shaped, USA made, low minimum. Priced at 50 units.",
+      "Custom shaped, USA made, low minimum.",
     ],
     [
       "#1 Selling ... in the industry",
       "#1 Selling Desk Calendar in the industry customize in 3 areas.",
-      "Desk Calendar customize in 3 areas. Priced at 50 units.",
+      "Desk Calendar customize in 3 areas.",
     ],
     [
       "#1 Seller tail",
       "Flat knit crew socks with all over design, #1 Seller.",
-      "Flat knit crew socks with all over design. Priced at 50 units.",
+      "Flat knit crew socks with all over design.",
     ],
     [
       "Product Trending label",
       "Product Trending General Motors steering wheel cover.Rush services available!",
-      "General Motors steering wheel cover. Priced at 50 units.",
+      "General Motors steering wheel cover.",
     ],
     [
       "Special! label",
       "Special! Soft cotton tote with a zipper.",
-      "Soft cotton tote with a zipper. Priced at 50 units.",
+      "Soft cotton tote with a zipper.",
     ],
-    [
-      "New! label",
-      "New! Soft cotton tote with a zipper.",
-      "Soft cotton tote with a zipper. Priced at 50 units.",
-    ],
+    ["New! label", "New! Soft cotton tote with a zipper.", "Soft cotton tote with a zipper."],
     [
       "best selling sentence",
       "Sturdy ceramic mug. The best selling mug in the industry.",
-      "Sturdy ceramic mug. Priced at 50 units.",
+      "Sturdy ceramic mug.",
     ],
     [
       "fast turnaround",
       "Flag straw hat with custom patch, MOQ 10pcs, fast turnaround time.",
-      "Flag straw hat with custom patch, MOQ 10pcs. Priced at 50 units.",
+      "Flag straw hat with custom patch.",
     ],
     [
       "next day delivery and 24/7",
       "Latex free bands! NEXT DAY DELIVERY OPTION ON REQUEST!24/7 CUSTOMER SERVICE! PMS MATCH AVAILABLE!",
-      "Latex free bands! PMS MATCH AVAILABLE! Priced at 50 units.",
+      "Latex free bands! PMS MATCH AVAILABLE!",
     ],
   ])("%s", (_label, raw, expected) => {
     expect(clean(raw)).toBe(expected);
@@ -884,9 +885,7 @@ describe("supplier promises are removed from descriptions (terms: 2-3 weeks, eve
           examples.push(`${product.id}\n  before: ${body}\n  after:  ${after}`);
       }
       // through the importer's description step: never empty / under 2 words
-      const raw = after
-        .replace(/\s*Priced at \d+ units?\.?$/, "")
-        .replace(/\s*Pricing shown is for the base size or option;[^.]*\./, "");
+      const raw = after.replace(/\s*Pricing shown is for the base size or option;[^.]*\./, "");
       const rebuilt = buildDescription({
         rawDescription: raw,
         sizes: "",
@@ -895,10 +894,7 @@ describe("supplier promises are removed from descriptions (terms: 2-3 weeks, eve
         multiGrid: 0,
         enrich: { name: product.name, colors: [] },
       });
-      const words = rebuilt
-        .replace(/Priced at \d+ units?\./, "")
-        .split(/\s+/)
-        .filter(Boolean);
+      const words = rebuilt.split(/\s+/).filter(Boolean);
       expect(words.length, product.id).toBeGreaterThanOrEqual(2);
       expect(hasPromiseText(rebuilt), product.id).toBe(false);
     }
@@ -914,5 +910,116 @@ describe("supplier promises are removed from descriptions (terms: 2-3 weeks, eve
     for (const product of curated) {
       expect(hasPromiseText(product.description), product.id).toBe(false);
     }
+  });
+});
+
+describe("copy cleanup: price tail, Product label, MOQ and name leftovers", () => {
+  const clean = (raw: string) =>
+    buildDescription({ rawDescription: raw, sizes: "", usa: 0, multiGrid: 0 });
+
+  it("drops a leading 'Product' label but keeps sentences where the word is real", () => {
+    expect(stripLeadingProductLabel("Product America250 youth crewneck t-shirt.")).toBe(
+      "America250 youth crewneck t-shirt."
+    );
+    expect(stripLeadingProductLabel("Product cooler bag holds 12 cans.")).toBe(
+      "Cooler bag holds 12 cans."
+    );
+    expect(stripLeadingProductLabel("Product Fast Charging Cable.")).toBe("Fast Charging Cable.");
+    expect(stripLeadingProductLabel("Product dimensions: 4 x 6.")).toBe(
+      "Product dimensions: 4 x 6."
+    );
+    expect(clean("Product Mini Fan with a lanyard.")).toBe("Mini Fan with a lanyard.");
+    expect(clean("Product Trending Mini Fan with a lanyard.")).toBe("Mini Fan with a lanyard.");
+  });
+
+  it("removes MOQ fragments and whole MOQ sentences", () => {
+    expect(clean("USA Flag Straw Hat with Custom patch, MOQ 10pcs.")).toBe(
+      "USA Flag Straw Hat with Custom patch."
+    );
+    expect(clean("Sun shade, digital print custom, MOQ 100pcs.")).toBe(
+      "Sun shade, digital print custom."
+    );
+    expect(clean("Sturdy cap (MOQ 50). Adjustable strap.")).toBe("Sturdy cap. Adjustable strap.");
+    expect(clean("Sturdy cap. MOQ 100pcs.")).toBe("Sturdy cap.");
+    expect(cleanDescriptionText("Sturdy cap. MOQ is 500 units.")).toBe("Sturdy cap.");
+  });
+
+  it("never writes or keeps a 'Priced at N units.' sentence, and still never comes back empty", () => {
+    expect(clean("Sturdy cap. Priced at 50 units.")).toBe("Sturdy cap.");
+    expect(
+      buildDescription({
+        rawDescription: "Priced at 50 units.",
+        sizes: "",
+        usa: 0,
+        multiGrid: 0,
+        enrich: { name: "Sturdy Cap", colors: [] },
+      })
+    ).toBe("Sturdy Cap.");
+  });
+
+  it("fixes the 'Sticket' typo, drops a model-year prefix, variant codes and 'In Stock'", () => {
+    expect(stripVendorNameNoise('Sticket Sheet 11.5" x 7" Custom Shapes')).toBe(
+      'Sticker Sheet 11.5" x 7" Custom Shapes'
+    );
+    expect(
+      stripVendorNameNoise("2025 Open - Ear Wireless Earbuds: Panoramic Sound, HD Calls")
+    ).toBe("Open-Ear Wireless Earbuds: Panoramic Sound, HD Calls");
+    // real dated products and event names keep their year; America250 is not a bare year
+    expect(stripVendorNameNoise("2027 Wall Calendar Stapled")).toBe("2027 Wall Calendar Stapled");
+    expect(stripVendorNameNoise("America250 Youth Crew T Shirt")).toBe(
+      "America250 Youth Crew T Shirt"
+    );
+    expect(stripVendorNameNoise("6 Pack Nonwoven Cooler Bag - B")).toBe(
+      "6 Pack Nonwoven Cooler Bag"
+    );
+    expect(stripVendorNameNoise("Polyester/Badge Reel Lanyard Combo-B")).toBe(
+      "Polyester/Badge Reel Lanyard Combo"
+    );
+    expect(stripVendorNameNoise("8-Piece Travel Storage Bag Set In Various Sizes In Stock")).toBe(
+      "8-Piece Travel Storage Bag Set In Various Sizes"
+    );
+    // sizes and other short suffixes are left alone
+    expect(stripVendorNameNoise("Fleece Vest - M")).toBe("Fleece Vest - M");
+  });
+
+  it("keeps ids on the original cleaned name while the display name changes", () => {
+    const row = [
+      "999000111",
+      "P-1",
+      "6 Pack Nonwoven Cooler Bag - B",
+      "Non-woven cooler bag.",
+      ["Black"],
+      "",
+      [[50, 10.5]],
+      "123",
+      "Supplier",
+      "asi/1",
+      5,
+      50,
+      0,
+      "bags",
+    ];
+    const cleaned = cleanRow(row);
+    expect(cleaned.idName).toBe("6 Pack Nonwoven Cooler Bag - B");
+    expect(cleaned.product?.name).toBe("6 Pack Nonwoven Cooler Bag");
+  });
+
+  it("leaves no tail, Product label, MOQ or year prefix anywhere in the imported catalog", () => {
+    const bad: string[] = [];
+    for (const record of importedProductsJson as {
+      id: string;
+      name: string;
+      description: string;
+    }[]) {
+      const d = record.description;
+      if (!d.trim()) bad.push(`${record.id}: empty description`);
+      if (/Priced at \d/.test(d)) bad.push(`${record.id}: Priced at`);
+      if (/\bMOQ\b/i.test(d)) bad.push(`${record.id}: MOQ`);
+      if (/^(?:Made in the USA\. )?Product\s+(?!(?:dimensions?|size)\b)/i.test(d))
+        bad.push(`${record.id}: Product label`);
+      if (/^20\d\d\s+[A-Za-z]/.test(record.name) && !/calendar|planner/i.test(record.name))
+        bad.push(`${record.id}: year prefix`);
+    }
+    expect(bad).toEqual([]);
   });
 });

@@ -287,7 +287,9 @@ describe("buildProductMetadata", () => {
 
   it("sets title, description and canonical", () => {
     expect(meta.title).toBe("Cotton Tee | Magnolia Grove Consultants");
-    expect(meta.description).toBe("Soft cotton tee.");
+    expect(meta.description).toBe(
+      "Cotton Tee with your logo from Nike. Soft cotton tee. Available in 2 colors. Minimum order 50."
+    );
     expect(meta.alternates.canonical).toBe(`${SITE}/merchandise/tee-1`);
   });
 

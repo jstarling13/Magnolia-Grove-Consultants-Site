@@ -152,7 +152,7 @@ describe("description / badge / colors", () => {
     expect(cleanRow(row).product?.colors).toHaveLength(30);
   });
 
-  it("builds a factual fallback description and the Priced-at sentence", () => {
+  it("builds a factual fallback description and no 'Priced at' sentence", () => {
     expect(
       buildDescription({
         rawDescription: "",
@@ -162,7 +162,7 @@ describe("description / badge / colors", () => {
         usa: 0,
         multiGrid: 0,
       })
-    ).toBe("Size: S-XL. Priced at 25 units.");
+    ).toBe("Size: S-XL.");
     expect(
       buildDescription({
         rawDescription: "",
@@ -172,7 +172,17 @@ describe("description / badge / colors", () => {
         usa: 0,
         multiGrid: 0,
       })
-    ).toBe("Priced at 1 unit.");
+    ).toBe("");
+    // the importer always passes `enrich`, so a row with no facts falls back to its own name
+    expect(
+      buildDescription({
+        rawDescription: "",
+        sizes: "",
+        usa: 0,
+        multiGrid: 0,
+        enrich: { name: "Cooler Bag", colors: [] },
+      })
+    ).toBe("Cooler Bag.");
     // the color count is never written (the swatches show it), even next to a size line
     expect(
       buildDescription({
@@ -183,7 +193,7 @@ describe("description / badge / colors", () => {
         usa: 0,
         multiGrid: 0,
       })
-    ).toBe("Size: 6' x 10''. Priced at 1 unit.");
+    ).toBe("Size: 6' x 10''.");
   });
 
   it("does not repeat Made in USA when the supplier text already says it", () => {
@@ -196,17 +206,15 @@ describe("description / badge / colors", () => {
         usa: 1,
         multiGrid: 0,
       })
-    ).toBe("Golf balls. Made in USA. Priced at 6 units.");
+    ).toBe("Golf balls. Made in USA.");
   });
 
   it("adds the USA and multi-grid sentences only when the row says so", () => {
     const base = { rawDescription: "Trending Great tee", colorCount: 2, sizes: "", minQty: 6 };
     expect(buildDescription({ ...base, usa: 1, multiGrid: 1 })).toBe(
-      "Made in the USA. Great tee. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 6 units."
+      "Made in the USA. Great tee. Pricing shown is for the base size or option; other sizes or options may cost more."
     );
-    expect(buildDescription({ ...base, usa: 0, multiGrid: 0 })).toBe(
-      "Great tee. Priced at 6 units."
-    );
+    expect(buildDescription({ ...base, usa: 0, multiGrid: 0 })).toBe("Great tee.");
   });
 });
 
@@ -319,7 +327,7 @@ describe("buildCatalog on the synthetic fixture", () => {
       [250, 17],
     ]);
     expect(first.product.description).toBe(
-      "Made in the USA. Soft polo with a clean finish. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit."
+      "Made in the USA. Soft polo with a clean finish. Pricing shown is for the base size or option; other sizes or options may cost more."
     );
     expect(first.product.imageAlt).toBe(first.product.name);
   });
@@ -873,7 +881,7 @@ describe("description cleanup", () => {
         usa: 0,
         multiGrid: 0,
       })
-    ).toBe("Priced at 12 units.");
+    ).toBe("");
   });
 
   it("never leaves a color-count claim that disagrees with the real color list", () => {
@@ -885,7 +893,7 @@ describe("description cleanup", () => {
     row[3] = "Cotton cap in 12 colors.";
     const cleaned = cleanRow(row);
     // the invented "12 colors" claim is gone and no count is written back: the swatches show it
-    expect(cleaned.product?.description).toBe("Cotton cap. Priced at 1 unit.");
+    expect(cleaned.product?.description).toBe("Cotton cap.");
   });
 });
 
@@ -1222,10 +1230,10 @@ describe("display names", () => {
         usa: 0,
         multiGrid: 0,
       })
-    ).toBe("Door mat. Priced at 5 units.");
+    ).toBe("Door mat.");
     const row = mk({ espId: "9500", name: "Mat" });
     row[5] = "6 ' x 10 '";
-    expect(cleanRow(row).product?.description).toBe("Size: 6' x 10'. Priced at 1 unit.");
+    expect(cleanRow(row).product?.description).toBe("Size: 6' x 10'.");
   });
 });
 
@@ -1586,7 +1594,7 @@ describe("cleanColors on a whole list", () => {
     expect("colors" in record).toBe(false);
     expect(isImportedProductRecord(record)).toBe(true);
     // nothing else is known about the row, so the importer falls back to the product name
-    expect(cleaned.product?.description).toBe("Event Flooring. Priced at 1 unit.");
+    expect(cleaned.product?.description).toBe("Event Flooring.");
 
     const product = {
       id: "event-flooring-09700",
@@ -1730,7 +1738,7 @@ describe("description ending punctuation", () => {
       usa: 0,
       multiGrid: 0,
     });
-    expect(out.endsWith('2.76". Priced at 300 units.')).toBe(true);
+    expect(out.endsWith('2.76".')).toBe(true);
   });
 
   it("does not double-punctuate text that already ends a sentence with a closing quote", async () => {
@@ -1743,6 +1751,6 @@ describe("description ending punctuation", () => {
       usa: 0,
       multiGrid: 0,
     });
-    expect(out).toBe('Our customers call it "the best". Priced at 12 units.');
+    expect(out).toBe('Our customers call it "the best".');
   });
 });

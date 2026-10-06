@@ -1650,14 +1650,23 @@ const importedProducts: MerchProduct[] = (importedProductsJson as unknown[])
   .filter(isImportedProductRecord)
   .map(toImportedProduct);
 
+/**
+ * The price table already shows every minimum, so a trailing "Priced at N units." sentence is
+ * never displayed (curated copy still carries it in source; imported copy no longer does).
+ */
+function withoutPricedAtTail(product: MerchProduct): MerchProduct {
+  const description = product.description.replace(/\s*Priced at [\d,]+ units?\.?\s*$/i, "").trim();
+  return description === product.description ? product : { ...product, description };
+}
+
 // Products taken off the storefront (e.g. photos that show another company's logo or a
 // real person) without deleting their data. id -> reason; remove an entry to restore it.
 const hiddenProductIds = new Set(Object.keys(hiddenProductsJson as Record<string, string>));
 
 /** Every product in the data files, hidden ones included. For data-integrity checks, not the storefront. */
-export const allProducts: MerchProduct[] = [...curatedProducts, ...importedProducts].map(
-  withColorImages
-);
+export const allProducts: MerchProduct[] = [...curatedProducts, ...importedProducts]
+  .map(withoutPricedAtTail)
+  .map(withColorImages);
 
 // Imported products go live only after their main photo has been checked for other
 // companies' logos, sample imprints and faces. New imports stay off the storefront until
