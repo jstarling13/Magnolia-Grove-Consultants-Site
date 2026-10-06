@@ -5,6 +5,7 @@ import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 import { createPaymentLink, deletePaymentLink, getPaymentLinkStatus } from "@/lib/square";
 import { sendMerchPaymentLinkEmail, sendMerchShippedEmail } from "@/lib/email";
+import { customerLinesFromStored } from "@/lib/emailTemplates/layout";
 import { sendMerchPaidEmailOnce, syncAwaitingMerchPayments } from "@/lib/merchPayments";
 import type { SubmissionRow } from "@/components/admin/Dashboard";
 import {
@@ -294,6 +295,7 @@ export async function sendMerchPaymentLink(
     orderId: id,
     total: amount.cents / 100,
     paymentUrl: link.url,
+    items: customerLinesFromStored(data.items),
   });
 
   revalidatePath("/admin");

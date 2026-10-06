@@ -70,6 +70,7 @@ describe("sendMerchPaidEmailOnce", () => {
       firstName: "Pat",
       orderId: 5,
       amountPaid: 912.5,
+      items: [],
     });
     expect(typeof mocks.store[5].paidEmailSentAt).toBe("string");
   });
@@ -173,5 +174,22 @@ describe("syncAwaitingMerchPayments", () => {
     expect(row.data.status).toBe("paid");
     expect(mocks.store[9].status).toBe("paid");
     spy.mockRestore();
+  });
+});
+
+describe("sendMerchPaidEmailOnce line items", () => {
+  it("passes the stored order lines to the receipt email", async () => {
+    vi.clearAllMocks();
+    mocks.sendMerchPaidEmail.mockResolvedValue({ sent: true });
+    mocks.store[9] = { status: "paid" };
+    await sendMerchPaidEmailOnce(9, {
+      firstName: "Pat",
+      email: "pat@example.com",
+      quotedTotal: 100,
+      items: [{ name: "Tote Bag", color: "Navy", quantity: 50, unitPrice: 2, lineTotal: 100 }],
+    });
+    const payload = mocks.sendMerchPaidEmail.mock.calls[0][0];
+    expect(payload.items).toHaveLength(1);
+    expect(payload.items[0]).toMatchObject({ name: "Tote Bag", quantity: 50 });
   });
 });

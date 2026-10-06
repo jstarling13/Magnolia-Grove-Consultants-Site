@@ -1,6 +1,7 @@
 import { sql } from "./db";
 import { getPaymentLinkStatus } from "./square";
 import { sendMerchPaidEmail } from "./email";
+import { customerLinesFromStored } from "./emailTemplates/layout";
 import { auditEntriesJson, makeAuditEntry, readAuditLog } from "./merchOrders";
 
 interface SyncableRow {
@@ -44,6 +45,7 @@ export async function sendMerchPaidEmailOnce(
       firstName: typeof data.firstName === "string" ? data.firstName : "",
       orderId: id,
       ...(typeof data.quotedTotal === "number" ? { amountPaid: data.quotedTotal } : {}),
+      items: customerLinesFromStored(data.items),
     });
     if (result.sent) return "sent";
   } catch (error) {
