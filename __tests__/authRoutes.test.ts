@@ -7,7 +7,9 @@ const mocks = vi.hoisted(() => ({
   verifyUserCredentials: vi.fn(),
   verifyClientCredentials: vi.fn(),
   createClientUser: vi.fn(),
+  revokeAdminSessions: vi.fn(),
 }));
+vi.mock("@/lib/adminSessions", () => ({ revokeAdminSessions: mocks.revokeAdminSessions }));
 vi.mock("@/lib/ratelimit", () => ({ checkRateLimit: mocks.checkRateLimit }));
 vi.mock("@/lib/adminUsers", () => ({ verifyUserCredentials: mocks.verifyUserCredentials }));
 vi.mock("@/lib/clientUsers", () => ({
@@ -20,7 +22,7 @@ import { POST as adminLogout } from "@/app/api/admin/logout/route";
 import { POST as accountLogin } from "@/app/api/account/login/route";
 import { POST as accountSignup } from "@/app/api/account/signup/route";
 import { POST as accountLogout } from "@/app/api/account/logout/route";
-import { verifySessionToken } from "@/lib/adminAuth";
+import { createSessionToken, verifySessionToken } from "@/lib/adminAuth";
 import { verifyClientSessionToken } from "@/lib/clientAuth";
 
 function post(path: string, body: unknown, headers: Record<string, string> = {}) {
@@ -62,7 +64,7 @@ describe("POST /api/admin/login", () => {
     expect(cookie).toMatch(/Path=\//);
     expect(cookie).toMatch(/Max-Age=86400/);
     const token = cookie.split(";")[0].split("=")[1];
-    expect(verifySessionToken(token)).toEqual({ username: "Bgarcia" });
+    expect(verifySessionToken(token)).toMatchObject({ username: "Bgarcia" });
   });
 
   it("answers 401 with a generic message and no cookie for bad credentials", async () => {
@@ -209,9 +211,38 @@ describe("POST /api/account/signup", () => {
   });
 });
 
+describe("admin logout revocation", () => {
+  const withCookie = (value: string) =>
+    post("/api/admin/logout", {}, { cookie: `admin_session=${value}` });
+
+  it("revokes the signed-in admin's sessions server-side and still clears the cookie", async () => {
+    const res = await adminLogout(withCookie(createSessionToken("Bgarcia")));
+    expect(res.status).toBe(200);
+    expect(mocks.revokeAdminSessions).toHaveBeenCalledExactlyOnceWith("Bgarcia");
+    expect(cookieOf(res, "admin_session")).toMatch(/Max-Age=0/);
+  });
+
+  it("does not revoke anything for a missing, forged or expired token", async () => {
+    await adminLogout(post("/api/admin/logout", {}));
+    await adminLogout(withCookie(createSessionToken("Bgarcia").replace(/.$/, "x")));
+    const forged = Buffer.from(
+      JSON.stringify({ username: "Ntillotson", exp: Date.now() + 1e9 })
+    ).toString("base64url");
+    await adminLogout(withCookie(`${forged}.bogus`));
+    expect(mocks.revokeAdminSessions).not.toHaveBeenCalled();
+  });
+
+  it("still signs out (cookie cleared, 200) when the revocation write fails", async () => {
+    mocks.revokeAdminSessions.mockRejectedValue(new Error("db down"));
+    const res = await adminLogout(withCookie(createSessionToken("Bgarcia")));
+    expect(res.status).toBe(200);
+    expect(cookieOf(res, "admin_session")).toMatch(/Max-Age=0/);
+  });
+});
+
 describe("logout", () => {
   it("expires the cookie with the same attributes it was set with", async () => {
-    const admin = cookieOf(await adminLogout(), "admin_session");
+    const admin = cookieOf(await adminLogout(post("/api/admin/logout", {})), "admin_session");
     expect(admin).toMatch(/Max-Age=0/);
     expect(admin).toMatch(/SameSite=strict/i);
     expect(admin).toMatch(/Secure/i);

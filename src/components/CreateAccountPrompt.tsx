@@ -1,11 +1,20 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { UserPlus } from "lucide-react";
 import { useClientProfile } from "@/hooks/useClientProfile";
+import { readThankYouEmail } from "@/lib/thankYouEmail";
 
-export default function CreateAccountPrompt({ email }: { email?: string }) {
+/**
+ * The email for the signup link comes from sessionStorage (written by the form
+ * the customer just submitted), never from the page URL. Without it the signup
+ * page simply asks for the email.
+ */
+export default function CreateAccountPrompt() {
   const profile = useClientProfile();
+  const [email, setEmail] = useState("");
+  useEffect(() => setEmail(readThankYouEmail()), []);
 
   if (profile) return null;
 

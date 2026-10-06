@@ -516,7 +516,7 @@ export function buildMerchRequestConfirmationEmail(
       `<ol style="color:#e5e5e5;font-size:14px;line-height:1.7;margin:0 0 16px;padding-left:20px;">
         <li>We confirm decoration, shipping, and sales tax for your order.</li>
         <li>We email you a final quote with a secure link to pay.</li>
-        <li>We place your order with our supplier after your payment clears, and email you tracking details when it ships.</li>
+        <li>We place your order after your payment clears, and email you tracking details when it ships.</li>
       </ol>`,
       paragraph(
         `<span style="color:${MUTED};font-size:12px;">Questions or changes? Just reply to this email${payload.orderRef ? ` and mention ${escapeHtml(payload.orderRef)}` : ""}.</span>`
@@ -587,7 +587,7 @@ export async function sendMerchPaymentLinkEmail(
   const html = emailShell(
     "Your Merchandise Quote Is Ready",
     `<p style="color:#e5e5e5;font-size:14px;line-height:1.6;">Hi ${escapeHtml(payload.firstName) || "there"},</p>
-     <p style="color:#e5e5e5;font-size:14px;line-height:1.6;">We've confirmed the final pricing for your merchandise order, including decoration, shipping, and tax. We place the order with our supplier as soon as payment clears.</p>
+     <p style="color:#e5e5e5;font-size:14px;line-height:1.6;">We've confirmed the final pricing for your merchandise order, including decoration, shipping, and tax. We place the order as soon as payment clears.</p>
      ${row("Order Reference", orderRef)}
      ${row("Total Due", `$${payload.total.toFixed(2)}`)}
      <p style="margin:24px 0;"><a href="${escapeHtml(payload.paymentUrl)}" style="display:inline-block;background:${GOLD};color:${ONYX};font-size:14px;font-weight:700;text-decoration:none;border-radius:6px;padding:12px 24px;">Pay Securely Online &rarr;</a></p>
@@ -633,7 +633,7 @@ export function buildMerchPaidEmail(payload: MerchPaidEmailPayload): BuiltEmail 
       row("Order Reference", escapeHtml(orderRef)),
       typeof payload.amountPaid === "number" ? row("Amount Paid", money(payload.amountPaid)) : "",
       paragraph(
-        "We are placing your order with our supplier now. We will email you again with tracking details when it ships."
+        "We are placing your order now. We will email you again with tracking details when it ships."
       ),
       trackOrderLinkHtml(payload.orderId),
       paragraph(

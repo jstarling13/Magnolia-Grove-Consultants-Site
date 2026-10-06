@@ -337,8 +337,8 @@ export default function CartPageContent({
           <h1 className="text-2xl text-onyx">Order Request Received</h1>
           <p className="mt-3 max-w-md text-base leading-relaxed text-onyx/60">
             Nothing has been charged. We&apos;ll email you a final quote covering decoration,
-            shipping, and tax, with a secure link to pay. We place the order with our supplier once
-            your payment clears.
+            shipping, and tax, with a secure link to pay. We place the order once your payment
+            clears.
           </p>
           {orderRef && (
             <p className="mt-6 text-sm text-onyx/80">
@@ -459,7 +459,7 @@ export default function CartPageContent({
                 <h2 className="text-xl text-onyx">Submit Your Order Request</h2>
                 <p className="mt-2 text-sm text-onyx/60">
                   Nothing is charged yet. We&apos;ll email you a final quote with a secure payment
-                  link, and place the order with our supplier once you&apos;ve paid.
+                  link, and place the order once you&apos;ve paid.
                 </p>
 
                 <input

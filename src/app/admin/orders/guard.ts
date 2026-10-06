@@ -1,12 +1,13 @@
 import "server-only";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { ADMIN_SESSION_COOKIE, verifySessionToken, type AdminSession } from "@/lib/adminAuth";
+import { ADMIN_SESSION_COOKIE, type AdminSession } from "@/lib/adminAuth";
+import { getVerifiedAdminSession } from "@/lib/adminSessions";
 
-/** The signed-in admin, or null. Middleware already guards /admin; this re-checks at the data boundary. */
+/** The signed-in admin, or null. Middleware already guards /admin; this re-checks at the data boundary, including server-side revocation. */
 export async function getAdminSession(): Promise<AdminSession | null> {
   const cookieStore = await cookies();
-  return verifySessionToken(cookieStore.get(ADMIN_SESSION_COOKIE)?.value);
+  return getVerifiedAdminSession(cookieStore.get(ADMIN_SESSION_COOKIE)?.value);
 }
 
 /** For pages: no session means back to the login screen, before any query runs. */

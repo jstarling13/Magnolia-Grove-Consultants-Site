@@ -1,6 +1,8 @@
 import { cookies } from "next/headers";
 import { sql } from "@/lib/db";
-import { ADMIN_SESSION_COOKIE, verifySessionToken } from "@/lib/adminAuth";
+import { redirect } from "next/navigation";
+import { ADMIN_SESSION_COOKIE } from "@/lib/adminAuth";
+import { getVerifiedAdminSession } from "@/lib/adminSessions";
 import { syncAwaitingMerchPayments } from "@/lib/merchPayments";
 import Dashboard, { type SubmissionRow } from "@/components/admin/Dashboard";
 
@@ -8,7 +10,9 @@ export const dynamic = "force-dynamic";
 
 export default async function AdminPage() {
   const cookieStore = await cookies();
-  const session = verifySessionToken(cookieStore.get(ADMIN_SESSION_COOKIE)?.value);
+  // Middleware only checks the signature; a signed-out (revoked) session is turned away here.
+  const session = await getVerifiedAdminSession(cookieStore.get(ADMIN_SESSION_COOKIE)?.value);
+  if (!session) redirect("/admin/login");
 
   const submissions = (await sql`
     SELECT id, type, data, created_at, read_at
@@ -22,7 +26,7 @@ export default async function AdminPage() {
   return (
     <Dashboard
       submissions={submissions}
-      username={session?.username ?? ""}
+      username={session.username}
       deliverablesBySubmission={{}}
     />
   );

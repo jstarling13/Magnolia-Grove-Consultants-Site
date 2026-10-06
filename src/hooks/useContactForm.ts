@@ -3,6 +3,7 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { trackEvent } from "@/lib/gtag";
+import { rememberThankYouEmail } from "@/lib/thankYouEmail";
 
 export type ContactFormType = "lead" | "strategy";
 export type SubmitStatus = "idle" | "submitting" | "success" | "error";
@@ -90,8 +91,9 @@ export function useContactForm<T extends object>({
         "email" in fields ? String((fields as { email?: unknown }).email ?? "") : "";
       setFields(initialFields);
       trackEvent(formType === "lead" ? "form_submission_lead" : "form_submission_booking");
-      const emailParam = submittedEmail ? `&email=${encodeURIComponent(submittedEmail)}` : "";
-      router.push(`/thank-you?source=${formType}${emailParam}`);
+      // The email rides in sessionStorage, not the URL (privacy: URLs reach history and logs).
+      rememberThankYouEmail(submittedEmail);
+      router.push(`/thank-you?source=${formType}`);
     } catch {
       setSubmitError(defaultErrorMessage);
       setStatus("error");

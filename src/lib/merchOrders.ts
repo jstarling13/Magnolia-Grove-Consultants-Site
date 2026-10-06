@@ -127,7 +127,8 @@ export const MERCH_ORDER_STATUS_LABELS: Record<MerchOrderStatus, string> = {
 
 const REQUIRES_PAYMENT: readonly MerchOrderStatus[] = ["ordered_in_esp", "fulfilled"];
 
-export type StatusChangeResult = { ok: true } | { ok: false; error: string };
+/** `warning` is set when the change went through but something needs the admin's attention. */
+export type StatusChangeResult = { ok: true; warning?: string } | { ok: false; error: string };
 
 /** Blocks moving an order to a supplier-ordered state until payment is confirmed. */
 export function canSetMerchStatus(

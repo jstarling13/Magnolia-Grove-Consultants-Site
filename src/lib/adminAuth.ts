@@ -7,12 +7,18 @@ import {
 } from "./signedToken";
 
 export const ADMIN_SESSION_COOKIE = "admin_session";
-// Admin sessions can send customer email and create payment links, and the
-// token is stateless (logout can't revoke it), so keep the window short.
+// Admin sessions can send customer email and create payment links. The token is
+// stateless, but sign-out revokes it server-side (see adminSessions.ts); the short
+// window still bounds a session whose owner never signs out.
 export const ADMIN_SESSION_TTL_MS = 24 * 60 * 60 * 1000; // 24 hours
 
 export function createSessionToken(username: string): string {
-  return createSignedToken("ADMIN_SESSION_SECRET", { username }, ADMIN_SESSION_TTL_MS);
+  // `iat` lets adminSessions.ts reject tokens issued before a sign-out / password reset.
+  return createSignedToken(
+    "ADMIN_SESSION_SECRET",
+    { username, iat: String(Date.now()) },
+    ADMIN_SESSION_TTL_MS
+  );
 }
 
 /** Strict: the admin cookie is never needed on cross-site navigations. */
@@ -22,12 +28,15 @@ export function adminCookieOptions(): SessionCookieOptions {
 
 export interface AdminSession {
   username: string;
+  /** Milliseconds since epoch when the token was issued; 0 for tokens that predate revocation. */
+  issuedAt: number;
 }
 
 export function verifySessionToken(token: string | undefined): AdminSession | null {
   const claims = verifySignedToken("ADMIN_SESSION_SECRET", token);
   if (!claims || typeof claims.username !== "string" || !claims.username) return null;
-  return { username: claims.username };
+  const issuedAt = typeof claims.iat === "string" ? Number(claims.iat) : 0;
+  return { username: claims.username, issuedAt: Number.isFinite(issuedAt) ? issuedAt : 0 };
 }
 
 /**

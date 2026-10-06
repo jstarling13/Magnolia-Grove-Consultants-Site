@@ -11,16 +11,23 @@ vi.mock("@/lib/db", () => ({
 }));
 vi.mock("next/cache", () => ({ revalidatePath: vi.fn() }));
 vi.mock("next/headers", () => ({ cookies: async () => ({ get: () => ({ value: "token" }) }) }));
-vi.mock("@/lib/adminAuth", () => ({
-  ADMIN_SESSION_COOKIE: "admin",
-  verifySessionToken: () => (mocks.admin ? { username: "ben" } : null),
+vi.mock("@/lib/adminAuth", () => ({ ADMIN_SESSION_COOKIE: "admin" }));
+vi.mock("@/lib/adminSessions", () => ({
+  getVerifiedAdminSession: async () => (mocks.admin ? { username: "ben", issuedAt: 0 } : null),
 }));
-vi.mock("@/lib/square", () => ({ createPaymentLink: vi.fn() }));
+vi.mock("@/lib/square", () => ({
+  createPaymentLink: vi.fn(),
+  deletePaymentLink: vi.fn(),
+  getPaymentLinkStatus: vi.fn(),
+}));
 vi.mock("@/lib/email", () => ({
   sendMerchPaymentLinkEmail: vi.fn(),
   sendMerchShippedEmail: vi.fn(),
 }));
-vi.mock("@/lib/merchPayments", () => ({ sendMerchPaidEmailOnce: vi.fn() }));
+vi.mock("@/lib/merchPayments", () => ({
+  sendMerchPaidEmailOnce: vi.fn(),
+  syncAwaitingMerchPayments: vi.fn(),
+}));
 
 import {
   addDeliverable,

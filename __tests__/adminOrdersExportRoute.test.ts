@@ -16,9 +16,9 @@ vi.mock("next/navigation", () => ({
     throw new Error(`REDIRECT:${url}`);
   },
 }));
-vi.mock("@/lib/adminAuth", () => ({
-  ADMIN_SESSION_COOKIE: "admin",
-  verifySessionToken: () => (mocks.admin ? { username: "ben" } : null),
+vi.mock("@/lib/adminAuth", () => ({ ADMIN_SESSION_COOKIE: "admin" }));
+vi.mock("@/lib/adminSessions", () => ({
+  getVerifiedAdminSession: async () => (mocks.admin ? { username: "ben", issuedAt: 0 } : null),
 }));
 vi.mock("@/app/admin/orders/queries", () => ({
   listOrdersForExport: async (filter: unknown) => {
@@ -96,6 +96,6 @@ describe("requireAdminPage", () => {
   });
 
   it("returns the session for an admin", async () => {
-    await expect(requireAdminPage()).resolves.toEqual({ username: "ben" });
+    await expect(requireAdminPage()).resolves.toEqual({ username: "ben", issuedAt: 0 });
   });
 });

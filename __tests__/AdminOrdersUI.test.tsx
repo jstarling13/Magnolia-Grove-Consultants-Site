@@ -380,6 +380,16 @@ describe("OrderDetail", () => {
     expect(await screen.findByText("Payment hasn't been received yet.")).toBeInTheDocument();
   });
 
+  it("shows the warning when a cancel went through but Square could not kill the payment link", async () => {
+    actions.updateMerchOrderStatus.mockResolvedValue({
+      ok: true,
+      warning: "The order is cancelled, but Square could not cancel its payment link.",
+    });
+    renderDetail(record(7, { status: "awaiting_payment" }));
+    fireEvent.change(screen.getByLabelText("Order Status"), { target: { value: "cancelled" } });
+    expect(await screen.findByText(/Square could not cancel its payment link/)).toBeInTheDocument();
+  });
+
   it("sends a payment link for an unpaid order using the existing action", async () => {
     actions.sendMerchPaymentLink.mockResolvedValue({
       ok: true,

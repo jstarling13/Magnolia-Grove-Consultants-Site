@@ -160,7 +160,7 @@ describe("buildMerchPaidEmail", () => {
     expect(html).toContain("$912.50");
     expect(html).toContain("Amount Paid");
     expect(html).toContain("MG-00042");
-    expect(html).toContain("placing your order with our supplier now");
+    expect(html).toContain("placing your order now");
     expectNoBackendData(html);
   });
 
