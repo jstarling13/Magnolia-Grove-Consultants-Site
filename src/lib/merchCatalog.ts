@@ -423,7 +423,14 @@ export function filterProducts(list: CatalogProduct[], filters: ProductFilters):
 //
 // Results are ranked by where the term was found (name, then brand, category,
 // color, description) and then by how exact the match is (whole word, then
-// word prefix, then substring).
+// word prefix, then substring). Three refinements keep the product the shopper
+// means ahead of products that merely mention it:
+//   - in the name, a word that is the product's noun ("Breakaway Lanyard")
+//     beats one earlier in the name ("Lanyard Wallet Case"), which beats one
+//     after "with", "for" ("Bluetooth Speaker with Lanyard");
+//   - a name match in the category the term names ("lanyard" in "Lanyards &
+//     Badges") gets a further boost;
+//   - a match only in the description is pushed well below everything else.
 
 /** Separates the searchable fields inside a haystack string. */
 const FIELD_SEPARATOR = "\u001f";
@@ -432,9 +439,27 @@ const FORM_SEPARATOR = "\u001e";
 /** Search fields in rank order; a lower index ranks higher. */
 const SEARCH_FIELDS = ["name", "brand", "category", "color", "description"] as const;
 /** Each field step outweighs every match kind (whole word, prefix, substring). */
-const FIELD_STEP = 10;
+const FIELD_STEP = 100;
+/** Each match kind outweighs every position refinement inside the name. */
+const KIND_STEP = 10;
+/** Name positions, best first: the product's noun, an earlier word, after "with" and the like. */
+const NAME_NOUN = 0;
+const NAME_HEAD = 3;
+const NAME_TAIL = 6;
+/** Taken off a name match when the category also names the term ("lanyard", "Lanyards & Badges"). */
+const CATEGORY_BONUS = 40;
+/** Added to a description match, which says little about what the product is. */
+const DESCRIPTION_PENALTY = 100;
 /** Added to a synonym match so it ranks below the same match on the typed words. */
-const SYNONYM_PENALTY = 3;
+const SYNONYM_PENALTY = 30;
+/** Words after which a name only describes an extra ("Speaker with Lanyard"). */
+const NAME_CONNECTOR = / (?:with|w|for|by|featuring|includes|including|from) /;
+/** Trailing words that are not the product's noun ("Tote Bag 15 x 16 in", "Tent Kit"). */
+const NAME_FILLER =
+  /^(?:\d.*|x|to|in|inch|inches|oz|ft|mm|cm|lb|lbs|pk|pack|packs|set|sets|kit|kits)$/;
+/** Nouns that only say what a thing is held in or on: "Tote Bag" and "Banner Stand" are totes and banners too. */
+const NAME_CONTAINER =
+  /^(?:bag|bags|case|cases|holder|holders|stand|stands|pouch|pouches|box|boxes)$/;
 
 /** Lower-cased text reduced to words (letters and digits) joined by single spaces. */
 function normalizeSearchText(text: string): string {
@@ -587,35 +612,109 @@ function queryReadings(query: string): Reading[] {
   return readings;
 }
 
+/** One searchable text, padded with a space each side for whole-word tests. */
+interface Segment {
+  padded: string;
+  /** Name only: where the product's own description ends (a connector word, or the end). */
+  head: number;
+  /** Name only: end of the product's noun, the last word of the head that is not filler. */
+  nounEnd: number;
+  /** Name only: end of the word before a container noun ("Tote" in "Tote Bag"), else -1. */
+  typeEnd: number;
+}
+
+function toSegment(text: string, isName: boolean): Segment {
+  const padded = ` ${text} `;
+  if (!isName) return { padded, head: padded.length, nounEnd: -1, typeEnd: -1 };
+  const cut = padded.search(NAME_CONNECTOR);
+  const head = cut > 0 ? cut : padded.length;
+  let nounEnd = -1;
+  let typeEnd = -1;
+  const words = padded.slice(0, head).trimEnd().split(" ");
+  let end = padded.slice(0, head).trimEnd().length;
+  for (let i = words.length - 1; i >= 1; i--) {
+    if (!NAME_FILLER.test(words[i])) {
+      nounEnd = end;
+      if (NAME_CONTAINER.test(words[i]) && i > 1) typeEnd = end - words[i].length - 1;
+      break;
+    }
+    end -= words[i].length + 1;
+  }
+  return { padded, head, nounEnd, typeEnd };
+}
+
+/**
+ * Rank of a name occurrence: the noun, an earlier word of the head, or past a
+ * connector. `index` is where the needle starts; its last character is at
+ * index + length - 1 (a space for a whole-word needle).
+ */
+function namePosition(segment: Segment, index: number, length: number): number {
+  if (index >= segment.head) return NAME_TAIL;
+  const wordEnd = segment.padded.indexOf(" ", index + length - 1);
+  return wordEnd === segment.nounEnd || wordEnd === segment.typeEnd ? NAME_NOUN : NAME_HEAD;
+}
+
+/** Score of one form in one segment (lower is better), or null when it is not there. */
+function segmentScore(
+  segment: Segment,
+  form: string,
+  substring: boolean,
+  isName: boolean
+): number | null {
+  const kinds = [` ${form} `, ` ${form}`, ...(substring ? [form] : [])];
+  for (let kind = 0; kind < kinds.length; kind++) {
+    const needle = kinds[kind];
+    let index = segment.padded.indexOf(needle);
+    if (index < 0) continue;
+    if (!isName) return kind * KIND_STEP;
+    // the same word can appear in the head and after a connector: keep the best
+    let best = NAME_TAIL;
+    while (index >= 0 && best > NAME_NOUN) {
+      best = Math.min(best, namePosition(segment, index, needle.length));
+      index = segment.padded.indexOf(needle, index + 1);
+    }
+    return kind * KIND_STEP + best;
+  }
+  return null;
+}
+
 /**
  * Rank score of one term in a haystack (lower is better), or null when it is
  * not there. `substring` also accepts a match inside a word.
  */
-function termScore(fields: readonly string[][], term: Term, substring: boolean): number | null {
+function termScore(fields: readonly Segment[][], term: Term, substring: boolean): number | null {
   let best: number | null = null;
+  let nameScore: number | null = null;
+  let categoryScore: number | null = null;
   for (let index = 0; index < fields.length; index++) {
+    let fieldBest: number | null = null;
     for (const segment of fields[index]) {
-      const padded = ` ${segment} `;
       for (const form of term) {
-        let kind: number;
-        if (padded.includes(` ${form} `)) kind = 0;
-        else if (padded.includes(` ${form}`)) kind = 1;
-        else if (substring && padded.includes(form)) kind = 2;
-        else continue;
-        const score = index * FIELD_STEP + kind;
-        if (best === null || score < best) best = score;
+        const score = segmentScore(segment, form, substring, index === 0);
+        if (score !== null && (fieldBest === null || score < fieldBest)) fieldBest = score;
       }
     }
+    if (fieldBest === null) continue;
+    if (index === 0) nameScore = fieldBest;
+    if (index === 2) categoryScore = fieldBest;
+    const score = index * FIELD_STEP + fieldBest + (index === 4 ? DESCRIPTION_PENALTY : 0);
+    if (best === null || score < best) best = score;
+  }
+  // the category names what the term is: a name match inside it is the product itself
+  if (nameScore !== null && categoryScore !== null && categoryScore < 2 * KIND_STEP) {
+    best = (best ?? 0) - CATEGORY_BONUS;
   }
   return best;
 }
 
-function parseHaystack(haystack: string): string[][] {
-  return haystack.split(FIELD_SEPARATOR).map((field) => field.split(FORM_SEPARATOR));
+function parseHaystack(haystack: string): Segment[][] {
+  return haystack
+    .split(FIELD_SEPARATOR)
+    .map((field, index) => field.split(FORM_SEPARATOR).map((text) => toSegment(text, index === 0)));
 }
 
 function queryScore(
-  fields: readonly string[][],
+  fields: readonly Segment[][],
   readings: readonly Reading[],
   substring: boolean
 ): number | null {
