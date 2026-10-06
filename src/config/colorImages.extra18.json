@@ -1,1 +1,15 @@
-{}
+{
+  "push-pop-ball-30004": {
+    "Red": "/images/merch/colors/push-pop-ball-30004-red.webp",
+    "Green": "/images/merch/colors/push-pop-ball-30004-green.webp",
+    "Gray": "/images/merch/colors/push-pop-ball-30004-gray.webp",
+    "Orange": "/images/merch/colors/push-pop-ball-30004-orange.webp",
+    "Pink": "/images/merch/colors/push-pop-ball-30004-pink.webp",
+    "Yellow": "/images/merch/colors/push-pop-ball-30004-yellow.webp",
+    "Teal-White": "/images/merch/colors/push-pop-ball-30004-teal-white.webp",
+    "Rainbow": "/images/merch/colors/push-pop-ball-30004-rainbow.webp"
+  },
+  "printed-wristbands-88947": {
+    "Black": "/images/merch/colors/printed-wristbands-88947-black.webp"
+  }
+}
