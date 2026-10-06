@@ -11,6 +11,7 @@
     "format": "prettier --write .",
     "catalog:import": "node scripts/importCatalog.mjs",
     "images:optimize": "node scripts/optimizeImages.mjs",
+    "smoke": "node scripts/smoke.mjs",
     "prepare": "husky"
   },
   "dependencies": {
