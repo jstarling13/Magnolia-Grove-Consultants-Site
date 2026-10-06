@@ -267,7 +267,7 @@ describe("size-priced products (priceNote)", () => {
     expect(flagged.product?.priceNote).toBe(PRICE_NOTE_SIZE);
     expect(PRICE_NOTE_SIZE).toBe("Priced for the standard size; other sizes quoted on request.");
     expect(flagged.product?.description).not.toMatch(/base size or option/);
-    expect(flagged.product?.description).toMatch(/Priced at 1 unit\.$/);
+    expect(flagged.product?.description).not.toMatch(/Priced at/);
     const record = toPublicRecord({
       id: "event-flooring-55555",
       product: flagged.product!,
@@ -294,9 +294,7 @@ describe("size-priced products (priceNote)", () => {
   it("keeps the generic caveat when buildDescription is not told the product is size-priced", () => {
     const base = { rawDescription: "Great tee", colorCount: 2, sizes: "", minQty: 6, usa: 0 };
     expect(buildDescription({ ...base, multiGrid: 1 })).toMatch(/base size or option/);
-    expect(buildDescription({ ...base, multiGrid: 1, sizePriced: true })).toBe(
-      "Great tee. Priced at 6 units."
-    );
+    expect(buildDescription({ ...base, multiGrid: 1, sizePriced: true })).toBe("Great tee.");
   });
 
   it("flows from the data file to the product page model but not onto cards or the cart", () => {
@@ -305,7 +303,7 @@ describe("size-priced products (priceNote)", () => {
       name: "Event Flooring",
       category: "Home & Decor",
       brand: "Essentials",
-      description: "Printed floors. Priced at 1 unit.",
+      description: "Printed floors.",
       tiers: [
         [1, 100],
         [10, 90],
@@ -340,7 +338,7 @@ describe("thin descriptions", () => {
         multiGrid: 0,
         enrich: { name: "Door Mat", breakQty: 2000 },
       })
-    ).toBe(`Door mat. Size: 15" x 23". Priced at 1000 units.`);
+    ).toBe(`Door mat. Size: 15" x 23".`);
   });
 
   it("leaves descriptions that already say enough untouched", () => {
@@ -354,7 +352,7 @@ describe("thin descriptions", () => {
         multiGrid: 0,
         enrich: { name: "Bottle", breakQty: 48 },
       })
-    ).toBe("Insulated stainless steel bottle with a flip lid. Priced at 24 units.");
+    ).toBe("Insulated stainless steel bottle with a flip lid.");
   });
 
   it("lists a short color list after the name when the row offers no other facts", () => {
@@ -367,7 +365,7 @@ describe("thin descriptions", () => {
         multiGrid: 0,
         enrich: { name: "Titleist TruFeel", colors: ["White", "Yellow"] },
       })
-    ).toBe("Titleist TruFeel. Available in White and Yellow. Priced at 12 units.");
+    ).toBe("Titleist TruFeel. Available in White and Yellow.");
     expect(
       buildDescription({
         rawDescription: "",
@@ -377,7 +375,7 @@ describe("thin descriptions", () => {
         multiGrid: 0,
         enrich: { name: "Polo Shirts", colors: ["A", "B", "C", "D", "E"] },
       })
-    ).toBe("Polo Shirts. Priced at 50 units.");
+    ).toBe("Polo Shirts.");
   });
 
   it("falls back to the product name when the row offers no facts at all", () => {
@@ -391,7 +389,7 @@ describe("thin descriptions", () => {
         multiGrid: 0,
         enrich: { name: "Titleist TruFeel" },
       })
-    ).toBe("Titleist TruFeel. Priced at 12 units.");
+    ).toBe("Titleist TruFeel.");
   });
 
   it("does not claim a color count when the supplier text already talks about colors", () => {
@@ -404,7 +402,7 @@ describe("thin descriptions", () => {
       multiGrid: 0,
       enrich: { name: "Pen" },
     });
-    expect(out).toBe("Pen in assorted colors. Priced at 100 units.");
+    expect(out).toBe("Pen in assorted colors.");
   });
 });
 

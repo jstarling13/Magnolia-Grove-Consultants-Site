@@ -28,7 +28,7 @@ const configSource = readFileSync(
   "utf8"
 );
 
-const PRICED_AT = /(?:^|[.!?] )Priced at (\d+) units?\.$/;
+const PRICED_AT = /(?:^|[.!?] )Priced at (\d[\d,]*) units?\.?\s*$/;
 const COLOR_DEBRIS = /show\s+(more|less)/i;
 const IMAGE_EXT = /\.(webp|jpe?g|png)$/i;
 
@@ -172,23 +172,48 @@ describe("catalog integrity", () => {
     );
   });
 
-  it("has a description ending in 'Priced at N units.' that matches the first tier", () => {
+  it("has a non-empty description with no 'Priced at N units.' tail or MOQ talk (the price table shows minimums)", () => {
     expectNone(
       violations((p) => {
         const d = p.description;
         if (!d.trim()) return "empty description";
         if (d !== d.trim() || /\s{2,}/.test(d)) return "description has stray whitespace";
-        const m = d.match(PRICED_AT);
-        if (!m) return `does not end with "Priced at N units.": "${d.slice(-50)}"`;
-        const n = Number(m[1]);
-        const first = p.priceTiers[0]?.quantity;
-        if (n !== first) return `says ${n} units but first tier is ${first}`;
-        if (n === 1 && !/ Priced at 1 unit\.$/.test(d))
-          return 'use "1 unit" (singular) for a minimum of 1';
-        if (n !== 1 && !/ units\.$/.test(d)) return `use "${n} units" (plural)`;
+        if (PRICED_AT.test(d)) return `still ends with "Priced at N units.": "${d.slice(-50)}"`;
+        if (/\bMOQ\b/i.test(d)) return `mentions MOQ: "${d.slice(0, 80)}"`;
         return null;
       }),
-      'Descriptions must end with "Priced at N units." matching the smallest tier'
+      "Descriptions must not repeat the minimum quantity (the price table shows it)"
+    );
+  });
+
+  it("has no description that starts with the label 'Product' before the product name or a phrase", () => {
+    expectNone(
+      violations((p) =>
+        /^(?:Made in the USA\. )?Product\s+(?!(?:dimensions?|size|sizes|weight|details?|specifications?|specs?|features?|information|description|name|number|code|material|materials|colou?rs?)\b)/i.test(
+          p.description
+        )
+          ? `starts with "Product": "${p.description.slice(0, 60)}"`
+          : null
+      ),
+      "Descriptions must not start with the bare label 'Product'"
+    );
+  });
+
+  it("has no vendor leftovers in display names (year prefix, variant code, In Stock, Pricebuster, Rush Service, Sticket)", () => {
+    expectNone(
+      violations((p) => {
+        const n = p.name;
+        if (
+          /^(?:19|20)\d\d\s+[A-Za-z]/.test(n) &&
+          !/calendar|planner|election|world cup|olympic/i.test(n)
+        )
+          return `leading year in "${n}"`;
+        if (/\s[-\u2013\u2014]\s*[A-D]$|\bCombo-[A-D]$/.test(n)) return `variant code in "${n}"`;
+        if (/\bin[\s-]stock\b|\bprice[\s-]*buster\b|\brush[\s-]+service\b|\bsticket\b/i.test(n))
+          return `vendor text in "${n}"`;
+        return null;
+      }),
+      "Display names must not carry vendor ops text"
     );
   });
 
@@ -275,7 +300,7 @@ describe("catalog integrity", () => {
     );
   });
 
-  it("has no empty or one-word descriptions (the text before 'Priced at N units.')", () => {
+  it("has no empty or one-word descriptions", () => {
     expectNone(
       violations((p) => {
         const body = p.description.replace(PRICED_AT, "").trim();
@@ -283,7 +308,7 @@ describe("catalog integrity", () => {
           .replace(/[^A-Za-z0-9\s]/g, " ")
           .split(/\s+/)
           .filter(Boolean);
-        if (words.length === 0) return "description has nothing before 'Priced at'";
+        if (words.length === 0) return "empty description";
         if (words.length < 2) return `one-word description "${body}"`;
         return null;
       }),
@@ -320,7 +345,7 @@ describe("catalog integrity", () => {
     );
   });
 
-  it("keeps curated descriptions to 2-3 factual sentences plus the 'Priced at' tail", () => {
+  it("keeps curated descriptions to 2-4 factual sentences", () => {
     const curated = allProducts.filter((p) => !importedIds.has(p.id));
     expect(curated.length).toBeGreaterThan(0);
     expectNone(
@@ -334,7 +359,7 @@ describe("catalog integrity", () => {
             : `${p.id}: ${sentences} sentence(s): "${body.slice(0, 80)}"`;
         })
         .filter(Boolean),
-      "Curated descriptions must be 2-4 sentences before the pricing tail"
+      "Curated descriptions must be 2-4 sentences"
     );
   });
 

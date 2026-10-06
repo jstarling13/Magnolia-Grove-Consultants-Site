@@ -194,17 +194,83 @@ export function buildShareTitle(
   return shortenAtWord(name, SHARE_TITLE_MAX);
 }
 
-/** Preview description: the real product copy, boilerplate removed, cut to 155 characters. */
+/** A description shorter than this (or only a size line) is too thin to stand alone as a snippet. */
+const SHARE_DESCRIPTION_MIN = 70;
+/** How much of the cleaned description the composed fallback quotes. */
+const FALLBACK_DESCRIPTION_MAX = 100;
+
+/** Whole sentences up to `max` characters; the first sentence is cut at a word when it is longer. */
+function leadingSentences(text: string, max: number): string {
+  const sentences = text.split(/(?<=[.!?])\s+/);
+  let out = "";
+  for (const raw of sentences) {
+    const sentence = raw.trim();
+    if (!sentence) continue;
+    const next = out ? `${out} ${sentence}` : sentence;
+    if (next.length > max) break;
+    out = next;
+  }
+  if (!out) {
+    const cut = text.slice(0, max);
+    const space = cut.lastIndexOf(" ");
+    out = text.length <= max ? text : space > max * 0.5 ? cut.slice(0, space) : cut;
+  }
+  return out.replace(/[\s,;:.\-]+$/, "");
+}
+
+/**
+ * Meta / preview description. A real description that says enough (70+ characters and more than a
+ * size line) is used as written, cut at a word to 155. Otherwise one is composed only from the
+ * product's own fields: "<Name> with your logo from <Brand>. <start of the description>.
+ * Available in N colors. Minimum order X." The brand is left out for unbranded items or when the
+ * name already carries it; the color and minimum sentences are the first to go when space runs out.
+ */
 export function buildShareDescription(
-  product: Pick<CatalogProduct, "name" | "brand" | "description">
+  product: Pick<CatalogProduct, "name" | "brand" | "description"> &
+    Partial<Pick<CatalogProduct, "colors" | "tiers" | "category">>
 ): string {
   const cleaned = cleanDescription(product.description.replace(PRICING_BOILERPLATE, " "));
-  if (cleaned) return shortenAtWord(cleaned, SHARE_DESCRIPTION_MAX);
-  const byBrand = isRealBrand(product.brand) ? ` by ${product.brand.trim()}` : "";
-  return shortenAtWord(
-    `${product.name}${byBrand}, custom-branded merchandise from ${brand.name}.`,
-    SHARE_DESCRIPTION_MAX
-  );
+  if (cleaned.length >= SHARE_DESCRIPTION_MIN && !/^size:/i.test(cleaned)) {
+    return shortenAtWord(cleaned, SHARE_DESCRIPTION_MAX);
+  }
+
+  const name = product.name
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/[.!?]+$/, "");
+  const brandName = product.brand?.trim() ?? "";
+  const byBrand =
+    isRealBrand(brandName) && !name.toLowerCase().includes(brandName.toLowerCase())
+      ? ` from ${brandName}`
+      : "";
+  const lead = `${name} with your logo${byBrand}.`;
+
+  const colorCount = new Set((product.colors ?? []).map((c) => c.trim().toLowerCase())).size;
+  const colorSentence = colorCount >= 2 ? `Available in ${colorCount} colors.` : "";
+  const minimum = product.tiers?.[0]?.quantity;
+  const minimumSentence =
+    typeof minimum === "number" && minimum > 0
+      ? `Minimum order ${minimum.toLocaleString("en-US")}.`
+      : "";
+
+  const tails = [colorSentence, minimumSentence].filter(Boolean);
+  // drop the last tail sentences first until the description piece has room
+  for (let keep = tails.length; keep >= 0; keep--) {
+    const kept = tails.slice(0, keep);
+    const fixed = [lead, ...kept].join(" ").length;
+    const room = Math.min(FALLBACK_DESCRIPTION_MAX, SHARE_DESCRIPTION_MAX - fixed - 1);
+    const quote = cleaned && room >= 20 ? leadingSentences(cleaned, room) : "";
+    if (cleaned && !quote && keep > 0) continue;
+    const body = quote ? `${quote}${/[.!?]$/.test(quote) ? "" : "."}` : "";
+    const text = [lead, body, ...kept].filter(Boolean).join(" ");
+    if (text.length < SHARE_DESCRIPTION_MIN && product.category?.trim()) {
+      // a very short name with little else: the category is a real field and rounds it out
+      const withCategory = `${text} Listed in ${product.category.trim()}.`;
+      if (withCategory.length <= SHARE_DESCRIPTION_MAX) return withCategory;
+    }
+    if (text.length <= SHARE_DESCRIPTION_MAX) return text;
+  }
+  return shortenAtWord(lead, SHARE_DESCRIPTION_MAX);
 }
 
 /**
