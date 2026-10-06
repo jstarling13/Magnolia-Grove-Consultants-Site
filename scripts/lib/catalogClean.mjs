@@ -285,7 +285,8 @@ export const BRAND_WINDOW = 5;
 /** Brands whose written form varies ("Bella + Canvas", "Bella Canvas", "Bella+Canvas"). */
 const BRAND_PATTERNS = {
   // "Bella + Canvas", "Bella Canvas", "BELLA+CANVAS" and the short "Bella Women's ..." form
-  "Bella+Canvas": "Bella(?:\\s*\\+\\s*|\\s+)Canvas|Bella(?=\\s+(?:women|men|youth|unisex|toddler|baby)\\b)",
+  "Bella+Canvas":
+    "Bella(?:\\s*\\+\\s*|\\s+)Canvas|Bella(?=\\s+(?:women|men|youth|unisex|toddler|baby)\\b)",
   // only the consumer-electronics products, never "Apple Cider Mix" or an apple-shaped item
   Apple: "Apple(?=\\s+(?:air\\s?pods?|watch|i?pad|i?phone|mac\\s?book|air\\s?tag)\\b)",
   Beats: "Beats(?=\\s+(?:by\\s+dr\\.?\\s*dre|solo|studio|fit|flex|pill)\\b)",
@@ -713,10 +714,19 @@ export function stripVendorNameNoise(value, { usa = false } = {}) {
       .replace(new RegExp(`^${USA_MADE}(?=[\\s:!-])[\\s:!\\u2013\\u2014-]*`, "i"), "")
       .replace(new RegExp(`^(\\S+)\\s+${USA_MADE}\\s+(?=\\S)`, "i"), "$1 ")
       .replace(new RegExp(`\\s*\\(${USA_MADE}\\)`, "gi"), "")
-      .replace(new RegExp(`[\\s,\\-\\u2013\\u2014]+(?:always\\s+)?${USA_MADE}(?=\\s*[.]?(?:\\s+size\\b|\\s+[SML]\\b|\\s*$))`, "i"), "");
+      .replace(
+        new RegExp(
+          `[\\s,\\-\\u2013\\u2014]+(?:always\\s+)?${USA_MADE}(?=\\s*[.]?(?:\\s+size\\b|\\s+[SML]\\b|\\s*$))`,
+          "i"
+        ),
+        ""
+      );
   }
   // trailing size fragments left as sentences ("... Blanket. Size L", "... Blanket. L.")
-  name = name.replace(/\.\s+(?:size\s+)?(XS|S|M|L|XL|XXL)\.?\s*$/i, (_, size) => `, Size ${size.toUpperCase()}`);
+  name = name.replace(
+    /\.\s+(?:size\s+)?(XS|S|M|L|XL|XXL)\.?\s*$/i,
+    (_, size) => `, Size ${size.toUpperCase()}`
+  );
   name = tidyPunctuation(dropUnbalancedParens(name))
     .replace(/(?:\s+[-–—])+$/g, "")
     .replace(/^(?:[-–—]\s*)+/g, "")
@@ -816,15 +826,24 @@ export function trimCutOffName(value, { rawLength = 0, ellipsis = false, vocab }
     const hasDigit = /\d/.test(last);
     let cut = false;
     const strong = rawLength >= TRUNCATED_NAME_STRONG_LENGTH;
-    if (!letters && !hasDigit) cut = true; // "-", "&", "w/"
-    else if (letters === "in" && /\d/.test(prev)) cut = false; // "10.5x2.5x5 in": inches, not a cut
+    if (!letters && !hasDigit)
+      cut = true; // "-", "&", "w/"
+    else if (letters === "in" && /\d/.test(prev))
+      cut = false; // "10.5x2.5x5 in": inches, not a cut
     else if (DANGLING_WORDS.has(letters)) cut = true;
-    else if (letters.length === 1 && /^size$/i.test(prev)) cut = false; // "Size L"
+    else if (letters.length === 1 && /^size$/i.test(prev))
+      cut = false; // "Size L"
     else if (!hasDigit && letters.length <= 2 && !SHORT_WORDS_TO_KEEP.has(letters)) cut = true;
     else if (!hasDigit && letters.length >= 3) {
       if (ellipsis && guard === 0 && completesLonger(letters, vocab)) cut = true;
       else if (strong && KNOWN_CUT_FRAGMENTS.has(letters)) cut = true;
-      else if (strong && letters.length <= 4 && vocab && !vocab.has(letters) && completesLonger(letters, vocab))
+      else if (
+        strong &&
+        letters.length <= 4 &&
+        vocab &&
+        !vocab.has(letters) &&
+        completesLonger(letters, vocab)
+      )
         cut = true;
       else if (
         strong &&
@@ -1284,8 +1303,125 @@ export function stripLeadingPromoLabels(text) {
   return out;
 }
 
+// ---- Supplier promises -------------------------------------------------------
+// The product page says setup, decoration, shipping and tax are confirmed when the order is
+// reviewed and that typical production is 2-3 weeks. Supplier copy that promises otherwise
+// (rush, free setup, ships in N days, QuickShip, "#1 selling") is removed from display
+// descriptions. Facts ("Made in Georgia", "USA made", sizes, materials) are never touched.
+
+/** Chain of free offers: "free ground shipping", "free artwork and free proof", "free 1 color imprint on 1 side". */
+const FREE_ITEM =
+  "(?:(?:ground\\s+)?shi?pp?ing|art(?:work)?|set[\\s-]?up|(?:virtual\\s+)?proofs?|samples?|delivery|freight|(?:\\d+|one|two|three|four)[\\s-]*colou?r\\s+(?:[a-z]+\\s+)?(?:imprint|print|logo)(?:\\s+on\\s+(?:\\d+|one|two)\\s+sides?)?|attachment\\s+options|envelopes(?:\\s+included)?)";
+const PROMISE_FRAGMENTS = [
+  // "Rush service is available." / "Rush services available!" / "Rush Service." / "Rush delivery option on request!"
+  /(?:[,;]\s*)?\brush\s+(?:services?|delivery|orders?|production|shipping|turnaround)(?:\s+(?:is|are))?(?:\s+(?:available|provided|offered))?(?:\s+options?)?(?:\s+(?:on|upon)\s+request)?\s*[.!]*/gi,
+  // "Ready Inventory In New Jersey - Ships In 3+ Days." (and anything after it in the sentence)
+  /[\s\-–—]*\bready\s+inventory\b[^.!?]*[.!?]?/gi,
+  // "Ships In 5+ Days", "ships within 3 days"
+  /[\s\-–—,;]*\b(?:and\s+)?ships?\s+(?:in|within)\s+\d[^.!?]*[.!?]?/gi,
+  // "QuickShip in 3 or 1 day", ", low minimum and quick ship"
+  /(?:[,;]\s*(?:and\s+)?|\s+and\s+)?\bquick[\s-]?ship\b(?:\s+in\s+\d+(?:\s+or\s+\d+)?\s+days?)?/gi,
+  // "free 1 color silkscreen imprint on 1 side" (silkscreen/screen-print wording)
+  /(?:[;,]\s*|\s+(?:and|with|plus|including)\s+)?\bfree\s+(?:\d+|one|two|three|four)[\s-]*colou?r\s+(?:silk[\s-]?screen\s+)?(?:imprint|print|logo)(?:\s+on\s+(?:\d+|one|two)\s+sides?)?/gi,
+  // "free ground shipping", "Free Shiping and Free Artwork", "w/free envelopes", "and free envelopes included"
+  new RegExp(
+    `(?:[;,]\\s*|\\s+(?:and|with|plus|including)\\s+|\\s+w\\/\\s*)?\\bfree\\s+${FREE_ITEM}(?:\\s+(?:and|&)\\s+(?:free\\s+)?${FREE_ITEM})*`,
+    "gi"
+  ),
+  // "next day delivery option on request", "24/7 customer service"
+  /\b(?:next|same)[\s-]day\s+(?:delivery|shipping|service)(?:\s+options?)?(?:\s+(?:on|upon)\s+request)?\s*[.!]*/gi,
+  /\b24\s*\/\s*7\s+customer\s+service\s*[.!]*/gi,
+  // "fast turnaround time", "Lightning fast turnaround"
+  /(?:[,;]\s*(?:and\s+)?)?\b(?:(?:lightning|super|really)[\s-]+)?(?:fast|quick|rapid)[\s-]+turn[\s-]?around(?:\s+time)?\b/gi,
+  // ", #1 Seller"
+  /[,;\s]*#\s?1\s+(?:seller|selling)\b/gi,
+];
+
+/** Leading labels: "Free setup ...", "Special! ...", "New! ...", "Product Trending ...". */
+const PROMISE_LEADING_LABEL =
+  /^(?:free\s+set[\s-]?up|(?:special|new|hot|sale)\s*!+|product\s+(?:trending|new|hot|popular|best[\s-]*seller)(?![a-z]))[\s:,;.!\-–—]*/i;
+
+/** "#1 Selling Desk Calendar in the industry customize ..." -> "Desk Calendar customize ..." */
+const NUMBER_ONE_SELLING =
+  /#\s?1\s+selling\s+(.+?)\s+in\s+the\s+(?:industry|market(?:place)?)\b[\s,;:\-–—]*/i;
+
 /**
- * Description text from the supplier, minus: badge word, promo sentences, and
+ * What is left after the fragment rules: a sentence that still makes a promise or a
+ * superlative claim is dropped whole (checked by the catalog tests against every description).
+ */
+export const PROMISE_PATTERNS = [
+  /\brush\s+(?:services?|delivery|orders?|production|shipping|turnaround)\b/i,
+  /\bfree\s+(?:set[\s-]?up|shi?pp?ing|art(?:work)?|proofs?|samples?|delivery|freight|(?:\d+|one|two|three|four)[\s-]*colou?r\b|attachment|envelopes)/i,
+  /\bready\s+(?:inventory|to\s+ship)\b/i,
+  /\bships?\s+(?:in|within|same|next)\b/i,
+  /\bin[\s-]stock\b/i,
+  /\bquick[\s-]?ship\b/i,
+  /#\s?1\b/,
+  /\b(?:best|top)[\s-]*sell(?:er|ing)\b/i,
+  /\bin\s+the\s+(?:industry|marketplace)\b/i,
+  /\b(?:next|same)[\s-]day\s+(?:delivery|shipping|service)\b/i,
+  /\b(?:fast|quick|rapid)[\s-]+turn[\s-]?around\b/i,
+  /\bfast\s+\d+\s+(?:working|business)\s+day\b/i,
+  /\b24\s*\/\s*7\s+customer\s+service\b/i,
+  /^(?:special|new|hot)\s*!/i,
+  /^product\s+(?:trending|best[\s-]*seller)\b/i,
+];
+
+/** True when the text still carries a supplier promise (see PROMISE_PATTERNS). */
+export function hasPromiseText(text) {
+  return PROMISE_PATTERNS.some((re) => re.test(str(text)));
+}
+
+/**
+ * Remove supplier promises from description text. Fragments are cut out so the facts around
+ * them survive; a sentence that still carries a promise afterwards is dropped. Never adds words
+ * (apart from re-capitalising the first letter after a removed leading label).
+ */
+export function stripSupplierPromises(raw) {
+  // promise sentences glued on with no space ("...cover.Rush services available!")
+  let text = str(raw).replace(
+    /([.!?])(?=(?:rush|free\s+set|ready\s+inventory|quick[\s-]?ship)\b)/gi,
+    "$1 "
+  );
+  const sentences = text.split(/(?<=[.!?])\s+(?=[A-Z0-9"“(])/);
+  const kept = [];
+  for (const original of sentences) {
+    let sentence = original.trim();
+    let changed = false;
+    for (let i = 0; i < 3 && PROMISE_LEADING_LABEL.test(sentence); i++) {
+      sentence = sentence.replace(PROMISE_LEADING_LABEL, "");
+      sentence = sentence.replace(/^[a-z]/, (c) => c.toUpperCase());
+      changed = true;
+    }
+    const numberOne = sentence.replace(NUMBER_ONE_SELLING, "$1 ");
+    if (numberOne !== sentence) {
+      sentence = numberOne;
+      changed = true;
+    }
+    for (const re of PROMISE_FRAGMENTS) {
+      const next = sentence.replace(re, " ");
+      if (next !== sentence) {
+        sentence = next;
+        changed = true;
+      }
+    }
+    if (changed) {
+      sentence = tidyPunctuationKeepEnd(sentence.replace(/\s+/g, " ").trim());
+      if (!/[A-Za-z0-9]/.test(sentence)) continue;
+      // a closing quote ends a sentence, but a digit followed by " is an inch mark
+      if (!(/[.!?)'”]$/.test(sentence) || (/"$/.test(sentence) && !/\d"$/.test(sentence)))) {
+        sentence += ".";
+      }
+    }
+    if (!sentence || hasPromiseText(sentence)) continue;
+    kept.push(sentence);
+  }
+  return kept.join(" ");
+}
+
+/**
+ * Description text from the supplier, minus: badge word, promo sentences, supplier promises
+ * (rush, free setup, ships-in-N-days, QuickShip, "#1 selling"; see stripSupplierPromises), and
  * vendor-written color-count claims (the importer states its own accurate
  * color text). Never adds words. Returns "" when nothing meaningful is left.
  */
@@ -1312,7 +1448,8 @@ export function cleanDescriptionText(raw) {
     }
     kept.push(sentence);
   }
-  const joined = kept.join(" ").replace(/\s+/g, " ").trim();
+  // supplier promises last, so the promo-sentence rules above keep their existing behavior
+  const joined = stripSupplierPromises(kept.join(" ")).replace(/\s+/g, " ").trim();
   return /[A-Za-z0-9]/.test(joined) ? tidyPunctuationKeepEnd(joined) : "";
 }
 
@@ -1346,7 +1483,8 @@ export function fixSizeUnits(value) {
   let text = normalizeMeasurements(value);
   text = text.replace(
     /(\d+(?:\.\d+)?')\s*x\s*(\d+(?:\.\d+)?')\s*x\s*(0?\.\d+)'(?!')/g,
-    (whole, a, b, c) => (Number.parseFloat(a) >= 2 && Number.parseFloat(b) >= 2 ? `${a} x ${b} x ${c}"` : whole)
+    (whole, a, b, c) =>
+      Number.parseFloat(a) >= 2 && Number.parseFloat(b) >= 2 ? `${a} x ${b} x ${c}"` : whole
   );
   if (/\d''/.test(text) && !/\d'(?!')/.test(text)) text = text.replace(/(\d)''/g, '$1"');
   return text;
