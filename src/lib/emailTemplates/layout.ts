@@ -47,7 +47,7 @@ export function escapeHtml(value: string): string {
 }
 
 /** Strips control characters (except tab and newline) that have no place in an email. */
-function stripControl(value: string): string {
+export function stripControl(value: string): string {
   // eslint-disable-next-line no-control-regex
   return value.replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/g, "");
 }
