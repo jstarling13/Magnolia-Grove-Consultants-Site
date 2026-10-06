@@ -583,10 +583,40 @@ function headOf(name: string): string {
   return cut > 0 ? name.slice(0, cut) : name;
 }
 
-/** Display order of a category's types, "Other" last; empty for an unknown category. */
+/**
+ * Big single-piece items ("sell one and done") sit in their own last group so the page leads with
+ * products that campaigns actually buy in volume. Clothing is exempt: a $150 vest is normal there.
+ */
+export const BIG_TICKET_TYPE = "Large & Custom Items";
+export const BIG_TICKET_MIN_PRICE = 100;
+export const BIG_TICKET_MAX_FIRST_QUANTITY = 10;
+/** Also big-ticket: one to three pieces at this price or more each. */
+export const SINGLE_PIECE_MIN_PRICE = 50;
+export const SINGLE_PIECE_MAX_QUANTITY = 3;
+const BIG_TICKET_EXEMPT_CATEGORIES = new Set(["Apparel", "Headwear"]);
+
+/** True for a non-clothing product sold in single pieces at a high price (see the thresholds above). */
+export function isBigTicket(product: {
+  category: string;
+  priceTiers?: readonly { quantity: number; price: number }[];
+}): boolean {
+  if (BIG_TICKET_EXEMPT_CATEGORIES.has(product.category)) return false;
+  const tiers = product.priceTiers;
+  if (!tiers || tiers.length === 0) return false;
+  const first = tiers.reduce((a, b) => (b.quantity < a.quantity ? b : a));
+  return (
+    (first.price >= BIG_TICKET_MIN_PRICE && first.quantity <= BIG_TICKET_MAX_FIRST_QUANTITY) ||
+    (first.price >= SINGLE_PIECE_MIN_PRICE && first.quantity <= SINGLE_PIECE_MAX_QUANTITY)
+  );
+}
+
+/** Display order of a category's types, then big-ticket items, "Other" last; empty for an unknown category. */
 export function typesForCategory(category: string): string[] {
   const taxonomy = PRODUCT_TYPES[category];
-  return taxonomy ? [...taxonomy.order, OTHER_TYPE] : [];
+  if (!taxonomy) return [];
+  return BIG_TICKET_EXEMPT_CATEGORIES.has(category)
+    ? [...taxonomy.order, OTHER_TYPE]
+    : [...taxonomy.order, BIG_TICKET_TYPE, OTHER_TYPE];
 }
 
 /**
@@ -622,10 +652,11 @@ export function productTypeOf(product: {
   name: string;
   category: string;
   description?: string;
+  priceTiers?: readonly { quantity: number; price: number }[];
 }): string {
   let type = cache.get(product);
   if (type === undefined) {
-    type = classifyProduct(product);
+    type = isBigTicket(product) ? BIG_TICKET_TYPE : classifyProduct(product);
     cache.set(product, type);
   }
   return type;

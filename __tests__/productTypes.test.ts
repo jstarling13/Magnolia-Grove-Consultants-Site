@@ -360,3 +360,34 @@ describe("groupByCategory on the live catalog", () => {
     }
   });
 });
+
+import { BIG_TICKET_TYPE, isBigTicket } from "@/config/productTypes";
+
+describe("big-ticket group", () => {
+  const tiers = (q: number, p: number) => [{ quantity: q, price: p }];
+
+  it("flags single-piece, high-price items outside clothing", () => {
+    expect(isBigTicket({ category: "Home & Decor", priceTiers: tiers(1, 140) })).toBe(true);
+    expect(isBigTicket({ category: "Event & Signage", priceTiers: tiers(10, 100) })).toBe(true);
+    expect(isBigTicket({ category: "Tech Accessories", priceTiers: tiers(1, 69) })).toBe(true);
+    expect(isBigTicket({ category: "Tech Accessories", priceTiers: tiers(3, 50) })).toBe(true);
+  });
+
+  it("leaves volume items, cheap singles and clothing alone", () => {
+    expect(isBigTicket({ category: "Home & Decor", priceTiers: tiers(100, 140) })).toBe(false);
+    expect(isBigTicket({ category: "Awards & Recognition", priceTiers: tiers(1, 29) })).toBe(false);
+    expect(isBigTicket({ category: "Apparel", priceTiers: tiers(1, 150) })).toBe(false);
+    expect(isBigTicket({ category: "Headwear", priceTiers: tiers(1, 80) })).toBe(false);
+    expect(isBigTicket({ category: "Bags", priceTiers: tiers(25, 60) })).toBe(false);
+  });
+
+  it("is the last named group of every non-clothing category, and absent from clothing", () => {
+    for (const category of ["Home & Decor", "Event & Signage", "Tech Accessories", "Bags"]) {
+      const list = typesForCategory(category);
+      expect(list[list.length - 1]).toBe("Other");
+      expect(list[list.length - 2]).toBe(BIG_TICKET_TYPE);
+    }
+    expect(typesForCategory("Apparel")).not.toContain(BIG_TICKET_TYPE);
+    expect(typesForCategory("Headwear")).not.toContain(BIG_TICKET_TYPE);
+  });
+});
