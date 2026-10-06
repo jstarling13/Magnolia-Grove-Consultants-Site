@@ -30,5 +30,33 @@
     "Orange": "/images/merch/colors/tag-stix-18285-orange.webp",
     "Red": "/images/merch/colors/tag-stix-18285-red.webp",
     "School Bus Yellow": "/images/merch/colors/tag-stix-18285-school-bus-yellow.webp"
+  },
+  "4-pack-crayons-28035": {
+    "Orange": "/images/merch/colors/4-pack-crayons-28035-orange.webp",
+    "Pink": "/images/merch/colors/4-pack-crayons-28035-pink.webp",
+    "Natural": "/images/merch/colors/4-pack-crayons-28035-natural.webp",
+    "Rainbow": "/images/merch/colors/4-pack-crayons-28035-rainbow.webp",
+    "Red": "/images/merch/colors/4-pack-crayons-28035-red.webp",
+    "Blue": "/images/merch/colors/4-pack-crayons-28035-blue.webp",
+    "Green": "/images/merch/colors/4-pack-crayons-28035-green.webp",
+    "Yellow": "/images/merch/colors/4-pack-crayons-28035-yellow.webp"
+  },
+  "mini-square-bubble-fidget-keychain-61910": {
+    "Orange": "/images/merch/colors/mini-square-bubble-fidget-keychain-61910-orange.webp",
+    "Pink": "/images/merch/colors/mini-square-bubble-fidget-keychain-61910-pink.webp",
+    "Purple": "/images/merch/colors/mini-square-bubble-fidget-keychain-61910-purple.webp",
+    "Red": "/images/merch/colors/mini-square-bubble-fidget-keychain-61910-red.webp",
+    "Teal": "/images/merch/colors/mini-square-bubble-fidget-keychain-61910-teal.webp",
+    "Blue": "/images/merch/colors/mini-square-bubble-fidget-keychain-61910-blue.webp"
+  },
+  "victorinox-classic-10178": {
+    "Cobalt Blue": "/images/merch/colors/victorinox-classic-10178-cobalt-blue.webp",
+    "Blue Translucent": "/images/merch/colors/victorinox-classic-10178-blue-translucent.webp",
+    "Mountain Lake Turquoise": "/images/merch/colors/victorinox-classic-10178-mountain-lake-turquoise.webp",
+    "Avocado Green": "/images/merch/colors/victorinox-classic-10178-avocado-green.webp",
+    "Mango Tango Orange": "/images/merch/colors/victorinox-classic-10178-mango-tango-orange.webp",
+    "Yellow": "/images/merch/colors/victorinox-classic-10178-yellow.webp",
+    "White": "/images/merch/colors/victorinox-classic-10178-white.webp",
+    "Black": "/images/merch/colors/victorinox-classic-10178-black.webp"
   }
 }
