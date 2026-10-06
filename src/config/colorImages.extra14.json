@@ -49,5 +49,40 @@
     "Navy": "/images/merch/colors/performance-golf-visor-72117-navy.webp",
     "Red": "/images/merch/colors/performance-golf-visor-72117-red.webp",
     "White": "/images/merch/colors/performance-golf-visor-72117-white.webp"
+  },
+  "transparent-summer-sun-visor-66344": {
+    "Red": "/images/merch/colors/transparent-summer-sun-visor-66344-red.webp"
+  },
+  "bamboo-and-cork-journal-set-12426": {
+    "Blue": "/images/merch/colors/bamboo-and-cork-journal-set-12426-blue.webp",
+    "Black": "/images/merch/colors/bamboo-and-cork-journal-set-12426-black.webp"
+  },
+  "rain-gauge": {
+    "White": "/images/merch/colors/rain-gauge-white.webp",
+    "Blue": "/images/merch/colors/rain-gauge-blue.webp",
+    "Red": "/images/merch/colors/rain-gauge-red.webp",
+    "Black": "/images/merch/colors/rain-gauge-black.webp",
+    "Green": "/images/merch/colors/rain-gauge-green.webp"
+  },
+  "branded-bills-bare-performance-dad-hat-33942": {
+    "Black": "/images/merch/colors/branded-bills-bare-performance-dad-hat-33942-black.webp",
+    "Orion": "/images/merch/colors/branded-bills-bare-performance-dad-hat-33942-orion.webp",
+    "Purple": "/images/merch/colors/branded-bills-bare-performance-dad-hat-33942-purple.webp",
+    "Royal Blue": "/images/merch/colors/branded-bills-bare-performance-dad-hat-33942-royal-blue.webp",
+    "Sky Blue": "/images/merch/colors/branded-bills-bare-performance-dad-hat-33942-sky-blue.webp"
+  },
+  "new-era-ribbed-tailgate-beanie-03133": {
+    "Black-Graphite": "/images/merch/colors/new-era-ribbed-tailgate-beanie-03133-black-graphite.webp",
+    "Navy-Graphite": "/images/merch/colors/new-era-ribbed-tailgate-beanie-03133-navy-graphite.webp",
+    "Red-Black": "/images/merch/colors/new-era-ribbed-tailgate-beanie-03133-red-black.webp",
+    "Royal-Black": "/images/merch/colors/new-era-ribbed-tailgate-beanie-03133-royal-black.webp",
+    "Cyber Green-Graphite Grey (Pms 2298C)": "/images/merch/colors/new-era-ribbed-tailgate-beanie-03133-cyber-green-graphite-grey-pms-2298c.webp"
+  },
+  "new-era-tonal-camo-stretch-tech-mesh-cap-03449": {
+    "Black Camo": "/images/merch/colors/new-era-tonal-camo-stretch-tech-mesh-cap-03449-black-camo.webp",
+    "Navy Camo": "/images/merch/colors/new-era-tonal-camo-stretch-tech-mesh-cap-03449-navy-camo.webp",
+    "Red Camo": "/images/merch/colors/new-era-tonal-camo-stretch-tech-mesh-cap-03449-red-camo.webp",
+    "Royal Camo": "/images/merch/colors/new-era-tonal-camo-stretch-tech-mesh-cap-03449-royal-camo.webp",
+    "Rainstorm Gray Camo-Graphite": "/images/merch/colors/new-era-tonal-camo-stretch-tech-mesh-cap-03449-rainstorm-gray-camo-graphite.webp"
   }
 }
