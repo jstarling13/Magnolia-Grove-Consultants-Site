@@ -2,24 +2,36 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import ProductCard from "@/components/merchandise/ProductCard";
+import {
+  FilterStatus,
+  FilterToolbar,
+  focusFilterToggle,
+} from "@/components/merchandise/CatalogFilters";
+import { useCatalogParams } from "@/hooks/useCatalogParams";
 import { useMerchBrowseAnalytics } from "@/hooks/useMerchBrowseAnalytics";
 import { useCategoryCards } from "@/components/merchandise/useCategoryCards";
 import {
   FILTER_ALL as ALL,
   FOCUSED_INITIAL_VISIBLE,
+  NO_FILTERS,
   SHOW_MORE_STEP,
-  SORT_OPTIONS,
   categoriesNeeded,
+  filterProducts,
   growVisible,
-  isSortKey,
   nextBatchSize,
   realBrands,
   searchHaystack,
   searchProducts,
   sortProducts,
   type CatalogProduct,
-  type SortKey,
 } from "@/lib/merchCatalog";
+import {
+  activeFilterChips,
+  filtersKey,
+  hasActiveParams,
+  priceBucketsFor,
+  type PriceBucket,
+} from "@/lib/merchFilters";
 
 interface CategoryProductGridProps {
   /**
@@ -33,36 +45,26 @@ interface CategoryProductGridProps {
   total?: number;
   /** Every real brand in the category. Defaults to the brands in `products`. */
   brands?: string[];
+  /** Price filter choices; defaults to buckets from the products on hand. */
+  priceBuckets?: PriceBucket[];
 }
 
-const SEARCH_DEBOUNCE_MS = 200;
 /** The first row (up to 4 cards) is on screen on a desktop and is the LCP candidate there. */
 const PRIORITY_CARDS = 4;
 
-const controlClasses =
-  "rounded-md border border-gold/25 bg-cream px-3 py-2.5 text-sm text-onyx focus:outline-none focus:ring-2 focus:ring-gold/60";
-
 /**
- * Search, sort, brand filter and "Show more" for one category's landing page.
- * Same behavior and shareable URL params (?q=&sort=&brand=) as the main
- * catalog, minus the category chips.
+ * Search, sort, filters and "Show more" for one category's landing page.
+ * Same behavior and shareable URL params (?q=&sort=&brand=&usa=&price=...) as
+ * the main catalog, minus the category chips.
  */
 export default function CategoryProductGrid({
   products: initialProducts,
   category,
   total: totalProp,
   brands: brandsProp,
+  priceBuckets: bucketsProp,
 }: CategoryProductGridProps) {
-  const [queryInput, setQueryInput] = useState("");
-  const [query, setQuery] = useState("");
-  const [sort, setSort] = useState<SortKey>("featured");
-  const [brand, setBrand] = useState<string>(ALL);
-  const filterKey = `${brand}|${query}|${sort}`;
-  const [disclosure, setDisclosure] = useState<{ key: string; count: number }>({
-    key: filterKey,
-    count: FOCUSED_INITIAL_VISIBLE,
-  });
-  const [urlReady, setUrlReady] = useState(false);
+  const [disclosure, setDisclosure] = useState<{ key: string; count: number } | null>(null);
   // True while "Show more" waits for the rest of the category to arrive.
   const [busy, setBusy] = useState(false);
   const { loaded, failed: failedByCategory, load } = useCategoryCards();
@@ -71,6 +73,9 @@ export default function CategoryProductGrid({
   const complete = loaded[category] !== undefined || initialProducts.length >= total;
   const products = loaded[category] ?? initialProducts;
   const brands = useMemo(() => brandsProp ?? realBrands(products), [brandsProp, products]);
+  const { params, queryInput, onQueryInput, update } = useCatalogParams({ brands });
+  const { brand, query, sort, filters } = params;
+  const filterKey = `${brand}|${query}|${sort}|${filtersKey(filters)}`;
   const haystacks = useRef(new Map<string, string>());
   const haystackOf = useCallback((product: CatalogProduct) => {
     let text = haystacks.current.get(product.id);
@@ -87,47 +92,11 @@ export default function CategoryProductGrid({
     if (!completeRef.current) void load([category]);
   }, [load, category]);
 
-  useEffect(() => {
-    const timer = window.setTimeout(() => setQuery(queryInput.trim()), SEARCH_DEBOUNCE_MS);
-    return () => window.clearTimeout(timer);
-  }, [queryInput]);
-
-  // Restore shareable state on first mount (in an effect so SSR markup matches).
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const initialBrand = params.get("brand");
-    const initialSort = params.get("sort");
-    const initialQuery = params.get("q");
-    if (initialBrand && brands.includes(initialBrand)) setBrand(initialBrand);
-    if (isSortKey(initialSort)) setSort(initialSort);
-    if (initialQuery) {
-      setQueryInput(initialQuery);
-      setQuery(initialQuery.trim());
-    }
-    setUrlReady(true);
-  }, [brands]);
-
-  useEffect(() => {
-    if (!urlReady) return;
-    const url = new URL(window.location.href);
-    const entries: [string, string | null][] = [
-      ["brand", brand === ALL ? null : brand],
-      ["sort", sort === "featured" ? null : sort],
-      ["q", query || null],
-    ];
-    for (const [key, value] of entries) {
-      if (value) url.searchParams.set(key, value);
-      else url.searchParams.delete(key);
-    }
-    if (url.href !== window.location.href) {
-      window.history.replaceState(window.history.state, "", url);
-    }
-  }, [urlReady, brand, sort, query]);
-
-  // Searching, brand-filtering and sorting need the whole category. Until it
+  // Searching, filtering and sorting need the whole category. Until it
   // is here the page keeps showing the unfiltered first cards with a
   // "Loading" note, never a half-filtered list.
-  const needsAll = categoriesNeeded({ category: ALL, brand, query, sort }, [category]).length > 0;
+  const needsAll =
+    categoriesNeeded({ category: ALL, brand, query, sort, filters }, [category]).length > 0;
   const ready = complete || !needsAll;
   const failed = !ready && Boolean(failedByCategory[category]);
   const loading = !ready && !failed;
@@ -139,16 +108,23 @@ export default function CategoryProductGrid({
     if (!ready) return products;
     const byBrand =
       brand === ALL ? products : products.filter((product) => product.brand === brand);
-    // Ranked by relevance (name, brand, category, color, description).
-    const matching = query ? searchProducts(byBrand, query, haystackOf) : byBrand;
+    const byFilters = filterProducts(byBrand, filters);
+    // Ranked by relevance (name, brand, category, color, description); the
+    // sort keeps that ranking as its tie-break.
+    const matching = query ? searchProducts(byFilters, query, haystackOf) : byFilters;
     return sortProducts(matching, sort);
-  }, [ready, products, brand, query, sort, haystackOf]);
+  }, [ready, products, brand, query, sort, filters, haystackOf]);
 
-  const hasFilters = brand !== ALL || query !== "" || queryInput !== "";
+  const hasFilters = hasActiveParams(params, queryInput);
+  const chips = useMemo(() => activeFilterChips(params), [params]);
+  const priceBuckets = useMemo(
+    () => bucketsProp ?? priceBucketsFor(products),
+    [bucketsProp, products]
+  );
   // Without a search, brand filter or sort the view is the whole category,
   // so its size is the real total even while only the first cards are here.
   const resultCount = ready && needsAll ? results.length : total;
-  const visible = disclosure.key === filterKey ? disclosure.count : FOCUSED_INITIAL_VISIBLE;
+  const visible = disclosure?.key === filterKey ? disclosure.count : FOCUSED_INITIAL_VISIBLE;
   const shown = Math.min(visible, resultCount);
   const batch = nextBatchSize(shown, resultCount);
   useMerchBrowseAnalytics(category, () => results.slice(0, FOCUSED_INITIAL_VISIBLE), query);
@@ -164,78 +140,42 @@ export default function CategoryProductGrid({
   }
 
   function clearFilters() {
-    setQueryInput("");
-    setQuery("");
-    setBrand(ALL);
+    update({ brand: ALL, query: "", filters: NO_FILTERS });
   }
+
+  const statusText = loading
+    ? "Loading products…"
+    : resultCount === 0
+      ? "No products found"
+      : `Showing ${resultCount} ${resultCount === 1 ? "product" : "products"}`;
 
   return (
     <div>
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-[minmax(0,1fr)_auto_auto]">
-        <input
-          type="search"
-          value={queryInput}
-          onChange={(event) => setQueryInput(event.target.value)}
-          onFocus={warm}
-          placeholder={`Search ${category.toLowerCase()}`}
-          aria-label={`Search ${category}`}
-          className={`${controlClasses} col-span-2 w-full sm:col-span-1`}
-        />
-        <label className="min-w-0">
-          <span className="sr-only">Sort products</span>
-          <select
-            value={sort}
-            onChange={(event) => setSort(event.target.value as SortKey)}
-            onFocus={warm}
-            onPointerDown={warm}
-            className={`${controlClasses} w-full font-medium`}
-          >
-            {SORT_OPTIONS.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </label>
-        {brands.length > 0 && (
-          <label className="min-w-0">
-            <span className="sr-only">Filter by brand</span>
-            <select
-              value={brand}
-              onChange={(event) => setBrand(event.target.value)}
-              onFocus={warm}
-              onPointerDown={warm}
-              className={`${controlClasses} w-full font-medium`}
-            >
-              <option value={ALL}>All Brands</option>
-              {brands.map((name) => (
-                <option key={name} value={name}>
-                  {name}
-                </option>
-              ))}
-            </select>
-          </label>
-        )}
-      </div>
+      <FilterToolbar
+        idPrefix="category"
+        searchValue={queryInput}
+        onSearch={onQueryInput}
+        searchLabel={`Search ${category}`}
+        searchPlaceholder={`Search ${category.toLowerCase()}`}
+        sort={sort}
+        onSort={(next) => update({ sort: next })}
+        brand={brand}
+        brands={brands}
+        onBrand={(next) => update({ brand: next })}
+        filters={filters}
+        onFilters={(next) => update({ filters: next })}
+        priceBuckets={priceBuckets}
+        onIntent={warm}
+      />
 
-      <div className="mt-5 flex min-h-[2rem] flex-wrap items-center justify-between gap-3">
-        <p role="status" className="text-sm text-onyx/60">
-          {loading
-            ? "Loading products…"
-            : resultCount === 0
-              ? "No products found"
-              : `Showing ${resultCount} ${resultCount === 1 ? "product" : "products"}`}
-        </p>
-        {hasFilters && (
-          <button
-            type="button"
-            onClick={clearFilters}
-            className="text-sm font-semibold text-gold-text underline-offset-2 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-dark"
-          >
-            Clear filters
-          </button>
-        )}
-      </div>
+      <FilterStatus
+        idPrefix="category"
+        statusText={statusText}
+        chips={chips}
+        onRemoveChip={(chip) => update(chip.remove)}
+        canClear={hasFilters}
+        onClearAll={clearFilters}
+      />
 
       {failed && (
         <p role="alert" className="mt-3 text-sm text-onyx/70">
@@ -254,8 +194,20 @@ export default function CategoryProductGrid({
         <div className="mt-8 rounded-lg border border-dashed border-gold/40 px-6 py-14 text-center">
           <p className="text-base font-semibold text-onyx">No products match your filters.</p>
           <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-onyx/60">
-            Try a different search, or clear the filters.
+            Try a different search, or clear all filters.
           </p>
+          {hasFilters && (
+            <button
+              type="button"
+              onClick={() => {
+                clearFilters();
+                focusFilterToggle("category");
+              }}
+              className="mt-6 min-h-[44px] rounded-md border border-gold/40 px-5 py-2.5 text-sm font-semibold text-onyx transition-colors hover:border-gold hover:bg-gold/10"
+            >
+              Clear all
+            </button>
+          )}
         </div>
       ) : (
         <div aria-busy={loading}>

@@ -5,19 +5,27 @@ import Link from "next/link";
 import ProductCard from "@/components/merchandise/ProductCard";
 import LogoDropzone from "@/components/merchandise/LogoDropzone";
 import RecentlyViewed from "@/components/merchandise/RecentlyViewed";
+import {
+  FilterStatus,
+  FilterToolbar,
+  focusFilterToggle,
+} from "@/components/merchandise/CatalogFilters";
+import { useCatalogParams } from "@/hooks/useCatalogParams";
 import { useMerchBrowseAnalytics } from "@/hooks/useMerchBrowseAnalytics";
 import { useCategoryCards } from "@/components/merchandise/useCategoryCards";
 import { categoryPath } from "@/lib/merchSlug";
 import {
   FILTER_ALL as ALL,
   FOCUSED_INITIAL_VISIBLE,
+  NO_FILTERS,
   INITIAL_VISIBLE,
   SORT_OPTIONS,
   SHOW_MORE_STEP,
   categoriesNeeded,
   countByCategory,
+  filterProducts,
   growVisible,
-  isSortKey,
+  hasProductFilters,
   nextBatchSize,
   realBrands,
   searchHaystack,
@@ -25,8 +33,15 @@ import {
   sortProducts,
   type CatalogProduct,
   type CatalogView,
-  type SortKey,
 } from "@/lib/merchCatalog";
+import {
+  CLEAR_ALL,
+  activeFilterChips,
+  filtersKey,
+  hasActiveParams,
+  priceBucketsFor,
+  type PriceBucket,
+} from "@/lib/merchFilters";
 
 interface ProductCatalogProps {
   /**
@@ -41,9 +56,13 @@ interface ProductCatalogProps {
   categoryTotals?: Record<string, number>;
   /** Every real brand in the full catalog. Defaults to the brands in `products`. */
   brands?: string[];
+  /**
+   * Price filter choices, computed from the whole catalog on the server.
+   * Defaults to buckets from the products on hand.
+   */
+  priceBuckets?: PriceBucket[];
 }
 
-const SEARCH_DEBOUNCE_MS = 200;
 /** Wait this long after hydration before fetching the rest of the catalog. */
 const PREFETCH_DELAY_MS = 3000;
 
@@ -73,21 +92,15 @@ function skippableStyle(cards: number): CSSProperties {
   } as CSSProperties;
 }
 
-const controlClasses =
-  "rounded-md border border-gold/25 bg-cream px-3 py-2.5 text-sm text-onyx focus:outline-none focus:ring-2 focus:ring-gold/60";
-
 /** What the page shows while the data a filter needs is still on its way. */
-const BASE_VIEW: CatalogView = { category: ALL, brand: ALL, query: "", sort: "featured" };
+const BASE_VIEW: CatalogView = {
+  category: ALL,
+  brand: ALL,
+  query: "",
+  sort: "featured",
+  filters: NO_FILTERS,
+};
 const NO_COUNTS: Record<string, number> = {};
-
-function useDebouncedValue<T>(value: T, delay: number): T {
-  const [debounced, setDebounced] = useState(value);
-  useEffect(() => {
-    const timer = window.setTimeout(() => setDebounced(value), delay);
-    return () => window.clearTimeout(timer);
-  }, [value, delay]);
-  return debounced;
-}
 
 function slug(category: string): string {
   return `category-${category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
@@ -106,21 +119,22 @@ export default function ProductCatalog({
   categories,
   categoryTotals,
   brands: brandsProp,
+  priceBuckets: bucketsProp,
 }: ProductCatalogProps) {
-  const [queryInput, setQueryInput] = useState("");
-  const query = useDebouncedValue(queryInput, SEARCH_DEBOUNCE_MS).trim();
-  const [sort, setSort] = useState<SortKey>("featured");
-  const [category, setCategory] = useState<string>(ALL);
-  const [brand, setBrand] = useState<string>(ALL);
+  const totals = useMemo(
+    () => categoryTotals ?? countByCategory(products),
+    [categoryTotals, products]
+  );
+  const brands = useMemo(() => brandsProp ?? realBrands(products), [brandsProp, products]);
+  const { params, queryInput, onQueryInput, update } = useCatalogParams({ categories, brands });
+  const { category, brand, query, sort, filters } = params;
   // Visible-count state is tagged with the filter it belongs to, so changing
   // any filter naturally starts every section back at its initial size.
-  const filterKey = `${category}|${brand}|${query}|${sort}`;
+  const filterKey = `${category}|${brand}|${query}|${sort}|${filtersKey(filters)}`;
   const [disclosure, setDisclosure] = useState<{ key: string; counts: Record<string, number> }>({
     key: filterKey,
     counts: {},
   });
-  // Flips once the URL has been read, so we never overwrite it with defaults.
-  const [urlReady, setUrlReady] = useState(false);
   // Category whose "Show more" is waiting for its cards to arrive.
   const [busy, setBusy] = useState<string | null>(null);
   const { loaded, failed: failedByCategory, load } = useCategoryCards();
@@ -138,11 +152,6 @@ export default function ProductCatalog({
     return () => observer.disconnect();
   }, []);
 
-  const totals = useMemo(
-    () => categoryTotals ?? countByCategory(products),
-    [categoryTotals, products]
-  );
-  const brands = useMemo(() => brandsProp ?? realBrands(products), [brandsProp, products]);
   const initialByCategory = useMemo(() => {
     const map = new Map<string, CatalogProduct[]>();
     for (const product of products) {
@@ -215,42 +224,9 @@ export default function ProductCatalog({
     return text;
   }, []);
 
-  // Restore shareable state (?category=&q=&sort=&brand=) on first mount. Done
-  // in an effect, not during render, so server and client markup match.
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const initialCategory = params.get("category");
-    const initialBrand = params.get("brand");
-    const initialSort = params.get("sort");
-    const initialQuery = params.get("q");
-    if (initialCategory && categories.includes(initialCategory)) setCategory(initialCategory);
-    if (initialBrand && brands.includes(initialBrand)) setBrand(initialBrand);
-    if (isSortKey(initialSort)) setSort(initialSort);
-    if (initialQuery) setQueryInput(initialQuery);
-    setUrlReady(true);
-  }, [categories, brands]);
-
-  useEffect(() => {
-    if (!urlReady) return;
-    const url = new URL(window.location.href);
-    const entries: [string, string | null][] = [
-      ["category", category === ALL ? null : category],
-      ["brand", brand === ALL ? null : brand],
-      ["sort", sort === "featured" ? null : sort],
-      ["q", query || null],
-    ];
-    for (const [key, value] of entries) {
-      if (value) url.searchParams.set(key, value);
-      else url.searchParams.delete(key);
-    }
-    if (url.href !== window.location.href) {
-      window.history.replaceState(window.history.state, "", url);
-    }
-  }, [urlReady, category, brand, sort, query]);
-
   // Fetch whatever the chosen filters need. Until it is here the page keeps
   // showing the unfiltered view with a "Loading" note, never a half-filtered one.
-  const needed = categoriesNeeded({ category, brand, query, sort }, categories);
+  const needed = categoriesNeeded({ category, brand, query, sort, filters }, categories);
   const missing = needed.filter((name) => !isComplete(name));
   const missingKey = missing.join("|");
   useEffect(() => {
@@ -259,17 +235,24 @@ export default function ProductCatalog({
   const ready = missing.length === 0;
   const failed = missing.some((name) => failedByCategory[name]);
   const loading = !ready && !failed;
-  const view: CatalogView = ready ? { category, brand, query, sort } : BASE_VIEW;
+  const view = useMemo<CatalogView>(
+    () => (ready ? { category, brand, query, sort, filters } : BASE_VIEW),
+    [ready, category, brand, query, sort, filters]
+  );
 
-  // Search + brand narrow the result set; the category chips then slice it.
-  const narrowing = view.brand !== ALL || view.query !== "";
+  // Search, brand and the product filters narrow the result set; the category
+  // chips then slice it.
+  const viewFilters = view.filters ?? NO_FILTERS;
+  const narrowing = view.brand !== ALL || view.query !== "" || hasProductFilters(viewFilters);
   const matching = useMemo(() => {
     if (!narrowing) return known;
     const byBrand =
       view.brand === ALL ? known : known.filter((product) => product.brand === view.brand);
-    // Ranked by relevance (name, brand, category, color, description).
-    return view.query ? searchProducts(byBrand, view.query, haystackOf) : byBrand;
-  }, [narrowing, known, view.brand, view.query, haystackOf]);
+    const byFilters = filterProducts(byBrand, viewFilters);
+    // Ranked by relevance (name, brand, category, color, description); the
+    // sort below keeps that ranking as its tie-break.
+    return view.query ? searchProducts(byFilters, view.query, haystackOf) : byFilters;
+  }, [narrowing, known, view.brand, view.query, viewFilters, haystackOf]);
 
   // Unfiltered counts come from the server totals so they are right before
   // the rest of a category has loaded.
@@ -301,7 +284,9 @@ export default function ProductCatalog({
   }, [matching, view.sort, view.category, categories, counts]);
 
   const resultCount = groups.reduce((sum, group) => sum + group.total, 0);
-  const hasFilters = category !== ALL || brand !== ALL || query !== "" || queryInput !== "";
+  const hasFilters = hasActiveParams(params, queryInput);
+  const chips = useMemo(() => activeFilterChips(params), [params]);
+  const priceBuckets = useMemo(() => bucketsProp ?? priceBucketsFor(known), [bucketsProp, known]);
   const initialVisible = view.category === ALL ? INITIAL_VISIBLE : FOCUSED_INITIAL_VISIBLE;
   const visibleCounts = disclosure.key === filterKey ? disclosure.counts : NO_COUNTS;
   useMerchBrowseAnalytics(
@@ -341,10 +326,16 @@ export default function ProductCatalog({
   );
 
   function clearFilters() {
-    setQueryInput("");
-    setBrand(ALL);
-    setCategory(ALL);
+    update(CLEAR_ALL);
   }
+
+  const statusText = loading
+    ? "Loading products…"
+    : resultCount === 0
+      ? "No products found"
+      : `Showing ${resultCount} ${resultCount === 1 ? "product" : "products"}${
+          view.category === ALL ? "" : ` in ${view.category}`
+        }`;
 
   return (
     <div>
@@ -352,50 +343,22 @@ export default function ProductCatalog({
         <LogoDropzone />
       </div>
 
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-[minmax(0,1fr)_auto_auto]">
-        <input
-          type="search"
-          value={queryInput}
-          onChange={(event) => setQueryInput(event.target.value)}
-          onFocus={() => warm()}
-          placeholder="Search products, brands or colors"
-          aria-label="Search products"
-          className={`${controlClasses} col-span-2 w-full sm:col-span-1`}
-        />
-        <label className="min-w-0">
-          <span className="sr-only">Sort products</span>
-          <select
-            value={sort}
-            onChange={(event) => setSort(event.target.value as SortKey)}
-            onFocus={() => warm()}
-            onPointerDown={() => warm()}
-            className={`${controlClasses} w-full font-medium`}
-          >
-            {SORT_OPTIONS.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label className="min-w-0">
-          <span className="sr-only">Filter by brand</span>
-          <select
-            value={brand}
-            onChange={(event) => setBrand(event.target.value)}
-            onFocus={() => warm()}
-            onPointerDown={() => warm()}
-            className={`${controlClasses} w-full font-medium`}
-          >
-            <option value={ALL}>All Brands</option>
-            {brands.map((name) => (
-              <option key={name} value={name}>
-                {name}
-              </option>
-            ))}
-          </select>
-        </label>
-      </div>
+      <FilterToolbar
+        idPrefix="catalog"
+        searchValue={queryInput}
+        onSearch={onQueryInput}
+        searchLabel="Search products"
+        searchPlaceholder="Search products, brands or colors"
+        sort={sort}
+        onSort={(next) => update({ sort: next })}
+        brand={brand}
+        brands={brands}
+        onBrand={(next) => update({ brand: next })}
+        filters={filters}
+        onFilters={(next) => update({ filters: next })}
+        priceBuckets={priceBuckets}
+        onIntent={warm}
+      />
 
       {/* Category chips: sticky below the site header so they stay reachable at 500 products. */}
       <div
@@ -411,7 +374,7 @@ export default function ProductCatalog({
             label="All"
             count={allCount}
             active={category === ALL}
-            onClick={() => setCategory(ALL)}
+            onClick={() => update({ category: ALL })}
           />
           {categories.map((name) => (
             <CategoryChip
@@ -419,33 +382,21 @@ export default function ProductCatalog({
               label={name}
               count={counts[name] ?? 0}
               active={category === name}
-              onClick={() => setCategory(name)}
+              onClick={() => update({ category: name })}
               onIntent={() => warm([name])}
             />
           ))}
         </div>
       </div>
 
-      <div className="mt-5 flex min-h-[2rem] flex-wrap items-center justify-between gap-3">
-        <p role="status" className="text-sm text-onyx/60">
-          {loading
-            ? "Loading products…"
-            : resultCount === 0
-              ? "No products found"
-              : `Showing ${resultCount} ${resultCount === 1 ? "product" : "products"}${
-                  view.category === ALL ? "" : ` in ${view.category}`
-                }`}
-        </p>
-        {hasFilters && (
-          <button
-            type="button"
-            onClick={clearFilters}
-            className="text-sm font-semibold text-gold-text underline-offset-2 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-dark"
-          >
-            Clear filters
-          </button>
-        )}
-      </div>
+      <FilterStatus
+        idPrefix="catalog"
+        statusText={statusText}
+        chips={chips}
+        onRemoveChip={(chip) => update(chip.remove)}
+        canClear={hasFilters}
+        onClearAll={clearFilters}
+      />
 
       {failed && !ready && (
         <p role="alert" className="mt-3 text-sm text-onyx/70">
@@ -464,17 +415,20 @@ export default function ProductCatalog({
         <div className="mt-8 rounded-lg border border-dashed border-gold/40 px-6 py-14 text-center">
           <p className="text-base font-semibold text-onyx">No products match your filters.</p>
           <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-onyx/60">
-            Try a different search, or clear the filters. If it still isn&apos;t here, request it
+            Try a different search, or clear all filters. If it still isn&apos;t here, request it
             and we&apos;ll source it for you.
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             {hasFilters && (
               <button
                 type="button"
-                onClick={clearFilters}
+                onClick={() => {
+                  clearFilters();
+                  focusFilterToggle("catalog");
+                }}
                 className="rounded-md border border-gold/40 px-5 py-2.5 text-sm font-semibold text-onyx transition-colors hover:border-gold hover:bg-gold/10"
               >
-                Clear filters
+                Clear all
               </button>
             )}
             <a
