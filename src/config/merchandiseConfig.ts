@@ -88,6 +88,8 @@ export const merchandiseCategories = [
   "Kids & Toys",
   "Awards & Recognition",
   "Print & Collateral",
+  "Promo Giveaways",
+  "Lanyards & Badges",
 ] as const;
 
 // Real products sourced from live ESP+ search (espplus.com), September 2026.
@@ -1243,7 +1245,7 @@ const curatedProducts: MerchProduct[] = [
   {
     id: "silkscreen-lanyard",
     name: '3/4" Silkscreen Breakaway Lanyard',
-    category: "Event & Signage",
+    category: "Lanyards & Badges",
     brand: "Essentials",
     description:
       '3/4" breakaway safety lanyard with a silkscreen imprint. Offered in 9 colors. Priced at 150 units.',
@@ -1288,7 +1290,7 @@ const curatedProducts: MerchProduct[] = [
     id: "cedar-creek-valor-pocket-knife",
     name: "Cedar Creek® Valor Pocket Knife",
     category: "Knives & Tools",
-    brand: "Essentials",
+    brand: "Cedar Creek",
     description:
       "Textured-handle pocket knife from Cedar Creek, in the Valor style. Offered in 2 colors. Price per unit drops at 144 and 288 units. Priced at 48 units.",
     priceTiers: tiers([
@@ -1681,6 +1683,10 @@ export const CATEGORY_IMPRINT_DEFAULTS: Record<string, ImprintArea> = {
   "Awards & Recognition": { top: 50, left: 50, width: 30 },
   // Printed pieces (door hangers, postcards, folders, magnets): logo centered and large.
   "Print & Collateral": { top: 50, left: 50, width: 40 },
+  // Stress balls, fans, wristbands, buttons: small items, logo centered and mid-size.
+  "Promo Giveaways": { top: 50, left: 50, width: 24 },
+  // Lanyards, badge holders and name badges: logo centered along the strap or badge face.
+  "Lanyards & Badges": { top: 50, left: 50, width: 20 },
   // Boards, blankets, kits: centered, mid-size.
   "Gifts & Entertaining": { top: 50, left: 50, width: 22 },
   // Blades and handles are small and photographed at angles; keep it modest.

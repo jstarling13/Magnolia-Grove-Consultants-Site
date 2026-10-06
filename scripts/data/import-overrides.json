@@ -19,12 +19,29 @@
       "espId": "556172558",
       "reason": "6 Panel Premier 112 Trucker Cap from Promosmart (9 colors) is the same cap as espId 552519542 (Direct Caps, 24 colors), which already has per-color photos on the storefront and a stable id. The existing product wins.",
       "keepEspId": "552519542"
+    },
+    {
+      "espId": "5660307",
+      "reason": "Dye Sublimated Lanyards - Sizes 1/2\"-1\" (Full Designs, 5 stars, 656 reviews, 1 color) is the same dye-sublimated 36\" polyester lanyard as Lanyards Dye Sublimated Full Color (WBPromotion, 5 stars, 506 reviews, 13 colors): both vendors score within 0.02 and the kept listing offers 13 colors at a lower price. Neither has sourced color photos.",
+      "keepEspId": "551819714"
     }
   ],
   "keepApart": [
     {
       "espIds": ["555763946", "555764425"],
       "reason": "Berber Impressions HD Floor Mat 4' x 6' and WaterHog Impressions HD Floor Mat 4'x 6' (both SnugZ USA) are different mat products (Berber vs WaterHog); keep both."
+    },
+    {
+      "espIds": ["553656072", "556620357"],
+      "reason": "Push Pop Stress Reliever Keychain and Push Pop Square Stress Reliever Keychain (both Hit Promotional Products) are different shapes with different prices, and BOTH already carry sourced color photos on the storefront. Moving both into Promo Giveaways must not merge them; keep both."
+    },
+    {
+      "espIds": ["550691972", "550430533", "550383209", "556386568", "556386566"],
+      "reason": "Custom Name Badges (Tekweld) and the BNB Line Digitally Printed, Engraved, Shadow Printed and Executive Name Badges differ in decoration method and style. They only share a category since name badges moved into Lanyards & Badges; the looser cross-supplier rule must not collapse them."
+    },
+    {
+      "espIds": ["551778346", "6033679"],
+      "reason": "Foldable Nylon Fan (Printed in USA - Rush) and Round Foldable Nylon Fan (Printed in USA - Rush) (both Graphco Line) are different listings (a compact foldable fan vs a 7in round fan with blank handle). They only share a category since hand fans moved into Promo Giveaways; keep both."
     }
   ],
   "categoryOverrides": [
@@ -52,6 +69,11 @@
       "espId": "553389764",
       "category": "Apparel",
       "reason": "Buffalo Plaid Knit Cap, Scarf and Text Gloves Combo is a cap/scarf/glove set, not just headwear."
+    },
+    {
+      "espId": "552649377",
+      "category": "Awards & Recognition",
+      "reason": "Express Vibraprint Lite Champ With Plastic Chain is a medal-style recognition piece (same Express Vibraprint line as the plaque), not a gift item."
     }
   ],
   "nameOverrides": [
@@ -87,13 +109,13 @@
     },
     {
       "espId": "555207583",
-      "name": "Kershaw\u00ae Eris Pocket Knife",
-      "reason": "Raw name is only \"KERSHAW\u00ae ERIS\" in capitals; the description says Kershaw Pocket Knife."
+      "name": "Kershaw® Eris Pocket Knife",
+      "reason": "Raw name is only \"KERSHAW® ERIS\" in capitals; the description says Kershaw Pocket Knife."
     },
     {
       "espId": "4910178",
-      "name": "Victorinox\u00ae Classic Knife",
-      "reason": "Raw name is only \"Victorinox\u00ae Classic\"; the description says Knife featuring handle, blade, scissors, nail file and more."
+      "name": "Victorinox® Classic Knife",
+      "reason": "Raw name is only \"Victorinox® Classic\"; the description says Knife featuring handle, blade, scissors, nail file and more."
     },
     {
       "espId": "5547380",
@@ -109,6 +131,16 @@
       "espId": "552982875",
       "name": "12 oz. Slim Fit Kan-Tastic Can and Bottle Grip",
       "reason": "Raw name does not say what the product is; the description says it keeps a can or bottle at the right temperature and provides a grip."
+    },
+    {
+      "espId": "550300716",
+      "name": "5-Panel Unstructured Cotton Twill Cap",
+      "reason": "Raw name \"Price Buster Cap\" is only a vendor price label; the description says 100% cotton twill cap, 5 panel, unstructured crown."
+    },
+    {
+      "espId": "200333580",
+      "name": "Flat Polyester Silkscreen Lanyard",
+      "reason": "Raw name \"Pricebuster Lanyard\" is only a vendor price label; the description says a flat polyester lanyard with a silk screen imprint."
     }
   ]
 }

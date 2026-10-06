@@ -162,7 +162,7 @@ describe("description / badge / colors", () => {
         usa: 0,
         multiGrid: 0,
       })
-    ).toBe("3 color options. Size: S-XL. Priced at 25 units.");
+    ).toBe("Size: S-XL. Priced at 25 units.");
     expect(
       buildDescription({
         rawDescription: "",
@@ -173,7 +173,7 @@ describe("description / badge / colors", () => {
         multiGrid: 0,
       })
     ).toBe("Priced at 1 unit.");
-    // alongside a size line the color count is kept
+    // the color count is never written (the swatches show it), even next to a size line
     expect(
       buildDescription({
         rawDescription: "",
@@ -183,7 +183,7 @@ describe("description / badge / colors", () => {
         usa: 0,
         multiGrid: 0,
       })
-    ).toBe("1 color option. Size: 6' x 10''. Priced at 1 unit.");
+    ).toBe("Size: 6' x 10''. Priced at 1 unit.");
   });
 
   it("does not repeat Made in USA when the supplier text already says it", () => {
@@ -884,8 +884,8 @@ describe("description cleanup", () => {
     });
     row[3] = "Cotton cap in 12 colors.";
     const cleaned = cleanRow(row);
-    // the invented "12 colors" claim is gone; the importer adds the real count to the thin text
-    expect(cleaned.product?.description).toBe("Cotton cap. 2 color options. Priced at 1 unit.");
+    // the invented "12 colors" claim is gone and no count is written back: the swatches show it
+    expect(cleaned.product?.description).toBe("Cotton cap. Priced at 1 unit.");
   });
 });
 
@@ -987,11 +987,13 @@ describe("manual overrides", () => {
       "552519118",
       "553353508",
       "556172558",
+      "5660307",
     ]);
     expect(overrides[0].keepEspId).toBe("556464384");
     expect(overrides[1].keepCuratedId).toBe("6panel-premium-relaxed-golf-cap");
     expect(overrides[2].keepEspId).toBe("553866344");
     expect(overrides[3].keepEspId).toBe("552519542");
+    expect(overrides[4].keepEspId).toBe("551819714");
     const shippedIds = new Set(products.map((p) => p.id));
     expect(shippedIds.has("6panel-premium-relaxed-golf-cap")).toBe(true);
   });
@@ -1223,9 +1225,7 @@ describe("display names", () => {
     ).toBe("Door mat. Priced at 5 units.");
     const row = mk({ espId: "9500", name: "Mat" });
     row[5] = "6 ' x 10 '";
-    expect(cleanRow(row).product?.description).toBe(
-      "1 color option. Size: 6' x 10'. Priced at 1 unit."
-    );
+    expect(cleanRow(row).product?.description).toBe("Size: 6' x 10'. Priced at 1 unit.");
   });
 });
 
@@ -1310,7 +1310,7 @@ describe("category overrides", () => {
     expect(checkCategoryOverrides({ categoryOverrides: [entry], rawEspIds: ["7001"] })).toEqual([]);
   });
 
-  it("ships the five requested moves", async () => {
+  it("ships the requested moves", async () => {
     const file = JSON.parse(
       await fs.readFile(path.join(__dirname, "../scripts/data/import-overrides.json"), "utf8")
     );
@@ -1318,6 +1318,7 @@ describe("category overrides", () => {
       parseCategoryOverrides(file).map((o) => [o.espId, o.category])
     );
     expect(moves).toEqual({
+      "552649377": "Awards & Recognition",
       "554079367": "Kids & Toys",
       "553267133": "Automotive",
       "555527670": "Automotive",
