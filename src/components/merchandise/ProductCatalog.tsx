@@ -13,6 +13,11 @@ import {
 import { useCatalogParams } from "@/hooks/useCatalogParams";
 import { useMerchBrowseAnalytics } from "@/hooks/useMerchBrowseAnalytics";
 import { useCategoryCards } from "@/components/merchandise/useCategoryCards";
+import {
+  CARD_GRID_CLASSES,
+  TypeChips,
+  TypeSections,
+} from "@/components/merchandise/ProductTypeNav";
 import { categoryPath } from "@/lib/merchSlug";
 import {
   FILTER_ALL as ALL,
@@ -25,6 +30,8 @@ import {
   countByCategory,
   filterProducts,
   formatQuantity,
+  blockTotalsFor,
+  filterByType,
   growVisible,
   hasProductFilters,
   nextBatchSize,
@@ -32,8 +39,10 @@ import {
   searchHaystack,
   searchProducts,
   sortProducts,
+  summarizeCardTypes,
   type CatalogProduct,
   type CatalogView,
+  type TypeSummary,
 } from "@/lib/merchCatalog";
 import {
   CLEAR_ALL,
@@ -62,6 +71,10 @@ interface ProductCatalogProps {
    * Defaults to buckets from the products on hand.
    */
   priceBuckets?: PriceBucket[];
+  /** Product types of every category with full counts, in display order. Defaults to the types of `products`. */
+  types?: Record<string, TypeSummary[]>;
+  /** Full size of the brand blocks among the first cards, by blockKey. Defaults to counting `products`. */
+  blockTotals?: Record<string, number>;
 }
 
 /** Wait this long after hydration before fetching the rest of the catalog. */
@@ -97,6 +110,7 @@ function skippableStyle(cards: number): CSSProperties {
 const BASE_VIEW: CatalogView = {
   category: ALL,
   brand: ALL,
+  type: ALL,
   query: "",
   sort: "featured",
   filters: NO_FILTERS,
@@ -121,6 +135,14 @@ interface Group {
   items: CatalogProduct[];
   /** How many products match, including cards that have not loaded yet. */
   total: number;
+  /** Shop-by-type chips for this category (absent in a mixed list or when the category has one type). */
+  chips?: TypeSummary[];
+  /** The chosen type, when this is the focused category. */
+  activeType?: string;
+  /** Show sub-headings per type and brand block (the default, relevance view). */
+  sectioned?: boolean;
+  /** Counts for the sub-headings. */
+  known?: { types: TypeSummary[]; blockTotals: Record<string, number> };
 }
 
 export default function ProductCatalog({
@@ -129,17 +151,39 @@ export default function ProductCatalog({
   categoryTotals,
   brands: brandsProp,
   priceBuckets: bucketsProp,
+  types: typesProp,
+  blockTotals: blockTotalsProp,
 }: ProductCatalogProps) {
   const totals = useMemo(
     () => categoryTotals ?? countByCategory(products),
     [categoryTotals, products]
   );
   const brands = useMemo(() => brandsProp ?? realBrands(products), [brandsProp, products]);
-  const { params, queryInput, onQueryInput, update } = useCatalogParams({ categories, brands });
-  const { category, brand, query, sort, filters } = params;
+  // Types of every category in display order: the server's, or read off the cards.
+  const typesByCategory = useMemo(() => {
+    if (typesProp) return typesProp;
+    const map: Record<string, TypeSummary[]> = {};
+    for (const name of categories) {
+      map[name] = summarizeCardTypes(products.filter((product) => product.category === name));
+    }
+    return map;
+  }, [typesProp, categories, products]);
+  const typeLabelsByCategory = useMemo(
+    () =>
+      Object.fromEntries(
+        Object.entries(typesByCategory).map(([name, list]) => [name, list.map((t) => t.label)])
+      ),
+    [typesByCategory]
+  );
+  const { params, queryInput, onQueryInput, update } = useCatalogParams({
+    categories,
+    brands,
+    typesByCategory: typeLabelsByCategory,
+  });
+  const { category, brand, type, query, sort, filters } = params;
   // Visible-count state is tagged with the filter it belongs to, so changing
   // any filter naturally starts every section back at its initial size.
-  const filterKey = `${category}|${brand}|${query}|${sort}|${filtersKey(filters)}`;
+  const filterKey = `${category}|${brand}|${type}|${query}|${sort}|${filtersKey(filters)}`;
   const [disclosure, setDisclosure] = useState<{ key: string; counts: Record<string, number> }>({
     key: filterKey,
     counts: {},
@@ -235,7 +279,7 @@ export default function ProductCatalog({
 
   // Fetch whatever the chosen filters need. Until it is here the page keeps
   // showing the unfiltered view with a "Loading" note, never a half-filtered one.
-  const needed = categoriesNeeded({ category, brand, query, sort, filters }, categories);
+  const needed = categoriesNeeded({ category, brand, type, query, sort, filters }, categories);
   const missing = needed.filter((name) => !isComplete(name));
   const missingKey = missing.join("|");
   useEffect(() => {
@@ -245,8 +289,8 @@ export default function ProductCatalog({
   const failed = missing.some((name) => failedByCategory[name]);
   const loading = !ready && !failed;
   const view = useMemo<CatalogView>(
-    () => (ready ? { category, brand, query, sort, filters } : BASE_VIEW),
-    [ready, category, brand, query, sort, filters]
+    () => (ready ? { category, brand, type, query, sort, filters } : BASE_VIEW),
+    [ready, category, brand, type, query, sort, filters]
   );
 
   // Search, brand and the product filters narrow the result set; the category
@@ -301,17 +345,63 @@ export default function ProductCatalog({
       if (list) list.push(product);
       else byCategory.set(product.category, [product]);
     }
+    const sectioned = view.query === "" && view.sort === "featured";
     return categories
       .filter(
         (name) => (view.category === ALL || name === view.category) && (counts[name] ?? 0) > 0
       )
-      .map((name) => ({
-        category: name,
-        title: name,
-        items: byCategory.get(name) ?? [],
-        total: counts[name] ?? 0,
-      }));
-  }, [matching, mixed, view.query, view.sort, view.category, categories, counts]);
+      .map((name) => {
+        const all = byCategory.get(name) ?? [];
+        const serverTypes = typesByCategory[name] ?? [];
+        const hasTypes = serverTypes.length > 0 && all.some((product) => product.type);
+        const focused = view.category === name;
+        const activeType = focused && view.type !== undefined ? view.type : ALL;
+        const items = activeType === ALL ? all : filterByType(all, activeType);
+        // Chip counts follow the search, brand and filters (a narrowed list is
+        // always fully loaded); unnarrowed they are the server's full counts.
+        const narrowedCounts = narrowing ? summarizeCardTypes(all) : null;
+        const chips = hasTypes
+          ? serverTypes.map((entry) => ({
+              ...entry,
+              count: narrowedCounts
+                ? (narrowedCounts.find((c) => c.label === entry.label)?.count ?? 0)
+                : entry.count,
+            }))
+          : undefined;
+        const complete = isComplete(name);
+        return {
+          category: name,
+          title: name,
+          items,
+          total: activeType === ALL ? (counts[name] ?? 0) : items.length,
+          chips: chips && serverTypes.length > 1 ? chips : undefined,
+          activeType,
+          sectioned: hasTypes && sectioned,
+          known: complete
+            ? {
+                types: summarizeCardTypes(items),
+                blockTotals: blockTotalsFor(items, name),
+              }
+            : {
+                types: serverTypes,
+                blockTotals: blockTotalsProp ?? blockTotalsFor(all, name),
+              },
+        };
+      });
+  }, [
+    matching,
+    mixed,
+    narrowing,
+    view.query,
+    view.sort,
+    view.category,
+    view.type,
+    categories,
+    counts,
+    typesByCategory,
+    blockTotalsProp,
+    isComplete,
+  ]);
 
   const resultCount = groups.reduce((sum, group) => sum + group.total, 0);
   const hasFilters = hasActiveParams(params, queryInput);
@@ -411,7 +501,7 @@ export default function ProductCatalog({
             label="All"
             count={allCount}
             active={category === ALL}
-            onClick={() => update({ category: ALL })}
+            onClick={() => update({ category: ALL, type: ALL })}
           />
           {categories.map((name) => (
             <CategoryChip
@@ -419,7 +509,7 @@ export default function ProductCatalog({
               label={name}
               count={counts[name] ?? 0}
               active={category === name}
-              onClick={() => update({ category: name })}
+              onClick={() => update({ category: name, type: ALL })}
               onIntent={() => warm([name])}
             />
           ))}
@@ -487,6 +577,7 @@ export default function ProductCatalog({
             onShowMore={showMore}
             onCollapse={collapse}
             onIntent={warm}
+            onType={(name, next) => update({ category: name, type: next })}
           />
         </div>
       )}
@@ -502,6 +593,8 @@ interface CatalogSectionsProps {
   onShowMore: (name: string, shown: number, total: number) => void;
   onCollapse: (name: string) => void;
   onIntent: (names: readonly string[]) => void;
+  /** A "Shop by type" chip: show that type of that category (or all of it again). */
+  onType: (category: string, type: string) => void;
 }
 
 /**
@@ -517,101 +610,131 @@ const CatalogSections = memo(function CatalogSections({
   onShowMore,
   onCollapse,
   onIntent,
+  onType,
 }: CatalogSectionsProps) {
   return (
     <>
-      {groups.map(({ category: name, title, mixed, items, total }, groupIndex) => {
-        const shown = Math.min(visibleCounts[name] ?? initialVisible, total);
-        const batch = nextBatchSize(shown, total);
-        return (
-          <section
-            key={name}
-            id={slug(name)}
-            aria-labelledby={`${slug(name)}-heading`}
-            className="scroll-mt-44"
-          >
-            <div className="flex items-baseline justify-between border-b border-gold/20 pb-2">
-              <h2
-                id={`${slug(name)}-heading`}
-                className="font-heading text-lg uppercase tracking-wide text-onyx/80"
-              >
-                {title}
-              </h2>
-              <div className="flex items-baseline gap-4">
-                <span className="text-xs font-medium text-onyx/60">
-                  {formatQuantity(total)} {total === 1 ? "item" : "items"}
-                </span>
-                {!mixed && (
-                  <Link
-                    href={categoryPath(name)}
-                    aria-label={`View all ${name}`}
-                    className="text-xs font-semibold text-gold-text underline-offset-2 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-dark"
-                  >
-                    View all
-                  </Link>
-                )}
-              </div>
-            </div>
-
-            <div
-              className={groupIndex > 0 ? SKIPPABLE_CLASSES : undefined}
-              style={groupIndex > 0 ? skippableStyle(Math.min(shown, items.length)) : undefined}
+      {groups.map(
+        (
+          { category: name, title, mixed, items, total, chips, activeType, sectioned, known },
+          groupIndex
+        ) => {
+          const shown = Math.min(visibleCounts[name] ?? initialVisible, total);
+          const batch = nextBatchSize(shown, total);
+          return (
+            <section
+              key={name}
+              id={slug(name)}
+              aria-labelledby={`${slug(name)}-heading`}
+              className="scroll-mt-44"
             >
-              <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">
-                {items.slice(0, shown).map((product) =>
-                  mixed ? (
-                    <div key={product.id} className="grid grid-rows-[auto_1fr] gap-1.5">
-                      <p className="truncate text-xs font-medium text-onyx/60">
-                        in {product.category}
-                      </p>
-                      <ProductCard product={product} />
-                    </div>
-                  ) : (
-                    <ProductCard key={product.id} product={product} />
-                  )
-                )}
-              </div>
-            </div>
-
-            {total > initialVisible && (
-              <div className="mt-8 flex flex-col items-center gap-3">
-                <p className="text-xs text-onyx/60" aria-live="polite">
-                  Showing {formatQuantity(shown)} of {formatQuantity(total)}
-                </p>
-                <div className="flex flex-wrap justify-center gap-3">
-                  {batch > 0 && (
-                    <button
-                      type="button"
-                      aria-label={
-                        mixed
-                          ? `Show ${batch} more ${batch === 1 ? "result" : "results"}`
-                          : `Show ${batch} more ${name} ${batch === 1 ? "product" : "products"}`
-                      }
-                      aria-busy={busy === name}
-                      disabled={busy === name}
-                      onPointerEnter={() => onIntent([name])}
-                      onFocus={() => onIntent([name])}
-                      onClick={() => onShowMore(name, shown, total)}
-                      className="rounded-md border border-gold/40 px-6 py-2.5 text-sm font-semibold text-onyx transition-colors hover:border-gold hover:bg-gold/10 disabled:cursor-wait disabled:opacity-60"
+              <div className="flex items-baseline justify-between border-b border-gold/20 pb-2">
+                <h2
+                  id={`${slug(name)}-heading`}
+                  className="font-heading text-lg uppercase tracking-wide text-onyx/80"
+                >
+                  {title}
+                </h2>
+                <div className="flex items-baseline gap-4">
+                  <span className="text-xs font-medium text-onyx/60">
+                    {formatQuantity(total)} {total === 1 ? "item" : "items"}
+                  </span>
+                  {!mixed && (
+                    <Link
+                      href={categoryPath(name)}
+                      aria-label={`View all ${name}`}
+                      className="text-xs font-semibold text-gold-text underline-offset-2 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-dark"
                     >
-                      {busy === name ? "Loading…" : `Show ${batch} more`}
-                    </button>
-                  )}
-                  {shown > initialVisible && (
-                    <button
-                      type="button"
-                      onClick={() => onCollapse(name)}
-                      className="rounded-md px-4 py-2.5 text-sm font-semibold text-onyx/60 transition-colors hover:text-onyx"
-                    >
-                      Show fewer
-                    </button>
+                      View all
+                    </Link>
                   )}
                 </div>
               </div>
-            )}
-          </section>
-        );
-      })}
+
+              {chips && (
+                <TypeChips
+                  types={chips}
+                  active={activeType ?? ALL}
+                  allValue={ALL}
+                  category={name}
+                  layout={activeType !== undefined && activeType !== ALL ? "wrap" : "scroll"}
+                  onSelect={(next) => onType(name, next)}
+                  onIntent={() => onIntent([name])}
+                />
+              )}
+
+              <div
+                className={groupIndex > 0 ? SKIPPABLE_CLASSES : undefined}
+                style={groupIndex > 0 ? skippableStyle(Math.min(shown, items.length)) : undefined}
+              >
+                {sectioned && !mixed ? (
+                  <div className="mt-6">
+                    <TypeSections
+                      items={items.slice(0, shown)}
+                      category={name}
+                      known={known}
+                      typeLevel={3}
+                      idPrefix={slug(name)}
+                    />
+                  </div>
+                ) : (
+                  <div className={`mt-6 ${CARD_GRID_CLASSES}`}>
+                    {items.slice(0, shown).map((product) =>
+                      mixed ? (
+                        <div key={product.id} className="grid grid-rows-[auto_1fr] gap-1.5">
+                          <p className="truncate text-xs font-medium text-onyx/60">
+                            in {product.category}
+                          </p>
+                          <ProductCard product={product} />
+                        </div>
+                      ) : (
+                        <ProductCard key={product.id} product={product} />
+                      )
+                    )}
+                  </div>
+                )}
+              </div>
+
+              {total > initialVisible && (
+                <div className="mt-8 flex flex-col items-center gap-3">
+                  <p className="text-xs text-onyx/60" aria-live="polite">
+                    Showing {formatQuantity(shown)} of {formatQuantity(total)}
+                  </p>
+                  <div className="flex flex-wrap justify-center gap-3">
+                    {batch > 0 && (
+                      <button
+                        type="button"
+                        aria-label={
+                          mixed
+                            ? `Show ${batch} more ${batch === 1 ? "result" : "results"}`
+                            : `Show ${batch} more ${name} ${batch === 1 ? "product" : "products"}`
+                        }
+                        aria-busy={busy === name}
+                        disabled={busy === name}
+                        onPointerEnter={() => onIntent([name])}
+                        onFocus={() => onIntent([name])}
+                        onClick={() => onShowMore(name, shown, total)}
+                        className="rounded-md border border-gold/40 px-6 py-2.5 text-sm font-semibold text-onyx transition-colors hover:border-gold hover:bg-gold/10 disabled:cursor-wait disabled:opacity-60"
+                      >
+                        {busy === name ? "Loading…" : `Show ${batch} more`}
+                      </button>
+                    )}
+                    {shown > initialVisible && (
+                      <button
+                        type="button"
+                        onClick={() => onCollapse(name)}
+                        className="rounded-md px-4 py-2.5 text-sm font-semibold text-onyx/60 transition-colors hover:text-onyx"
+                      >
+                        Show fewer
+                      </button>
+                    )}
+                  </div>
+                </div>
+              )}
+            </section>
+          );
+        }
+      )}
     </>
   );
 });

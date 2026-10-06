@@ -43,9 +43,17 @@ interface ProductCardProps {
   priority?: boolean;
   /** Smaller card for rows such as "More in <category>": no blurb or swatches. */
   compact?: boolean;
+  /** Level of the title heading; one below the heading of the group the card sits in (default 3). */
+  headingLevel?: 3 | 4 | 5;
 }
 
-function ProductCard({ product, priority = false, compact = false }: ProductCardProps) {
+function ProductCard({
+  product,
+  priority = false,
+  compact = false,
+  headingLevel = 3,
+}: ProductCardProps) {
+  const Heading = `h${headingLevel}` as const;
   const [selectedColor, setSelectedColor] = useState<string | undefined>(undefined);
   // Links in view are not prefetched (a page of cards would pull dozens of
   // product pages nobody opens); hovering or focusing one starts its prefetch.
@@ -77,7 +85,7 @@ function ProductCard({ product, priority = false, compact = false }: ProductCard
           {isRealBrand(product.brand) ? product.brand : null}
         </p>
 
-        <h3 className="mt-1 line-clamp-2 min-h-[2.75rem] text-base font-semibold leading-snug text-onyx">
+        <Heading className="mt-1 line-clamp-2 min-h-[2.75rem] text-base font-semibold leading-snug text-onyx">
           <Link
             href={`${detailHref}${colorQuery}`}
             prefetch={intent ? null : false}
@@ -89,7 +97,7 @@ function ProductCard({ product, priority = false, compact = false }: ProductCard
           >
             {product.name}
           </Link>
-        </h3>
+        </Heading>
 
         {!compact && (
           <>

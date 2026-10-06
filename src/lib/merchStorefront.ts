@@ -13,8 +13,10 @@ import {
   merchandiseCategories,
   products,
 } from "@/config/merchandiseConfig";
+import { productTypeOf } from "@/config/productTypes";
 import {
   INITIAL_VISIBLE,
+  blockTotalsFor,
   countByCategory,
   firstPerCategory,
   realBrands,
@@ -24,10 +26,16 @@ import {
   toCatalogProduct,
   type CartProduct,
   type CatalogProduct,
+  type TypeSummary,
 } from "@/lib/merchCatalog";
 import { priceBucketsFor, type PriceBucket } from "@/lib/merchFilters";
 import { selectRelated } from "@/lib/merchRelated";
 import { findCategoryBySlug } from "@/lib/merchSlug";
+
+/** A config product with its product type attached, ready for toCatalogProduct. */
+function withType<T extends Parameters<typeof productTypeOf>[0]>(product: T): T & { type: string } {
+  return { ...product, type: productTypeOf(product) };
+}
 
 export interface StorefrontCatalog {
   /** Categories that currently have products, in display order. */
@@ -44,6 +52,14 @@ export interface StorefrontInitialCatalog {
   categoryTotals: Record<string, number>;
   /** Every real brand in the full catalog, for the brand filter. */
   brands: string[];
+  /** Product types of every category with their full counts, in display order. */
+  types: Record<string, TypeSummary[]>;
+  /**
+   * Full size of each brand block that shows among the first cards, keyed by
+   * blockKey(category, type, brand), so the sub-headings are right before the
+   * rest of the category has loaded.
+   */
+  blockTotals: Record<string, number>;
   /** Price filter choices cut from the full catalog's first-tier prices. */
   priceBuckets: PriceBucket[];
 }
@@ -57,11 +73,20 @@ export function getStorefrontCatalog(): StorefrontCatalog {
     products: groups.flatMap((group) =>
       group.items.map((product) =>
         toCardProduct(
-          toCatalogProduct(product, getImprintArea(product), { truncateDescription: true })
+          toCatalogProduct(withType(product), getImprintArea(product), {
+            truncateDescription: true,
+          })
         )
       )
     ),
   };
+}
+
+/** Product types of every category with their counts, in display order. */
+export function getStorefrontTypes(): Record<string, TypeSummary[]> {
+  return Object.fromEntries(
+    groupByCategory(products).map((group) => [group.category, group.types])
+  );
 }
 
 /**
@@ -75,11 +100,24 @@ export function getStorefrontInitialCatalog(
   perCategory = INITIAL_VISIBLE
 ): StorefrontInitialCatalog {
   const full = getStorefrontCatalog();
+  const blockTotals: Record<string, number> = {};
+  for (const category of full.categories) {
+    Object.assign(
+      blockTotals,
+      blockTotalsFor(
+        full.products.filter((card) => card.category === category),
+        category,
+        perCategory
+      )
+    );
+  }
   return {
     categories: full.categories,
     products: firstPerCategory(full.products, perCategory),
     categoryTotals: countByCategory(full.products),
     brands: realBrands(full.products),
+    types: getStorefrontTypes(),
+    blockTotals,
     priceBuckets: priceBucketsFor(full.products),
   };
 }
@@ -127,14 +165,15 @@ export function getStorefrontCategories(): string[] {
 /** Card-sized products of one category slug, or undefined for an unknown slug. */
 export function getCategoryCatalog(
   slug: string
-): { category: string; products: CatalogProduct[] } | undefined {
+): { category: string; products: CatalogProduct[]; types: TypeSummary[] } | undefined {
   const category = findCategoryBySlug(slug, getStorefrontCategories());
   if (!category) return undefined;
   const group = groupByCategory(products.filter((product) => product.category === category))[0];
   return {
     category,
+    types: group.types,
     products: group.items.map((product) =>
-      toCatalogProduct(product, getImprintArea(product), { truncateDescription: true })
+      toCatalogProduct(withType(product), getImprintArea(product), { truncateDescription: true })
     ),
   };
 }
@@ -145,11 +184,18 @@ export function getCategoryCatalog(
  */
 export function getCategoryCards(
   slug: string
-): { category: string; cards: CatalogProduct[]; brands: string[] } | undefined {
+):
+  | { category: string; cards: CatalogProduct[]; brands: string[]; types: TypeSummary[] }
+  | undefined {
   const catalog = getCategoryCatalog(slug);
   if (!catalog) return undefined;
   const cards = catalog.products.map(toCardProduct);
-  return { category: catalog.category, cards, brands: realBrands(cards) };
+  return {
+    category: catalog.category,
+    cards,
+    brands: realBrands(cards),
+    types: catalog.types,
+  };
 }
 
 /**
@@ -160,13 +206,14 @@ export function getCategoryCards(
 export function getRelatedProducts(id: string): CatalogProduct[] {
   const current = getProductById(id);
   if (!current) return [];
-  const sameCategory = products
-    .filter((product) => product.category === current.category)
-    .map((product) =>
-      toCatalogProduct(product, getImprintArea(product), { truncateDescription: true })
-    );
+  // in the category's own order (type, brand block), which breaks ties between equal matches
+  const sameCategory = groupByCategory(
+    products.filter((product) => product.category === current.category)
+  )[0].items.map((product) =>
+    toCatalogProduct(withType(product), getImprintArea(product), { truncateDescription: true })
+  );
   return selectRelated(
-    toCatalogProduct(current, getImprintArea(current), { truncateDescription: true }),
+    toCatalogProduct(withType(current), getImprintArea(current), { truncateDescription: true }),
     sameCategory
   ).map(toCardProduct);
 }
