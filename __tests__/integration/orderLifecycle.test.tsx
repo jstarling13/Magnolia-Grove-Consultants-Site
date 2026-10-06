@@ -51,7 +51,6 @@ import {
   squareEventBody,
   squareSignature,
   webhookRequest,
-  withoutGenericSupplierCopy,
   world,
   type App,
   type CartLine,
@@ -96,7 +95,7 @@ const shippedTo = (email: string) =>
 
 function customerSafe(email: CapturedEmail, backendValues: string[] = []): void {
   const label = `customer email "${email.subject}" to ${email.to}`;
-  const visible = withoutGenericSupplierCopy(`${email.subject}\n${email.html}`);
+  const visible = `${email.subject}\n${email.html}`;
   const hit = BACKEND_LEAK_PATTERN.exec(visible);
   expect(hit, `${label} leaks the backend-only term "${hit?.[0]}"`).toBeNull();
   for (const value of backendValues) {
@@ -257,7 +256,7 @@ describe("1. cart-checkout route", () => {
         orderRef: "MG-00001",
         confirmationEmailed: true,
       });
-      expect(withoutGenericSupplierCopy(text)).not.toMatch(BACKEND_LEAK_PATTERN);
+      expect(text).not.toMatch(BACKEND_LEAK_PATTERN);
     });
 
     it("emails the business the ESP links, suppliers, product numbers and colors", async () => {
@@ -542,6 +541,15 @@ describe("2. admin quote and payment link", () => {
         },
       ],
       [
+        "a genuine session that was revoked by signing out",
+        (a) => {
+          world.adminCookie = a.createAdminToken("ben");
+          advanceClock(1000);
+          // What POST /api/admin/logout records (see adminSessions.ts).
+          world.db.revocations.set("ben", Date.now());
+        },
+      ],
+      [
         "an expired session (8 days old)",
         (a) => {
           world.adminCookie = a.createAdminToken("ben");
@@ -617,7 +625,7 @@ describe("2. admin quote and payment link", () => {
         buyerEmail: "pat@customer.test",
         locationId: "LOCATION_FAKE_1",
         name: "Pat Lee — Merchandise order MG-00001",
-        redirectUrl: `${SITE_URL}/thank-you?source=merch&email=pat%40customer.test`,
+        redirectUrl: `${SITE_URL}/thank-you?source=merch`, // no customer email in the URL
       });
 
       const data = world.db.data(order.id);
@@ -737,23 +745,76 @@ describe("2. admin quote and payment link", () => {
       expect(world.outbox.toCustomers).toHaveLength(2);
     });
 
-    it.fails(
-      "BUG: paying the OLD link after a re-quote leaves the order stuck in awaiting_payment",
-      async () => {
-        await app.actions.sendMerchPaymentLink(order.id, 1000); // LINK_FAKE_1, emailed
-        await app.actions.sendMerchPaymentLink(order.id, 1200); // LINK_FAKE_2 replaces it in the DB
-        expect(world.square.links.size, "the first link is still live at Square").toBe(2);
+    it("re-quoting deletes the old link at Square, so it can no longer be paid", async () => {
+      await app.actions.sendMerchPaymentLink(order.id, 1000); // LINK_FAKE_1, emailed
+      const result = await app.actions.sendMerchPaymentLink(order.id, 1200); // LINK_FAKE_2
 
-        world.square.payLink("LINK_FAKE_1"); // the customer pays the first email they got
-        await deliverWebhook(app);
+      expect(result).toMatchObject({ ok: true });
+      expect([...world.square.links.keys()], "only the new link is live at Square").toEqual([
+        "LINK_FAKE_2",
+      ]);
+      expect(world.square.deletedLinkIds).toEqual(["LINK_FAKE_1"]);
+      expect(() => world.square.payLink("LINK_FAKE_1")).toThrow(/no payment link/);
 
-        // Expected: money was collected, so the order is paid and a receipt goes out.
-        // Actual: only the latest paymentLinkId is ever checked, so the payment is never seen.
-        // Fix: keep every issued link id (e.g. paymentLinkIds[]) and check them all, or delete
-        // the superseded link via Square's API when re-quoting.
-        expect(world.db.data(order.id).status).toBe("paid");
-      }
-    );
+      const data = world.db.data(order.id);
+      expect(data).toMatchObject({
+        paymentLinkId: "LINK_FAKE_2",
+        quotedTotal: 1200,
+        supersededPaymentLinkIds: ["LINK_FAKE_1"],
+      });
+
+      // The new link is the one that completes the order.
+      world.square.payLink("LINK_FAKE_2");
+      await deliverWebhook(app);
+      expect(world.db.data(order.id).status).toBe("paid");
+      expect(receiptsTo(CUSTOMER.email)).toHaveLength(1);
+    });
+
+    it("if Square can't delete the old link, no second link survives and the order is unchanged", async () => {
+      await app.actions.sendMerchPaymentLink(order.id, 1000);
+      world.square.failDeletes = 1;
+      const emailsBefore = world.outbox.toCustomers.length;
+
+      const result = await app.actions.sendMerchPaymentLink(order.id, 1200);
+
+      expect(result).toMatchObject({ ok: false });
+      expect((result as { error: string }).error).toMatch(/previous payment link/i);
+      expect([...world.square.links.keys()], "the new link is backed out").toEqual(["LINK_FAKE_1"]);
+      expect(world.db.data(order.id)).toMatchObject({
+        paymentLinkId: "LINK_FAKE_1",
+        quotedTotal: 1000,
+        status: "awaiting_payment",
+      });
+      expect(world.outbox.toCustomers).toHaveLength(emailsBefore);
+    });
+
+    it("a re-quote after the customer already paid the old link is refused and the order becomes paid", async () => {
+      await app.actions.sendMerchPaymentLink(order.id, 1000);
+      world.square.payLink("LINK_FAKE_1");
+
+      const result = await app.actions.sendMerchPaymentLink(order.id, 1200);
+
+      expect(result).toMatchObject({ ok: false });
+      expect((result as { error: string }).error).toMatch(/already paid/i);
+      expect(world.square.linkCreateCalls()).toHaveLength(1);
+      expect(world.db.data(order.id).status).toBe("paid");
+    });
+
+    it("cancelling an awaiting-payment order deletes its payment link", async () => {
+      await app.actions.sendMerchPaymentLink(order.id, 1000);
+      const result = await app.actions.updateMerchOrderStatus(order.id, "cancelled");
+      expect(result).toEqual({ ok: true });
+      expect(world.square.deletedLinkIds).toEqual(["LINK_FAKE_1"]);
+      expect(world.db.data(order.id).status).toBe("cancelled");
+    });
+
+    it("cancelling still works when Square can't delete the link, and warns the admin", async () => {
+      await app.actions.sendMerchPaymentLink(order.id, 1000);
+      world.square.failDeletes = 1;
+      const result = await app.actions.updateMerchOrderStatus(order.id, "cancelled");
+      expect(result).toMatchObject({ ok: true, warning: expect.stringMatching(/payment link/i) });
+      expect(world.db.data(order.id).status).toBe("cancelled");
+    });
   });
 });
 
@@ -1086,8 +1147,8 @@ describe("3. Square webhook, payment confirmation and receipts", () => {
         const order = await awaitingPayment();
         const snapshot = [row(order.id)]; // loaded while awaiting_payment
         app.signInAsAdmin();
-        await app.actions.updateMerchOrderStatus(order.id, "cancelled"); // admin acts meanwhile
-        customerPays(order.id);
+        customerPays(order.id); // the customer's payment lands at Square...
+        await app.actions.updateMerchOrderStatus(order.id, "cancelled"); // ...as the admin cancels
 
         await app.merchPayments.syncAwaitingMerchPayments(snapshot);
 
@@ -1100,8 +1161,8 @@ describe("3. Square webhook, payment confirmation and receipts", () => {
       const order = await awaitingPayment();
       const snapshot = [{ id: order.id, type: "merch_order", data: world.db.data(order.id) }];
       app.signInAsAdmin();
-      await app.actions.updateMerchOrderStatus(order.id, "cancelled");
-      customerPays(order.id);
+      customerPays(order.id); // the customer's payment lands at Square...
+      await app.actions.updateMerchOrderStatus(order.id, "cancelled"); // ...as the admin cancels
 
       await app.merchPayments.syncAwaitingMerchPayments(snapshot);
 
@@ -1603,9 +1664,7 @@ describe("5. global invariants across the whole lifecycle", () => {
 
         // Server-action return values are not a side channel either.
         for (const result of actionResults) {
-          expect(withoutGenericSupplierCopy(JSON.stringify(result))).not.toMatch(
-            BACKEND_LEAK_PATTERN
-          );
+          expect(JSON.stringify(result)).not.toMatch(BACKEND_LEAK_PATTERN);
         }
       });
 
@@ -1715,17 +1774,17 @@ describe("other emails the merch/contact forms send", () => {
     expect(world.outbox.toBusiness[0].html).not.toContain("<script>");
   });
 
-  it.fails(
-    "COPY: customer emails literally say 'our supplier' (policy call; see withoutGenericSupplierCopy)",
-    async () => {
-      await placeOrder(app);
-      // The strict invariant from the brief has no allowance for the word "supplier". The
-      // confirmation, quote and receipt copy all say "our supplier". It leaks no identity, link or
-      // number, so the main invariant tests allow that one phrase. Delete this test (or reword the
-      // copy, e.g. "our fulfillment partner") once the policy is decided.
-      for (const email of world.outbox.toCustomers) {
-        expect(`${email.subject} ${email.html}`).not.toMatch(BACKEND_LEAK_PATTERN);
-      }
+  it("COPY: no customer email mentions a supplier, even generically", async () => {
+    // The strict invariant has no allowance for the word "supplier": the confirmation, quote and
+    // receipt copy say "we are placing your order" and name nobody.
+    const order = await placeOrder(app);
+    app.signInAsAdmin();
+    await quoteOrder(app, order.id);
+    customerPays(order.id);
+    await deliverWebhook(app);
+    expect(world.outbox.toCustomers.length).toBeGreaterThanOrEqual(3);
+    for (const email of world.outbox.toCustomers) {
+      expect(`${email.subject} ${email.html}`).not.toMatch(BACKEND_LEAK_PATTERN);
     }
-  );
+  });
 });

@@ -36,8 +36,22 @@ afterEach(() => {
 });
 
 describe("admin session tokens", () => {
-  it("round-trips the username", () => {
-    expect(verifySessionToken(createSessionToken("Bgarcia"))).toEqual({ username: "Bgarcia" });
+  it("round-trips the username and the issue time", () => {
+    const before = Date.now();
+    const session = verifySessionToken(createSessionToken("Bgarcia"));
+    expect(session?.username).toBe("Bgarcia");
+    expect(session?.issuedAt).toBeGreaterThanOrEqual(before);
+    expect(session?.issuedAt).toBeLessThanOrEqual(Date.now());
+  });
+
+  it("treats a token without an issue time as issued at 0 (predates revocation)", () => {
+    const encoded = Buffer.from(
+      JSON.stringify({ username: "Bgarcia", exp: Date.now() + 1e6 })
+    ).toString("base64url");
+    const sig = createHmac("sha256", process.env.ADMIN_SESSION_SECRET!)
+      .update(encoded)
+      .digest("base64url");
+    expect(verifySessionToken(`${encoded}.${sig}`)).toEqual({ username: "Bgarcia", issuedAt: 0 });
   });
 
   it("rejects a tampered payload and a tampered signature", () => {

@@ -95,6 +95,38 @@ describe("POST /api/checkout (creates Square links)", () => {
     expect(mocks.createPaymentLink.mock.calls[0][0].amountCents).toBe(25000);
   });
 
+  describe("Turnstile bot check", () => {
+    it("verifies the submitted token against the caller's IP and never stores it", async () => {
+      const res = await checkout(post("/api/checkout", { ...payment, turnstileToken: "tok-123" }));
+      expect(res.status).toBe(200);
+      expect(mocks.verifyTurnstileToken).toHaveBeenCalledWith("tok-123", "9.9.9.9");
+      expect(mocks.recordSubmission.mock.calls[0][1]).not.toHaveProperty("turnstileToken");
+    });
+
+    it("400s, creates no link and spends no per-email or global budget when verification fails", async () => {
+      mocks.verifyTurnstileToken.mockResolvedValue(false);
+      const res = await checkout(post("/api/checkout", { ...payment, turnstileToken: "bad" }));
+      expect(res.status).toBe(400);
+      expect(await res.json()).toMatchObject({
+        success: false,
+        error: expect.stringMatching(/captcha/i),
+      });
+      expect(mocks.createPaymentLink).not.toHaveBeenCalled();
+      expect(mocks.recordSubmission).not.toHaveBeenCalled();
+      expect(mocks.sendPaymentRequestNotification).not.toHaveBeenCalled();
+      expect(mocks.checkRateLimit).toHaveBeenCalledTimes(1); // the IP ceiling still applies
+    });
+
+    it("passes undefined (not a non-string) when the token is missing or malformed", async () => {
+      await checkout(post("/api/checkout", payment));
+      await checkout(post("/api/checkout", { ...payment, turnstileToken: { evil: true } }));
+      expect(mocks.verifyTurnstileToken.mock.calls.map((c) => c[0])).toEqual([
+        undefined,
+        undefined,
+      ]);
+    });
+  });
+
   it("applies per-IP, per-email (case-insensitive) and site-wide limits", async () => {
     await checkout(post("/api/checkout", payment));
     const keys = mocks.checkRateLimit.mock.calls.map((c) => c[0]);

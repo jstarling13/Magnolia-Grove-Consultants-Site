@@ -319,16 +319,6 @@ export async function deliverWebhook(app: App, type = "payment.updated") {
 /** Tokens that must never appear in anything a customer can read. */
 export const BACKEND_LEAK_PATTERN = /espplus|supplier|asi\/|productNo|espOrderNumber|espId/i;
 
-/**
- * The customer-facing copy deliberately says "we place your order with our
- * supplier". That generic phrase names nobody and reveals no link, supplier
- * identity, ASI number, product number or order number, so the leak check
- * allows exactly that phrase and nothing else containing "supplier".
- */
-export function withoutGenericSupplierCopy(html: string): string {
-  return html.replace(/our supplier/gi, "our [generic-copy]");
-}
-
 /** Every backend-only value stamped on a stored order's lines (and the ESP order number). */
 export function backendValuesOf(data: Record<string, unknown>): string[] {
   const values = new Set<string>();

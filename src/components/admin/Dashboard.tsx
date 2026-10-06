@@ -264,7 +264,7 @@ function MerchOrderStatusControl({
     const status = event.target.value;
     startTransition(async () => {
       const result = await updateMerchOrderStatus(submissionId, status);
-      setError(result.ok ? "" : result.error);
+      setError(result.ok ? (result.warning ?? "") : result.error);
       router.refresh();
     });
   }

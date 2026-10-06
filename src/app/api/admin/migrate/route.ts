@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { verifyMigratePassword } from "@/lib/adminAuth";
 import { hashPassword, MAX_PASSWORD_LENGTH } from "@/lib/passwords";
 import { sql } from "@/lib/db";
+import { revokeAdminSessions } from "@/lib/adminSessions";
 import { checkRateLimit } from "@/lib/ratelimit";
 import { MIGRATE_POLICY } from "@/lib/rateLimitPolicies";
 import { getClientIp, readJsonBody, serverError, tooManyRequests } from "@/lib/http";
@@ -91,6 +92,8 @@ async function runMigration(body: unknown) {
         VALUES (${username}, ${passwordHash})
         ON CONFLICT (username) DO UPDATE SET password_hash = excluded.password_hash
       `;
+      // A password reset must also end any session opened with the old password.
+      await revokeAdminSessions(username);
     }
   }
 

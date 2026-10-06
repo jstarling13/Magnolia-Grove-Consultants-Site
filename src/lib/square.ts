@@ -57,7 +57,9 @@ export async function createPaymentLink(
           location_id: process.env.SQUARE_LOCATION_ID,
         },
         checkout_options: {
-          redirect_url: `${siteUrl}/thank-you?source=${params.redirectSource ?? "payment"}&email=${encodeURIComponent(params.buyerEmail)}`,
+          // No customer data in the URL: it lands in browser history, server logs and
+          // referrers. The email is already pre-populated on Square's own page.
+          redirect_url: `${siteUrl}/thank-you?source=${params.redirectSource ?? "payment"}`,
         },
         pre_populated_data: {
           buyer_email: params.buyerEmail,
@@ -118,5 +120,39 @@ export async function getPaymentLinkStatus(paymentLinkId: string): Promise<Payme
   } catch (error) {
     console.error("[square] payment link status lookup failed:", error);
     return "unknown";
+  }
+}
+
+export type DeletePaymentLinkResult =
+  { ok: true } | { ok: false; error: "not_configured" | "square_api_error" };
+
+/**
+ * Deletes a payment link at Square so it can no longer be paid. Used when an
+ * order is re-quoted (the old emailed link must die) or cancelled. A link Square
+ * no longer knows about (404) counts as success: the goal state, "this link
+ * cannot be paid", already holds.
+ */
+export async function deletePaymentLink(paymentLinkId: string): Promise<DeletePaymentLinkResult> {
+  if (!hasSquareConfig) return { ok: false, error: "not_configured" };
+  if (!/^[A-Za-z0-9_-]{1,100}$/.test(paymentLinkId))
+    return { ok: false, error: "square_api_error" };
+
+  try {
+    const response = await fetch(
+      `${SQUARE_API_BASE}/v2/online-checkout/payment-links/${encodeURIComponent(paymentLinkId)}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${process.env.SQUARE_ACCESS_TOKEN}`,
+          "Square-Version": SQUARE_API_VERSION,
+        },
+      }
+    );
+    if (response.ok || response.status === 404) return { ok: true };
+    console.error("[square] payment link deletion failed:", response.status, await response.text());
+    return { ok: false, error: "square_api_error" };
+  } catch (error) {
+    console.error("[square] payment link deletion request failed:", error);
+    return { ok: false, error: "square_api_error" };
   }
 }

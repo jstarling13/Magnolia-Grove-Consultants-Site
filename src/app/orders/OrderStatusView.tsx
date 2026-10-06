@@ -18,7 +18,7 @@ function formatDate(iso: string | undefined): string | undefined {
 const STEP_MESSAGES = [
   "We have your request and are confirming decoration, shipping, and sales tax. We will email you a final quote with a secure link to pay.",
   "Your final quote is ready. Check your email for the secure link to pay. We place your order as soon as payment clears.",
-  "We have received your payment and are placing your order with our supplier.",
+  "We have received your payment and are placing your order now.",
   "Your order is in production. We will email you tracking details as soon as it ships.",
   "Your order has shipped.",
 ] as const;

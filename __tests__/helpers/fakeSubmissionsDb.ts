@@ -16,6 +16,9 @@
  *   SELECT <data | id, type, data | id, type, data, created_at, read_at>
  *     FROM submissions [WHERE ...] [ORDER BY id | created_at DESC] [LIMIT n]
  *   UPDATE submissions SET <set> WHERE <where> [RETURNING id]
+ *   CREATE TABLE IF NOT EXISTS admin_session_revocations (...)       (admin sign-out revocation)
+ *   SELECT valid_after_ms FROM admin_session_revocations WHERE username = $1
+ *   INSERT INTO admin_session_revocations ... ON CONFLICT ... (keeps the later time)
  *
  *   <set>   := data = data || $n::jsonb              (shallow jsonb merge)
  *            | data = data - 'key'                   (remove a key)
@@ -108,8 +111,22 @@ export class FakeSubmissionsDb {
 
   // ---- statement execution -------------------------------------------------
 
+  /** username -> valid_after_ms, for the admin session revocation table. */
+  readonly revocations = new Map<string, number>();
+
   private execute(text: string, values: unknown[]): unknown[] {
     let match: RegExpMatchArray | null;
+
+    if (/^CREATE TABLE IF NOT EXISTS admin_session_revocations \(/.test(text)) return [];
+    if (/^SELECT valid_after_ms FROM admin_session_revocations WHERE username = \$1$/.test(text)) {
+      const at = this.revocations.get(String(values[0]));
+      return at === undefined ? [] : [{ valid_after_ms: String(at) }]; // BIGINT comes back as text
+    }
+    if (/^INSERT INTO admin_session_revocations \(username, valid_after_ms\) VALUES/.test(text)) {
+      const name = String(values[0]);
+      this.revocations.set(name, Math.max(this.revocations.get(name) ?? 0, Number(values[1])));
+      return [];
+    }
 
     if (
       (match = text.match(

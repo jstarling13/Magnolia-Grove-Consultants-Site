@@ -4,6 +4,7 @@
  *
  *   Square   POST /v2/online-checkout/payment-links   (create a payment link)
  *            GET  /v2/online-checkout/payment-links/{id}   (-> order_id)
+ *            DELETE /v2/online-checkout/payment-links/{id}  (invalidate a link)
  *            GET  /v2/orders/{order_id}                    (-> state)
  *   Turnstile POST https://challenges.cloudflare.com/turnstile/v0/siteverify
  *
@@ -46,6 +47,9 @@ export class FakeSquare {
   private createFailures: number[] = [];
   /** When true, order lookups return HTTP 500 (a Square outage). */
   failOrderLookups = false;
+  /** Make the next `n` payment-link deletions fail with HTTP 500. */
+  failDeletes = 0;
+  readonly deletedLinkIds: string[] = [];
 
   /** Make the next payment-link creation fail with this HTTP status. */
   failNextCreate(status = 500): void {
@@ -68,7 +72,7 @@ export class FakeSquare {
   /** The buyer pays: the order behind this payment link becomes COMPLETED. */
   payLink(linkId: string): void {
     const link = this.links.get(linkId);
-    if (!link) throw new Error(`FakeSquare: no payment link ${linkId}`);
+    if (!link) throw new Error(`FakeSquare: no payment link ${linkId} (deleted at Square?)`);
     this.orderStates.set(link.orderId, "COMPLETED");
   }
 
@@ -146,6 +150,27 @@ export class FakeSquare {
     }
 
     let m: RegExpExecArray | null;
+    if (
+      method === "DELETE" &&
+      (m = /^\/v2\/online-checkout\/payment-links\/([^/?]+)$/.exec(path))
+    ) {
+      const id = decodeURIComponent(m[1]);
+      const link = this.links.get(id);
+      if (this.failDeletes > 0) {
+        this.failDeletes -= 1;
+        return json({ errors: [{ code: "INTERNAL_SERVER_ERROR" }] }, 500);
+      }
+      if (!link) return json({ errors: [{ code: "NOT_FOUND" }] }, 404);
+      // Assumption: a link whose order is already paid cannot be deleted.
+      if (this.orderStates.get(link.orderId) === "COMPLETED") {
+        return json({ errors: [{ code: "BAD_REQUEST" }] }, 400);
+      }
+      this.links.delete(id);
+      this.orderStates.set(link.orderId, "CANCELED");
+      this.deletedLinkIds.push(id);
+      return json({});
+    }
+
     if (method === "GET" && (m = /^\/v2\/online-checkout\/payment-links\/([^/?]+)$/.exec(path))) {
       const link = this.links.get(decodeURIComponent(m[1]));
       if (!link) return json({ errors: [{ code: "NOT_FOUND" }] }, 404);

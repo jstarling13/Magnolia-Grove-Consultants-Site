@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { CheckCircle2, CalendarClock, ArrowRight } from "lucide-react";
 import { leadForm } from "@/config/siteConfig";
 import { bookingPage } from "@/config/pillarsConfig";
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
 };
 
 interface ThankYouPageProps {
+  // `email` is no longer used: old links (and bookmarks) that still carry it are redirected away.
   searchParams: Promise<{ source?: string; email?: string }>;
 }
 
@@ -30,7 +32,7 @@ const copyBySource = {
     eyebrow: "Payment Received",
     headline: "Thank You — We're Placing Your Order.",
     message:
-      "Your payment cleared. We're placing your merchandise order with our supplier now. You'll get a receipt by email, and we'll email tracking details as soon as your order ships.",
+      "Your payment cleared. We're placing your merchandise order now. You'll get a receipt by email, and we'll email tracking details as soon as your order ships.",
   },
   default: {
     eyebrow: "Submission Received",
@@ -41,6 +43,10 @@ const copyBySource = {
 
 export default async function ThankYouPage({ searchParams }: ThankYouPageProps) {
   const { source, email } = await searchParams;
+  // Never keep a customer email in the address bar: send anyone arriving with one to the same page without it.
+  if (email !== undefined) {
+    redirect(source ? `/thank-you?source=${encodeURIComponent(source)}` : "/thank-you");
+  }
   const copy =
     source === "lead" || source === "strategy" || source === "merch"
       ? copyBySource[source]
@@ -68,7 +74,7 @@ export default async function ThankYouPage({ searchParams }: ThankYouPageProps) 
 
       {source === "merch" && <MerchPurchaseTracker />}
 
-      <CreateAccountPrompt email={email} />
+      <CreateAccountPrompt />
 
       <div className="mt-10 flex flex-col gap-4 sm:flex-row">
         <Link

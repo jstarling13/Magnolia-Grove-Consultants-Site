@@ -3,9 +3,9 @@
 import { sql } from "@/lib/db";
 import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
-import { createPaymentLink } from "@/lib/square";
+import { createPaymentLink, deletePaymentLink, getPaymentLinkStatus } from "@/lib/square";
 import { sendMerchPaymentLinkEmail, sendMerchShippedEmail } from "@/lib/email";
-import { sendMerchPaidEmailOnce } from "@/lib/merchPayments";
+import { sendMerchPaidEmailOnce, syncAwaitingMerchPayments } from "@/lib/merchPayments";
 import type { SubmissionRow } from "@/components/admin/Dashboard";
 import {
   MERCH_ORDER_STATUSES,
@@ -18,14 +18,15 @@ import {
   type MerchOrderStatus,
   type StatusChangeResult,
 } from "@/lib/merchOrders";
-import { ADMIN_SESSION_COOKIE, verifySessionToken } from "@/lib/adminAuth";
+import { ADMIN_SESSION_COOKIE } from "@/lib/adminAuth";
+import { getVerifiedAdminSession } from "@/lib/adminSessions";
 
 // Middleware guards /admin pages, but server actions are separately
 // invokable endpoints — so the actions that move money or send customer
 // email re-check the admin session themselves.
 async function isAdminSession(): Promise<boolean> {
   const cookieStore = await cookies();
-  return Boolean(verifySessionToken(cookieStore.get(ADMIN_SESSION_COOKIE)?.value));
+  return Boolean(await getVerifiedAdminSession(cookieStore.get(ADMIN_SESSION_COOKIE)?.value));
 }
 
 export async function markSubmissionRead(id: number): Promise<void> {
@@ -78,11 +79,25 @@ export async function updateMerchOrderStatus(
       }
     }
   } else {
+    // Cancelling an unpaid order must also kill its emailed payment link, or the
+    // customer could still pay a cancelled order and the money would never be
+    // matched to anything (payment sync only watches awaiting_payment orders).
+    let warning: string | undefined;
+    const linkId = typeof rows[0].data.paymentLinkId === "string" ? rows[0].data.paymentLinkId : "";
+    if (status === "cancelled" && linkId && typeof rows[0].data.paidAt !== "string") {
+      const deleted = await deletePaymentLink(linkId);
+      if (!deleted.ok) {
+        warning =
+          "The order is cancelled, but Square could not cancel its payment link. Delete the link in the Square dashboard so the customer cannot still pay it.";
+      }
+    }
     await sql`
       UPDATE submissions
       SET data = jsonb_set(data, '{status}', to_jsonb(${status}::text))
       WHERE id = ${id} AND type = 'merch_order'
     `;
+    revalidatePath("/admin");
+    return warning ? { ok: true, warning } : { ok: true };
   }
   revalidatePath("/admin");
   return { ok: true };
@@ -132,6 +147,25 @@ export async function sendMerchPaymentLink(
   const lastName = typeof data.lastName === "string" ? data.lastName : "";
   if (!email) return { ok: false, error: "This order has no customer email." };
 
+  // A re-quote replaces the link the customer may already hold in an earlier email.
+  // That link must stop working, or the customer can pay the old amount into an
+  // order that no longer watches it.
+  const previousLinkId =
+    typeof data.paymentLinkId === "string" && data.paymentLinkId ? data.paymentLinkId : "";
+  if (previousLinkId && (await getPaymentLinkStatus(previousLinkId)) === "paid") {
+    try {
+      await syncAwaitingMerchPayments([{ id, type: "merch_order", data }]);
+    } catch (error) {
+      console.error(`[admin] couldn't record payment on the previous link for ${id}:`, error);
+    }
+    revalidatePath("/admin");
+    return {
+      ok: false,
+      error:
+        "The customer has already paid the previous payment link, so it can't be replaced. Reload the dashboard to see the order as paid.",
+    };
+  }
+
   const link = await createPaymentLink({
     organizationName: `${firstName} ${lastName}`.trim() || "Merchandise",
     memo: `Merchandise order ${formatOrderReference(id)}`,
@@ -149,12 +183,31 @@ export async function sendMerchPaymentLink(
     };
   }
 
+  const superseded = Array.isArray(data.supersededPaymentLinkIds)
+    ? (data.supersededPaymentLinkIds as unknown[]).filter((v): v is string => typeof v === "string")
+    : [];
+  if (previousLinkId) {
+    const retired = await deletePaymentLink(previousLinkId);
+    if (!retired.ok) {
+      // Two live links for one order is the bug this prevents: back the new one out
+      // and make the admin retry rather than send a second payable link.
+      if (link.id) await deletePaymentLink(link.id);
+      return {
+        ok: false,
+        error:
+          "Square couldn't cancel the previous payment link, so no new quote was sent. Try again in a moment.",
+      };
+    }
+    superseded.push(previousLinkId);
+  }
+
   const patch = {
     status: "awaiting_payment",
     quotedTotal: amount.cents / 100,
     quotedAt: new Date().toISOString(),
     paymentLinkId: link.id ?? "",
     paymentUrl: link.url,
+    ...(superseded.length > 0 ? { supersededPaymentLinkIds: superseded } : {}),
   };
   await sql`
     UPDATE submissions

@@ -7,6 +7,7 @@ import {
   CHECKOUT_IP_POLICY,
 } from "@/lib/rateLimitPolicies";
 import { createPaymentLink } from "@/lib/square";
+import { verifyTurnstileToken } from "@/lib/turnstile";
 import { sendPaymentRequestNotification } from "@/lib/email";
 import { recordSubmission } from "@/lib/submissions";
 import { emailKey, getClientIp, readJsonBody, serverError, tooManyRequests } from "@/lib/http";
@@ -39,6 +40,22 @@ export async function POST(request: NextRequest) {
   // form. Return a fake success so the bot doesn't learn it was caught.
   if (payload.company_website) {
     return NextResponse.json({ success: true, url: null });
+  }
+
+  // Bot check, same pattern as the other public forms. verifyTurnstileToken skips
+  // verification when TURNSTILE_SECRET_KEY isn't configured (local dev, tests). The
+  // token isn't part of the payment schema (which strips unknown keys, so it never
+  // reaches the stored record), so it is read from the raw body.
+  const rawToken = (read.body as { turnstileToken?: unknown } | null)?.turnstileToken;
+  const turnstileValid = await verifyTurnstileToken(
+    typeof rawToken === "string" ? rawToken : undefined,
+    ip
+  );
+  if (!turnstileValid) {
+    return NextResponse.json(
+      { success: false, error: "CAPTCHA verification failed. Please try again." },
+      { status: 400 }
+    );
   }
 
   const emailLimit = await checkRateLimit(

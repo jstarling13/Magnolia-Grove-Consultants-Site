@@ -3,6 +3,7 @@
 import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
 import { Loader2, ShieldCheck, ArrowRight } from "lucide-react";
 import { useClientProfile } from "@/hooks/useClientProfile";
+import Turnstile from "@/components/Turnstile";
 
 interface FormFields {
   organizationName: string;
@@ -60,6 +61,7 @@ export default function PaymentForm() {
   const [errors, setErrors] = useState<Partial<Record<keyof FormFields, string>>>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "error">("idle");
   const [submitError, setSubmitError] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
 
   const clientProfile = useClientProfile();
   useEffect(() => {
@@ -102,6 +104,7 @@ export default function PaymentForm() {
           memo: fields.memo,
           amount: fields.amount,
           company_website: fields.company_website,
+          turnstileToken,
         }),
       });
       const data = await response.json();
@@ -278,6 +281,10 @@ export default function PaymentForm() {
             </p>
           )}
         </div>
+      </div>
+
+      <div className="mt-6">
+        <Turnstile onToken={setTurnstileToken} />
       </div>
 
       {status === "error" && (
