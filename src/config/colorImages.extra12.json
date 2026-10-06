@@ -66,5 +66,17 @@
     "Light Blue": "/images/merch/colors/24-oz-large-heavyweight-cotton-canvas-tote-88032-light-blue.webp",
     "Navy Blue": "/images/merch/colors/24-oz-large-heavyweight-cotton-canvas-tote-88032-navy-blue.webp",
     "Lime Green": "/images/merch/colors/24-oz-large-heavyweight-cotton-canvas-tote-88032-lime-green.webp"
+  },
+  "32-oz-owala-freesip-stainless-insulated-bottle-with-handle-58399": {
+    "Very Very Dark": "/images/merch/colors/32-oz-owala-freesip-stainless-insulated-bottle-with-handle-58399-very-very-dark.webp",
+    "Shy Marshmallow": "/images/merch/colors/32-oz-owala-freesip-stainless-insulated-bottle-with-handle-58399-shy-marshmallow.webp",
+    "Terracotta Sunset": "/images/merch/colors/32-oz-owala-freesip-stainless-insulated-bottle-with-handle-58399-terracotta-sunset.webp"
+  },
+  "gusset-shopping-tote": {
+    "Lime": "/images/merch/colors/gusset-shopping-tote-lime.webp",
+    "Orange": "/images/merch/colors/gusset-shopping-tote-orange.webp",
+    "Red": "/images/merch/colors/gusset-shopping-tote-red.webp",
+    "Black": "/images/merch/colors/gusset-shopping-tote-black.webp",
+    "Cream": "/images/merch/colors/gusset-shopping-tote-cream.webp"
   }
 }
