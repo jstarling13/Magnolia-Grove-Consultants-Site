@@ -79,3 +79,22 @@ describe("robots()", () => {
     expect(result.sitemap).toBe(`${getSiteUrl()}/sitemap.xml`);
   });
 });
+
+import { normalizeSiteUrl } from "@/lib/siteUrl";
+
+describe("normalizeSiteUrl host", () => {
+  it("uses www for the apex domain, which redirects to www", () => {
+    expect(normalizeSiteUrl("https://magnoliagrovega.com")).toBe("https://www.magnoliagrovega.com");
+    expect(normalizeSiteUrl("https://magnoliagrovega.com/")).toBe(
+      "https://www.magnoliagrovega.com"
+    );
+  });
+
+  it("leaves www and other hosts alone", () => {
+    expect(normalizeSiteUrl("https://www.magnoliagrovega.com")).toBe(
+      "https://www.magnoliagrovega.com"
+    );
+    expect(normalizeSiteUrl("http://localhost:3000")).toBe("http://localhost:3000");
+    expect(normalizeSiteUrl(undefined)).toBe("https://magnolia-grove-consultants.vercel.app");
+  });
+});

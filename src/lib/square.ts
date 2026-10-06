@@ -4,6 +4,8 @@
  * server, and no client-side SDK/script is required.
  */
 
+import { getSiteUrl } from "./siteUrl";
+
 const hasSquareConfig =
   Boolean(process.env.SQUARE_ACCESS_TOKEN) && Boolean(process.env.SQUARE_LOCATION_ID);
 
@@ -39,7 +41,7 @@ export async function createPaymentLink(
     return { url: null, error: "not_configured" };
   }
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://magnoliagrovega.com";
+  const siteUrl = getSiteUrl();
 
   try {
     const response = await fetch(`${SQUARE_API_BASE}/v2/online-checkout/payment-links`, {

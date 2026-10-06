@@ -6,9 +6,22 @@
  */
 const FALLBACK_SITE_URL = "https://magnolia-grove-consultants.vercel.app";
 
+// The apex domain redirects (308) to www, so absolute URLs must use www: a canonical or
+// sitemap URL that redirects confuses search engines.
+const APEX_HOST = "magnoliagrovega.com";
+
 export function normalizeSiteUrl(raw: string | undefined | null): string {
-  const value = raw?.trim();
-  return (value || FALLBACK_SITE_URL).replace(/\/+$/, "");
+  const value = (raw?.trim() || FALLBACK_SITE_URL).replace(/\/+$/, "");
+  try {
+    const url = new URL(value);
+    if (url.hostname === APEX_HOST) {
+      url.hostname = `www.${APEX_HOST}`;
+      return url.toString().replace(/\/+$/, "");
+    }
+  } catch {
+    // Not a parseable URL: return it as is, like before.
+  }
+  return value;
 }
 
 export function getSiteUrl(): string {

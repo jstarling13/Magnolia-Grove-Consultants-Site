@@ -123,7 +123,7 @@ function ProductCard({ product, priority = false, compact = false }: ProductCard
             </span>
             <span>at {first.quantity}+ units</span>
           </p>
-          <p className="mt-0.5 h-4 text-xs leading-4 text-onyx/60">
+          <p className="mt-0.5 min-h-4 text-xs leading-4 text-onyx/60">
             {hasRange ? `As low as ${formatPrice(best.price)} at ${best.quantity}+ units` : null}
           </p>
           {hasLargeMinimum(product) && (

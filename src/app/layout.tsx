@@ -1,3 +1,4 @@
+import { getSiteUrl } from "@/lib/siteUrl";
 import type { Metadata, Viewport } from "next";
 import { Inter, Oswald } from "next/font/google";
 import { brand, contactDetails, socialLinks } from "@/config/siteConfig";
@@ -5,7 +6,7 @@ import Analytics from "@/components/Analytics";
 import VerticalGate from "@/components/VerticalGate";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://magnolia-grove-consultants.vercel.app";
+const siteUrl = getSiteUrl();
 
 const phone = contactDetails.find((detail) => detail.label === "Phone")?.value;
 const email = contactDetails.find((detail) => detail.label === "Email")?.value;
