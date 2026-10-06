@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useState,
-  type ReactNode,
-} from "react";
+import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from "react";
 
 interface LogoContextValue {
   logo: string | null;
@@ -91,4 +84,13 @@ export function useLogo(): LogoContextValue {
   const ctx = useContext(LogoContext);
   if (!ctx) throw new Error("useLogo must be used within a LogoProvider");
   return ctx;
+}
+
+/**
+ * Like useLogo, but returns null outside a LogoProvider instead of throwing.
+ * The cart page uses it to offer the previewed logo as the file to attach,
+ * without requiring the preview tool to be mounted around it.
+ */
+export function useOptionalLogo(): LogoContextValue | null {
+  return useContext(LogoContext);
 }

@@ -93,6 +93,21 @@ describe("copy never promises what the store does not define", () => {
     }
   });
 
+  it("describes the order process as it works: attach or reply with a logo, we place it, a final quote, pay, then we order", () => {
+    const all = categories.flatMap((c) => categoryCopy[c].faqs.map((f) => f.answer)).join("\n");
+    // The old flow (email logos afterwards, artwork confirmed before quoting) is gone.
+    expect(all).not.toMatch(/Reply to your confirmation email with your logo files/);
+    expect(all).not.toMatch(/confirm artwork details/i);
+    expect(all).not.toMatch(/\bproofs?\b|mockups?/i);
+    // The new flow is stated, in the owner's order.
+    expect(all).toContain("Attach your logo to your request on the cart page");
+    expect(all).toContain(
+      "We place your logo on your items and send you a final quote with shipping, setup and any other costs."
+    );
+    expect(all).toContain("nothing is charged until you approve the quote and pay");
+    expect(all).toContain("we place the order after payment clears");
+  });
+
   it("keeps banned words out of intros, titles and descriptions", () => {
     for (const category of categories) {
       const { intro, title, description } = categoryCopy[category];

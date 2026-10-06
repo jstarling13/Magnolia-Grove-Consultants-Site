@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { syncAwaitingMerchPayments } from "@/lib/merchPayments";
 import OrderDetail from "@/components/admin/orders/OrderDetail";
+import { listOrderFiles, type OrderFileSummary } from "@/lib/orderFiles";
 import { requireAdminPage } from "../guard";
 import { getOrder, markOrderRead, readItemsWithBackendLinks } from "../queries";
 
@@ -37,5 +38,12 @@ export default async function AdminOrderPage({ params }: { params: Params }) {
     }
   }
 
-  return <OrderDetail order={order} items={readItemsWithBackendLinks(order.data)} />;
+  let files: OrderFileSummary[] = [];
+  try {
+    files = await listOrderFiles(order.id);
+  } catch (error) {
+    console.error("[admin/orders] couldn't list logo files:", error);
+  }
+
+  return <OrderDetail order={order} items={readItemsWithBackendLinks(order.data)} files={files} />;
 }

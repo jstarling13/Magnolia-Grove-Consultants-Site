@@ -116,8 +116,10 @@ describe("buildMerchRequestConfirmationEmail", () => {
 
   it("explains what happens next", () => {
     const { html } = build();
-    expect(html).toContain("decoration, shipping, and sales tax");
+    expect(html).toContain("place your logo on your items and finalize your quote");
+    expect(html).toContain("shipping, setup, and any other costs");
     expect(html).toContain("final quote with a secure link to pay");
+    expect(html).toContain("Nothing is charged until you approve it and pay");
     expect(html).toContain("after your payment clears");
   });
 

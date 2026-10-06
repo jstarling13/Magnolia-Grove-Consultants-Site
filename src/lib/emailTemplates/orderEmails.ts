@@ -9,18 +9,18 @@
  * sent by the functions in src/lib/email.ts.
  *
  * How the store really works, which the copy must keep matching: a customer
- * submits a request (nothing is charged), we confirm decoration, shipping and
- * tax, email a quote with a secure payment link, place the order once payment
- * clears, and email tracking when it ships. No email promises a date.
+ * submits a request (nothing is charged), we place their logo on the items and
+ * finalize the quote with shipping, setup and other costs, email it with a
+ * secure payment link, place the order once payment clears, and email tracking
+ * when it ships. No email promises a date, a mockup or a proof.
  */
 
 import { buildTrackingUrl, formatOrderReference, recognizeCarrier } from "../merchOrders";
 import { buildOrderTrackingUrl, parseOrderRef } from "../orderTracking";
 import { describeLineColor } from "../merchBackendSheet";
-import {
-  ARTWORK_CONFIRMATION_PROMISE,
-  ARTWORK_INSTRUCTIONS_IN_EMAIL,
-} from "../cartShopperMessages";
+import { LOGO_REPLY_IN_EMAIL, requestReceivedSentence } from "../cartShopperMessages";
+import { formatFileSize } from "../orderLogo";
+import { getSiteUrl } from "../siteUrl";
 import type { PricedCartLineItem } from "../merchOrders";
 import {
   COLORS,
@@ -128,23 +128,33 @@ export interface MerchRequestConfirmationPayload {
   /** Estimated subtotal at the shared quantity tier, before decoration, shipping, and tax. */
   total: number;
   notes?: string;
+  /**
+   * The shopper is attaching a logo to the request (it uploads right after the
+   * request is saved). When false or absent the email asks them to reply with it.
+   */
+  logoAttached?: boolean;
 }
 
 const CONFIRMATION_STEPS = [
-  "We confirm decoration, shipping, and sales tax for your order.",
-  "We email you a final quote with a secure link to pay.",
+  "We place your logo on your items and finalize your quote with shipping, setup, and any other costs.",
+  "We email you the final quote with a secure link to pay. Nothing is charged until you approve it and pay.",
   "We place your order after your payment clears, and email you tracking details when it ships.",
 ];
 
 const ESTIMATE_NOTE =
-  "Unit prices reflect the quantity tier for each product across all of its colors. This estimate does not yet include decoration, shipping, or tax.";
+  "Unit prices reflect the quantity tier for each product across all of its colors. This estimate does not yet include shipping, setup, or other costs.";
 
 export function buildMerchRequestConfirmationEmail(
   payload: MerchRequestConfirmationPayload
 ): BuiltEmail {
   const items = pickLines(payload.items);
   const notes = payload.notes?.trim() ? truncate(payload.notes.trim(), LIMITS.notes) : "";
-  const artwork = `${ARTWORK_INSTRUCTIONS_IN_EMAIL} ${ARTWORK_CONFIRMATION_PROMISE}`;
+  const received = [
+    requestReceivedSentence(payload.orderRef),
+    payload.logoAttached ? "" : LOGO_REPLY_IN_EMAIL,
+  ]
+    .filter(Boolean)
+    .join(" ");
   const title = "We received your merchandise request";
   const preheader = payload.orderRef
     ? `Request ${payload.orderRef} is in. Nothing has been charged.`
@@ -156,14 +166,14 @@ export function buildMerchRequestConfirmationEmail(
     bodyHtml: [
       greetingHtml(payload.firstName),
       paragraphHtml(
-        "Thank you for your request. <strong>Nothing has been charged.</strong> This confirms that we have it, with a summary of what you asked for."
+        "Thank you for your request. <strong>Nothing has been charged.</strong> Here is a summary of what you asked for."
       ),
       payload.orderRef ? referenceHtml(payload.orderRef) : "",
       itemsTableHtml(items),
       totalRowHtml("Estimated Subtotal", payload.total),
       smallPrintHtml(ESTIMATE_NOTE),
       notes ? fieldHtml("Your Notes", multiline(notes)) : "",
-      fieldHtml("Artwork", escapeHtml(artwork)),
+      paragraphHtml(escapeHtml(received)),
       trackOrderLinkHtml(payload.orderRef),
       headingHtml("What happens next"),
       numberedListHtml(CONFIRMATION_STEPS),
@@ -173,13 +183,13 @@ export function buildMerchRequestConfirmationEmail(
 
   const text = joinText([
     greetingText(payload.firstName),
-    "Thank you for your request. Nothing has been charged. This confirms that we have it, with a summary of what you asked for.",
+    "Thank you for your request. Nothing has been charged. Here is a summary of what you asked for.",
     payload.orderRef ? `Order reference: ${payload.orderRef}` : "",
     itemsText(items),
     `Estimated Subtotal: ${money(payload.total)}`,
     ESTIMATE_NOTE,
     notes ? `Your notes:\n${notes}` : "",
-    `Artwork: ${artwork}`,
+    received,
     trackOrderLinkText(payload.orderRef),
     `What happens next:\n${numberedText(CONFIRMATION_STEPS)}`,
     replyLineText(payload.orderRef),
@@ -403,10 +413,14 @@ export interface CartOrderNotificationPayload {
   notes: string;
   items: PricedCartLineItem[];
   total: number;
+  /** The shopper is attaching a logo; it uploads right after the order is saved. */
+  logoComing?: boolean;
 }
 
-const ADMIN_ARTWORK =
-  "Not attached. The customer was asked to reply to their confirmation email with logo files.";
+const ADMIN_ARTWORK_NONE =
+  "No logo attached. The customer was asked to reply to their confirmation email with it.";
+const ADMIN_ARTWORK_COMING =
+  "The customer is attaching a logo. A separate email confirms when it arrives; if none comes, the upload failed and the customer was asked to reply with the file.";
 
 /** Back-office lines for one cart item: color, sizes, imprint notes, and the ESP+ lookup details. */
 function adminItemCellHtml(item: PricedCartLineItem): string {
@@ -474,6 +488,7 @@ export function buildCartOrderNotificationEmail(payload: CartOrderNotificationPa
   const phone = truncate(payload.phone, LIMITS.name);
   const notes = payload.notes?.trim() ? truncate(payload.notes.trim(), LIMITS.adminNotes) : "";
   const title = "New merchandise cart order";
+  const artwork = payload.logoComing ? ADMIN_ARTWORK_COMING : ADMIN_ARTWORK_NONE;
 
   const html = renderShell({
     audience: "internal",
@@ -487,7 +502,7 @@ export function buildCartOrderNotificationEmail(payload: CartOrderNotificationPa
       adminItemsTableHtml(payload.items),
       totalRowHtml("Estimated Total", payload.total),
       notes ? fieldHtml("Notes", multiline(notes)) : "",
-      fieldHtml("Artwork", escapeHtml(ADMIN_ARTWORK)),
+      fieldHtml("Logo", escapeHtml(artwork)),
     ].join(""),
   });
 
@@ -498,7 +513,7 @@ export function buildCartOrderNotificationEmail(payload: CartOrderNotificationPa
     payload.items.map(adminItemText).join("\n"),
     `Estimated Total: ${money(payload.total)}`,
     notes ? `Notes:\n${notes}` : "",
-    `Artwork: ${ADMIN_ARTWORK}`,
+    `Logo: ${artwork}`,
     footerText("internal"),
   ]);
 
@@ -511,6 +526,64 @@ export function buildCartOrderNotificationEmail(payload: CartOrderNotificationPa
 
   return {
     subject: oneLine(`${prefix}${name}`),
+    html,
+    text,
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Internal: a customer's logo arrived (sent after the upload succeeds)
+// ---------------------------------------------------------------------------
+
+export interface LogoAttachedNotificationPayload {
+  orderId: number;
+  /** Customer-facing reference such as MG-00042. */
+  orderRef: string;
+  filename: string;
+  size: number;
+  customerName?: string;
+}
+
+/**
+ * Tells the business that a logo is now on an order. No attachment: it points
+ * to the order in admin, where the file is behind the admin sign-in.
+ */
+export function buildLogoAttachedNotificationEmail(
+  payload: LogoAttachedNotificationPayload
+): BuiltEmail {
+  const filename = truncate(oneLine(stripControl(payload.filename)), LIMITS.line);
+  const adminUrl = `${getSiteUrl()}/admin/orders/${payload.orderId}`;
+  const size = formatFileSize(payload.size);
+  const title = "Logo attached to an order";
+  const who = payload.customerName?.trim()
+    ? truncate(payload.customerName.trim(), LIMITS.name * 2)
+    : "";
+
+  const html = renderShell({
+    audience: "internal",
+    title,
+    preheader: `${payload.orderRef}: logo attached, ${filename}.`,
+    bodyHtml: [
+      fieldHtml("Order Reference", escapeHtml(payload.orderRef)),
+      who ? fieldHtml("Customer", escapeHtml(who)) : "",
+      fieldHtml("Logo attached", escapeHtml(size ? `${filename} (${size})` : filename)),
+      paragraphHtml(
+        `${linkHtml("Open the order in admin", adminUrl)} to view and download the file. It is not attached to this email.`
+      ),
+    ].join(""),
+  });
+
+  const text = joinText([
+    title,
+    `Order reference: ${payload.orderRef}`,
+    who ? `Customer: ${who}` : "",
+    `Logo attached: ${size ? `${filename} (${size})` : filename}`,
+    `Open the order in admin to view and download the file (it is not attached to this email): ${adminUrl}`,
+    footerText("internal"),
+  ]);
+
+  return {
+    subject: oneLine(`${payload.orderRef}: Logo attached`),
     html,
     text,
   };

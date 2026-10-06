@@ -267,7 +267,7 @@ describe("cart page: sizes, imprint notes, artwork", () => {
     ]);
   });
 
-  it("says how artwork works before submitting and after, and the claim matches the order flow", async () => {
+  it("says how the logo and quote work before submitting and after, matching the order flow", async () => {
     vi.stubGlobal(
       "fetch",
       vi.fn().mockResolvedValue({
@@ -280,19 +280,22 @@ describe("cart page: sizes, imprint notes, artwork", () => {
     const form = screen.getByRole("button", { name: "Submit Order Request" }).closest("form")!;
     expect(
       within(form).getByText(
-        /Send your logo files \(vector PDF, AI, EPS or PNG\) by replying to the confirmation email\./
+        "Attach your logo (optional). We will place it on your items and send you a final quote with shipping, setup and any other costs. Nothing is charged until you approve the quote and pay."
       )
     ).toBeInTheDocument();
-    // No proof step exists in the order lifecycle, so none is promised.
-    expect(form.textContent).toContain(
-      "We'll confirm artwork details with you before quoting the final price."
-    );
-    expect(form.textContent).not.toMatch(/proof/i);
+    // The old "email your logo files afterwards" wording and the artwork-confirmation promise are gone.
+    expect(form.textContent).not.toMatch(/by replying to the confirmation email/);
+    expect(form.textContent).not.toMatch(/confirm artwork/i);
+    // No proof or mockup step exists in the order lifecycle, so none is promised.
+    expect(form.textContent).not.toMatch(/proof|mockup/i);
 
     fillContact();
     fireEvent.click(screen.getByRole("button", { name: "Submit Order Request" }));
     await screen.findByText("Order Request Received");
-    expect(screen.getByRole("status").textContent).toContain("replying to the confirmation email");
+    // No logo was attached, so the shopper is asked to reply with it.
+    expect(screen.getByRole("status").textContent).toContain(
+      "Reply to the confirmation email with your logo (vector PDF, AI, EPS or PNG)."
+    );
   });
 
   it("tells the shopper where to send logos when no confirmation email went out", async () => {
@@ -310,7 +313,7 @@ describe("cart page: sizes, imprint notes, artwork", () => {
     await screen.findByText("Order Request Received");
     const text = screen.getByRole("status").textContent ?? "";
     expect(text).toContain("ben@magnoliagrovega.com and mention MG-00007");
-    expect(text).not.toContain("replying to the confirmation email");
+    expect(text).not.toContain("Reply to the confirmation email");
   });
 });
 
@@ -423,15 +426,33 @@ describe("customer confirmation email", () => {
     expect(html.match(/Sizes and quantities:/g)).toHaveLength(1);
   });
 
-  it("explains how to send artwork without promising a proof step", () => {
-    const { html } = build([{ name: "Test Mug", quantity: 10, unitPrice: 5, lineTotal: 50 }]);
-    expect(html).toContain(
-      "Send your logo files (vector PDF, AI, EPS or PNG) by replying to this confirmation email."
-    );
-    expect(html).toContain(
-      "We'll confirm artwork details with you before quoting the final price."
-    );
-    expect(html).not.toMatch(/proof/i);
+  it("says what happens to the request, and asks for a reply with the logo only when none was attached", () => {
+    const items = [{ name: "Test Mug", quantity: 10, unitPrice: 5, lineTotal: 50 }];
+    const request =
+      "We have your request MG-00007. We will place your logo on your items and email you a final quote with shipping and other costs.";
+    const reply = "Reply to this email with your logo (vector PDF, AI, EPS or PNG).";
+
+    const without = build(items);
+    expect(without.html).toContain(request);
+    expect(without.html).toContain(reply);
+    expect(without.text).toContain(request);
+    expect(without.text).toContain(reply);
+
+    const withLogo = buildMerchRequestConfirmationEmail({
+      email: "pat@example.com",
+      firstName: "Pat",
+      orderRef: "MG-00007",
+      items,
+      total: 120,
+      logoAttached: true,
+    });
+    expect(withLogo.html).toContain(request);
+    expect(withLogo.html).not.toContain(reply);
+    expect(withLogo.text).not.toContain(reply);
+
+    // No mockup or proof step exists, so none is promised.
+    expect(without.html + withLogo.html).not.toMatch(/proof|mockup/i);
+    expect(without.html).not.toMatch(/replying to this confirmation email/);
   });
 });
 

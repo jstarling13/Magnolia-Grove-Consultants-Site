@@ -16,7 +16,7 @@ function formatDate(iso: string | undefined): string | undefined {
 }
 
 const STEP_MESSAGES = [
-  "We have your request and are confirming decoration, shipping, and sales tax. We will email you a final quote with a secure link to pay.",
+  "We have your request and are placing your logo on your items. We will email you a final quote with shipping, setup, and any other costs, with a secure link to pay.",
   "Your final quote is ready. Check your email for the secure link to pay. We place your order as soon as payment clears.",
   "We have received your payment and are placing your order now.",
   "Your order is in production. We will email you tracking details as soon as it ships.",
@@ -192,7 +192,7 @@ export default function OrderStatusView({ order }: { order: OrderView }) {
                 <p className="mt-1 text-xs text-onyx/60">
                   {order.total.kind === "quoted"
                     ? "Final price, including decoration, shipping, and sales tax."
-                    : "An estimate at the quantity tier for each product. It does not yet include decoration, shipping, or sales tax."}
+                    : "An estimate at the quantity tier for each product. It does not yet include shipping, setup, or other costs."}
                 </p>
               </div>
             )}

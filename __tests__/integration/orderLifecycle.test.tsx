@@ -331,10 +331,11 @@ describe("1. cart-checkout route", () => {
       const [customer] = world.outbox.toCustomers;
       expect(customer.html).toContain("Sizes and quantities: 1 M, 2 XL");
       expect(customer.html).toContain("Imprint notes: Left chest, white ink");
-      expect(customer.html).toContain("Send your logo files (vector PDF, AI, EPS or PNG)");
-      expect(customer.html).toContain("replying to this confirmation email");
       expect(customer.html).toContain(
-        "We'll confirm artwork details with you before quoting the final price."
+        "We have your request MG-00001. We will place your logo on your items and email you a final quote with shipping and other costs."
+      );
+      expect(customer.html).toContain(
+        "Reply to this email with your logo (vector PDF, AI, EPS or PNG)."
       );
       customerSafe(customer, backendValuesOf(world.db.data(order.id)));
     });

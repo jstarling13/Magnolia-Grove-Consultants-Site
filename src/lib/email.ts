@@ -12,11 +12,13 @@ import {
 } from "./emailTemplates/notifications";
 import {
   buildCartOrderNotificationEmail,
+  buildLogoAttachedNotificationEmail,
   buildMerchPaidEmail,
   buildMerchPaymentLinkEmail,
   buildMerchRequestConfirmationEmail,
   buildMerchShippedEmail,
   type CartOrderNotificationPayload,
+  type LogoAttachedNotificationPayload,
   type MerchPaidEmailPayload,
   type MerchPaymentLinkEmailPayload,
   type MerchRequestConfirmationPayload,
@@ -176,6 +178,18 @@ export function sendCartOrderNotification(
     replyTo: payload.email,
     email: buildCartOrderNotificationEmail(payload),
     skipNote: "cart order notification",
+  });
+}
+
+/** A customer's logo arrived on an order. Points to the order in admin; the file is never attached. */
+export function sendLogoAttachedNotification(
+  payload: LogoAttachedNotificationPayload
+): Promise<SendResult> {
+  return deliver({
+    label: "sendLogoAttachedNotification",
+    to: businessInbox(),
+    email: buildLogoAttachedNotificationEmail(payload),
+    skipNote: "logo attached notification",
   });
 }
 

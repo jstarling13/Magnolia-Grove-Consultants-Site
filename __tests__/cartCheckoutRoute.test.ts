@@ -67,6 +67,23 @@ function post(items: unknown[]) {
 describe("cartCheckoutSchema", () => {
   const base = { ...contact, items: [] as unknown[] };
 
+  it("accepts an optional hasLogo flag but never a file", () => {
+    const line = { productId: VEST, color: "Navy", quantity: 6 };
+    expect(cartCheckoutSchema.safeParse({ ...base, items: [line], hasLogo: true }).success).toBe(
+      true
+    );
+    expect(cartCheckoutSchema.safeParse({ ...base, items: [line] }).success).toBe(true);
+    expect(cartCheckoutSchema.safeParse({ ...base, items: [line], hasLogo: "yes" }).success).toBe(
+      false
+    );
+    const parsed = cartCheckoutSchema.parse({
+      ...base,
+      items: [line],
+      logo: "data:image/png;base64,AAAA",
+    });
+    expect(parsed).not.toHaveProperty("logo");
+  });
+
   it("accepts lines with and without a color", () => {
     const parsed = cartCheckoutSchema.safeParse({
       ...base,

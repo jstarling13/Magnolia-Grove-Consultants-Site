@@ -81,6 +81,54 @@ export async function readJsonBody(
   }
 }
 
+export type BodyBytesResult = { ok: true; bytes: Buffer } | { ok: false; response: NextResponse };
+
+/**
+ * Reads a request body into memory, refusing anything larger than maxBytes
+ * (413). Like readJsonBody, the cap is enforced while streaming, so a client
+ * that lies about, or omits, Content-Length cannot make the server buffer an
+ * unbounded body.
+ */
+export async function readBodyBytes(request: Request, maxBytes: number): Promise<BodyBytesResult> {
+  const tooLarge = () => ({
+    ok: false as const,
+    response: NextResponse.json(
+      { success: false, error: "Request body is too large." },
+      { status: 413 }
+    ),
+  });
+  const invalid = () => ({
+    ok: false as const,
+    response: NextResponse.json(
+      { success: false, error: "Invalid request body." },
+      { status: 400 }
+    ),
+  });
+
+  const declared = Number(request.headers.get("content-length"));
+  if (Number.isFinite(declared) && declared > maxBytes) return tooLarge();
+  if (!request.body) return invalid();
+
+  const reader = request.body.getReader();
+  const chunks: Uint8Array[] = [];
+  let total = 0;
+  try {
+    for (;;) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      total += value.byteLength;
+      if (total > maxBytes) {
+        await reader.cancel().catch(() => {});
+        return tooLarge();
+      }
+      chunks.push(value);
+    }
+  } catch {
+    return invalid();
+  }
+  return { ok: true, bytes: Buffer.concat(chunks) };
+}
+
 /** Generic 500 for unexpected failures; the real error is logged by the caller. */
 export function serverError(message = "Something went wrong. Please try again."): NextResponse {
   return NextResponse.json({ success: false, error: message }, { status: 500 });

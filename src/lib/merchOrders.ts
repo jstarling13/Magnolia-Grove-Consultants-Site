@@ -78,6 +78,12 @@ export const cartCheckoutSchema = z.object({
       })
     )
     .min(1, CART_FORM_MESSAGES.cartEmpty),
+  /**
+   * The shopper is attaching a logo. The file itself never travels in this JSON
+   * request: it is uploaded to /api/merchant/order-logo right after the order
+   * is created, using the token this route returns.
+   */
+  hasLogo: z.boolean().optional(),
   company_website: honeypotField,
   turnstileToken: z.string().optional(),
 });

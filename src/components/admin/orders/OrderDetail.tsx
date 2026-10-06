@@ -14,10 +14,12 @@ import {
 } from "@/lib/adminOrders";
 import { MERCH_ORDER_STATUS_LABELS, formatOrderReference } from "@/lib/merchOrders";
 import { buildEspReorderText } from "@/lib/merchBackendSheet";
+import type { OrderFileSummary } from "@/lib/orderFiles";
 import { AttentionFlags, OrderStatusBadge } from "./OrderBadges";
 import EspReorderBlock from "./EspReorderBlock";
 import OrderAuditTrail from "./OrderAuditTrail";
 import OrderItemsTable from "./OrderItemsTable";
+import OrderLogoFiles from "./OrderLogoFiles";
 import OrderPrintSheet from "./OrderPrintSheet";
 import OrderSheetActions from "./OrderSheetActions";
 import OrderTimeline from "./OrderTimeline";
@@ -30,6 +32,8 @@ function money(value: unknown): string | undefined {
 export interface OrderDetailProps {
   order: OrderRecord;
   items: OrderItem[];
+  /** Logo files the customer attached (metadata only; bytes come from the admin download route). */
+  files?: OrderFileSummary[];
   /** Back to the list with the filter the admin came from, when known. */
   backHref?: string;
   now?: number;
@@ -38,6 +42,7 @@ export interface OrderDetailProps {
 export default function OrderDetail({
   order,
   items,
+  files = [],
   backHref = "/admin/orders",
   now = Date.now(),
 }: OrderDetailProps) {
@@ -177,6 +182,8 @@ export default function OrderDetail({
             {notes || <span className="text-onyx/50">None</span>}
           </p>
         </section>
+
+        <OrderLogoFiles orderId={order.id} files={files} />
 
         <div className="mt-6 space-y-6">
           <OrderPaymentPanel id={order.id} data={data} quote={quoteSuggestion} />
