@@ -77,12 +77,6 @@
     "asi": "asi/61125",
     "productNo": "3001C"
   },
-  "bella-canvas-unisex-heather-cvc-t-shirt-90320": {
-    "espId": "555090320",
-    "supplier": "Rush Service",
-    "asi": "asi/92433",
-    "productNo": "BA3001CVC"
-  },
   "bella-canvas-unisex-sueded-t-shirt-90334": {
     "espId": "555090334",
     "supplier": "Rush Service",
@@ -869,12 +863,6 @@
     "asi": "asi/39552",
     "productNo": "A5000"
   },
-  "most-popular-can-cooler-holder-with-custom-print-82953": {
-    "espId": "554182953",
-    "supplier": "WBPromotion",
-    "asi": "asi/98409",
-    "productNo": "KZ98409-Full"
-  },
   "full-color-foam-collapsible-coolies-all-over-print-88992": {
     "espId": "555088992",
     "supplier": "Rush Service",
@@ -893,12 +881,6 @@
     "asi": "asi/54387",
     "productNo": "FS55"
   },
-  "price-saver-can-cooler-holder-12957": {
-    "espId": "555012957",
-    "supplier": "WBPromotion",
-    "asi": "asi/98409",
-    "productNo": "Can Cooler-EBS"
-  },
   "premium-foam-collapsible-coolies-88995": {
     "espId": "555088995",
     "supplier": "Rush Service",
@@ -916,12 +898,6 @@
     "supplier": "BEL Promo",
     "asi": "asi/39552",
     "productNo": "AKZEPU"
-  },
-  "can-coolers-beverage-holder-44355": {
-    "espId": "550244355",
-    "supplier": "WBPromotion",
-    "asi": "asi/98409",
-    "productNo": "KZ98409"
   },
   "16oz-stadium-cups-89077": {
     "espId": "555089077",
@@ -1073,12 +1049,6 @@
     "asi": "asi/62088",
     "productNo": "STBS-275X15"
   },
-  "stickers-bumper-stickers-50280": {
-    "espId": "554350280",
-    "supplier": "Full Designs",
-    "asi": "asi/55516",
-    "productNo": "ST-BP"
-  },
   "oval-custom-bumper-sticker-10419": {
     "espId": "553410419",
     "supplier": "Promoful/PMGOA",
@@ -1144,12 +1114,6 @@
     "supplier": "IDProductsource",
     "asi": "asi/62088",
     "productNo": "ASPIN-PB"
-  },
-  "dye-sublimated-lanyards-sizes-1-2-1-60307": {
-    "espId": "5660307",
-    "supplier": "Full Designs",
-    "asi": "asi/55516",
-    "productNo": "LY-DS"
   },
   "lanyards-dye-sublimated-full-color-19714": {
     "espId": "551819714",
@@ -2609,12 +2573,6 @@
     "asi": "asi/55516",
     "productNo": "CN-BCC-0"
   },
-  "custom-lapel-pin-die-struck-with-soft-enamel-color-fill-63169": {
-    "espId": "4963169",
-    "supplier": "Genesis",
-    "asi": "asi/56420",
-    "productNo": "LP-SE"
-  },
   "lapel-pin-4-color-process-printed-with-clear-epoxy-dome-63086": {
     "espId": "4963086",
     "supplier": "Genesis",
@@ -3341,12 +3299,6 @@
     "asi": "asi/98409",
     "productNo": "BLN984"
   },
-  "11-custom-latex-balloons-59186": {
-    "espId": "554759186",
-    "supplier": "WBPromotion",
-    "asi": "asi/98409",
-    "productNo": "BLN984-11"
-  },
   "custom-mylar-balloon-01859": {
     "espId": "552401859",
     "supplier": "WBPromotion",
@@ -3364,12 +3316,6 @@
     "supplier": "Promoful/PMGOA",
     "asi": "asi/79982",
     "productNo": "P7-CT2020"
-  },
-  "1-5-x-2-custom-temporary-tattoos-10495": {
-    "espId": "556210495",
-    "supplier": "Promoful/PMGOA",
-    "asi": "asi/79982",
-    "productNo": "P7-CT1520"
   },
   "new-custom-temporary-tattoos-all-sizes-12995": {
     "espId": "555012995",
@@ -4277,12 +4223,6 @@
     "asi": "asi/39552",
     "productNo": "ABPK10"
   },
-  "rpp-non-woven-drawstring-bag-30692": {
-    "espId": "554030692",
-    "supplier": "Jornik Manufacturing",
-    "asi": "asi/63549",
-    "productNo": "JK-9201"
-  },
   "utility-canvas-tool-pouch-zipper-bags-with-carabiner-88671": {
     "espId": "555888671",
     "supplier": "Promosmart Inc.",
@@ -4763,18 +4703,6 @@
     "asi": "asi/84592",
     "productNo": "PFN9111X"
   },
-  "soft-enamel-iron-lapel-pins-43757": {
-    "espId": "552243757",
-    "supplier": "Sunjoy Group Inc",
-    "asi": "asi/90154",
-    "productNo": "PNIRS"
-  },
-  "lapel-pins-custom-die-struck-economy-enamel-42293": {
-    "espId": "5742293",
-    "supplier": "EMT",
-    "asi": "asi/52263",
-    "productNo": "ISE"
-  },
   "lapel-pin-die-struck-w-two-tone-bright-sandblast-background-63176": {
     "espId": "4963176",
     "supplier": "Genesis",
@@ -4852,6 +4780,114 @@
     "supplier": "STOPNGO Line",
     "asi": "asi/57655",
     "productNo": "LPFRAME01"
+  },
+  "portable-12v-auto-battery-car-jump-starter-with-flashlight-89723": {
+    "espId": "555689723",
+    "supplier": "WholeGifts Trading",
+    "asi": "asi/98423",
+    "productNo": "WG3791"
+  },
+  "pit-stop-12v-16000mah-portable-jump-starter-kit-19129": {
+    "espId": "555619129",
+    "supplier": "Ariel Premium Supply Inc",
+    "asi": "asi/36730",
+    "productNo": "WAU-PS25"
+  },
+  "popular-auto-tire-pressure-gauge-in-fashionable-colors-50879": {
+    "espId": "200350879",
+    "supplier": "Chulani",
+    "asi": "asi/45100",
+    "productNo": "E952 Auto Tire"
+  },
+  "digital-tire-pressure-gauge-80605": {
+    "espId": "555680605",
+    "supplier": "CC Promos Inc",
+    "asi": "asi/44388",
+    "productNo": "CCH090"
+  },
+  "all-in-1-car-tire-air-pressure-gauge-with-emergency-tools-02689": {
+    "espId": "555702689",
+    "supplier": "WholeGifts Trading",
+    "asi": "asi/98423",
+    "productNo": "WG2724"
+  },
+  "dry-bag-survival-and-first-aid-kit-81948": {
+    "espId": "551981948",
+    "supplier": "Safety Made",
+    "asi": "asi/84514",
+    "productNo": "S75"
+  },
+  "160pcs-emergency-first-aid-kit-02337": {
+    "espId": "555902337",
+    "supplier": "Promosmart Inc.",
+    "asi": "asi/80026",
+    "productNo": "IS4554"
+  },
+  "great-lakes-7-ice-scraper-57401": {
+    "espId": "551257401",
+    "supplier": "Evans Manufacturing, LLC",
+    "asi": "asi/52840",
+    "productNo": "3070"
+  },
+  "ice-scraper-99208": {
+    "espId": "552499208",
+    "supplier": "Tekweld",
+    "asi": "asi/90807",
+    "productNo": "ICE101"
+  },
+  "stickers-bumper-stickers-50280": {
+    "espId": "554350280",
+    "supplier": "Full Designs",
+    "asi": "asi/55516",
+    "productNo": "ST-BP"
+  },
+  "6-in-circle-perm-bumper-sticker-07894": {
+    "espId": "551807894",
+    "supplier": "The Magnet Group",
+    "asi": "asi/68507",
+    "productNo": "L504"
+  },
+  "magnet-6-x-4-oval-69133": {
+    "espId": "555469133",
+    "supplier": "Magnet Guys",
+    "asi": "asi/68524",
+    "productNo": ""
+  },
+  "football-helmet-car-magnet-26373": {
+    "espId": "555126373",
+    "supplier": "WOWLine",
+    "asi": "asi/98360",
+    "productNo": "WL1651X"
+  },
+  "intelligent-anti-loss-device-key-finder-locator-66410": {
+    "espId": "555166410",
+    "supplier": "Value Gifts Corp",
+    "asi": "asi/93252",
+    "productNo": "VG 85104"
+  },
+  "seek-duo-bluetooth-two-way-tracker-with-key-ring-19510": {
+    "espId": "555819510",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "25328"
+  },
+  "water-resistant-car-organizer-15021": {
+    "espId": "555915021",
+    "supplier": "Goldentop Gifts Corp",
+    "asi": "asi/79532",
+    "productNo": "GOE3324"
+  },
+  "waterproof-foldable-car-trunk-organizer-57032": {
+    "espId": "555857032",
+    "supplier": "Core Gifts Promo",
+    "asi": "asi/46671",
+    "productNo": "OL6015"
+  },
+  "car-trunk-storage-organizer-79615": {
+    "espId": "555879615",
+    "supplier": "Uniprint Inc.",
+    "asi": "asi/92491",
+    "productNo": "SL2468"
   },
   "custom-cottonweave-tapestry-throw-blanket-usa-made-size-l-28378": {
     "espId": "5028378",
@@ -5141,6 +5177,498 @@
     "asi": "asi/44900",
     "productNo": "DRB1400-119-E"
   },
+  "rectangular-tin-filled-with-micromintsa-04937": {
+    "espId": "6304937",
+    "supplier": "NC Custom (CI/Lanco)",
+    "asi": "asi/44900",
+    "productNo": "305-E"
+  },
+  "slate-charcuterie-board-gift-set-83275": {
+    "espId": "553083275",
+    "supplier": "Evans Manufacturing, LLC",
+    "asi": "asi/52840",
+    "productNo": "2355"
+  },
+  "buddy-brew-coffee-gift-set-for-four-25729": {
+    "espId": "553325729",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "95128"
+  },
+  "3-5-bark-edged-pine-ornament-78997": {
+    "espId": "551778997",
+    "supplier": "Unique Custom Products",
+    "asi": "asi/92531",
+    "productNo": "OW02-01A"
+  },
+  "acrylic-ornament-circle-45695": {
+    "espId": "555445695",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "1940"
+  },
+  "die-cast-holiday-ornament-snow-globe-73289": {
+    "espId": "551273289",
+    "supplier": "EMT",
+    "asi": "asi/52263",
+    "productNo": "ORNSGD"
+  },
+  "festive-christmas-ornaments-round-3-27022": {
+    "espId": "556127022",
+    "supplier": "Chulani",
+    "asi": "asi/45100",
+    "productNo": "E850"
+  },
+  "classic-modern-tree-holiday-greeting-card-10683": {
+    "espId": "5010683",
+    "supplier": "Warwick Publishing Co",
+    "asi": "asi/95280",
+    "productNo": "5562"
+  },
+  "premium-festive-circles-greeting-card-47094": {
+    "espId": "553547094",
+    "supplier": "Warwick Publishing Co",
+    "asi": "asi/95280",
+    "productNo": "5725"
+  },
+  "woodland-magic-merry-christmas-card-20408": {
+    "espId": "556620408",
+    "supplier": "Carlson Craft",
+    "asi": "asi/43920",
+    "productNo": "YMM2441"
+  },
+  "usa-embroidered-flags-3-x-5-4-x-6-23364": {
+    "espId": "551123364",
+    "supplier": "AGAS Flags, Banners and Trade Show Displays",
+    "asi": "asi/30125",
+    "productNo": ""
+  },
+  "handheld-american-stick-flag-12210": {
+    "espId": "554212210",
+    "supplier": "Flyer Sourcing Inc",
+    "asi": "asi/54871",
+    "productNo": "EYSK044"
+  },
+  "3-x-5-u-s-promotional-printed-poly-cotton-flag-46323": {
+    "espId": "551346323",
+    "supplier": "Quinn",
+    "asi": "asi/80228",
+    "productNo": "PCF-35"
+  },
+  "3-x-5-us-250th-anniversary-flag-03220": {
+    "espId": "556103220",
+    "supplier": "Showdown Displays",
+    "asi": "asi/87188",
+    "productNo": "484001"
+  },
+  "usa-american-flag-straw-hat-with-custom-patch-domestic-40604": {
+    "espId": "553640604",
+    "supplier": "Active Life Promo",
+    "asi": "asi/72657",
+    "productNo": "R1168H-2"
+  },
+  "usa-patriotic-miami-sunglasses-82357": {
+    "espId": "550682357",
+    "supplier": "Tekweld",
+    "asi": "asi/90807",
+    "productNo": "SG305"
+  },
+  "patriotic-drawstring-backpack-95739": {
+    "espId": "550295739",
+    "supplier": "Bagworld",
+    "asi": "asi/37980",
+    "productNo": "DS1505"
+  },
+  "made-in-the-usa-july-4th-socks-77147": {
+    "espId": "556477147",
+    "supplier": "Sports Solutions Inc",
+    "asi": "asi/88876",
+    "productNo": "July4th4574"
+  },
+  "july-4th-tablecloth-64865": {
+    "espId": "555364865",
+    "supplier": "Logo Maker Inc",
+    "asi": "asi/67856",
+    "productNo": "LMI350-JY"
+  },
+  "custom-print-veterans-can-cooler-12103": {
+    "espId": "554812103",
+    "supplier": "WBPromotion",
+    "asi": "asi/98409",
+    "productNo": "KZ98409-26"
+  },
+  "usa-patriotic-hand-clapper-noise-maker-67921": {
+    "espId": "555967921",
+    "supplier": "Prime Line",
+    "asi": "asi/79530",
+    "productNo": "NM116"
+  },
+  "2-oz-patriotic-bubbles-with-cap-imprint-77910": {
+    "espId": "555977910",
+    "supplier": "Jornik Manufacturing",
+    "asi": "asi/63549",
+    "productNo": "JK-3916CAP"
+  },
+  "usa-patriotic-folding-handheld-fan-99017": {
+    "espId": "555899017",
+    "supplier": "Prime Line",
+    "asi": "asi/79530",
+    "productNo": "FN201P"
+  },
+  "unisex-velvet-extra-thicken-christmas-santa-hats-34815": {
+    "espId": "556134815",
+    "supplier": "Core Gifts Promo",
+    "asi": "asi/46671",
+    "productNo": "EP7369"
+  },
+  "halloween-pumpkin-reflective-tote-bag-15793": {
+    "espId": "555615793",
+    "supplier": "Prime Line",
+    "asi": "asi/79530",
+    "productNo": "TO118"
+  },
+  "9-inch-tongs-66079": {
+    "espId": "7266079",
+    "supplier": "Fey Promo",
+    "asi": "asi/54040",
+    "productNo": "Mi6085"
+  },
+  "patriotic-cooler-bag-95665": {
+    "espId": "550295665",
+    "supplier": "Bagworld",
+    "asi": "asi/37980",
+    "productNo": "CB1506"
+  },
+  "usa-made-16-oz-the-party-cup-48357": {
+    "espId": "551848357",
+    "supplier": "Prime Line",
+    "asi": "asi/79530",
+    "productNo": "MG207"
+  },
+  "inspirational-coloring-book-and-8-color-pencil-set-66115": {
+    "espId": "552566115",
+    "supplier": "Jornik Manufacturing",
+    "asi": "asi/63549",
+    "productNo": "JK-8727"
+  },
+  "police-officers-care-coloring-book-43293": {
+    "espId": "551243293",
+    "supplier": "WOWLine",
+    "asi": "asi/98360",
+    "productNo": "WCB1"
+  },
+  "recycling-coloring-book-45589": {
+    "espId": "552445589",
+    "supplier": "WOWLine",
+    "asi": "asi/98360",
+    "productNo": "WCB2"
+  },
+  "bathtub-crayons-89129": {
+    "espId": "551789129",
+    "supplier": "Jornik Manufacturing",
+    "asi": "asi/63549",
+    "productNo": "JK-3821"
+  },
+  "childrens-school-bag-53386": {
+    "espId": "556253386",
+    "supplier": "Brilliant Promo Gifts Inc",
+    "asi": "asi/42010",
+    "productNo": "QK30-377"
+  },
+  "8-cecillia-bear-16920": {
+    "espId": "550316920",
+    "supplier": "Curto Toy Mfg Co LTD",
+    "asi": "asi/47897",
+    "productNo": "8\"Cecillia"
+  },
+  "8-medium-sitting-dog-large-eyes-bulldog-99409": {
+    "espId": "551899409",
+    "supplier": "Anico Promotions",
+    "asi": "asi/36230",
+    "productNo": "A9036BULL"
+  },
+  "8-brown-plush-moose-32052": {
+    "espId": "551932052",
+    "supplier": "Anico Promotions",
+    "asi": "asi/36230",
+    "productNo": "A9848"
+  },
+  "i-love-america-coloring-and-activity-book-37179": {
+    "espId": "6137179",
+    "supplier": "Coloring Book Solutions",
+    "asi": "asi/45815",
+    "productNo": "0590"
+  },
+  "wooden-snake-puzzle-toy-81960": {
+    "espId": "552181960",
+    "supplier": "Jornik Manufacturing",
+    "asi": "asi/63549",
+    "productNo": "JK-4130"
+  },
+  "large-print-word-search-puzzle-book-volume-2-78606": {
+    "espId": "550478606",
+    "supplier": "Coloring Book Solutions",
+    "asi": "asi/45815",
+    "productNo": "1931"
+  },
+  "15-5-x-11-5-acrylic-jigsaw-puzzle-09340": {
+    "espId": "551809340",
+    "supplier": "Tekweld",
+    "asi": "asi/90807",
+    "productNo": "ACR-PUZ105"
+  },
+  "8x8-12-piece-magnetic-puzzle-80514": {
+    "espId": "555980514",
+    "supplier": "Tekweld",
+    "asi": "asi/90807",
+    "productNo": "PUZ207"
+  },
+  "mini-square-bubble-fidget-keychain-61910": {
+    "espId": "553561910",
+    "supplier": "Agraffes Innovation",
+    "asi": "asi/36722",
+    "productNo": "AG-CTCV"
+  },
+  "mini-pop-stress-ball-29058": {
+    "espId": "554529058",
+    "supplier": "Agraffes Innovation",
+    "asi": "asi/36722",
+    "productNo": "AG-CTZZ"
+  },
+  "foldable-flying-disc-fans-with-bag-05779": {
+    "espId": "555505779",
+    "supplier": "Flyer Sourcing Inc",
+    "asi": "asi/54871",
+    "productNo": "EYLA012"
+  },
+  "high-flyer-9-flyer-disk-32013": {
+    "espId": "555932013",
+    "supplier": "SnugZ USA",
+    "asi": "asi/88060",
+    "productNo": "RQ2521"
+  },
+  "popular-108-large-jump-rope-9-feet-long-108-46552": {
+    "espId": "554346552",
+    "supplier": "Chulani",
+    "asi": "asi/45100",
+    "productNo": "E980"
+  },
+  "rainbow-playing-cards-01143": {
+    "espId": "556201143",
+    "supplier": "Jornik Manufacturing",
+    "asi": "asi/63549",
+    "productNo": "JK-3635"
+  },
+  "3-pack-jumbo-chalk-21294": {
+    "espId": "6021294",
+    "supplier": "WOWLine",
+    "asi": "asi/98360",
+    "productNo": "3PKCHA"
+  },
+  "anxiety-relief-fidget-toy-82152": {
+    "espId": "555782152",
+    "supplier": "Nova Gift Solutions Inc",
+    "asi": "asi/74391",
+    "productNo": "LX8174"
+  },
+  "soccer-stress-ball-65779": {
+    "espId": "555465779",
+    "supplier": "NC Custom (CI/Lanco)",
+    "asi": "asi/44900",
+    "productNo": "TAG107-E"
+  },
+  "popular-slim-and-elegant-colorful-yo-yo-children-toys-group-76518": {
+    "espId": "555476518",
+    "supplier": "Chulani",
+    "asi": "asi/45100",
+    "productNo": "E644"
+  },
+  "click-fidget-keychain-with-phone-stand-53307": {
+    "espId": "556053307",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "22352"
+  },
+  "ultra-vivid-maple-wood-stickers-86824": {
+    "espId": "554086824",
+    "supplier": "Morris Magnets",
+    "asi": "asi/72521",
+    "productNo": "STICKER-RMV1"
+  },
+  "temporary-glitter-tattoos-13002": {
+    "espId": "555013002",
+    "supplier": "WBPromotion",
+    "asi": "asi/98409",
+    "productNo": "TPT98409-GTET"
+  },
+  "custom-temporary-tattoos-1-5-x-2-5-22578": {
+    "espId": "550122578",
+    "supplier": "WBPromotion",
+    "asi": "asi/98409",
+    "productNo": "TPT984-1.5X2.5"
+  },
+  "48-x-60-usa-made-pre-shrunk-stadium-fleece-blanket-84068": {
+    "espId": "554984068",
+    "supplier": "imprintID",
+    "asi": "asi/73651",
+    "productNo": "MWBS9000"
+  },
+  "tassel-picnic-blanket-08956": {
+    "espId": "554708956",
+    "supplier": "Branding Your Brand Inc",
+    "asi": "asi/90200",
+    "productNo": "CC047"
+  },
+  "game-day-stadium-blanket-17842": {
+    "espId": "555817842",
+    "supplier": "WBPromotion",
+    "asi": "asi/98409",
+    "productNo": "BM98409-BM4"
+  },
+  "deluxe-adult-activity-journal-book-and-colored-pencils-02704": {
+    "espId": "554202704",
+    "supplier": "Jornik Manufacturing",
+    "asi": "asi/63549",
+    "productNo": "JK-8732"
+  },
+  "summer-gift-set-58498": {
+    "espId": "556458498",
+    "supplier": "Top Line Promos Inc",
+    "asi": "asi/91484",
+    "productNo": "SW4577"
+  },
+  "smores-dessert-charcuterie-board-68527": {
+    "espId": "554568527",
+    "supplier": "NC Custom (CI/Lanco)",
+    "asi": "asi/44900",
+    "productNo": "CB101-E"
+  },
+  "nice-n-cozy-fleece-gift-set-23672": {
+    "espId": "552223672",
+    "supplier": "WBPromotion",
+    "asi": "asi/98409",
+    "productNo": "CB98409-CB59"
+  },
+  "large-inspiration-journal-39613": {
+    "espId": "550039613",
+    "supplier": "Payne Publishers Inc",
+    "asi": "asi/76575",
+    "productNo": "IJ-2Y"
+  },
+  "bamboo-and-cork-journal-set-12426": {
+    "espId": "555612426",
+    "supplier": "High Caliber Line USA",
+    "asi": "asi/43442",
+    "productNo": "KT303"
+  },
+  "tucson-banded-medio-lined-white-page-journal-gift-set-47764": {
+    "espId": "553047764",
+    "supplier": "The Magnet Group",
+    "asi": "asi/68507",
+    "productNo": "N3425GS"
+  },
+  "on-the-go-travel-kit-88013": {
+    "espId": "550188013",
+    "supplier": "Tekweld",
+    "asi": "asi/90807",
+    "productNo": "KIT104"
+  },
+  "8-piece-travel-storage-bag-set-in-various-sizes-in-stock-74098": {
+    "espId": "555774098",
+    "supplier": "ATX Promo Inc",
+    "asi": "asi/30184",
+    "productNo": "ATXDR161"
+  },
+  "custom-soft-pvc-key-tag-52311": {
+    "espId": "4952311",
+    "supplier": "EMT",
+    "asi": "asi/52263",
+    "productNo": "SFXK"
+  },
+  "keychain-glasses-cleaning-cloth-10712": {
+    "espId": "554210712",
+    "supplier": "Ink Link Promo Inc",
+    "asi": "asi/62594",
+    "productNo": "KKC2259"
+  },
+  "1-8-ultra-vivid-color-ornament-00146": {
+    "espId": "555500146",
+    "supplier": "Morris Magnets",
+    "asi": "asi/72521",
+    "productNo": "ORNAMENT-AUQ"
+  },
+  "portable-collapsible-chair-stool-85378": {
+    "espId": "554185378",
+    "supplier": "Flyer Sourcing Inc",
+    "asi": "asi/54871",
+    "productNo": "EYSA042"
+  },
+  "camping-outdoor-foldable-directors-chair-25894": {
+    "espId": "556025894",
+    "supplier": "Prime Gifts Inc",
+    "asi": "asi/79539",
+    "productNo": "RO1077"
+  },
+  "folding-outdoor-camping-chair-with-carry-bag-and-cup-holder-47559": {
+    "espId": "555947559",
+    "supplier": "Core Gifts Promo",
+    "asi": "asi/46671",
+    "productNo": "CP2558"
+  },
+  "4-person-rolling-picnic-cooler-set-06905": {
+    "espId": "5006905",
+    "supplier": "Picnic at Ascot",
+    "asi": "asi/78060",
+    "productNo": "330"
+  },
+  "large-capacity-portable-camping-picnic-organizer-backpack-82420": {
+    "espId": "555982420",
+    "supplier": "WholeGifts Trading",
+    "asi": "asi/98423",
+    "productNo": "WG6883"
+  },
+  "bbq-grill-and-cooler-2-in-1-set-for-camping-parties-and-picn-02679": {
+    "espId": "200302679",
+    "supplier": "Opusline (Benmex)",
+    "asi": "asi/39820",
+    "productNo": "BG20"
+  },
+  "lund-600d-rpet-cooler-03604": {
+    "espId": "555203604",
+    "supplier": "Goldstar",
+    "asi": "asi/73295",
+    "productNo": "UJR"
+  },
+  "6-pack-insulated-heathered-lunch-bag-00906": {
+    "espId": "552600906",
+    "supplier": "BEL Promo",
+    "asi": "asi/39552",
+    "productNo": "ALUN38"
+  },
+  "iceman-premium-tarpaulin-cooler-03323": {
+    "espId": "555203323",
+    "supplier": "Goldstar",
+    "asi": "asi/73295",
+    "productNo": "UJN"
+  },
+  "airmate-xl-tripod-fan-08438": {
+    "espId": "556308438",
+    "supplier": "High Caliber Line USA",
+    "asi": "asi/43442",
+    "productNo": "T877"
+  },
+  "portable-desk-fan-12111": {
+    "espId": "555112111",
+    "supplier": "WOWLine",
+    "asi": "asi/98360",
+    "productNo": "FAN2"
+  },
+  "twist-and-chill-hand-fan-54969": {
+    "espId": "555454969",
+    "supplier": "First Stage Promotion",
+    "asi": "asi/54387",
+    "productNo": "FS37"
+  },
   "storm-creek-mens-overachiever-sweaterfleece-vest-31689": {
     "espId": "550131689",
     "supplier": "Storm Creek",
@@ -5387,6 +5915,252 @@
     "asi": "asi/72657",
     "productNo": "V3293H-525"
   },
+  "wyld-gear-20oz-stainless-steel-tumbler-with-build-in-opener-04880": {
+    "espId": "554004880",
+    "supplier": "Active Life Promo",
+    "asi": "asi/72657",
+    "productNo": "DW3098H-20"
+  },
+  "beluga-40-oz-vacuum-insulated-tumbler-mug-w-handle-45524": {
+    "espId": "554745524",
+    "supplier": "STOPNGO Line",
+    "asi": "asi/57655",
+    "productNo": "SSTB042"
+  },
+  "maddox-20-oz-stainless-steel-vacuum-insulated-tumbler-47195": {
+    "espId": "553547195",
+    "supplier": "STOPNGO Line",
+    "asi": "asi/57655",
+    "productNo": "SSTB020"
+  },
+  "40-oz-kodiak-series-83798": {
+    "espId": "554783798",
+    "supplier": "Moderne Glass Company Inc",
+    "asi": "asi/71920",
+    "productNo": "B840"
+  },
+  "17-oz-the-rover-collection-52494": {
+    "espId": "556252494",
+    "supplier": "Moderne Glass Company Inc",
+    "asi": "asi/71920",
+    "productNo": "78000"
+  },
+  "14-oz-brea-recycled-stainless-steel-tumbler-19468": {
+    "espId": "555819468",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "50421"
+  },
+  "40-oz-double-wall-insulated-travel-mug-w-handle-and-straw-89958": {
+    "espId": "555789958",
+    "supplier": "Opusline (Benmex)",
+    "asi": "asi/39820",
+    "productNo": "MSTAR202"
+  },
+  "yeti-rambler-20-oz-tumbler-magslider-lid-20791": {
+    "espId": "556020791",
+    "supplier": "Prime Line",
+    "asi": "asi/79530",
+    "productNo": "YTR20TUM"
+  },
+  "24oz-premium-stainless-steel-bottle-51282": {
+    "espId": "556551282",
+    "supplier": "Opusline (Benmex)",
+    "asi": "asi/39820",
+    "productNo": "MS24"
+  },
+  "24-oz-sports-bottle-89094": {
+    "espId": "555089094",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "BB24"
+  },
+  "double-wall-stainless-steel-water-bottle-40-oz-46456": {
+    "espId": "553546456",
+    "supplier": "Athena Promo™",
+    "asi": "asi/37218",
+    "productNo": "BO206-US-Stock"
+  },
+  "15-oz-ceramic-camping-mug-13567": {
+    "espId": "556213567",
+    "supplier": "Promoful/PMGOA",
+    "asi": "asi/79982",
+    "productNo": "AA-E8AA"
+  },
+  "13-oz-barista-ceramic-custom-mug-with-cork-bottom-92339": {
+    "espId": "552592339",
+    "supplier": "BEL Promo",
+    "asi": "asi/39552",
+    "productNo": "ACM1022"
+  },
+  "11-oz-ceramic-dishwasher-safe-coffee-mug-w-c-handle-49413": {
+    "espId": "551649413",
+    "supplier": "Opusline (Benmex)",
+    "asi": "asi/39820",
+    "productNo": "MC7102"
+  },
+  "28-oz-otterbox-elevation-growler-tumbler-60646": {
+    "espId": "553960646",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "55421"
+  },
+  "water-bottle-with-magnetic-phone-mount-and-sip-straw-lid-ins-99081": {
+    "espId": "556499081",
+    "supplier": "Uniprint Inc.",
+    "asi": "asi/92491",
+    "productNo": "VC6108"
+  },
+  "25-oz-stainless-steel-water-bottle-05813": {
+    "espId": "553205813",
+    "supplier": "Tekweld",
+    "asi": "asi/90807",
+    "productNo": "BTL119"
+  },
+  "17-oz-hailey-recycled-stainless-steel-bottle-23672": {
+    "espId": "555723672",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "50418"
+  },
+  "carryflow-30oz-ss-mug-with-non-slip-base-79532": {
+    "espId": "556579532",
+    "supplier": "High Caliber Line USA",
+    "asi": "asi/43442",
+    "productNo": "S996"
+  },
+  "premium-leather-can-cooler-92733": {
+    "espId": "556392733",
+    "supplier": "Mateo Branded Inc",
+    "asi": "asi/69464",
+    "productNo": "WJ100"
+  },
+  "non-woven-recycled-budget-shopper-tote-91101": {
+    "espId": "555391101",
+    "supplier": "Jornik Manufacturing",
+    "asi": "asi/63549",
+    "productNo": "JK-9904"
+  },
+  "custom-shopper-tote-bags-89099": {
+    "espId": "555089099",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "IMPTOT2"
+  },
+  "24-oz-large-heavyweight-cotton-canvas-tote-88032": {
+    "espId": "556188032",
+    "supplier": "Premium Imprint Gift Promotion Inc",
+    "asi": "asi/79382",
+    "productNo": "PI781"
+  },
+  "embarcadero-15-laptop-backpack-91312": {
+    "espId": "551291312",
+    "supplier": "HPG",
+    "asi": "asi/61966",
+    "productNo": "96005"
+  },
+  "water-resistant-sports-soccer-bag-49569": {
+    "espId": "556149569",
+    "supplier": "BrandGiver Inc",
+    "asi": "asi/41595",
+    "productNo": "NI0046"
+  },
+  "clear-backpack-49147": {
+    "espId": "555649147",
+    "supplier": "Brandio Promo Inc",
+    "asi": "asi/90201",
+    "productNo": "Bd330"
+  },
+  "the-essential-tote-backpack-90894": {
+    "espId": "555690894",
+    "supplier": "Terry Town",
+    "asi": "asi/90913",
+    "productNo": "BPK003"
+  },
+  "weekender-duffel-bag-17-5-600d-polyester-9-solid-colors-92913": {
+    "espId": "5092913",
+    "supplier": "Seville Gear",
+    "asi": "asi/86565",
+    "productNo": "AG-223"
+  },
+  "sporty-duffle-bags-94979": {
+    "espId": "5594979",
+    "supplier": "BEL Promo",
+    "asi": "asi/39552",
+    "productNo": "ADB09"
+  },
+  "20-can-tote-cooler-bag-87069": {
+    "espId": "556287069",
+    "supplier": "Tekweld",
+    "asi": "asi/90807",
+    "productNo": "BAG523"
+  },
+  "12-can-lunch-cooler-87081": {
+    "espId": "556287081",
+    "supplier": "Tekweld",
+    "asi": "asi/90807",
+    "productNo": "BAG524"
+  },
+  "sustainable-cork-and-rpet-backpack-cooler-59560": {
+    "espId": "555559560",
+    "supplier": "Tekweld",
+    "asi": "asi/90807",
+    "productNo": "BAG706"
+  },
+  "180-degree-opening-14-inch-laptop-sleeve-bag-31254": {
+    "espId": "556531254",
+    "supplier": "Core Gifts Promo",
+    "asi": "asi/46671",
+    "productNo": "OU7216"
+  },
+  "reversible-neoprene-laptop-sleeve-7-to-17-97627": {
+    "espId": "556697627",
+    "supplier": "Core Gifts Promo",
+    "asi": "asi/46671",
+    "productNo": "EQ3492"
+  },
+  "anti-theft-crossbody-laptop-bag-72805": {
+    "espId": "552572805",
+    "supplier": "Flyer Sourcing Inc",
+    "asi": "asi/54871",
+    "productNo": "FYAE136"
+  },
+  "bryn-eva-6-can-lunch-cooler-bag-50443": {
+    "espId": "556250443",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "35155"
+  },
+  "adjustable-sports-waist-bag-with-zipper-pocket-92604": {
+    "espId": "555992604",
+    "supplier": "BoostBrand Promo Inc",
+    "asi": "asi/62507",
+    "productNo": "BBP63635"
+  },
+  "sublimation-oval-running-belt-w-2-pockets-10-5x2-5x5-in-11668": {
+    "espId": "553911668",
+    "supplier": "Northeastern Promotions",
+    "asi": "asi/74258",
+    "productNo": "WBG-FBDS-03"
+  },
+  "waterproof-gym-drawstring-backpack-68556": {
+    "espId": "554868556",
+    "supplier": "Promos Business Inc.",
+    "asi": "asi/80023",
+    "productNo": "PBKK0080"
+  },
+  "ventoux-210d-polyester-drawstring-cinch-pack-backpack-41211": {
+    "espId": "5141211",
+    "supplier": "Innovation Line",
+    "asi": "asi/62660",
+    "productNo": "907"
+  },
+  "dye-sublimated-drawstring-backpack-89215": {
+    "espId": "551789215",
+    "supplier": "SnugZ USA",
+    "asi": "asi/88060",
+    "productNo": "ADSPS1"
+  },
   "round-lightweight-fabric-portable-folding-beach-table-54388": {
     "espId": "554854388",
     "supplier": "Goldentop Gifts Corp",
@@ -5524,5 +6298,689 @@
     "supplier": "Jornik Manufacturing",
     "asi": "asi/63549",
     "productNo": "JK-9213"
+  },
+  "augusta-sportswear-adult-attain-wicking-short-sleeve-t-shirt-90318": {
+    "espId": "555090318",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "BA2790"
+  },
+  "bella-canvas-unisex-heather-cvc-t-shirt-90320": {
+    "espId": "555090320",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "BA3001CVC"
+  },
+  "cutter-and-buck-mens-shoreline-half-zip-pullover-48369": {
+    "espId": "555448369",
+    "supplier": "WBPromotion",
+    "asi": "asi/98409",
+    "productNo": "OW98409-OW98"
+  },
+  "j-america-tailgate-fleece-pullover-hood-42587": {
+    "espId": "552242587",
+    "supplier": "WBPromotion",
+    "asi": "asi/98409",
+    "productNo": "ST98409-ST140"
+  },
+  "full-size-multi-functional-gaiter-and-headwear-domestic-prod-02782": {
+    "espId": "553102782",
+    "supplier": "Innovation Line",
+    "asi": "asi/62660",
+    "productNo": "7134"
+  },
+  "22-dye-sublimated-bandana-09661": {
+    "espId": "556209661",
+    "supplier": "Promoful/PMGOA",
+    "asi": "asi/79982",
+    "productNo": "P7-BAND22-S"
+  },
+  "full-color-printed-cotton-bandana-99119": {
+    "espId": "555099119",
+    "supplier": "Sports Solutions Inc",
+    "asi": "asi/88876",
+    "productNo": "CBandana-100"
+  },
+  "fleece-neck-warmer-gaiter-thick-thermal-windproof-for-unisex-90906": {
+    "espId": "553490906",
+    "supplier": "I Promotion Pro Inc",
+    "asi": "asi/62098",
+    "productNo": "IPFZ214A"
+  },
+  "12-w-x-32-h-cooling-towel-the-rainer-45800": {
+    "espId": "551245800",
+    "supplier": "Innovation Line",
+    "asi": "asi/62660",
+    "productNo": "5132"
+  },
+  "12-x-31-5-neck-wrap-mesh-cooling-towel-09986": {
+    "espId": "556209986",
+    "supplier": "Promoful/PMGOA",
+    "asi": "asi/79982",
+    "productNo": "P7-COOLTWL"
+  },
+  "womens-new-englander-rain-jacket-36207": {
+    "espId": "4736207",
+    "supplier": "Charles River Apparel",
+    "asi": "asi/44620",
+    "productNo": "5099"
+  },
+  "port-authority-denim-jacket-63206": {
+    "espId": "555863206",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "SMJ7620"
+  },
+  "port-authority-womens-denim-jacket-63270": {
+    "espId": "555863270",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "SML7620"
+  },
+  "indigo-import-unisex-dye-sublimated-pullover-hoodie-60484": {
+    "espId": "552460484",
+    "supplier": "SnugZ USA",
+    "asi": "asi/88060",
+    "productNo": "HINDIGO"
+  },
+  "snapback-truckers-cap-11178": {
+    "espId": "555911178",
+    "supplier": "High Caliber Line USA",
+    "asi": "asi/43442",
+    "productNo": "D201"
+  },
+  "wide-brim-solar-usb-rechargeable-fan-sun-hat-62227": {
+    "espId": "556262227",
+    "supplier": "Topromos Inc",
+    "asi": "asi/91271",
+    "productNo": "TPAH272A"
+  },
+  "foam-mesh-back-trucker-cap-80111": {
+    "espId": "553880111",
+    "supplier": "DP Marketing Service",
+    "asi": "asi/48037",
+    "productNo": "DPK1"
+  },
+  "straw-hat-with-custom-patch-and-full-color-underbrim-imprint-69471": {
+    "espId": "554669471",
+    "supplier": "Credible Promo",
+    "asi": "asi/47207",
+    "productNo": "CPSY4010"
+  },
+  "pre-washed-bucket-safari-hat-69920": {
+    "espId": "553369920",
+    "supplier": "Direct Caps",
+    "asi": "asi/48015",
+    "productNo": "7004"
+  },
+  "nylon-foldable-hat-with-pouch-44068": {
+    "espId": "554744068",
+    "supplier": "Uniprint Inc.",
+    "asi": "asi/92491",
+    "productNo": "PY2817"
+  },
+  "custom-embroidered-knit-beanie-hat-personalized-winter-cap-81578": {
+    "espId": "556681578",
+    "supplier": "Mateo Branded Inc",
+    "asi": "asi/69464",
+    "productNo": "zmy6133"
+  },
+  "eva-foam-square-stadium-seat-cushion-with-handle-52654": {
+    "espId": "556652654",
+    "supplier": "Credible Promo",
+    "asi": "asi/47207",
+    "productNo": "CPSY4931"
+  },
+  "mesh-folding-chair-with-carrying-bag-75112": {
+    "espId": "553375112",
+    "supplier": "I Promotion Pro Inc",
+    "asi": "asi/62098",
+    "productNo": "IPJY090A"
+  },
+  "cooler-backpack-chair-17773": {
+    "espId": "555317773",
+    "supplier": "WBPromotion",
+    "asi": "asi/98409",
+    "productNo": "BG984-BG32"
+  },
+  "outdoor-camping-portable-folding-ultralight-telescopic-stool-94181": {
+    "espId": "555694181",
+    "supplier": "WholeGifts Trading",
+    "asi": "asi/98423",
+    "productNo": "WG2200"
+  },
+  "multi-function-bbq-tool-59219": {
+    "espId": "550259219",
+    "supplier": "Fey Promo",
+    "asi": "asi/54040",
+    "productNo": "Mi6090"
+  },
+  "new-era-ribbed-tailgate-beanie-03133": {
+    "espId": "554603133",
+    "supplier": "Access Line Promotional Products",
+    "asi": "asi/30458",
+    "productNo": "8390"
+  },
+  "round-foldable-nylon-fan-printed-in-usa-rush-33679": {
+    "espId": "6033679",
+    "supplier": "Graphco Line",
+    "asi": "asi/57956",
+    "productNo": "NFAN"
+  },
+  "airtiny-foldable-handheld-fan-36946": {
+    "espId": "556336946",
+    "supplier": "Agraffes Innovation",
+    "asi": "asi/36722",
+    "productNo": "AU-HOPO"
+  },
+  "square-hand-fan-86003": {
+    "espId": "5186003",
+    "supplier": "Lion Circle Corp",
+    "asi": "asi/67620",
+    "productNo": "BF-5"
+  },
+  "1-9-oz-spf-30-sunscreen-with-carabiner-34984": {
+    "espId": "4834984",
+    "supplier": "SnugZ USA",
+    "asi": "asi/88060",
+    "productNo": "ZSUN19"
+  },
+  "natural-insect-repellent-spray-94520": {
+    "espId": "4994520",
+    "supplier": "Tekweld",
+    "asi": "asi/90807",
+    "productNo": "BOM101"
+  },
+  "adjustable-white-cast-aluminum-bracket-for-1-flagpole-59470": {
+    "espId": "2959470",
+    "supplier": "Quinn",
+    "asi": "asi/80228",
+    "productNo": "SLB-115"
+  },
+  "usa-pleated-full-fan-with-stars-3-x-6-42944": {
+    "espId": "200142944",
+    "supplier": "AGAS Flags, Banners and Trade Show Displays",
+    "asi": "asi/30125",
+    "productNo": ""
+  },
+  "stars-and-stripes-bunting-10105": {
+    "espId": "552610105",
+    "supplier": "Showdown Displays",
+    "asi": "asi/87188",
+    "productNo": "4540020"
+  },
+  "custom-drawstring-non-woven-tote-bags-45982": {
+    "espId": "555445982",
+    "supplier": "WBPromotion",
+    "asi": "asi/98409",
+    "productNo": "TT984-DST"
+  },
+  "3-round-button-full-color-w-safety-pin-47261": {
+    "espId": "6047261",
+    "supplier": "Ventura Inc",
+    "asi": "asi/93520",
+    "productNo": "120LF"
+  },
+  "3-inch-round-custom-buttons-89037": {
+    "espId": "555089037",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "RBTN9"
+  },
+  "round-button-2-5-58807": {
+    "espId": "554858807",
+    "supplier": "WBPromotion",
+    "asi": "asi/98409",
+    "productNo": "RB984-2.5"
+  },
+  "static-window-clings-opaque-89594": {
+    "espId": "553089594",
+    "supplier": "Giant Media LLC",
+    "asi": "asi/56729",
+    "productNo": "BBWSSO01-GM"
+  },
+  "3-round-circle-vinyl-full-color-stickers-59313": {
+    "espId": "554759313",
+    "supplier": "WBPromotion",
+    "asi": "asi/98409",
+    "productNo": "RCS98409-3\""
+  },
+  "2-6-stickers-die-cut-stickers-50236": {
+    "espId": "554350236",
+    "supplier": "Full Designs",
+    "asi": "asi/55516",
+    "productNo": "ST-DCUT"
+  },
+  "table-tent-horizontal-21091": {
+    "espId": "551221091",
+    "supplier": "Warwick Publishing Co",
+    "asi": "asi/95280",
+    "productNo": "1850"
+  },
+  "10x10-white-steel-canopy-with-2-feather-flags-and-table-thro-83331": {
+    "espId": "555283331",
+    "supplier": "TWENTY FOUR SEVEN TRADE LLC",
+    "asi": "asi/90537",
+    "productNo": "TR5459"
+  },
+  "10-x-10-heavy-duty-custom-printed-tent-canopy-23451": {
+    "espId": "556723451",
+    "supplier": "Pacific Business",
+    "asi": "asi/77701",
+    "productNo": "PBK16"
+  },
+  "brochure-tri-fold-3-panel-80lb-cardstock-matte-55282": {
+    "espId": "551955282",
+    "supplier": "Giant Media LLC",
+    "asi": "asi/56729",
+    "productNo": "UPBRPR02-GM"
+  },
+  "pen-holder-trophy-night-light-18729": {
+    "espId": "554918729",
+    "supplier": "Branding Your Brand Inc",
+    "asi": "asi/90200",
+    "productNo": "JT123"
+  },
+  "medium-ribbon-award-34657": {
+    "espId": "553234657",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "10066"
+  },
+  "4-7-x2-6-mini-plastic-gold-star-trophy-awards-for-kids-21019": {
+    "espId": "555721019",
+    "supplier": "SC Promo Inc",
+    "asi": "asi/87101",
+    "productNo": "ASC13703"
+  },
+  "metal-trophy-cup-small-17568": {
+    "espId": "551817568",
+    "supplier": "Pacesetter Awards",
+    "asi": "asi/75640",
+    "productNo": "CM401AG"
+  },
+  "westchester-award-82933": {
+    "espId": "551882933",
+    "supplier": "SRG",
+    "asi": "asi/84592",
+    "productNo": "AWARD AWD752"
+  },
+  "crystal-triangle-trophy-award-06132": {
+    "espId": "555206132",
+    "supplier": "Print Solutions Promos Inc",
+    "asi": "asi/79555",
+    "productNo": "PSD215"
+  },
+  "landing-bronze-antique-resin-eagle-with-crystal-tablet-99356": {
+    "espId": "6299356",
+    "supplier": "Pacesetter Awards",
+    "asi": "asi/75640",
+    "productNo": "GM549"
+  },
+  "medals-stock-and-printed-sizes-2-5-94993": {
+    "espId": "550594993",
+    "supplier": "Full Designs",
+    "asi": "asi/55516",
+    "productNo": "MD-SKPS"
+  },
+  "custom-pvc-medals-and-medallions-79145": {
+    "espId": "7379145",
+    "supplier": "EMT",
+    "asi": "asi/52263",
+    "productNo": "SFXMD"
+  },
+  "premium-custom-medal-ribbon-strips-for-awards-20079": {
+    "espId": "556720079",
+    "supplier": "Great Direct Promotions Inc",
+    "asi": "asi/58100",
+    "productNo": "PDEJC00180"
+  },
+  "sports-events-marathon-metal-medal-hanger-display-holder-32895": {
+    "espId": "556032895",
+    "supplier": "WholeGifts Trading",
+    "asi": "asi/98423",
+    "productNo": "WG7365"
+  },
+  "walnut-veneer-plaque-17545": {
+    "espId": "551817545",
+    "supplier": "Pacesetter Awards",
+    "asi": "asi/75640",
+    "productNo": "CD976A"
+  },
+  "merano-plaque-gold-66559": {
+    "espId": "552966559",
+    "supplier": "SRG",
+    "asi": "asi/84592",
+    "productNo": "AWP181X-G"
+  },
+  "oakleigh-everett-plaque-rosewood-satin-gold-83892": {
+    "espId": "551883892",
+    "supplier": "SRG",
+    "asi": "asi/84592",
+    "productNo": "AWP40X-541X"
+  },
+  "acrylic-overlay-on-ebony-board-plaque-09027": {
+    "espId": "555609027",
+    "supplier": "Pacesetter Awards",
+    "asi": "asi/75640",
+    "productNo": "DCCD550"
+  },
+  "spectraprint-plaque-ebony-silver-61891": {
+    "espId": "554961891",
+    "supplier": "SRG",
+    "asi": "asi/84592",
+    "productNo": "7402-EPA"
+  },
+  "5-x-7-genuine-cherry-plaque-36211": {
+    "espId": "554536211",
+    "supplier": "Calico",
+    "asi": "asi/74601",
+    "productNo": "CGCP57"
+  },
+  "optic-crystal-palace-award-18612": {
+    "espId": "552318612",
+    "supplier": "Pacesetter Awards",
+    "asi": "asi/75640",
+    "productNo": "GM713"
+  },
+  "crewe-award-19612": {
+    "espId": "552619612",
+    "supplier": "SRG",
+    "asi": "asi/84592",
+    "productNo": "AWARD ARG7421"
+  },
+  "pierce-award-small-97177": {
+    "espId": "550497177",
+    "supplier": "The Magnet Group",
+    "asi": "asi/68507",
+    "productNo": "IC5104"
+  },
+  "circle-star-award-23922": {
+    "espId": "7123922",
+    "supplier": "The Magnet Group",
+    "asi": "asi/68507",
+    "productNo": "IC7082"
+  },
+  "clear-glass-arrowhead-on-base-18500": {
+    "espId": "552318500",
+    "supplier": "Pacesetter Awards",
+    "asi": "asi/75640",
+    "productNo": "GM716"
+  },
+  "orillia-award-28281": {
+    "espId": "6928281",
+    "supplier": "SRG",
+    "asi": "asi/84592",
+    "productNo": "AWARD ARG6472"
+  },
+  "glass-rectangle-small-award-97183": {
+    "espId": "550497183",
+    "supplier": "The Magnet Group",
+    "asi": "asi/68507",
+    "productNo": "IC5110"
+  },
+  "mid-size-chroma-glass-awards-with-double-stand-67068": {
+    "espId": "551567068",
+    "supplier": "BEL Promo",
+    "asi": "asi/39552",
+    "productNo": "ADMAW50"
+  },
+  "stackable-clear-acrylic-bar-milestone-awards-61855": {
+    "espId": "553261855",
+    "supplier": "Pacesetter Awards",
+    "asi": "asi/75640",
+    "productNo": "CD1075C"
+  },
+  "cobalt-peak-award-91288": {
+    "espId": "554491288",
+    "supplier": "Moderne Glass Company Inc",
+    "asi": "asi/71920",
+    "productNo": "7723"
+  },
+  "medium-parabola-award-69648": {
+    "espId": "552569648",
+    "supplier": "Moderne Glass Company Inc",
+    "asi": "asi/71920",
+    "productNo": "8928-MD"
+  },
+  "icon-large-glass-award-13439": {
+    "espId": "7013439",
+    "supplier": "The Magnet Group",
+    "asi": "asi/68507",
+    "productNo": "IC6177"
+  },
+  "school-office-academic-trifold-durable-certificate-holder-34231": {
+    "espId": "556034231",
+    "supplier": "WholeGifts Trading",
+    "asi": "asi/98423",
+    "productNo": "WG7215"
+  },
+  "3d-texture-print-lapel-pins-98956": {
+    "espId": "555098956",
+    "supplier": "EMT",
+    "asi": "asi/52263",
+    "productNo": "3DLP"
+  },
+  "custom-uv-printed-pins-28891": {
+    "espId": "556328891",
+    "supplier": "Full Designs",
+    "asi": "asi/55516",
+    "productNo": "LP-UVP"
+  },
+  "1-5-hard-enamel-pricebuster-lapel-pin-63130": {
+    "espId": "554063130",
+    "supplier": "IDProductsource",
+    "asi": "asi/62088",
+    "productNo": "HE-15"
+  },
+  "1-75-x-2-75-inch-rectangle-wearable-clothing-magnet-buttons-89892": {
+    "espId": "555089892",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "RECWCMB"
+  },
+  "4-round-custom-buttons-10829": {
+    "espId": "556210829",
+    "supplier": "Promoful/PMGOA",
+    "asi": "asi/79982",
+    "productNo": "P7-RBTN-4"
+  },
+  "1-75-inch-round-custom-button-10827": {
+    "espId": "556210827",
+    "supplier": "Promoful/PMGOA",
+    "asi": "asi/79982",
+    "productNo": "P7-RBTN-175"
+  },
+  "judge-gavel-and-sound-block-set-02501": {
+    "espId": "556302501",
+    "supplier": "1stopromo Inc",
+    "asi": "asi/54337",
+    "productNo": "SPLP1050"
+  },
+  "acrylic-dual-layer-magnet-55540": {
+    "espId": "6255540",
+    "supplier": "Morris Magnets",
+    "asi": "asi/72521",
+    "productNo": "MAGNET-AFD"
+  },
+  "7-x-11-vinyl-sticker-sheet-6-mil-38848": {
+    "espId": "556138848",
+    "supplier": "Tekweld",
+    "asi": "asi/90807",
+    "productNo": "STCKS711"
+  },
+  "sticket-sheet-11-5-x-7-custom-shapes-51887": {
+    "espId": "555351887",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "9198"
+  },
+  "sticker-sheet-5-5-x-7-custom-shapes-51888": {
+    "espId": "555351888",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "9213"
+  },
+  "round-circle-sticker-3-59666": {
+    "espId": "554859666",
+    "supplier": "WBPromotion",
+    "asi": "asi/98409",
+    "productNo": "RCS98409"
+  },
+  "3-x-3-vinyl-die-cut-full-color-stickers-59249": {
+    "espId": "554759249",
+    "supplier": "WBPromotion",
+    "asi": "asi/98409",
+    "productNo": "DCS98409-3\"X3\""
+  },
+  "note-list-displays-photo-fridge-heavy-duty-magnetic-clip-32656": {
+    "espId": "556032656",
+    "supplier": "WholeGifts Trading",
+    "asi": "asi/98423",
+    "productNo": "WG7330"
+  },
+  "custom-die-cut-magnets-66809": {
+    "espId": "554066809",
+    "supplier": "Promoful/PMGOA",
+    "asi": "asi/79982",
+    "productNo": "P7-CDCM"
+  },
+  "2-custom-pvc-magnet-45880": {
+    "espId": "554745880",
+    "supplier": "Full Designs",
+    "asi": "asi/55516",
+    "productNo": "MG-PVC200"
+  },
+  "magnet-domestically-produced-85381": {
+    "espId": "555785381",
+    "supplier": "BamBams",
+    "asi": "asi/38228",
+    "productNo": "MAG-100"
+  },
+  "custom-pvc-fridge-magnet-49820": {
+    "espId": "555449820",
+    "supplier": "Goldentop Gifts Corp",
+    "asi": "asi/79532",
+    "productNo": "GOR1594"
+  },
+  "car-sign-oval-magnet-3-3-4-x-5-3-4-85563": {
+    "espId": "4985563",
+    "supplier": "The Magnet Group",
+    "asi": "asi/68507",
+    "productNo": "CS51"
+  },
+  "paw-print-car-magnet-5-75-x-5-75-51032": {
+    "espId": "555351032",
+    "supplier": "The Magnet Group",
+    "asi": "asi/68507",
+    "productNo": "CS78"
+  },
+  "collapsible-large-car-trunk-organizer-bag-with-handles-41878": {
+    "espId": "555841878",
+    "supplier": "Goldentop Gifts Corp",
+    "asi": "asi/79532",
+    "productNo": "GOD1507"
+  },
+  "non-woven-foldable-car-trunk-organizer-with-3-compartments-91379": {
+    "espId": "555691379",
+    "supplier": "WholeGifts Trading",
+    "asi": "asi/98423",
+    "productNo": "WG1606"
+  },
+  "car-trunk-organizer-storage-11093": {
+    "espId": "554111093",
+    "supplier": "Goldentop Gifts Corp",
+    "asi": "asi/79532",
+    "productNo": "GOP8172"
+  },
+  "2-x-6-bookmark-89088": {
+    "espId": "555089088",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "IPBM1"
+  },
+  "genuine-leather-magnetic-bookmark-pen-holder-65919": {
+    "espId": "556165919",
+    "supplier": "Mateo Promo Inc",
+    "asi": "asi/69463",
+    "productNo": "HSH0198"
+  },
+  "time-manager-15008": {
+    "espId": "7315008",
+    "supplier": "Drum-Line - A Div of Arch Promo Group, LLC",
+    "asi": "asi/50873",
+    "productNo": "TM8"
+  },
+  "bryne-work-weekly-pocket-calendar-46713": {
+    "espId": "554546713",
+    "supplier": "ADG Promotional Products",
+    "asi": "asi/97270",
+    "productNo": "50421"
+  },
+  "concord-classic-weekly-pocket-calendar-82234": {
+    "espId": "556082234",
+    "supplier": "ADG Promotional Products",
+    "asi": "asi/97270",
+    "productNo": "W47844CW"
+  },
+  "blue-contractor-calendars-36024": {
+    "espId": "552536024",
+    "supplier": "Drum-Line - A Div of Arch Promo Group, LLC",
+    "asi": "asi/50873",
+    "productNo": "MW20A"
+  },
+  "motivations-wall-calendar-2027-stapled-79523": {
+    "espId": "555779523",
+    "supplier": "HPG",
+    "asi": "asi/61966",
+    "productNo": "CAL2351"
+  },
+  "american-scenic-wall-calendar-2027-stapled-79496": {
+    "espId": "555779496",
+    "supplier": "HPG",
+    "asi": "asi/61966",
+    "productNo": "CAL2451"
+  },
+  "pocket-size-spiral-sticky-note-pad-and-tape-flags-55300": {
+    "espId": "554855300",
+    "supplier": "ANYTIME PROMO INC",
+    "asi": "asi/79380",
+    "productNo": "ATCC0013"
+  },
+  "micro-sticky-book-11428": {
+    "espId": "4911428",
+    "supplier": "Prime Line",
+    "asi": "asi/79530",
+    "productNo": "PL-4012"
+  },
+  "kraft-spiral-sticky-note-18995": {
+    "espId": "556718995",
+    "supplier": "Flyer Sourcing Inc",
+    "asi": "asi/54871",
+    "productNo": "EYFN004"
+  },
+  "sticky-note-notebook-with-pen-5-91-x-3-94-in-11096": {
+    "espId": "556111096",
+    "supplier": "Edge Pop Promo Inc",
+    "asi": "asi/51680",
+    "productNo": "EPFL0142"
+  },
+  "mini-sticky-book-with-ruler-30915": {
+    "espId": "6030915",
+    "supplier": "Prime Line",
+    "asi": "asi/79530",
+    "productNo": "PL-4410"
+  },
+  "kraft-playing-cards-05619": {
+    "espId": "555205619",
+    "supplier": "Jornik Manufacturing",
+    "asi": "asi/63549",
+    "productNo": "JK-3634"
+  },
+  "playing-cards-in-case-93447": {
+    "espId": "7393447",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "59"
   }
 }
