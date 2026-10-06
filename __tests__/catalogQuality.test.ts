@@ -536,3 +536,16 @@ describe("cross-supplier near-duplicates", () => {
     expect(sizesConflict("", `15 " x 23 "`)).toBe(false);
   });
 });
+
+import priceNoteOverrides from "@/config/priceNoteOverrides.json";
+import { allProducts } from "@/config/merchandiseConfig";
+
+describe("price note overrides", () => {
+  it("only name products that exist and show up as the product's price note", () => {
+    for (const [id, note] of Object.entries(priceNoteOverrides as Record<string, string>)) {
+      const product = allProducts.find((p) => p.id === id);
+      expect(product, id).toBeTruthy();
+      expect(product?.priceNote, id).toBe(note);
+    }
+  });
+});

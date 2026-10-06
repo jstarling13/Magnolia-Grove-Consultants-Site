@@ -39,6 +39,7 @@ import importedProductsJson from "./importedProducts.json";
 import hiddenProductsJson from "./hiddenProducts.json";
 import photoReviewedJson from "./photoReviewed.json";
 import colorsShownInPhotoJson from "./colorsShownInPhoto.json";
+import priceNoteOverridesJson from "./priceNoteOverrides.json";
 import imageOverridesJson from "./imageOverrides.json";
 
 export const MARKUP_RATE = 0.05;
@@ -1636,7 +1637,12 @@ export function toImportedProduct(record: ImportedProductRecord): MerchProduct {
     image: record.image,
     imageAlt: record.imageAlt,
     colors: record.colors && record.colors.length > 0 ? record.colors : undefined,
-    ...(record.priceNote ? { priceNote: record.priceNote } : {}),
+    ...((record.priceNote ?? (priceNoteOverridesJson as Record<string, string>)[record.id])
+      ? {
+          priceNote:
+            record.priceNote ?? (priceNoteOverridesJson as Record<string, string>)[record.id],
+        }
+      : {}),
   };
 }
 

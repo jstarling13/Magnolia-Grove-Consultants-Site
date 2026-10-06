@@ -1,3 +1,4 @@
+import priceNoteOverrides from "@/config/priceNoteOverrides.json";
 import { existsSync, readFileSync } from "fs";
 import path from "path";
 import { describe, expect, it } from "vitest";
@@ -341,6 +342,9 @@ describe("catalog integrity", () => {
     expectNone(
       violations((p) => {
         if (p.priceNote === undefined) return null;
+        const manual = (priceNoteOverrides as Record<string, string>)[p.id];
+        if (manual !== undefined)
+          return p.priceNote === manual ? null : "priceNote differs from its override";
         return p.priceNote === "Priced for the standard size; other sizes quoted on request."
           ? null
           : `unexpected priceNote "${p.priceNote}"`;
