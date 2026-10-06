@@ -4,9 +4,17 @@ import { notFound } from "next/navigation";
 import CartLink from "@/components/merchandise/CartLink";
 import CategoryProductGrid from "@/components/merchandise/CategoryProductGrid";
 import RecentlyViewed from "@/components/merchandise/RecentlyViewed";
+import { getImprintArea, products as allLiveProducts } from "@/config/merchandiseConfig";
+import {
+  buildFaqJsonLd,
+  buildGoodToKnow,
+  computeCategoryFacts,
+  getCategoryCopy,
+} from "@/config/categoryCopy";
+import { brand } from "@/config/siteConfig";
 import { buildBreadcrumbJsonLd, buildCategoryMetadata, serializeJsonLd } from "@/lib/merchSeo";
 import { categoryPath, categorySlug } from "@/lib/merchSlug";
-import { FOCUSED_INITIAL_VISIBLE } from "@/lib/merchCatalog";
+import { FOCUSED_INITIAL_VISIBLE, toCatalogProduct } from "@/lib/merchCatalog";
 import {
   getCategoryCards,
   getCategoryCatalog,
@@ -29,12 +37,31 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   const catalog = getCategoryCatalog(slug);
   if (!catalog) return { title: "Category Not Found | Magnolia Grove Consultants" };
   const base = buildCategoryMetadata(catalog.category, catalog.products, getSiteUrl());
-  // Same title, description and URL as the lib builds, plus the share image
-  // (a page's own openGraph/twitter replaces the layout's, image included).
+  // Each category has its own written title and description (config/categoryCopy);
+  // the lib's generic ones remain only as a fallback. The URL comes from the lib,
+  // and the share image is added here (a page's own openGraph/twitter replaces
+  // the layout's, image included).
+  const copy = getCategoryCopy(catalog.category);
+  const withShareImage = (meta: Metadata): Metadata => ({
+    ...meta,
+    openGraph: { ...meta.openGraph, images: [SHARE_IMAGE] },
+    twitter: { ...meta.twitter, card: "summary_large_image", images: [SHARE_IMAGE.url] },
+  });
+  if (!copy) return withShareImage(base);
+  const title = `${copy.title} | ${brand.name}`;
+  const { description } = copy;
   return {
-    ...base,
-    openGraph: { ...base.openGraph, images: [SHARE_IMAGE] },
-    twitter: { ...base.twitter, card: "summary_large_image", images: [SHARE_IMAGE.url] },
+    ...withShareImage(base),
+    title,
+    description,
+    openGraph: { ...base.openGraph, title, description, images: [SHARE_IMAGE] },
+    twitter: {
+      ...base.twitter,
+      card: "summary_large_image",
+      title,
+      description,
+      images: [SHARE_IMAGE.url],
+    },
   };
 }
 
@@ -48,6 +75,14 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   // is fetched from cards.json when the shopper asks for it.
   const { cards, brands } = getCategoryCards(slug)!;
   const others = getStorefrontCategories().filter((name) => name !== category);
+  const copy = getCategoryCopy(category);
+  // Facts come from the full (untruncated) live products of this category.
+  const facts = computeCategoryFacts(
+    allLiveProducts
+      .filter((product) => product.category === category)
+      .map((product) => toCatalogProduct(product, getImprintArea(product)))
+  );
+  const goodToKnow = copy ? buildGoodToKnow(copy.highlights, facts) : [];
   const breadcrumbJsonLd = buildBreadcrumbJsonLd(
     [
       { name: "Merchandise", path: "/merchandise" },
@@ -62,6 +97,13 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbJsonLd) }}
       />
+
+      {copy && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(buildFaqJsonLd(copy.faqs)) }}
+        />
+      )}
 
       <section className="relative bg-onyx px-6 py-14 sm:px-8 lg:px-12 lg:py-20">
         <div className="mx-auto max-w-8xl">
@@ -89,11 +131,20 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           <div className="mt-10 max-w-2xl">
             <span className="eyebrow">Merchandise</span>
             <h1 className="mt-3 text-5xl uppercase text-white sm:text-6xl">{category}</h1>
-            <p className="mt-5 text-base leading-relaxed text-muted-light">
-              {products.length} {products.length === 1 ? "item" : "items"} to brand for your
-              campaign or business. Upload your logo on the main catalog to preview it on any
-              product.
-            </p>
+            {copy ? (
+              <>
+                <p className="mt-5 text-base leading-relaxed text-muted-light">{copy.intro}</p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-light">
+                  Upload your logo on the main catalog to preview it on a product.
+                </p>
+              </>
+            ) : (
+              <p className="mt-5 text-base leading-relaxed text-muted-light">
+                {products.length} {products.length === 1 ? "item" : "items"} to brand for your
+                campaign or business. Upload your logo on the main catalog to preview it on any
+                product.
+              </p>
+            )}
           </div>
         </div>
       </section>
@@ -113,6 +164,49 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           />
         </div>
       </section>
+
+      {copy && (
+        <section className="border-t border-gold/15 bg-cream px-6 py-16 sm:px-8 lg:px-12 lg:py-20">
+          <div className="mx-auto grid max-w-8xl gap-12 lg:grid-cols-[2fr_3fr] lg:gap-16">
+            <div>
+              <h2 className="border-b border-gold/20 pb-2 font-heading text-lg uppercase tracking-wide text-onyx/80">
+                Good to know
+              </h2>
+              <ul className="mt-6 space-y-4 text-base leading-relaxed text-onyx/80">
+                {goodToKnow.map((point) => (
+                  <li key={point} className="border-l-2 border-gold-text/60 pl-4">
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h2 className="border-b border-gold/20 pb-2 font-heading text-lg uppercase tracking-wide text-onyx/80">
+                Common questions
+              </h2>
+              <div className="mt-6 space-y-3">
+                {copy.faqs.map((faq) => (
+                  <details
+                    key={faq.question}
+                    className="group rounded-lg border border-gold/20 bg-cream-200 transition-colors hover:border-gold/40"
+                  >
+                    <summary
+                      className={`flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 rounded-lg px-5 py-4 text-base font-semibold text-onyx [&::-webkit-details-marker]:hidden ${FOCUS_RING}`}
+                    >
+                      {faq.question}
+                      <span aria-hidden="true" className="shrink-0 text-lg text-gold-text">
+                        <span className="group-open:hidden">+</span>
+                        <span className="hidden group-open:inline">&minus;</span>
+                      </span>
+                    </summary>
+                    <p className="px-5 pb-5 text-base leading-relaxed text-onyx/80">{faq.answer}</p>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="bg-cream-100 px-6 py-16 sm:px-8 lg:px-12">
         <div className="mx-auto max-w-8xl space-y-12">
