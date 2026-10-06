@@ -233,12 +233,13 @@ describe("applying filters", () => {
   it("sorts by lowest minimum order and by most colors", () => {
     renderHub();
     const names = () =>
-      within(screen.getByRole("region", { name: "Apparel" }))
+      within(screen.getByRole("region", { name: "All products" }))
         .getAllByRole("heading", { level: 3 })
         .map((heading) => heading.textContent);
     fireEvent.change(screen.getByRole("combobox", { name: "Sort products" }), {
       target: { value: "moq-asc" },
     });
+    // One flat list across both categories, sorted globally.
     expect(names().slice(0, 2)).toEqual(["Apparel 001", "Apparel 002"]);
     expect(window.location.search).toBe("?sort=moq-asc");
 

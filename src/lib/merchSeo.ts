@@ -77,7 +77,9 @@ export function structuredDataColors(colors: readonly string[] | undefined): str
 }
 
 /**
- * schema.org Product with an AggregateOffer over the quantity-break prices.
+ * schema.org Product. A product with one price carries a plain Offer; one
+ * with quantity breaks carries an AggregateOffer over those prices. The brand
+ * is included only when it is a real name brand (not the generic label).
  *
  * Availability is deliberately omitted. Items are decorated to order with a
  * 2-3 week production run and the store keeps no stock counts, so InStock
@@ -106,14 +108,17 @@ export function buildProductJsonLd(product: CatalogProduct, siteUrl: string): Js
   data.category = product.category;
   const colors = structuredDataColors(product.colors);
   if (colors.length > 0) data.color = colors;
-  data.offers = {
-    "@type": "AggregateOffer",
-    priceCurrency: "USD",
-    lowPrice: low,
-    highPrice: high,
-    offerCount: product.tiers.length,
-    url,
-  };
+  data.offers =
+    product.tiers.length === 1
+      ? { "@type": "Offer", priceCurrency: "USD", price: low, url }
+      : {
+          "@type": "AggregateOffer",
+          priceCurrency: "USD",
+          lowPrice: low,
+          highPrice: high,
+          offerCount: product.tiers.length,
+          url,
+        };
   return data;
 }
 

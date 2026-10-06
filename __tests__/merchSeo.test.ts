@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { products } from "@/config/merchandiseConfig";
-import type { CatalogProduct } from "@/lib/merchCatalog";
+import { isRealBrand, type CatalogProduct } from "@/lib/merchCatalog";
 import {
   absoluteUrl,
   buildBreadcrumbJsonLd,
@@ -151,14 +151,60 @@ describe("buildProductJsonLd", () => {
     expect(only).not.toHaveProperty("color");
   });
 
-  it("handles a single-tier product", () => {
+  it("emits a plain Offer, not an AggregateOffer, for a single-tier product", () => {
     const single = buildProductJsonLd(
       make({ tiers: [{ quantity: 1, price: 56.02 }] }),
       SITE
     ) as any;
-    expect(single.offers.lowPrice).toBe(56.02);
-    expect(single.offers.highPrice).toBe(56.02);
-    expect(single.offers.offerCount).toBe(1);
+    expect(single.offers).toEqual({
+      "@type": "Offer",
+      priceCurrency: "USD",
+      price: 56.02,
+      url: `${SITE}/merchandise/tee-1`,
+    });
+    expect(single.offers).not.toHaveProperty("lowPrice");
+    expect(single.offers).not.toHaveProperty("offerCount");
+  });
+
+  it("keeps an AggregateOffer with the right range and count for two tiers", () => {
+    const two = buildProductJsonLd(
+      make({
+        tiers: [
+          { quantity: 25, price: 9.99 },
+          { quantity: 250, price: 6.5 },
+        ],
+      }),
+      SITE
+    ) as any;
+    expect(two.offers).toMatchObject({
+      "@type": "AggregateOffer",
+      priceCurrency: "USD",
+      lowPrice: 6.5,
+      highPrice: 9.99,
+      offerCount: 2,
+    });
+  });
+
+  it("adds a Brand for a real brand on either offer shape, and none for Essentials", () => {
+    const tiers = [{ quantity: 1, price: 5 }];
+    for (const offerTiers of [tiers, make().tiers]) {
+      const branded = buildProductJsonLd(
+        make({ brand: "Port Authority", tiers: offerTiers }),
+        SITE
+      );
+      expect(branded.brand).toEqual({ "@type": "Brand", name: "Port Authority" });
+      const generic = buildProductJsonLd(make({ brand: "Essentials", tiers: offerTiers }), SITE);
+      expect(generic).not.toHaveProperty("brand");
+      const blank = buildProductJsonLd(make({ brand: "  ", tiers: offerTiers }), SITE);
+      expect(blank).not.toHaveProperty("brand");
+    }
+  });
+
+  it("never adds availability or sku, on either offer shape", () => {
+    for (const tiers of [[{ quantity: 1, price: 5 }], make().tiers]) {
+      const text = JSON.stringify(buildProductJsonLd(make({ tiers }), SITE));
+      expect(text).not.toMatch(/availability|"sku"|InStock/i);
+    }
   });
 
   it("never carries cost, supplier or part-number data, even from a richer object", () => {
@@ -179,12 +225,24 @@ describe("buildProductJsonLd", () => {
     for (const source of products) {
       const slim = getStorefrontProduct(source.id)!;
       const data = buildProductJsonLd(slim, SITE) as any;
-      expect(data.offers.lowPrice).toBeLessThanOrEqual(data.offers.highPrice);
-      expect(data.offers.offerCount).toBe(source.priceTiers.length);
-      // The only prices present are the customer-facing ones.
       const customerPrices = new Set(source.priceTiers.map((t) => t.price));
-      expect(customerPrices.has(data.offers.lowPrice)).toBe(true);
-      expect(customerPrices.has(data.offers.highPrice)).toBe(true);
+      if (source.priceTiers.length === 1) {
+        expect(data.offers["@type"], source.id).toBe("Offer");
+        expect(customerPrices.has(data.offers.price)).toBe(true);
+      } else {
+        expect(data.offers["@type"], source.id).toBe("AggregateOffer");
+        expect(data.offers.lowPrice).toBeLessThanOrEqual(data.offers.highPrice);
+        expect(data.offers.offerCount).toBe(source.priceTiers.length);
+        // The only prices present are the customer-facing ones.
+        expect(customerPrices.has(data.offers.lowPrice)).toBe(true);
+        expect(customerPrices.has(data.offers.highPrice)).toBe(true);
+      }
+      // A real brand is carried through; the generic label never is.
+      if (isRealBrand(slim.brand)) {
+        expect(data.brand).toEqual({ "@type": "Brand", name: slim.brand.trim() });
+      } else {
+        expect(data).not.toHaveProperty("brand");
+      }
       expect(JSON.stringify(data)).not.toMatch(/espplus|espPrice|supplier|productNo/i);
     }
   });

@@ -3,6 +3,7 @@
 import { useEffect, useId, useRef, useState, type KeyboardEvent } from "react";
 import {
   FILTER_ALL as ALL,
+  formatQuantity,
   MANY_COLORS,
   MIN_QTY_CHOICES,
   SORT_OPTIONS,
@@ -285,7 +286,7 @@ export function FilterToolbar({
                   onChange={() => onFilters({ ...filters, minQty: quantity })}
                   className={inputClasses}
                 />
-                {quantity} units or fewer
+                {formatQuantity(quantity)} units or fewer
               </label>
             ))}
           </fieldset>

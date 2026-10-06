@@ -8,7 +8,13 @@ import { useQuantityDraft } from "@/hooks/useQuantityDraft";
 import { cleanColorName } from "@/lib/colorSwatches";
 import { lineTotal as priceLine, minimumOrderQuantity } from "@/lib/cartPricing";
 import { trackAddToCart, trackViewItem } from "@/lib/merchAnalytics";
-import { formatPrice, nextTier, tierForQuantity, type CatalogProduct } from "@/lib/merchCatalog";
+import {
+  formatPrice,
+  formatQuantity,
+  nextTier,
+  tierForQuantity,
+  type CatalogProduct,
+} from "@/lib/merchCatalog";
 
 export default function ProductDetailActions({ product }: { product: CatalogProduct }) {
   const { items, addItem } = useCart();
@@ -51,8 +57,8 @@ export default function ProductDetailActions({ product }: { product: CatalogProd
 
   const shortfallMessage =
     inCart > 0
-      ? `The minimum order is ${minQuantity} units across all colors, and you already have ${inCart} in your cart. Enter ${neededNow} or more.`
-      : `The minimum order is ${minQuantity} units. Enter ${minQuantity} or more.`;
+      ? `The minimum order is ${formatQuantity(minQuantity)} units across all colors, and you already have ${formatQuantity(inCart)} in your cart. Enter ${formatQuantity(neededNow)} or more.`
+      : `The minimum order is ${formatQuantity(minQuantity)} units. Enter ${formatQuantity(minQuantity)} or more.`;
 
   // The quantity is committed (and prices follow it) when the box is left, on
   // Enter, or from the stepper arrows, never while the shopper is still typing.
@@ -81,7 +87,7 @@ export default function ProductDetailActions({ product }: { product: CatalogProd
     if (field.parsed.kind !== "ok") {
       refuse(
         neededNow > 1
-          ? `Enter a quantity of ${neededNow} or more.`
+          ? `Enter a quantity of ${formatQuantity(neededNow)} or more.`
           : "Enter a quantity of at least 1."
       );
       return;
@@ -134,20 +140,20 @@ export default function ProductDetailActions({ product }: { product: CatalogProd
           />
           {minQuantity > 1 && (
             <p id="quantity-minimum" className="mt-1.5 text-xs font-medium text-onyx/80">
-              Minimum order: {minQuantity} units
+              Minimum order: {formatQuantity(minQuantity)} units
             </p>
           )}
         </div>
         <div className="pb-0.5 text-right">
           {selectedColor && (
             <p className="text-xs font-medium text-onyx/70" data-testid="selected-color">
-              {cleanColorName(selectedColor)} x {quantity}
+              {cleanColorName(selectedColor)} x {formatQuantity(quantity)}
             </p>
           )}
           <p className="text-xs text-onyx/60">
             {singleTier
               ? `${formatPrice(activeTier.price)} / unit`
-              : `${formatPrice(activeTier.price)} / unit at ${activeTier.quantity}+`}
+              : `${formatPrice(activeTier.price)} / unit at ${formatQuantity(activeTier.quantity)}+`}
           </p>
           <p className="font-heading text-2xl font-bold leading-tight text-onyx">
             {formatPrice(lineTotal)}
@@ -167,11 +173,11 @@ export default function ProductDetailActions({ product }: { product: CatalogProd
 
       <p className="mt-3 min-h-[1.25rem] text-xs leading-5 text-onyx/60">
         {upcomingTier
-          ? `Order ${upcomingTier.quantity}+ units to lower the price to ${formatPrice(upcomingTier.price)} per unit.`
+          ? `Order ${formatQuantity(upcomingTier.quantity)}+ units to lower the price to ${formatPrice(upcomingTier.price)} per unit.`
           : singleTier
             ? ""
             : "You are at our best price for this item."}
-        {inCart > 0 && ` Includes the ${inCart} already in your cart.`}
+        {inCart > 0 && ` Includes the ${formatQuantity(inCart)} already in your cart.`}
       </p>
 
       <button
@@ -187,8 +193,8 @@ export default function ProductDetailActions({ product }: { product: CatalogProd
           <>
             <p className="font-semibold text-onyx">
               {added.color
-                ? `Added to cart: ${cleanColorName(added.color)} x ${added.quantity}`
-                : `Added to cart: ${added.quantity} units`}
+                ? `Added to cart: ${cleanColorName(added.color)} x ${formatQuantity(added.quantity)}`
+                : `Added to cart: ${formatQuantity(added.quantity)} units`}
             </p>
             <p className="mt-1">
               <Link

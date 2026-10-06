@@ -521,7 +521,7 @@ export const categoryCopy: Record<string, CategoryCopy> = {
     faqs: [
       {
         question: "Can I get a lanyard in a specific color?",
-        answer: `Each product lists its colors, and you choose when adding it to your request. ${COLOR_RULE}`,
+        answer: `You choose the color when adding a product to your request. ${COLOR_RULE}`,
       },
       {
         question: "What artwork should I send for a lanyard?",

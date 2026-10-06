@@ -300,3 +300,62 @@ describe("category page metadata", () => {
     expect(seen.size).toBe(categories.length);
   });
 });
+
+describe("category FAQ answers", () => {
+  const normalize = (sentence: string) =>
+    sentence
+      .toLowerCase()
+      .replace(/[^a-z0-9 ]+/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+
+  /**
+   * Sentences that say the same thing again: identical once punctuation and
+   * case are ignored, or opening with the same three words ("Each product
+   * lists ..."), which is how a reworded repeat reads.
+   */
+  function repeatedSentences(answer: string): string[] {
+    const parts = answer
+      .split(/(?<=[.!?])\s+/)
+      .map(normalize)
+      .filter(Boolean);
+    const opening = (part: string) => part.split(" ").slice(0, 3).join(" ");
+    return parts.filter(
+      (part, index) =>
+        parts.indexOf(part) !== index ||
+        (part.split(" ").length >= 4 &&
+          parts.findIndex(
+            (other) => other.split(" ").length >= 4 && opening(other) === opening(part)
+          ) !== index)
+    );
+  }
+
+  it("spots a repeated or reworded sentence (the detector itself)", () => {
+    expect(repeatedSentences("Pick a color. Pick a color.")).toHaveLength(1);
+    expect(
+      repeatedSentences(
+        "Each product lists its colors, and you choose when adding it to your request. Each product lists the colors it comes in, and a product's unit price follows its tier."
+      )
+    ).toHaveLength(1);
+    expect(
+      repeatedSentences("Yes. Each product lists its colors. Choose one when you add it.")
+    ).toEqual([]);
+  });
+
+  it("never repeats a sentence within one answer, in all 20 categories", () => {
+    expect(categories).toHaveLength(20);
+    for (const category of categories) {
+      for (const faq of categoryCopy[category].faqs) {
+        expect(repeatedSentences(faq.answer), `${category}: ${faq.question}`).toEqual([]);
+      }
+    }
+  });
+
+  it("answers the lanyard color question with one statement of how colors work", () => {
+    const answer = categoryCopy["Lanyards & Badges"].faqs.find((faq) =>
+      /specific color/i.test(faq.question)
+    )?.answer;
+    expect(answer).toBeDefined();
+    expect(answer!.match(/lists? (?:its|the) colors?/gi) ?? []).toHaveLength(1);
+  });
+});
