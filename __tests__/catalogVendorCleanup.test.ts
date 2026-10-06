@@ -18,16 +18,23 @@ import {
   findThirdPartyBrandProducts,
   fixNameTypos,
   fixSizeUnits,
+  hasPromiseText,
   informativeSize,
   makeUniqueId,
   parseCategoryOverrides,
   parseKeepApart,
   parseNameOverrides,
   parseOverrides,
+  stripSupplierPromises,
   stripVendorNameNoise,
   trimCutOffName,
 } from "../scripts/lib/catalogClean.mjs";
-import { CATEGORY_IMPRINT_DEFAULTS, merchandiseCategories } from "../src/config/merchandiseConfig";
+import importedProductsJson from "../src/config/importedProducts.json";
+import {
+  CATEGORY_IMPRINT_DEFAULTS,
+  allProducts,
+  merchandiseCategories,
+} from "../src/config/merchandiseConfig";
 import { buildCategoryMetadata } from "../src/lib/merchSeo";
 import { categorySlug } from "../src/lib/merchSlug";
 
@@ -738,6 +745,173 @@ describe("suspect pricing report (prices are never changed)", () => {
       expect(dropped.has(espId), espId).toBe(false);
       const raw = rawRow(espId);
       expect(`${raw[2]} ${raw[3]}`).not.toMatch(/per\s*(?:1,?000|thousand|pack|box|case)|\bM\b/i);
+    }
+  });
+});
+
+describe("supplier promises are removed from descriptions (terms: 2-3 weeks, everything confirmed at order review)", () => {
+  const clean = (raw: string) =>
+    buildDescription({ rawDescription: raw, sizes: "", minQty: 50, usa: 0, multiGrid: 0 });
+
+  it.each([
+    [
+      "Rush service is available.",
+      "Practical desk lamp with a touch dimmer. Rush service is available.",
+      "Practical desk lamp with a touch dimmer. Priced at 50 units.",
+    ],
+    [
+      "Rush services available! tail glued on",
+      "Holder for business cards.Rush services available!",
+      "Holder for business cards. Priced at 50 units.",
+    ],
+    [
+      "Rush Service. fragment",
+      "Printed logo on the gloves. Rush Service.",
+      "Printed logo on the gloves. Priced at 50 units.",
+    ],
+    [
+      "leading Free setup",
+      "Free setup Stainless steel 26 oz. sports bottle with twist cap.",
+      "Stainless steel 26 oz. sports bottle with twist cap. Priced at 50 units.",
+    ],
+    [
+      "free imprint offer",
+      "40 oz. stainless steel vacuum bottle with free 1 color silkscreen imprint on 1 side.",
+      "40 oz. stainless steel vacuum bottle. Priced at 50 units.",
+    ],
+    [
+      "free ground shipping",
+      "Custom AirPods 4 with premium imprinting and free ground shipping.",
+      "Custom AirPods 4 with premium imprinting. Priced at 50 units.",
+    ],
+    [
+      "Ready Inventory tail",
+      'Hand held 4" x 6" USA polyester flag - Ready Inventory In New Jersey - Ships In 3+ Days.',
+      'Hand held 4" x 6" USA polyester flag. Priced at 50 units.',
+    ],
+    [
+      "QuickShip",
+      "Solo Buds QuickShip in 3 or 1 day with premium imprint.",
+      "Solo Buds with premium imprint. Priced at 50 units.",
+    ],
+    [
+      "quick ship in a list",
+      "Custom shaped, USA made, low minimum and quick ship.",
+      "Custom shaped, USA made, low minimum. Priced at 50 units.",
+    ],
+    [
+      "#1 Selling ... in the industry",
+      "#1 Selling Desk Calendar in the industry customize in 3 areas.",
+      "Desk Calendar customize in 3 areas. Priced at 50 units.",
+    ],
+    [
+      "#1 Seller tail",
+      "Flat knit crew socks with all over design, #1 Seller.",
+      "Flat knit crew socks with all over design. Priced at 50 units.",
+    ],
+    [
+      "Product Trending label",
+      "Product Trending General Motors steering wheel cover.Rush services available!",
+      "General Motors steering wheel cover. Priced at 50 units.",
+    ],
+    [
+      "Special! label",
+      "Special! Soft cotton tote with a zipper.",
+      "Soft cotton tote with a zipper. Priced at 50 units.",
+    ],
+    [
+      "New! label",
+      "New! Soft cotton tote with a zipper.",
+      "Soft cotton tote with a zipper. Priced at 50 units.",
+    ],
+    [
+      "best selling sentence",
+      "Sturdy ceramic mug. The best selling mug in the industry.",
+      "Sturdy ceramic mug. Priced at 50 units.",
+    ],
+    [
+      "fast turnaround",
+      "Flag straw hat with custom patch, MOQ 10pcs, fast turnaround time.",
+      "Flag straw hat with custom patch, MOQ 10pcs. Priced at 50 units.",
+    ],
+    [
+      "next day delivery and 24/7",
+      "Latex free bands! NEXT DAY DELIVERY OPTION ON REQUEST!24/7 CUSTOMER SERVICE! PMS MATCH AVAILABLE!",
+      "Latex free bands! PMS MATCH AVAILABLE! Priced at 50 units.",
+    ],
+  ])("%s", (_label, raw, expected) => {
+    expect(clean(raw)).toBe(expected);
+  });
+
+  it("keeps facts: made-in claims, free-standing, BPA-free, hands-free, brush, ships with", () => {
+    for (const fact of [
+      "Made in Georgia.",
+      "Custom throw blanket, made in the USA.",
+      "Designed to be free-standing.",
+      "BPA free inside and out.",
+      "Hands-free neck fan with hassle-free carrying.",
+      "Wireless charger with fast charging and a soft brush.",
+      "Mug ships with a natural wood lid and gourmet coffee.",
+      "Latex free bandages and sugar free mints.",
+    ]) {
+      expect(stripSupplierPromises(fact)).toBe(fact);
+    }
+  });
+
+  it("does not match banned patterns in any rewritten description", () => {
+    const out = [
+      "Rush service is available.",
+      "Free setup 16 oz. mug. Ships in 5+ Days.",
+      "Ready Inventory In New Jersey - Ships In 3+ Days",
+    ].map((raw) => stripSupplierPromises(raw));
+    for (const text of out) expect(hasPromiseText(text)).toBe(false);
+  });
+
+  const imported = importedProductsJson as { id: string; name: string; description: string }[];
+
+  it("removes every promise from all current imported descriptions and leaves none empty", () => {
+    const examples: string[] = [];
+    let changed = 0;
+    for (const product of imported) {
+      const body = product.description;
+      const after = stripSupplierPromises(body);
+      expect(hasPromiseText(after), product.id).toBe(false);
+      // idempotent
+      expect(stripSupplierPromises(after), product.id).toBe(after);
+      if (after !== body) {
+        changed += 1;
+        if (examples.length < 15)
+          examples.push(`${product.id}\n  before: ${body}\n  after:  ${after}`);
+      }
+      // through the importer's description step: never empty / under 2 words
+      const raw = after
+        .replace(/\s*Priced at \d+ units?\.?$/, "")
+        .replace(/\s*Pricing shown is for the base size or option;[^.]*\./, "");
+      const rebuilt = buildDescription({
+        rawDescription: raw,
+        sizes: "",
+        minQty: 1,
+        usa: 0,
+        multiGrid: 0,
+        enrich: { name: product.name, colors: [] },
+      });
+      const words = rebuilt
+        .replace(/Priced at \d+ units?\./, "")
+        .split(/\s+/)
+        .filter(Boolean);
+      expect(words.length, product.id).toBeGreaterThanOrEqual(2);
+      expect(hasPromiseText(rebuilt), product.id).toBe(false);
+    }
+    expect(changed).toBeGreaterThan(0);
+    if (process.env.PRINT_PROMISE_EXAMPLES) console.log(examples.join("\n"));
+  });
+
+  it("curated descriptions carry no supplier promise", () => {
+    const importedIds = new Set(imported.map((product) => product.id));
+    const curated = allProducts.filter((product) => !importedIds.has(product.id));
+    expect(curated.length).toBeGreaterThan(0);
+    for (const product of curated) {
+      expect(hasPromiseText(product.description), product.id).toBe(false);
     }
   });
 });
