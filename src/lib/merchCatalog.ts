@@ -31,6 +31,8 @@ export interface CatalogProduct {
   colors?: string[];
   /** Real photo per color, keyed by an entry in `colors`. */
   colorImages?: Record<string, string>;
+  /** The main photo already shows every color option, so no per-color photo note is needed. */
+  allColorsInPhoto?: boolean;
   /**
    * Explicit made-in-USA flag, when the catalog data carries one (see
    * isMadeInUsa for what is used when it does not).
@@ -53,6 +55,7 @@ interface SourceProduct {
   imageAlt?: string;
   colors?: string[];
   colorImages?: Record<string, string>;
+  allColorsInPhoto?: boolean;
   usa?: boolean;
   priceTiers: { quantity: number; price: number }[];
 }
@@ -114,6 +117,7 @@ export function toCatalogProduct(
       : product.description,
     ...(product.priceNote ? { priceNote: product.priceNote } : {}),
     ...(typeof product.usa === "boolean" ? { usa: product.usa } : {}),
+    ...(product.allColorsInPhoto ? { allColorsInPhoto: true } : {}),
     image: product.image,
     imageAlt: product.imageAlt,
     colors: colors.length > 0 ? colors : undefined,

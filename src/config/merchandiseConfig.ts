@@ -38,6 +38,7 @@ import colorImagesExtra3 from "./colorImages.extra3.json";
 import importedProductsJson from "./importedProducts.json";
 import hiddenProductsJson from "./hiddenProducts.json";
 import photoReviewedJson from "./photoReviewed.json";
+import colorsShownInPhotoJson from "./colorsShownInPhoto.json";
 import imageOverridesJson from "./imageOverrides.json";
 
 export const MARKUP_RATE = 0.05;
@@ -1564,11 +1565,19 @@ const colorImageOverrides = mergeColorImageMaps(
 // default photo shows another company's logo or is otherwise unsuitable.
 const imageOverrides = imageOverridesJson as Record<string, string>;
 
+// Products whose main photo already shows every color (a pen lineup): no per-color photos needed.
+const colorsShownInPhotoIds = new Set(colorsShownInPhotoJson as string[]);
+
 function withColorImages(product: MerchProduct): MerchProduct {
   const extra = colorImageOverrides[product.id];
   const image = imageOverrides[product.id] ?? product.image;
   const withImage = image === product.image ? product : { ...product, image };
-  return extra ? { ...withImage, colorImages: { ...withImage.colorImages, ...extra } } : withImage;
+  const withColors = extra
+    ? { ...withImage, colorImages: { ...withImage.colorImages, ...extra } }
+    : withImage;
+  return colorsShownInPhotoIds.has(product.id)
+    ? { ...withColors, allColorsInPhoto: true }
+    : withColors;
 }
 
 /**

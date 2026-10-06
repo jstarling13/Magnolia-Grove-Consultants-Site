@@ -171,6 +171,12 @@ export interface MerchProduct {
    */
   priceNote?: string;
   /**
+   * True when the main photo already shows every color option (for example a pen lineup), so
+   * a color without its own photo needs no "no photo for this color" note. Set from
+   * src/config/colorsShownInPhoto.json.
+   */
+  allColorsInPhoto?: boolean;
+  /**
    * Where an uploaded client logo is previewed on this product's photo, as
    * percentages of the image box (top/left = center point, width = logo
    * width as % of image width). Falls back to a per-category default in

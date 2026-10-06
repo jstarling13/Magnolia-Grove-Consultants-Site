@@ -21,3 +21,22 @@ describe("photo review gate", () => {
     expect(new Set(ids).size).toBe(ids.length);
   });
 });
+
+import colorsShownInPhoto from "@/config/colorsShownInPhoto.json";
+import { toCatalogProduct } from "@/lib/merchCatalog";
+
+describe("colors shown in the main photo", () => {
+  it("lists only ids that exist and flags them on the product", () => {
+    const byId = new Map(allProducts.map((p) => [p.id, p]));
+    for (const id of colorsShownInPhoto as string[]) {
+      expect(byId.has(id), id).toBe(true);
+      expect(byId.get(id)?.allColorsInPhoto, id).toBe(true);
+    }
+  });
+
+  it("reaches the catalog product so the gallery can skip the missing-photo note", () => {
+    const id = (colorsShownInPhoto as string[])[0];
+    const product = allProducts.find((p) => p.id === id)!;
+    expect(toCatalogProduct(product, { top: 50, left: 50, width: 30 }).allColorsInPhoto).toBe(true);
+  });
+});

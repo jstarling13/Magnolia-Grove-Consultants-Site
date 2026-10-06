@@ -29,7 +29,8 @@ export default function ProductGallery({ product }: { product: CatalogProduct })
   } = useProductSelection();
   const imageSrc = selectedColor ? product.colorImages?.[selectedColor] : undefined;
   // Only explain a missing photo when the shopper picked the color themselves.
-  const missingPhoto = Boolean(selectedColor) && !autoSelected && !imageSrc;
+  const missingPhoto =
+    Boolean(selectedColor) && !autoSelected && !imageSrc && !product.allColorsInPhoto;
   // Long color lists show the first rows and tuck the rest behind one toggle,
   // so 60 touch-sized swatches don't push the price and cart button off screen.
   const collapseAfter = colors.length > COLLAPSE_THRESHOLD ? VISIBLE_SWATCHES : undefined;
