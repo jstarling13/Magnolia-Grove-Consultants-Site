@@ -21,6 +21,8 @@
  *   INSERT INTO admin_session_revocations ... ON CONFLICT ... (keeps the later time)
  *
  *   <set>   := data = data || $n::jsonb              (shallow jsonb merge)
+ *            | data = data || $n::jsonb || jsonb_build_object('auditLog', <array or '[]'> || $m::jsonb)
+ *                                                       (merge plus atomic append to the audit log)
  *            | data = data - 'key'                   (remove a key)
  *            | data = jsonb_set(data, '{key}', to_jsonb($n::text))
  *            | read_at = now()
@@ -266,6 +268,20 @@ export class FakeSubmissionsDb {
         throw new Error(`fake db: jsonb patch must be a JSON object in: ${fullText}`);
       }
       row.data = { ...row.data, ...(parsed as Record<string, unknown>) };
+      return;
+    }
+    if (
+      (m = set.match(
+        /^data = data \|\| \$(\d+)::jsonb \|\| jsonb_build_object\( 'auditLog', CASE WHEN jsonb_typeof\(data->'auditLog'\) = 'array' THEN data->'auditLog' ELSE '\[\]'::jsonb END \|\| \$(\d+)::jsonb \)$/
+      ))
+    ) {
+      const patch = JSON.parse(String(values[Number(m[1]) - 1])) as Record<string, unknown>;
+      const append = JSON.parse(String(values[Number(m[2]) - 1])) as unknown;
+      if (!Array.isArray(append)) {
+        throw new Error(`fake db: audit entries parameter must be a JSON array in: ${fullText}`);
+      }
+      const existing = Array.isArray(row.data.auditLog) ? (row.data.auditLog as unknown[]) : [];
+      row.data = { ...row.data, ...patch, auditLog: [...existing, ...append] };
       return;
     }
     if ((m = set.match(/^data = data - '(\w+)'$/))) {

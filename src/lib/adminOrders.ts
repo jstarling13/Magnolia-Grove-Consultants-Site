@@ -13,9 +13,13 @@ import {
   MERCH_ORDER_STATUSES,
   MERCH_ORDER_STATUS_LABELS,
   formatOrderReference,
+  readAuditLog,
+  type AuditEntry,
   type MerchOrderStatus,
+  type QuoteExtra,
 } from "./merchOrders";
 import { describeLineColor } from "./merchBackendSheet";
+import { lineTotal as tierLineTotal, roundCents } from "./cartPricing";
 
 export const ORDERS_PAGE_SIZE = 25;
 /** Hard cap on how many rows one CSV export may contain. */
@@ -72,11 +76,29 @@ export const KNOWN_STATUS_CSV = `,${MERCH_ORDER_STATUSES.join(",")},`;
 // Filter (URL search params <-> query)
 // ---------------------------------------------------------------------------
 
+export const ORDER_SORTS = ["newest", "oldest", "largest"] as const;
+export type OrderSort = (typeof ORDER_SORTS)[number];
+export const ORDER_SORT_LABELS: Record<OrderSort, string> = {
+  newest: "Newest",
+  oldest: "Oldest",
+  largest: "Largest total",
+};
+
+/**
+ * "action" is everything the owner has to act on (new requests plus paid orders
+ * not yet ordered in ESP); "paid_not_ordered" is just the second group.
+ */
+export const ORDER_VIEWS = ["action", "paid_not_ordered"] as const;
+export type OrderView = (typeof ORDER_VIEWS)[number];
+
 export interface OrderFilter {
   status?: MerchOrderStatus;
-  /** Free text: order reference (MG-00042), name, email, or product. */
+  /** Free text: order reference (MG-00042), name, email, company, or product. */
   q: string;
   page: number;
+  /** Absent means newest first. */
+  sort?: OrderSort;
+  view?: OrderView;
 }
 
 type ParamBag = Record<string, string | string[] | undefined> | URLSearchParams;
@@ -99,14 +121,26 @@ export function parseOrderFilter(params: ParamBag): OrderFilter {
     .slice(0, MAX_SEARCH_LENGTH);
   const pageNumber = Math.trunc(Number(readParam(params, "page")));
   const page = Number.isFinite(pageNumber) && pageNumber >= 1 ? Math.min(pageNumber, MAX_PAGE) : 1;
-  return { ...(status ? { status } : {}), q, page };
+  const sortParam = readParam(params, "sort");
+  const sort = ORDER_SORTS.includes(sortParam as OrderSort) ? (sortParam as OrderSort) : undefined;
+  const viewParam = readParam(params, "view");
+  const view = ORDER_VIEWS.includes(viewParam as OrderView) ? (viewParam as OrderView) : undefined;
+  return {
+    ...(status ? { status } : {}),
+    q,
+    page,
+    ...(sort && sort !== "newest" ? { sort } : {}),
+    ...(view ? { view } : {}),
+  };
 }
 
 /** Query string (no leading "?") that reproduces a filter; page 1 and empty values are omitted. */
 export function orderFilterToQuery(filter: Partial<OrderFilter>): string {
   const params = new URLSearchParams();
   if (filter.status) params.set("status", filter.status);
+  if (filter.view) params.set("view", filter.view);
   if (filter.q) params.set("q", filter.q);
+  if (filter.sort && filter.sort !== "newest") params.set("sort", filter.sort);
   if (filter.page && filter.page > 1) params.set("page", String(filter.page));
   return params.toString();
 }
@@ -188,6 +222,25 @@ export const ATTENTION_LABELS: Record<AttentionCode, string> = {
   shipped_no_tracking: "Shipped without tracking",
 };
 
+/** Paid, but no ESP order recorded yet (and not finished or cancelled). */
+export function isPaidNotOrdered(data: RawData): boolean {
+  const status = normalizeStatus(data.status);
+  if (status === "cancelled" || status === "fulfilled") return false;
+  const espRecorded =
+    status === "ordered_in_esp" ||
+    Boolean(str(data.espOrderedAt)) ||
+    Boolean(str(data.espOrderNumber));
+  return Boolean(str(data.paidAt)) && !espRecorded;
+}
+
+/** Whether an order belongs in a "needs action" view; mirrors the SQL in app/admin/orders/queries.ts. */
+export function matchesOrderView(data: RawData, view: OrderView): boolean {
+  const paidNotOrdered = isPaidNotOrdered(data);
+  return view === "paid_not_ordered"
+    ? paidNotOrdered
+    : normalizeStatus(data.status) === "new" || paidNotOrdered;
+}
+
 /**
  * Which problems an order has right now. Cancelled orders never need
  * attention. Time-based flags need a valid timestamp; without one they stay
@@ -203,12 +256,7 @@ export function computeAttentionFlags(
 
   const flags: AttentionCode[] = [];
 
-  const paid = Boolean(str(data.paidAt));
-  const espRecorded =
-    status === "ordered_in_esp" ||
-    Boolean(str(data.espOrderedAt)) ||
-    Boolean(str(data.espOrderNumber));
-  if (paid && status !== "fulfilled" && !espRecorded) flags.push("paid_not_ordered");
+  if (isPaidNotOrdered(data)) flags.push("paid_not_ordered");
 
   if (status === "awaiting_payment") {
     const since = parseTime(str(data.quotedAt)) ?? parseTime(order.createdAt);
@@ -559,6 +607,8 @@ export function buildOrderSheetText(order: {
   items.forEach((item, index) => {
     lines.push(`${index + 1}. ${item.quantity} x ${item.name}`);
     lines.push(`   ${describeLineColor(item.color)}`);
+    if (item.sizes) lines.push(`   Sizes and quantities: ${item.sizes}`);
+    if (item.imprintNotes) lines.push(`   Imprint notes: ${item.imprintNotes}`);
     if (item.espUrl) {
       lines.push(
         `   ESP+ link: ${item.espUrl}${item.espKind === "search" ? " (search link)" : ""}`
@@ -572,6 +622,152 @@ export function buildOrderSheetText(order: {
   const quoted = num(data.quotedTotal);
   if (quoted !== undefined) lines.push(`Quoted total: ${money(quoted)}`);
   return lines.join("\n");
+}
+
+// ---------------------------------------------------------------------------
+// Quote helper
+// ---------------------------------------------------------------------------
+
+export interface QuoteLine {
+  label: string;
+  quantity: number;
+  /** Absent only for old lines that stored a line total but no unit price. */
+  unitPrice?: number;
+  lineTotal: number;
+}
+
+export interface QuoteSuggestion {
+  lines: QuoteLine[];
+  /** Sum of the priced lines. */
+  itemsSubtotal: number;
+  /** Lines with no price on record; the admin has to price these by hand. */
+  unpricedLines: number;
+}
+
+/**
+ * What the items add up to, using the same qty x tier unit price rule as the
+ * cart (cartPricing.lineTotal). The unit price is the one stored on the line
+ * when the customer ordered, which already is the shared volume tier for that
+ * product, so the suggestion matches what the customer saw. It is only a
+ * starting point: the admin confirms or adjusts the final quote.
+ */
+export function buildQuoteSuggestion(items: OrderItem[]): QuoteSuggestion {
+  const lines: QuoteLine[] = [];
+  let unpricedLines = 0;
+  for (const item of items) {
+    const label = `${item.name}${item.color ? ` (${item.color})` : ""}`;
+    if (item.unitPrice !== undefined) {
+      lines.push({
+        label,
+        quantity: item.quantity,
+        unitPrice: item.unitPrice,
+        lineTotal: tierLineTotal(item.unitPrice, item.quantity),
+      });
+    } else if (item.lineTotal !== undefined) {
+      lines.push({ label, quantity: item.quantity, lineTotal: roundCents(item.lineTotal) });
+    } else {
+      unpricedLines += 1;
+    }
+  }
+  const itemsSubtotal = roundCents(lines.reduce((sum, line) => sum + line.lineTotal, 0));
+  return { lines, itemsSubtotal, unpricedLines };
+}
+
+export function roundMoney(value: number): number {
+  return roundCents(value);
+}
+
+/** Suggested quote: items plus the optional shipping / setup line. */
+export function suggestedQuoteTotal(itemsSubtotal: number, extra: QuoteExtra | null): number {
+  return roundCents(itemsSubtotal + (extra?.amount ?? 0));
+}
+
+/** "250 x $1.50 = $375.00" */
+export function describeQuoteLine(line: QuoteLine): string {
+  const quantity = line.quantity.toLocaleString("en-US");
+  return line.unitPrice === undefined
+    ? `${quantity} units = ${money(line.lineTotal)}`
+    : `${quantity} x ${money(line.unitPrice)} = ${money(line.lineTotal)}`;
+}
+
+/** What was saved with the quote: how the final number was built. */
+export interface QuoteBreakdown {
+  itemsSubtotal: number;
+  extra: QuoteExtra | null;
+  /** The helper's suggestion at send time; differs from quotedTotal when the admin adjusted it. */
+  suggestedTotal: number;
+}
+
+export function readQuoteBreakdown(data: RawData): QuoteBreakdown | undefined {
+  const raw = data.quoteBreakdown;
+  if (!raw || typeof raw !== "object") return undefined;
+  const item = raw as Record<string, unknown>;
+  const itemsSubtotal = num(item.itemsSubtotal);
+  const suggestedTotal = num(item.suggestedTotal);
+  if (itemsSubtotal === undefined || suggestedTotal === undefined) return undefined;
+  let extra: QuoteExtra | null = null;
+  if (item.extra && typeof item.extra === "object") {
+    const e = item.extra as Record<string, unknown>;
+    const amount = num(e.amount);
+    if (str(e.label) && amount !== undefined && amount > 0) extra = { label: str(e.label), amount };
+  }
+  return { itemsSubtotal, extra, suggestedTotal };
+}
+
+// ---------------------------------------------------------------------------
+// Audit trail
+// ---------------------------------------------------------------------------
+
+export interface AuditTrailRow {
+  key: string;
+  /** ISO timestamp. */
+  at: string;
+  by: string;
+  text: string;
+}
+
+const AUDIT_KIND_LABELS: Record<AuditEntry["kind"], string> = {
+  status: "Status changed",
+  quote: "Quote and payment link created",
+  payment: "Payment received",
+  esp_order: "ESP order recorded",
+  shipped: "Marked shipped",
+};
+
+export function describeAuditEntry(entry: AuditEntry): string {
+  const label = AUDIT_KIND_LABELS[entry.kind];
+  const from = entry.from ? MERCH_ORDER_STATUS_LABELS[entry.from] : "";
+  const to = entry.to ? MERCH_ORDER_STATUS_LABELS[entry.to] : "";
+  let text = label;
+  if (entry.kind === "status") {
+    text = from && to ? `Status changed from ${from} to ${to}` : to ? `Status set to ${to}` : label;
+  } else if (to && from !== to) {
+    text = `${label} (status ${to})`;
+  }
+  return entry.detail ? `${text}: ${entry.detail}` : text;
+}
+
+/**
+ * Oldest first: the order being placed (from the submission time, by the
+ * customer), then every recorded change with who made it. Orders handled
+ * before the log existed show only the first row; `hasHistory` tells the page
+ * whether to explain that.
+ */
+export function buildAuditTrail(
+  createdAt: string,
+  data: RawData
+): { rows: AuditTrailRow[]; hasHistory: boolean } {
+  const stored = readAuditLog(data);
+  const rows: AuditTrailRow[] = [
+    { key: "created", at: createdAt, by: "Customer", text: "Order placed" },
+    ...stored.map((entry, index) => ({
+      key: `${index}-${entry.at}`,
+      at: entry.at,
+      by: entry.by,
+      text: describeAuditEntry(entry),
+    })),
+  ];
+  return { rows, hasHistory: stored.length > 0 };
 }
 
 // ---------------------------------------------------------------------------

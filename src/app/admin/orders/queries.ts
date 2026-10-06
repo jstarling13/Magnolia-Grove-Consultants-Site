@@ -48,7 +48,7 @@ function statusParam(status: MerchOrderStatus | undefined): string | null {
   return status ?? null;
 }
 
-/** Number of orders per status for the current search (the status filter itself is ignored). */
+/** Number of orders per status for the current search (the status and view filters are ignored). */
 export async function getStatusCounts(q: string) {
   const { pattern, refId } = buildSearchParts(q);
   const rows = (await sql`
@@ -63,6 +63,7 @@ export async function getStatusCounts(q: string) {
         OR id = ${refId}::int
         OR concat_ws(' ', data->>'firstName', data->>'lastName') ILIKE ${pattern}::text
         OR data->>'email' ILIKE ${pattern}::text
+        OR data->>'company' ILIKE ${pattern}::text
         OR data->>'product' ILIKE ${pattern}::text
         OR EXISTS (
           SELECT 1
@@ -77,93 +78,45 @@ export async function getStatusCounts(q: string) {
   return tallyStatusCounts(rows ?? []);
 }
 
-export interface OrderPage {
-  records: OrderRecord[];
-  total: number;
-}
-
-/** One page (25) of orders for the filter, newest first. */
-export async function listOrders(filter: OrderFilter): Promise<OrderPage> {
-  const { pattern, refId } = buildSearchParts(filter.q);
-  const status = statusParam(filter.status);
-  const offset = (Math.max(1, filter.page) - 1) * ORDERS_PAGE_SIZE;
-
-  const [rowResult, totalResult] = await Promise.all([
-    sql`
-      SELECT id, data, created_at, read_at
-      FROM submissions
-      WHERE type = 'merch_order'
-        AND (
-          ${status}::text IS NULL
-          OR CASE WHEN strpos(${KNOWN_STATUS_CSV}::text, ',' || COALESCE(data->>'status', 'new') || ',') > 0
-                  THEN COALESCE(data->>'status', 'new') ELSE 'new' END = ${status}::text
-        )
-        AND (
-          ${pattern}::text IS NULL
-          OR id = ${refId}::int
-          OR concat_ws(' ', data->>'firstName', data->>'lastName') ILIKE ${pattern}::text
-          OR data->>'email' ILIKE ${pattern}::text
-          OR data->>'product' ILIKE ${pattern}::text
-          OR EXISTS (
-            SELECT 1
-            FROM jsonb_array_elements(
-              CASE WHEN jsonb_typeof(data->'items') = 'array' THEN data->'items' ELSE '[]'::jsonb END
-            ) AS line
-            WHERE line->>'name' ILIKE ${pattern}::text
-          )
-        )
-      ORDER BY created_at DESC, id DESC
-      LIMIT ${ORDERS_PAGE_SIZE}::int OFFSET ${offset}::int
-    `,
-    sql`
-      SELECT count(*)::int AS n
-      FROM submissions
-      WHERE type = 'merch_order'
-        AND (
-          ${status}::text IS NULL
-          OR CASE WHEN strpos(${KNOWN_STATUS_CSV}::text, ',' || COALESCE(data->>'status', 'new') || ',') > 0
-                  THEN COALESCE(data->>'status', 'new') ELSE 'new' END = ${status}::text
-        )
-        AND (
-          ${pattern}::text IS NULL
-          OR id = ${refId}::int
-          OR concat_ws(' ', data->>'firstName', data->>'lastName') ILIKE ${pattern}::text
-          OR data->>'email' ILIKE ${pattern}::text
-          OR data->>'product' ILIKE ${pattern}::text
-          OR EXISTS (
-            SELECT 1
-            FROM jsonb_array_elements(
-              CASE WHEN jsonb_typeof(data->'items') = 'array' THEN data->'items' ELSE '[]'::jsonb END
-            ) AS line
-            WHERE line->>'name' ILIKE ${pattern}::text
-          )
-        )
-    `,
-  ]);
-  const rows = rowResult as DbRow[];
-  const totals = totalResult as { n: number | string }[];
-
-  return { records: (rows ?? []).map(toRecord), total: Number(totals?.[0]?.n ?? 0) };
-}
-
-/** Every order matching the filter (ignoring the page), newest first, capped for export. */
-export async function listOrdersForExport(filter: OrderFilter): Promise<OrderRecord[]> {
-  const { pattern, refId } = buildSearchParts(filter.q);
-  const status = statusParam(filter.status);
+/**
+ * How many orders need the owner right now, for the current search: everything
+ * that needs action, and the paid-not-ordered part of it ("new" is a status
+ * count). Same definition as the "action" and "paid_not_ordered" list views.
+ */
+export async function getActionCounts(
+  q: string
+): Promise<{ action: number; paidNotOrdered: number }> {
+  const { pattern, refId } = buildSearchParts(q);
   const rows = (await sql`
-    SELECT id, data, created_at, read_at
+    SELECT
+      count(*) FILTER (
+        WHERE CASE WHEN strpos(${KNOWN_STATUS_CSV}::text, ',' || COALESCE(data->>'status', 'new') || ',') > 0
+      THEN COALESCE(data->>'status', 'new') ELSE 'new' END = 'new'
+        OR (
+          COALESCE(data->>'paidAt', '') <> ''
+          AND CASE WHEN strpos(${KNOWN_STATUS_CSV}::text, ',' || COALESCE(data->>'status', 'new') || ',') > 0
+          THEN COALESCE(data->>'status', 'new') ELSE 'new' END NOT IN ('fulfilled', 'cancelled', 'ordered_in_esp')
+          AND COALESCE(data->>'espOrderedAt', '') = ''
+          AND COALESCE(data->>'espOrderNumber', '') = ''
+        )
+      )::int AS action,
+      count(*) FILTER (
+        WHERE (
+          COALESCE(data->>'paidAt', '') <> ''
+          AND CASE WHEN strpos(${KNOWN_STATUS_CSV}::text, ',' || COALESCE(data->>'status', 'new') || ',') > 0
+          THEN COALESCE(data->>'status', 'new') ELSE 'new' END NOT IN ('fulfilled', 'cancelled', 'ordered_in_esp')
+          AND COALESCE(data->>'espOrderedAt', '') = ''
+          AND COALESCE(data->>'espOrderNumber', '') = ''
+        )
+      )::int AS paid_not_ordered
     FROM submissions
     WHERE type = 'merch_order'
-      AND (
-        ${status}::text IS NULL
-        OR CASE WHEN strpos(${KNOWN_STATUS_CSV}::text, ',' || COALESCE(data->>'status', 'new') || ',') > 0
-                THEN COALESCE(data->>'status', 'new') ELSE 'new' END = ${status}::text
-      )
       AND (
         ${pattern}::text IS NULL
         OR id = ${refId}::int
         OR concat_ws(' ', data->>'firstName', data->>'lastName') ILIKE ${pattern}::text
         OR data->>'email' ILIKE ${pattern}::text
+        OR data->>'company' ILIKE ${pattern}::text
         OR data->>'product' ILIKE ${pattern}::text
         OR EXISTS (
           SELECT 1
@@ -173,7 +126,213 @@ export async function listOrdersForExport(filter: OrderFilter): Promise<OrderRec
           WHERE line->>'name' ILIKE ${pattern}::text
         )
       )
-    ORDER BY created_at DESC, id DESC
+  `) as { action: unknown; paid_not_ordered: unknown }[];
+  const row = rows?.[0];
+  return {
+    action: Number(row?.action ?? 0) || 0,
+    paidNotOrdered: Number(row?.paid_not_ordered ?? 0) || 0,
+  };
+}
+
+export interface OrderPage {
+  records: OrderRecord[];
+  total: number;
+}
+
+/** One page (25) of orders for the filter; newest first unless the filter sorts otherwise. */
+export async function listOrders(filter: OrderFilter): Promise<OrderPage> {
+  const { pattern, refId } = buildSearchParts(filter.q);
+  const status = statusParam(filter.status);
+  const view = filter.view ?? null;
+  const sort = filter.sort ?? "newest";
+  const offset = (Math.max(1, filter.page) - 1) * ORDERS_PAGE_SIZE;
+
+  const [rowResult, totalResult] = await Promise.all([
+    sql`
+      SELECT id, data, created_at, read_at
+      FROM submissions
+      WHERE type = 'merch_order'
+      AND (
+        ${status}::text IS NULL
+        OR CASE WHEN strpos(${KNOWN_STATUS_CSV}::text, ',' || COALESCE(data->>'status', 'new') || ',') > 0
+                  THEN COALESCE(data->>'status', 'new') ELSE 'new' END = ${status}::text
+      )
+      AND (
+        ${view}::text IS NULL
+        OR (
+          ${view}::text = 'action'
+          AND (
+            CASE WHEN strpos(${KNOWN_STATUS_CSV}::text, ',' || COALESCE(data->>'status', 'new') || ',') > 0
+                  THEN COALESCE(data->>'status', 'new') ELSE 'new' END = 'new'
+            OR (
+              COALESCE(data->>'paidAt', '') <> ''
+              AND CASE WHEN strpos(${KNOWN_STATUS_CSV}::text, ',' || COALESCE(data->>'status', 'new') || ',') > 0
+              THEN COALESCE(data->>'status', 'new') ELSE 'new' END NOT IN ('fulfilled', 'cancelled', 'ordered_in_esp')
+              AND COALESCE(data->>'espOrderedAt', '') = ''
+              AND COALESCE(data->>'espOrderNumber', '') = ''
+            )
+          )
+        )
+        OR (
+          ${view}::text = 'paid_not_ordered'
+          AND (
+            COALESCE(data->>'paidAt', '') <> ''
+            AND CASE WHEN strpos(${KNOWN_STATUS_CSV}::text, ',' || COALESCE(data->>'status', 'new') || ',') > 0
+            THEN COALESCE(data->>'status', 'new') ELSE 'new' END NOT IN ('fulfilled', 'cancelled', 'ordered_in_esp')
+            AND COALESCE(data->>'espOrderedAt', '') = ''
+            AND COALESCE(data->>'espOrderNumber', '') = ''
+          )
+        )
+      )
+      AND (
+        ${pattern}::text IS NULL
+        OR id = ${refId}::int
+        OR concat_ws(' ', data->>'firstName', data->>'lastName') ILIKE ${pattern}::text
+        OR data->>'email' ILIKE ${pattern}::text
+        OR data->>'company' ILIKE ${pattern}::text
+        OR data->>'product' ILIKE ${pattern}::text
+        OR EXISTS (
+          SELECT 1
+          FROM jsonb_array_elements(
+            CASE WHEN jsonb_typeof(data->'items') = 'array' THEN data->'items' ELSE '[]'::jsonb END
+          ) AS line
+          WHERE line->>'name' ILIKE ${pattern}::text
+        )
+      )
+      ORDER BY
+        (CASE WHEN ${sort}::text = 'largest' THEN
+          CASE WHEN jsonb_typeof(data->'quotedTotal') = 'number' THEN (data->>'quotedTotal')::numeric
+               WHEN jsonb_typeof(data->'total') = 'number' THEN (data->>'total')::numeric END
+        END) DESC NULLS LAST,
+        (CASE WHEN ${sort}::text = 'oldest' THEN created_at END) ASC,
+        (CASE WHEN ${sort}::text = 'oldest' THEN id END) ASC,
+        created_at DESC, id DESC
+      LIMIT ${ORDERS_PAGE_SIZE}::int OFFSET ${offset}::int
+    `,
+    sql`
+      SELECT count(*)::int AS n
+      FROM submissions
+      WHERE type = 'merch_order'
+      AND (
+        ${status}::text IS NULL
+        OR CASE WHEN strpos(${KNOWN_STATUS_CSV}::text, ',' || COALESCE(data->>'status', 'new') || ',') > 0
+                  THEN COALESCE(data->>'status', 'new') ELSE 'new' END = ${status}::text
+      )
+      AND (
+        ${view}::text IS NULL
+        OR (
+          ${view}::text = 'action'
+          AND (
+            CASE WHEN strpos(${KNOWN_STATUS_CSV}::text, ',' || COALESCE(data->>'status', 'new') || ',') > 0
+                  THEN COALESCE(data->>'status', 'new') ELSE 'new' END = 'new'
+            OR (
+              COALESCE(data->>'paidAt', '') <> ''
+              AND CASE WHEN strpos(${KNOWN_STATUS_CSV}::text, ',' || COALESCE(data->>'status', 'new') || ',') > 0
+              THEN COALESCE(data->>'status', 'new') ELSE 'new' END NOT IN ('fulfilled', 'cancelled', 'ordered_in_esp')
+              AND COALESCE(data->>'espOrderedAt', '') = ''
+              AND COALESCE(data->>'espOrderNumber', '') = ''
+            )
+          )
+        )
+        OR (
+          ${view}::text = 'paid_not_ordered'
+          AND (
+            COALESCE(data->>'paidAt', '') <> ''
+            AND CASE WHEN strpos(${KNOWN_STATUS_CSV}::text, ',' || COALESCE(data->>'status', 'new') || ',') > 0
+            THEN COALESCE(data->>'status', 'new') ELSE 'new' END NOT IN ('fulfilled', 'cancelled', 'ordered_in_esp')
+            AND COALESCE(data->>'espOrderedAt', '') = ''
+            AND COALESCE(data->>'espOrderNumber', '') = ''
+          )
+        )
+      )
+      AND (
+        ${pattern}::text IS NULL
+        OR id = ${refId}::int
+        OR concat_ws(' ', data->>'firstName', data->>'lastName') ILIKE ${pattern}::text
+        OR data->>'email' ILIKE ${pattern}::text
+        OR data->>'company' ILIKE ${pattern}::text
+        OR data->>'product' ILIKE ${pattern}::text
+        OR EXISTS (
+          SELECT 1
+          FROM jsonb_array_elements(
+            CASE WHEN jsonb_typeof(data->'items') = 'array' THEN data->'items' ELSE '[]'::jsonb END
+          ) AS line
+          WHERE line->>'name' ILIKE ${pattern}::text
+        )
+      )
+    `,
+  ]);
+  const rows = rowResult as DbRow[];
+  const totals = totalResult as { n: number | string }[];
+
+  return { records: (rows ?? []).map(toRecord), total: Number(totals?.[0]?.n ?? 0) };
+}
+
+/** Every order matching the filter (ignoring the page), in the filter's order, capped for export. */
+export async function listOrdersForExport(filter: OrderFilter): Promise<OrderRecord[]> {
+  const { pattern, refId } = buildSearchParts(filter.q);
+  const status = statusParam(filter.status);
+  const view = filter.view ?? null;
+  const sort = filter.sort ?? "newest";
+  const rows = (await sql`
+    SELECT id, data, created_at, read_at
+    FROM submissions
+    WHERE type = 'merch_order'
+    AND (
+      ${status}::text IS NULL
+      OR CASE WHEN strpos(${KNOWN_STATUS_CSV}::text, ',' || COALESCE(data->>'status', 'new') || ',') > 0
+                  THEN COALESCE(data->>'status', 'new') ELSE 'new' END = ${status}::text
+    )
+    AND (
+      ${view}::text IS NULL
+      OR (
+        ${view}::text = 'action'
+        AND (
+          CASE WHEN strpos(${KNOWN_STATUS_CSV}::text, ',' || COALESCE(data->>'status', 'new') || ',') > 0
+                  THEN COALESCE(data->>'status', 'new') ELSE 'new' END = 'new'
+          OR (
+            COALESCE(data->>'paidAt', '') <> ''
+            AND CASE WHEN strpos(${KNOWN_STATUS_CSV}::text, ',' || COALESCE(data->>'status', 'new') || ',') > 0
+            THEN COALESCE(data->>'status', 'new') ELSE 'new' END NOT IN ('fulfilled', 'cancelled', 'ordered_in_esp')
+            AND COALESCE(data->>'espOrderedAt', '') = ''
+            AND COALESCE(data->>'espOrderNumber', '') = ''
+          )
+        )
+      )
+      OR (
+        ${view}::text = 'paid_not_ordered'
+        AND (
+          COALESCE(data->>'paidAt', '') <> ''
+          AND CASE WHEN strpos(${KNOWN_STATUS_CSV}::text, ',' || COALESCE(data->>'status', 'new') || ',') > 0
+          THEN COALESCE(data->>'status', 'new') ELSE 'new' END NOT IN ('fulfilled', 'cancelled', 'ordered_in_esp')
+          AND COALESCE(data->>'espOrderedAt', '') = ''
+          AND COALESCE(data->>'espOrderNumber', '') = ''
+        )
+      )
+    )
+    AND (
+      ${pattern}::text IS NULL
+      OR id = ${refId}::int
+      OR concat_ws(' ', data->>'firstName', data->>'lastName') ILIKE ${pattern}::text
+      OR data->>'email' ILIKE ${pattern}::text
+      OR data->>'company' ILIKE ${pattern}::text
+      OR data->>'product' ILIKE ${pattern}::text
+      OR EXISTS (
+        SELECT 1
+        FROM jsonb_array_elements(
+          CASE WHEN jsonb_typeof(data->'items') = 'array' THEN data->'items' ELSE '[]'::jsonb END
+        ) AS line
+        WHERE line->>'name' ILIKE ${pattern}::text
+      )
+    )
+    ORDER BY
+        (CASE WHEN ${sort}::text = 'largest' THEN
+          CASE WHEN jsonb_typeof(data->'quotedTotal') = 'number' THEN (data->>'quotedTotal')::numeric
+               WHEN jsonb_typeof(data->'total') = 'number' THEN (data->>'total')::numeric END
+        END) DESC NULLS LAST,
+        (CASE WHEN ${sort}::text = 'oldest' THEN created_at END) ASC,
+        (CASE WHEN ${sort}::text = 'oldest' THEN id END) ASC,
+        created_at DESC, id DESC
     LIMIT ${ORDERS_EXPORT_LIMIT}::int
   `) as DbRow[];
   return (rows ?? []).map(toRecord);

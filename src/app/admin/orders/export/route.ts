@@ -10,8 +10,8 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 /**
- * CSV of the orders matching the current list filter (status + search; the page
- * number is ignored). Middleware already requires an admin session for /admin;
+ * CSV of the orders matching the current list filter (status, needs-action view,
+ * search and sort; the page number is ignored). Middleware already requires an admin session for /admin;
  * the handler checks again so the export never depends on routing alone.
  */
 export async function GET(request: Request) {
@@ -29,7 +29,7 @@ export async function GET(request: Request) {
   }
 
   const day = new Date().toISOString().slice(0, 10);
-  const scope = filter.status ?? "all";
+  const scope = filter.view ? filter.view.replace("_", "-") : (filter.status ?? "all");
   return new NextResponse(`${UTF8_BOM}${csv}`, {
     status: 200,
     headers: {

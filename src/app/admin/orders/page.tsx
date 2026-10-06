@@ -3,7 +3,7 @@ import { paginate, parseOrderFilter, toOrderListItem } from "@/lib/adminOrders";
 import { syncAwaitingMerchPayments } from "@/lib/merchPayments";
 import OrdersList, { ordersHref } from "@/components/admin/orders/OrdersList";
 import { requireAdminPage } from "./guard";
-import { getStatusCounts, listOrders } from "./queries";
+import { getActionCounts, getStatusCounts, listOrders } from "./queries";
 
 export const dynamic = "force-dynamic";
 export const metadata = {
@@ -40,7 +40,10 @@ export default async function AdminOrdersPage({ searchParams }: { searchParams: 
     console.error("[admin/orders] payment sync failed:", error);
   }
 
-  const { counts, all } = await getStatusCounts(filter.q);
+  const [{ counts, all }, actionCounts] = await Promise.all([
+    getStatusCounts(filter.q),
+    getActionCounts(filter.q),
+  ]);
   const now = Date.now();
 
   return (
@@ -51,6 +54,7 @@ export default async function AdminOrdersPage({ searchParams }: { searchParams: 
       filter={filter}
       page={pageInfo}
       username={session.username}
+      actionCounts={actionCounts}
     />
   );
 }

@@ -1,5 +1,7 @@
 import Link from "next/link";
 import {
+  ORDER_SORTS,
+  ORDER_SORT_LABELS,
   formatOrderDate,
   orderFilterToQuery,
   type OrderFilter,
@@ -20,7 +22,13 @@ export interface OrdersListProps {
   filter: OrderFilter;
   page: PageInfo;
   username?: string;
+  /** Orders that need the owner right now (for the current search). Omit to hide the panel. */
+  actionCounts?: { action: number; paidNotOrdered: number };
 }
+
+/** Shared look for the list's links and buttons: visible keyboard focus and a 3:1+ border. */
+const CONTROL_BASE =
+  "inline-block rounded-md border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-onyx focus-visible:ring-offset-2";
 
 export function ordersHref(filter: Partial<OrderFilter>): string {
   const query = orderFilterToQuery(filter);
@@ -28,7 +36,12 @@ export function ordersHref(filter: Partial<OrderFilter>): string {
 }
 
 function exportHref(filter: OrderFilter): string {
-  const query = orderFilterToQuery({ status: filter.status, q: filter.q });
+  const query = orderFilterToQuery({
+    status: filter.status,
+    view: filter.view,
+    q: filter.q,
+    sort: filter.sort,
+  });
   return query ? `/admin/orders/export?${query}` : "/admin/orders/export";
 }
 
@@ -39,6 +52,7 @@ export default function OrdersList({
   filter,
   page,
   username,
+  actionCounts,
 }: OrdersListProps) {
   const tabs: { key: string; status?: MerchOrderStatus; label: string; count: number }[] = [
     { key: "all", label: "All", count: allCount },
@@ -50,12 +64,38 @@ export default function OrdersList({
     })),
   ];
   const attentionCount = items.filter((item) => item.flags.length > 0).length;
+  const sort = filter.sort ?? "newest";
+  const actionLinks = actionCounts
+    ? [
+        {
+          key: "action",
+          label: "Everything needing action",
+          count: actionCounts.action,
+          href: ordersHref({ view: "action", q: filter.q, sort: filter.sort }),
+          active: filter.view === "action" && !filter.status,
+        },
+        {
+          key: "new",
+          label: "New requests",
+          count: counts.new,
+          href: ordersHref({ status: "new", q: filter.q, sort: filter.sort }),
+          active: filter.status === "new" && !filter.view,
+        },
+        {
+          key: "paid_not_ordered",
+          label: "Paid, not ordered in ESP",
+          count: actionCounts.paidNotOrdered,
+          href: ordersHref({ view: "paid_not_ordered", q: filter.q, sort: filter.sort }),
+          active: filter.view === "paid_not_ordered" && !filter.status,
+        },
+      ]
+    : [];
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-10 sm:px-8">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <Link href="/admin" className="text-xs font-medium text-gold-dark underline">
+          <Link href="/admin" className="text-xs font-medium text-gold-text underline">
             Dashboard
           </Link>
           <h1 className="mt-1 text-2xl font-semibold text-onyx">Merch orders</h1>
@@ -67,12 +107,44 @@ export default function OrdersList({
         <a
           href={exportHref(filter)}
           download
-          className="rounded-md border border-gold/40 px-4 py-2 text-sm font-semibold text-onyx transition-colors hover:bg-gold/10"
+          className={`${CONTROL_BASE} border-onyx/50 px-4 py-2 font-semibold hover:bg-cream-200`}
         >
           Export CSV
-          {filter.status || filter.q ? " (current filter)" : ""}
+          {filter.status || filter.view || filter.q ? " (current filter)" : ""}
         </a>
       </div>
+
+      {actionCounts && (
+        <section
+          aria-labelledby="needs-action-heading"
+          className="mt-6 rounded-lg border-2 border-onyx bg-cream-100 p-4"
+        >
+          <h2 id="needs-action-heading" className="text-sm font-semibold text-onyx">
+            Needs action
+          </h2>
+          <p className="mt-0.5 text-xs text-onyx/70">
+            New requests to review, and paid orders that still need to be ordered in ESP+.
+          </p>
+          <nav aria-label="Needs action" className="mt-3 flex flex-wrap gap-2">
+            {actionLinks.map((link) => (
+              <Link
+                key={link.key}
+                href={link.href}
+                aria-current={link.active ? "page" : undefined}
+                className={`${CONTROL_BASE} px-3.5 py-1.5 text-sm font-medium ${
+                  link.active
+                    ? "border-onyx bg-onyx text-cream"
+                    : link.count > 0
+                      ? "border-onyx bg-cream text-onyx hover:bg-cream-200"
+                      : "border-onyx/50 bg-cream text-onyx/70 hover:bg-cream-200"
+                }`}
+              >
+                {link.label} <span className="tabular-nums">({link.count})</span>
+              </Link>
+            ))}
+          </nav>
+        </section>
+      )}
 
       <form
         action="/admin/orders"
@@ -81,6 +153,8 @@ export default function OrdersList({
         className="mt-6 flex flex-wrap items-center gap-3"
       >
         {filter.status && <input type="hidden" name="status" value={filter.status} />}
+        {filter.view && <input type="hidden" name="view" value={filter.view} />}
+        {filter.sort && <input type="hidden" name="sort" value={filter.sort} />}
         <label htmlFor="orders-search" className="sr-only">
           Search orders
         </label>
@@ -90,19 +164,19 @@ export default function OrdersList({
           type="search"
           defaultValue={filter.q}
           maxLength={100}
-          placeholder="Reference (MG-00042), name, email, or product"
-          className="w-full max-w-md rounded-md border border-gold/25 bg-cream px-3 py-2 text-sm text-onyx focus:outline-none focus:ring-2 focus:ring-gold/60"
+          placeholder="Reference (MG-00042), name, email, company, or product"
+          className="w-full max-w-md rounded-md border border-onyx/50 bg-cream px-3 py-2 text-sm text-onyx placeholder:text-onyx/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-onyx focus-visible:ring-offset-2"
         />
         <button
           type="submit"
-          className="rounded-md bg-gold px-4 py-2 text-sm font-semibold text-onyx transition-colors hover:bg-gold-bright"
+          className={`${CONTROL_BASE} border-onyx bg-onyx px-4 py-2 font-semibold text-cream hover:bg-onyx-100`}
         >
           Search
         </button>
         {filter.q && (
           <Link
-            href={ordersHref({ status: filter.status })}
-            className="text-sm text-onyx/70 underline"
+            href={ordersHref({ status: filter.status, view: filter.view, sort: filter.sort })}
+            className="text-sm text-onyx/80 underline focus:outline-none focus-visible:ring-2 focus-visible:ring-onyx focus-visible:ring-offset-2"
           >
             Clear search
           </Link>
@@ -111,22 +185,45 @@ export default function OrdersList({
 
       <nav aria-label="Order status" className="mt-5 flex flex-wrap gap-2">
         {tabs.map((tab) => {
-          const active = (filter.status ?? undefined) === tab.status;
+          const active = (filter.status ?? undefined) === tab.status && !filter.view;
           return (
             <Link
               key={tab.key}
-              href={ordersHref({ status: tab.status, q: filter.q })}
+              href={ordersHref({ status: tab.status, q: filter.q, sort: filter.sort })}
               aria-current={active ? "page" : undefined}
-              className={`rounded-full border px-3.5 py-1.5 text-xs font-medium transition-colors ${
+              className={`${CONTROL_BASE} rounded-full px-3.5 py-1.5 text-xs font-medium ${
                 active
-                  ? "border-gold bg-gold text-onyx"
-                  : "border-gold/25 text-onyx/80 hover:border-gold/50"
+                  ? "border-onyx bg-onyx text-cream"
+                  : "border-onyx/50 text-onyx hover:bg-cream-200"
               }`}
             >
-              {tab.label} <span className="tabular-nums text-onyx/60">({tab.count})</span>
+              {tab.label} <span className="tabular-nums">({tab.count})</span>
             </Link>
           );
         })}
+      </nav>
+
+      <nav aria-label="Sort orders" className="mt-3 flex flex-wrap items-center gap-2 text-xs">
+        <span className="font-medium text-onyx/80">Sort by</span>
+        {ORDER_SORTS.map((key) => (
+          <Link
+            key={key}
+            href={ordersHref({
+              status: filter.status,
+              view: filter.view,
+              q: filter.q,
+              sort: key,
+            })}
+            aria-current={sort === key ? "true" : undefined}
+            className={`${CONTROL_BASE} px-3 py-1 font-medium ${
+              sort === key
+                ? "border-onyx bg-onyx text-cream"
+                : "border-onyx/50 text-onyx hover:bg-cream-200"
+            }`}
+          >
+            {ORDER_SORT_LABELS[key]}
+          </Link>
+        ))}
       </nav>
 
       {attentionCount > 0 && (
@@ -167,7 +264,7 @@ export default function OrdersList({
             {items.length === 0 && (
               <tr>
                 <td colSpan={7} className="px-4 py-10 text-center text-onyx/60">
-                  {filter.q || filter.status
+                  {filter.q || filter.status || filter.view
                     ? "No orders match this filter."
                     : "No merch orders yet."}
                 </td>
@@ -182,12 +279,12 @@ export default function OrdersList({
                 <td className="whitespace-nowrap px-4 py-3">
                   <Link
                     href={`/admin/orders/${item.id}`}
-                    className="font-semibold text-onyx underline decoration-gold underline-offset-2 hover:text-gold-dark"
+                    className="font-semibold text-onyx underline decoration-gold underline-offset-2 hover:decoration-onyx"
                   >
                     {item.reference}
                   </Link>
                   {item.unread && (
-                    <span className="ml-2 text-xs font-medium text-gold-dark">Unread</span>
+                    <span className="ml-2 text-xs font-medium text-gold-text">Unread</span>
                   )}
                 </td>
                 <td className="px-4 py-3">
@@ -209,7 +306,7 @@ export default function OrdersList({
                       </div>
                     </>
                   ) : (
-                    <span className="text-onyx/40">-</span>
+                    <span className="text-onyx/70">-</span>
                   )}
                 </td>
                 <td className="px-4 py-3">

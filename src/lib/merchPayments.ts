@@ -1,6 +1,7 @@
 import { sql } from "./db";
 import { getPaymentLinkStatus } from "./square";
 import { sendMerchPaidEmail } from "./email";
+import { auditEntriesJson, makeAuditEntry, readAuditLog } from "./merchOrders";
 
 interface SyncableRow {
   id: number;
@@ -115,9 +116,21 @@ export async function syncAwaitingMerchPayments(rows: SyncableRow[]): Promise<vo
         if (status !== "paid") return;
 
         const patch = { status: "paid", paidAt: new Date().toISOString() };
+        const auditEntry = makeAuditEntry({
+          by: "Square",
+          kind: "payment",
+          from: "awaiting_payment",
+          to: "paid",
+          detail: "Payment detected automatically",
+        });
+        const entry = auditEntriesJson([auditEntry]);
         const updated = (await sql`
           UPDATE submissions
-          SET data = data || ${JSON.stringify(patch)}::jsonb
+          SET data = data || ${JSON.stringify(patch)}::jsonb || jsonb_build_object(
+            'auditLog',
+            CASE WHEN jsonb_typeof(data->'auditLog') = 'array' THEN data->'auditLog' ELSE '[]'::jsonb END
+              || ${entry}::jsonb
+          )
           WHERE id = ${row.id} AND type = 'merch_order' AND data->>'status' = 'awaiting_payment'
           RETURNING id
         `) as { id: number }[];
@@ -125,7 +138,7 @@ export async function syncAwaitingMerchPayments(rows: SyncableRow[]): Promise<vo
         // Zero rows means the order changed under us (already paid by another load, or
         // cancelled): leave the stale snapshot alone so nothing downstream emails off it.
         if (updated.length > 0) {
-          row.data = { ...row.data, ...patch };
+          row.data = { ...row.data, ...patch, auditLog: [...readAuditLog(row.data), auditEntry] };
           const outcome = await sendMerchPaidEmailOnce(row.id, row.data);
           if (outcome === "sent") {
             row.data = { ...row.data, paidEmailSentAt: new Date().toISOString() };
