@@ -90,7 +90,7 @@ describe("buildMerchRequestConfirmationEmail", () => {
 
   it("puts the reference in the subject and body", () => {
     const { subject, html } = build();
-    expect(subject).toBe("We received your merchandise request — MG-00042");
+    expect(subject).toBe("MG-00042: Your Magnolia Grove request is in");
     expect(html).toContain("MG-00042");
   });
 
@@ -134,7 +134,7 @@ describe("buildMerchRequestConfirmationEmail", () => {
 
   it("omits the reference gracefully when the order could not be saved", () => {
     const { subject, html } = build({ orderRef: undefined });
-    expect(subject).toBe("We received your merchandise request");
+    expect(subject).toBe("Your Magnolia Grove request is in");
     expect(html).not.toContain("Order Reference");
     expect(html).not.toContain("MG-");
   });
@@ -156,7 +156,7 @@ describe("buildMerchPaidEmail", () => {
       orderId: 42,
       amountPaid: 912.5,
     });
-    expect(subject).toBe("Payment received — MG-00042");
+    expect(subject).toBe("MG-00042: Payment received");
     expect(html).toContain("$912.50");
     expect(html).toContain("Amount Paid");
     expect(html).toContain("MG-00042");
@@ -191,7 +191,7 @@ describe("buildMerchShippedEmail", () => {
 
   it("shows carrier, tracking number and a tracking link for a recognized carrier", () => {
     const { subject, html } = build();
-    expect(subject).toBe("Your order has shipped — MG-00042");
+    expect(subject).toBe("MG-00042: Your order has shipped");
     expect(html).toContain("MG-00042");
     expect(html).toContain("UPS");
     expect(html).toContain("1Z999AA10123456784");

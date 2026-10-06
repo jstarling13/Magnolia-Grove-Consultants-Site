@@ -47,6 +47,7 @@ import {
   renderShell,
   safeHref,
   smallPrintHtml,
+  stripControl,
   totalRowHtml,
   truncate,
   type BuiltEmail,
@@ -92,9 +93,26 @@ function replyLineText(orderRef: string | undefined): string {
   return `Questions or changes? Just reply to this email${orderRef ? ` and mention ${orderRef}` : ""}.`;
 }
 
-/** `${ref} - ` style prefix is avoided on purpose; see the subject helpers below. */
+/** Longest subject we aim for; most inboxes show roughly this much. */
+const SUBJECT_TARGET_LENGTH = 70;
+
+/**
+ * Order emails lead with the reference (`MG-00042: Payment received`) so every
+ * message in a customer's inbox for one order sorts and searches together. If
+ * the order couldn't be saved and has no reference, the plain lead is used.
+ */
 function subjectWithRef(lead: string, orderRef: string | undefined): string {
-  return oneLine(orderRef ? `${lead} — ${orderRef}` : lead);
+  return oneLine(orderRef ? `${orderRef}: ${lead}` : lead);
+}
+
+/** Cuts a customer-typed name to fit a subject, on a code-point boundary, with an ellipsis. */
+function fitSubjectName(name: string, max: number): string {
+  const chars = Array.from(oneLine(stripControl(name)).replace(/\s+/g, " "));
+  if (chars.length <= max) return chars.join("");
+  return `${chars
+    .slice(0, Math.max(1, max - 1))
+    .join("")
+    .trimEnd()}…`;
 }
 
 // ---------------------------------------------------------------------------
@@ -168,7 +186,11 @@ export function buildMerchRequestConfirmationEmail(
     footerText(),
   ]);
 
-  return { subject: subjectWithRef(title, payload.orderRef), html, text };
+  return {
+    subject: subjectWithRef("Your Magnolia Grove request is in", payload.orderRef),
+    html,
+    text,
+  };
 }
 
 // ---------------------------------------------------------------------------
@@ -239,7 +261,7 @@ export function buildMerchPaymentLinkEmail(payload: MerchPaymentLinkEmailPayload
     footerText(),
   ]);
 
-  return { subject: `Your Merchandise Quote Is Ready — ${orderRef}`, html, text };
+  return { subject: subjectWithRef("Your quote and payment link", orderRef), html, text };
 }
 
 // ---------------------------------------------------------------------------
@@ -298,7 +320,7 @@ export function buildMerchPaidEmail(payload: MerchPaidEmailPayload): BuiltEmail 
     footerText(),
   ]);
 
-  return { subject: `${title} — ${orderRef}`, html, text };
+  return { subject: subjectWithRef(title, orderRef), html, text };
 }
 
 // ---------------------------------------------------------------------------
@@ -364,7 +386,7 @@ export function buildMerchShippedEmail(payload: MerchShippedEmailPayload): Built
     footerText(),
   ]);
 
-  return { subject: `${title} — ${orderRef}`, html, text };
+  return { subject: subjectWithRef(title, orderRef), html, text };
 }
 
 // ---------------------------------------------------------------------------
@@ -480,10 +502,15 @@ export function buildCartOrderNotificationEmail(payload: CartOrderNotificationPa
     footerText("internal"),
   ]);
 
+  const lead = "New merchandise request from ";
+  const prefix = payload.orderRef ? `${payload.orderRef}: ${lead}` : lead;
+  const name = fitSubjectName(
+    `${payload.firstName} ${payload.lastName}`.trim() || "a customer",
+    Math.max(12, SUBJECT_TARGET_LENGTH - prefix.length)
+  );
+
   return {
-    subject: oneLine(
-      `New Merch Cart Order${payload.orderRef ? ` ${payload.orderRef}` : ""} — ${payload.firstName} ${payload.lastName} (${payload.items.length} items, ${money(payload.total)})`
-    ),
+    subject: oneLine(`${prefix}${name}`),
     html,
     text,
   };

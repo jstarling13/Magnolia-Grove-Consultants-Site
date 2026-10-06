@@ -88,10 +88,10 @@ afterEach(endTest);
 // ---------------------------------------------------------------------------
 
 const receiptsTo = (email: string) =>
-  world.outbox.delivered.filter((e) => e.to === email && /^Payment received/.test(e.subject));
+  world.outbox.delivered.filter((e) => e.to === email && /^MG-\d{5}: Payment received/.test(e.subject));
 
 const shippedTo = (email: string) =>
-  world.outbox.delivered.filter((e) => e.to === email && /^Your order has shipped/.test(e.subject));
+  world.outbox.delivered.filter((e) => e.to === email && /^MG-\d{5}: Your order has shipped/.test(e.subject));
 
 function customerSafe(email: CapturedEmail, backendValues: string[] = []): void {
   const label = `customer email "${email.subject}" to ${email.to}`;
@@ -265,7 +265,7 @@ describe("1. cart-checkout route", () => {
       const [mail] = world.outbox.toBusiness;
 
       expect(mail.subject).toBe(
-        `New Merch Cart Order ${order.orderRef} — Pat Lee (4 items, $${DEFAULT_CART_TOTAL.toFixed(2)})`
+        `${order.orderRef}: New merchandise request from Pat Lee`
       );
       expect(mail.replyTo).toBe("pat@customer.test");
       expect(mail.from).toContain("orders@mg-test.invalid");
@@ -293,7 +293,7 @@ describe("1. cart-checkout route", () => {
 
       expect(mail.to).toBe("pat@customer.test");
       expect(mail.replyTo).toBe(BUSINESS_INBOX);
-      expect(mail.subject).toBe(`We received your merchandise request — ${order.orderRef}`);
+      expect(mail.subject).toBe(`${order.orderRef}: Your Magnolia Grove request is in`);
       for (const color of ["Black", "Blue-Reflex", "Navy", "Iron"]) {
         expect(mail.html).toContain(color);
       }
@@ -519,9 +519,9 @@ describe("1. cart-checkout route", () => {
       expect(await jsonOf(response)).toEqual({ success: true, confirmationEmailed: true });
       expect(world.db.rows.size).toBe(0);
       expect(world.outbox.toBusiness[0].subject).toBe(
-        `New Merch Cart Order — Pat Lee (4 items, $${DEFAULT_CART_TOTAL.toFixed(2)})`
+        "New merchandise request from Pat Lee"
       );
-      expect(world.outbox.toCustomers[0].subject).toBe("We received your merchandise request");
+      expect(world.outbox.toCustomers[0].subject).toBe("Your Magnolia Grove request is in");
     });
 
     it("a rejected customer confirmation never fails the order", async () => {
@@ -683,7 +683,7 @@ describe("2. admin quote and payment link", () => {
       expect(world.outbox.toCustomers).toHaveLength(1);
       const [mail] = world.outbox.toCustomers;
       expect(mail.to).toBe("pat@customer.test");
-      expect(mail.subject).toBe(`Your Merchandise Quote Is Ready — ${order.orderRef}`);
+      expect(mail.subject).toBe(`${order.orderRef}: Your quote and payment link`);
       expect(mail.html).toContain("$2450.50");
       expect(mail.html).toContain('href="https://checkout.square.test/pay/LINK_FAKE_1"');
       customerSafe(mail, backendValuesOf(world.db.data(order.id)));
@@ -754,7 +754,7 @@ describe("2. admin quote and payment link", () => {
     });
 
     it("a failed quote email still saves the link and reports emailed: false", async () => {
-      world.outbox.rejectNext({ when: (e) => /Quote Is Ready/.test(e.subject) });
+      world.outbox.rejectNext({ when: (e) => /Your quote and payment link/.test(e.subject) });
       const result = await app.actions.sendMerchPaymentLink(order.id, DEFAULT_QUOTE);
       expect(result).toMatchObject({ ok: true, emailed: false });
       expect(world.db.data(order.id).status).toBe("awaiting_payment");
@@ -1015,7 +1015,7 @@ describe("3. Square webhook, payment confirmation and receipts", () => {
 
       const receipts = receiptsTo(CUSTOMER.email);
       expect(receipts).toHaveLength(1);
-      expect(receipts[0].subject).toBe(`Payment received — ${order.orderRef}`);
+      expect(receipts[0].subject).toBe(`${order.orderRef}: Payment received`);
       expect(receipts[0].html).toContain("Amount Paid");
       expect(receipts[0].html).toContain("$2450.50");
       customerSafe(receipts[0], backendValuesOf(data));
@@ -1076,7 +1076,7 @@ describe("3. Square webhook, payment confirmation and receipts", () => {
   });
 
   describe("receipt retry sweep", () => {
-    const isReceipt = (e: CapturedEmail) => /^Payment received/.test(e.subject);
+    const isReceipt = (e: CapturedEmail) => /^MG-\d{5}: Payment received/.test(e.subject);
 
     async function paidWithFailedReceipt() {
       const order = await awaitingPayment();
@@ -1326,7 +1326,7 @@ describe("4. ESP-order guards, manual payment and fulfillment", () => {
       });
       const receipts = receiptsTo(CUSTOMER.email);
       expect(receipts).toHaveLength(1);
-      expect(receipts[0].subject).toBe(`Payment received — ${order.orderRef}`);
+      expect(receipts[0].subject).toBe(`${order.orderRef}: Payment received`);
       expect(receipts[0].html, "no quote on file, so no amount is claimed").not.toContain(
         "Amount Paid"
       );
@@ -1359,7 +1359,7 @@ describe("4. ESP-order guards, manual payment and fulfillment", () => {
 
     it("a failed manual-paid receipt is picked up by the next payment sync, once", async () => {
       const order = await placeOrder(app);
-      world.outbox.rejectNext({ when: (e) => /^Payment received/.test(e.subject) });
+      world.outbox.rejectNext({ when: (e) => /^MG-\d{5}: Payment received/.test(e.subject) });
       expect(await app.actions.updateMerchOrderStatus(order.id, "paid")).toEqual({ ok: true });
       expect(world.db.data(order.id).status).toBe("paid"); // the failure never blocks the status change
       expect(receiptsTo(CUSTOMER.email)).toHaveLength(0);
@@ -1453,7 +1453,7 @@ describe("4. ESP-order guards, manual payment and fulfillment", () => {
 
       const [mail] = shippedTo(CUSTOMER.email);
       expect(shippedTo(CUSTOMER.email)).toHaveLength(1);
-      expect(mail.subject).toBe(`Your order has shipped — ${order.orderRef}`);
+      expect(mail.subject).toBe(`${order.orderRef}: Your order has shipped`);
       expect(mail.html).toContain("1Z999AA10123456784");
       expect(mail.html).toContain('href="https://www.ups.com/track?tracknum=1Z999AA10123456784"');
       for (const needle of [
@@ -1612,7 +1612,7 @@ describe("5. global invariants across the whole lifecycle", () => {
     } else {
       customerPays(order.id);
       if (path === "failed receipt then retry") {
-        world.outbox.rejectNext({ when: (e) => /^Payment received/.test(e.subject), times: 3 });
+        world.outbox.rejectNext({ when: (e) => /^MG-\d{5}: Payment received/.test(e.subject), times: 3 });
         await deliverWebhook(app); // paid; receipt rejected on all three in-delivery attempts
       }
       await deliverWebhook(app); // pays (or retries the receipt)
@@ -1638,23 +1638,23 @@ describe("5. global invariants across the whole lifecycle", () => {
 
   const expectedCustomerSubjects: Record<Path, RegExp[]> = {
     "square payment": [
-      /^We received your merchandise request/,
-      /^Your Merchandise Quote Is Ready/,
-      /^Payment received/,
-      /^Your order has shipped/,
-      /^Your order has shipped/,
+      /^MG-\d{5}: Your Magnolia Grove request is in/,
+      /^MG-\d{5}: Your quote and payment link/,
+      /^MG-\d{5}: Payment received/,
+      /^MG-\d{5}: Your order has shipped/,
+      /^MG-\d{5}: Your order has shipped/,
     ],
     "manual payment": [
-      /^We received your merchandise request/,
-      /^Your Merchandise Quote Is Ready/,
-      /^Payment received/,
-      /^Your order has shipped/,
+      /^MG-\d{5}: Your Magnolia Grove request is in/,
+      /^MG-\d{5}: Your quote and payment link/,
+      /^MG-\d{5}: Payment received/,
+      /^MG-\d{5}: Your order has shipped/,
     ],
     "failed receipt then retry": [
-      /^We received your merchandise request/,
-      /^Your Merchandise Quote Is Ready/,
-      /^Payment received/,
-      /^Your order has shipped/,
+      /^MG-\d{5}: Your Magnolia Grove request is in/,
+      /^MG-\d{5}: Your quote and payment link/,
+      /^MG-\d{5}: Payment received/,
+      /^MG-\d{5}: Your order has shipped/,
     ],
   };
 

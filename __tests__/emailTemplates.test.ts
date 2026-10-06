@@ -126,7 +126,7 @@ describe("every customer email", () => {
 
   describe.each(Object.entries(emails))("%s", (_name, email) => {
     it("has a subject carrying the order reference, an html part and a text part", () => {
-      expect(email.subject).toContain("MG-00042");
+      expect(email.subject).toMatch(/^MG-\d{5}: /);
       expect(email.html.length).toBeGreaterThan(500);
       expect(email.text.length).toBeGreaterThan(100);
       expect(email.subject).not.toMatch(/[\r\n]/);
@@ -196,7 +196,7 @@ describe("what each email says", () => {
 
   it("confirmation lists every line with prices, notes, the subtotal and the next steps", () => {
     const { html, text, subject } = emails.confirmation;
-    expect(subject).toBe("We received your merchandise request — MG-00042");
+    expect(subject).toBe("MG-00042: Your Magnolia Grove request is in");
     for (const part of [html, text]) {
       expect(part).toContain("Metal Click Pen");
       expect(part).toContain("Performance Polo");
@@ -561,6 +561,55 @@ describe("customerLinesFromStored", () => {
   });
 });
 
+describe("order email subjects", () => {
+  const lines = [{ name: "Tee", quantity: 1, unitPrice: 10, lineTotal: 10 }] as never;
+
+  it("every order email, admin notification included, starts with the order reference", () => {
+    const all = [
+      ...Object.values(build()),
+      buildCartOrderNotificationEmail({
+        orderRef: "MG-00042",
+        firstName: "Pat",
+        lastName: "Lee",
+        email: "pat@example.com",
+        phone: "555-0100",
+        notes: "",
+        total: 10,
+        items: storedItems as never,
+      }),
+    ];
+    expect(all.length).toBeGreaterThanOrEqual(5);
+    for (const mail of all) expect(mail.subject).toMatch(/^MG-\d{5}: /);
+  });
+
+  it("falls back to a plain subject when the order has no reference", () => {
+    const mail = buildMerchRequestConfirmationEmail({
+      email: "pat@example.com",
+      firstName: "Pat",
+      items: lines,
+      total: 10,
+    });
+    expect(mail.subject).toBe("Your Magnolia Grove request is in");
+  });
+
+  it("keeps the admin subject short and cuts a very long name safely", () => {
+    const mail = buildCartOrderNotificationEmail({
+      orderRef: "MG-00042",
+      firstName: "Bartholomew-Maximilian\u{1F600}".repeat(3),
+      lastName: "Featherstonehaugh\nCholmondeley",
+      email: "pat@example.com",
+      phone: "555-0100",
+      notes: "",
+      total: 10,
+      items: storedItems as never,
+    });
+    expect(mail.subject).toMatch(/^MG-00042: New merchandise request from /);
+    expect(Array.from(mail.subject).length).toBeLessThanOrEqual(70);
+    expect(mail.subject).toMatch(/…$/);
+    expect(mail.subject).not.toMatch(/[\r\n\uD800-\uDFFF]/u);
+  });
+});
+
 describe("admin notification", () => {
   const email = buildCartOrderNotificationEmail({
     orderRef: "MG-00042",
@@ -574,7 +623,7 @@ describe("admin notification", () => {
   });
 
   it("has html and text with the reference, customer details, lines and back-office lookup data", () => {
-    expect(email.subject).toBe("New Merch Cart Order MG-00042 — Pat Lee (2 items, $3291.00)");
+    expect(email.subject).toBe("MG-00042: New merchandise request from Pat Lee");
     for (const part of [email.html, email.text]) {
       expect(part).toContain("MG-00042");
       expect(part).toContain("pat@example.com");
@@ -655,7 +704,7 @@ describe("sending (multipart, mocked Resend)", () => {
       expect(mail.html).toContain("<!doctype html>");
       expect(mail.text).toBeTruthy();
       expect(mail.text).not.toMatch(/<[a-z][^>]*>/i);
-      expect(mail.subject).toContain("MG-00042");
+      expect(mail.subject).toMatch(/^MG-\d{5}: /);
     }
     const customerMails = sent.emails.slice(0, 4);
     for (const mail of customerMails) {
