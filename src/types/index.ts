@@ -165,6 +165,12 @@ export interface MerchProduct {
    */
   brand: string;
   /**
+   * Shown under the price on the product page when the one price grid we hold is for a base
+   * size and the product comes in several ("Priced for the standard size; other sizes quoted
+   * on request."). Set by the catalog importer; omitted for ordinary products.
+   */
+  priceNote?: string;
+  /**
    * Where an uploaded client logo is previewed on this product's photo, as
    * percentages of the image box (top/left = center point, width = logo
    * width as % of image width). Falls back to a per-category default in

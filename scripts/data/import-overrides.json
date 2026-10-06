@@ -9,6 +9,11 @@
       "espId": "552519118",
       "reason": "6 Panels Relaxed Golf Hat Dad Cap (Direct Caps) duplicates the curated product 6panel-premium-relaxed-golf-cap, which has verified color photos. Curated wins.",
       "keepCuratedId": "6panel-premium-relaxed-golf-cap"
+    },
+    {
+      "espId": "553353508",
+      "reason": "Transparent PVC Sun Visor Hat W/ Printed World Cup Theme (SC Promo) is the same clear sun visor as Transparent Summer Sun Visor (Flyer Sourcing, 5 stars, 102 reviews), which already carries sourced color photos; the World Cup name is also an event trademark.",
+      "keepEspId": "553866344"
     }
   ],
   "keepApart": [
@@ -42,6 +47,63 @@
       "espId": "553389764",
       "category": "Apparel",
       "reason": "Buffalo Plaid Knit Cap, Scarf and Text Gloves Combo is a cap/scarf/glove set, not just headwear."
+    }
+  ],
+  "nameOverrides": [
+    {
+      "espId": "554255129",
+      "name": "Textured Non-Skid Rug, 31.5\" x 51\"",
+      "reason": "Raw name is only \"Rugs\"; the description says 31.5\" x 51\" 1230 GSM Textured Front / Non-Skid Back Dornier Rug."
+    },
+    {
+      "espId": "555440907",
+      "name": "Anti-Slip Bath Mat, 23.6\" x 12.7\"",
+      "reason": "Raw name is only \"Bath Mat\"; the description says Anti-Slip and the size field says 23.6\" x 12.7\"."
+    },
+    {
+      "espId": "552552363",
+      "name": "Hoodies & Sweatshirts",
+      "reason": "Raw name \"Hoodies Sweatshirts\" is missing its conjunction."
+    },
+    {
+      "espId": "554350280",
+      "name": "Vinyl Bumper Stickers",
+      "reason": "Raw name \"Stickers, Bumper Stickers\" repeats itself; the description says vinyl bumper stickers."
+    },
+    {
+      "espId": "555222719",
+      "name": "2.75\" Polyurethane Foam Stress Ball",
+      "reason": "Raw name is only \"Stress Ball\"; the description says 2.75\" polyurethane foam stress balls."
+    },
+    {
+      "espId": "4906159",
+      "name": "Chairman's Tower Optical Crystal Award",
+      "reason": "Raw name is only \"Chairman's Tower\"; the description says beveled award made of optical crystal."
+    },
+    {
+      "espId": "555207583",
+      "name": "Kershaw® Eris Pocket Knife",
+      "reason": "Raw name is only \"KERSHAW® ERIS\" in capitals; the description says Kershaw Pocket Knife."
+    },
+    {
+      "espId": "4910178",
+      "name": "Victorinox® Classic Knife",
+      "reason": "Raw name is only \"Victorinox® Classic\"; the description says Knife featuring handle, blade, scissors, nail file and more."
+    },
+    {
+      "espId": "5547380",
+      "name": "4 Pack Crayons in Imprintable Box",
+      "reason": "Raw name is only \"Crayons\"; the description says 4 pack of crayons in imprintable box."
+    },
+    {
+      "espId": "5633219",
+      "name": "Kan-Tastic Foam Beverage Holder",
+      "reason": "Raw name is only \"Kan-Tastic\"; the description says beverage holder made of laminated open cell foam."
+    },
+    {
+      "espId": "552982875",
+      "name": "12 oz. Slim Fit Kan-Tastic Can and Bottle Grip",
+      "reason": "Raw name does not say what the product is; the description says it keeps a can or bottle at the right temperature and provides a grip."
     }
   ]
 }
