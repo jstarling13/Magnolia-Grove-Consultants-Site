@@ -11,7 +11,7 @@ import colorImagesExtra6 from "@/config/colorImages.extra6.json";
 import colorImagesExtra7 from "@/config/colorImages.extra7.json";
 import colorImagesExtra8 from "@/config/colorImages.extra8.json";
 import colorImagesExtra9 from "@/config/colorImages.extra9.json";
-import { products } from "@/config/merchandiseConfig";
+import { allProducts as products } from "@/config/merchandiseConfig";
 
 const entries = [
   colorImageMap,
