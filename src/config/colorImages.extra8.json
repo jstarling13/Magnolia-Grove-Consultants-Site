@@ -1,1 +1,32 @@
-{}
+{
+  "magnetic-can-sleeve-89724": {
+    "Royal Blue": "/images/merch/colors/magnetic-can-sleeve-89724-royal-blue.webp"
+  },
+  "premium-foam-collapsible-can-coolers-10458": {
+    "Black": "/images/merch/colors/premium-foam-collapsible-can-coolers-10458-black.webp"
+  },
+  "15-oz-ceramic-camping-mug-13567": {
+    "Black": "/images/merch/colors/15-oz-ceramic-camping-mug-13567-black.webp",
+    "Brown": "/images/merch/colors/15-oz-ceramic-camping-mug-13567-brown.webp",
+    "Green": "/images/merch/colors/15-oz-ceramic-camping-mug-13567-green.webp",
+    "Lime": "/images/merch/colors/15-oz-ceramic-camping-mug-13567-lime.webp",
+    "Maroon": "/images/merch/colors/15-oz-ceramic-camping-mug-13567-maroon.webp",
+    "Orange": "/images/merch/colors/15-oz-ceramic-camping-mug-13567-orange.webp"
+  },
+  "wyld-gear-20oz-stainless-steel-tumbler-with-build-in-opener-04880": {
+    "Black": "/images/merch/colors/wyld-gear-20oz-stainless-steel-tumbler-with-build-in-opener-04880-black.webp",
+    "Navy": "/images/merch/colors/wyld-gear-20oz-stainless-steel-tumbler-with-build-in-opener-04880-navy.webp",
+    "Royal Blue": "/images/merch/colors/wyld-gear-20oz-stainless-steel-tumbler-with-build-in-opener-04880-royal-blue.webp",
+    "Pink": "/images/merch/colors/wyld-gear-20oz-stainless-steel-tumbler-with-build-in-opener-04880-pink.webp",
+    "Purple": "/images/merch/colors/wyld-gear-20oz-stainless-steel-tumbler-with-build-in-opener-04880-purple.webp",
+    "Maroon": "/images/merch/colors/wyld-gear-20oz-stainless-steel-tumbler-with-build-in-opener-04880-maroon.webp",
+    "Red": "/images/merch/colors/wyld-gear-20oz-stainless-steel-tumbler-with-build-in-opener-04880-red.webp",
+    "White": "/images/merch/colors/wyld-gear-20oz-stainless-steel-tumbler-with-build-in-opener-04880-white.webp"
+  },
+  "beluga-40-oz-vacuum-insulated-tumbler-mug-w-handle-45524": {
+    "Green": "/images/merch/colors/beluga-40-oz-vacuum-insulated-tumbler-mug-w-handle-45524-green.webp",
+    "Orange": "/images/merch/colors/beluga-40-oz-vacuum-insulated-tumbler-mug-w-handle-45524-orange.webp",
+    "Black": "/images/merch/colors/beluga-40-oz-vacuum-insulated-tumbler-mug-w-handle-45524-black.webp",
+    "Pink": "/images/merch/colors/beluga-40-oz-vacuum-insulated-tumbler-mug-w-handle-45524-pink.webp"
+  }
+}
