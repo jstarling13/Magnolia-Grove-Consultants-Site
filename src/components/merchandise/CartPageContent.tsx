@@ -40,6 +40,7 @@ import {
 } from "@/lib/merchAnalytics";
 import { formatPrice, isRealBrand, normalizeColors, type CartProduct } from "@/lib/merchCatalog";
 import Turnstile from "@/components/Turnstile";
+import { FOCUS_RING, FOCUS_RING_ON_DARK, fieldClasses } from "@/components/global/focusRing";
 
 interface ContactFields {
   firstName: string;
@@ -62,9 +63,6 @@ const initialFields: ContactFields = {
 const DEFAULT_ERROR =
   "Something went wrong. Please double-check your info or email ben@magnoliagrovega.com.";
 const FIELD_ERRORS_SUMMARY = "Please fix the highlighted fields and submit again.";
-
-const inputClasses =
-  "w-full rounded-md border border-gold/25 bg-cream px-4 py-3 text-sm text-onyx placeholder:text-onyx/50 focus:outline-none focus:ring-2 focus:ring-gold/60 transition-colors";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -128,6 +126,7 @@ export default function CartPageContent({
   const [confirmationEmailed, setConfirmationEmailed] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState("");
   const errorBannerRef = useRef<HTMLParagraphElement>(null);
+  const successHeadingRef = useRef<HTMLHeadingElement>(null);
 
   // Fetch just the products this cart holds (nothing until the saved cart has loaded).
   const cartProductIds = useMemo(
@@ -264,6 +263,11 @@ export default function CartPageContent({
     if (status === "error" && !hasFieldErrors) errorBannerRef.current?.focus();
   }, [status, submitError, hasFieldErrors]);
 
+  // Success swaps the whole page content, which drops keyboard focus: put it on the confirmation.
+  useEffect(() => {
+    if (status === "success") successHeadingRef.current?.focus();
+  }, [status]);
+
   /** Puts the cursor in the first field that has an error, in form order. */
   function focusFirstInvalid(fieldErrors: CartFieldErrors) {
     const first = CART_CONTACT_FIELDS.find((name) => fieldErrors[name]);
@@ -333,8 +337,17 @@ export default function CartPageContent({
   if (status === "success") {
     return (
       <section className="bg-cream px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
-        <div className="mx-auto flex max-w-2xl flex-col items-center rounded-lg border border-gold/25 bg-cream-100/85 px-8 py-16 text-center">
-          <h1 className="text-2xl text-onyx">Order Request Received</h1>
+        <div
+          role="status"
+          className="mx-auto flex max-w-2xl flex-col items-center rounded-lg border border-gold/25 bg-cream-100/85 px-8 py-16 text-center"
+        >
+          <h1
+            ref={successHeadingRef}
+            tabIndex={-1}
+            className="text-2xl text-onyx focus:outline-none"
+          >
+            Order Request Received
+          </h1>
           <p className="mt-3 max-w-md text-base leading-relaxed text-onyx/60">
             Nothing has been charged. We&apos;ll email you a final quote covering decoration,
             shipping, and tax, with a secure link to pay. We place the order with our supplier once
@@ -350,7 +363,7 @@ export default function CartPageContent({
           )}
           <Link
             href="/merchandise"
-            className="mt-8 inline-flex items-center rounded-md border border-gold/60 px-6 py-3 text-sm font-semibold text-gold-dark transition-colors hover:bg-gold/10"
+            className={`mt-8 inline-flex min-h-11 items-center rounded-md border border-gold-text px-6 py-3 text-sm font-semibold text-gold-text transition-colors hover:bg-gold/10 ${FOCUS_RING}`}
           >
             Back to Merchandise
           </Link>
@@ -365,11 +378,11 @@ export default function CartPageContent({
         <div className="mx-auto max-w-4xl">
           <Link
             href="/merchandise"
-            className="text-sm font-semibold text-muted-light transition-colors hover:text-gold-bright"
+            className={`inline-flex min-h-11 items-center rounded text-sm font-semibold text-muted-light transition-colors hover:text-gold-bright ${FOCUS_RING_ON_DARK}`}
           >
             ← Back to Merchandise
           </Link>
-          <h1 className="mt-3 text-4xl uppercase text-white sm:text-5xl">Your Cart</h1>
+          <h1 className="mt-1 text-4xl uppercase text-white sm:text-5xl">Your Cart</h1>
         </div>
       </section>
 
@@ -399,7 +412,7 @@ export default function CartPageContent({
               <button
                 type="button"
                 onClick={loaded.retry}
-                className="mt-6 inline-flex items-center rounded-md bg-gold px-6 py-3 text-sm font-semibold text-onyx transition-colors hover:bg-gold-bright"
+                className={`mt-6 inline-flex min-h-11 items-center rounded-md bg-gold px-6 py-3 text-sm font-semibold text-onyx transition-colors hover:bg-gold-bright ${FOCUS_RING}`}
               >
                 Try again
               </button>
@@ -409,7 +422,7 @@ export default function CartPageContent({
               <p className="text-base text-onyx/60">Your cart is empty.</p>
               <Link
                 href="/merchandise"
-                className="mt-6 inline-flex items-center rounded-md bg-gold px-6 py-3 text-sm font-semibold text-onyx transition-colors hover:bg-gold-bright"
+                className={`mt-6 inline-flex min-h-11 items-center rounded-md bg-gold px-6 py-3 text-sm font-semibold text-onyx transition-colors hover:bg-gold-bright ${FOCUS_RING}`}
               >
                 Browse Merchandise
               </Link>
@@ -435,16 +448,20 @@ export default function CartPageContent({
                     <p className="text-sm font-semibold uppercase tracking-wide text-onyx/60">
                       Estimated Subtotal
                     </p>
-                    <p className="mt-0.5 text-xs text-onyx/50">
+                    <p className="mt-0.5 text-xs text-onyx/60">
                       {lines.length} {lines.length === 1 ? "item" : "items"}, {unitCount}{" "}
                       {unitCount === 1 ? "unit" : "units"}
                     </p>
                   </div>
-                  <p className="font-heading text-3xl font-bold tabular-nums text-onyx">
+                  <p
+                    aria-live="polite"
+                    aria-atomic="true"
+                    className="font-heading text-3xl font-bold tabular-nums text-onyx"
+                  >
                     {formatPrice(subtotal)}
                   </p>
                 </div>
-                <div className="mt-4 space-y-1 border-t border-gold/15 pt-4 text-xs leading-relaxed text-onyx/50">
+                <div className="mt-4 space-y-1 border-t border-gold/15 pt-4 text-xs leading-relaxed text-onyx/60">
                   <p>{pricingDisclaimer}</p>
                   <p>{deliveryEstimate}</p>
                 </div>
@@ -488,9 +505,10 @@ export default function CartPageContent({
                       autoComplete="given-name"
                       value={fields.firstName}
                       onChange={handleChange}
+                      required
                       aria-invalid={Boolean(errors.firstName)}
                       aria-describedby={errors.firstName ? "firstName-error" : undefined}
-                      className={`${inputClasses} ${errors.firstName ? "border-red-500" : ""}`}
+                      className={fieldClasses(Boolean(errors.firstName))}
                     />
                     {errors.firstName && (
                       <p id="firstName-error" role="alert" className="mt-1.5 text-xs text-red-700">
@@ -513,9 +531,10 @@ export default function CartPageContent({
                       autoComplete="family-name"
                       value={fields.lastName}
                       onChange={handleChange}
+                      required
                       aria-invalid={Boolean(errors.lastName)}
                       aria-describedby={errors.lastName ? "lastName-error" : undefined}
-                      className={`${inputClasses} ${errors.lastName ? "border-red-500" : ""}`}
+                      className={fieldClasses(Boolean(errors.lastName))}
                     />
                     {errors.lastName && (
                       <p id="lastName-error" role="alert" className="mt-1.5 text-xs text-red-700">
@@ -535,9 +554,10 @@ export default function CartPageContent({
                       autoComplete="email"
                       value={fields.email}
                       onChange={handleChange}
+                      required
                       aria-invalid={Boolean(errors.email)}
                       aria-describedby={errors.email ? "email-error" : undefined}
-                      className={`${inputClasses} ${errors.email ? "border-red-500" : ""}`}
+                      className={fieldClasses(Boolean(errors.email))}
                     />
                     {errors.email && (
                       <p id="email-error" role="alert" className="mt-1.5 text-xs text-red-700">
@@ -557,9 +577,10 @@ export default function CartPageContent({
                       autoComplete="tel"
                       value={fields.phone}
                       onChange={handleChange}
+                      required
                       aria-invalid={Boolean(errors.phone)}
                       aria-describedby={errors.phone ? "phone-error" : undefined}
-                      className={`${inputClasses} ${errors.phone ? "border-red-500" : ""}`}
+                      className={fieldClasses(Boolean(errors.phone))}
                     />
                     {errors.phone && (
                       <p id="phone-error" role="alert" className="mt-1.5 text-xs text-red-700">
@@ -581,7 +602,7 @@ export default function CartPageContent({
                       placeholder="Colors, branding details, deadline, etc."
                       aria-invalid={Boolean(errors.notes)}
                       aria-describedby={errors.notes ? "notes-error" : undefined}
-                      className={`${inputClasses} resize-none ${errors.notes ? "border-red-500" : ""}`}
+                      className={`${fieldClasses(Boolean(errors.notes))} resize-none`}
                     />
                     {errors.notes && (
                       <p id="notes-error" role="alert" className="mt-1.5 text-xs text-red-700">
@@ -600,7 +621,7 @@ export default function CartPageContent({
                     ref={errorBannerRef}
                     tabIndex={-1}
                     role="alert"
-                    className="mt-6 rounded-md border border-red-500/40 bg-red-500/10 px-4 py-3 text-sm text-red-700 focus:outline-none focus:ring-2 focus:ring-gold/60"
+                    className="mt-6 rounded-md border border-red-700/40 bg-red-500/10 px-4 py-3 text-sm text-red-700 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold-text"
                   >
                     {submitError || DEFAULT_ERROR}
                   </p>
@@ -610,19 +631,26 @@ export default function CartPageContent({
                   type="submit"
                   disabled={status === "submitting" || blockedReason !== ""}
                   aria-describedby={blockedReason ? "submit-blocked" : undefined}
-                  className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-md bg-gold px-6 py-4 text-sm font-semibold text-onyx transition-all hover:bg-gold-bright disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
+                  className={`mt-8 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-md bg-gold px-6 py-4 text-sm font-semibold text-onyx transition-all hover:bg-gold-bright disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto ${FOCUS_RING}`}
                 >
                   {status === "submitting" ? (
                     <>
-                      <Loader2 size={18} className="animate-spin" />
+                      <Loader2
+                        size={18}
+                        aria-hidden="true"
+                        className="animate-spin motion-reduce:animate-none"
+                      />
                       Submitting...
                     </>
                   ) : (
                     "Submit Order Request"
                   )}
                 </button>
+                <p role="status" className="sr-only">
+                  {status === "submitting" ? "Submitting your order request." : ""}
+                </p>
                 {blockedReason && (
-                  <p id="submit-blocked" className="mt-3 text-sm text-red-600">
+                  <p id="submit-blocked" className="mt-3 text-sm text-red-700">
                     {blockedReason}
                   </p>
                 )}
@@ -692,7 +720,7 @@ function CartProductGroup({
             <p className="text-onyx/60">Volume pricing applies across colors.</p>
           )}
           {summary.belowMinimum && (
-            <p role="alert" className="font-semibold text-red-600">
+            <p role="alert" className="font-semibold text-red-700">
               Minimum order is {summary.minimum} units. You have {summary.totalQuantity}.
             </p>
           )}
@@ -749,13 +777,13 @@ function CartLine({
 
       <div className="min-w-0 flex-1">
         {isRealBrand(product.brand) && (
-          <p className="truncate text-[11px] font-semibold uppercase leading-4 tracking-wide text-gold-dark">
+          <p className="truncate text-[11px] font-semibold uppercase leading-4 tracking-wide text-gold-text">
             {product.brand}
           </p>
         )}
         <Link
           href={href}
-          className="line-clamp-3 text-sm font-semibold leading-snug text-onyx hover:text-gold-dark sm:line-clamp-2"
+          className={`line-clamp-3 rounded text-sm font-semibold leading-snug text-onyx hover:text-gold-text sm:line-clamp-2 ${FOCUS_RING}`}
         >
           {product.name}
         </Link>
@@ -764,13 +792,13 @@ function CartLine({
           <p className="mt-1 flex items-center gap-2 text-xs text-onyx/70">
             <ColorDot color={line.color} />
             <span>
-              <span className="text-onyx/50">Color: </span>
+              <span className="text-onyx/60">Color: </span>
               {colorLabel}
             </span>
           </p>
         ) : line.needsColor ? (
           <div className="mt-2">
-            <label htmlFor={selectId} className="block text-xs font-semibold text-red-600">
+            <label htmlFor={selectId} className="block text-xs font-semibold text-red-700">
               Choose a color
             </label>
             <select
@@ -780,7 +808,7 @@ function CartLine({
                 if (event.target.value)
                   onChooseColor(item.productId, item.color, event.target.value);
               }}
-              className="mt-1 w-full max-w-[14rem] rounded-md border border-red-500/60 bg-cream px-2 py-1.5 text-sm text-onyx focus:outline-none focus:ring-2 focus:ring-gold/60"
+              className={`mt-1 min-h-11 w-full max-w-[14rem] rounded-md border border-red-700 bg-cream px-2 py-1.5 text-sm text-onyx ${FOCUS_RING}`}
             >
               <option value="" disabled>
                 Select a color
@@ -794,9 +822,9 @@ function CartLine({
           </div>
         ) : null}
 
-        <p className="mt-1 text-xs text-onyx/50">{formatPrice(line.unitPrice)} per unit</p>
+        <p className="mt-1 text-xs text-onyx/60">{formatPrice(line.unitPrice)} per unit</p>
         <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2">
-          <label className="flex items-center gap-2 text-xs font-medium text-onyx/60">
+          <label className="flex items-center gap-2 text-sm font-medium text-onyx/60">
             Qty
             <input
               {...quantity.inputProps}
@@ -806,14 +834,14 @@ function CartLine({
               aria-label={`Quantity for ${lineName}`}
               aria-invalid={Boolean(quantity.message)}
               aria-describedby={quantity.message ? quantity.messageId : undefined}
-              className="w-20 rounded-md border border-gold/25 bg-cream px-2 py-1.5 text-sm text-onyx focus:outline-none focus:ring-2 focus:ring-gold/60"
+              className={`min-h-11 w-24 rounded-md border border-gold-text/80 bg-cream px-2 py-1.5 text-sm text-onyx ${FOCUS_RING}`}
             />
           </label>
           <button
             type="button"
             onClick={() => onRemove(item.productId, item.color)}
             aria-label={`Remove ${lineName}`}
-            className="text-xs font-semibold text-onyx/50 underline hover:text-red-500"
+            className={`inline-flex min-h-11 items-center rounded px-2 text-sm font-semibold text-onyx/60 underline hover:text-red-700 ${FOCUS_RING}`}
           >
             Remove
           </button>

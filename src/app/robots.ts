@@ -3,11 +3,15 @@ import type { MetadataRoute } from "next";
 import { getSiteUrl } from "@/lib/siteUrl";
 
 // The storefront (/merchandise, category and product pages) is crawlable;
-// only private, transactional and API paths are kept out.
+// only private, transactional and API paths are kept out. The cart page also
+// carries a noindex robots meta tag, as belt and braces for crawlers that
+// ignore robots.txt.
 export const DISALLOWED_PATHS = [
   "/api/",
   "/admin",
   "/account",
+  "/login",
+  "/orders",
   "/thank-you",
   "/payment",
   "/merchandise/cart",

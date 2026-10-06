@@ -2,9 +2,17 @@ import type { Metadata } from "next";
 import CartPageContent from "@/components/merchandise/CartPageContent";
 import { merchandisePage } from "@/config/merchandiseConfig";
 
+const TITLE = "Your Cart | Magnolia Grove Consultants";
+const DESCRIPTION = "Review your merchandise selections and submit your order request.";
+
+// A personal, transactional page: kept out of search results. (robots.txt also
+// disallows it; the meta tag covers crawlers that reach it anyway.)
 export const metadata: Metadata = {
-  title: "Your Cart | Magnolia Grove Consultants",
-  description: "Review your merchandise selections and submit your order request.",
+  title: TITLE,
+  description: DESCRIPTION,
+  robots: { index: false, follow: false },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: "/merchandise/cart" },
+  twitter: { card: "summary", title: TITLE, description: DESCRIPTION },
 };
 
 export default function CartPage() {

@@ -23,7 +23,7 @@ function PlainCardImage({ product, sizes, priority, imageSrc, imageAlt }: CardIm
   const src = imageSrc ?? product.image;
   if (!src) {
     return (
-      <div className="flex h-full items-center justify-center text-xs font-semibold uppercase tracking-wide text-onyx/40">
+      <div className="flex h-full items-center justify-center text-xs font-semibold uppercase tracking-wide text-onyx/60">
         Image Coming Soon
       </div>
     );

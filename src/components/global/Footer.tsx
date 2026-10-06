@@ -2,6 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { brand, contactDetails, footer, socialLinks } from "@/config/siteConfig";
 import { pillars } from "@/config/pillarsConfig";
+import { FOCUS_RING_ON_DARK } from "@/components/global/focusRing";
+
+const LINK = `inline-block rounded py-1.5 text-sm transition-colors hover:text-gold-bright motion-reduce:transition-none ${FOCUS_RING_ON_DARK}`;
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -20,7 +23,7 @@ export default function Footer() {
             />
             <p className="mt-4 max-w-xs text-base leading-relaxed">{footer.description}</p>
 
-            <div className="mt-6 flex gap-3">
+            <div className="mt-6 flex gap-2">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (
@@ -28,9 +31,9 @@ export default function Footer() {
                     key={social.id}
                     href={social.href}
                     aria-label={social.label}
-                    className="flex h-9 w-9 items-center justify-center rounded-full border border-gold/30 text-muted transition-colors hover:border-gold-bright hover:text-gold-bright motion-reduce:transition-none"
+                    className={`flex h-11 w-11 items-center justify-center rounded-full border border-gold/30 text-muted transition-colors hover:border-gold-bright hover:text-gold-bright motion-reduce:transition-none ${FOCUS_RING_ON_DARK}`}
                   >
-                    <Icon size={16} />
+                    <Icon size={16} aria-hidden="true" />
                   </a>
                 );
               })}
@@ -38,62 +41,53 @@ export default function Footer() {
           </div>
 
           {footer.columns.map((column) => (
-            <div key={column.title}>
-              <h4 className="font-heading text-sm font-semibold uppercase tracking-wide text-white">
+            <nav key={column.title} aria-label={column.title}>
+              <h2 className="font-heading text-sm font-semibold uppercase tracking-wide text-white">
                 {column.title}
-              </h4>
-              <ul className="mt-4 flex flex-col gap-3">
+              </h2>
+              <ul className="mt-3 flex flex-col">
                 {column.links.map((link) => (
                   <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-sm transition-colors hover:text-gold-bright motion-reduce:transition-none"
-                    >
+                    <Link href={link.href} className={LINK}>
                       {link.label}
                     </Link>
                   </li>
                 ))}
               </ul>
-            </div>
+            </nav>
           ))}
 
-          <div>
-            <h4 className="font-heading text-sm font-semibold uppercase tracking-wide text-white">
+          <nav aria-label="4 Pillars">
+            <h2 className="font-heading text-sm font-semibold uppercase tracking-wide text-white">
               4 Pillars
-            </h4>
-            <ul className="mt-4 flex flex-col gap-3">
+            </h2>
+            <ul className="mt-3 flex flex-col">
               <li>
-                <Link
-                  href="/pillars"
-                  className="text-sm transition-colors hover:text-gold-bright motion-reduce:transition-none"
-                >
+                <Link href="/pillars" className={LINK}>
                   All Pillars
                 </Link>
               </li>
               {pillars.map((pillar) => (
                 <li key={pillar.slug}>
-                  <Link
-                    href={`/pillars/${pillar.slug}`}
-                    className="text-sm transition-colors hover:text-gold-bright motion-reduce:transition-none"
-                  >
+                  <Link href={`/pillars/${pillar.slug}`} className={LINK}>
                     {pillar.navLabel}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
           <div>
-            <h4 className="font-heading text-sm font-semibold uppercase tracking-wide text-white">
+            <h2 className="font-heading text-sm font-semibold uppercase tracking-wide text-white">
               Contact
-            </h4>
-            <ul className="mt-4 flex flex-col gap-3">
+            </h2>
+            <ul className="mt-3 flex flex-col gap-1">
               {contactDetails.map((detail) => (
                 <li key={detail.label} className="text-base leading-relaxed">
                   {detail.href ? (
                     <a
                       href={detail.href}
-                      className="transition-colors hover:text-gold-bright motion-reduce:transition-none"
+                      className={`inline-block rounded py-1 transition-colors hover:text-gold-bright motion-reduce:transition-none ${FOCUS_RING_ON_DARK}`}
                     >
                       {detail.value}
                     </a>
@@ -105,9 +99,9 @@ export default function Footer() {
               <li>
                 <Link
                   href="/booking"
-                  className="text-sm font-semibold text-gold-bright transition-colors hover:text-white motion-reduce:transition-none"
+                  className={`inline-block rounded py-1.5 text-sm font-semibold text-gold-bright transition-colors hover:text-white motion-reduce:transition-none ${FOCUS_RING_ON_DARK}`}
                 >
-                  Request a Strategy Session →
+                  Request a Strategy Session <span aria-hidden="true">→</span>
                 </Link>
               </li>
             </ul>
@@ -119,10 +113,16 @@ export default function Footer() {
             &copy; {year} {footer.copyrightName}. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
-            <Link href="/privacy" className="transition-colors hover:text-gold-bright">
+            <Link
+              href="/privacy"
+              className={`inline-block rounded py-1.5 transition-colors hover:text-gold-bright ${FOCUS_RING_ON_DARK}`}
+            >
               Privacy Policy
             </Link>
-            <Link href="/terms" className="transition-colors hover:text-gold-bright">
+            <Link
+              href="/terms"
+              className={`inline-block rounded py-1.5 transition-colors hover:text-gold-bright ${FOCUS_RING_ON_DARK}`}
+            >
               Terms of Service
             </Link>
             <p>{footer.legalDisclaimer}</p>
