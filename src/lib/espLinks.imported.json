@@ -629,12 +629,6 @@
     "asi": "asi/88891",
     "productNo": "DM2415"
   },
-  "coir-doormat-12571": {
-    "espId": "553512571",
-    "supplier": "ADA Promo Inc",
-    "asi": "asi/31551",
-    "productNo": "JLH4012"
-  },
   "led-light-up-music-sound-controlled-coir-doormat-47767": {
     "espId": "556047767",
     "supplier": "Top Line Promos Inc",
@@ -4510,5 +4504,251 @@
     "supplier": "Seville Gear",
     "asi": "asi/86565",
     "productNo": "AG-653"
+  },
+  "cedar-creek-matrix-multi-tool-38988": {
+    "espId": "554538988",
+    "supplier": "Compass Industries Inc",
+    "asi": "asi/46170",
+    "productNo": "8930"
+  },
+  "renew-rechargeable-cob-pocket-flashlight-81146": {
+    "espId": "555981146",
+    "supplier": "HPG",
+    "asi": "asi/61966",
+    "productNo": "L304COB"
+  },
+  "rechargeable-rubberized-torch-light-2-0-18961": {
+    "espId": "556518961",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "25442"
+  },
+  "1200lm-metal-flashlight-with-2000mah-rechargeable-battery-12642": {
+    "espId": "555412642",
+    "supplier": "High Caliber Line USA",
+    "asi": "asi/43442",
+    "productNo": "T147"
+  },
+  "cedar-creek-rechargeable-led-neck-light-24245": {
+    "espId": "555924245",
+    "supplier": "Compass Industries Inc",
+    "asi": "asi/46170",
+    "productNo": "3865"
+  },
+  "cedar-creek-25-foot-tape-measure-73894": {
+    "espId": "551273894",
+    "supplier": "Compass Industries Inc",
+    "asi": "asi/46170",
+    "productNo": "125"
+  },
+  "25-foot-heavy-duty-tape-measure-24321": {
+    "espId": "553124321",
+    "supplier": "Illinois Glove Co",
+    "asi": "asi/62192",
+    "productNo": "25T"
+  },
+  "rechargeable-3-in-1-laser-measure-tape-93325": {
+    "espId": "555993325",
+    "supplier": "Goldentop Gifts Corp",
+    "asi": "asi/79532",
+    "productNo": "GEL5581"
+  },
+  "mini-tape-measure-keychain-21308": {
+    "espId": "555821308",
+    "supplier": "SC Promo Inc",
+    "asi": "asi/87101",
+    "productNo": "ASC15737"
+  },
+  "cedar-creek-handyman-junior-51901": {
+    "espId": "550751901",
+    "supplier": "Compass Industries Inc",
+    "asi": "asi/46170",
+    "productNo": "744"
+  },
+  "large-round-4-in-one-magnetic-driver-set-fc-49569": {
+    "espId": "556349569",
+    "supplier": "Fey Promo",
+    "asi": "asi/54040",
+    "productNo": "F8833"
+  },
+  "2-aa-led-mini-maglite-with-swiss-army-knife-10413": {
+    "espId": "4910413",
+    "supplier": "Compass Industries Inc",
+    "asi": "asi/46170",
+    "productNo": "2AALED-KN"
+  },
+  "colorblock-screwdriver-kit-with-led-light-77662": {
+    "espId": "556277662",
+    "supplier": "Goldentop Gifts Corp",
+    "asi": "asi/79532",
+    "productNo": "GJZ2319"
+  },
+  "zip-exec-tool-kit-48327": {
+    "espId": "551848327",
+    "supplier": "Prime Line",
+    "asi": "asi/79530",
+    "productNo": "TK100"
+  },
+  "kershaw-scallion-fully-customizable-51686": {
+    "espId": "556051686",
+    "supplier": "Compass Industries Inc",
+    "asi": "asi/46170",
+    "productNo": "1620-CUSTOM"
+  },
+  "chaz-carabiner-bottle-opener-64186": {
+    "espId": "551564186",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "2065"
+  },
+  "carabiner-with-compass-37075": {
+    "espId": "555437075",
+    "supplier": "SC Promo Inc",
+    "asi": "asi/87101",
+    "productNo": "ASCA176-SS"
+  },
+  "2-3-8-carabiner-27039": {
+    "espId": "555427039",
+    "supplier": "Red Marketing Service",
+    "asi": "asi/81062",
+    "productNo": "RM17"
+  },
+  "multi-purpose-waterproof-lightweight-bright-led-headlamp-01238": {
+    "espId": "555701238",
+    "supplier": "WholeGifts Trading",
+    "asi": "asi/98423",
+    "productNo": "WG2328"
+  },
+  "custom-cottonweave-tapestry-throw-blanket-usa-made-size-l-28378": {
+    "espId": "5028378",
+    "supplier": "KTP Design Company",
+    "asi": "asi/63773",
+    "productNo": "400-L"
+  },
+  "custom-2-5-layer-cottonweave-throw-blanket-usa-made-l-28322": {
+    "espId": "5028322",
+    "supplier": "KTP Design Company",
+    "asi": "asi/63773",
+    "productNo": "250-L"
+  },
+  "textured-microfleece-blanket-25142": {
+    "espId": "556225142",
+    "supplier": "Terry Town",
+    "asi": "asi/90913",
+    "productNo": "DP2001"
+  },
+  "faux-fur-rpet-bubble-blanket-54720": {
+    "espId": "556454720",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "7068"
+  },
+  "custom-sofa-patriotic-decor-cushion-case-throw-pillow-cover-49188": {
+    "espId": "555849188",
+    "supplier": "WholeGifts Trading",
+    "asi": "asi/98423",
+    "productNo": "WG5551"
+  },
+  "plus-throw-pillow-51713": {
+    "espId": "552151713",
+    "supplier": "Terry Town",
+    "asi": "asi/90913",
+    "productNo": "PC2001"
+  },
+  "stock-uv-color-acrylic-block-frames-28211": {
+    "espId": "553528211",
+    "supplier": "Morris Magnets",
+    "asi": "asi/72521",
+    "productNo": "FRAME-C-AUZ"
+  },
+  "bremmer-frame-silver-55746": {
+    "espId": "552555746",
+    "supplier": "SRG",
+    "asi": "asi/84592",
+    "productNo": "PF091 SILVER"
+  },
+  "tangelo-snapshot-7-digital-photo-frame-39291": {
+    "espId": "551639291",
+    "supplier": "HIRSCH",
+    "asi": "asi/61005",
+    "productNo": "TG-8026"
+  },
+  "4-x-6-holliston-bamboo-photo-frame-09495": {
+    "espId": "553509495",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "75015"
+  },
+  "wax-scented-candle-60629": {
+    "espId": "551760629",
+    "supplier": "NC Custom (CI/Lanco)",
+    "asi": "asi/44900",
+    "productNo": "CW1000-E"
+  },
+  "colorful-candles-glass-cups-aromatherapy-77264": {
+    "espId": "555477264",
+    "supplier": "FUN PRACTICAL PROMOS INC.",
+    "asi": "asi/55634",
+    "productNo": "FPP3SY0154"
+  },
+  "zen-soy-wax-3-oz-candle-with-bamboo-lid-33953": {
+    "espId": "552333953",
+    "supplier": "Active Life Promo",
+    "asi": "asi/72657",
+    "productNo": "G1132H"
+  },
+  "natural-coir-fiber-doormat-18018": {
+    "espId": "553618018",
+    "supplier": "Topromos Inc",
+    "asi": "asi/91271",
+    "productNo": "TPPY210A"
+  },
+  "coir-doormat-89290": {
+    "espId": "553489290",
+    "supplier": "BNS Promo Inc",
+    "asi": "asi/40708",
+    "productNo": "012BJUHD"
+  },
+  "custom-round-pulpboard-coaster-pm-84044": {
+    "espId": "555884044",
+    "supplier": "WBPromotion",
+    "asi": "asi/98409",
+    "productNo": "CO-001RPM"
+  },
+  "bamboo-round-beverage-coaster-31036": {
+    "espId": "552331036",
+    "supplier": "STOPNGO Line",
+    "asi": "asi/57655",
+    "productNo": "CSTR34"
+  },
+  "portable-mini-projection-clock-22629": {
+    "espId": "554222629",
+    "supplier": "Flyer Sourcing Inc",
+    "asi": "asi/54871",
+    "productNo": "EYMW262"
+  },
+  "magnetic-temperature-humidity-date-digital-wall-clock-91488": {
+    "espId": "556491488",
+    "supplier": "WholeGifts Trading",
+    "asi": "asi/98423",
+    "productNo": "WG4287"
+  },
+  "round-wall-clock-79058": {
+    "espId": "555979058",
+    "supplier": "Branding Your Brand Inc",
+    "asi": "asi/90200",
+    "productNo": "CN047"
+  },
+  "bedroom-wall-hanging-bag-organizer-basket-with-pockets-44822": {
+    "espId": "555944822",
+    "supplier": "WholeGifts Trading",
+    "asi": "asi/98423",
+    "productNo": "WG6453"
+  },
+  "collapsible-multi-tasking-basket-93515": {
+    "espId": "553093515",
+    "supplier": "WBPromotion",
+    "asi": "asi/98409",
+    "productNo": "TT984-237"
   }
 }

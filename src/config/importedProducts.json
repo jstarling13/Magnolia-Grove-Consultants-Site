@@ -2308,23 +2308,6 @@
     "imageAlt": "Welcome Entrance Doormat"
   },
   {
-    "id": "coir-doormat-12571",
-    "name": "Coir Doormat",
-    "category": "Home & Decor",
-    "brand": "Essentials",
-    "description": "Natural Coco Coir Doormat. Priced at 200 units.",
-    "tiers": [
-      [200, 54.75],
-      [300, 54.284],
-      [500, 50.427],
-      [800, 49.586],
-      [1000, 47.457]
-    ],
-    "image": "/images/merch/coir-doormat-12571.webp",
-    "imageAlt": "Coir Doormat",
-    "colors": ["Brown"]
-  },
-  {
     "id": "led-light-up-music-sound-controlled-coir-doormat-47767",
     "name": "LED Light-Up Music Sound-Controlled Coir Doormat",
     "category": "Home & Decor",
@@ -14670,5 +14653,733 @@
       "Gray Heather",
       "Royal Heather"
     ]
+  },
+  {
+    "id": "cedar-creek-matrix-multi-tool-38988",
+    "name": "CEDAR CREEK® MATRIX MULTI TOOL",
+    "category": "Knives & Tools",
+    "brand": "Cedar Creek",
+    "description": "4\" closed full-sized multi tool with all stainless-steel body and implements. Priced at 24 units.",
+    "tiers": [
+      [24, 36.5],
+      [144, 35],
+      [288, 34]
+    ],
+    "image": "/images/merch/cedar-creek-matrix-multi-tool-38988.webp",
+    "imageAlt": "CEDAR CREEK® MATRIX MULTI TOOL",
+    "colors": ["Stainless"]
+  },
+  {
+    "id": "renew-rechargeable-cob-pocket-flashlight-81146",
+    "name": "ReNew Rechargeable COB Pocket Flashlight",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "Rechargeable COB pocket flashlight with zoom feature and 4-hour run time. Priced at 100 units.",
+    "tiers": [
+      [100, 8.57],
+      [250, 8.37],
+      [500, 8.18],
+      [1000, 7.79]
+    ],
+    "image": "/images/merch/renew-rechargeable-cob-pocket-flashlight-81146.webp",
+    "imageAlt": "ReNew Rechargeable COB Pocket Flashlight",
+    "colors": ["Grey"]
+  },
+  {
+    "id": "rechargeable-rubberized-torch-light-2-0-18961",
+    "name": "Rechargeable Rubberized Torch Light 2.0",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "5 color options. Size: 4\". Priced at 100 units.",
+    "tiers": [
+      [100, 6.12],
+      [250, 5.32],
+      [500, 4.63],
+      [1000, 4.03],
+      [2500, 3.5]
+    ],
+    "image": "/images/merch/rechargeable-rubberized-torch-light-2-0-18961.webp",
+    "imageAlt": "Rechargeable Rubberized Torch Light 2.0",
+    "colors": ["Black", "Green", "Red", "Yellow", "Royal Blue"]
+  },
+  {
+    "id": "1200lm-metal-flashlight-with-2000mah-rechargeable-battery-12642",
+    "name": "1200LM Metal Flashlight with 2000mAh Rechargeable Battery",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "15W flashlight with 2000mAh rechargeable battery. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 50 units.",
+    "tiers": [
+      [50, 19.12],
+      [100, 18.57],
+      [250, 18.02],
+      [500, 17.5],
+      [1000, 16.99]
+    ],
+    "image": "/images/merch/1200lm-metal-flashlight-with-2000mah-rechargeable-battery-12642.webp",
+    "imageAlt": "1200LM Metal Flashlight with 2000mAh Rechargeable Battery",
+    "colors": ["Black"]
+  },
+  {
+    "id": "cedar-creek-rechargeable-led-neck-light-24245",
+    "name": "Cedar Creek® Rechargeable LED Neck Light",
+    "category": "Knives & Tools",
+    "brand": "Cedar Creek",
+    "description": "This wearable neck light gives you hands-free illumination-perfect for the garage, dog walks, camping, reading, DIY projects, etc. Priced at 48 units.",
+    "tiers": [
+      [48, 26],
+      [144, 25.5],
+      [288, 24.5]
+    ],
+    "image": "/images/merch/cedar-creek-rechargeable-led-neck-light-24245.webp",
+    "imageAlt": "Cedar Creek® Rechargeable LED Neck Light",
+    "colors": ["Black"]
+  },
+  {
+    "id": "cedar-creek-25-foot-tape-measure-73894",
+    "name": "CEDAR CREEK® 25 FOOT TAPE MEASURE",
+    "category": "Knives & Tools",
+    "brand": "Cedar Creek",
+    "description": "Tape measure with self-locking mechanism, impact-resistant rubber case, with 25' of measuring tape. Priced at 24 units.",
+    "tiers": [
+      [24, 20],
+      [144, 19.25],
+      [288, 18.5]
+    ],
+    "image": "/images/merch/cedar-creek-25-foot-tape-measure-73894.webp",
+    "imageAlt": "CEDAR CREEK® 25 FOOT TAPE MEASURE",
+    "colors": ["Gray-Silver"]
+  },
+  {
+    "id": "25-foot-heavy-duty-tape-measure-24321",
+    "name": "25 Foot Heavy Duty Tape Measure",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "25' Heavy Duty Tape Measure. Priced at 48 units.",
+    "tiers": [
+      [48, 19.33],
+      [96, 19],
+      [240, 18.67],
+      [480, 18.33]
+    ],
+    "image": "/images/merch/25-foot-heavy-duty-tape-measure-24321.webp",
+    "imageAlt": "25 Foot Heavy Duty Tape Measure",
+    "colors": ["Gray-Black"]
+  },
+  {
+    "id": "rechargeable-3-in-1-laser-measure-tape-93325",
+    "name": "Rechargeable 3-in-1 Laser Measure Tape",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "with cross-line and dual-axis angle capabilities that are essential for detailed architectural and woodworking projects where accu. Priced at 50 units.",
+    "tiers": [
+      [50, 39.78],
+      [100, 39.75],
+      [250, 39.7],
+      [500, 39.5],
+      [1000, 39]
+    ],
+    "image": "/images/merch/rechargeable-3-in-1-laser-measure-tape-93325.webp",
+    "imageAlt": "Rechargeable 3-in-1 Laser Measure Tape",
+    "colors": ["Black", "Gray", "Yellow"]
+  },
+  {
+    "id": "mini-tape-measure-keychain-21308",
+    "name": "Mini tape measure keychain",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "5 color options. Size: 1.57\" x 1.57\". Priced at 500 units.",
+    "tiers": [
+      [500, 0.567],
+      [1000, 0.533],
+      [2000, 0.517],
+      [3000, 0.5],
+      [4000, 0.483]
+    ],
+    "image": "/images/merch/mini-tape-measure-keychain-21308.webp",
+    "imageAlt": "Mini tape measure keychain",
+    "colors": ["Brass Metal", "Gold Metal", "Iridescent Orange", "Medium Black", "Medium Blue"]
+  },
+  {
+    "id": "cedar-creek-handyman-junior-51901",
+    "name": "Cedar Creek® Handyman Junior",
+    "category": "Knives & Tools",
+    "brand": "Cedar Creek",
+    "description": "LED screwdriver set with eight different screwdrivers that can be pulled out from the body. Priced at 72 units.",
+    "tiers": [
+      [72, 10.5],
+      [144, 10],
+      [576, 9.5]
+    ],
+    "image": "/images/merch/cedar-creek-handyman-junior-51901.webp",
+    "imageAlt": "Cedar Creek® Handyman Junior",
+    "colors": ["Black", "Bright Orange"]
+  },
+  {
+    "id": "large-round-4-in-one-magnetic-driver-set-fc-49569",
+    "name": "Large Round 4-In-One Magnetic Driver Set FC",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "0.69\"H x 4.94\"W x 0.69\"D four-in-one driver set with 3 hex bits and a hex nut driver. Priced at 150 units.",
+    "tiers": [
+      [150, 6.5],
+      [250, 6.35],
+      [500, 6.2],
+      [1000, 6.08]
+    ],
+    "image": "/images/merch/large-round-4-in-one-magnetic-driver-set-fc-49569.webp",
+    "imageAlt": "Large Round 4-In-One Magnetic Driver Set FC",
+    "colors": ["White"]
+  },
+  {
+    "id": "2-aa-led-mini-maglite-with-swiss-army-knife-10413",
+    "name": "2 AA LED Mini Maglite® with Swiss Army® Knife",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "LED flashlight, two AA batteries and combination knife with multiple features in a sleek box. Priced at 24 units.",
+    "tiers": [
+      [24, 97.1],
+      [48, 95.45],
+      [144, 91.85]
+    ],
+    "image": "/images/merch/2-aa-led-mini-maglite-with-swiss-army-knife-10413.webp",
+    "imageAlt": "2 AA LED Mini Maglite® with Swiss Army® Knife",
+    "colors": ["Black", "Blue", "Red"]
+  },
+  {
+    "id": "colorblock-screwdriver-kit-with-led-light-77662",
+    "name": "Colorblock Screwdriver Kit With Led Light",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "Custom 6 In 1 Multi-Function Screwdriver Tool Kit, Portable Tool Kit For Daily Repairs Furniture Assembly, Automotive Maintenance. Priced at 200 units.",
+    "tiers": [
+      [200, 3.067],
+      [500, 2.85],
+      [1000, 2.683],
+      [1500, 2.517],
+      [3000, 2.1]
+    ],
+    "image": "/images/merch/colorblock-screwdriver-kit-with-led-light-77662.webp",
+    "imageAlt": "Colorblock Screwdriver Kit With Led Light",
+    "colors": ["Blue", "Black", "Red"]
+  },
+  {
+    "id": "zip-exec-tool-kit-48327",
+    "name": "Zip Exec Tool Kit",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "15-piece tool kit in a nylon gauge zippered case. Priced at 25 units.",
+    "tiers": [
+      [25, 13.89],
+      [75, 13.59],
+      [150, 13.29],
+      [300, 12.99]
+    ],
+    "image": "/images/merch/zip-exec-tool-kit-48327.webp",
+    "imageAlt": "Zip Exec Tool Kit",
+    "colors": ["Black", "Blue"]
+  },
+  {
+    "id": "kershaw-scallion-fully-customizable-51686",
+    "name": "Kershaw® Scallion Fully Customizable",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "Totally customize one of Kershaw's best-selling USA-made knives. Add any image, photograph, design on the front and back handle. Made in USA. Priced at 300 units.",
+    "tiers": [[300, 110]],
+    "image": "/images/merch/kershaw-scallion-fully-customizable-51686.webp",
+    "imageAlt": "Kershaw® Scallion Fully Customizable",
+    "colors": ["Black"]
+  },
+  {
+    "id": "chaz-carabiner-bottle-opener-64186",
+    "name": "Chaz Carabiner Bottle Opener",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "Flat carabiner that measures 1 3/4\" x 3\", is available in various colors and has a bottle opener feature. Priced at 250 units.",
+    "tiers": [
+      [250, 1.93],
+      [500, 1.68],
+      [1000, 1.46],
+      [2500, 1.27],
+      [5000, 1.1]
+    ],
+    "image": "/images/merch/chaz-carabiner-bottle-opener-64186.webp",
+    "imageAlt": "Chaz Carabiner Bottle Opener",
+    "colors": ["Black", "Blue", "Green", "Purple", "Red", "Silver"]
+  },
+  {
+    "id": "carabiner-with-compass-37075",
+    "name": "Carabiner With Compass",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "Carabineer with built-in compass. Priced at 100 units.",
+    "tiers": [
+      [100, 1.6],
+      [500, 1.12],
+      [3000, 0.99],
+      [5000, 0.86],
+      [10000, 0.82]
+    ],
+    "image": "/images/merch/carabiner-with-compass-37075.webp",
+    "imageAlt": "Carabiner With Compass",
+    "colors": ["Green", "Orange", "Yellow", "Red", "Purple", "Blue"]
+  },
+  {
+    "id": "2-3-8-carabiner-27039",
+    "name": "2 3/8\" Carabiner",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "There is a color for any occasions, blue, pink, green, yellow, black and more. It is ideal giveaway product for any industry. Priced at 50 units.",
+    "tiers": [
+      [50, 1.58],
+      [100, 1.36],
+      [300, 1.12],
+      [500, 0.66],
+      [1000, 0.58]
+    ],
+    "image": "/images/merch/2-3-8-carabiner-27039.webp",
+    "imageAlt": "2 3/8\" Carabiner",
+    "colors": [
+      "Black",
+      "Blue",
+      "Brown",
+      "Gray",
+      "Green",
+      "Purple",
+      "Pink",
+      "Orange",
+      "Red",
+      "White",
+      "Yellow",
+      "Burgundy",
+      "Navy Blue",
+      "Royal Blue",
+      "Gold",
+      "Light Blue",
+      "Silver",
+      "Teal",
+      "Maroon"
+    ]
+  },
+  {
+    "id": "multi-purpose-waterproof-lightweight-bright-led-headlamp-01238",
+    "name": "Multi-purpose Waterproof Lightweight Bright LED Headlamp",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "This multi-functional LED headlamp can free your hands and bring you sufficient lighting and convenience.Rush service is provided. Priced at 300 units.",
+    "tiers": [
+      [300, 2.817],
+      [500, 2.767],
+      [1000, 2.717],
+      [2000, 2.683],
+      [5000, 2.433]
+    ],
+    "image": "/images/merch/multi-purpose-waterproof-lightweight-bright-led-headlamp-01238.webp",
+    "imageAlt": "Multi-purpose Waterproof Lightweight Bright LED Headlamp",
+    "colors": ["Black"]
+  },
+  {
+    "id": "custom-cottonweave-tapestry-throw-blanket-usa-made-size-l-28378",
+    "name": "Custom CottonWeave™ Tapestry Throw Blanket, USA-made. Size L",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Custom CottonWeave™ tapestry throw blanket, made in the USA. 52\" x 60\". Woven from high-quality 100% cotton. No set-ups. Made in USA. Priced at 25 units.",
+    "tiers": [
+      [25, 64],
+      [50, 62.5],
+      [100, 61],
+      [250, 57.5]
+    ],
+    "image": "/images/merch/custom-cottonweave-tapestry-throw-blanket-usa-made-size-l-28378.webp",
+    "imageAlt": "Custom CottonWeave™ Tapestry Throw Blanket, USA-made. Size L",
+    "colors": [
+      "Black",
+      "Blue",
+      "Gray",
+      "Green",
+      "Orange",
+      "Pink",
+      "Purple",
+      "Red",
+      "White",
+      "Yellow",
+      "Burgundy",
+      "Gold",
+      "Light Blue",
+      "Maroon",
+      "Navy Blue",
+      "Royal Blue",
+      "Teal",
+      "Brown"
+    ]
+  },
+  {
+    "id": "custom-2-5-layer-cottonweave-throw-blanket-usa-made-l-28322",
+    "name": "Custom 2.5-Layer CottonWeave™ Throw Blanket, USA-made. L",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Custom 2.5-Layer CottonWeave™ throw blanket, made in the USA. 52\" x 60\". Woven from premium cotton-rich yarns. No set-ups. Made in USA. Priced at 25 units.",
+    "tiers": [
+      [25, 62],
+      [50, 59.5],
+      [100, 58.5],
+      [250, 56]
+    ],
+    "image": "/images/merch/custom-2-5-layer-cottonweave-throw-blanket-usa-made-l-28322.webp",
+    "imageAlt": "Custom 2.5-Layer CottonWeave™ Throw Blanket, USA-made. L",
+    "colors": [
+      "Black",
+      "Blue",
+      "Brown",
+      "Gray",
+      "Green",
+      "Orange",
+      "Pink",
+      "Purple",
+      "Red",
+      "White",
+      "Yellow",
+      "Burgundy",
+      "Gold",
+      "Light Blue",
+      "Maroon",
+      "Navy Blue",
+      "Royal Blue",
+      "Teal"
+    ]
+  },
+  {
+    "id": "textured-microfleece-blanket-25142",
+    "name": "Textured Microfleece Blanket",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "50\" x 60\", 40 oz/pc. Priced at 12 units.",
+    "tiers": [
+      [12, 43.65],
+      [36, 41.87],
+      [72, 40.22],
+      [144, 38.72],
+      [300, 37.37]
+    ],
+    "image": "/images/merch/textured-microfleece-blanket-25142.webp",
+    "imageAlt": "Textured Microfleece Blanket",
+    "colors": ["Ivory", "Mocha"]
+  },
+  {
+    "id": "faux-fur-rpet-bubble-blanket-54720",
+    "name": "Faux Fur rPET Bubble Blanket",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "3 color options. Size: 60\" x 50\". Priced at 20 units.",
+    "tiers": [
+      [20, 43.71],
+      [40, 38.01],
+      [100, 33.05],
+      [260, 28.74],
+      [500, 24.99]
+    ],
+    "image": "/images/merch/faux-fur-rpet-bubble-blanket-54720.webp",
+    "imageAlt": "Faux Fur rPET Bubble Blanket",
+    "colors": ["Cream", "Gray", "Navy Blue"]
+  },
+  {
+    "id": "custom-sofa-patriotic-decor-cushion-case-throw-pillow-cover-49188",
+    "name": "Custom sofa patriotic decor cushion case throw pillow cover",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Our throw pillow cover is customizable, offering durable and stylish designs for any home decor. Rush service is available. Priced at 50 units.",
+    "tiers": [
+      [50, 3.45],
+      [100, 3.4],
+      [200, 3.333],
+      [500, 3.3],
+      [1000, 2.983]
+    ],
+    "image": "/images/merch/custom-sofa-patriotic-decor-cushion-case-throw-pillow-cover-49188.webp",
+    "imageAlt": "Custom sofa patriotic decor cushion case throw pillow cover",
+    "colors": ["Red", "Blue", "White"]
+  },
+  {
+    "id": "plus-throw-pillow-51713",
+    "name": "Plus Throw Pillow",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Customizable 18\" x 18\" polyester throw pillow with 100% polypropylene filler and edge to edge sublimation. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 12 units.",
+    "tiers": [
+      [12, 29.17],
+      [36, 28.14],
+      [72, 27.15],
+      [144, 26.25],
+      [300, 25.42]
+    ],
+    "image": "/images/merch/plus-throw-pillow-51713.webp",
+    "imageAlt": "Plus Throw Pillow",
+    "colors": ["Multi color"]
+  },
+  {
+    "id": "stock-uv-color-acrylic-block-frames-28211",
+    "name": "Stock UV color Acrylic Block Frames",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "UV color block frame made of acrylic. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 25 units.",
+    "tiers": [
+      [25, 29.017],
+      [50, 22.667],
+      [100, 20.8],
+      [250, 20],
+      [500, 19.233]
+    ],
+    "image": "/images/merch/stock-uv-color-acrylic-block-frames-28211.webp",
+    "imageAlt": "Stock UV color Acrylic Block Frames",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "bremmer-frame-silver-55746",
+    "name": "Bremmer Frame - Silver",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Curved aluminum picture frame. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 24 units.",
+    "tiers": [
+      [24, 11.25],
+      [72, 10.8],
+      [144, 10.4],
+      [288, 10.05]
+    ],
+    "image": "/images/merch/bremmer-frame-silver-55746.webp",
+    "imageAlt": "Bremmer Frame - Silver",
+    "colors": ["Silver"]
+  },
+  {
+    "id": "tangelo-snapshot-7-digital-photo-frame-39291",
+    "name": "Tangelo SnapShot 7\" Digital Photo Frame",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "8\" x 1\" x 5 5/8\" high resolution digital photo frame with alarm clock, wireless speaker and USB port for data transfer. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 12 units.",
+    "tiers": [
+      [12, 83.95],
+      [25, 81.95],
+      [50, 79.95]
+    ],
+    "image": "/images/merch/tangelo-snapshot-7-digital-photo-frame-39291.webp",
+    "imageAlt": "Tangelo SnapShot 7\" Digital Photo Frame",
+    "colors": ["Black"]
+  },
+  {
+    "id": "4-x-6-holliston-bamboo-photo-frame-09495",
+    "name": "4\" x 6\" Holliston Bamboo Photo Frame",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "4\" x 6\" Holliston bamboo photo frame for displaying your most precious memories. Priced at 100 units.",
+    "tiers": [
+      [100, 12.24],
+      [250, 10.64],
+      [500, 9.25],
+      [1000, 8.04],
+      [2500, 6.99]
+    ],
+    "image": "/images/merch/4-x-6-holliston-bamboo-photo-frame-09495.webp",
+    "imageAlt": "4\" x 6\" Holliston Bamboo Photo Frame",
+    "colors": ["Natural"]
+  },
+  {
+    "id": "wax-scented-candle-60629",
+    "name": "Wax Scented Candle",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Votive candle inside a 3 oz. frosted glass jar with scent choices and customization. Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 48 units.",
+    "tiers": [
+      [48, 11.5],
+      [192, 10.95],
+      [576, 10.64]
+    ],
+    "image": "/images/merch/wax-scented-candle-60629.webp",
+    "imageAlt": "Wax Scented Candle",
+    "colors": ["Ivory", "Blue", "Red", "Green", "Pink", "Brown"]
+  },
+  {
+    "id": "colorful-candles-glass-cups-aromatherapy-77264",
+    "name": "Colorful Candles Glass Cups Aromatherapy",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Custom Colorful Candles Glass Cups Aromatherapy,Show Your Brand. Priced at 20 units.",
+    "tiers": [
+      [20, 7.307],
+      [50, 6.432],
+      [100, 5.072],
+      [500, 1.812],
+      [1000, 1.678]
+    ],
+    "image": "/images/merch/colorful-candles-glass-cups-aromatherapy-77264.webp",
+    "imageAlt": "Colorful Candles Glass Cups Aromatherapy",
+    "colors": ["Brown", "Yellow", "Orange", "Blue", "Purple", "Green", "Pink"]
+  },
+  {
+    "id": "zen-soy-wax-3-oz-candle-with-bamboo-lid-33953",
+    "name": "Zen Soy Wax 3 oz Candle with Bamboo Lid",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Soy Wax Candle with Bamboo Lid, Classic Ceramic container 3 oz. Priced at 25 units.",
+    "tiers": [
+      [25, 13.04],
+      [50, 11.59],
+      [100, 9.84],
+      [250, 8.99],
+      [500, 8.28]
+    ],
+    "image": "/images/merch/zen-soy-wax-3-oz-candle-with-bamboo-lid-33953.webp",
+    "imageAlt": "Zen Soy Wax 3 oz Candle with Bamboo Lid",
+    "colors": ["White"]
+  },
+  {
+    "id": "natural-coir-fiber-doormat-18018",
+    "name": "Natural Coir Fiber Doormat",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "29\" x 17\" x 0.75\" doormat with an anti-slip design. Priced at 100 units.",
+    "tiers": [
+      [100, 42.667],
+      [250, 41.333],
+      [500, 39.833],
+      [1000, 37.5],
+      [2500, 33]
+    ],
+    "image": "/images/merch/natural-coir-fiber-doormat-18018.webp",
+    "imageAlt": "Natural Coir Fiber Doormat",
+    "colors": ["Coco Fiber"]
+  },
+  {
+    "id": "coir-doormat-89290",
+    "name": "Coir Doormat",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Natural Coco Coir Doormat. Priced at 200 units.",
+    "tiers": [
+      [200, 48.782],
+      [300, 48.367],
+      [500, 44.93],
+      [800, 44.181],
+      [1000, 42.284]
+    ],
+    "image": "/images/merch/coir-doormat-89290.webp",
+    "imageAlt": "Coir Doormat",
+    "colors": ["Brown"]
+  },
+  {
+    "id": "custom-round-pulpboard-coaster-pm-84044",
+    "name": "Custom Round Pulpboard Coaster-PM",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Customizable pulpboard beverage coasters with a circular shape. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 50 units.",
+    "tiers": [
+      [50, 0.71],
+      [100, 0.6],
+      [200, 0.52],
+      [300, 0.4],
+      [500, 0.29]
+    ],
+    "image": "/images/merch/custom-round-pulpboard-coaster-pm-84044.webp",
+    "imageAlt": "Custom Round Pulpboard Coaster-PM",
+    "colors": ["Natural"]
+  },
+  {
+    "id": "bamboo-round-beverage-coaster-31036",
+    "name": "Bamboo Round Beverage Coaster",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "3 1/4\" bamboo round coasters. Priced at 100 units.",
+    "tiers": [
+      [100, 2.3],
+      [250, 2.15],
+      [500, 2.1],
+      [1000, 2.05],
+      [2500, 2]
+    ],
+    "image": "/images/merch/bamboo-round-beverage-coaster-31036.webp",
+    "imageAlt": "Bamboo Round Beverage Coaster",
+    "colors": ["Bamboo"]
+  },
+  {
+    "id": "portable-mini-projection-clock-22629",
+    "name": "Portable Mini Projection Clock",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "This projection clock is made of high quality ABS, durable and wear-resistant, powered by two button batteries (included). Priced at 500 units.",
+    "tiers": [
+      [500, 3.08],
+      [1000, 2.77],
+      [2000, 2.73],
+      [3000, 2.7],
+      [5000, 2.67]
+    ],
+    "image": "/images/merch/portable-mini-projection-clock-22629.webp",
+    "imageAlt": "Portable Mini Projection Clock",
+    "colors": ["Black", "Blue", "Red"]
+  },
+  {
+    "id": "magnetic-temperature-humidity-date-digital-wall-clock-91488",
+    "name": "Magnetic Temperature Humidity Date Digital Wall Clock",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Our wall clock shows time, date, humidity, and temperature, enhancing space elegance and functionality. Rush service is available. Priced at 50 units.",
+    "tiers": [
+      [50, 8.633],
+      [100, 8.483],
+      [200, 8.317],
+      [500, 8.25],
+      [1000, 7.45]
+    ],
+    "image": "/images/merch/magnetic-temperature-humidity-date-digital-wall-clock-91488.webp",
+    "imageAlt": "Magnetic Temperature Humidity Date Digital Wall Clock",
+    "colors": ["Black"]
+  },
+  {
+    "id": "round-wall-clock-79058",
+    "name": "Round Wall Clock",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "12in wall clock with analog operation, hour and minute hand. Priced at 10 units.",
+    "tiers": [
+      [10, 22.083],
+      [100, 19.183],
+      [500, 17.733],
+      [1000, 16.283],
+      [3000, 7.7]
+    ],
+    "image": "/images/merch/round-wall-clock-79058.webp",
+    "imageAlt": "Round Wall Clock",
+    "colors": ["Black", "Blue", "Brown", "Gray", "Green", "Red", "White"]
+  },
+  {
+    "id": "bedroom-wall-hanging-bag-organizer-basket-with-pockets-44822",
+    "name": "Bedroom wall hanging bag organizer basket with pockets",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Wall Organizer optimizes storage in dorms and kitchens, ensuring organized spaces and easy access. Rush service is available. Priced at 100 units.",
+    "tiers": [
+      [100, 7.367],
+      [200, 7.267],
+      [500, 7.083],
+      [1000, 6.933],
+      [2000, 6.233]
+    ],
+    "image": "/images/merch/bedroom-wall-hanging-bag-organizer-basket-with-pockets-44822.webp",
+    "imageAlt": "Bedroom wall hanging bag organizer basket with pockets",
+    "colors": ["Light Gray", "White"]
+  },
+  {
+    "id": "collapsible-multi-tasking-basket-93515",
+    "name": "Collapsible Multi-Tasking Basket",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Collapsible Multi-Tasking Basket. 600D Polyester. Snap Closure. Aluminum Carrying Handle. Priced at 48 units.",
+    "tiers": [
+      [48, 81.28],
+      [96, 70.68],
+      [144, 61.44],
+      [288, 53.44],
+      [576, 46.46]
+    ],
+    "image": "/images/merch/collapsible-multi-tasking-basket-93515.webp",
+    "imageAlt": "Collapsible Multi-Tasking Basket",
+    "colors": ["Black", "Blue", "Red", "Lime Green"]
   }
 ]
