@@ -8,6 +8,9 @@ import ProductCatalog from "@/components/merchandise/ProductCatalog";
 import CartLink from "@/components/merchandise/CartLink";
 
 const TITLE = "Custom-Branded Merchandise | Magnolia Grove Consultants";
+/** Hub intro. The catalog below lists every product, so this does not call it a selection. */
+const HUB_SUBTITLE =
+  "Browse by category or search the full catalog below, or tell us what you're looking for. We can source almost anything through our supplier network.";
 const DESCRIPTION =
   "Custom-branded apparel, headwear, drinkware, bags and promotional products for campaigns and businesses. Upload your logo, preview it on any item, and request a quote from Magnolia Grove Consultants.";
 
@@ -51,7 +54,7 @@ export default function MerchandisePage() {
           </h1>
           <p className="mt-5 text-base leading-relaxed text-muted-light">
             {hasProducts
-              ? merchandisePage.subtitle
+              ? HUB_SUBTITLE
               : "Our merchandise catalog is on its way. Check back shortly."}
           </p>
         </div>

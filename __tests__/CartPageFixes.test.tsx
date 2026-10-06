@@ -182,6 +182,43 @@ describe("cart quantity inputs", () => {
     expect(stored()).toEqual([{ productId: "mug", quantity: 15 }]);
   });
 
+  it("commits a typed quantity on blur or Enter, not on each keystroke", () => {
+    renderCart([{ productId: "mug", quantity: 10 }]);
+    const input = screen.getByLabelText("Quantity for Test Mug");
+    const type = (value: string) =>
+      fireEvent.input(input, { target: { value }, inputType: "insertText" });
+
+    type("1");
+    type("14");
+    type("144");
+    expect(input).toHaveValue(144);
+    // Nothing reached the cart while typing: no 1 / 14 / 144 flash.
+    expect(stored()).toEqual([{ productId: "mug", quantity: 10 }]);
+
+    fireEvent.blur(input);
+    expect(stored()).toEqual([{ productId: "mug", quantity: 144 }]);
+
+    type("200");
+    fireEvent.keyDown(input, { key: "Enter" });
+    expect(stored()).toEqual([{ productId: "mug", quantity: 200 }]);
+  });
+
+  it("leaves the saved quantity alone when a typed box is cleared, and restores it on blur", () => {
+    renderCart([{ productId: "mug", quantity: 24 }]);
+    const input = screen.getByLabelText("Quantity for Test Mug");
+    const type = (value: string) =>
+      fireEvent.input(input, { target: { value }, inputType: "deleteContentBackward" });
+
+    // Backspacing "24" to "2" to "" must not leave 2 saved.
+    type("2");
+    type("");
+    expect(input).toHaveValue(null);
+    expect(stored()).toEqual([{ productId: "mug", quantity: 24 }]);
+    fireEvent.blur(input);
+    expect(input).toHaveValue(24);
+    expect(stored()).toEqual([{ productId: "mug", quantity: 24 }]);
+  });
+
   it("puts the last good quantity back on blur or Enter when left empty", () => {
     renderCart([{ productId: "mug", quantity: 40 }]);
     const input = screen.getByLabelText("Quantity for Test Mug");
