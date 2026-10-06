@@ -2075,12 +2075,6 @@
     "asi": "asi/91484",
     "productNo": "SW3979"
   },
-  "tribune-3-in-1-charging-cable-47651": {
-    "espId": "556047651",
-    "supplier": "Ariel Premium Supply Inc",
-    "asi": "asi/36730",
-    "productNo": "EAC-TR25"
-  },
   "mag-max-rabs-airplane-phone-holder-18964": {
     "espId": "556518964",
     "supplier": "Hit Promotional Products",
@@ -4240,12 +4234,6 @@
     "supplier": "WholeGifts Trading",
     "asi": "asi/98423",
     "productNo": "WG8231"
-  },
-  "phone-ring-and-stand-00903": {
-    "espId": "554100903",
-    "supplier": "Tekweld",
-    "asi": "asi/90807",
-    "productNo": "PH101"
   },
   "foldable-aluminum-laptop-stand-with-cooling-fan-96728": {
     "espId": "555496728",
@@ -7600,5 +7588,299 @@
     "supplier": "WholeGifts Trading",
     "asi": "asi/98423",
     "productNo": "WG5767"
+  },
+  "magsafe-compatible-4000-mah-magnetic-power-bank-50314": {
+    "espId": "555450314",
+    "supplier": "STOPNGO Line",
+    "asi": "asi/57655",
+    "productNo": "CA3121"
+  },
+  "quice-2in1-charging-pad-10012": {
+    "espId": "555010012",
+    "supplier": "Agraffes Innovation",
+    "asi": "asi/36722",
+    "productNo": "AG-WLKK"
+  },
+  "15000mah-power-bank-pd22-5w-usb-c-charger-with-cables-35778": {
+    "espId": "555635778",
+    "supplier": "Goldentop Gifts Corp",
+    "asi": "asi/79532",
+    "productNo": "GOM2775"
+  },
+  "bjorn-wireless-5-000mah-magsafe-power-bank-96237": {
+    "espId": "555196237",
+    "supplier": "High Caliber Line USA",
+    "asi": "asi/43442",
+    "productNo": "T298"
+  },
+  "4000mah-power-bank-w-built-in-cable-24147": {
+    "espId": "552424147",
+    "supplier": "Giraffe Technology",
+    "asi": "asi/56886",
+    "productNo": "GP-PMU074"
+  },
+  "5-in-1-wireless-charging-power-bank-58100": {
+    "espId": "551958100",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "2896"
+  },
+  "powr2-magnetic-power-bank-and-wallet-stand-51039": {
+    "espId": "556551039",
+    "supplier": "HPG",
+    "asi": "asi/61966",
+    "productNo": "701295"
+  },
+  "rechargeable-power-bank-with-fan-and-flashlight-16729": {
+    "espId": "554616729",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "26557"
+  },
+  "20000mah-portable-power-bank-with-4-cables-and-flashlights-96915": {
+    "espId": "555996915",
+    "supplier": "Uniprint Inc.",
+    "asi": "asi/92491",
+    "productNo": "UX2043"
+  },
+  "2-in-1-splittable-bluetooth-speaker-with-stereo-sound-49218": {
+    "espId": "556149218",
+    "supplier": "Power Up Promo",
+    "asi": "asi/79073",
+    "productNo": "PUSU2591"
+  },
+  "addison-wireless-speaker-18352": {
+    "espId": "551818352",
+    "supplier": "Sunjoy Group Inc",
+    "asi": "asi/90154",
+    "productNo": "SPK025A"
+  },
+  "ipx6-waterproof-magnetic-bluetooth-speaker-with-rgb-light-45691": {
+    "espId": "556345691",
+    "supplier": "Promo Gifts House Inc",
+    "asi": "asi/80106",
+    "productNo": "PGHE351"
+  },
+  "waterbox-waterproof-wireless-speaker-78468": {
+    "espId": "552578468",
+    "supplier": "HPG",
+    "asi": "asi/61966",
+    "productNo": "23310"
+  },
+  "jbl-go-5-ultra-portable-waterproof-bluetooth-speaker-89351": {
+    "espId": "556089351",
+    "supplier": "imprintID",
+    "asi": "asi/73651",
+    "productNo": "JBLGO5PS"
+  },
+  "sound-sharp-wireless-headphones-65675": {
+    "espId": "556265675",
+    "supplier": "HPG",
+    "asi": "asi/61966",
+    "productNo": "701245"
+  },
+  "custom-beats-solo-4-wireless-bluetooth-on-ear-headphones-67344": {
+    "espId": "555767344",
+    "supplier": "Sunjoy Group Inc",
+    "asi": "asi/90154",
+    "productNo": "BEATSSOLO4"
+  },
+  "2025-open-ear-wireless-earbuds-panoramic-sound-hd-calls-35496": {
+    "espId": "556035496",
+    "supplier": "Promo Gifts House Inc",
+    "asi": "asi/80106",
+    "productNo": "PGCR383"
+  },
+  "custom-apple-airpods-pro-2-usb-c-88139": {
+    "espId": "554988139",
+    "supplier": "Sunjoy Group Inc",
+    "asi": "asi/90154",
+    "productNo": "AIRPODSPRO2C"
+  },
+  "portable-4-port-usb-ethernet-hub-rectangle-promotional-17509": {
+    "espId": "556517509",
+    "supplier": "Goldentop Gifts Corp",
+    "asi": "asi/79532",
+    "productNo": "GTJ7768"
+  },
+  "northlake-swivel-usb-flash-drive-on-demand-41575": {
+    "espId": "200241575",
+    "supplier": "Sunjoy Group Inc",
+    "asi": "asi/90154",
+    "productNo": "SJUSB0006"
+  },
+  "bamboo-usb-flash-drive-15161": {
+    "espId": "5015161",
+    "supplier": "Tempo Industries Inc",
+    "asi": "asi/90859",
+    "productNo": "FD-040"
+  },
+  "usb-flash-drive-4gb-75333": {
+    "espId": "553975333",
+    "supplier": "Topromos Inc",
+    "asi": "asi/91271",
+    "productNo": "TPBH054A"
+  },
+  "desktop-organizer-with-pens-and-highlighters-61257": {
+    "espId": "556161257",
+    "supplier": "WOWLine",
+    "asi": "asi/98360",
+    "productNo": "S13113X"
+  },
+  "magsafe-phone-wallet-stand-92344": {
+    "espId": "555992344",
+    "supplier": "Prime Gifts Inc",
+    "asi": "asi/79539",
+    "productNo": "RW1106"
+  },
+  "phone-stand-89952": {
+    "espId": "555389952",
+    "supplier": "Marketing Gifts Inc",
+    "asi": "asi/68835",
+    "productNo": "GA1772"
+  },
+  "surf-stand-41573": {
+    "espId": "551241573",
+    "supplier": "HPG",
+    "asi": "asi/61966",
+    "productNo": "18804"
+  },
+  "3-in-1-multi-usb-retractable-charger-cable-3a-multiple-cord-46008": {
+    "espId": "553446008",
+    "supplier": "I Promotion Pro Inc",
+    "asi": "asi/62098",
+    "productNo": "IPFZ139A"
+  },
+  "5d-phone-stand-78461": {
+    "espId": "554678461",
+    "supplier": "Tekweld",
+    "asi": "asi/90807",
+    "productNo": "5D-PS1"
+  },
+  "fast-3-in-1-charging-cable-88331": {
+    "espId": "556188331",
+    "supplier": "Bollen Promos Inc",
+    "asi": "asi/40793",
+    "productNo": "YGN2564-F"
+  },
+  "magma-combo-hand-warmer-and-4000-mah-power-bank-38629": {
+    "espId": "552038629",
+    "supplier": "Ariel Premium Supply Inc",
+    "asi": "asi/36730",
+    "productNo": "EPB-MC18"
+  },
+  "powerstick-powertag-travel-18544": {
+    "espId": "555918544",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "29021"
+  },
+  "fitness-tracker-smart-band-with-heart-rate-monitor-60134": {
+    "espId": "555960134",
+    "supplier": "Edge Pop Promo Inc",
+    "asi": "asi/51680",
+    "productNo": "EPJH0609"
+  },
+  "homer-webcam-cover-64486": {
+    "espId": "552564486",
+    "supplier": "Agraffes Innovation",
+    "asi": "asi/36722",
+    "productNo": "AG-WCRJ"
+  },
+  "security-webcam-cover-48304": {
+    "espId": "551548304",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "265"
+  },
+  "anker-usb-c-hub-7-in-1-83981": {
+    "espId": "556383981",
+    "supplier": "Gemline",
+    "asi": "asi/56070",
+    "productNo": "103201"
+  },
+  "techmate-3-in-1-charging-cable-and-usb-hub-2-0-51889": {
+    "espId": "555351889",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "22494"
+  },
+  "anker-332-usb-c-hub-5-in-1-83979": {
+    "espId": "556383979",
+    "supplier": "Gemline",
+    "asi": "asi/56070",
+    "productNo": "103200"
+  },
+  "foldable-flying-disc-fan-with-pouch-06329": {
+    "espId": "554706329",
+    "supplier": "Ink Link Promo Inc",
+    "asi": "asi/62594",
+    "productNo": "kkt22318"
+  },
+  "rechargeable-mini-fan-clip-10548": {
+    "espId": "556010548",
+    "supplier": "Prime Gifts Inc",
+    "asi": "asi/79539",
+    "productNo": "LC2085"
+  },
+  "electric-led-fan-usb-charged-29457": {
+    "espId": "555629457",
+    "supplier": "Sprinters Advertising",
+    "asi": "asi/88891",
+    "productNo": "EF9000"
+  },
+  "anti-slip-silicone-car-phone-holder-32180": {
+    "espId": "556032180",
+    "supplier": "Uniprint Inc.",
+    "asi": "asi/92491",
+    "productNo": "CK3253"
+  },
+  "portable-universal-air-vent-magnetic-car-mount-phone-holder-01602": {
+    "espId": "555101602",
+    "supplier": "Promosmart Inc.",
+    "asi": "asi/80026",
+    "productNo": "AY5941"
+  },
+  "suction-cup-phone-holder-desk-stand-36271": {
+    "espId": "555936271",
+    "supplier": "Goldentop Gifts Corp",
+    "asi": "asi/79532",
+    "productNo": "GOM2880"
+  },
+  "white-barrel-european-design-ballpoint-pen-43047": {
+    "espId": "5443047",
+    "supplier": "Graphco Line",
+    "asi": "asi/57956",
+    "productNo": "FLWR"
+  },
+  "click-action-pens-89791": {
+    "espId": "555089791",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "CAPENS4"
+  },
+  "two-tone-sleek-write-rubberized-pen-75268": {
+    "espId": "550375268",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "833"
+  },
+  "dynamic-ballpoint-pens-89787": {
+    "espId": "555089787",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "DBPENS1"
+  },
+  "stylus-444-soft-touch-stylus-pen-72091": {
+    "espId": "553872091",
+    "supplier": "Lungsal",
+    "asi": "asi/68190",
+    "productNo": "ST-444"
+  },
+  "6-in-1-tool-pen-43291": {
+    "espId": "554943291",
+    "supplier": "Top Line Promos Inc",
+    "asi": "asi/91484",
+    "productNo": "RL1777"
   }
 }

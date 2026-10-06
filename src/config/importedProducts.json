@@ -7063,23 +7063,6 @@
     "colors": ["Natural"]
   },
   {
-    "id": "tribune-3-in-1-charging-cable-47651",
-    "name": "Tribune 3-in-1 Charging Cable",
-    "category": "Tech Accessories",
-    "brand": "Essentials",
-    "description": "3-in-1 Charging Cable. Priced at 100 units.",
-    "tiers": [
-      [100, 2.67],
-      [250, 2.53],
-      [500, 2.42],
-      [1000, 2.33],
-      [2500, 2.25]
-    ],
-    "image": "/images/merch/tribune-3-in-1-charging-cable-47651.webp",
-    "imageAlt": "Tribune 3-in-1 Charging Cable",
-    "colors": ["Medium White"]
-  },
-  {
     "id": "mag-max-rabs-airplane-phone-holder-18964",
     "name": "Mag Max rABS Airplane Phone Holder",
     "category": "Tech Accessories",
@@ -13832,22 +13815,6 @@
     "image": "/images/merch/travel-portable-magnetic-phone-camera-grip-with-shutter-93248.webp",
     "imageAlt": "Travel Portable Magnetic Phone Camera Grip with Shutter",
     "colors": ["Black", "Blue", "Light Purple", "Pink"]
-  },
-  {
-    "id": "phone-ring-and-stand-00903",
-    "name": "Phone Ring and Stand",
-    "category": "Tech Accessories",
-    "brand": "Essentials",
-    "description": "Phone ring and stand. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 150 units.",
-    "tiers": [
-      [150, 0.96],
-      [250, 0.89],
-      [1000, 0.84],
-      [2500, 0.78]
-    ],
-    "image": "/images/merch/phone-ring-and-stand-00903.webp",
-    "imageAlt": "Phone Ring and Stand",
-    "colors": ["Black", "Blue", "Lime Green", "Orange", "Purple", "Red", "Teal", "White", "Yellow"]
   },
   {
     "id": "foldable-aluminum-laptop-stand-with-cooling-fan-96728",
@@ -24188,5 +24155,905 @@
     "image": "/images/merch/office-supplies-a5-lined-gratitude-journal-meeting-notebook-00998.webp",
     "imageAlt": "Office Supplies a5 Lined Gratitude Journal Meeting Notebook",
     "colors": ["Green", "Red", "Blue", "Black", "Gray"]
+  },
+  {
+    "id": "magsafe-compatible-4000-mah-magnetic-power-bank-50314",
+    "name": "MagSafe Compatible 4000 mAh Magnetic Power Bank",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Power bank with a 4,000mAh capacity and USB-C cable. Priced at 25 units.",
+    "tiers": [
+      [25, 21.4],
+      [50, 20.4],
+      [100, 19.9],
+      [250, 19.4],
+      [500, 18.9]
+    ],
+    "image": "/images/merch/magsafe-compatible-4000-mah-magnetic-power-bank-50314.webp",
+    "imageAlt": "MagSafe Compatible 4000 mAh Magnetic Power Bank",
+    "colors": ["White", "Black", "Navy Blue", "Silver"]
+  },
+  {
+    "id": "quice-2in1-charging-pad-10012",
+    "name": "Quice 2in1 Charging Pad",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "PU leather mouse pad and wireless charging pad. Priced at 100 units.",
+    "tiers": [
+      [100, 16.44],
+      [250, 15.91],
+      [500, 15.56],
+      [1000, 15.36],
+      [2500, 14.91]
+    ],
+    "image": "/images/merch/quice-2in1-charging-pad-10012.webp",
+    "imageAlt": "Quice 2in1 Charging Pad",
+    "colors": ["Red", "Black", "Blue", "Khaki"]
+  },
+  {
+    "id": "15000mah-power-bank-pd22-5w-usb-c-charger-with-cables-35778",
+    "name": "15000mAh Power Bank PD22.5W USB C Charger with Cables",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "15000mAh power bank with PD30W fast charging, 5-in-1 features, and simultaneous device charging. Priced at 100 units.",
+    "tiers": [
+      [100, 30.65],
+      [300, 30.317],
+      [500, 29.65],
+      [1000, 28.65],
+      [3000, 26.15]
+    ],
+    "image": "/images/merch/15000mah-power-bank-pd22-5w-usb-c-charger-with-cables-35778.webp",
+    "imageAlt": "15000mAh Power Bank PD22.5W USB C Charger with Cables",
+    "colors": ["White", "Black"]
+  },
+  {
+    "id": "bjorn-wireless-5-000mah-magsafe-power-bank-96237",
+    "name": "Bjorn Wireless 5,000mAh MagSafe Power Bank",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "5,000mAh wireless power bank and charger. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 50 units.",
+    "tiers": [
+      [50, 22.56],
+      [100, 21.89],
+      [250, 21.24],
+      [500, 20.6],
+      [1000, 19.99]
+    ],
+    "image": "/images/merch/bjorn-wireless-5-000mah-magsafe-power-bank-96237.webp",
+    "imageAlt": "Bjorn Wireless 5,000mAh MagSafe Power Bank",
+    "colors": ["White"]
+  },
+  {
+    "id": "4000mah-power-bank-w-built-in-cable-24147",
+    "name": "4000mAh Power Bank w/Built In Cable",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Size: 4.53\" x 2.64\" x 0.39\". Priced at 100 units.",
+    "tiers": [
+      [100, 10.59],
+      [250, 10.36],
+      [500, 10.17],
+      [1000, 9.98]
+    ],
+    "image": "/images/merch/4000mah-power-bank-w-built-in-cable-24147.webp",
+    "imageAlt": "4000mAh Power Bank w/Built In Cable",
+    "colors": ["Bright White"]
+  },
+  {
+    "id": "5-in-1-wireless-charging-power-bank-58100",
+    "name": "5-In-1 Wireless Charging Power Bank",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "5-in-1 wireless charging power bank with Qi-enabled charging as well as connectors for 8-pin, micro-USB, and Type-C devices. Priced at 25 units.",
+    "tiers": [
+      [25, 78.69],
+      [50, 68.43],
+      [100, 59.5],
+      [250, 51.74],
+      [500, 44.99]
+    ],
+    "image": "/images/merch/5-in-1-wireless-charging-power-bank-58100.webp",
+    "imageAlt": "5-In-1 Wireless Charging Power Bank",
+    "colors": ["Black", "White"]
+  },
+  {
+    "id": "powr2-magnetic-power-bank-and-wallet-stand-51039",
+    "name": "Powr2 Magnetic Power Bank & Wallet Stand",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "One magnetic wallet accessory that charges your phone, holds your cards, and stands out. Priced at 1 unit.",
+    "tiers": [
+      [1, 49.5],
+      [10, 39.6],
+      [25, 38.7],
+      [50, 37.8],
+      [100, 36]
+    ],
+    "image": "/images/merch/powr2-magnetic-power-bank-and-wallet-stand-51039.webp",
+    "imageAlt": "Powr2 Magnetic Power Bank & Wallet Stand",
+    "colors": ["Black"]
+  },
+  {
+    "id": "rechargeable-power-bank-with-fan-and-flashlight-16729",
+    "name": "Rechargeable Power Bank With Fan & Flashlight",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Rechargeable power bank with a fan, LED flashlight, 2500mAh battery, 5-volt output, a type-C input and cord and more. Priced at 15 units.",
+    "tiers": [
+      [15, 36.29],
+      [30, 31.56],
+      [90, 27.44],
+      [150, 23.86],
+      [300, 20.75]
+    ],
+    "image": "/images/merch/rechargeable-power-bank-with-fan-and-flashlight-16729.webp",
+    "imageAlt": "Rechargeable Power Bank With Fan & Flashlight",
+    "colors": ["White"]
+  },
+  {
+    "id": "20000mah-portable-power-bank-with-4-cables-and-flashlights-96915",
+    "name": "20000mAh Portable Power Bank with 4 Cables & Flashlights",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "20,000mAh ultra-compact power bank: flashlight, LED display, 22.5W fast charge, multi-port. Priced at 50 units.",
+    "tiers": [
+      [50, 12.867],
+      [500, 12.05],
+      [1000, 11.317],
+      [2500, 10.667],
+      [5000, 9.55]
+    ],
+    "image": "/images/merch/20000mah-portable-power-bank-with-4-cables-and-flashlights-96915.webp",
+    "imageAlt": "20000mAh Portable Power Bank with 4 Cables & Flashlights",
+    "colors": ["Black", "White", "Pink", "Purple"]
+  },
+  {
+    "id": "2-in-1-splittable-bluetooth-speaker-with-stereo-sound-49218",
+    "name": "2-in-1 Splittable Bluetooth Speaker with Stereo Sound",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Bluetooth speaker system with 20W stereo sound,waterproof design,and colorful lighting effects. Priced at 50 units.",
+    "tiers": [
+      [50, 61.35],
+      [200, 58.62],
+      [2000, 52.41],
+      [5000, 41.39],
+      [10000, 37.62]
+    ],
+    "image": "/images/merch/2-in-1-splittable-bluetooth-speaker-with-stereo-sound-49218.webp",
+    "imageAlt": "2-in-1 Splittable Bluetooth Speaker with Stereo Sound",
+    "colors": ["Black"]
+  },
+  {
+    "id": "addison-wireless-speaker-18352",
+    "name": "Addison Wireless Speaker",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Addison Wireless Speaker is a very popular affordable speaker campaign chosen by hundreds of brands for advertising. Priced at 25 units.",
+    "tiers": [
+      [25, 12.08],
+      [50, 10.55],
+      [100, 9.83],
+      [250, 8.83],
+      [500, 8.68]
+    ],
+    "image": "/images/merch/addison-wireless-speaker-18352.webp",
+    "imageAlt": "Addison Wireless Speaker",
+    "colors": ["Medium Black - Black C", "Dark White - White C", "Dark Blue"]
+  },
+  {
+    "id": "ipx6-waterproof-magnetic-bluetooth-speaker-with-rgb-light-45691",
+    "name": "IPX6 Waterproof Magnetic Bluetooth Speaker with RGB Light",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "IPX6 waterproof magnetic speaker with RGB lights, TWS stereo and phone stand function for versatile use. Priced at 50 units.",
+    "tiers": [
+      [50, 26.767],
+      [100, 26.183],
+      [200, 25.817],
+      [500, 25.433],
+      [1000, 25.05]
+    ],
+    "image": "/images/merch/ipx6-waterproof-magnetic-bluetooth-speaker-with-rgb-light-45691.webp",
+    "imageAlt": "IPX6 Waterproof Magnetic Bluetooth Speaker with RGB Light",
+    "colors": ["Black", "Blue", "Green"]
+  },
+  {
+    "id": "waterbox-waterproof-wireless-speaker-78468",
+    "name": "WaterBox Waterproof Wireless Speaker",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "IPX7 waterproof rating is for a maximum of 30 minutes under water at a depth of no more than 1 meter. Priced at 1 unit.",
+    "tiers": [
+      [1, 46.23],
+      [10, 36.98],
+      [25, 32.73],
+      [50, 28.46],
+      [100, 24.91]
+    ],
+    "image": "/images/merch/waterbox-waterproof-wireless-speaker-78468.webp",
+    "imageAlt": "WaterBox Waterproof Wireless Speaker",
+    "colors": ["Black"]
+  },
+  {
+    "id": "jbl-go-5-ultra-portable-waterproof-bluetooth-speaker-89351",
+    "name": "JBL® Go 5 Ultra-Portable Waterproof Bluetooth Speaker",
+    "category": "Tech Accessories",
+    "brand": "JBL",
+    "description": "Powerful JBL portable Bluetooth speaker with deep bass, IP68 waterproof design, and up to 10 hours playtime. Priced at 6 units.",
+    "tiers": [
+      [6, 68.99],
+      [12, 68.1],
+      [72, 67.15],
+      [144, 65.99]
+    ],
+    "image": "/images/merch/jbl-go-5-ultra-portable-waterproof-bluetooth-speaker-89351.webp",
+    "imageAlt": "JBL® Go 5 Ultra-Portable Waterproof Bluetooth Speaker",
+    "colors": ["Black", "Blue", "White", "Purple", "Red", "Squad Camo", "Teal Blue"]
+  },
+  {
+    "id": "sound-sharp-wireless-headphones-65675",
+    "name": "Sound Sharp Wireless Headphones",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Wireless headphones with built-in microphone deliver comfortable, all-day listening and clear calls with reliable performance. Priced at 1 unit.",
+    "tiers": [
+      [1, 55],
+      [10, 44],
+      [25, 43],
+      [50, 42],
+      [100, 40]
+    ],
+    "image": "/images/merch/sound-sharp-wireless-headphones-65675.webp",
+    "imageAlt": "Sound Sharp Wireless Headphones",
+    "colors": ["Black"]
+  },
+  {
+    "id": "custom-beats-solo-4-wireless-bluetooth-on-ear-headphones-67344",
+    "name": "Custom Beats Solo 4 - Wireless Bluetooth On-Ear Headphones",
+    "category": "Tech Accessories",
+    "brand": "Beats",
+    "description": "Beats Solo4 Wireless on-ear headphones are another high-end gift option with the latest tech for both Apple and Android devices. Priced at 1 unit.",
+    "tiers": [
+      [1, 291.36],
+      [5, 259.61],
+      [10, 253.74],
+      [25, 249.99],
+      [50, 249.61]
+    ],
+    "image": "/images/merch/custom-beats-solo-4-wireless-bluetooth-on-ear-headphones-67344.webp",
+    "imageAlt": "Custom Beats Solo 4 - Wireless Bluetooth On-Ear Headphones",
+    "colors": ["Medium Black - Black C", "Dark Blue", "Clear Purple"]
+  },
+  {
+    "id": "2025-open-ear-wireless-earbuds-panoramic-sound-hd-calls-35496",
+    "name": "2025 Open - Ear Wireless Earbuds: Panoramic Sound, HD Calls",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "2025 open - ear wireless earbuds: Panoramic sound, HD calls, touch control, comfy fit, ideal for immersive, stable audio. Priced at 100 units.",
+    "tiers": [
+      [100, 14.8],
+      [200, 14.583],
+      [500, 14.383],
+      [1000, 14.167],
+      [3000, 13.85]
+    ],
+    "image": "/images/merch/2025-open-ear-wireless-earbuds-panoramic-sound-hd-calls-35496.webp",
+    "imageAlt": "2025 Open - Ear Wireless Earbuds: Panoramic Sound, HD Calls"
+  },
+  {
+    "id": "custom-apple-airpods-pro-2-usb-c-88139",
+    "name": "Custom Apple AirPods Pro 2 (USB-C)",
+    "category": "Tech Accessories",
+    "brand": "Apple",
+    "description": "We are proud to be the first supplier to offer Custom Apple AirPods Pro 2 in the industry. Made in USA. Priced at 1 unit.",
+    "tiers": [
+      [1, 336.25],
+      [5, 311.25],
+      [10, 306.25],
+      [25, 296.25],
+      [50, 293.75]
+    ],
+    "image": "/images/merch/custom-apple-airpods-pro-2-usb-c-88139.webp",
+    "imageAlt": "Custom Apple AirPods Pro 2 (USB-C)",
+    "colors": ["Dark White - White C"]
+  },
+  {
+    "id": "portable-4-port-usb-ethernet-hub-rectangle-promotional-17509",
+    "name": "Portable 4 Port Usb Ethernet Hub Rectangle Promotional",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Portable 4 port USB hub with ABS design for multi device connectivity and custom branded promotions. Priced at 100 units.",
+    "tiers": [
+      [100, 3.383],
+      [200, 3.233],
+      [500, 3.1],
+      [1000, 2.983],
+      [5000, 2.783]
+    ],
+    "image": "/images/merch/portable-4-port-usb-ethernet-hub-rectangle-promotional-17509.webp",
+    "imageAlt": "Portable 4 Port Usb Ethernet Hub Rectangle Promotional",
+    "colors": ["Black", "Red", "Blue", "Green", "White"]
+  },
+  {
+    "id": "northlake-swivel-usb-flash-drive-on-demand-41575",
+    "name": "Northlake Swivel USB Flash Drive - On Demand",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "The Northlake Swivel USB Flash Drive is not only our most popular seller but also the best selling USB flash drive in the industry. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 25 units.",
+    "tiers": [
+      [25, 9.63],
+      [50, 6.07],
+      [100, 3.92],
+      [250, 2.53],
+      [500, 2.18]
+    ],
+    "image": "/images/merch/northlake-swivel-usb-flash-drive-on-demand-41575.webp",
+    "imageAlt": "Northlake Swivel USB Flash Drive - On Demand",
+    "colors": [
+      "Medium Black - Black C",
+      "Dark Blue",
+      "Camouflage Blue - Reflex Blue C",
+      "Iridescent Red",
+      "Medium Gray",
+      "Dark White - White C",
+      "Medium Red",
+      "Medium Yellow - Yellow C",
+      "Bright Yellow - Yellow",
+      "Bright Orange",
+      "Iridescent Orange - Orange",
+      "Medium Orange",
+      "Dark Red",
+      "Dark Pink - Purple C",
+      "Dark Purple",
+      "Iridescent Blue - Blue",
+      "Dark Green",
+      "Medium Green",
+      "Light Green"
+    ]
+  },
+  {
+    "id": "bamboo-usb-flash-drive-15161",
+    "name": "Bamboo USB Flash Drive",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "2 3/8\" x 3/4\" USB flash drive with natural bamboo finish, memory size options and customization. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 50 units.",
+    "tiers": [
+      [50, 5.64],
+      [100, 5.46],
+      [250, 5.29],
+      [500, 5.13],
+      [1000, 4.98]
+    ],
+    "image": "/images/merch/bamboo-usb-flash-drive-15161.webp",
+    "imageAlt": "Bamboo USB Flash Drive",
+    "colors": ["Brown"]
+  },
+  {
+    "id": "usb-flash-drive-4gb-75333",
+    "name": "Usb Flash Drive 4Gb",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "4GB USB flash drive. Priced at 200 units.",
+    "tiers": [
+      [200, 3.95],
+      [500, 3.45],
+      [2000, 3.017],
+      [5000, 2.783],
+      [10000, 2.633]
+    ],
+    "image": "/images/merch/usb-flash-drive-4gb-75333.webp",
+    "imageAlt": "Usb Flash Drive 4Gb",
+    "colors": ["Black", "Blue", "Red"]
+  },
+  {
+    "id": "desktop-organizer-with-pens-and-highlighters-61257",
+    "name": "Desktop Organizer with Pens & Highlighters",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Four writing utensils fit in a convenient storage compartment and it doubles as a phone holder. Priced at 150 units.",
+    "tiers": [
+      [150, 4.37],
+      [250, 4.25],
+      [500, 4.12],
+      [1000, 4],
+      [1500, 3.89]
+    ],
+    "image": "/images/merch/desktop-organizer-with-pens-and-highlighters-61257.webp",
+    "imageAlt": "Desktop Organizer with Pens & Highlighters",
+    "colors": ["White"]
+  },
+  {
+    "id": "magsafe-phone-wallet-stand-92344",
+    "name": "MagSafe Phone Wallet Stand",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "MagSafe Wallet with Invisible Stand, Magnetic Card Wallet Holder, Premium Leather Phone Wallet with 1 Slot, Fit 3 Cards. Priced at 100 units.",
+    "tiers": [
+      [100, 8.25],
+      [200, 7.25],
+      [500, 6.5],
+      [1000, 6],
+      [2000, 5.5]
+    ],
+    "image": "/images/merch/magsafe-phone-wallet-stand-92344.webp",
+    "imageAlt": "MagSafe Phone Wallet Stand",
+    "colors": ["Black", "Blue", "Brown", "Green", "Orange", "Purple"]
+  },
+  {
+    "id": "phone-stand-89952",
+    "name": "Phone Stand",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Phone Stand Desk Decor Smartphone Stand. Priced at 50 units.",
+    "tiers": [
+      [50, 2.8],
+      [700, 1.85],
+      [4000, 1.683],
+      [12000, 1.633],
+      [20000, 1.367]
+    ],
+    "image": "/images/merch/phone-stand-89952.webp",
+    "imageAlt": "Phone Stand",
+    "colors": ["Blue", "Green", "Orange", "Red", "White", "Yellow"]
+  },
+  {
+    "id": "surf-stand-41573",
+    "name": "Surf™ Stand",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Eco Curved phone stand with pen holder. Priced at 100 units.",
+    "tiers": [
+      [100, 2.32],
+      [250, 2.23],
+      [500, 2.17],
+      [1000, 2.1]
+    ],
+    "image": "/images/merch/surf-stand-41573.webp",
+    "imageAlt": "Surf™ Stand",
+    "colors": ["Black"]
+  },
+  {
+    "id": "3-in-1-multi-usb-retractable-charger-cable-3a-multiple-cord-46008",
+    "name": "3 in 1 Multi USB Retractable Charger Cable 3A Multiple Cord",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Retractable charging cables with three cords and 4' length. Priced at 100 units.",
+    "tiers": [
+      [100, 3.99],
+      [250, 3.703],
+      [500, 3.513],
+      [1000, 3.427],
+      [2500, 3.255]
+    ],
+    "image": "/images/merch/3-in-1-multi-usb-retractable-charger-cable-3a-multiple-cord-46008.webp",
+    "imageAlt": "3 in 1 Multi USB Retractable Charger Cable 3A Multiple Cord",
+    "colors": ["Green", "Red", "Black", "Blue", "Orange"]
+  },
+  {
+    "id": "5d-phone-stand-78461",
+    "name": "5D Phone Stand",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "3.75\" x 6.5\" x 1/8\" acrylic plastic phone stand with 5D printing. Made in USA. Priced at 168 units.",
+    "tiers": [
+      [168, 12.5],
+      [336, 12.3],
+      [504, 12.05],
+      [672, 11.85]
+    ],
+    "image": "/images/merch/5d-phone-stand-78461.webp",
+    "imageAlt": "5D Phone Stand",
+    "colors": ["White"]
+  },
+  {
+    "id": "fast-3-in-1-charging-cable-88331",
+    "name": "Fast 3 in 1 Charging Cable",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "This USB C to USB C fast charging cable charges up to 100W. Priced at 200 units.",
+    "tiers": [
+      [200, 3.683],
+      [500, 3.35],
+      [1000, 3.083],
+      [3000, 2.95],
+      [10000, 2.15]
+    ],
+    "image": "/images/merch/fast-3-in-1-charging-cable-88331.webp",
+    "imageAlt": "Fast 3 in 1 Charging Cable",
+    "colors": ["Black", "Gray", "Blue", "Orange"]
+  },
+  {
+    "id": "magma-combo-hand-warmer-and-4000-mah-power-bank-38629",
+    "name": "Magma Combo Hand Warmer and 4000 mAh Power Bank",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Combo Hand Warmer and 4000mAh Power Bank. Priced at 25 units.",
+    "tiers": [
+      [25, 16.45],
+      [100, 15.6],
+      [250, 15.05],
+      [500, 14.5],
+      [1000, 13.95]
+    ],
+    "image": "/images/merch/magma-combo-hand-warmer-and-4000-mah-power-bank-38629.webp",
+    "imageAlt": "Magma Combo Hand Warmer and 4000 mAh Power Bank",
+    "colors": ["Silver Metal"]
+  },
+  {
+    "id": "powerstick-powertag-travel-18544",
+    "name": "Powerstick PowerTag Travel",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Luggage tag with a built-in Bluetooth tracker. Priced at 10 units.",
+    "tiers": [
+      [10, 76.35],
+      [20, 66.39],
+      [50, 57.73],
+      [100, 50.2],
+      [250, 43.65]
+    ],
+    "image": "/images/merch/powerstick-powertag-travel-18544.webp",
+    "imageAlt": "Powerstick PowerTag Travel",
+    "colors": ["White", "Black"]
+  },
+  {
+    "id": "fitness-tracker-smart-band-with-heart-rate-monitor-60134",
+    "name": "Fitness Tracker Smart Band with Heart Rate Monitor",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "This smart band has powerful functions that can track your fitness, monitor heart rate and sleep quality, receive messages etc. Priced at 50 units.",
+    "tiers": [
+      [50, 17.869],
+      [100, 16.93],
+      [500, 16.02],
+      [1000, 14.32],
+      [3000, 13.885]
+    ],
+    "image": "/images/merch/fitness-tracker-smart-band-with-heart-rate-monitor-60134.webp",
+    "imageAlt": "Fitness Tracker Smart Band with Heart Rate Monitor",
+    "colors": ["Red", "Black", "Blue"]
+  },
+  {
+    "id": "homer-webcam-cover-64486",
+    "name": "Homer Webcam Cover",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "ABS plastic webcam/smartphone camera cover with 3M adhesive. Priced at 50 units.",
+    "tiers": [
+      [50, 3.65],
+      [100, 2.26],
+      [250, 1.72],
+      [500, 1.46],
+      [1000, 1.36]
+    ],
+    "image": "/images/merch/homer-webcam-cover-64486.webp",
+    "imageAlt": "Homer Webcam Cover",
+    "colors": ["Black"]
+  },
+  {
+    "id": "security-webcam-cover-48304",
+    "name": "Security Webcam Cover",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Security webcam cover for privacy protection. Priced at 250 units.",
+    "tiers": [
+      [250, 1.21],
+      [500, 1.05],
+      [1000, 0.91],
+      [2500, 0.79],
+      [5000, 0.69]
+    ],
+    "image": "/images/merch/security-webcam-cover-48304.webp",
+    "imageAlt": "Security Webcam Cover",
+    "colors": [
+      "White",
+      "Black",
+      "Silver",
+      "Lime",
+      "Navy Blue",
+      "Orange",
+      "Purple",
+      "Red",
+      "Royal Blue",
+      "Yellow"
+    ]
+  },
+  {
+    "id": "anker-usb-c-hub-7-in-1-83981",
+    "name": "Anker® USB-C Hub (7-in-1)",
+    "category": "Tech Accessories",
+    "brand": "Anker",
+    "description": "7-in-1 USB hub. Priced at 12 units.",
+    "tiers": [
+      [12, 56.7],
+      [25, 48.62],
+      [50, 36.39],
+      [100, 34.99]
+    ],
+    "image": "/images/merch/anker-usb-c-hub-7-in-1-83981.webp",
+    "imageAlt": "Anker® USB-C Hub (7-in-1)",
+    "colors": ["Pewter Silver"]
+  },
+  {
+    "id": "techmate-3-in-1-charging-cable-and-usb-hub-2-0-51889",
+    "name": "Techmate 3-In-1 Charging Cable & USB Hub 2.0",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Techmate 3-In-1 Charging Cable & USB Hub 2.0. Priced at 50 units.",
+    "tiers": [
+      [50, 10.82],
+      [100, 10.5],
+      [250, 10.19],
+      [500, 9.89],
+      [1000, 9.6]
+    ],
+    "image": "/images/merch/techmate-3-in-1-charging-cable-and-usb-hub-2-0-51889.webp",
+    "imageAlt": "Techmate 3-In-1 Charging Cable & USB Hub 2.0",
+    "colors": ["White/Black", "White/Blue", "White/Red", "White"]
+  },
+  {
+    "id": "anker-332-usb-c-hub-5-in-1-83979",
+    "name": "Anker® 332 USB-C Hub (5-in-1)",
+    "category": "Tech Accessories",
+    "brand": "Anker",
+    "description": "Expand one USB C port into a full workstation with 4K display and fast data transfer. Priced at 12 units.",
+    "tiers": [
+      [12, 48.59],
+      [25, 41.67],
+      [50, 31.19],
+      [100, 29.99]
+    ],
+    "image": "/images/merch/anker-332-usb-c-hub-5-in-1-83979.webp",
+    "imageAlt": "Anker® 332 USB-C Hub (5-in-1)",
+    "colors": ["Black"]
+  },
+  {
+    "id": "foldable-flying-disc-fan-with-pouch-06329",
+    "name": "Foldable Flying Disc Fan with Pouch",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Simply fold away, easily carry the flying disc in your pocket or bag, and whip it out to turn up the fun. Priced at 100 units.",
+    "tiers": [
+      [100, 1.783],
+      [250, 1.1],
+      [500, 0.883],
+      [1000, 0.7],
+      [3000, 0.567]
+    ],
+    "image": "/images/merch/foldable-flying-disc-fan-with-pouch-06329.webp",
+    "imageAlt": "Foldable Flying Disc Fan with Pouch",
+    "colors": ["Black", "Blue", "Orange", "Green", "Brown", "Red", "Pink", "Purple", "Gray"]
+  },
+  {
+    "id": "rechargeable-mini-fan-clip-10548",
+    "name": "Rechargeable Mini Fan Clip",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Portable Baby stroller Fan, Battery Operated, 360 degrees Rotate Flexible Tripod Rechargeable, for Car Seat Crib Bike Treadmill. Priced at 120 units.",
+    "tiers": [
+      [120, 17.167],
+      [240, 17.15],
+      [480, 16.233],
+      [1200, 15.583],
+      [2400, 15.2]
+    ],
+    "image": "/images/merch/rechargeable-mini-fan-clip-10548.webp",
+    "imageAlt": "Rechargeable Mini Fan Clip",
+    "colors": ["Black", "Gray", "Pink"]
+  },
+  {
+    "id": "electric-led-fan-usb-charged-29457",
+    "name": "Electric LED Fan - USB Charged",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Electric LED Fan - USB Charged. Priced at 100 units.",
+    "tiers": [
+      [100, 7.969],
+      [300, 6.147],
+      [500, 6.064],
+      [1000, 5.897],
+      [2000, 5.813]
+    ],
+    "image": "/images/merch/electric-led-fan-usb-charged-29457.webp",
+    "imageAlt": "Electric LED Fan - USB Charged",
+    "colors": [
+      "Black",
+      "White",
+      "Light Blue",
+      "Red",
+      "Yellow",
+      "Lime",
+      "Pink",
+      "Blue",
+      "Orange",
+      "Purple"
+    ]
+  },
+  {
+    "id": "anti-slip-silicone-car-phone-holder-32180",
+    "name": "Anti-Slip Silicone Car Phone Holder",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Car Phone Holder, Car Phone Mount Silicone Car Pad Mat for Various Dashboards, Slip Free Desk Phone Stand Compatible with iPhone. Priced at 100 units.",
+    "tiers": [
+      [100, 14.05],
+      [200, 13.5],
+      [500, 12.233],
+      [1000, 11.733],
+      [5000, 9.45]
+    ],
+    "image": "/images/merch/anti-slip-silicone-car-phone-holder-32180.webp",
+    "imageAlt": "Anti-Slip Silicone Car Phone Holder",
+    "colors": ["Black"]
+  },
+  {
+    "id": "portable-universal-air-vent-magnetic-car-mount-phone-holder-01602",
+    "name": "Portable Universal Air Vent Magnetic Car Mount Phone Holder",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Simply insert the air vent phone holder into the vent to complete the installation. Expedited service is available. Priced at 150 units.",
+    "tiers": [
+      [150, 2.417],
+      [300, 2.25],
+      [500, 2.117],
+      [1000, 1.983],
+      [2000, 1.883]
+    ],
+    "image": "/images/merch/portable-universal-air-vent-magnetic-car-mount-phone-holder-01602.webp",
+    "imageAlt": "Portable Universal Air Vent Magnetic Car Mount Phone Holder",
+    "colors": ["Black"]
+  },
+  {
+    "id": "suction-cup-phone-holder-desk-stand-36271",
+    "name": "Suction Cup Phone Holder Desk Stand",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Car Phone Mount, Suction Cup Phone Holder Desk Stand,1 Pc Universal Car Mount for Car Dashboard Windshield. Priced at 100 units.",
+    "tiers": [
+      [100, 12.817],
+      [300, 12.65],
+      [500, 12.317],
+      [1000, 11.817],
+      [3000, 10.983]
+    ],
+    "image": "/images/merch/suction-cup-phone-holder-desk-stand-36271.webp",
+    "imageAlt": "Suction Cup Phone Holder Desk Stand",
+    "colors": ["Black", "Green"]
+  },
+  {
+    "id": "white-barrel-european-design-ballpoint-pen-43047",
+    "name": "White Barrel European Design Ballpoint Pen",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "White barrel European design ballpoint with colored accents and shiny finish. Priced at 200 units.",
+    "tiers": [
+      [200, 0.68],
+      [500, 0.63],
+      [1000, 0.61],
+      [2500, 0.54],
+      [5000, 0.49]
+    ],
+    "image": "/images/merch/white-barrel-european-design-ballpoint-pen-43047.webp",
+    "imageAlt": "White Barrel European Design Ballpoint Pen",
+    "colors": ["White-Green", "White-Black", "White-Red", "White-Blue", "White-Purple"]
+  },
+  {
+    "id": "click-action-pens-89791",
+    "name": "Click Action Pens",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Click-action pen with an assortment of colors. Priced at 100 units.",
+    "tiers": [
+      [100, 1.28],
+      [250, 0.96],
+      [500, 0.78],
+      [1000, 0.66],
+      [2500, 0.6]
+    ],
+    "image": "/images/merch/click-action-pens-89791.webp",
+    "imageAlt": "Click Action Pens",
+    "colors": [
+      "Black",
+      "Blue",
+      "Green",
+      "Grey",
+      "Light Blue",
+      "Orange",
+      "Pink",
+      "Purple",
+      "Red",
+      "Yellow"
+    ]
+  },
+  {
+    "id": "two-tone-sleek-write-rubberized-pen-75268",
+    "name": "Two-Tone Sleek Write Rubberized Pen",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Sleek Write Two-Tone Rubberized Pen. Priced at 250 units.",
+    "tiers": [
+      [250, 1.31],
+      [500, 1.14],
+      [1000, 0.99],
+      [2500, 0.86],
+      [5000, 0.75]
+    ],
+    "image": "/images/merch/two-tone-sleek-write-rubberized-pen-75268.webp",
+    "imageAlt": "Two-Tone Sleek Write Rubberized Pen",
+    "colors": [
+      "Black/Lt Blue",
+      "Black/Blue",
+      "Black/Gray",
+      "Black/Lime",
+      "Black/Orange",
+      "Black/Pink",
+      "Black/Purple",
+      "Black/Red",
+      "Black/White",
+      "Black/Yellow"
+    ]
+  },
+  {
+    "id": "dynamic-ballpoint-pens-89787",
+    "name": "Dynamic Ballpoint Pens",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Ballpoint pen with a click action. Priced at 100 units.",
+    "tiers": [
+      [100, 0.88],
+      [250, 0.7],
+      [500, 0.4],
+      [2500, 0.38]
+    ],
+    "image": "/images/merch/dynamic-ballpoint-pens-89787.webp",
+    "imageAlt": "Dynamic Ballpoint Pens",
+    "colors": [
+      "Black",
+      "Blue",
+      "Green",
+      "Grey",
+      "Orange",
+      "Pink",
+      "Purple",
+      "Red",
+      "Teal",
+      "Yellow"
+    ]
+  },
+  {
+    "id": "stylus-444-soft-touch-stylus-pen-72091",
+    "name": "Stylus-444 Soft Touch Stylus Pen",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Click action stylus pen with a soft-touch rubberized finish. Priced at 100 units.",
+    "tiers": [
+      [100, 1.5],
+      [250, 1.3],
+      [500, 1.25],
+      [1000, 1.2],
+      [2500, 1.1]
+    ],
+    "image": "/images/merch/stylus-444-soft-touch-stylus-pen-72091.webp",
+    "imageAlt": "Stylus-444 Soft Touch Stylus Pen",
+    "colors": ["Light Blue", "Blue", "Red", "Lime Green", "Black", "Yellow"]
+  },
+  {
+    "id": "6-in-1-tool-pen-43291",
+    "name": "6 In 1 Tool Pen",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "6 In 1 Tool Pen For office,home,school. Priced at 100 units.",
+    "tiers": [
+      [100, 0.85],
+      [300, 0.767],
+      [500, 0.683],
+      [1000, 0.667],
+      [3000, 0.658]
+    ],
+    "image": "/images/merch/6-in-1-tool-pen-43291.webp",
+    "imageAlt": "6 In 1 Tool Pen",
+    "colors": ["Black", "Silver", "Yellow", "Red", "Blue"]
   }
 ]
