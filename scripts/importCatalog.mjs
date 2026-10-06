@@ -313,6 +313,7 @@ export async function runImport(args) {
     "colorImages.extra6.json",
     "colorImages.extra7.json",
     "colorImages.extra8.json",
+    "colorImages.extra9.json",
   ].map((name) => path.join(root, "src/config", name));
   const photoSamplesFile = path.join(root, "__tests__/fixtures/colorPhotoSamples.json");
   const curatedLinksFile = path.join(root, "src/lib/espLinks.curated.json");
