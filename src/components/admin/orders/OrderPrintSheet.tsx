@@ -84,7 +84,19 @@ export default function OrderPrintSheet({
               className="border-b border-neutral-400 align-top"
             >
               <td className="py-1 pr-2">{index + 1}</td>
-              <td className="py-1 pr-2 font-medium">{item.name}</td>
+              <td className="py-1 pr-2 font-medium">
+                {item.name}
+                {item.sizes && (
+                  <div className="whitespace-pre-wrap font-normal">
+                    Sizes and quantities: {item.sizes}
+                  </div>
+                )}
+                {item.imprintNotes && (
+                  <div className="whitespace-pre-wrap font-normal">
+                    Imprint notes: {item.imprintNotes}
+                  </div>
+                )}
+              </td>
               <td className="py-1 pr-2">{item.color ?? "Not specified"}</td>
               <td className="py-1 pr-2 text-right font-semibold">{item.quantity}</td>
               <td className="py-1">

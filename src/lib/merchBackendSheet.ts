@@ -9,6 +9,9 @@ export interface BackendSheetItem {
   /** Color the customer chose; absent on legacy lines and uncolored products. */
   color?: string;
   quantity: number;
+  /** Customer-entered size breakdown and imprint notes. */
+  sizes?: string;
+  imprintNotes?: string;
   espUrl?: string;
   espKind?: "product" | "search";
   supplier?: string;
@@ -41,6 +44,8 @@ export function buildBackendOrderSheet(
   items.forEach((item, index) => {
     lines.push(`${index + 1}. ${item.quantity} x ${item.name}`);
     lines.push(`   ${describeLineColor(item.color)}`);
+    if (item.sizes?.trim()) lines.push(`   Sizes and quantities: ${item.sizes.trim()}`);
+    if (item.imprintNotes?.trim()) lines.push(`   Imprint notes: ${item.imprintNotes.trim()}`);
     if (item.espUrl) {
       lines.push(
         `   ESP+ link: ${item.espUrl}${item.espKind === "search" ? " (search link)" : ""}`

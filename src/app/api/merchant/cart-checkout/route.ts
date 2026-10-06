@@ -5,7 +5,8 @@ import {
   type PricedCartLineItem,
 } from "@/lib/merchOrders";
 import { getProductById } from "@/config/merchandiseConfig";
-import { CART_FORM_LIMITS } from "@/lib/cartFormRules";
+import { CART_FORM_LIMITS, cleanLineDetail } from "@/lib/cartFormRules";
+import { cartSendFailureMessage } from "@/lib/cartShopperMessages";
 import { cleanLineColor, validateCart, type CartPricingProduct } from "@/lib/cartPricing";
 import { checkRateLimit } from "@/lib/ratelimit";
 import { CART_POLICY, EMAIL_TARGET_POLICY } from "@/lib/rateLimitPolicies";
@@ -79,6 +80,8 @@ export async function POST(request: NextRequest) {
     productId: item.productId,
     color: cleanLineColor(item.color),
     quantity: item.quantity,
+    sizes: cleanLineDetail(item.sizes),
+    imprintNotes: cleanLineDetail(item.imprintNotes),
   }));
   const validation = validateCart(lines, lookup);
   if (!validation.ok) {
@@ -104,6 +107,8 @@ export async function POST(request: NextRequest) {
         name: product.name,
         ...(line.color ? { color: line.color } : {}),
         quantity: line.quantity,
+        ...(line.sizes ? { sizes: line.sizes } : {}),
+        ...(line.imprintNotes ? { imprintNotes: line.imprintNotes } : {}),
         unitPrice,
         lineTotal,
         espUrl: esp.url,
@@ -158,8 +163,13 @@ export async function POST(request: NextRequest) {
       total: grandTotal,
     });
     if (!notification.sent) {
+      // The reason (missing email key, provider rejection) is for the server
+      // log only; the shopper gets the generic message with our contact details.
+      console.error(
+        `[api/merchant/cart-checkout] business notification not sent (${notification.reason ?? "unknown reason"}); order ${orderRef ?? "(not saved)"}`
+      );
       return NextResponse.json(
-        { success: false, error: "Email delivery is not configured yet." },
+        { success: false, error: cartSendFailureMessage() },
         { status: 503 }
       );
     }
@@ -172,13 +182,17 @@ export async function POST(request: NextRequest) {
         firstName: payload.firstName,
         orderRef,
         // Only customer-safe fields: no ESP url/supplier/product number.
-        items: pricedItems.map(({ name, color, quantity, unitPrice, lineTotal }) => ({
-          name,
-          ...(color ? { color } : {}),
-          quantity,
-          unitPrice,
-          lineTotal,
-        })),
+        items: pricedItems.map(
+          ({ name, color, quantity, sizes, imprintNotes, unitPrice, lineTotal }) => ({
+            name,
+            ...(color ? { color } : {}),
+            ...(sizes ? { sizes } : {}),
+            ...(imprintNotes ? { imprintNotes } : {}),
+            quantity,
+            unitPrice,
+            lineTotal,
+          })
+        ),
         total: grandTotal,
         notes: payload.notes || "",
       });
@@ -189,7 +203,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error("[api/merchant/cart-checkout] failed:", error);
     return NextResponse.json(
-      { success: false, error: "Something went wrong sending your order. Please try again." },
+      { success: false, error: cartSendFailureMessage() },
       { status: 500 }
     );
   }

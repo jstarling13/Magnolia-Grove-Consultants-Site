@@ -31,6 +31,9 @@ export interface CartLineInput {
   productId: string;
   color?: string;
   quantity: number;
+  /** Free-text size breakdown and imprint notes. Carried along with the line; they never affect price or validation. */
+  sizes?: string;
+  imprintNotes?: string;
 }
 
 export type ProductLookup = (productId: string) => CartPricingProduct | undefined;

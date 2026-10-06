@@ -4,6 +4,7 @@ import type { MerchOrderRequestPayload, PricedCartLineItem } from "./merchOrders
 import { describeLineColor } from "./merchBackendSheet";
 import { buildTrackingUrl, formatOrderReference, recognizeCarrier } from "./merchOrders";
 import { buildOrderTrackingUrl, parseOrderRef } from "./orderTracking";
+import { ARTWORK_CONFIRMATION_PROMISE, ARTWORK_INSTRUCTIONS_IN_EMAIL } from "./cartShopperMessages";
 
 const hasResendConfig =
   Boolean(process.env.RESEND_API_KEY) && Boolean(process.env.CONTACT_EMAIL_FROM);
@@ -280,6 +281,20 @@ interface CartOrderNotificationPayload {
  * Internal ESP+ lookup details for one cart line. Business-inbox only: this
  * helper is used by sendCartOrderNotification and nowhere customer-facing.
  */
+/** Customer-entered size breakdown and imprint notes for one cart line, escaped. Empty when there are none. */
+function lineDetailsHtml(item: { sizes?: string; imprintNotes?: string }): string {
+  const sizes = item.sizes?.trim();
+  const imprint = item.imprintNotes?.trim();
+  return [
+    sizes
+      ? `<div style="margin-top:2px;color:${MUTED};font-size:12px;">Sizes and quantities: ${escapeHtml(sizes)}</div>`
+      : "",
+    imprint
+      ? `<div style="margin-top:2px;color:${MUTED};font-size:12px;">Imprint notes: ${escapeHtml(imprint)}</div>`
+      : "",
+  ].join("");
+}
+
 function espDetailsHtml(item: PricedCartLineItem): string {
   const parts: string[] = [];
   if (item.espUrl) {
@@ -308,7 +323,7 @@ export async function sendCartOrderNotification(
     .map(
       (item) =>
         `<tr>
-          <td style="padding:6px 0;color:#e5e5e5;font-size:14px;">${escapeHtml(item.name)}<div style="margin-top:2px;color:${MUTED};font-size:12px;">${escapeHtml(describeLineColor(item.color))}</div>${espDetailsHtml(item)}</td>
+          <td style="padding:6px 0;color:#e5e5e5;font-size:14px;">${escapeHtml(item.name)}<div style="margin-top:2px;color:${MUTED};font-size:12px;">${escapeHtml(describeLineColor(item.color))}</div>${lineDetailsHtml(item)}${espDetailsHtml(item)}</td>
           <td style="padding:6px 0;color:#e5e5e5;font-size:14px;text-align:right;vertical-align:top;">${item.quantity}</td>
           <td style="padding:6px 0;color:#e5e5e5;font-size:14px;text-align:right;vertical-align:top;">$${item.unitPrice.toFixed(2)}</td>
           <td style="padding:6px 0;color:#e5e5e5;font-size:14px;text-align:right;vertical-align:top;">$${item.lineTotal.toFixed(2)}</td>
@@ -336,6 +351,10 @@ export async function sendCartOrderNotification(
       </table>`,
       row("Estimated Total", `$${payload.total.toFixed(2)}`),
       payload.notes ? multilineRow("Notes", payload.notes) : "",
+      row(
+        "Artwork",
+        "Not attached. The customer was asked to reply to their confirmation email with logo files."
+      ),
     ].join("")
   );
 
@@ -395,6 +414,9 @@ function greeting(firstName: string): string {
 export interface CustomerOrderLine {
   name: string;
   color?: string;
+  /** What the customer typed: size breakdown and imprint notes. */
+  sizes?: string;
+  imprintNotes?: string;
   quantity: number;
   unitPrice?: number;
   lineTotal?: number;
@@ -415,7 +437,7 @@ function bodyCell(innerHtml: string, align: "left" | "right" = "right"): string 
 function itemNameCell(item: CustomerOrderLine): string {
   const color = item.color?.trim();
   return bodyCell(
-    `${escapeHtml(item.name)}${color ? `<div style="margin-top:2px;color:${MUTED};font-size:12px;">${escapeHtml(color)}</div>` : ""}`,
+    `${escapeHtml(item.name)}${color ? `<div style="margin-top:2px;color:${MUTED};font-size:12px;">${escapeHtml(color)}</div>` : ""}${lineDetailsHtml(item)}`,
     "left"
   );
 }
@@ -451,9 +473,11 @@ function customerItemsTable(items: CustomerOrderLine[]): string {
 
 /** Copies only the customer-safe fields, dropping anything else stored on the line. */
 function pickLines(items: CustomerOrderLine[]): CustomerOrderLine[] {
-  return items.map(({ name, color, quantity, unitPrice, lineTotal }) => ({
+  return items.map(({ name, color, sizes, imprintNotes, quantity, unitPrice, lineTotal }) => ({
     name,
     ...(color ? { color } : {}),
+    ...(sizes?.trim() ? { sizes } : {}),
+    ...(imprintNotes?.trim() ? { imprintNotes } : {}),
     quantity,
     ...(typeof unitPrice === "number" ? { unitPrice } : {}),
     ...(typeof lineTotal === "number" ? { lineTotal } : {}),
@@ -511,6 +535,7 @@ export function buildMerchRequestConfirmationEmail(
         `<span style="color:${MUTED};font-size:12px;">Unit prices reflect the quantity tier for each product across all of its colors. This estimate does not yet include decoration, shipping, or tax.</span>`
       ),
       payload.notes?.trim() ? row("Your Notes", multiline(payload.notes.trim())) : "",
+      row("Artwork", `${ARTWORK_INSTRUCTIONS_IN_EMAIL} ${ARTWORK_CONFIRMATION_PROMISE}`),
       trackOrderLinkHtml(payload.orderRef),
       `<h2 style="color:#ffffff;font-size:16px;margin:24px 0 8px;">What happens next</h2>`,
       `<ol style="color:#e5e5e5;font-size:14px;line-height:1.7;margin:0 0 16px;padding-left:20px;">

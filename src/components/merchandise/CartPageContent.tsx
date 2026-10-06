@@ -12,17 +12,27 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { Loader2 } from "lucide-react";
-import { useCart, type CartLineItem } from "@/components/merchandise/CartContext";
+import { useCart, type CartLineItem, type LineDetails } from "@/components/merchandise/CartContext";
 import { ColorDot } from "@/components/merchandise/ColorSwatches";
 import { useCartProducts } from "@/hooks/useCartProducts";
 import { useQuantityDraft } from "@/hooks/useQuantityDraft";
 import {
   CART_CONTACT_FIELDS,
+  CART_FORM_LIMITS,
+  categoryTakesSizes,
+  cleanLineDetail,
   fieldErrorsFromIssues,
   validateCartContact,
   type CartContactField,
   type CartFieldErrors,
 } from "@/lib/cartFormRules";
+import {
+  ARTWORK_CONFIRMATION_PROMISE,
+  ARTWORK_INSTRUCTIONS,
+  cartContactEmail,
+  cartSendFailureMessage,
+  shopperErrorMessage,
+} from "@/lib/cartShopperMessages";
 import { cleanColorName } from "@/lib/colorSwatches";
 import {
   cartLineKey,
@@ -60,8 +70,9 @@ const initialFields: ContactFields = {
   company_website: "",
 };
 
-const DEFAULT_ERROR =
-  "Something went wrong. Please double-check your info or email ben@magnoliagrovega.com.";
+// Shown for network failures and any server fault. Never a server-supplied
+// reason: configuration problems are for the server log, not the shopper.
+const DEFAULT_ERROR = cartSendFailureMessage();
 const FIELD_ERRORS_SUMMARY = "Please fix the highlighted fields and submit again.";
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -114,6 +125,7 @@ export default function CartPageContent({
     updateQuantity,
     removeItem,
     changeColor,
+    setLineDetails,
     clear,
     removeProducts,
     removedUnavailableCount,
@@ -298,6 +310,12 @@ export default function CartPageContent({
             productId: line.item.productId,
             ...(line.color ? { color: line.color } : {}),
             quantity: line.item.quantity,
+            ...(cleanLineDetail(line.item.sizes)
+              ? { sizes: cleanLineDetail(line.item.sizes) }
+              : {}),
+            ...(cleanLineDetail(line.item.imprintNotes)
+              ? { imprintNotes: cleanLineDetail(line.item.imprintNotes) }
+              : {}),
           })),
         }),
       });
@@ -315,7 +333,7 @@ export default function CartPageContent({
             ? server.other
               ? `${FIELD_ERRORS_SUMMARY} ${server.other}`
               : FIELD_ERRORS_SUMMARY
-            : server.other || data.error || DEFAULT_ERROR
+            : server.other || shopperErrorMessage(response.status, data.error)
         );
         setStatus("error");
         if (hasFieldErrors) focusFirstInvalid(server.fields);
@@ -361,6 +379,17 @@ export default function CartPageContent({
                 : " Keep it handy if you contact us."}
             </p>
           )}
+          <p className="mt-4 max-w-md text-sm leading-relaxed text-onyx/80">
+            {confirmationEmailed ? (
+              ARTWORK_INSTRUCTIONS
+            ) : (
+              <>
+                Send your logo files (vector PDF, AI, EPS or PNG) to {cartContactEmail() ?? "us"}
+                {orderRef ? ` and mention ${orderRef}` : ""}.
+              </>
+            )}{" "}
+            {ARTWORK_CONFIRMATION_PROMISE}
+          </p>
           <Link
             href="/merchandise"
             className={`mt-8 inline-flex min-h-11 items-center rounded-md border border-gold-text px-6 py-3 text-sm font-semibold text-gold-text transition-colors hover:bg-gold/10 ${FOCUS_RING}`}
@@ -437,6 +466,7 @@ export default function CartPageContent({
                       onQuantity={updateQuantity}
                       onRemove={handleRemove}
                       onChooseColor={changeColor}
+                      onDetails={setLineDetails}
                     />
                   </li>
                 ))}
@@ -477,6 +507,9 @@ export default function CartPageContent({
                 <p className="mt-2 text-sm text-onyx/60">
                   Nothing is charged yet. We&apos;ll email you a final quote with a secure payment
                   link, and place the order once you&apos;ve paid.
+                </p>
+                <p className="mt-2 text-sm text-onyx/60">
+                  {ARTWORK_INSTRUCTIONS} {ARTWORK_CONFIRMATION_PROMISE}
                 </p>
 
                 <input
@@ -689,11 +722,13 @@ function CartProductGroup({
   onQuantity,
   onRemove,
   onChooseColor,
+  onDetails,
 }: {
   group: ProductGroup;
   onQuantity: (productId: string, quantity: number, color?: string) => void;
   onRemove: (productId: string, color?: string) => void;
   onChooseColor: (productId: string, fromColor: string | undefined, toColor: string) => void;
+  onDetails: (productId: string, color: string | undefined, details: LineDetails) => void;
 }) {
   const { product, summary, lines } = group;
   const colorOptions = normalizeColors(product.colors);
@@ -710,6 +745,7 @@ function CartProductGroup({
             onQuantity={onQuantity}
             onRemove={onRemove}
             onChooseColor={onChooseColor}
+            onDetails={onDetails}
           />
         ))}
       </ul>
@@ -737,6 +773,7 @@ function CartLine({
   onQuantity,
   onRemove,
   onChooseColor,
+  onDetails,
 }: {
   product: CartProduct;
   line: DisplayLine;
@@ -744,6 +781,7 @@ function CartLine({
   onQuantity: (productId: string, quantity: number, color?: string) => void;
   onRemove: (productId: string, color?: string) => void;
   onChooseColor: (productId: string, fromColor: string | undefined, toColor: string) => void;
+  onDetails: (productId: string, color: string | undefined, details: LineDetails) => void;
 }) {
   const selectId = useId();
   const { item } = line;
@@ -855,11 +893,98 @@ function CartLine({
             {quantity.message}
           </p>
         )}
+        <LineDetailsFields
+          item={item}
+          takesSizes={categoryTakesSizes(product.category)}
+          lineName={lineName}
+          onDetails={onDetails}
+        />
       </div>
 
       <div className="shrink-0 text-right font-heading text-lg font-bold tabular-nums text-onyx">
         {formatPrice(line.lineTotal)}
       </div>
     </li>
+  );
+}
+
+/**
+ * Optional per-line text: a size breakdown (apparel and headwear only) and
+ * imprint notes (every product). Collapsed unless the line already has some,
+ * so the cart stays light. Edits save straight into the cart.
+ */
+function LineDetailsFields({
+  item,
+  takesSizes,
+  lineName,
+  onDetails,
+}: {
+  item: CartLineItem;
+  takesSizes: boolean;
+  lineName: string;
+  onDetails: (productId: string, color: string | undefined, details: LineDetails) => void;
+}) {
+  const baseId = useId();
+  const [open, setOpen] = useState(Boolean(item.sizes || item.imprintNotes));
+  const toggleLabel = takesSizes ? "Add sizes or imprint notes" : "Add imprint notes";
+  const max = CART_FORM_LIMITS.lineDetailMax;
+
+  return (
+    <div className="mt-2">
+      <button
+        type="button"
+        aria-expanded={open}
+        aria-controls={`${baseId}-panel`}
+        onClick={() => setOpen((value) => !value)}
+        className={`inline-flex min-h-11 items-center rounded px-2 text-sm font-semibold text-gold-text underline ${FOCUS_RING}`}
+      >
+        {open ? "Hide sizes and imprint notes" : toggleLabel}
+        <span className="sr-only"> for {lineName}</span>
+      </button>
+      <div id={`${baseId}-panel`} hidden={!open} className="mt-1 space-y-3">
+        {takesSizes && (
+          <div>
+            <label htmlFor={`${baseId}-sizes`} className="block text-xs font-semibold text-onyx/80">
+              Sizes and quantities <span className="font-normal text-onyx/60">(optional)</span>
+            </label>
+            <textarea
+              id={`${baseId}-sizes`}
+              rows={2}
+              maxLength={max}
+              value={item.sizes ?? ""}
+              onChange={(event) =>
+                onDetails(item.productId, item.color, { sizes: event.target.value })
+              }
+              placeholder="24 M, 60 L, 60 XL"
+              aria-describedby={`${baseId}-sizes-help`}
+              className={`${fieldClasses(false)} mt-1 resize-none px-3 py-2`}
+            />
+            <p id={`${baseId}-sizes-help`} className="mt-1 text-xs text-onyx/60">
+              How many of each size, so the quote and order match what you need.
+            </p>
+          </div>
+        )}
+        <div>
+          <label htmlFor={`${baseId}-imprint`} className="block text-xs font-semibold text-onyx/80">
+            Imprint notes <span className="font-normal text-onyx/60">(optional)</span>
+          </label>
+          <textarea
+            id={`${baseId}-imprint`}
+            rows={2}
+            maxLength={max}
+            value={item.imprintNotes ?? ""}
+            onChange={(event) =>
+              onDetails(item.productId, item.color, { imprintNotes: event.target.value })
+            }
+            placeholder="Left chest, white ink"
+            aria-describedby={`${baseId}-imprint-help`}
+            className={`${fieldClasses(false)} mt-1 resize-none px-3 py-2`}
+          />
+          <p id={`${baseId}-imprint-help`} className="mt-1 text-xs text-onyx/60">
+            Where the logo goes and the ink color.
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }

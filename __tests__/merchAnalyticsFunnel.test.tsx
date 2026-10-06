@@ -143,7 +143,7 @@ describe("cart page events", () => {
     };
     fill();
     fireEvent.click(screen.getByRole("button", { name: "Submit Order Request" }));
-    await screen.findByText(/Something went wrong/);
+    await screen.findByText(/We couldn't send your request/);
     expect(events("generate_lead")).toHaveLength(0);
 
     vi.stubGlobal(

@@ -303,6 +303,42 @@ describe("1. cart-checkout route", () => {
       customerSafe(mail, backendValuesOf(world.db.data(order.id)));
     });
 
+    it("carries sizes and imprint notes from the cart to the stored order and both emails", async () => {
+      const order = await placeOrder(app, {
+        items: [
+          {
+            productId: POLO_ID,
+            color: "Navy",
+            quantity: 3,
+            sizes: "1 M, 2 XL",
+            imprintNotes: "Left chest, white ink",
+          },
+          { productId: VEST_ID, color: "Iron", quantity: 6 },
+        ],
+      });
+      const stored = world.db.data(order.id).items as Record<string, unknown>[];
+      expect(stored[0]).toMatchObject({
+        sizes: "1 M, 2 XL",
+        imprintNotes: "Left chest, white ink",
+      });
+      expect(stored[1]).not.toHaveProperty("sizes");
+      expect(stored[1]).not.toHaveProperty("imprintNotes");
+
+      const [business] = world.outbox.toBusiness;
+      expect(business.html).toContain("Sizes and quantities: 1 M, 2 XL");
+      expect(business.html).toContain("Imprint notes: Left chest, white ink");
+
+      const [customer] = world.outbox.toCustomers;
+      expect(customer.html).toContain("Sizes and quantities: 1 M, 2 XL");
+      expect(customer.html).toContain("Imprint notes: Left chest, white ink");
+      expect(customer.html).toContain("Send your logo files (vector PDF, AI, EPS or PNG)");
+      expect(customer.html).toContain("replying to this confirmation email");
+      expect(customer.html).toContain(
+        "We'll confirm artwork details with you before quoting the final price."
+      );
+      customerSafe(customer, backendValuesOf(world.db.data(order.id)));
+    });
+
     it("minimum order is counted across colors (12 + 12 meets the 24-unit minimum)", async () => {
       const response = await app.checkout(
         cartRequest(
@@ -501,13 +537,15 @@ describe("1. cart-checkout route", () => {
       expect(world.outbox.toBusiness).toHaveLength(1);
     });
 
-    it("email not configured -> 503 (the business could not be notified)", async () => {
+    it("email not configured -> 503 with a generic message and our contact details, not the config reason", async () => {
       app = await loadApp({ resend: false });
       const response = await app.checkout(cartRequest(cartBody()));
       expect(response.status).toBe(503);
-      expect(await jsonOf(response)).toMatchObject({
-        error: "Email delivery is not configured yet.",
-      });
+      const { error } = (await jsonOf(response)) as { error: string };
+      expect(error).toBe(
+        "We couldn't send your request. Please email ben@magnoliagrovega.com or call (706) 573-1719."
+      );
+      expect(error).not.toMatch(/configured|RESEND|email delivery/i);
     });
   });
 });
