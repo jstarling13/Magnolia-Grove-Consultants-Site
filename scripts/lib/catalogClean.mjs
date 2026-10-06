@@ -14,7 +14,7 @@
 
 /**
  * @typedef {{ name: string, category: string, brand: string, description: string,
- *   tiers: [number, number][], imageAlt: string, colors: string[] }} CleanProduct
+ *   tiers: [number, number][], imageAlt: string, colors: string[], priceNote?: string }} CleanProduct
  * @typedef {{ espId: string, supplier: string, asi: string, productNo: string }} EspLink
  * @typedef {{ rating: number, reviews: number, key: string }} Vendor
  * @typedef {{ id: string, imgId: string, product: CleanProduct, link: EspLink, vendor: Vendor, colorMap: Record<string, string | null> }} CatalogItem
@@ -31,6 +31,15 @@ export const VENDOR_PRIOR_RATING = 4.0;
 export const VENDOR_PRIOR_WEIGHT = 10;
 /** Two same-category products are duplicates at or above this token Jaccard. */
 export const DUPLICATE_JACCARD = 0.75;
+/**
+ * Looser threshold used ONLY between rows from different suppliers in the same category:
+ * two vendors listing "RTIC 20oz Essential Tumbler" and "RTIC Ceramic Lined 20 oz Essential
+ * Tumbler" are one product, even though the names do not reach DUPLICATE_JACCARD. The same
+ * discriminator guards apply, plus shape words and a size-conflict check (see isNearDuplicate).
+ */
+export const NEAR_DUPLICATE_JACCARD = 0.65;
+/** Shown on a product page when the one price grid we hold is for a base size. */
+export const PRICE_NOTE_SIZE = "Priced for the standard size; other sizes quoted on request.";
 // -----------------------------------------------------------------------------
 
 export const MAX_NAME_LENGTH = 140;
@@ -468,6 +477,223 @@ export function cleanDisplayName(value) {
   return name;
 }
 
+// ---- Name casing ----------------------------------------------------------------
+
+/** Share of letters in the name that are upper case (0 when there are none). */
+export function uppercaseRatio(name) {
+  const letters = str(name).replace(/[^A-Za-z]/g, "");
+  if (letters.length === 0) return 0;
+  return letters.replace(/[^A-Z]/g, "").length / letters.length;
+}
+
+/** A name set mostly in capitals ("LANYARDS DYE SUBLIMATED FULL COLOR"): over 70% of its letters. */
+export const SHOUTY_RATIO = 0.7;
+export function isShoutyName(name) {
+  return str(name).replace(/[^A-Za-z]/g, "").length >= 5 && uppercaseRatio(name) > SHOUTY_RATIO;
+}
+
+/** Real acronyms that stay upper case when a shouted name is converted to Title Case. */
+export const NAME_ACRONYMS = new Set([
+  "USB",
+  "LED",
+  "UV",
+  "PVC",
+  "UPF",
+  "GSM",
+  "ANSI",
+  "USA",
+  "NFC",
+  "RFID",
+  "HD",
+  "ID",
+  "CVC",
+  "UL",
+  "AA",
+  "AAA",
+  "PU",
+  "PP",
+  "ABS",
+  "EVA",
+  "PET",
+  "RPET",
+  "QR",
+  "LCD",
+  "GPS",
+  "SPF",
+  "FM",
+  "BBQ",
+  "DIY",
+  "TV",
+  "RTIC",
+  "YETI",
+  "JBL",
+  "BIC",
+  "UPS",
+  "XL",
+  "XXL",
+]);
+const NAME_ACRONYM_DISPLAY = { RPET: "rPET" };
+/** Words that stay lower case in the middle of a Title Case name. */
+const NAME_SMALL_WORDS = new Set([
+  "a",
+  "an",
+  "and",
+  "as",
+  "at",
+  "by",
+  "for",
+  "in",
+  "of",
+  "on",
+  "or",
+  "the",
+  "to",
+  "with",
+  "wit", // a name the supplier cut off mid-word ("... T-Shirt wit")
+  "w",
+]);
+/** Measurement units that stay lower case ("16 oz", "5000 mah"). */
+const NAME_UNITS = new Set(["oz", "ounce", "ounces", "lb", "lbs", "ml", "mm", "cm", "ft", "inch"]);
+
+/**
+ * Consistent capitalization of a display name. Shouted names (over 70% capitals) are
+ * converted to Title Case, keeping real acronyms (USB, LED, ...) and (R)/(TM) marks; in any
+ * other name only words written entirely in lower case ("Golf visor") are capitalized.
+ * Words with internal capitals, digits or symbols (rPET, TiTUS, 3.4, w/) are never touched.
+ * Display only: ids come from the original name, so this can never change an id.
+ */
+export function normalizeNameCase(value) {
+  const name = collapseWhitespace(value);
+  if (!name) return name;
+  const shouty = isShoutyName(name);
+  const words = name.split(" ");
+  const out = words.map((word, index) => {
+    // split hyphenated compounds ("ANTI-SLIP" -> "Anti-Slip") and slash pairs
+    return word
+      .split(/([-/])/)
+      .map((part, partIndex) => {
+        if (!/[A-Za-z]/.test(part) || /\d/.test(part)) return part;
+        const letters = part.replace(/[^A-Za-z]/g, "");
+        const first = index === 0 && partIndex === 0;
+        if (shouty && letters === letters.toUpperCase()) {
+          const upper = letters.toUpperCase();
+          if (NAME_ACRONYMS.has(upper))
+            return part.replace(letters, NAME_ACRONYM_DISPLAY[upper] ?? upper);
+          if (!first && NAME_SMALL_WORDS.has(letters.toLowerCase())) return part.toLowerCase();
+          if (NAME_UNITS.has(letters.toLowerCase())) return part.toLowerCase();
+          return part.charAt(0) + part.slice(1).toLowerCase();
+        }
+        // not shouty: only fully lower-case words of 3+ letters are capitalized
+        if (letters === letters.toLowerCase() && letters.length >= 3) {
+          if (!first && NAME_SMALL_WORDS.has(letters)) return part;
+          if (NAME_UNITS.has(letters)) return part;
+          return part.charAt(0).toUpperCase() + part.slice(1);
+        }
+        return part;
+      })
+      .join("");
+  });
+  return out.join(" ");
+}
+
+// ---- Sizes and size-priced products ----------------------------------------------
+
+const DIMENSION_ENTRY = /\d\s*(?:['"′″]|in\b|inch|ft\b|feet|sq\.?\s*in)|\d\s*[xX×]\s*[\d.]/i;
+
+/**
+ * The distinct physical sizes in a raw sizes field ("10 ' x 10 ', 10 ' x 20 '"), measurements
+ * only: apparel letters (S, M, L), capacities (4 GB) and "One size" are not size options here.
+ * @returns {string[]}
+ */
+export function parseSizeOptions(sizes) {
+  const text = collapseWhitespace(sizes);
+  if (!text) return [];
+  const entries = text
+    .split(/,\s*(?=[\d.])/)
+    .map((entry) => normalizeMeasurements(entry))
+    .filter((entry) => DIMENSION_ENTRY.test(entry));
+  return [...new Set(entries)];
+}
+
+/** True when the product NAME itself lists several sizes ("8X8 and 8X10", "(6' 8' 10' 15' 20')", "All Sizes"). */
+export function nameShowsSizes(name) {
+  const text = str(name);
+  if (/\ball\s+sizes\b|\bsizes\b/i.test(text)) return true;
+  const pairs = text.match(/\d+(?:\.\d+)?\s*['"]?\s*x\s*\d+/gi) ?? [];
+  if (pairs.length >= 2) return true;
+  return /\(\s*\d+\s*['"]\s+\d+\s*['"](?:\s+\d+\s*['"])+\s*\)/.test(text);
+}
+
+/**
+ * A size-priced product: the supplier flagged several price grids (multiGrid) AND the
+ * product comes in several sizes, so the one tier set we show is for the base size.
+ */
+export function isSizePriced({ multiGrid, sizes, name }) {
+  const flagged = multiGrid === 1 || multiGrid === true || multiGrid === "1";
+  if (!flagged) return false;
+  return parseSizeOptions(sizes).length >= 2 || nameShowsSizes(name);
+}
+
+/** First two measurements of a size entry, in inches ("3 ' x 5 '" -> [36, 60]); null when not comparable. */
+function sizeInches(sizes) {
+  const first = normalizeMeasurements(str(sizes).split(/,\s*(?=[\d.])/)[0] ?? "");
+  const matches = [...first.matchAll(/(\d+(?:\.\d+)?)(?:\s+(\d+)\/(\d+))?\s*(['"′″])?/g)];
+  const dims = [];
+  for (const m of matches) {
+    if (!m[4]) continue;
+    const base = Number(m[1]) + (m[2] ? Number(m[2]) / Number(m[3]) : 0);
+    dims.push(m[4] === "'" || m[4] === "′" ? base * 12 : base);
+  }
+  return dims.length >= 2 ? dims.slice(0, 2).sort((a, b) => a - b) : null;
+}
+
+/** True when both rows give a comparable W x H size and the sizes clearly differ. */
+export function sizesConflict(a, b) {
+  const sa = sizeInches(a);
+  const sb = sizeInches(b);
+  if (!sa || !sb) return false;
+  return sa.some((value, i) => Math.abs(value - sb[i]) / Math.max(value, sb[i]) > 0.05);
+}
+
+/** Value of "15 3/4" or "31.5" (0 when not a number). */
+function measurementValue(text) {
+  const m = String(text).match(/^(\d+(?:\.\d+)?)(?: (\d+)\/(\d+))?$/);
+  if (!m) return 0;
+  return Number(m[1]) + (m[2] ? Number(m[2]) / Number(m[3]) : 0);
+}
+
+/**
+ * "W x H" from a raw sizes field when it holds ONE clean measurement ("15" x 23""), else "".
+ * Skips lists, thicknesses given first ("0.25" x 60"") and anything under 2 units.
+ */
+export function primarySizeLabel(sizes) {
+  const options = parseSizeOptions(sizes);
+  if (options.length !== 1) return "";
+  const m = options[0].match(
+    /^(\d+(?:\.\d+)?(?: \d+\/\d+)?)(['"])\s*x\s*(\d+(?:\.\d+)?(?: \d+\/\d+)?)\2/
+  );
+  if (!m || measurementValue(m[1]) < 2 || measurementValue(m[3]) < 2) return "";
+  return `${m[1]}${m[2]} x ${m[3]}${m[2]}`;
+}
+
+/** Nouns whose size is the first thing a shopper needs; a bare name like "Door Mat" gets its size appended. */
+const SIZE_SENSITIVE_NOUN =
+  /\b(?:rugs?|mats?|doormats?|carpets?|runners?|banners?|signs?|flags?|stickers?|magnets?|hangers?|towels?|blankets?|throws?|posters?|tablecloths?|decals?)\b/i;
+const MAX_GENERIC_NAME_WORDS = 3;
+
+/**
+ * Deterministic improvement of a vague name using only the row's own sizes field:
+ * "Door Mat" + size 15" x 23" -> "Door Mat, 15" x 23"". Applies to short names of
+ * size-sensitive items that do not already carry a measurement and whose size is unambiguous.
+ */
+export function improveGenericName(name, sizes) {
+  const words = str(name).split(/\s+/).filter(Boolean);
+  if (words.length > MAX_GENERIC_NAME_WORDS) return name;
+  if (/\d/.test(name) || !SIZE_SENSITIVE_NOUN.test(name)) return name;
+  const label = primarySizeLabel(sizes);
+  return label ? `${name}, ${label}` : name;
+}
+
 /** Short real acronyms/codes that stay upper-case inside a shouted color name. */
 export const COLOR_ACRONYMS = new Set([
   "UPF",
@@ -761,19 +987,71 @@ function tidyPunctuationKeepEnd(text) {
   return body ? body + end : "";
 }
 
-export function buildDescription({ rawDescription, colorCount, sizes, minQty, usa, multiGrid }) {
+/** Words in a description body, ignoring punctuation. */
+function wordCount(text) {
+  return str(text)
+    .replace(/[^A-Za-z0-9\s]/g, " ")
+    .split(/\s+/)
+    .filter(Boolean).length;
+}
+
+/** A description body shorter than this is "thin": it gets factual detail from the row's own fields. */
+export const THIN_DESCRIPTION_WORDS = 4;
+const MAX_SIZE_FACT_LENGTH = 80;
+
+/**
+ * Facts for a thin description, drawn only from the row: color count, size line and the
+ * first volume break. Nothing is invented; with no facts at all the product name is the body.
+ */
+function thinDescriptionFacts({ base, colorCount, size, breakQty, name }) {
+  const facts = [];
+  if (colorCount > 1 && !/\bcolou?rs?\b/i.test(base)) facts.push(`${colorCount} color options.`);
+  if (size && size.length <= MAX_SIZE_FACT_LENGTH && !base.includes(size))
+    facts.push(`Size: ${size}.`);
+  if (breakQty) facts.push(`Price per unit drops at ${breakQty} units.`);
+  if (!base && facts.length === 0 && name) facts.push(`${name.replace(/[.!?]+$/, "")}.`);
+  return facts;
+}
+
+/**
+ * @param {{ rawDescription: string, colorCount: number, sizes: string, minQty: number,
+ *   usa: unknown, multiGrid: unknown, sizePriced?: boolean, enrich?: { name?: string, breakQty?: number } }} input
+ *   `sizePriced`: the page shows PRICE_NOTE_SIZE, so the generic "base size or option" sentence is dropped.
+ *   `enrich`: when given, a thin body (under THIN_DESCRIPTION_WORDS words) is extended with
+ *   facts from the row; the importer always passes it.
+ */
+export function buildDescription({
+  rawDescription,
+  colorCount,
+  sizes,
+  minQty,
+  usa,
+  multiGrid,
+  sizePriced = false,
+  enrich,
+}) {
   let base = normalizeMeasurements(cleanDescriptionText(rawDescription));
+  const size = normalizeMeasurements(collapseWhitespace(sizes));
   if (!base) {
-    const size = normalizeMeasurements(collapseWhitespace(sizes));
     // "<N> color options." on its own repeats what the swatches already show, so it
     // is only written alongside a size line; with nothing else the description is
-    // just the "Priced at" tail (no facts are lost).
+    // just the "Priced at" tail (no facts are lost) unless the importer enriches it.
     base = size
       ? `${colorCount > 0 ? `${colorCount} color option${colorCount === 1 ? "" : "s"}. ` : ""}Size: ${size}.`
       : "";
   } else if (!(/[.!?)'”]$/.test(base) || (/"$/.test(base) && !/\d"$/.test(base)))) {
     // A closing quote ends a sentence, but a digit followed by " is an inch mark.
     base += ".";
+  }
+  if (enrich && wordCount(base) < THIN_DESCRIPTION_WORDS) {
+    const facts = thinDescriptionFacts({
+      base,
+      colorCount,
+      size: size && !base.includes("Size:") ? size : "",
+      breakQty: enrich.breakQty,
+      name: enrich.name,
+    });
+    base = [base, ...facts].filter(Boolean).join(" ");
   }
   const sentences = [];
   const usaFlag = usa === 1 || usa === true || usa === "1";
@@ -782,7 +1060,7 @@ export function buildDescription({ rawDescription, colorCount, sizes, minQty, us
     sentences.push("Made in the USA.");
   }
   if (base) sentences.push(base);
-  if (multiGrid === 1 || multiGrid === true || multiGrid === "1") {
+  if ((multiGrid === 1 || multiGrid === true || multiGrid === "1") && !sizePriced) {
     sentences.push(
       "Pricing shown is for the base size or option; other sizes or options may cost more."
     );
@@ -964,6 +1242,46 @@ export function isDuplicateTokens(a, b) {
   return true;
 }
 
+/** Extra guards for the looser cross-supplier test: a different shape or feature is a different product. */
+export const NEAR_DISCRIMINATOR_TOKENS = new Set([
+  ...DISCRIMINATOR_TOKENS,
+  "oval",
+  "round",
+  "square",
+  "circle",
+  "rectangle",
+  "rectangular",
+  "heart",
+  "star",
+  "hexagon",
+  "triangle",
+  "diamond",
+  "retractable",
+  "foldable",
+  "magnetic",
+  "wireless",
+  "rechargeable",
+]);
+
+/**
+ * Near-duplicate test between rows from DIFFERENT suppliers (same category assumed):
+ * Jaccard >= NEAR_DUPLICATE_JACCARD with no differing number, gender/age/sleeve word,
+ * shape or feature word, and (when both rows give a comparable W x H) matching sizes.
+ */
+export function isNearDuplicate(tokensA, tokensB, sizesA = "", sizesB = "") {
+  const min = Math.min(tokensA.size, tokensB.size);
+  const max = Math.max(tokensA.size, tokensB.size);
+  if (min === 0 || min / max < NEAR_DUPLICATE_JACCARD) return false;
+  if (jaccard(tokensA, tokensB) < NEAR_DUPLICATE_JACCARD) return false;
+  for (const t of tokensA) {
+    if (!tokensB.has(t) && (NEAR_DISCRIMINATOR_TOKENS.has(t) || /\d/.test(t))) return false;
+  }
+  for (const t of tokensB) {
+    if (!tokensA.has(t) && (NEAR_DISCRIMINATOR_TOKENS.has(t) || /\d/.test(t))) return false;
+  }
+  return !sizesConflict(sizesA, sizesB);
+}
+
 /** True when two product names (same category assumed) are duplicates. */
 export function isDuplicateName(nameA, nameB) {
   return isDuplicateTokens(significantTokens(nameA), significantTokens(nameB));
@@ -1014,7 +1332,7 @@ export function cleanRow(row) {
   const idName = cleanName(nameRaw);
   if (!idName) return { skip: "empty-name" };
   if (idName.length > MAX_NAME_LENGTH) return { skip: "name-too-long" };
-  const name = cleanDisplayName(nameRaw);
+  const name = normalizeNameCase(cleanDisplayName(nameRaw));
   if (!name) return { skip: "empty-name" };
 
   const tiers = cleanTiers(tiersRaw);
@@ -1029,6 +1347,7 @@ export function cleanRow(row) {
   const usa = Number(usaRaw) === 1 ? 1 : 0;
   const multiGrid = Number(multiGridRaw) === 1 ? 1 : 0;
 
+  const sizePriced = isSizePriced({ multiGrid, sizes: sizesRaw, name });
   const description = buildDescription({
     rawDescription: descRaw,
     colorCount: Math.min(colors.length, MAX_COLORS),
@@ -1036,6 +1355,8 @@ export function cleanRow(row) {
     minQty: tiers[0][0],
     usa,
     multiGrid,
+    sizePriced,
+    enrich: { name, breakQty: tiers[1]?.[0] },
   });
 
   const supplier = collapseWhitespace(supplierRaw);
@@ -1045,6 +1366,7 @@ export function cleanRow(row) {
     vendor: { key: (asi || supplier).toLowerCase(), rating, reviews },
     idName,
     colorMap,
+    sizes: collapseWhitespace(sizesRaw),
     product: {
       name,
       category,
@@ -1053,6 +1375,7 @@ export function cleanRow(row) {
       tiers,
       imageAlt: name,
       colors: colors.slice(0, MAX_COLORS),
+      ...(sizePriced ? { priceNote: PRICE_NOTE_SIZE } : {}),
     },
     link: {
       espId,
@@ -1097,8 +1420,10 @@ function memberInfo(c) {
  *   dropEspIds?: { espId: string, reason: string }[],
  *   keepApart?: { espIds: string[], reason?: string }[],
  *   categoryOverrides?: { espId: string, category: string, reason: string }[],
+ *   nameOverrides?: { espId: string, name: string, reason: string }[],
  *   duplicateImageEspIds?: Iterable<string>,
- *   preferEspIds?: Iterable<string>
+ *   preferEspIds?: Iterable<string>,
+ *   protectedEspIds?: Iterable<string>
  * }} [opts] `rejectedEspIds`: rows whose image could not be fetched; excluded so a
  *   runner-up from the same cluster is selected instead.
  * @returns {{
@@ -1108,7 +1433,9 @@ function memberInfo(c) {
  *   clusters: { kept: MemberInfo, dropped: (MemberInfo & { reason: string })[] }[],
  *   curatedDuplicates: { dropped: MemberInfo, curated: string }[],
  *   manualOverrides: { dropped: MemberInfo, reason: string }[],
- *   categoryMoved: { espId: string, name: string, from: string, to: string, reason: string }[]
+ *   categoryMoved: { espId: string, name: string, from: string, to: string, reason: string }[],
+ *   renamed: { espId: string, from: string, to: string, reason: string }[],
+ *   nameCollisions: { espId: string, name: string, sameAs: string }[]
  * }}
  */
 export function buildCatalog(rows, opts = {}) {
@@ -1125,6 +1452,8 @@ export function buildCatalog(rows, opts = {}) {
   const categoryMoved = [];
   const imageDuplicates = new Set(opts.duplicateImageEspIds ?? []);
   const preferred = new Set(opts.preferEspIds ?? []);
+  const protectedRows = new Set(opts.protectedEspIds ?? []);
+  const nameOverrides = new Map((opts.nameOverrides ?? []).map((o) => [String(o.espId).trim(), o]));
 
   const skipped = {};
   const skippedDetail = [];
@@ -1189,6 +1518,7 @@ export function buildCatalog(rows, opts = {}) {
     candidates.push({
       ...cleaned,
       preferred: preferred.has(cleaned.espId),
+      protectedRow: protectedRows.has(cleaned.espId),
       idx: candidates.length,
       tokens: significantTokens(cleaned.product.name),
     });
@@ -1215,6 +1545,7 @@ export function buildCatalog(rows, opts = {}) {
       }
     }
   }
+  const vendorSets = new Map(candidates.map((c) => [c.idx, new Set([c.vendor.key])])); // root -> vendor keys
   const listed = new Map(); // root -> espIds in that cluster that appear in keepApart
   for (const c of candidates) if (apart.has(c.espId)) listed.set(c.idx, [c.espId]);
   const union = (a, b) => {
@@ -1226,6 +1557,8 @@ export function buildCatalog(rows, opts = {}) {
     for (const x of la) for (const y of lb) if (apart.get(x)?.has(y)) return; // forbidden
     const [lo, hi] = ra < rb ? [ra, rb] : [rb, ra];
     parent[hi] = lo;
+    vendorSets.set(lo, new Set([...vendorSets.get(lo), ...vendorSets.get(hi)]));
+    vendorSets.delete(hi);
     if (la.length + lb.length > 0) {
       listed.set(lo, [...la, ...lb]);
       listed.delete(hi);
@@ -1246,13 +1579,29 @@ export function buildCatalog(rows, opts = {}) {
     if (!byCategory.has(cat)) byCategory.set(cat, []);
     byCategory.get(cat).push(c);
   }
+  // pass 1: exact-ish duplicates (any supplier). pass 2: the looser cross-supplier rule, run
+  // only after pass 1 so each cluster's supplier set is complete when it is checked.
   for (const list of byCategory.values()) {
     for (let i = 0; i < list.length; i++) {
       for (let j = i + 1; j < list.length; j++) {
-        if (
-          find(list[i].idx) !== find(list[j].idx) &&
-          isDuplicateTokens(list[i].tokens, list[j].tokens)
-        ) {
+        if (find(list[i].idx) === find(list[j].idx)) continue;
+        if (isDuplicateTokens(list[i].tokens, list[j].tokens)) union(list[i].idx, list[j].idx);
+      }
+    }
+  }
+  for (const list of byCategory.values()) {
+    for (let i = 0; i < list.length; i++) {
+      for (let j = i + 1; j < list.length; j++) {
+        if (find(list[i].idx) === find(list[j].idx)) continue;
+        if (list[i].vendor.key === list[j].vendor.key) continue;
+        // never merges away a row that carries hand-sourced color photos / links...
+        if (list[i].protectedRow || list[j].protectedRow) continue;
+        // ...and never joins two clusters that already hold rows from the same supplier: that
+        // supplier lists both as separate products ("Door Hanger" vs "Door Hanger w/Pocket")
+        const va = vendorSets.get(find(list[i].idx));
+        const vb = vendorSets.get(find(list[j].idx));
+        if ([...va].some((key) => vb.has(key))) continue;
+        if (isNearDuplicate(list[i].tokens, list[j].tokens, list[i].sizes, list[j].sizes)) {
           union(list[i].idx, list[j].idx);
         }
       }
@@ -1286,7 +1635,48 @@ export function buildCatalog(rows, opts = {}) {
   winners.sort((a, b) => a.idx - b.idx);
   clusters.sort((a, b) => (a.kept.name < b.kept.name ? -1 : a.kept.name > b.kept.name ? 1 : 0));
 
-  // ---- 5) ids ---------------------------------------------------------------
+  // ---- 5) display names (after selection, so renaming never changes which rows cluster) ----
+  // ids are derived from idName in step 6 and are NOT affected by anything below
+  const renamed = [];
+  for (const w of winners) {
+    const override = nameOverrides.get(w.espId);
+    const name = override ? override.name : improveGenericName(w.product.name, w.sizes);
+    if (name === w.product.name) continue;
+    renamed.push({
+      espId: w.espId,
+      from: w.product.name,
+      to: name,
+      reason: override
+        ? override.reason
+        : "generic name: size added from the supplier's size field",
+    });
+    w.product = { ...w.product, name, imageAlt: name, brand: detectBrand(name) };
+  }
+  // two products must not end up with the same name: add the size when that tells them apart
+  const nameCollisions = [];
+  const claimed = new Map(curated.map((c) => [normalizeName(c.name), c.id || c.name]));
+  for (const w of winners) {
+    let key = normalizeName(w.product.name);
+    if (claimed.has(key)) {
+      const label = primarySizeLabel(w.sizes);
+      const sized = label ? `${w.product.name}, ${label}` : "";
+      if (sized && !claimed.has(normalizeName(sized))) {
+        renamed.push({
+          espId: w.espId,
+          from: w.product.name,
+          to: sized,
+          reason: `same name as ${claimed.get(key)}: size added`,
+        });
+        w.product = { ...w.product, name: sized, imageAlt: sized };
+        key = normalizeName(sized);
+      } else {
+        nameCollisions.push({ espId: w.espId, name: w.product.name, sameAs: claimed.get(key) });
+      }
+    }
+    claimed.set(key, w.espId);
+  }
+
+  // ---- 6) ids ---------------------------------------------------------------
   const taken = new Map(curatedIds.map((id) => [id, ""]));
   const items = [];
   for (const w of winners) {
@@ -1314,6 +1704,8 @@ export function buildCatalog(rows, opts = {}) {
     curatedDuplicates,
     manualOverrides,
     categoryMoved,
+    renamed,
+    nameCollisions,
   };
 }
 
@@ -1371,6 +1763,43 @@ export function parseCategoryOverrides(json) {
     seen.add(espId);
     return { espId, category, reason };
   });
+}
+
+/**
+ * Validate the nameOverrides section: espId -> better display name, with a reason. The name must
+ * only use words from the product's own raw name, description or sizes (checked by review and
+ * by the catalog tests); it never changes the product id.
+ * @returns {{ espId: string, name: string, reason: string }[]}
+ */
+export function parseNameOverrides(json) {
+  const list = json?.nameOverrides ?? [];
+  if (!Array.isArray(list))
+    throw new Error("import-overrides.json: nameOverrides must be an array");
+  const seen = new Set();
+  return list.map((entry, i) => {
+    const espId = collapseWhitespace(entry?.espId);
+    const name = collapseWhitespace(entry?.name);
+    const reason = collapseWhitespace(entry?.reason);
+    if (!espId) throw new Error(`import-overrides.json: nameOverrides[${i}] has no espId`);
+    if (!name) throw new Error(`import-overrides.json: nameOverrides[${i}] (${espId}) has no name`);
+    if (name.length > MAX_NAME_LENGTH)
+      throw new Error(`import-overrides.json: nameOverrides[${i}] (${espId}) name is too long`);
+    if (isShoutyName(name))
+      throw new Error(`import-overrides.json: nameOverrides[${i}] (${espId}) name is all caps`);
+    if (!reason)
+      throw new Error(`import-overrides.json: nameOverrides[${i}] (${espId}) has no reason`);
+    if (seen.has(espId)) throw new Error(`import-overrides.json: duplicate name override ${espId}`);
+    seen.add(espId);
+    return { espId, name, reason };
+  });
+}
+
+/** Warn about name overrides whose espId is in no raw file. */
+export function checkNameOverrides({ nameOverrides, rawEspIds }) {
+  const raw = new Set(rawEspIds);
+  return nameOverrides
+    .filter((o) => !raw.has(o.espId))
+    .map((o) => `stale name override: espId ${o.espId} is not present in any raw file (${o.name})`);
 }
 
 /** Warn about category overrides whose espId is in no raw file. */
@@ -1628,5 +2057,7 @@ export function toPublicRecord({ id, product }) {
     imageAlt: product.imageAlt,
     // a product with no real color options has no `colors` key at all (no swatches, no color step)
     ...(product.colors.length > 0 ? { colors: product.colors } : {}),
+    // size-priced products carry the note the product page shows under the price
+    ...(product.priceNote ? { priceNote: product.priceNote } : {}),
   };
 }

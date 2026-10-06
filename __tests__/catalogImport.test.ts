@@ -884,7 +884,8 @@ describe("description cleanup", () => {
     });
     row[3] = "Cotton cap in 12 colors.";
     const cleaned = cleanRow(row);
-    expect(cleaned.product?.description).toBe("Cotton cap. Priced at 1 unit.");
+    // the invented "12 colors" claim is gone; the importer adds the real count to the thin text
+    expect(cleaned.product?.description).toBe("Cotton cap. 2 color options. Priced at 1 unit.");
   });
 });
 
@@ -976,14 +977,15 @@ describe("manual overrides", () => {
     );
   });
 
-  it("ships overrides for the two known duplicates, both still live in the raw data", async () => {
+  it("ships overrides for the known duplicates, each naming its replacement", async () => {
     const file = JSON.parse(
       await fs.readFile(path.join(__dirname, "../scripts/data/import-overrides.json"), "utf8")
     );
     const overrides = parseOverrides(file);
-    expect(overrides.map((o) => o.espId)).toEqual(["7273365", "552519118"]);
+    expect(overrides.map((o) => o.espId)).toEqual(["7273365", "552519118", "553353508"]);
     expect(overrides[0].keepEspId).toBe("556464384");
     expect(overrides[1].keepCuratedId).toBe("6panel-premium-relaxed-golf-cap");
+    expect(overrides[2].keepEspId).toBe("553866344");
     const shippedIds = new Set(products.map((p) => p.id));
     expect(shippedIds.has("6panel-premium-relaxed-golf-cap")).toBe(true);
   });
@@ -1576,7 +1578,8 @@ describe("cleanColors on a whole list", () => {
     } as never);
     expect("colors" in record).toBe(false);
     expect(isImportedProductRecord(record)).toBe(true);
-    expect(cleaned.product?.description).toBe("Priced at 1 unit.");
+    // nothing else is known about the row, so the importer falls back to the product name
+    expect(cleaned.product?.description).toBe("Event Flooring. Priced at 1 unit.");
 
     const product = {
       id: "event-flooring-09700",

@@ -24,6 +24,8 @@ export interface CatalogProduct {
   /** Brand on the product's own label; "Essentials" means unbranded. */
   brand: string;
   description: string;
+  /** Size-pricing caveat for the product page; absent on ordinary products. */
+  priceNote?: string;
   image?: string;
   imageAlt?: string;
   colors?: string[];
@@ -41,6 +43,7 @@ interface SourceProduct {
   category: string;
   brand: string;
   description: string;
+  priceNote?: string;
   image?: string;
   imageAlt?: string;
   colors?: string[];
@@ -103,6 +106,7 @@ export function toCatalogProduct(
     description: options.truncateDescription
       ? truncate(product.description, CARD_DESCRIPTION_MAX)
       : product.description,
+    ...(product.priceNote ? { priceNote: product.priceNote } : {}),
     image: product.image,
     imageAlt: product.imageAlt,
     colors: colors.length > 0 ? colors : undefined,
@@ -174,6 +178,8 @@ export function toCardProduct(product: CatalogProduct): CatalogProduct {
     tiers: tiers.length > 2 ? [tiers[0], tiers[tiers.length - 1]] : tiers,
   };
   if (imageAlt && imageAlt !== product.name) card.imageAlt = imageAlt;
+  // the size-pricing note only shows on the product page, so cards do not carry it
+  delete card.priceNote;
   return card;
 }
 

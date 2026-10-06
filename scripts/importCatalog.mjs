@@ -22,6 +22,7 @@ import { fileURLToPath } from "node:url";
 import prettier from "prettier";
 import {
   buildCatalog,
+  checkNameOverrides,
   checkOverrides,
   findLostProtectedIds,
   checkCategoryOverrides,
@@ -29,6 +30,7 @@ import {
   findDuplicateImages,
   parseCategoryOverrides,
   parseKeepApart,
+  parseNameOverrides,
   parseOverrides,
   remapColorImageKeys,
   remapPhotoSamples,
@@ -144,6 +146,7 @@ export function renderDedupeReport({
   keepApart = [],
   imageDuplicates = [],
   categoryMoved = [],
+  renamed = [],
 }) {
   const who = (m) =>
     `${m.name} -- ${m.supplier || m.asi || "unknown vendor"} (rating ${m.rating}, ${m.reviews} reviews, score ${m.score})`;
@@ -164,6 +167,11 @@ export function renderDedupeReport({
   lines.push("## Category overrides applied", "");
   for (const m of categoryMoved) {
     lines.push(`- ${m.name}: ${m.from} -> ${m.to} (${m.reason})`);
+  }
+  lines.push("");
+  lines.push("## Names changed (display name only; ids never change)", "");
+  for (const r of renamed) {
+    lines.push(`- ${r.from} -> ${r.to} (${r.reason})`);
   }
   lines.push("");
   lines.push("## Duplicate images (byte-identical photos)", "");
@@ -286,15 +294,31 @@ export async function runImport(args) {
   const overrides = parseOverrides(overridesJson);
   const keepApart = parseKeepApart(overridesJson);
   const categoryOverrides = parseCategoryOverrides(overridesJson);
+  const nameOverrides = parseNameOverrides(overridesJson);
   // espIds already in the catalog win ties between equal twins, keeping existing ids stable
   const previousLinks0 = await readJsonIfExists(linksFile, {});
   const preferEspIds = Object.values(previousLinks0).map((l) => String(l?.espId ?? ""));
+  // products with hand-sourced data (color photos, curated ESP links) are never merged away by
+  // the looser cross-supplier near-duplicate rule
+  const earlyColorData = await Promise.all(
+    colorImageFiles.map(async (file) => readJsonIfExists(file, {}))
+  );
+  const earlyCuratedLinks = await readJsonIfExists(curatedLinksFile, {});
+  const protectedIdSet = new Set([
+    ...earlyColorData.flatMap((data) => Object.keys(data)),
+    ...Object.keys(earlyCuratedLinks),
+  ]);
+  const protectedEspIds = Object.entries(previousLinks0)
+    .filter(([id]) => protectedIdSet.has(id))
+    .map(([, link]) => String(link?.espId ?? ""));
   const buildOpts = {
     preferEspIds,
+    protectedEspIds,
     curated: curated.products,
     dropEspIds: overrides,
     keepApart,
     categoryOverrides,
+    nameOverrides,
   };
 
   // Select rows; fetch images for the winners. If a winner's image cannot be fetched it is
@@ -376,6 +400,8 @@ export async function runImport(args) {
     curatedDuplicates,
     manualOverrides,
     categoryMoved,
+    renamed,
+    nameCollisions,
   } = result;
   reused = args.images ? items.length - items.filter((i) => touched.has(i.id)).length : 0;
 
@@ -393,6 +419,12 @@ export async function runImport(args) {
   const rawEspIds = rows.map((r) => (Array.isArray(r) ? String(r[0]).trim() : ""));
   warnings.push(...checkKeepApart({ keepApart, rawEspIds }));
   warnings.push(...checkCategoryOverrides({ categoryOverrides, rawEspIds }));
+  warnings.push(...checkNameOverrides({ nameOverrides, rawEspIds }));
+  for (const c of nameCollisions) {
+    warnings.push(
+      `duplicate product name "${c.name}" (espId ${c.espId}, same as ${c.sameAs}): add a nameOverrides entry`
+    );
+  }
   const keptEspIds = new Set(items.map((i) => i.link.espId));
   const keepApartStatus = keepApart.map((g) => ({
     ...g,
@@ -503,6 +535,7 @@ export async function runImport(args) {
       keepApart: keepApartStatus,
       imageDuplicates: imageDuplicateGroups,
       categoryMoved,
+      renamed,
     })
   );
   if (args.report) {
@@ -517,6 +550,7 @@ export async function runImport(args) {
           curatedDuplicates,
           manualOverrides,
           categoryMoved,
+          renamed,
           imageDuplicates: imageDuplicateGroups.map((g) => ({
             kept: g.kept.product.name,
             dropped: g.dropped.map((d) => d.product.name),
@@ -563,6 +597,8 @@ export async function runImport(args) {
     colorPhotosDeleted: unreferencedPhotos,
     colorMoves: remapped.moves,
     categoryMoved: categoryMoved.length,
+    namesChanged: renamed.length,
+    sizePriced: publicRecords.filter((r) => r.priceNote).length,
   };
 }
 
@@ -583,6 +619,8 @@ function printSummary(args, s) {
   line("dropped: first-tier price too high", s.skipped["price-too-high"] ?? 0);
   line("dropped: duplicate image", s.skipped["duplicate-image"] ?? 0);
   line("category overrides applied", s.categoryMoved);
+  line("names changed (display only)", s.namesChanged);
+  line("products with a size price note", s.sizePriced);
   line("dropped: duplicate of curated", s.skipped["duplicate-of-curated"] ?? 0);
   line("dropped: duplicate, other vendor", s.skipped["duplicate-other-vendor"] ?? 0);
   line("dropped: duplicate, same vendor", s.skipped["duplicate-same-vendor"] ?? 0);
