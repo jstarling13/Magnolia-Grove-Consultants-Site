@@ -237,19 +237,19 @@ describe("buildProductMetadata", () => {
     const image = `${SITE}/images/merch/tee-1.jpg`;
     expect(meta.openGraph.images).toEqual([{ url: image, alt: "A cotton tee" }]);
     expect(meta.openGraph.url).toBe(`${SITE}/merchandise/tee-1`);
-    expect(meta.twitter.images).toEqual([image]);
+    expect(meta.twitter.images).toEqual([{ url: image, alt: "A cotton tee" }]);
   });
 
-  it("falls back to a generated description and skips images when there is no photo", () => {
+  it("falls back to a generated description and the branded card when there is no photo", () => {
     const bare = buildProductMetadata(make({ description: "", image: undefined }), SITE) as any;
     expect(bare.description).toContain("Cotton Tee");
-    expect(bare.openGraph).not.toHaveProperty("images");
-    expect(bare.twitter).not.toHaveProperty("images");
+    expect(bare.openGraph.images[0].url).toBe(`${SITE}/opengraph-image`);
+    expect(bare.twitter.images[0].url).toBe(`${SITE}/opengraph-image`);
   });
 
   it("keeps descriptions within search-snippet length", () => {
     const long = buildProductMetadata(make({ description: "word ".repeat(200) }), SITE) as any;
-    expect(long.description.length).toBeLessThanOrEqual(160);
+    expect(long.description.length).toBeLessThanOrEqual(155);
   });
 });
 

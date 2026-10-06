@@ -10,10 +10,10 @@
 
 import type { Metadata, MetadataRoute } from "next";
 import { brand } from "@/config/siteConfig";
+import { SHARE_IMAGE } from "@/app/(marketing)/merchandise/shareImage";
+import type { ImageSize } from "@/lib/merchImageSize";
 import { categoryPath } from "@/lib/merchSlug";
 import { isRealBrand, type CatalogProduct } from "@/lib/merchCatalog";
-
-const META_DESCRIPTION_MAX = 160;
 
 export function absoluteUrl(pathOrUrl: string, siteUrl: string): string {
   if (/^https?:\/\//i.test(pathOrUrl)) return pathOrUrl;
@@ -149,32 +149,149 @@ export function serializeJsonLd(data: unknown): string {
 // Metadata
 // ---------------------------------------------------------------------------
 
-export function buildProductMetadata(product: CatalogProduct, siteUrl: string): Metadata {
+/** Link-preview copy limits: titles stay on one or two lines, descriptions fit a snippet. */
+const SHARE_TITLE_MAX = 70;
+const SHARE_DESCRIPTION_MAX = 155;
+const CUSTOM_LOGO = "Custom Logo";
+
+/** Boilerplate the catalog import adds to size-priced items; it says nothing about the product. */
+const PRICING_BOILERPLATE =
+  /\s*Pricing shown is for the base size or option; other sizes or options may cost more\.?/gi;
+
+/** Image types every link-preview crawler reads (AVIF and SVG are not among them). */
+const CRAWLER_IMAGE_TYPE = /\.(?:jpe?g|png|webp|gif)$/i;
+
+/** Cut at a word boundary, ending in an ellipsis, within `max` characters. */
+function shortenAtWord(text: string, max: number): string {
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max - 1);
+  const space = cut.lastIndexOf(" ");
+  return `${(space > max * 0.6 ? cut.slice(0, space) : cut).replace(/[\s,;:.-]+$/, "")}…`;
+}
+
+/**
+ * Title for link previews: the product name, then the brand when it is a real
+ * name brand the name does not already carry, then "Custom Logo". Every item
+ * in the store is ordered with the shopper's logo (each has an imprint area),
+ * so "Custom Logo" is true of the whole catalog; it is still tied to that
+ * field rather than assumed. The site name is not repeated: og:site_name
+ * carries it. The optional parts are dropped, last first, when the title
+ * would pass SHARE_TITLE_MAX.
+ */
+export function buildShareTitle(
+  product: Pick<CatalogProduct, "name" | "brand" | "imprintArea">
+): string {
+  const name = product.name.replace(/\s+/g, " ").trim();
+  const brandName = product.brand?.trim() ?? "";
+  const byBrand =
+    isRealBrand(brandName) && !name.toLowerCase().includes(brandName.toLowerCase())
+      ? ` by ${brandName}`
+      : "";
+  const logo = product.imprintArea ? ` - ${CUSTOM_LOGO}` : "";
+  for (const candidate of [`${name}${byBrand}${logo}`, `${name}${byBrand}`, name]) {
+    if (candidate.length <= SHARE_TITLE_MAX) return candidate;
+  }
+  return shortenAtWord(name, SHARE_TITLE_MAX);
+}
+
+/** Preview description: the real product copy, boilerplate removed, cut to 155 characters. */
+export function buildShareDescription(
+  product: Pick<CatalogProduct, "name" | "brand" | "description">
+): string {
+  const cleaned = cleanDescription(product.description.replace(PRICING_BOILERPLATE, " "));
+  if (cleaned) return shortenAtWord(cleaned, SHARE_DESCRIPTION_MAX);
+  const byBrand = isRealBrand(product.brand) ? ` by ${product.brand.trim()}` : "";
+  return shortenAtWord(
+    `${product.name}${byBrand}, custom-branded merchandise from ${brand.name}.`,
+    SHARE_DESCRIPTION_MAX
+  );
+}
+
+/**
+ * Site path of the product photo to use as the share image, or null when the
+ * product has none a crawler can fetch. Only the path survives: a photo on
+ * another host (a supplier CDN) is refused, a Next image-optimizer URL is
+ * unwrapped to the original file, and query strings are dropped, because
+ * crawlers reject optimizer parameters and some will not follow redirects.
+ */
+export function productShareImagePath(
+  product: Pick<CatalogProduct, "image">,
+  siteUrl: string
+): string | null {
+  let src = product.image?.trim();
+  if (!src) return null;
+
+  try {
+    const url = new URL(src, siteUrl);
+    if (url.origin !== new URL(siteUrl).origin) return null;
+    if (url.pathname === "/_next/image") {
+      const inner = url.searchParams.get("url");
+      if (!inner) return null;
+      const innerUrl = new URL(inner, siteUrl);
+      if (innerUrl.origin !== url.origin) return null;
+      src = innerUrl.pathname;
+    } else {
+      src = url.pathname;
+    }
+  } catch {
+    return null;
+  }
+  return src.startsWith("/") && CRAWLER_IMAGE_TYPE.test(src) ? src : null;
+}
+
+export interface ProductMetadataOptions {
+  /** Looks up the pixel size of a site path; leave out to omit width/height. */
+  imageSize?: (sitePath: string) => ImageSize | undefined;
+}
+
+/**
+ * Page and link-preview metadata for a product. The preview image is the
+ * product's own photo, served from this site; a product without a usable photo
+ * falls back to the branded card so a shared link never goes out image-less.
+ */
+export function buildProductMetadata(
+  product: CatalogProduct,
+  siteUrl: string,
+  options: ProductMetadataOptions = {}
+): Metadata {
   const title = `${product.name} | ${brand.name}`;
-  const description =
-    cleanDescription(product.description, META_DESCRIPTION_MAX) ||
-    `${product.name}, custom-branded merchandise from ${brand.name}.`;
+  const description = buildShareDescription(product);
+  const shareTitle = buildShareTitle(product);
   const url = absoluteUrl(productPath(product.id), siteUrl);
-  const image = product.image ? absoluteUrl(product.image, siteUrl) : undefined;
+
+  const photoPath = productShareImagePath(product, siteUrl);
+  const size = photoPath ? options.imageSize?.(photoPath) : undefined;
+  const alt = (product.imageAlt?.trim() || product.name).slice(0, 200);
+  const image = photoPath
+    ? {
+        url: absoluteUrl(photoPath, siteUrl),
+        ...(size && { width: size.width, height: size.height }),
+        alt,
+      }
+    : {
+        url: absoluteUrl(SHARE_IMAGE.url, siteUrl),
+        width: SHARE_IMAGE.width,
+        height: SHARE_IMAGE.height,
+        alt: SHARE_IMAGE.alt,
+      };
 
   return {
     title,
     description,
     alternates: { canonical: url },
     openGraph: {
-      title,
+      title: shareTitle,
       description,
       url,
       siteName: brand.name,
       type: "website",
-      ...(image && { images: [{ url: image, alt: product.imageAlt ?? product.name }] }),
+      images: [image],
     },
     twitter: {
-      // Product photos are mostly square, which the large card would crop.
-      card: "summary",
-      title,
+      card: "summary_large_image",
+      title: shareTitle,
       description,
-      ...(image && { images: [image] }),
+      images: [{ url: image.url, alt: image.alt }],
     },
   };
 }

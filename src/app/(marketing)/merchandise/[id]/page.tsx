@@ -25,6 +25,7 @@ import {
   productPath,
   serializeJsonLd,
 } from "@/lib/merchSeo";
+import { readImageSize } from "@/lib/merchImageSize";
 import { categoryPath } from "@/lib/merchSlug";
 import { getRelatedProducts, getStorefrontProduct } from "@/lib/merchStorefront";
 import { getSiteUrl } from "@/lib/siteUrl";
@@ -37,7 +38,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   const { id } = await params;
   const product = getStorefrontProduct(id);
   if (!product) return { title: "Product Not Found | Magnolia Grove Consultants" };
-  return buildProductMetadata(product, getSiteUrl());
+  return buildProductMetadata(product, getSiteUrl(), { imageSize: readImageSize });
 }
 
 export function generateStaticParams() {
