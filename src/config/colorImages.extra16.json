@@ -1,1 +1,34 @@
-{}
+{
+  "2-3-8-carabiner-27039": {
+    "Red": "/images/merch/colors/2-3-8-carabiner-27039-red.webp",
+    "Blue": "/images/merch/colors/2-3-8-carabiner-27039-blue.webp"
+  },
+  "full-color-sublimation-lanyards-33390": {
+    "White": "/images/merch/colors/full-color-sublimation-lanyards-33390-white.webp",
+    "Red": "/images/merch/colors/full-color-sublimation-lanyards-33390-red.webp"
+  },
+  "bathtub-crayons-89129": {
+    "Blue and Yellow": "/images/merch/colors/bathtub-crayons-89129-blue-and-yellow.webp"
+  },
+  "reflective-oval-shape-sticker-71544": {
+    "Fluorescent Orange": "/images/merch/colors/reflective-oval-shape-sticker-71544-fluorescent-orange.webp",
+    "Fluorescent Pink": "/images/merch/colors/reflective-oval-shape-sticker-71544-fluorescent-pink.webp",
+    "Fluorescent Yellow": "/images/merch/colors/reflective-oval-shape-sticker-71544-fluorescent-yellow.webp",
+    "Green": "/images/merch/colors/reflective-oval-shape-sticker-71544-green.webp",
+    "Orange": "/images/merch/colors/reflective-oval-shape-sticker-71544-orange.webp",
+    "Red": "/images/merch/colors/reflective-oval-shape-sticker-71544-red.webp",
+    "School Bus Yellow": "/images/merch/colors/reflective-oval-shape-sticker-71544-school-bus-yellow.webp",
+    "White": "/images/merch/colors/reflective-oval-shape-sticker-71544-white.webp"
+  },
+  "tag-stix-18285": {
+    "Fluorescent Yellow": "/images/merch/colors/tag-stix-18285-fluorescent-yellow.webp",
+    "Blue": "/images/merch/colors/tag-stix-18285-blue.webp",
+    "Fluorescent Green": "/images/merch/colors/tag-stix-18285-fluorescent-green.webp",
+    "Fluorescent Orange": "/images/merch/colors/tag-stix-18285-fluorescent-orange.webp",
+    "Fluorescent Pink": "/images/merch/colors/tag-stix-18285-fluorescent-pink.webp",
+    "Green": "/images/merch/colors/tag-stix-18285-green.webp",
+    "Orange": "/images/merch/colors/tag-stix-18285-orange.webp",
+    "Red": "/images/merch/colors/tag-stix-18285-red.webp",
+    "School Bus Yellow": "/images/merch/colors/tag-stix-18285-school-bus-yellow.webp"
+  }
+}
