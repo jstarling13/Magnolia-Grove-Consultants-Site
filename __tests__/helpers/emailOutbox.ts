@@ -12,6 +12,8 @@ export interface CapturedEmail {
   replyTo?: string;
   subject: string;
   html: string;
+  /** Plain-text alternative, when the sender included one. */
+  text?: string;
   /** What Resend was told, whether or not the "provider" accepted it. */
   accepted: boolean;
 }
@@ -22,6 +24,7 @@ interface SendParams {
   replyTo?: string;
   subject: string;
   html: string;
+  text?: string;
 }
 
 type Rejection = {
@@ -87,6 +90,7 @@ export class EmailOutbox {
       replyTo: params.replyTo,
       subject: params.subject,
       html: params.html,
+      text: params.text,
       accepted: true,
     };
     const rejection = this.rejections.find((r) => r.remaining > 0 && r.predicate(email));

@@ -202,7 +202,8 @@ describe("buildMerchShippedEmail", () => {
     const { html } = build({ carrier: "Joe's Courier", trackingNumber: "ABC-12345" });
     expect(html).toContain("Joe's Courier");
     expect(html).toContain("ABC-12345");
-    expect(html).not.toContain("<a ");
+    expect(html).not.toContain("Track Your Package");
+    expect(html).not.toMatch(/href="https?:/);
   });
 
   it("lists what shipped without prices or backend fields", () => {
@@ -221,7 +222,8 @@ describe("buildMerchShippedEmail", () => {
 
   it("works without an item list", () => {
     const { html } = build({ items: undefined });
-    expect(html).not.toContain("<table");
+    expect(html).not.toContain("In this shipment");
+    expect(html).not.toContain("Qty");
   });
 });
 
