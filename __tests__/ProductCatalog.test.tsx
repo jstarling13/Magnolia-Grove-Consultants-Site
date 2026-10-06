@@ -169,6 +169,96 @@ describe("ProductCatalog search, sort and empty state", () => {
   });
 });
 
+describe("ProductCatalog search results", () => {
+  // The speaker's category comes first in the hub order, the lanyards' last.
+  const SEARCH_CATEGORIES = ["Tech", "Gifts", "Lanyards & Badges"];
+  const speaker = make(1, "Tech", {
+    name: "Mini Speaker with Lanyard",
+    tiers: [{ quantity: 50, price: 0.5 }],
+  });
+  const gift = make(2, "Gifts", {
+    name: "Gift Set",
+    description: "Includes a lanyard.",
+    tiers: [{ quantity: 50, price: 0.75 }],
+  });
+  const lanyards = Array.from({ length: 30 }, (_, i) =>
+    make(10 + i, "Lanyards & Badges", {
+      name: `Lanyard ${String(i).padStart(2, "0")}`,
+      tiers: [{ quantity: 50, price: 30 - i }],
+    })
+  );
+
+  function renderSearch() {
+    render(
+      <LogoProvider>
+        <ProductCatalog products={[speaker, gift, ...lanyards]} categories={SEARCH_CATEGORIES} />
+      </LogoProvider>
+    );
+    fireEvent.change(screen.getByRole("searchbox", { name: "Search products" }), {
+      target: { value: "lanyard" },
+    });
+    act(() => {
+      vi.advanceTimersByTime(250);
+    });
+  }
+
+  const titles = () => screen.getAllByRole("heading", { level: 3 }).map((h) => h.textContent);
+
+  beforeEach(() => {
+    window.history.replaceState(null, "", "/merchandise");
+    vi.useFakeTimers();
+  });
+  afterEach(() => vi.useRealTimers());
+
+  it("shows one relevance-ordered list, not a section per category in hub order", () => {
+    renderSearch();
+    expect(screen.getByRole("region", { name: "Search results" })).toBeInTheDocument();
+    for (const name of SEARCH_CATEGORIES) {
+      expect(screen.queryByRole("region", { name })).toBeNull();
+    }
+    // the real lanyards lead; the speaker and the gift (description only) come after them
+    expect(titles().slice(0, 3)).toEqual(["Lanyard 00", "Lanyard 01", "Lanyard 02"]);
+    expect(screen.getByRole("status")).toHaveTextContent("Showing 32 products, best matches first");
+  });
+
+  it("labels each card with its category and keeps the category chips with counts", () => {
+    renderSearch();
+    const results = screen.getByRole("region", { name: "Search results" });
+    expect(within(results).getAllByText("in Lanyards & Badges")).toHaveLength(24);
+    expect(screen.getByRole("button", { name: /^Lanyards & Badges/ })).toHaveTextContent("30");
+    expect(screen.getByRole("button", { name: /^Tech/ })).toHaveTextContent("1");
+    expect(screen.getByRole("button", { name: /^All/ })).toHaveTextContent("32");
+  });
+
+  it("starts at 24 results and reveals the rest with one 'Show more'", () => {
+    renderSearch();
+    expect(titles()).toHaveLength(24);
+    expect(screen.getByText("Showing 24 of 32")).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Show 8 more results" }));
+    expect(titles()).toHaveLength(32);
+    expect(titles().slice(-2)).toEqual(["Mini Speaker with Lanyard", "Gift Set"]);
+  });
+
+  it("applies a chosen sort to the whole list, across categories", () => {
+    renderSearch();
+    fireEvent.change(screen.getByRole("combobox", { name: "Sort products" }), {
+      target: { value: "price-asc" },
+    });
+    expect(titles().slice(0, 3)).toEqual(["Mini Speaker with Lanyard", "Gift Set", "Lanyard 29"]);
+    expect(screen.getByRole("status")).toHaveTextContent("Showing 32 products");
+    expect(screen.getByRole("status")).not.toHaveTextContent("best matches first");
+  });
+
+  it("narrows to one category from its chip, still in relevance order", () => {
+    renderSearch();
+    fireEvent.click(screen.getByRole("button", { name: /^Tech/ }));
+    expect(screen.getByRole("region", { name: "Tech" })).toBeInTheDocument();
+    expect(titles()).toEqual(["Mini Speaker with Lanyard"]);
+    fireEvent.click(screen.getByRole("button", { name: /^All/ }));
+    expect(screen.getByRole("region", { name: "Search results" })).toBeInTheDocument();
+  });
+});
+
 describe("ProductCatalog cards", () => {
   beforeEach(() => {
     window.history.replaceState(null, "", "/merchandise");
