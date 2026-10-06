@@ -97,3 +97,36 @@ describe("with Upstash configured", () => {
     expect((await checkRateLimit("ip", POLICY)).success).toBe(true);
   });
 });
+
+import { getUpstashConfig } from "@/lib/ratelimit";
+
+describe("getUpstashConfig", () => {
+  const saved = { ...process.env };
+  afterEach(() => {
+    process.env = { ...saved };
+  });
+
+  it("prefers the UPSTASH_REDIS_REST names", () => {
+    process.env.UPSTASH_REDIS_REST_URL = "https://a.example";
+    process.env.UPSTASH_REDIS_REST_TOKEN = "tok-a";
+    process.env.KV_REST_API_URL = "https://b.example";
+    process.env.KV_REST_API_TOKEN = "tok-b";
+    expect(getUpstashConfig()).toEqual({ url: "https://a.example", token: "tok-a" });
+  });
+
+  it("falls back to the Vercel integration's KV_REST_API names", () => {
+    delete process.env.UPSTASH_REDIS_REST_URL;
+    delete process.env.UPSTASH_REDIS_REST_TOKEN;
+    process.env.KV_REST_API_URL = "https://b.example";
+    process.env.KV_REST_API_TOKEN = "tok-b";
+    expect(getUpstashConfig()).toEqual({ url: "https://b.example", token: "tok-b" });
+  });
+
+  it("is null when only one half is set", () => {
+    delete process.env.UPSTASH_REDIS_REST_URL;
+    delete process.env.UPSTASH_REDIS_REST_TOKEN;
+    delete process.env.KV_REST_API_TOKEN;
+    process.env.KV_REST_API_URL = "https://b.example";
+    expect(getUpstashConfig()).toBeNull();
+  });
+});

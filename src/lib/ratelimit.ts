@@ -35,8 +35,18 @@ export interface RateLimitResult {
 
 const DEFAULT_POLICY: RateLimitPolicy = { name: "contact", limit: 5, windowSeconds: 600 };
 
-const hasUpstashConfig = () =>
-  Boolean(process.env.UPSTASH_REDIS_REST_URL) && Boolean(process.env.UPSTASH_REDIS_REST_TOKEN);
+/**
+ * Upstash REST credentials. The names UPSTASH_REDIS_REST_URL / _TOKEN are used when set; the
+ * Vercel Upstash integration (installed with the "KV" prefix) provides KV_REST_API_URL /
+ * KV_REST_API_TOKEN instead, so those work too.
+ */
+export function getUpstashConfig(): { url: string; token: string } | null {
+  const url = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
+  return url && token ? { url, token } : null;
+}
+
+const hasUpstashConfig = () => getUpstashConfig() !== null;
 
 const isProduction = () => process.env.NODE_ENV === "production";
 
@@ -50,7 +60,7 @@ function warnOnceMissingConfig() {
   warnedMissingConfig = true;
   if (isProduction()) {
     console.error(
-      "[ratelimit] CRITICAL: UPSTASH_REDIS_REST_URL / UPSTASH_REDIS_REST_TOKEN are not set in production. " +
+      "[ratelimit] CRITICAL: UPSTASH_REDIS_REST_URL / UPSTASH_REDIS_REST_TOKEN (or KV_REST_API_URL / KV_REST_API_TOKEN) are not set in production. " +
         "Falling back to per-instance in-memory limits, which do not hold across serverless instances. " +
         "Configure Upstash Redis to protect the contact, checkout, and login endpoints."
     );
@@ -64,10 +74,8 @@ function warnOnceMissingConfig() {
 function getLimiter(policy: RateLimitPolicy): Ratelimit {
   let limiter = limiters.get(policy.name);
   if (!limiter) {
-    redis ??= new Redis({
-      url: process.env.UPSTASH_REDIS_REST_URL!,
-      token: process.env.UPSTASH_REDIS_REST_TOKEN!,
-    });
+    const config = getUpstashConfig()!;
+    redis ??= new Redis({ url: config.url, token: config.token });
     limiter = new Ratelimit({
       redis,
       limiter: Ratelimit.slidingWindow(policy.limit, `${policy.windowSeconds} s`),
