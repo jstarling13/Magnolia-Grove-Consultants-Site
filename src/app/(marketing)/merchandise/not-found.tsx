@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { FOCUS_RING, FOCUS_RING_ON_DARK } from "@/components/global/focusRing";
 import { categoryPath } from "@/lib/merchSlug";
 import { getStorefrontCategories } from "@/lib/merchStorefront";
 
@@ -27,13 +28,13 @@ export default function MerchandiseNotFound() {
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Link
               href="/merchandise"
-              className="rounded-md bg-gold px-6 py-3 text-sm font-semibold text-onyx transition-colors hover:bg-gold-bright"
+              className={`inline-flex min-h-11 items-center rounded-md bg-gold px-6 py-3 text-sm font-semibold text-onyx transition-colors hover:bg-gold-bright ${FOCUS_RING_ON_DARK}`}
             >
               Browse all merchandise
             </Link>
             <Link
               href="/merchandise#request"
-              className="rounded-md border border-gold/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:border-gold hover:text-gold-bright"
+              className={`inline-flex min-h-11 items-center rounded-md border border-gold/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:border-gold hover:text-gold-bright ${FOCUS_RING_ON_DARK}`}
             >
               Request a product
             </Link>
@@ -51,7 +52,7 @@ export default function MerchandiseNotFound() {
               <li key={name}>
                 <Link
                   href={categoryPath(name)}
-                  className="inline-flex rounded-full border border-gold/30 bg-cream px-3.5 py-1.5 text-sm font-medium text-onyx/80 transition-colors hover:border-gold hover:text-onyx focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-dark"
+                  className={`inline-flex min-h-11 items-center rounded-full border border-gold-text/60 bg-cream px-4 py-1.5 text-sm font-medium text-onyx/80 transition-colors hover:border-gold-text hover:text-onyx ${FOCUS_RING}`}
                 >
                   {name}
                 </Link>

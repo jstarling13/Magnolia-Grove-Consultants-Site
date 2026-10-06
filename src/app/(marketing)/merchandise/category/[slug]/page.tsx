@@ -13,6 +13,8 @@ import {
   getStorefrontCategories,
 } from "@/lib/merchStorefront";
 import { getSiteUrl } from "@/lib/siteUrl";
+import { FOCUS_RING, FOCUS_RING_ON_DARK } from "@/components/global/focusRing";
+import { SHARE_IMAGE } from "@/app/(marketing)/merchandise/shareImage";
 
 interface CategoryPageProps {
   params: Promise<{ slug: string }>;
@@ -26,7 +28,14 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   const { slug } = await params;
   const catalog = getCategoryCatalog(slug);
   if (!catalog) return { title: "Category Not Found | Magnolia Grove Consultants" };
-  return buildCategoryMetadata(catalog.category, catalog.products, getSiteUrl());
+  const base = buildCategoryMetadata(catalog.category, catalog.products, getSiteUrl());
+  // Same title, description and URL as the lib builds, plus the share image
+  // (a page's own openGraph/twitter replaces the layout's, image included).
+  return {
+    ...base,
+    openGraph: { ...base.openGraph, images: [SHARE_IMAGE] },
+    twitter: { ...base.twitter, card: "summary_large_image", images: [SHARE_IMAGE.url] },
+  };
 }
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
@@ -62,12 +71,12 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                 <li className="shrink-0">
                   <Link
                     href="/merchandise"
-                    className="font-semibold transition-colors hover:text-gold-bright"
+                    className={`inline-flex min-h-11 items-center rounded font-semibold transition-colors hover:text-gold-bright ${FOCUS_RING_ON_DARK}`}
                   >
                     Merchandise
                   </Link>
                 </li>
-                <li aria-hidden="true" className="shrink-0 text-muted/50">
+                <li aria-hidden="true" className="shrink-0 text-muted/70">
                   /
                 </li>
                 <li aria-current="page" className="min-w-0 truncate text-white/60">
@@ -94,6 +103,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         className="scroll-mt-24 bg-cream px-6 py-16 sm:px-8 lg:px-12 lg:py-20"
       >
         <div className="mx-auto max-w-8xl">
+          {/* The product cards are h3s; this keeps the outline h1 > h2 > h3. */}
+          <h2 className="sr-only">{category} products</h2>
           <CategoryProductGrid
             products={cards.slice(0, FOCUSED_INITIAL_VISIBLE)}
             total={cards.length}
@@ -116,7 +127,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                 <li key={name}>
                   <Link
                     href={categoryPath(name)}
-                    className="inline-flex rounded-full border border-gold/30 bg-cream px-3.5 py-1.5 text-sm font-medium text-onyx/80 transition-colors hover:border-gold hover:text-onyx focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-dark"
+                    className={`inline-flex min-h-11 items-center rounded-full border border-gold-text/60 bg-cream px-4 py-1.5 text-sm font-medium text-onyx/80 transition-colors hover:border-gold-text hover:text-onyx ${FOCUS_RING}`}
                   >
                     {name}
                   </Link>
@@ -125,7 +136,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               <li>
                 <Link
                   href="/merchandise"
-                  className="inline-flex rounded-full border border-onyx bg-onyx px-3.5 py-1.5 text-sm font-medium text-white transition-colors hover:bg-onyx/85"
+                  className={`inline-flex min-h-11 items-center rounded-full border border-onyx bg-onyx px-4 py-1.5 text-sm font-medium text-white transition-colors hover:bg-onyx/85 ${FOCUS_RING}`}
                 >
                   All merchandise
                 </Link>
@@ -135,7 +146,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               Don&apos;t see what you need?{" "}
               <Link
                 href="/merchandise#request"
-                className="font-semibold text-gold-dark underline-offset-2 hover:underline"
+                className={`rounded font-semibold text-gold-text underline-offset-2 hover:underline ${FOCUS_RING}`}
               >
                 Request a product
               </Link>{" "}

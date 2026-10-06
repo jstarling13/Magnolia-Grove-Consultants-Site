@@ -1,15 +1,35 @@
 import type { Metadata } from "next";
 import { merchandisePage, products } from "@/config/merchandiseConfig";
+import { brand } from "@/config/siteConfig";
+import { SHARE_IMAGE } from "@/app/(marketing)/merchandise/shareImage";
 import { getStorefrontInitialCatalog } from "@/lib/merchStorefront";
 import MerchRequestForm from "@/components/merchandise/RequestForm";
 import ProductCatalog from "@/components/merchandise/ProductCatalog";
 import CartLink from "@/components/merchandise/CartLink";
 
+const TITLE = "Custom-Branded Merchandise | Magnolia Grove Consultants";
+const DESCRIPTION =
+  "Custom-branded apparel, headwear, drinkware, bags and promotional products for campaigns and businesses. Upload your logo, preview it on any item, and request a quote from Magnolia Grove Consultants.";
+
 export const metadata: Metadata = {
-  title: "Merchandise | Magnolia Grove Consultants",
-  description: merchandisePage.subtitle,
+  title: TITLE,
+  description: DESCRIPTION,
   // ?category=, ?q= and ?sort= are views of this page, not separate pages.
   alternates: { canonical: "/merchandise" },
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: "/merchandise",
+    siteName: brand.name,
+    type: "website",
+    images: [SHARE_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: [SHARE_IMAGE.url],
+  },
 };
 
 export default function MerchandisePage() {
@@ -60,7 +80,7 @@ export default function MerchandisePage() {
       >
         <div className="mx-auto grid max-w-6xl grid-cols-1 items-start gap-12 lg:grid-cols-2">
           <div>
-            <span className="eyebrow">{merchandisePage.requestEyebrow}</span>
+            <span className="eyebrow !text-gold-text">{merchandisePage.requestEyebrow}</span>
             <h2 className="mt-3 text-4xl sm:text-5xl">{merchandisePage.requestHeadline}</h2>
             <p className="mt-4 max-w-md text-base leading-relaxed text-onyx/60">
               {merchandisePage.requestSubtitle}
