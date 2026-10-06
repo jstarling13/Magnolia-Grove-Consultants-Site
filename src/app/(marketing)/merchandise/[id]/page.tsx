@@ -8,7 +8,16 @@ import ProductDetailActions from "@/components/merchandise/ProductDetailActions"
 import ProductGallery from "@/components/merchandise/ProductGallery";
 import { ProductSelectionProvider } from "@/components/merchandise/ProductSelectionContext";
 import RecentlyViewed from "@/components/merchandise/RecentlyViewed";
-import { bestTier, formatPrice, isRealBrand, startingTier } from "@/lib/merchCatalog";
+import {
+  bestTier,
+  formatPrice,
+  hasLargeMinimum,
+  isRealBrand,
+  LARGE_MINIMUM_NOTE,
+  minimumOrderValue,
+  startingTier,
+  suggestsQuote,
+} from "@/lib/merchCatalog";
 import {
   buildBreadcrumbJsonLd,
   buildProductJsonLd,
@@ -128,6 +137,19 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               {best.price < first.price && (
                 <p className="mt-1 text-sm text-onyx/60">
                   As low as {formatPrice(best.price)} per unit at {best.quantity}+ units
+                </p>
+              )}
+              {hasLargeMinimum(product) && (
+                <p
+                  className="mt-2 text-sm font-semibold text-onyx"
+                  data-testid="minimum-order-value"
+                >
+                  Minimum order: {formatPrice(minimumOrderValue(product))}
+                </p>
+              )}
+              {suggestsQuote(product) && (
+                <p className="mt-1 text-sm text-onyx/70" data-testid="large-minimum-note">
+                  {LARGE_MINIMUM_NOTE}
                 </p>
               )}
               {product.priceNote && (

@@ -215,6 +215,35 @@ export function formatPrice(value: number): string {
   return `$${value.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 }
 
+/** Smallest order that can be placed, in dollars: the first tier's quantity at its price. */
+export function minimumOrderValue(product: Pick<CatalogProduct, "tiers">): number {
+  const first = startingTier(product);
+  return Math.round(first.quantity * first.price * 100) / 100;
+}
+
+/** A minimum order at or above this is shown as a dollar amount, not just a unit count. */
+export const LARGE_MINIMUM_VALUE = 1000;
+/** A pre-filled order line above this gets the "request a quote" note. */
+export const LARGE_LINE_VALUE = 5000;
+
+export const LARGE_MINIMUM_NOTE = "Large minimum - request a quote to confirm size and options.";
+
+/** True when the smallest order is big enough that the shopper should see its dollar value. */
+export function hasLargeMinimum(product: Pick<CatalogProduct, "tiers">): boolean {
+  return minimumOrderValue(product) >= LARGE_MINIMUM_VALUE;
+}
+
+/**
+ * True when a large minimum should also say "request a quote": the product
+ * carries a size-pricing caveat (`priceNote`) or the pre-filled minimum line is
+ * over $5,000. Never true for a minimum under $1,000. Cards carry no priceNote,
+ * so there only the dollar threshold applies.
+ */
+export function suggestsQuote(product: Pick<CatalogProduct, "tiers" | "priceNote">): boolean {
+  if (!hasLargeMinimum(product)) return false;
+  return Boolean(product.priceNote) || minimumOrderValue(product) > LARGE_LINE_VALUE;
+}
+
 // ---------------------------------------------------------------------------
 // Sorting / filtering
 // ---------------------------------------------------------------------------
@@ -270,16 +299,31 @@ export function sortProducts(list: CatalogProduct[], sort: SortKey): CatalogProd
 // no word match anywhere (see searchProducts), so a fragment such as "shirt"
 // still finds a one-word "TShirt" when nothing better exists.
 //
+// Plurals: every word is also indexed in singular form ("mugs" -> "mug",
+// "totes" -> "tote", "batteries" -> "battery"), and a query word is tried as
+// typed and in its possible singular forms, so "mugs" and "mug" find the same
+// products. Short words and words ending in "ss", "us" or "is" are left alone
+// ("glass", "dress", "bus").
+//
+// Synonyms: a small table maps shopper words to the catalog's words ("tshirt"
+// to "T-Shirt" and "tee", "koozie" to "can cooler", "beanie" to "knit cap").
+// A synonym match ranks just below an exact one, so what the shopper typed
+// still comes first.
+//
 // Results are ranked by where the term was found (name, then brand, category,
 // color, description) and then by how exact the match is (whole word, then
 // word prefix, then substring).
 
 /** Separates the searchable fields inside a haystack string. */
 const FIELD_SEPARATOR = "\u001f";
+/** Separates a field's words as written from the same words in singular form. */
+const FORM_SEPARATOR = "\u001e";
 /** Search fields in rank order; a lower index ranks higher. */
 const SEARCH_FIELDS = ["name", "brand", "category", "color", "description"] as const;
 /** Each field step outweighs every match kind (whole word, prefix, substring). */
 const FIELD_STEP = 10;
+/** Added to a synonym match so it ranks below the same match on the typed words. */
+const SYNONYM_PENALTY = 3;
 
 /** Lower-cased text reduced to words (letters and digits) joined by single spaces. */
 function normalizeSearchText(text: string): string {
@@ -290,10 +334,67 @@ function normalizeSearchText(text: string): string {
     .join(" ");
 }
 
+/** Letters after which a plural takes "es" (glass-es, box-es, watch-es). */
+const ES_BASE = /(?:s|x|z|ch|sh)$/;
+
+/**
+ * Possible singular forms of one lower-case word, most likely first; empty
+ * when it does not look plural. Words of three letters or fewer and words
+ * ending in "ss", "us" or "is" are never treated as plurals.
+ */
+function singularForms(word: string): string[] {
+  if (word.length <= 3 || !word.endsWith("s") || /(?:ss|us|is)$/.test(word)) return [];
+  const forms: string[] = [];
+  if (word.endsWith("ies") && word.length > 4) {
+    forms.push(`${word.slice(0, -3)}y`, word.slice(0, -1));
+  } else if (word.endsWith("es") && ES_BASE.test(word.slice(0, -2))) {
+    forms.push(word.slice(0, -2), word.slice(0, -1));
+  } else {
+    forms.push(word.slice(0, -1));
+  }
+  return forms;
+}
+
+/** Singular form a haystack word is indexed under (the first of singularForms). */
+function indexForm(word: string): string {
+  return singularForms(word)[0] ?? word;
+}
+
+/**
+ * Shopper words mapped to the catalog's words. Each group is a set of phrases
+ * that mean the same thing; any phrase in a group also searches the others.
+ */
+const SYNONYM_GROUPS: readonly (readonly string[])[] = [
+  ["tshirt", "t shirt", "tee"],
+  ["koozie", "coozie", "can cooler", "can sleeve", "can holder"],
+  ["beanie", "knit cap", "knit hat"],
+  ["tote", "tote bag"],
+  ["hoodie", "sweatshirt"],
+];
+
+/** Longest synonym phrase, in query tokens. */
+const SYNONYM_MAX_TOKENS = 3;
+
+/** Phrase (every word in an accepted spelling) to the other phrases of its group. */
+const SYNONYMS: ReadonlyMap<string, readonly string[]> = (() => {
+  const map = new Map<string, string[]>();
+  for (const group of SYNONYM_GROUPS) {
+    for (const phrase of group) {
+      const others = group.filter((other) => other !== phrase);
+      // key by the phrase as written and with its words singularised, so
+      // "totes", "tote bags" and "can coolers" all find their group
+      const keys = new Set([phrase, phrase.split(" ").map(indexForm).join(" ")]);
+      for (const key of keys) map.set(key, others);
+    }
+  }
+  return map;
+})();
+
 /**
  * Searchable text for a product, one normalized field per entry of
- * SEARCH_FIELDS joined by FIELD_SEPARATOR. Compute once per product and pass
- * it to matchesQuery / searchProducts.
+ * SEARCH_FIELDS joined by FIELD_SEPARATOR; each field holds its words as
+ * written, then (after FORM_SEPARATOR) the same words in singular form.
+ * Compute once per product and pass it to matchesQuery / searchProducts.
  */
 export function searchHaystack(product: CatalogProduct): string {
   return [
@@ -303,52 +404,136 @@ export function searchHaystack(product: CatalogProduct): string {
     (product.colors ?? []).join(" "),
     product.description,
   ]
-    .map(normalizeSearchText)
+    .map((text) => {
+      const written = normalizeSearchText(text);
+      const singular = written.split(" ").map(indexForm).join(" ");
+      return singular === written ? written : `${written}${FORM_SEPARATOR}${singular}`;
+    })
     .join(FIELD_SEPARATOR);
 }
 
-function queryTerms(query: string): string[] {
-  return query.split(/\s+/).map(normalizeSearchText).filter(Boolean);
+/** One query phrase and the spellings it may be found under (as typed first). */
+type Term = readonly string[];
+/** A way to read the whole query: every term must match; `penalty` ranks it lower. */
+interface Reading {
+  terms: Term[];
+  penalty: number;
+}
+
+function phraseForms(phrase: string): string[] {
+  const words = phrase.split(" ");
+  const last = words[words.length - 1];
+  const forms = [phrase];
+  for (const singular of singularForms(last)) {
+    forms.push([...words.slice(0, -1), singular].join(" "));
+  }
+  return forms;
+}
+
+/** Every phrase spelled as typed, plus its singular forms, that names a synonym group. */
+function synonymsOf(phrase: string): readonly string[] | undefined {
+  for (const form of phraseForms(phrase)) {
+    const found = SYNONYMS.get(form);
+    if (found) return found;
+  }
+  return undefined;
+}
+
+function queryReadings(query: string): Reading[] {
+  const tokens = query.split(/\s+/).map(normalizeSearchText).filter(Boolean);
+  if (tokens.length === 0) return [];
+
+  // Each slot is a stretch of tokens with its alternatives (typed form first).
+  const slots: { options: { term: Term; penalty: number }[] }[] = [];
+  for (let i = 0; i < tokens.length;) {
+    let consumed = 1;
+    let synonyms: readonly string[] | undefined;
+    for (let size = Math.min(SYNONYM_MAX_TOKENS, tokens.length - i); size >= 1; size--) {
+      synonyms = synonymsOf(tokens.slice(i, i + size).join(" "));
+      if (synonyms) {
+        consumed = size;
+        break;
+      }
+    }
+    const typed = tokens.slice(i, i + consumed).join(" ");
+    const options = [{ term: phraseForms(typed), penalty: 0 }];
+    for (const synonym of synonyms ?? []) {
+      options.push({ term: phraseForms(synonym), penalty: SYNONYM_PENALTY });
+    }
+    slots.push({ options });
+    i += consumed;
+  }
+
+  let readings: Reading[] = [{ terms: [], penalty: 0 }];
+  for (const slot of slots) {
+    readings = readings.flatMap((reading) =>
+      slot.options.map((option) => ({
+        terms: [...reading.terms, option.term],
+        penalty: Math.max(reading.penalty, option.penalty),
+      }))
+    );
+  }
+  return readings;
 }
 
 /**
  * Rank score of one term in a haystack (lower is better), or null when it is
  * not there. `substring` also accepts a match inside a word.
  */
-function termScore(fields: readonly string[], term: string, substring: boolean): number | null {
+function termScore(fields: readonly string[][], term: Term, substring: boolean): number | null {
   let best: number | null = null;
   for (let index = 0; index < fields.length; index++) {
-    const padded = ` ${fields[index]} `;
-    let kind: number;
-    if (padded.includes(` ${term} `)) kind = 0;
-    else if (padded.includes(` ${term}`)) kind = 1;
-    else if (substring && padded.includes(term)) kind = 2;
-    else continue;
-    const score = index * FIELD_STEP + kind;
-    if (best === null || score < best) best = score;
+    for (const segment of fields[index]) {
+      const padded = ` ${segment} `;
+      for (const form of term) {
+        let kind: number;
+        if (padded.includes(` ${form} `)) kind = 0;
+        else if (padded.includes(` ${form}`)) kind = 1;
+        else if (substring && padded.includes(form)) kind = 2;
+        else continue;
+        const score = index * FIELD_STEP + kind;
+        if (best === null || score < best) best = score;
+      }
+    }
   }
   return best;
 }
 
-function queryScore(haystack: string, terms: readonly string[], substring: boolean): number | null {
-  const fields = haystack.split(FIELD_SEPARATOR);
-  let total = 0;
-  for (const term of terms) {
-    const score = termScore(fields, term, substring);
-    if (score === null) return null;
-    total += score;
+function parseHaystack(haystack: string): string[][] {
+  return haystack.split(FIELD_SEPARATOR).map((field) => field.split(FORM_SEPARATOR));
+}
+
+function queryScore(
+  fields: readonly string[][],
+  readings: readonly Reading[],
+  substring: boolean
+): number | null {
+  let best: number | null = null;
+  for (const reading of readings) {
+    let total = reading.penalty;
+    let found = true;
+    for (const term of reading.terms) {
+      const score = termScore(fields, term, substring);
+      if (score === null) {
+        found = false;
+        break;
+      }
+      total += score;
+    }
+    if (found && (best === null || total < best)) best = total;
   }
-  return total;
+  return best;
 }
 
 /**
  * Every whitespace-separated term must start a word somewhere in the product
  * (AND semantics, case-insensitive; punctuation is ignored, so "t-shirt"
- * finds "T-Shirt"). An empty query matches everything.
+ * finds "T-Shirt"; plurals and a few synonyms also match, see above). An
+ * empty query matches everything.
  */
 export function matchesQuery(haystack: string, query: string): boolean {
-  const terms = queryTerms(query);
-  return terms.length === 0 || queryScore(haystack, terms, false) !== null;
+  const readings = queryReadings(query);
+  return readings.length === 0 || queryScore(parseHaystack(haystack), readings, false) !== null;
 }
 
 /**
@@ -363,14 +548,15 @@ export function searchProducts<T>(
   query: string,
   haystackOf: (item: T) => string
 ): T[] {
-  const terms = queryTerms(query);
-  if (terms.length === 0) return [...items];
+  const readings = queryReadings(query);
+  if (readings.length === 0) return [...items];
+  const parsed = items.map((item) => parseHaystack(haystackOf(item)));
   const rank = (substring: boolean) =>
     items
       .map((item, index) => ({
         item,
         index,
-        score: queryScore(haystackOf(item), terms, substring),
+        score: queryScore(parsed[index], readings, substring),
       }))
       .filter((entry): entry is { item: T; index: number; score: number } => entry.score !== null)
       .sort((a, b) => a.score - b.score || a.index - b.index)

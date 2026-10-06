@@ -45,18 +45,31 @@ export default function ProductDetailActions({ product }: { product: CatalogProd
     setAdded(null);
   }, [selectedColor]);
 
+  // Volume pricing and the minimum count units already in the cart, so only
+  // the shortfall has to be added here.
+  const neededNow = Math.max(1, minQuantity - inCart);
+
+  const shortfallMessage =
+    inCart > 0
+      ? `The minimum order is ${minQuantity} units across all colors, and you already have ${inCart} in your cart. Enter ${neededNow} or more.`
+      : `The minimum order is ${minQuantity} units. Enter ${minQuantity} or more.`;
+
+  // The quantity is committed (and prices follow it) when the box is left, on
+  // Enter, or from the stepper arrows, never while the shopper is still typing.
   const field = useQuantityDraft({
     value: quantity,
+    min: neededNow,
+    belowMinMessage: shortfallMessage,
+    onEdit: () => {
+      setQuantityError("");
+      setAdded(null);
+    },
     onCommit: (next) => {
       setQuantity(next);
       setQuantityError("");
       setAdded(null);
     },
   });
-
-  // Volume pricing and the minimum count units already in the cart, so only
-  // the shortfall has to be added here.
-  const neededNow = Math.max(1, minQuantity - inCart);
 
   function refuse(message: string) {
     setQuantityError(message);
@@ -73,19 +86,20 @@ export default function ProductDetailActions({ product }: { product: CatalogProd
       );
       return;
     }
-    if (quantity + inCart < minQuantity) {
-      refuse(
-        inCart > 0
-          ? `The minimum order is ${minQuantity} units across all colors, and you already have ${inCart} in your cart. Enter ${neededNow} or more.`
-          : `The minimum order is ${minQuantity} units. Enter ${minQuantity} or more.`
-      );
+    // Use what the box says: the button can be clicked before the box has blurred.
+    const amount = field.parsed.value;
+    if (amount + inCart < minQuantity) {
+      refuse(shortfallMessage);
       return;
     }
     if (!requireColor()) return;
     setQuantityError("");
-    addItem(product.id, quantity, selectedColor);
-    trackAddToCart({ product, color: selectedColor, quantity, unitPrice: activeTier.price });
-    setAdded({ color: selectedColor, quantity });
+    field.clearMessage();
+    setQuantity(amount);
+    const unitPrice = tierForQuantity(product, amount + inCart).price;
+    addItem(product.id, amount, selectedColor);
+    trackAddToCart({ product, color: selectedColor, quantity: amount, unitPrice });
+    setAdded({ color: selectedColor, quantity: amount });
   }
 
   const singleTier = product.tiers.length === 1;

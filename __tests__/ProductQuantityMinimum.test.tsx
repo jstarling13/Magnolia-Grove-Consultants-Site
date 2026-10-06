@@ -39,6 +39,10 @@ function renderActions(p: CatalogProduct) {
 
 const quantity = () => screen.getByLabelText("Quantity") as HTMLInputElement;
 const addToCart = () => screen.getByRole("button", { name: "Add to Cart" });
+/** What typing does in a browser: an input event the user typed (inputType "insertText"). */
+function typeQuantity(value: string) {
+  fireEvent.input(quantity(), { target: { value }, inputType: "insertText" });
+}
 const storedCart = () => JSON.parse(window.localStorage.getItem(CART_STORAGE_KEY) ?? "[]");
 
 describe("product page minimum order", () => {
@@ -161,5 +165,109 @@ describe("single-tier product", () => {
   it("keeps the 'N+' wording when there really are several tiers", () => {
     renderActions(product());
     expect(screen.getByText("$10.00 / unit at 72+")).toBeInTheDocument();
+  });
+});
+
+describe("product page quantity commits on blur, not per keystroke", () => {
+  beforeEach(() => {
+    window.localStorage.clear();
+    window.history.pushState({}, "", "/merchandise/tee");
+  });
+
+  it("keeps prices stable while 144 is typed, then re-prices on blur", () => {
+    renderActions(
+      product({
+        tiers: [
+          { quantity: 1, price: 12 },
+          { quantity: 144, price: 9 },
+        ],
+      })
+    );
+    expect(screen.getByText("$12.00 / unit at 1+")).toBeInTheDocument();
+
+    typeQuantity("1");
+    typeQuantity("14");
+    expect(quantity().value).toBe("14");
+    // Still the committed 1-unit price: no flash through tiers while typing.
+    expect(screen.getByText("$12.00 / unit at 1+")).toBeInTheDocument();
+    expect(screen.getByText("$12.00")).toBeInTheDocument();
+
+    typeQuantity("144");
+    expect(quantity().value).toBe("144");
+    expect(screen.getByText("$12.00 / unit at 1+")).toBeInTheDocument();
+
+    fireEvent.blur(quantity());
+    expect(screen.getByText("$9.00 / unit at 144+")).toBeInTheDocument();
+    expect(screen.getByText("$1,296.00")).toBeInTheDocument();
+  });
+
+  it("commits on Enter", () => {
+    renderActions(
+      product({
+        tiers: [
+          { quantity: 1, price: 12 },
+          { quantity: 144, price: 9 },
+        ],
+      })
+    );
+    typeQuantity("144");
+    fireEvent.keyDown(quantity(), { key: "Enter" });
+    expect(screen.getByText("$9.00 / unit at 144+")).toBeInTheDocument();
+  });
+
+  it("commits a stepper step immediately (the arrows send no inputType)", () => {
+    renderActions(
+      product({
+        tiers: [
+          { quantity: 1, price: 12 },
+          { quantity: 144, price: 9 },
+        ],
+      })
+    );
+    fireEvent.change(quantity(), { target: { value: "144" } });
+    expect(screen.getByText("$9.00 / unit at 144+")).toBeInTheDocument();
+  });
+
+  it("restores the last good quantity when the box is left empty or unusable", () => {
+    renderActions(product());
+    typeQuantity("");
+    expect(quantity().value).toBe("");
+    fireEvent.blur(quantity());
+    expect(quantity().value).toBe("72");
+    expect(screen.getByText("$720.00")).toBeInTheDocument();
+
+    typeQuantity("1e2");
+    fireEvent.blur(quantity());
+    expect(quantity().value).toBe("72");
+  });
+
+  it("never commits below the minimum: the number stays, with a message, and the price holds", () => {
+    renderActions(product());
+    typeQuantity("5");
+    fireEvent.blur(quantity());
+    expect(quantity().value).toBe("5");
+    expect(screen.getByRole("alert")).toHaveTextContent(
+      "The minimum order is 72 units. Enter 72 or more."
+    );
+    expect(screen.getByText("$720.00")).toBeInTheDocument();
+    expect(storedCart()).toEqual([]);
+  });
+
+  it("adds the number in the box even when Add is clicked before the box blurs", () => {
+    renderActions(product());
+    typeQuantity("144");
+    fireEvent.click(addToCart());
+    expect(storedCart()).toEqual([{ productId: "tee", color: "Black", quantity: 144 }]);
+    expect(screen.getByRole("status")).toHaveTextContent("Added to cart: Black x 144");
+  });
+
+  it("clamps an over-limit number as it is typed but commits it on blur", () => {
+    renderActions(product({ tiers: [{ quantity: 1, price: 5 }] }));
+    typeQuantity("9999999");
+    expect(quantity().value).toBe("100000");
+    expect(screen.getByRole("alert")).toHaveTextContent(CART_FORM_MESSAGES.quantityMax);
+    expect(screen.getByText("$5.00 / unit")).toBeInTheDocument();
+    fireEvent.blur(quantity());
+    expect(screen.getByText("$500,000.00")).toBeInTheDocument();
   });
 });

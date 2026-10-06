@@ -8,8 +8,12 @@ import { trackSelectItem } from "@/lib/merchAnalytics";
 import {
   bestTier,
   formatPrice,
+  hasLargeMinimum,
   isRealBrand,
+  LARGE_MINIMUM_NOTE,
+  minimumOrderValue,
   startingTier,
+  suggestsQuote,
   type CatalogProduct,
 } from "@/lib/merchCatalog";
 
@@ -122,6 +126,14 @@ function ProductCard({ product, priority = false, compact = false }: ProductCard
           <p className="mt-0.5 h-4 text-xs leading-4 text-onyx/60">
             {hasRange ? `As low as ${formatPrice(best.price)} at ${best.quantity}+ units` : null}
           </p>
+          {hasLargeMinimum(product) && (
+            <p className="mt-1 text-xs font-medium leading-4 text-onyx/80">
+              Minimum order: {formatPrice(minimumOrderValue(product))}
+              {suggestsQuote(product) && (
+                <span className="mt-0.5 block font-normal text-onyx/70">{LARGE_MINIMUM_NOTE}</span>
+              )}
+            </p>
+          )}
         </div>
       </div>
     </article>
