@@ -1,6 +1,8 @@
 {
   "40-oz-hydrapeak-voyager-travel-mug-90494": {
-    "Black": "/images/merch/colors/40-oz-hydrapeak-voyager-travel-mug-90494-black.webp"
+    "Black": "/images/merch/colors/40-oz-hydrapeak-voyager-travel-mug-90494-black.webp",
+    "Navy Blue": "/images/merch/colors/40-oz-hydrapeak-voyager-travel-mug-90494-navy-blue.webp",
+    "Grey": "/images/merch/colors/40-oz-hydrapeak-voyager-travel-mug-90494-grey.webp"
   },
   "bella-canvas-youth-triblend-short-sleeve-t-shirt-90336": {
     "Athletic Grey": "/images/merch/colors/bella-canvas-youth-triblend-short-sleeve-t-shirt-90336-athletic-grey.webp",
@@ -390,5 +392,15 @@
     "Clear-Blue": "/images/merch/colors/truckee-water-resistant-cell-phone-accessories-case-57364-clear-blue.webp",
     "Clear-Black": "/images/merch/colors/truckee-water-resistant-cell-phone-accessories-case-57364-clear-black.webp",
     "Clear-Lime Green": "/images/merch/colors/truckee-water-resistant-cell-phone-accessories-case-57364-clear-lime-green.webp"
+  },
+  "magnetic-clip-bluetooth-speaker-fm-radio-clock-night-light-47231": {
+    "Beige": "/images/merch/colors/magnetic-clip-bluetooth-speaker-fm-radio-clock-night-light-47231-beige.webp",
+    "Dark Gray": "/images/merch/colors/magnetic-clip-bluetooth-speaker-fm-radio-clock-night-light-47231-dark-gray.webp",
+    "Green": "/images/merch/colors/magnetic-clip-bluetooth-speaker-fm-radio-clock-night-light-47231-green.webp",
+    "Pink": "/images/merch/colors/magnetic-clip-bluetooth-speaker-fm-radio-clock-night-light-47231-pink.webp",
+    "Red": "/images/merch/colors/magnetic-clip-bluetooth-speaker-fm-radio-clock-night-light-47231-red.webp"
+  },
+  "mini-bluetooth-5-3-speaker-lightweight-portable-lanyard-50310": {
+    "Green": "/images/merch/colors/mini-bluetooth-5-3-speaker-lightweight-portable-lanyard-50310-green.webp"
   }
 }
