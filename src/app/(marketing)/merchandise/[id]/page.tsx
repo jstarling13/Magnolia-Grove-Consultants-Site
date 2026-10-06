@@ -11,6 +11,7 @@ import RecentlyViewed from "@/components/merchandise/RecentlyViewed";
 import {
   bestTier,
   formatPrice,
+  formatQuantity,
   hasLargeMinimum,
   isRealBrand,
   LARGE_MINIMUM_NOTE,
@@ -131,13 +132,14 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 </span>
                 <span>
                   {product.tiers.length > 1
-                    ? `per unit at ${first.quantity}+ units`
-                    : `per unit, minimum ${first.quantity}`}
+                    ? `per unit at ${formatQuantity(first.quantity)}+ units`
+                    : `per unit, minimum ${formatQuantity(first.quantity)}`}
                 </span>
               </p>
               {best.price < first.price && (
                 <p className="mt-1 text-sm text-onyx/60">
-                  As low as {formatPrice(best.price)} per unit at {best.quantity}+ units
+                  As low as {formatPrice(best.price)} per unit at {formatQuantity(best.quantity)}+
+                  units
                 </p>
               )}
               {hasLargeMinimum(product) && (
@@ -187,7 +189,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                               scope="row"
                               className="px-4 py-2.5 text-left font-normal text-onyx/80"
                             >
-                              {tier.quantity}+ units
+                              {formatQuantity(tier.quantity)}+ units
                             </th>
                             <td className="px-4 py-2.5 text-right font-semibold tabular-nums text-onyx">
                               {formatPrice(tier.price)}

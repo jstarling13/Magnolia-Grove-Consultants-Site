@@ -175,7 +175,7 @@ describe("ProductCatalog with the rest of each category fetched on demand", () =
     expect(window.location.search).toContain("brand=Nike");
   });
 
-  it("sorts across the whole category once it has loaded", async () => {
+  it("sorts across the whole catalog once every category has loaded", async () => {
     renderCatalog();
     fireEvent.change(screen.getByRole("combobox", { name: "Sort products" }), {
       target: { value: "price-desc" },
@@ -183,8 +183,13 @@ describe("ProductCatalog with the rest of each category fetched on demand", () =
     await waitFor(() =>
       expect(screen.getByRole("status")).toHaveTextContent("Showing 42 products")
     );
-    const first = within(section("Apparel")).getAllByRole("heading", { level: 3 })[0];
-    expect(first).toHaveTextContent("Apparel 030");
+    const names = within(section("All products"))
+      .getAllByRole("heading", { level: 3 })
+      .map((heading) => heading.textContent);
+    // Drinkware (prices 100 to 111) tops apparel (1 to 30) in one flat list.
+    expect(names.slice(0, 3)).toEqual(["Mug 11", "Mug 10", "Mug 9"]);
+    // All 12 mugs, then apparel from its dearest down.
+    expect(names.slice(11, 14)).toEqual(["Mug 0", "Apparel 030", "Apparel 029"]);
   });
 
   it("focusing a category chip starts deeper (24) from the fetched cards", async () => {

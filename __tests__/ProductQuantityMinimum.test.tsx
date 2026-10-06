@@ -271,3 +271,34 @@ describe("product page quantity commits on blur, not per keystroke", () => {
     expect(screen.getByText("$500,000.00")).toBeInTheDocument();
   });
 });
+
+describe("product page quantities use thousands separators", () => {
+  beforeEach(() => {
+    window.localStorage.clear();
+    window.history.pushState({}, "", "/merchandise/tee");
+  });
+
+  const big = () =>
+    product({
+      tiers: [
+        { quantity: 1008, price: 1.2 },
+        { quantity: 10000, price: 0.9 },
+      ],
+    });
+
+  it("formats the minimum, the tier break and the upcoming-tier prompt", () => {
+    renderActions(big());
+    expect(screen.getByText("Minimum order: 1,008 units")).toBeInTheDocument();
+    expect(screen.getByText(/\$1\.20 \/ unit at 1,008\+/)).toBeInTheDocument();
+    expect(screen.getByText(/Order 10,000\+ units to lower the price/)).toBeInTheDocument();
+  });
+
+  it("formats the quantities in the below-minimum message", () => {
+    renderActions(big());
+    typeQuantity("5");
+    fireEvent.blur(quantity());
+    expect(screen.getByRole("alert")).toHaveTextContent(
+      "The minimum order is 1,008 units. Enter 1,008 or more."
+    );
+  });
+});

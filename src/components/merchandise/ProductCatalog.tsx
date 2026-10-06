@@ -24,6 +24,7 @@ import {
   categoriesNeeded,
   countByCategory,
   filterProducts,
+  formatQuantity,
   growVisible,
   hasProductFilters,
   nextBatchSize,
@@ -106,15 +107,15 @@ function slug(category: string): string {
   return `category-${category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
 }
 
-/** Group key of the single relevance-ordered list shown while searching. */
+/** Group key of the single flat list shown while searching or sorting. */
 const RESULTS_KEY = "search-results";
 
 interface Group {
-  /** The category name, or RESULTS_KEY for the one list of search results. */
+  /** The category name, or RESULTS_KEY for the one flat list. */
   category: string;
   /** Heading text. */
   title: string;
-  /** Search results from every category in one list: cards say which category they are in. */
+  /** Every category in one list (search results, or a chosen sort): cards say which category they are in. */
   mixed?: boolean;
   /** The cards known so far (all of them once the category has loaded). */
   items: CatalogProduct[];
@@ -272,11 +273,13 @@ export default function ProductCatalog({
     ? matching.length
     : categories.reduce((sum, name) => sum + (totals[name] ?? 0), 0);
 
-  // A search with no category chosen is one list across every category, in
-  // relevance order (or in the chosen sort, applied to the whole list), so the
-  // best matches come first whatever their category. The category chips above
-  // it, with their counts, still narrow it.
-  const mixed = view.query !== "" && view.category === ALL;
+  // A search, or any sort other than the default, with no category chosen is
+  // one list across every category: relevance order for a search (or the
+  // chosen sort applied to the whole list), the chosen sort alone when
+  // browsing. Either way the best matches, or the cheapest, come first
+  // whatever their category. The default browse view keeps its category
+  // sections. The category chips above still narrow the list.
+  const mixed = (view.query !== "" || view.sort !== "featured") && view.category === ALL;
   const groups = useMemo<Group[]>(() => {
     const sorted = sortProducts(matching, view.sort);
     if (mixed) {
@@ -285,7 +288,7 @@ export default function ProductCatalog({
         : [
             {
               category: RESULTS_KEY,
-              title: "Search results",
+              title: view.query !== "" ? "Search results" : "All products",
               mixed: true,
               items: sorted,
               total: sorted.length,
@@ -308,7 +311,7 @@ export default function ProductCatalog({
         items: byCategory.get(name) ?? [],
         total: counts[name] ?? 0,
       }));
-  }, [matching, mixed, view.sort, view.category, categories, counts]);
+  }, [matching, mixed, view.query, view.sort, view.category, categories, counts]);
 
   const resultCount = groups.reduce((sum, group) => sum + group.total, 0);
   const hasFilters = hasActiveParams(params, queryInput);
@@ -363,9 +366,13 @@ export default function ProductCatalog({
     ? "Loading products…"
     : resultCount === 0
       ? "No products found"
-      : `Showing ${resultCount} ${resultCount === 1 ? "product" : "products"}${
+      : `Showing ${formatQuantity(resultCount)} ${resultCount === 1 ? "product" : "products"}${
           view.category === ALL ? "" : ` in ${view.category}`
-        }${mixed && view.sort === "featured" && resultCount > 1 ? ", best matches first" : ""}`;
+        }${
+          mixed && view.query !== "" && view.sort === "featured" && resultCount > 1
+            ? ", best matches first"
+            : ""
+        }`;
 
   return (
     <div>
@@ -532,7 +539,7 @@ const CatalogSections = memo(function CatalogSections({
               </h2>
               <div className="flex items-baseline gap-4">
                 <span className="text-xs font-medium text-onyx/60">
-                  {total} {total === 1 ? "item" : "items"}
+                  {formatQuantity(total)} {total === 1 ? "item" : "items"}
                 </span>
                 {!mixed && (
                   <Link
@@ -569,7 +576,7 @@ const CatalogSections = memo(function CatalogSections({
             {total > initialVisible && (
               <div className="mt-8 flex flex-col items-center gap-3">
                 <p className="text-xs text-onyx/60" aria-live="polite">
-                  Showing {shown} of {total}
+                  Showing {formatQuantity(shown)} of {formatQuantity(total)}
                 </p>
                 <div className="flex flex-wrap justify-center gap-3">
                   {batch > 0 && (
@@ -640,7 +647,7 @@ function CategoryChip({
     >
       {label}
       <span className={`text-xs tabular-nums ${active ? "text-white/70" : "text-onyx/60"}`}>
-        {count}
+        {formatQuantity(count)}
       </span>
     </button>
   );

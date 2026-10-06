@@ -155,17 +155,67 @@ describe("ProductCatalog search, sort and empty state", () => {
     expect(screen.queryByRole("button", { name: "Clear all" })).toBeNull();
   });
 
-  it("sorts by price within each category", () => {
+  it("keeps category sections for the default sort", () => {
     renderCatalog();
-    const names = () =>
+    expect(
       within(section("Drinkware"))
         .getAllByRole("heading", { level: 3 })
-        .map((h) => h.textContent);
-    expect(names()).toEqual(["Mug 0", "Mug 1", "Mug 2", "Mug 3", "Mug 4"]);
+        .map((h) => h.textContent)
+    ).toEqual(["Mug 0", "Mug 1", "Mug 2", "Mug 3", "Mug 4"]);
+    expect(screen.queryByRole("region", { name: "All products" })).toBeNull();
+  });
+
+  it("sorts browse results as one flat list across every category", () => {
+    renderCatalog();
     fireEvent.change(screen.getByRole("combobox", { name: "Sort products" }), {
       target: { value: "price-desc" },
     });
-    expect(names()).toEqual(["Mug 4", "Mug 3", "Mug 2", "Mug 1", "Mug 0"]);
+    expect(screen.queryByRole("region", { name: "Apparel" })).toBeNull();
+    expect(screen.queryByRole("region", { name: "Drinkware" })).toBeNull();
+    const list = within(section("All products"));
+    // Drinkware (prices 100..104) outranks every apparel item (1..30).
+    const names = list.getAllByRole("heading", { level: 3 }).map((h) => h.textContent);
+    expect(names.slice(0, 5)).toEqual(["Mug 4", "Mug 3", "Mug 2", "Mug 1", "Mug 0"]);
+    expect(names[5]).toBe("Product 030");
+    // Cards say which category they belong to, and the count is the whole catalog.
+    expect(list.getAllByText("in Drinkware")).toHaveLength(5);
+    expect(screen.getByRole("status")).toHaveTextContent("Showing 35 products");
+  });
+
+  it("sorts low to high globally and still pages with Show more", () => {
+    renderCatalog();
+    fireEvent.change(screen.getByRole("combobox", { name: "Sort products" }), {
+      target: { value: "price-asc" },
+    });
+    const list = within(section("All products"));
+    const names = () => list.getAllByRole("heading", { level: 3 }).map((h) => h.textContent);
+    expect(names().slice(0, 3)).toEqual(["Nike Tee", "Product 002", "Product 003"]);
+    expect(list.getByText("Showing 24 of 35")).toBeInTheDocument();
+    fireEvent.click(list.getByRole("button", { name: "Show 11 more results" }));
+    expect(names()).toHaveLength(35);
+    expect(names().slice(-5)).toEqual(["Mug 0", "Mug 1", "Mug 2", "Mug 3", "Mug 4"]);
+  });
+
+  it("returns to category sections when the sort goes back to Relevance", () => {
+    renderCatalog();
+    const select = screen.getByRole("combobox", { name: "Sort products" });
+    fireEvent.change(select, { target: { value: "price-asc" } });
+    fireEvent.change(select, { target: { value: "featured" } });
+    expect(screen.queryByRole("region", { name: "All products" })).toBeNull();
+    expect(cardCount("Apparel")).toBe(8);
+  });
+
+  it("keeps the chosen category as its own section when a sort is chosen", () => {
+    renderCatalog();
+    fireEvent.click(screen.getByRole("button", { name: /^Drinkware/ }));
+    fireEvent.change(screen.getByRole("combobox", { name: "Sort products" }), {
+      target: { value: "price-desc" },
+    });
+    expect(
+      within(section("Drinkware"))
+        .getAllByRole("heading", { level: 3 })
+        .map((h) => h.textContent)
+    ).toEqual(["Mug 4", "Mug 3", "Mug 2", "Mug 1", "Mug 0"]);
   });
 });
 

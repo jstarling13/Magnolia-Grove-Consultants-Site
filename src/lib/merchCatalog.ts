@@ -226,6 +226,11 @@ export function formatPrice(value: number): string {
   return `$${value.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 }
 
+/** A unit count with thousands separators: 10000 becomes "10,000". */
+export function formatQuantity(value: number): string {
+  return value.toLocaleString("en-US");
+}
+
 /** Smallest order that can be placed, in dollars: the first tier's quantity at its price. */
 export function minimumOrderValue(product: Pick<CatalogProduct, "tiers">): number {
   const first = startingTier(product);
