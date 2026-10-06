@@ -14,6 +14,11 @@
       "espId": "553353508",
       "reason": "Transparent PVC Sun Visor Hat W/ Printed World Cup Theme (SC Promo) is the same clear sun visor as Transparent Summer Sun Visor (Flyer Sourcing, 5 stars, 102 reviews), which already carries sourced color photos; the World Cup name is also an event trademark.",
       "keepEspId": "553866344"
+    },
+    {
+      "espId": "556172558",
+      "reason": "6 Panel Premier 112 Trucker Cap from Promosmart (9 colors) is the same cap as espId 552519542 (Direct Caps, 24 colors), which already has per-color photos on the storefront and a stable id. The existing product wins.",
+      "keepEspId": "552519542"
     }
   ],
   "keepApart": [
@@ -82,13 +87,13 @@
     },
     {
       "espId": "555207583",
-      "name": "Kershaw® Eris Pocket Knife",
-      "reason": "Raw name is only \"KERSHAW® ERIS\" in capitals; the description says Kershaw Pocket Knife."
+      "name": "Kershaw\u00ae Eris Pocket Knife",
+      "reason": "Raw name is only \"KERSHAW\u00ae ERIS\" in capitals; the description says Kershaw Pocket Knife."
     },
     {
       "espId": "4910178",
-      "name": "Victorinox® Classic Knife",
-      "reason": "Raw name is only \"Victorinox® Classic\"; the description says Knife featuring handle, blade, scissors, nail file and more."
+      "name": "Victorinox\u00ae Classic Knife",
+      "reason": "Raw name is only \"Victorinox\u00ae Classic\"; the description says Knife featuring handle, blade, scissors, nail file and more."
     },
     {
       "espId": "5547380",

@@ -160,7 +160,7 @@
     "name": "Titleist TruFeel",
     "category": "Outdoor & Sports",
     "brand": "Titleist",
-    "description": "Priced at 12 units.",
+    "description": "2 color options. Price per unit drops at 24 units. Priced at 12 units.",
     "tiers": [
       [12, 34.06],
       [24, 33.34],
@@ -177,7 +177,7 @@
     "name": "Titleist Pro V1",
     "category": "Outdoor & Sports",
     "brand": "Titleist",
-    "description": "Priced at 12 units.",
+    "description": "2 color options. Price per unit drops at 24 units. Priced at 12 units.",
     "tiers": [
       [12, 69.14],
       [24, 68.43],
@@ -576,7 +576,7 @@
   },
   {
     "id": "hoodies-sweatshirts-52363",
-    "name": "Hoodies Sweatshirts",
+    "name": "Hoodies & Sweatshirts",
     "category": "Apparel",
     "brand": "Essentials",
     "description": "Hoodies Sweatshirts is a good gift to promote your brand. Priced at 100 units.",
@@ -588,7 +588,7 @@
       [3000, 9.151]
     ],
     "image": "/images/merch/hoodies-sweatshirts-52363.webp",
-    "imageAlt": "Hoodies Sweatshirts",
+    "imageAlt": "Hoodies & Sweatshirts",
     "colors": [
       "White",
       "Black",
@@ -742,7 +742,7 @@
   },
   {
     "id": "rain-poncho-in-vinyl-case-44071",
-    "name": "Rain poncho in Vinyl Case",
+    "name": "Rain Poncho in Vinyl Case",
     "category": "Apparel",
     "brand": "Essentials",
     "description": "Rain poncho in a vinyl case. Priced at 150 units.",
@@ -754,7 +754,7 @@
       [2500, 2.1]
     ],
     "image": "/images/merch/rain-poncho-in-vinyl-case-44071.webp",
-    "imageAlt": "Rain poncho in Vinyl Case",
+    "imageAlt": "Rain Poncho in Vinyl Case",
     "colors": ["White", "Clear", "Blue", "Yellow", "Orange", "Red", "Green"]
   },
   {
@@ -795,7 +795,7 @@
     "name": "Devon & Jones Men's Short-Sleeve Polo Shirts",
     "category": "Apparel",
     "brand": "Devon & Jones",
-    "description": "Priced at 50 units.",
+    "description": "16 color options. Price per unit drops at 100 units. Priced at 50 units.",
     "tiers": [
       [50, 71.42],
       [100, 64.54],
@@ -945,7 +945,7 @@
     "name": "Stock Camo Polyester 6-Panel Baseball Cap",
     "category": "Headwear",
     "brand": "Essentials",
-    "description": "Priced at 12 units.",
+    "description": "10 color options. Price per unit drops at 24 units. Priced at 12 units.",
     "tiers": [
       [12, 12.35],
       [24, 10.03],
@@ -1086,7 +1086,7 @@
     "name": "Branded Bills 545 Bare Curved Rope Cap",
     "category": "Headwear",
     "brand": "Branded Bills",
-    "description": "Priced at 144 units.",
+    "description": "6 color options. Price per unit drops at 288 units. Priced at 144 units.",
     "tiers": [
       [144, 42.11],
       [288, 36.62],
@@ -1173,32 +1173,6 @@
     "imageAlt": "Cotton 6-Panel Baseball Cap w/ Metal Tuck Buckle"
   },
   {
-    "id": "transparent-pvc-sun-visor-hat-w-printed-world-cup-theme-53508",
-    "name": "Transparent PVC Sun Visor Hat W/ Printed World Cup Theme",
-    "category": "Headwear",
-    "brand": "Essentials",
-    "description": "Clear PVC sun visor hat w/ UV protection, elastic strap back, ideal for world cup fans, silkscreen custom logo. Priced at 100 units.",
-    "tiers": [
-      [100, 2.867],
-      [500, 1.733],
-      [1000, 1.583],
-      [2000, 1.55],
-      [5000, 1.5]
-    ],
-    "image": "/images/merch/transparent-pvc-sun-visor-hat-w-printed-world-cup-theme-53508.webp",
-    "imageAlt": "Transparent PVC Sun Visor Hat W/ Printed World Cup Theme",
-    "colors": [
-      "Light Pink",
-      "Light Purple",
-      "Light Red",
-      "Light White",
-      "Light Yellow",
-      "Light Brown",
-      "Light Blue",
-      "Light Black"
-    ]
-  },
-  {
     "id": "transparent-summer-sun-visor-66344",
     "name": "Transparent Summer Sun Visor",
     "category": "Headwear",
@@ -1217,7 +1191,7 @@
   },
   {
     "id": "golf-visor-54090",
-    "name": "Golf visor",
+    "name": "Golf Visor",
     "category": "Headwear",
     "brand": "Essentials",
     "description": "100% cotton twill structured golf visor with stretch headband and hook and loop closure. Priced at 12 units.",
@@ -1228,7 +1202,7 @@
       [1008, 4.733]
     ],
     "image": "/images/merch/golf-visor-54090.webp",
-    "imageAlt": "Golf visor",
+    "imageAlt": "Golf Visor",
     "colors": [
       "Red",
       "Black",
@@ -1410,7 +1384,7 @@
   },
   {
     "id": "performance-airy-safari-hat-with-perforated-mesh-69897",
-    "name": "Performance Airy Safari Hat with perforated mesh",
+    "name": "Performance Airy Safari Hat with Perforated Mesh",
     "category": "Headwear",
     "brand": "Essentials",
     "description": "Performance Safari Sun Blocker hat in assorted colors with chin strap. Priced at 12 units.",
@@ -1421,7 +1395,7 @@
       [1008, 9.75]
     ],
     "image": "/images/merch/performance-airy-safari-hat-with-perforated-mesh-69897.webp",
-    "imageAlt": "Performance Airy Safari Hat with perforated mesh",
+    "imageAlt": "Performance Airy Safari Hat with Perforated Mesh",
     "colors": ["Black", "Charcoal", "Stone"]
   },
   {
@@ -2113,20 +2087,21 @@
     "name": "ShowStopper Event Flooring",
     "category": "Home & Decor",
     "brand": "Essentials",
-    "description": "Premium custom sized and printed floors that elevate your brand presence with plush comfort, vibrant colors, and no-slip backing. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "description": "Premium custom sized and printed floors that elevate your brand presence with plush comfort, vibrant colors, and no-slip backing. Priced at 1 unit.",
     "tiers": [[1, 990]],
     "image": "/images/merch/showstopper-event-flooring-95710.webp",
-    "imageAlt": "ShowStopper Event Flooring"
+    "imageAlt": "ShowStopper Event Flooring",
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "rugs-55129",
-    "name": "Rugs",
+    "name": "Textured Non-Skid Rug, 31.5\" x 51\"",
     "category": "Home & Decor",
     "brand": "Essentials",
     "description": "31.5\" x 51\" 1230 GSM Textured Front / Non-Skid Back Dornier Rug. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
     "tiers": [[1, 16.67]],
     "image": "/images/merch/rugs-55129.webp",
-    "imageAlt": "Rugs",
+    "imageAlt": "Textured Non-Skid Rug, 31.5\" x 51\"",
     "colors": ["White"]
   },
   {
@@ -2175,21 +2150,22 @@
     "name": "Custom Event Carpet",
     "category": "Home & Decor",
     "brand": "Essentials",
-    "description": "The Custom Event Carpet is a durable, tufted loop pile carpet with a slip-resistant rubber backing, ideal for high-traffic events. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "description": "The Custom Event Carpet is a durable, tufted loop pile carpet with a slip-resistant rubber backing, ideal for high-traffic events. Priced at 1 unit.",
     "tiers": [
       [1, 63],
       [10, 61.1]
     ],
     "image": "/images/merch/custom-event-carpet-04034.webp",
     "imageAlt": "Custom Event Carpet",
-    "colors": ["Red", "Green", "White", "Gray", "Black"]
+    "colors": ["Red", "Green", "White", "Gray", "Black"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "chenille-area-rugs-47109",
     "name": "Chenille Area Rugs",
     "category": "Home & Decor",
     "brand": "Essentials",
-    "description": "48\" x 30\", 60\" x 48\" or 96\" x 60\" polyester Chenille rugs with whip stitch edges, sublimated imprint and anti-ski TPR padding. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 36 units.",
+    "description": "48\" x 30\", 60\" x 48\" or 96\" x 60\" polyester Chenille rugs with whip stitch edges, sublimated imprint and anti-ski TPR padding. Priced at 36 units.",
     "tiers": [
       [36, 43.87],
       [72, 42.37],
@@ -2199,7 +2175,8 @@
     ],
     "image": "/images/merch/chenille-area-rugs-47109.webp",
     "imageAlt": "Chenille Area Rugs",
-    "colors": ["Multi Color"]
+    "colors": ["Multi Color"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "3d-diatom-ooze-rugs-43354",
@@ -2293,10 +2270,10 @@
   },
   {
     "id": "welcome-entrance-doormat-26327",
-    "name": "Welcome Entrance Doormat",
+    "name": "Welcome Entrance Doormat, 15.7\" x 23.6\"",
     "category": "Home & Decor",
     "brand": "Essentials",
-    "description": "Welcome Entrance Doormat. Priced at 5 units.",
+    "description": "Welcome Entrance Doormat. Size: 15.7\" x 23.6\". Price per unit drops at 50 units. Priced at 5 units.",
     "tiers": [
       [5, 44.639],
       [50, 24.579],
@@ -2305,7 +2282,7 @@
       [500, 23.396]
     ],
     "image": "/images/merch/welcome-entrance-doormat-26327.webp",
-    "imageAlt": "Welcome Entrance Doormat"
+    "imageAlt": "Welcome Entrance Doormat, 15.7\" x 23.6\""
   },
   {
     "id": "led-light-up-music-sound-controlled-coir-doormat-47767",
@@ -2343,10 +2320,10 @@
   },
   {
     "id": "carpet-household-outdoor-non-slip-mat-53806",
-    "name": "Carpet household outdoor non-slip mat",
+    "name": "Carpet Household Outdoor Non-Slip Mat",
     "category": "Home & Decor",
     "brand": "Essentials",
-    "description": "Door mat. Priced at 200 units.",
+    "description": "Door mat. Size: 500 mm x 800 mm. Price per unit drops at 300 units. Priced at 200 units.",
     "tiers": [
       [200, 49.345],
       [300, 43.298],
@@ -2355,11 +2332,11 @@
       [600, 30.753]
     ],
     "image": "/images/merch/carpet-household-outdoor-non-slip-mat-53806.webp",
-    "imageAlt": "Carpet household outdoor non-slip mat"
+    "imageAlt": "Carpet Household Outdoor Non-Slip Mat"
   },
   {
     "id": "sublimation-door-mat-04587",
-    "name": "Sublimation Door Mat",
+    "name": "Sublimation Door Mat, 19.69\" x 31.5\"",
     "category": "Home & Decor",
     "brand": "Essentials",
     "description": "19.69\" x 31.5\" indoor doormat made of polyester. Priced at 50 units.",
@@ -2371,7 +2348,7 @@
       [800, 16.567]
     ],
     "image": "/images/merch/sublimation-door-mat-04587.webp",
-    "imageAlt": "Sublimation Door Mat"
+    "imageAlt": "Sublimation Door Mat, 19.69\" x 31.5\""
   },
   {
     "id": "natural-coir-door-mat-97453",
@@ -2619,7 +2596,7 @@
   },
   {
     "id": "3x10-outdoor-indoor-logo-mat-runner-72391",
-    "name": "3' x 10' Outdoor/Indoor logo mat runner",
+    "name": "3' x 10' Outdoor/Indoor Logo Mat Runner",
     "category": "Home & Decor",
     "brand": "Essentials",
     "description": "24 color options. Size: 3' x 10'. Priced at 1 unit.",
@@ -2631,7 +2608,7 @@
       [48, 479.94]
     ],
     "image": "/images/merch/3x10-outdoor-indoor-logo-mat-runner-72391.webp",
-    "imageAlt": "3' x 10' Outdoor/Indoor logo mat runner",
+    "imageAlt": "3' x 10' Outdoor/Indoor Logo Mat Runner",
     "colors": [
       "Clear Blue",
       "Medium Blue",
@@ -2722,13 +2699,14 @@
     "name": "Floor Impressions Mats",
     "category": "Home & Decor",
     "brand": "Essentials",
-    "description": "Impressions Mats combine a 3/16\" thick nitrile rubber surface with digitally printed vinyl logos for durable and stylish branding. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "description": "Impressions Mats combine a 3/16\" thick nitrile rubber surface with digitally printed vinyl logos for durable and stylish branding. Priced at 1 unit.",
     "tiers": [
       [1, 250.22],
       [10, 242.7]
     ],
     "image": "/images/merch/floor-impressions-mats-72992.webp",
-    "imageAlt": "Floor Impressions Mats"
+    "imageAlt": "Floor Impressions Mats",
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "3-x-5-point-of-purchase-dye-sublimated-floor-mat-07115",
@@ -2892,7 +2870,7 @@
     "name": "Brand Representative Graphic Mat - 2 ft",
     "category": "Home & Decor",
     "brand": "Essentials",
-    "description": "Logo Mats for Business Use - Commercial grade carpet logo rugs with nitrile rubber backing and photo-quality art. Made in America Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "description": "Logo Mats for Business Use - Commercial grade carpet logo rugs with nitrile rubber backing and photo-quality art. Made in America Made in USA. Priced at 1 unit.",
     "tiers": [
       [1, 289.43],
       [2, 162.27],
@@ -2926,7 +2904,8 @@
       "Gold",
       "Goldenrod",
       "Dandelion"
-    ]
+    ],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "brand-ambassador-logo-floor-mat-2-x-3-91649",
@@ -2970,7 +2949,7 @@
   },
   {
     "id": "bath-mat-40907",
-    "name": "Bath Mat",
+    "name": "Anti-Slip Bath Mat, 23.6\" x 12.7\"",
     "category": "Home & Decor",
     "brand": "Essentials",
     "description": "Anti-Slip and Easy to Clean Modern Bath Mat for Safe and Stylish Bathroom Comfortable Absorbent Bathroom Mat Bath Mats. Priced at 40 units.",
@@ -2982,7 +2961,7 @@
       [1000, 7.95]
     ],
     "image": "/images/merch/bath-mat-40907.webp",
-    "imageAlt": "Bath Mat",
+    "imageAlt": "Anti-Slip Bath Mat, 23.6\" x 12.7\"",
     "colors": ["Blue", "Green", "Coffee"]
   },
   {
@@ -2990,7 +2969,7 @@
     "name": "Brand Diplomat Custom Branded Logo Rug - 4 ft",
     "category": "Home & Decor",
     "brand": "Essentials",
-    "description": "Custom Logo Mat and industrial-grade custom logoed entry mat, custom-dyed carpet floor mats with nitrile rubber backing. Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "description": "Custom Logo Mat and industrial-grade custom logoed entry mat, custom-dyed carpet floor mats with nitrile rubber backing. Made in USA. Priced at 1 unit.",
     "tiers": [
       [1, 724.87],
       [2, 543.88],
@@ -3024,7 +3003,8 @@
       "Gold",
       "Goldenrod",
       "Dandelion"
-    ]
+    ],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "custom-disposable-paper-car-floor-mats-67133",
@@ -3104,7 +3084,7 @@
   },
   {
     "id": "door-mat-22209",
-    "name": "Door Mat",
+    "name": "Door Mat, 15\" x 23\"",
     "category": "Home & Decor",
     "brand": "Essentials",
     "description": "8 color options. Size: 15\" x 23\". Priced at 1000 units.",
@@ -3116,7 +3096,7 @@
       [6000, 4.45]
     ],
     "image": "/images/merch/door-mat-22209.webp",
-    "imageAlt": "Door Mat",
+    "imageAlt": "Door Mat, 15\" x 23\"",
     "colors": [
       "Bright Blue",
       "Clear Red",
@@ -3654,7 +3634,7 @@
     "name": "S'well® Wine Tumbler - 14oz",
     "category": "Drinkware",
     "brand": "S'well",
-    "description": "Priced at 48 units.",
+    "description": "3 color options. Price per unit drops at 96 units. Priced at 48 units.",
     "tiers": [
       [48, 35.75],
       [96, 35.03],
@@ -3744,7 +3724,7 @@
   },
   {
     "id": "18-oz-travel-stainless-steel-vacuum-insulated-coffee-cup-w-80353",
-    "name": "18 oz. Travel Stainless Steel Vacuum Insulated Coffee cup w",
+    "name": "18 oz. Travel Stainless Steel Vacuum Insulated Coffee Cup w",
     "category": "Drinkware",
     "brand": "Essentials",
     "description": "18 oz. Travel Stainless Steel Vacuum Insulated Coffee cup w/ lid. Priced at 72 units.",
@@ -3756,7 +3736,7 @@
       [1008, 3.57]
     ],
     "image": "/images/merch/18-oz-travel-stainless-steel-vacuum-insulated-coffee-cup-w-80353.webp",
-    "imageAlt": "18 oz. Travel Stainless Steel Vacuum Insulated Coffee cup w",
+    "imageAlt": "18 oz. Travel Stainless Steel Vacuum Insulated Coffee Cup w",
     "colors": ["White", "Black", "Blue", "Red"]
   },
   {
@@ -3815,7 +3795,7 @@
     "name": "24\" x 18\" - 36\" x 48\" Real Estate Signs Post Kit with Rider",
     "category": "Event & Signage",
     "brand": "Essentials",
-    "description": "White PVC real estate sign post with hanging banner and rider; available in sizes up to 36\" x 48\". Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "description": "White PVC real estate sign post with hanging banner and rider; available in sizes up to 36\" x 48\". Priced at 1 unit.",
     "tiers": [
       [1, 230.98],
       [50, 228.33],
@@ -3824,7 +3804,8 @@
       [1000, 216.33]
     ],
     "image": "/images/merch/24-x18-36-x48-real-estate-signs-post-kit-with-rider-14059.webp",
-    "imageAlt": "24\" x 18\" - 36\" x 48\" Real Estate Signs Post Kit with Rider"
+    "imageAlt": "24\" x 18\" - 36\" x 48\" Real Estate Signs Post Kit with Rider",
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "custom-18-x-24-yard-signs-89249",
@@ -3858,24 +3839,8 @@
     "imageAlt": "12\" x 18\" Corrugated Yard Sign - Full Color"
   },
   {
-    "id": "medium-corrugated-yard-sign-full-color-2-sides-83577",
-    "name": "Medium Corrugated Yard Sign - Full Color - 2 Sides",
-    "category": "Event & Signage",
-    "brand": "Essentials",
-    "description": "24\" x 18\" 4 mil Corrugated Double Sided Yard Sign with Full Color Digital Print. Made in USA. Priced at 6 units.",
-    "tiers": [
-      [6, 15],
-      [12, 12.25],
-      [25, 12.05],
-      [50, 11.75],
-      [100, 10.25]
-    ],
-    "image": "/images/merch/medium-corrugated-yard-sign-full-color-2-sides-83577.webp",
-    "imageAlt": "Medium Corrugated Yard Sign - Full Color - 2 Sides"
-  },
-  {
     "id": "yard-sign-1ft-x-1ft-sqft-57334",
-    "name": "Yard sign (1ft x 1ft) SQFT",
+    "name": "Yard Sign (1ft x 1ft) SQFT",
     "category": "Event & Signage",
     "brand": "Essentials",
     "description": "Durable yard signs designed to catch attention and convey messages effectively outdoors. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
@@ -3884,7 +3849,7 @@
       [10, 7.3]
     ],
     "image": "/images/merch/yard-sign-1ft-x-1ft-sqft-57334.webp",
-    "imageAlt": "Yard sign (1ft x 1ft) SQFT"
+    "imageAlt": "Yard Sign (1ft x 1ft) SQFT"
   },
   {
     "id": "18-x-24-corrugated-yard-sign-full-color-18413",
@@ -3956,7 +3921,7 @@
     "name": "USA Embroidered Flag 8' x 12' to 40' x 76'",
     "category": "Event & Signage",
     "brand": "Essentials",
-    "description": "400 denier nylon US flag with sewn stripes, embroidered stars, and finished with reinforced stitching. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "description": "400 denier nylon US flag with sewn stripes, embroidered stars, and finished with reinforced stitching. Priced at 1 unit.",
     "tiers": [
       [1, 164.29],
       [10, 135.71],
@@ -3965,11 +3930,12 @@
     ],
     "image": "/images/merch/usa-embroidered-flag-8-x-12-to-40-x-76-23680.webp",
     "imageAlt": "USA Embroidered Flag 8' x 12' to 40' x 76'",
-    "colors": ["Red-White-Blue"]
+    "colors": ["Red-White-Blue"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "usa-american-flag-18007",
-    "name": "USA American Flag",
+    "name": "USA American Flag, 6\" x 4\"",
     "category": "Event & Signage",
     "brand": "Essentials",
     "description": "USA American Flag is a good gift to promote your brand. Priced at 250 units.",
@@ -3981,7 +3947,7 @@
       [5000, 0.52]
     ],
     "image": "/images/merch/usa-american-flag-18007.webp",
-    "imageAlt": "USA American Flag",
+    "imageAlt": "USA American Flag, 6\" x 4\"",
     "colors": ["Red-White-Blue"]
   },
   {
@@ -4018,10 +3984,10 @@
   },
   {
     "id": "stickers-bumper-stickers-50280",
-    "name": "Stickers, Bumper Stickers",
+    "name": "Vinyl Bumper Stickers",
     "category": "Event & Signage",
     "brand": "Essentials",
-    "description": "Vinyl bumper stickers with adhesive backing, full color printing and assorted size choices. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "description": "Vinyl bumper stickers with adhesive backing, full color printing and assorted size choices. Priced at 100 units.",
     "tiers": [
       [100, 3.4],
       [250, 1.6],
@@ -4030,15 +3996,16 @@
       [2000, 0.64]
     ],
     "image": "/images/merch/stickers-bumper-stickers-50280.webp",
-    "imageAlt": "Stickers, Bumper Stickers",
-    "colors": ["Multi Color"]
+    "imageAlt": "Vinyl Bumper Stickers",
+    "colors": ["Multi Color"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "oval-custom-bumper-sticker-10419",
     "name": "Oval Custom Bumper Sticker",
     "category": "Event & Signage",
     "brand": "Essentials",
-    "description": "1 color option. Size: 1\" x 1\", 2\" x 2\", 3\" x 3\", 4\" x 4\", 5\" x 5\". Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 25 units.",
+    "description": "1 color option. Size: 1\" x 1\", 2\" x 2\", 3\" x 3\", 4\" x 4\", 5\" x 5\". Priced at 25 units.",
     "tiers": [
       [25, 1.716],
       [50, 1.254],
@@ -4048,7 +4015,8 @@
     ],
     "image": "/images/merch/oval-custom-bumper-sticker-10419.webp",
     "imageAlt": "Oval Custom Bumper Sticker",
-    "colors": ["White"]
+    "colors": ["White"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "5-x-3-in-oval-perm-bumper-sticker-07895",
@@ -4120,10 +4088,10 @@
   },
   {
     "id": "2-piece-flashing-led-round-blinking-button-full-color-58182",
-    "name": "2 piece Flashing LED Round Blinking Button Full Color",
+    "name": "2 Piece Flashing LED Round Blinking Button Full Color",
     "category": "Event & Signage",
     "brand": "Essentials",
-    "description": "Two piece round blinking LED button laminated with clear mylar film. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "description": "Two piece round blinking LED button laminated with clear mylar film. Priced at 100 units.",
     "tiers": [
       [100, 2.49],
       [250, 1.96],
@@ -4132,8 +4100,9 @@
       [2500, 1.61]
     ],
     "image": "/images/merch/2-piece-flashing-led-round-blinking-button-full-color-58182.webp",
-    "imageAlt": "2 piece Flashing LED Round Blinking Button Full Color",
-    "colors": ["White"]
+    "imageAlt": "2 Piece Flashing LED Round Blinking Button Full Color",
+    "colors": ["White"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "3-round-button-1-piece-w-safety-pin-55846",
@@ -4205,7 +4174,7 @@
     "name": "Pricebuster Lanyard",
     "category": "Event & Signage",
     "brand": "Essentials",
-    "description": "Free setup Our Pricebuster lanyard is a high-quality flat polyester lanyard with a silk screen imprint, crimp, and 6 attachment options. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "description": "Free setup Our Pricebuster lanyard is a high-quality flat polyester lanyard with a silk screen imprint, crimp, and 6 attachment options. Priced at 100 units.",
     "tiers": [
       [100, 1.25],
       [250, 1.05],
@@ -4230,14 +4199,15 @@
       "Jungle Green",
       "Maroon",
       "Passion Pink"
-    ]
+    ],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "dye-sublimated-lanyards-sizes-1-2-1-60307",
     "name": "Dye Sublimated Lanyards - Sizes 1/2\"-1\"",
     "category": "Event & Signage",
     "brand": "Essentials",
-    "description": "36\" polyester with standard attachment and width options and dye-sublimation printing. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "description": "36\" polyester with standard attachment and width options and dye-sublimation printing. Priced at 100 units.",
     "tiers": [
       [100, 2.83],
       [250, 1.53],
@@ -4247,14 +4217,15 @@
     ],
     "image": "/images/merch/dye-sublimated-lanyards-sizes-1-2-1-60307.webp",
     "imageAlt": "Dye Sublimated Lanyards - Sizes 1/2\"-1\"",
-    "colors": ["Multi Color"]
+    "colors": ["Multi Color"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "lanyards-dye-sublimated-full-color-19714",
-    "name": "LANYARDS DYE SUBLIMATED FULL COLOR",
+    "name": "Lanyards Dye Sublimated Full Color",
     "category": "Event & Signage",
     "brand": "Essentials",
-    "description": "Premium nylon lanyards in assorted lengths, widths and hardware. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "description": "Premium nylon lanyards in assorted lengths, widths and hardware. Priced at 100 units.",
     "tiers": [
       [100, 1.496],
       [200, 1.3],
@@ -4263,7 +4234,7 @@
       [1000, 0.778]
     ],
     "image": "/images/merch/lanyards-dye-sublimated-full-color-19714.webp",
-    "imageAlt": "LANYARDS DYE SUBLIMATED FULL COLOR",
+    "imageAlt": "Lanyards Dye Sublimated Full Color",
     "colors": [
       "Black",
       "White",
@@ -4278,14 +4249,15 @@
       "Royal Blue",
       "Teal",
       "Burgundy"
-    ]
+    ],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "full-color-sublimation-lanyards-33390",
-    "name": "Full-color Sublimation Lanyards",
+    "name": "Full-Color Sublimation Lanyards",
     "category": "Event & Signage",
     "brand": "Essentials",
-    "description": "Sublimation full-color lanyards both side full-color edge-to-edge printing. Customize with PMS colors with free attachment options. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 50 units.",
+    "description": "Sublimation full-color lanyards both side full-color edge-to-edge printing. Customize with PMS colors with free attachment options. Priced at 50 units.",
     "tiers": [
       [50, 2.45],
       [100, 1.85],
@@ -4294,7 +4266,7 @@
       [1000, 1]
     ],
     "image": "/images/merch/full-color-sublimation-lanyards-33390.webp",
-    "imageAlt": "Full-color Sublimation Lanyards",
+    "imageAlt": "Full-Color Sublimation Lanyards",
     "colors": [
       "Black",
       "Royal Blue",
@@ -4310,7 +4282,8 @@
       "Purple",
       "Yellow",
       "Orange"
-    ]
+    ],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "5-8-variable-data-dye-sublimated-lanyard-78857",
@@ -4329,73 +4302,11 @@
     "imageAlt": "5/8\" Variable Data Dye Sublimated Lanyard"
   },
   {
-    "id": "polyester-badge-reel-lanyard-combo-b-50466",
-    "name": "Polyester/Badge Reel Lanyard Combo-B",
-    "category": "Event & Signage",
-    "brand": "Essentials",
-    "description": "Polyester lanyard with metal clip and attachments. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
-    "tiers": [
-      [100, 2.717],
-      [300, 2.528],
-      [500, 2.258]
-    ],
-    "image": "/images/merch/polyester-badge-reel-lanyard-combo-b-50466.webp",
-    "imageAlt": "Polyester/Badge Reel Lanyard Combo-B",
-    "colors": [
-      "Light Green",
-      "Royal Blue",
-      "Violet",
-      "Red",
-      "Purple",
-      "Lavender",
-      "Orange",
-      "Black",
-      "Brown",
-      "Burgundy",
-      "Dark Green",
-      "Navy Blue",
-      "Light Blue",
-      "White"
-    ]
-  },
-  {
-    "id": "lanyards-with-badge-holder-combo-clear-vinyl-40506",
-    "name": "Lanyards with Badge Holder Combo Clear Vinyl",
-    "category": "Event & Signage",
-    "brand": "Essentials",
-    "description": "Flat Custom Polyester with Badge Holder combo, and choice or different badge holder size id badge lanyard. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
-    "tiers": [
-      [100, 2.08],
-      [300, 1.69],
-      [500, 1.51],
-      [1000, 1.4],
-      [3000, 1.3]
-    ],
-    "image": "/images/merch/lanyards-with-badge-holder-combo-clear-vinyl-40506.webp",
-    "imageAlt": "Lanyards with Badge Holder Combo Clear Vinyl",
-    "colors": [
-      "Black",
-      "Royal Blue",
-      "Navy Blue",
-      "Blue",
-      "Gray Silver",
-      "White",
-      "Red",
-      "Maroon",
-      "Hot Pink",
-      "Pink",
-      "Green",
-      "Dark Forest Green",
-      "Purple",
-      "Yellow"
-    ]
-  },
-  {
     "id": "3-4-polyester-lanyard-39574",
     "name": "3/4\" Polyester Lanyard",
     "category": "Event & Signage",
     "brand": "Essentials",
-    "description": "Our most popular flat Polyester Lanyard are offered in 28 different body colors, with an included PMS imprint color match. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 50 units.",
+    "description": "Our most popular flat Polyester Lanyard are offered in 28 different body colors, with an included PMS imprint color match. Priced at 50 units.",
     "tiers": [
       [50, 2.27],
       [100, 1.57],
@@ -4420,7 +4331,8 @@
       "Purple",
       "Yellow",
       "Orange"
-    ]
+    ],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "bread-slice-hand-fan-86011",
@@ -4616,7 +4528,7 @@
   },
   {
     "id": "stress-ball-22719",
-    "name": "Stress Ball",
+    "name": "2.75\" Polyurethane Foam Stress Ball",
     "category": "Event & Signage",
     "brand": "Essentials",
     "description": "2.75\" polyurethane foam stress balls. Priced at 150 units.",
@@ -4628,7 +4540,7 @@
       [2500, 1.24]
     ],
     "image": "/images/merch/stress-ball-22719.webp",
-    "imageAlt": "Stress Ball",
+    "imageAlt": "2.75\" Polyurethane Foam Stress Ball",
     "colors": [
       "White",
       "Black",
@@ -4709,7 +4621,7 @@
     "name": "Debossed Silicone Bands",
     "category": "Event & Signage",
     "brand": "Essentials",
-    "description": "Free setup Debossed silicone wristbands in thicknesses from 1/4\" to 1\". Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "description": "Free setup Debossed silicone wristbands in thicknesses from 1/4\" to 1\". Priced at 100 units.",
     "tiers": [
       [100, 1.27],
       [200, 0.75],
@@ -4718,14 +4630,15 @@
       [1000, 0.37]
     ],
     "image": "/images/merch/debossed-silicone-bands-50897.webp",
-    "imageAlt": "Debossed Silicone Bands"
+    "imageAlt": "Debossed Silicone Bands",
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "colorfilled-silicone-wristband-bracelet-78728",
     "name": "Colorfilled Silicone Wristband Bracelet",
     "category": "Event & Signage",
     "brand": "Essentials",
-    "description": "HIGH QUALITY LATEX FREE AWARENESS SILICONE BANDS! NEXT DAY DELIVERY OPTION ON REQUEST!24/7 CUSTOMER SERVICE! PMS MATCH AVAILABLE! Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "description": "HIGH QUALITY LATEX FREE AWARENESS SILICONE BANDS! NEXT DAY DELIVERY OPTION ON REQUEST!24/7 CUSTOMER SERVICE! PMS MATCH AVAILABLE! Priced at 100 units.",
     "tiers": [
       [100, 0.69],
       [300, 0.434],
@@ -4734,7 +4647,8 @@
       [3000, 0.314]
     ],
     "image": "/images/merch/colorfilled-silicone-wristband-bracelet-78728.webp",
-    "imageAlt": "Colorfilled Silicone Wristband Bracelet"
+    "imageAlt": "Colorfilled Silicone Wristband Bracelet",
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "table-runner-front-top-all-over-dye-sub-69739",
@@ -4816,14 +4730,15 @@
     "name": "8X8 and 8X10 Adjustable Fabric Backdrop",
     "category": "Event & Signage",
     "brand": "Essentials",
-    "description": "Adjustable Fabric Banner Stand with Full Color Dye Sublimated Print on Heavy Duty Hardware. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "description": "Adjustable Fabric Banner Stand with Full Color Dye Sublimated Print on Heavy Duty Hardware. Priced at 1 unit.",
     "tiers": [
       [1, 480],
       [25, 399]
     ],
     "image": "/images/merch/8x8-and-8x10-adjustable-fabric-backdrop-38896.webp",
     "imageAlt": "8X8 and 8X10 Adjustable Fabric Backdrop",
-    "colors": ["Black Frame"]
+    "colors": ["Black Frame"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "31-5-economy-retractor-kit-no-curl-opaque-fabric-41469",
@@ -5557,7 +5472,7 @@
     "name": "Reversible Laptop Sleeve with Fold-Over Flap - Neoprene",
     "category": "Bags",
     "brand": "Essentials",
-    "description": "Reversible laptop sleeve made of neoprene. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 25 units.",
+    "description": "Reversible laptop sleeve made of neoprene. Priced at 25 units.",
     "tiers": [
       [25, 9.32],
       [50, 6.67],
@@ -5567,7 +5482,8 @@
     ],
     "image": "/images/merch/reversible-laptop-sleeve-with-fold-over-flap-neoprene-14070.webp",
     "imageAlt": "Reversible Laptop Sleeve with Fold-Over Flap - Neoprene",
-    "colors": ["Black", "Pink", "Purple"]
+    "colors": ["Black", "Pink", "Purple"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "in-stock-11-13-15-laptop-sleeve-case-with-stand-36041",
@@ -5588,7 +5504,7 @@
   },
   {
     "id": "water-resistant-lightweight-office-school-laptop-bag-52170",
-    "name": "Water Resistant Lightweight office School laptop Bag",
+    "name": "Water Resistant Lightweight Office School Laptop Bag",
     "category": "Bags",
     "brand": "Essentials",
     "description": "Water-resistant, lightweight laptop bag with multiple compartments, luggage strap, and durable nylon/oxford fabric. Priced at 200 units.",
@@ -5600,7 +5516,7 @@
       [3000, 11.7]
     ],
     "image": "/images/merch/water-resistant-lightweight-office-school-laptop-bag-52170.webp",
-    "imageAlt": "Water Resistant Lightweight office School laptop Bag",
+    "imageAlt": "Water Resistant Lightweight Office School Laptop Bag",
     "colors": ["Black", "Gray", "Blue", "Purple", "Pink"]
   },
   {
@@ -5667,7 +5583,7 @@
   },
   {
     "id": "reusable-work-office-picnic-tote-insulated-lunch-cooler-bag-82287",
-    "name": "Reusable work office picnic tote insulated lunch cooler bag",
+    "name": "Reusable Work Office Picnic Tote Insulated Lunch Cooler Bag",
     "category": "Bags",
     "brand": "Essentials",
     "description": "This cooler lunch bag keeps meals fresh and organized for hassle-free daily use with its smart storage. Rush service is available. Priced at 100 units.",
@@ -5679,7 +5595,7 @@
       [2000, 5.15]
     ],
     "image": "/images/merch/reusable-work-office-picnic-tote-insulated-lunch-cooler-bag-82287.webp",
-    "imageAlt": "Reusable work office picnic tote insulated lunch cooler bag",
+    "imageAlt": "Reusable Work Office Picnic Tote Insulated Lunch Cooler Bag",
     "colors": ["Blue", "Pink", "Yellow", "Beige"]
   },
   {
@@ -5981,7 +5897,7 @@
   },
   {
     "id": "jbl-flip-7-portable-waterproof-and-drop-proof-speaker-46910",
-    "name": "JBL Flip 7 Portable waterproof and drop-proof speaker",
+    "name": "JBL Flip 7 Portable Waterproof and Drop-Proof Speaker",
     "category": "Tech Accessories",
     "brand": "JBL",
     "description": "Experience epic sound with the JBL Flip 7! Bold JBL Pro Sound, 16hr play, IP68 tough, eco-friendly. Amplify life anywhere. Priced at 1 unit.",
@@ -5993,7 +5909,7 @@
       [50, 152.13]
     ],
     "image": "/images/merch/jbl-flip-7-portable-waterproof-and-drop-proof-speaker-46910.webp",
-    "imageAlt": "JBL Flip 7 Portable waterproof and drop-proof speaker",
+    "imageAlt": "JBL Flip 7 Portable Waterproof and Drop-Proof Speaker",
     "colors": ["Medium Black - Black C", "Camouflage Gray", "Dark White - White C"]
   },
   {
@@ -6287,7 +6203,7 @@
   },
   {
     "id": "portable-desk-travel-pocket-mount-foldable-cell-phone-stand-01229",
-    "name": "Portable desk travel pocket mount foldable cell phone stand",
+    "name": "Portable Desk Travel Pocket Mount Foldable Cell Phone Stand",
     "category": "Tech Accessories",
     "brand": "Essentials",
     "description": "Whether you're at home, in the office, or on the go, this phone stand is easy to carry and use. Rush service is available. Priced at 300 units.",
@@ -6299,12 +6215,12 @@
       [5000, 0.5]
     ],
     "image": "/images/merch/portable-desk-travel-pocket-mount-foldable-cell-phone-stand-01229.webp",
-    "imageAlt": "Portable desk travel pocket mount foldable cell phone stand",
+    "imageAlt": "Portable Desk Travel Pocket Mount Foldable Cell Phone Stand",
     "colors": ["Black", "White", "Dark Blue", "Light Blue", "Purple", "Red", "Dark Pink", "Pink"]
   },
   {
     "id": "multi-purpose-fashion-magnetic-wallet-phone-back-card-holder-00332",
-    "name": "Multi-purpose Fashion Magnetic Wallet Phone Back Card Holder",
+    "name": "Multi-Purpose Fashion Magnetic Wallet Phone Back Card Holder",
     "category": "Tech Accessories",
     "brand": "Essentials",
     "description": "This stylish and practical mobile phone back card holder brings more convenience and speed to your life.Rush service is provided. Priced at 100 units.",
@@ -6316,7 +6232,7 @@
       [2000, 2.233]
     ],
     "image": "/images/merch/multi-purpose-fashion-magnetic-wallet-phone-back-card-holder-00332.webp",
-    "imageAlt": "Multi-purpose Fashion Magnetic Wallet Phone Back Card Holder",
+    "imageAlt": "Multi-Purpose Fashion Magnetic Wallet Phone Back Card Holder",
     "colors": [
       "Light Pink",
       "Pink",
@@ -6367,7 +6283,7 @@
     "name": "Recycled Mouse Mat®",
     "category": "Tech Accessories",
     "brand": "Essentials",
-    "description": "Mouse pad made from recycled material. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "description": "Mouse pad made from recycled material. Priced at 100 units.",
     "tiers": [
       [100, 3.33],
       [250, 3.03],
@@ -6376,7 +6292,8 @@
     ],
     "image": "/images/merch/recycled-mouse-mat-28667.webp",
     "imageAlt": "Recycled Mouse Mat®",
-    "colors": ["Multi color"]
+    "colors": ["Multi color"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "medium-custom-printed-mouse-pads-89153",
@@ -6431,7 +6348,7 @@
   },
   {
     "id": "key-micro-usb-drive-53061",
-    "name": "Key Micro USB drive",
+    "name": "Key Micro USB Drive",
     "category": "Tech Accessories",
     "brand": "Essentials",
     "description": "2 1/4\" x 1\" USB flash drive with innovative key shape design and keychain. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 50 units.",
@@ -6443,7 +6360,7 @@
       [1000, 5.86]
     ],
     "image": "/images/merch/key-micro-usb-drive-53061.webp",
-    "imageAlt": "Key Micro USB drive",
+    "imageAlt": "Key Micro USB Drive",
     "colors": [
       "Black Metallic",
       "Silver Metallic",
@@ -6580,7 +6497,7 @@
   },
   {
     "id": "summit-24-can-cooler-backpack-52490",
-    "name": "SUMMIT 24 CAN COOLER BACKPACK",
+    "name": "Summit 24 Can Cooler Backpack",
     "category": "Outdoor & Sports",
     "brand": "Essentials",
     "description": "24 can capacity cooler backpack with double zipper main compartment. Priced at 10 units.",
@@ -6592,7 +6509,7 @@
       [250, 32.99]
     ],
     "image": "/images/merch/summit-24-can-cooler-backpack-52490.webp",
-    "imageAlt": "SUMMIT 24 CAN COOLER BACKPACK",
+    "imageAlt": "Summit 24 Can Cooler Backpack",
     "colors": ["Black", "Gray/Black", "Navy/Black", "White/Black"]
   },
   {
@@ -6629,7 +6546,7 @@
   },
   {
     "id": "roll-up-blanket-62021",
-    "name": "Roll Up Blanket",
+    "name": "Roll Up Blanket, 48\" x 53\"",
     "category": "Outdoor & Sports",
     "brand": "Essentials",
     "description": "Customizable Fleece Roll-Up Blanket with Carry Handle. Priced at 500 units.",
@@ -6641,7 +6558,7 @@
       [20000, 6.167]
     ],
     "image": "/images/merch/roll-up-blanket-62021.webp",
-    "imageAlt": "Roll Up Blanket",
+    "imageAlt": "Roll Up Blanket, 48\" x 53\"",
     "colors": ["Black", "Blue", "Gray", "Red", "Yellow"]
   },
   {
@@ -6698,7 +6615,7 @@
     "name": "Sherpa Luxe Lined Micro Mink Throws",
     "category": "Outdoor & Sports",
     "brand": "Essentials",
-    "description": "50\" x 60\" or 60\" x 80\" micro-mink polyester throw blanket with whip stitch edge finish and sublimated imprint. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 12 units.",
+    "description": "50\" x 60\" or 60\" x 80\" micro-mink polyester throw blanket with whip stitch edge finish and sublimated imprint. Priced at 12 units.",
     "tiers": [
       [12, 48.15],
       [36, 46.79],
@@ -6708,7 +6625,8 @@
     ],
     "image": "/images/merch/sherpa-luxe-lined-micro-mink-throws-46196.webp",
     "imageAlt": "Sherpa Luxe Lined Micro Mink Throws",
-    "colors": ["White", "Gray"]
+    "colors": ["White", "Gray"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "portable-folding-camping-chair-with-pillow-25763",
@@ -6816,7 +6734,7 @@
     "name": "Recycled Frame Malibu Sunglasses",
     "category": "Outdoor & Sports",
     "brand": "Essentials",
-    "description": "Priced at 150 units.",
+    "description": "6 color options. Price per unit drops at 250 units. Priced at 150 units.",
     "tiers": [
       [150, 3.94],
       [250, 3.43],
@@ -7369,7 +7287,7 @@
     "name": "DuraTrac Matte Plus™ Hard Surface Mouse Pad w/Rubber Backing",
     "category": "Tech Accessories",
     "brand": "Essentials",
-    "description": "Heavy-duty 1/16\" thick mouse pad in assorted sizes with open cell rubber backing. Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "description": "Heavy-duty 1/16\" thick mouse pad in assorted sizes with open cell rubber backing. Made in USA. Priced at 100 units.",
     "tiers": [
       [100, 4.75],
       [250, 3.65],
@@ -7379,7 +7297,8 @@
     ],
     "image": "/images/merch/duratrac-matte-plus-hard-surface-mouse-pad-w-rubber-backing-32599.webp",
     "imageAlt": "DuraTrac Matte Plus™ Hard Surface Mouse Pad w/Rubber Backing",
-    "colors": ["White"]
+    "colors": ["White"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "frame-it-flex-7-5-x-8-x-1-8-window-photo-mouse-pad-23807",
@@ -7640,7 +7559,7 @@
   },
   {
     "id": "eco-notebook-with-recycled-paper-and-strap-50290",
-    "name": "Eco Notebook with Recycled paper and strap",
+    "name": "Eco Notebook with Recycled Paper and Strap",
     "category": "Office & Writing",
     "brand": "Essentials",
     "description": "5\" x 7\" journal with 80 lined pages, colored strap and matching ribbon bookmark. Priced at 100 units.",
@@ -7652,7 +7571,7 @@
       [2500, 2.04]
     ],
     "image": "/images/merch/eco-notebook-with-recycled-paper-and-strap-50290.webp",
-    "imageAlt": "Eco Notebook with Recycled paper and strap",
+    "imageAlt": "Eco Notebook with Recycled Paper and Strap",
     "colors": ["Black", "Blue", "Green", "Red"]
   },
   {
@@ -7660,7 +7579,7 @@
     "name": "Perfect Journal - Flexible Trekker Covers",
     "category": "Office & Writing",
     "brand": "Essentials",
-    "description": "Perfect Journal with flexible paper foil stamped. 100 sheets. Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "description": "Perfect Journal with flexible paper foil stamped. 100 sheets. Made in USA. Priced at 100 units.",
     "tiers": [
       [100, 8.64],
       [250, 7.52],
@@ -7669,7 +7588,8 @@
     ],
     "image": "/images/merch/perfect-journal-flexible-trekker-covers-63112.webp",
     "imageAlt": "Perfect Journal - Flexible Trekker Covers",
-    "colors": ["Natural", "Black", "Hot Pink", "Tangerine", "Navy", "Brilliant Blue", "Purple"]
+    "colors": ["Natural", "Black", "Hot Pink", "Tangerine", "Navy", "Brilliant Blue", "Purple"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "52-sheets-b5-spiral-weekly-planner-notebook-16410",
@@ -7721,7 +7641,7 @@
   },
   {
     "id": "eco-friendly-notebook-with-pen-65485",
-    "name": "Eco Friendly Notebook with pen",
+    "name": "Eco Friendly Notebook with Pen",
     "category": "Office & Writing",
     "brand": "Essentials",
     "description": "Spiral hardcover notebook with pen and elastic band closure. Priced at 100 units.",
@@ -7733,7 +7653,7 @@
       [2500, 2.48]
     ],
     "image": "/images/merch/eco-friendly-notebook-with-pen-65485.webp",
-    "imageAlt": "Eco Friendly Notebook with pen",
+    "imageAlt": "Eco Friendly Notebook with Pen",
     "colors": ["Blue", "Brown", "Red", "Lime Green", "Hunter Green"]
   },
   {
@@ -7758,7 +7678,7 @@
     "name": "Muse Recycled Journal",
     "category": "Office & Writing",
     "brand": "Essentials",
-    "description": "Muse Journal. Priced at 100 units.",
+    "description": "Muse Journal. 26 color options. Size: 8.5\" x 5.75\". Price per unit drops at 250 units. Priced at 100 units.",
     "tiers": [
       [100, 8.3],
       [250, 7.22],
@@ -8097,7 +8017,7 @@
   },
   {
     "id": "softy-touch-screen-metal-ballpoint-pen-with-stylus-81397",
-    "name": "Softy Touch Screen Metal Ballpoint pen With Stylus",
+    "name": "Softy Touch Screen Metal Ballpoint Pen With Stylus",
     "category": "Office & Writing",
     "brand": "Essentials",
     "description": "Write and interact with your devices effortlessly with this Softy Touch Screen Metal Ballpoint Pen, featuring a built-in stylus. Priced at 100 units.",
@@ -8109,7 +8029,7 @@
       [3000, 0.633]
     ],
     "image": "/images/merch/softy-touch-screen-metal-ballpoint-pen-with-stylus-81397.webp",
-    "imageAlt": "Softy Touch Screen Metal Ballpoint pen With Stylus",
+    "imageAlt": "Softy Touch Screen Metal Ballpoint Pen With Stylus",
     "colors": ["Black", "Blue", "Gray", "Green", "Orange", "Purple", "Red", "Royal Blue", "W"]
   },
   {
@@ -8511,7 +8431,7 @@
     "name": "Custom Cork Coaster",
     "category": "Gifts & Entertaining",
     "brand": "Essentials",
-    "description": "Beverage coaster made of cork. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 50 units.",
+    "description": "Beverage coaster made of cork. Priced at 50 units.",
     "tiers": [
       [50, 0.98],
       [100, 0.85],
@@ -8521,7 +8441,8 @@
     ],
     "image": "/images/merch/custom-cork-coaster-00987.webp",
     "imageAlt": "Custom Cork Coaster",
-    "colors": ["Brown"]
+    "colors": ["Brown"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "mini-everyday-bamboo-cutting-board-62930",
@@ -8558,7 +8479,7 @@
   },
   {
     "id": "gerber-compleat-cutting-board-set-97181",
-    "name": "GERBER® COMPLEAT CUTTING BOARD SET",
+    "name": "Gerber® Compleat Cutting Board Set",
     "category": "Gifts & Entertaining",
     "brand": "Gerber",
     "description": "Six-piece camping cutting board and knife set. Features two dual-sided outdoor cutting boards in bamboo and polypropylene. Priced at 12 units.",
@@ -8568,7 +8489,7 @@
       [48, 140]
     ],
     "image": "/images/merch/gerber-compleat-cutting-board-set-97181.webp",
-    "imageAlt": "GERBER® COMPLEAT CUTTING BOARD SET",
+    "imageAlt": "Gerber® Compleat Cutting Board Set",
     "colors": ["Green"]
   },
   {
@@ -8590,7 +8511,7 @@
   },
   {
     "id": "bamboo-bottle-opener-key-tag-full-color-graphic-43175",
-    "name": "Bamboo Bottle Opener Key Tag - Full Color graphic",
+    "name": "Bamboo Bottle Opener Key Tag - Full Color Graphic",
     "category": "Gifts & Entertaining",
     "brand": "Essentials",
     "description": "Bamboo bottle opener/keychain with customization. Priced at 100 units.",
@@ -8601,7 +8522,7 @@
       [1000, 4.267]
     ],
     "image": "/images/merch/bamboo-bottle-opener-key-tag-full-color-graphic-43175.webp",
-    "imageAlt": "Bamboo Bottle Opener Key Tag - Full Color graphic",
+    "imageAlt": "Bamboo Bottle Opener Key Tag - Full Color Graphic",
     "colors": ["Brown"]
   },
   {
@@ -8650,7 +8571,7 @@
   },
   {
     "id": "aluminum-bottle-opener-59444",
-    "name": "Aluminum bottle opener",
+    "name": "Aluminum Bottle Opener",
     "category": "Gifts & Entertaining",
     "brand": "Essentials",
     "description": "Aluminum bottle opener made with great quality. Priced at 100 units.",
@@ -8662,7 +8583,7 @@
       [10000, 0.13]
     ],
     "image": "/images/merch/aluminum-bottle-opener-59444.webp",
-    "imageAlt": "Aluminum bottle opener",
+    "imageAlt": "Aluminum Bottle Opener",
     "colors": [
       "Purple",
       "Red",
@@ -8693,7 +8614,7 @@
   },
   {
     "id": "key-chain-with-flashlight-06800",
-    "name": "Key chain with flashlight",
+    "name": "Key Chain with Flashlight",
     "category": "Gifts & Entertaining",
     "brand": "Essentials",
     "description": "Keychain with LED light. Priced at 100 units.",
@@ -8705,7 +8626,7 @@
       [2500, 1]
     ],
     "image": "/images/merch/key-chain-with-flashlight-06800.webp",
-    "imageAlt": "Key chain with flashlight",
+    "imageAlt": "Key Chain with Flashlight",
     "colors": [
       "Blue",
       "Red",
@@ -8875,7 +8796,7 @@
     "name": "Custom Die Struck Challenge Coins - No Color",
     "category": "Gifts & Entertaining",
     "brand": "Essentials",
-    "description": "Durable and customizable, Die Struck Coins are a lasting way to recognize achievements, boost morale, and promote your brand. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "description": "Durable and customizable, Die Struck Coins are a lasting way to recognize achievements, boost morale, and promote your brand. Priced at 100 units.",
     "tiers": [
       [100, 3.42],
       [250, 2.74],
@@ -8895,7 +8816,8 @@
       "Antique Copper",
       "Antique Silver",
       "Antique Brass"
-    ]
+    ],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "custom-lapel-pin-die-struck-with-soft-enamel-color-fill-63169",
@@ -8933,10 +8855,10 @@
   },
   {
     "id": "soft-enamel-price-buster-lapel-pin-19207",
-    "name": "Soft Enamel Price buster Lapel Pin",
+    "name": "Soft Enamel Price Buster Lapel Pin",
     "category": "Gifts & Entertaining",
     "brand": "Essentials",
-    "description": "Soft enamel pin with military/butterfly clutch. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "description": "Soft enamel pin with military/butterfly clutch. Priced at 100 units.",
     "tiers": [
       [100, 2.26],
       [200, 1.84],
@@ -8945,15 +8867,16 @@
       [1000, 1.27]
     ],
     "image": "/images/merch/soft-enamel-price-buster-lapel-pin-19207.webp",
-    "imageAlt": "Soft Enamel Price buster Lapel Pin",
-    "colors": ["Gold", "Nickel", "Copper"]
+    "imageAlt": "Soft Enamel Price Buster Lapel Pin",
+    "colors": ["Gold", "Nickel", "Copper"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "express-usa-made-custom-shape-acrylic-lapel-pins-16078",
     "name": "Express USA Made Custom Shape Acrylic Lapel Pins",
     "category": "Gifts & Entertaining",
     "brand": "Essentials",
-    "description": "Express USA Made Custom Shape Acrylic Lapel Pins. Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "description": "Express USA Made Custom Shape Acrylic Lapel Pins. Made in USA. Priced at 100 units.",
     "tiers": [
       [100, 4.78],
       [300, 4.34],
@@ -8962,14 +8885,15 @@
     ],
     "image": "/images/merch/express-usa-made-custom-shape-acrylic-lapel-pins-16078.webp",
     "imageAlt": "Express USA Made Custom Shape Acrylic Lapel Pins",
-    "colors": ["Clear"]
+    "colors": ["Clear"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "millsboro-plaque-walnut-finish-silver-35218",
     "name": "Millsboro Plaque - Walnut Finish/Silver",
     "category": "Gifts & Entertaining",
     "brand": "Essentials",
-    "description": "1 color option. Size: 7\" x 9\", 8\" x 10\", 9\" x 12\". Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "description": "1 color option. Size: 7\" x 9\", 8\" x 10\", 9\" x 12\". Priced at 1 unit.",
     "tiers": [
       [1, 34.5],
       [7, 33.75],
@@ -8979,14 +8903,15 @@
     ],
     "image": "/images/merch/millsboro-plaque-walnut-finish-silver-35218.webp",
     "imageAlt": "Millsboro Plaque - Walnut Finish/Silver",
-    "colors": ["Silver"]
+    "colors": ["Silver"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "express-vibraprint-plaque-30221",
     "name": "Express Vibraprint® Plaque",
     "category": "Gifts & Entertaining",
     "brand": "Essentials",
-    "description": "Plaque with customization and key holes for hanging. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 15 units.",
+    "description": "Plaque with customization and key holes for hanging. Priced at 15 units.",
     "tiers": [
       [15, 16.12],
       [50, 14.64],
@@ -8995,14 +8920,15 @@
     ],
     "image": "/images/merch/express-vibraprint-plaque-30221.webp",
     "imageAlt": "Express Vibraprint® Plaque",
-    "colors": ["Black Marble", "Cherry", "Solid Black"]
+    "colors": ["Black Marble", "Cherry", "Solid Black"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "reston-plaque-walnut-finish-gold-35215",
     "name": "Reston Plaque - Walnut Finish/Gold",
     "category": "Gifts & Entertaining",
     "brand": "Essentials",
-    "description": "The Reston Plaque features a rich walnut-finish frame paired with a sleek gold or silver plate for a refined, professional look. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "description": "The Reston Plaque features a rich walnut-finish frame paired with a sleek gold or silver plate for a refined, professional look. Priced at 1 unit.",
     "tiers": [
       [1, 38.5],
       [7, 37.75],
@@ -9012,14 +8938,15 @@
     ],
     "image": "/images/merch/reston-plaque-walnut-finish-gold-35215.webp",
     "imageAlt": "Reston Plaque - Walnut Finish/Gold",
-    "colors": ["Gold"]
+    "colors": ["Gold"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "custom-acrylic-desk-plaques-with-metal-screw-posts-76417",
     "name": "Custom Acrylic Desk Plaques with Metal Screw Posts",
     "category": "Gifts & Entertaining",
     "brand": "Essentials",
-    "description": "Acrylic desk plaque with metal screw posts to stand Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 50 units.",
+    "description": "Acrylic desk plaque with metal screw posts to stand Made in USA. Priced at 50 units.",
     "tiers": [
       [50, 11.75],
       [100, 9.82],
@@ -9029,7 +8956,8 @@
     ],
     "image": "/images/merch/custom-acrylic-desk-plaques-with-metal-screw-posts-76417.webp",
     "imageAlt": "Custom Acrylic Desk Plaques with Metal Screw Posts",
-    "colors": ["Clear"]
+    "colors": ["Clear"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "optic-crystal-octagon-tower-award-medium-90061",
@@ -9048,10 +8976,10 @@
   },
   {
     "id": "chairmans-tower-06159",
-    "name": "Chairman's Tower",
+    "name": "Chairman's Tower Optical Crystal Award",
     "category": "Gifts & Entertaining",
     "brand": "Essentials",
-    "description": "Beveled award made of optical crystal and designed to be free-standing. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "description": "Beveled award made of optical crystal and designed to be free-standing. Priced at 1 unit.",
     "tiers": [
       [1, 123],
       [10, 120],
@@ -9059,8 +8987,9 @@
       [50, 114]
     ],
     "image": "/images/merch/chairmans-tower-06159.webp",
-    "imageAlt": "Chairman's Tower",
-    "colors": ["Clear"]
+    "imageAlt": "Chairman's Tower Optical Crystal Award",
+    "colors": ["Clear"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "express-vibraprint-lite-champ-with-plastic-chain-49377",
@@ -9289,7 +9218,7 @@
   },
   {
     "id": "kershaw-eris-07583",
-    "name": "KERSHAW® ERIS",
+    "name": "Kershaw® Eris Pocket Knife",
     "category": "Knives & Tools",
     "brand": "Essentials",
     "description": "Kershaw Pocket Knife as everyday carry or backup; highly effective Wharncliffe blade shape. Priced at 12 units.",
@@ -9299,12 +9228,12 @@
       [144, 68.5]
     ],
     "image": "/images/merch/kershaw-eris-07583.webp",
-    "imageAlt": "KERSHAW® ERIS",
+    "imageAlt": "Kershaw® Eris Pocket Knife",
     "colors": ["Gray"]
   },
   {
     "id": "victorinox-classic-10178",
-    "name": "Victorinox® Classic",
+    "name": "Victorinox® Classic Knife",
     "category": "Knives & Tools",
     "brand": "Victorinox",
     "description": "Knife featuring a 2 1/4\" handle, blade, scissors, nail file, screwdriver tip, tweezers and toothpick. Priced at 25 units.",
@@ -9314,7 +9243,7 @@
       [250, 28.6]
     ],
     "image": "/images/merch/victorinox-classic-10178.webp",
-    "imageAlt": "Victorinox® Classic",
+    "imageAlt": "Victorinox® Classic Knife",
     "colors": [
       "Blue Translucent",
       "Pink",
@@ -9471,17 +9400,6 @@
     "image": "/images/merch/sancard-20-ml-antibacterial-hand-sanitizer-spray-18217.webp",
     "imageAlt": "SanCard 20 ml. Antibacterial Hand Sanitizer Spray",
     "colors": ["Blue", "Clear", "Trans Red"]
-  },
-  {
-    "id": "5-oz-hand-sanitizer-gel-60620",
-    "name": "5 oz Hand Sanitizer Gel",
-    "category": "Health & Wellness",
-    "brand": "Essentials",
-    "description": "0.5 oz. bottle of hypoallergenic hand sanitizer gel; includes customization. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 150 units.",
-    "tiers": [[150, 0.87]],
-    "image": "/images/merch/5-oz-hand-sanitizer-gel-60620.webp",
-    "imageAlt": "5 oz Hand Sanitizer Gel",
-    "colors": ["Clear"]
   },
   {
     "id": "2-ounce-hand-sanitizer-gel-bottle-80128",
@@ -10298,23 +10216,6 @@
     "colors": ["Black", "Silver", "Red", "Purple", "Gold", "Blue", "Assorted"]
   },
   {
-    "id": "aluminum-license-plate-frame-05523",
-    "name": "Aluminum License Plate Frame",
-    "category": "Automotive",
-    "brand": "Essentials",
-    "description": "Aluminum license plate frame. Priced at 100 units.",
-    "tiers": [
-      [100, 6.65],
-      [250, 6.4],
-      [500, 6.15],
-      [1000, 5.9],
-      [2500, 5.65]
-    ],
-    "image": "/images/merch/aluminum-license-plate-frame-05523.webp",
-    "imageAlt": "Aluminum License Plate Frame",
-    "colors": ["Black"]
-  },
-  {
     "id": "full-color-aluminum-license-plate-frames-moq-10-pcs-92657",
     "name": "Full Color Aluminum License Plate Frames",
     "category": "Automotive",
@@ -10414,7 +10315,7 @@
   },
   {
     "id": "custom-car-windshield-sun-shade-and-engine-hood-cover-kit-50366",
-    "name": "Custom Car Windshield Sun Shade & Engine Hood Cover kit",
+    "name": "Custom Car Windshield Sun Shade & Engine Hood Cover Kit",
     "category": "Automotive",
     "brand": "Essentials",
     "description": "Custom Car Sun Shades (59\" x 27\") & Engine Hood Covers (47\" x 59\") protect vehicles and add promo value. Made in USA. Priced at 25 units.",
@@ -10426,11 +10327,11 @@
       [500, 21.67]
     ],
     "image": "/images/merch/custom-car-windshield-sun-shade-and-engine-hood-cover-kit-50366.webp",
-    "imageAlt": "Custom Car Windshield Sun Shade & Engine Hood Cover kit"
+    "imageAlt": "Custom Car Windshield Sun Shade & Engine Hood Cover Kit"
   },
   {
     "id": "long-lasting-folding-car-sun-shade-98517",
-    "name": "Long-lasting Folding Car Sun Shade",
+    "name": "Long-Lasting Folding Car Sun Shade",
     "category": "Automotive",
     "brand": "Essentials",
     "description": "Keep your vehicle cool and protected with our durable car sunshade, crafted from rip-resistant nylon mesh with flexible memory. Priced at 100 units.",
@@ -10442,7 +10343,7 @@
       [5000, 3.2]
     ],
     "image": "/images/merch/long-lasting-folding-car-sun-shade-98517.webp",
-    "imageAlt": "Long-lasting Folding Car Sun Shade",
+    "imageAlt": "Long-Lasting Folding Car Sun Shade",
     "colors": ["Silver"]
   },
   {
@@ -10498,10 +10399,10 @@
   },
   {
     "id": "magnets-car-truck-custom-shaped-20-mil-thickness-16928",
-    "name": "Magnets Car/Truck custom Shaped - 20 mil thickness",
+    "name": "Magnets Car/Truck Custom Shaped - 20 Mil Thickness",
     "category": "Automotive",
     "brand": "Essentials",
-    "description": "Magnets Car/Truck custom Shaped - 20 mil thickness, USA made, low minimum and quick ship. Available in different size and shapes. Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 50 units.",
+    "description": "Magnets Car/Truck custom Shaped - 20 mil thickness, USA made, low minimum and quick ship. Available in different size and shapes. Made in USA. Priced at 50 units.",
     "tiers": [
       [50, 1.53],
       [100, 0.89],
@@ -10510,8 +10411,9 @@
       [1000, 0.54]
     ],
     "image": "/images/merch/magnets-car-truck-custom-shaped-20-mil-thickness-16928.webp",
-    "imageAlt": "Magnets Car/Truck custom Shaped - 20 mil thickness",
-    "colors": ["Assorted"]
+    "imageAlt": "Magnets Car/Truck Custom Shaped - 20 Mil Thickness",
+    "colors": ["Assorted"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "outdoor-jumbo-car-magnet-85907",
@@ -10548,7 +10450,7 @@
   },
   {
     "id": "spare-tire-cover-75580",
-    "name": "Spare tire cover",
+    "name": "Spare Tire Cover",
     "category": "Automotive",
     "brand": "Essentials",
     "description": "Perfect for auto dealerships, repair shops, car rental agencies, and of course, tire stores. Priced at 200 units.",
@@ -10560,7 +10462,7 @@
       [10000, 9.217]
     ],
     "image": "/images/merch/spare-tire-cover-75580.webp",
-    "imageAlt": "Spare tire cover",
+    "imageAlt": "Spare Tire Cover",
     "colors": ["Black"]
   },
   {
@@ -10600,7 +10502,7 @@
     "name": "Custom Acrylic UV Printed Ornaments",
     "category": "Seasonal & Holiday",
     "brand": "Essentials",
-    "description": "Custom Acrylic UV Printed Ornaments. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "description": "Custom Acrylic UV Printed Ornaments. Priced at 100 units.",
     "tiers": [
       [100, 4.88],
       [250, 3.82],
@@ -10610,14 +10512,15 @@
     ],
     "image": "/images/merch/custom-acrylic-uv-printed-ornaments-32727.webp",
     "imageAlt": "Custom Acrylic UV Printed Ornaments",
-    "colors": ["Transparent"]
+    "colors": ["Transparent"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "snowflake-holiday-ornament-48216",
     "name": "Snowflake Holiday Ornament",
     "category": "Seasonal & Holiday",
     "brand": "Essentials",
-    "description": "Snowflake Holiday Ornament. Priced at 100 units.",
+    "description": "Snowflake Holiday Ornament. Size: 3\". Price per unit drops at 300 units. Priced at 100 units.",
     "tiers": [
       [100, 5.32],
       [300, 4.82],
@@ -10634,7 +10537,7 @@
     "name": "Die Struck Ornaments",
     "category": "Seasonal & Holiday",
     "brand": "Essentials",
-    "description": "Christmas ornament. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "description": "Christmas ornament. 7 color options. Size: 2\" x 2\", 2.5\" x 2.5\", 3\" x 3\". Price per unit drops at 250 units. Priced at 100 units.",
     "tiers": [
       [100, 7.25],
       [250, 5.92],
@@ -10651,7 +10554,8 @@
       "Antique Brass",
       "Antiqued Silver",
       "Antique Copper"
-    ]
+    ],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "stained-glass-bulb-christmas-holiday-ornament-10485",
@@ -10805,7 +10709,7 @@
     "name": "Halloween Pumpkin Scooper",
     "category": "Seasonal & Holiday",
     "brand": "Essentials",
-    "description": "Halloween Pumpkin Scooper. Priced at 300 units.",
+    "description": "Halloween Pumpkin Scooper. Size: 8.9\" x 2\". Price per unit drops at 500 units. Priced at 300 units.",
     "tiers": [
       [300, 1.89],
       [500, 1.79],
@@ -10934,7 +10838,7 @@
   },
   {
     "id": "crayons-47380",
-    "name": "Crayons",
+    "name": "4 Pack Crayons in Imprintable Box",
     "category": "Kids & Toys",
     "brand": "Essentials",
     "description": "4 pack of red, yellow, green and blue crayons in imprintable box. Priced at 250 units.",
@@ -10945,7 +10849,7 @@
       [2500, 0.4]
     ],
     "image": "/images/merch/crayons-47380.webp",
-    "imageAlt": "Crayons",
+    "imageAlt": "4 Pack Crayons in Imprintable Box",
     "colors": ["Multi color"]
   },
   {
@@ -10970,7 +10874,7 @@
     "name": "Latex Confetti Balloon",
     "category": "Kids & Toys",
     "brand": "Essentials",
-    "description": "Latex confetti balloon. Priced at 100 units.",
+    "description": "Latex confetti balloon. Price per unit drops at 200 units. Priced at 100 units.",
     "tiers": [
       [100, 3.7],
       [200, 3.5],
@@ -10987,7 +10891,7 @@
     "name": "Custom Latex Balloon",
     "category": "Kids & Toys",
     "brand": "Essentials",
-    "description": "Latex custom balloon. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "description": "Latex custom balloon. Size: 9\", 10\", 11\", 12\", 17\", 32\", 47\", 59\". Price per unit drops at 200 units. Priced at 100 units.",
     "tiers": [
       [100, 0.548],
       [200, 0.532],
@@ -10996,7 +10900,8 @@
     ],
     "image": "/images/merch/custom-latex-balloon-01829.webp",
     "imageAlt": "Custom Latex Balloon",
-    "colors": ["Custom Print"]
+    "colors": ["Custom Print"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "11-custom-latex-balloons-59186",
@@ -11018,7 +10923,7 @@
     "name": "Custom Mylar Balloon",
     "category": "Kids & Toys",
     "brand": "Essentials",
-    "description": "Mylar custom balloon. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "description": "Mylar custom balloon. Price per unit drops at 200 units. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
     "tiers": [
       [100, 0.9],
       [200, 0.8],
@@ -11103,14 +11008,15 @@
     "name": "New Custom Temporary Tattoos - All Sizes",
     "category": "Kids & Toys",
     "brand": "Essentials",
-    "description": "Popular, custom full color, printed and precut water-based tattoos are safe & clean. Quality tattoo sheets. All sizes available. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "description": "Popular, custom full color, printed and precut water-based tattoos are safe & clean. Quality tattoo sheets. All sizes available. Priced at 100 units.",
     "tiers": [
       [100, 0.78],
       [300, 0.5],
       [500, 0.42]
     ],
     "image": "/images/merch/new-custom-temporary-tattoos-all-sizes-12995.webp",
-    "imageAlt": "New Custom Temporary Tattoos - All Sizes"
+    "imageAlt": "New Custom Temporary Tattoos - All Sizes",
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "all-white-incredible-expanding-flying-disc-toy-82304",
@@ -11206,7 +11112,7 @@
     "name": "Vinyl Sticker Sheet",
     "category": "Kids & Toys",
     "brand": "Essentials",
-    "description": "Sheet of stickers made from your choice of matte or gloss 6mil vinyl. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 50 units.",
+    "description": "Sheet of stickers made from your choice of matte or gloss 6mil vinyl. Priced at 50 units.",
     "tiers": [
       [50, 2.65],
       [100, 2.33],
@@ -11216,14 +11122,15 @@
     ],
     "image": "/images/merch/vinyl-sticker-sheet-78833.webp",
     "imageAlt": "Vinyl Sticker Sheet",
-    "colors": ["White"]
+    "colors": ["White"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "full-color-removeable-kiss-cut-sticker-sheet-17641",
     "name": "Full Color Removeable Kiss-Cut Sticker Sheet",
     "category": "Kids & Toys",
     "brand": "Essentials",
-    "description": "6 mil vinyl custom shaped stickers on sheets of 4\" x 6\", 5\" x 7\" or 6\" x 8\" sizes. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 150 units.",
+    "description": "6 mil vinyl custom shaped stickers on sheets of 4\" x 6\", 5\" x 7\" or 6\" x 8\" sizes. Priced at 150 units.",
     "tiers": [
       [150, 1.85],
       [250, 1.7],
@@ -11232,7 +11139,8 @@
     ],
     "image": "/images/merch/full-color-removeable-kiss-cut-sticker-sheet-17641.webp",
     "imageAlt": "Full Color Removeable Kiss-Cut Sticker Sheet",
-    "colors": ["Multi Color"]
+    "colors": ["Multi Color"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "push-pop-square-stress-reliever-keychain-20357",
@@ -11408,7 +11316,7 @@
     "name": "Lexicon Plaque - Silver",
     "category": "Awards & Recognition",
     "brand": "Essentials",
-    "description": "The tightly beveled edges of the starfire crystal plate echo the Lexicon's black beveled glass edges. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "description": "The tightly beveled edges of the starfire crystal plate echo the Lexicon's black beveled glass edges. Priced at 1 unit.",
     "tiers": [
       [1, 85.5],
       [7, 84],
@@ -11418,7 +11326,8 @@
     ],
     "image": "/images/merch/lexicon-plaque-silver-94773.webp",
     "imageAlt": "Lexicon Plaque - Silver",
-    "colors": ["Silver"]
+    "colors": ["Silver"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "full-color-speed-challenge-coin-with-rope-border-73383",
@@ -11436,28 +11345,11 @@
     "colors": ["Matte Nickel", "Antique Brass"]
   },
   {
-    "id": "die-struck-soft-enamel-medals-1-5-3-92365",
-    "name": "Die Struck Soft Enamel Medals, 1.5\"-3\"",
-    "category": "Awards & Recognition",
-    "brand": "Essentials",
-    "description": "Soft enamel round medals in three sizes and finishes. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 50 units.",
-    "tiers": [
-      [50, 4.99],
-      [100, 3.91],
-      [250, 3.03],
-      [500, 2.67],
-      [1000, 2.34]
-    ],
-    "image": "/images/merch/die-struck-soft-enamel-medals-1-5-3-92365.webp",
-    "imageAlt": "Die Struck Soft Enamel Medals, 1.5\"-3\"",
-    "colors": ["Nickel", "Brass", "Black Nickel", "Copper", "Gold"]
-  },
-  {
     "id": "shiny-and-sandblast-medals-sizes-1-5-3-11051",
     "name": "Shiny & Sandblast Medals - Sizes 1.5\"-3\"",
     "category": "Awards & Recognition",
     "brand": "Essentials",
-    "description": "Custom shiny sandblast medals - your unique award. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 50 units.",
+    "description": "Custom shiny sandblast medals - your unique award. Priced at 50 units.",
     "tiers": [
       [50, 4.75],
       [100, 3.71],
@@ -11467,14 +11359,15 @@
     ],
     "image": "/images/merch/shiny-and-sandblast-medals-sizes-1-5-3-11051.webp",
     "imageAlt": "Shiny & Sandblast Medals - Sizes 1.5\"-3\"",
-    "colors": ["Brass", "Nickel", "Black Nickel", "Copper"]
+    "colors": ["Brass", "Nickel", "Black Nickel", "Copper"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "uv-printed-baseball-medals-74342",
     "name": "UV Printed Baseball Medals",
     "category": "Awards & Recognition",
     "brand": "Essentials",
-    "description": "UV Printed Baseball Medals for Events. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 50 units.",
+    "description": "UV Printed Baseball Medals for Events. Priced at 50 units.",
     "tiers": [
       [50, 5.48],
       [100, 4.91],
@@ -11491,7 +11384,8 @@
       "Antique Gold",
       "Antique Silver",
       "Antique Copper"
-    ]
+    ],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "3-speed-medal-3d-wreath-and-star-border-67992",
@@ -11513,7 +11407,7 @@
     "name": "Custom Molded PVC Rubber Lapel Pin",
     "category": "Awards & Recognition",
     "brand": "Essentials",
-    "description": "Custom molded PVC rubber lapel pin with two-dimensional design, nail and military clutch. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 500 units.",
+    "description": "Custom molded PVC rubber lapel pin with two-dimensional design, nail and military clutch. Priced at 500 units.",
     "tiers": [
       [500, 1.72],
       [1000, 1.54],
@@ -11523,7 +11417,8 @@
     ],
     "image": "/images/merch/custom-molded-pvc-rubber-lapel-pin-35230.webp",
     "imageAlt": "Custom Molded PVC Rubber Lapel Pin",
-    "colors": ["Multi color"]
+    "colors": ["Multi color"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "2-custom-full-color-sublimated-award-ribbon-2-x-8-39138",
@@ -11544,7 +11439,7 @@
   },
   {
     "id": "customizable-motivational-prize-honorable-ribbon-award-badge-32968",
-    "name": "Customizable motivational prize honorable ribbon award badge",
+    "name": "Customizable Motivational Prize Honorable Ribbon Award Badge",
     "category": "Awards & Recognition",
     "brand": "Essentials",
     "description": "This personalized award ribbon honors achievements warmlyeye-catching, making every win feel special.Rush service is available. Priced at 300 units.",
@@ -11556,7 +11451,7 @@
       [5000, 0.8]
     ],
     "image": "/images/merch/customizable-motivational-prize-honorable-ribbon-award-badge-32968.webp",
-    "imageAlt": "Customizable motivational prize honorable ribbon award badge",
+    "imageAlt": "Customizable Motivational Prize Honorable Ribbon Award Badge",
     "colors": ["Red", "Blue", "Pink", "White", "Yellow"]
   },
   {
@@ -11595,7 +11490,7 @@
   },
   {
     "id": "5-1-2-rosette-12-long-with-3-streamers-78142",
-    "name": "5 1/2\" Rosette 12\" long with 3 Streamers",
+    "name": "5 1/2\" Rosette 12\" Long with 3 Streamers",
     "category": "Awards & Recognition",
     "brand": "Essentials",
     "description": "Rosette with 3 streamers, 2\" middle dovetail and 1 5/8\" sides angled, 12\" length. Priced at 10 units.",
@@ -11607,7 +11502,7 @@
       [250, 8.1]
     ],
     "image": "/images/merch/5-1-2-rosette-12-long-with-3-streamers-78142.webp",
-    "imageAlt": "5 1/2\" Rosette 12\" long with 3 Streamers",
+    "imageAlt": "5 1/2\" Rosette 12\" Long with 3 Streamers",
     "colors": [
       "Black",
       "Hunter",
@@ -11704,7 +11599,7 @@
   },
   {
     "id": "bamboo-cutting-board-for-kitchen-christmas-engraving-gift-93254",
-    "name": "Bamboo cutting board for kitchen christmas engraving gift",
+    "name": "Bamboo Cutting Board for Kitchen Christmas Engraving Gift",
     "category": "Awards & Recognition",
     "brand": "Essentials",
     "description": "Our bamboo cutting board offers reliable durability and style for daily meal preparation. Rush service is available. Priced at 50 units.",
@@ -11716,7 +11611,7 @@
       [1000, 5.117]
     ],
     "image": "/images/merch/bamboo-cutting-board-for-kitchen-christmas-engraving-gift-93254.webp",
-    "imageAlt": "Bamboo cutting board for kitchen christmas engraving gift",
+    "imageAlt": "Bamboo Cutting Board for Kitchen Christmas Engraving Gift",
     "colors": ["Brown"]
   },
   {
@@ -11755,7 +11650,7 @@
   },
   {
     "id": "door-hanger-w-pocket-21080",
-    "name": "Door Hanger w/Pocket",
+    "name": "Door Hanger w/Pocket, 4.5\" x 12\"",
     "category": "Print & Collateral",
     "brand": "Essentials",
     "description": "4 1/2\" x 12\" Door Hanger with pocket on the front with full 4-color process imprint included Made in USA. Priced at 250 units.",
@@ -11766,12 +11661,12 @@
       [2500, 1.46]
     ],
     "image": "/images/merch/door-hanger-w-pocket-21080.webp",
-    "imageAlt": "Door Hanger w/Pocket",
+    "imageAlt": "Door Hanger w/Pocket, 4.5\" x 12\"",
     "colors": ["White"]
   },
   {
     "id": "door-hanger-21084",
-    "name": "Door Hanger",
+    "name": "Door Hanger, 3.5\" x 8.5\"",
     "category": "Print & Collateral",
     "brand": "Essentials",
     "description": "3 1/2\" x 8 1/2\" Door Hanger made in USA with full 4-color process imprint included Made in USA. Priced at 250 units.",
@@ -11782,7 +11677,7 @@
       [2500, 0.5]
     ],
     "image": "/images/merch/door-hanger-21084.webp",
-    "imageAlt": "Door Hanger",
+    "imageAlt": "Door Hanger, 3.5\" x 8.5\"",
     "colors": ["White"]
   },
   {
@@ -11967,7 +11862,7 @@
   },
   {
     "id": "add-a-pad-50-sheet-things-to-do-23153",
-    "name": "Add-A-Pad 50 sheet Things to Do",
+    "name": "Add-A-Pad 50 Sheet Things to Do",
     "category": "Print & Collateral",
     "brand": "Essentials",
     "description": "50 sheet Things To Do notepad with magnetic business card on top with four color process imprinting. Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 250 units.",
@@ -11979,7 +11874,7 @@
       [5000, 0.88]
     ],
     "image": "/images/merch/add-a-pad-50-sheet-things-to-do-23153.webp",
-    "imageAlt": "Add-A-Pad 50 sheet Things to Do",
+    "imageAlt": "Add-A-Pad 50 Sheet Things to Do",
     "colors": ["White"]
   },
   {
@@ -12166,7 +12061,7 @@
   },
   {
     "id": "jotter-with-pen-67099",
-    "name": "Jotter with pen",
+    "name": "Jotter with Pen",
     "category": "Print & Collateral",
     "brand": "Essentials",
     "description": "3\" x 5\" spiral bound eco jotter with pen. Priced at 250 units.",
@@ -12178,7 +12073,7 @@
       [5000, 1.57]
     ],
     "image": "/images/merch/jotter-with-pen-67099.webp",
-    "imageAlt": "Jotter with pen",
+    "imageAlt": "Jotter with Pen",
     "colors": [
       "Red-Kraft Brown",
       "Blue-Kraft Brown",
@@ -12241,7 +12136,7 @@
     "name": "Custom 1/4\" Acrylic Magnets USA Made",
     "category": "Print & Collateral",
     "brand": "Essentials",
-    "description": "1/4\" thick acrylic plastic magnets with full color imprinting. Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "description": "1/4\" thick acrylic plastic magnets with full color imprinting. Made in USA. Priced at 100 units.",
     "tiers": [
       [100, 2.683],
       [250, 2.467],
@@ -12250,7 +12145,8 @@
     ],
     "image": "/images/merch/custom-1-4-acrylic-magnets-usa-made-55042.webp",
     "imageAlt": "Custom 1/4\" Acrylic Magnets USA Made",
-    "colors": ["Clear", "Multi Color"]
+    "colors": ["Clear", "Multi Color"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "magnet-5-inch-circle-27972",
@@ -12458,7 +12354,7 @@
     "name": "Custom Vinyl Sticker Rolls",
     "category": "Print & Collateral",
     "brand": "Essentials",
-    "description": "Roll of full color custom vinyl stickers. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 200 units.",
+    "description": "Roll of full color custom vinyl stickers. Priced at 200 units.",
     "tiers": [
       [200, 0.636],
       [300, 0.42],
@@ -12467,7 +12363,8 @@
       [2000, 0.215]
     ],
     "image": "/images/merch/custom-vinyl-sticker-rolls-76608.webp",
-    "imageAlt": "Custom Vinyl Sticker Rolls"
+    "imageAlt": "Custom Vinyl Sticker Rolls",
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "customized-250pcs-american-flag-patriotic-sticker-roll-77955",
@@ -12652,20 +12549,22 @@
     "name": "Printed Sunblade Flag w/ Heavy Duty Pole",
     "category": "Event & Signage",
     "brand": "Essentials",
-    "description": "8', 13' or 17' feather-shaped Sunblade composite nylon and polyester flag with heavy duty pole. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "description": "8', 13' or 17' feather-shaped Sunblade composite nylon and polyester flag with heavy duty pole. Priced at 1 unit.",
     "tiers": [[1, 148]],
     "image": "/images/merch/printed-sunblade-flag-w-heavy-duty-pole-43739.webp",
-    "imageAlt": "Printed Sunblade Flag w/ Heavy Duty Pole"
+    "imageAlt": "Printed Sunblade Flag w/ Heavy Duty Pole",
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "double-sided-printed-teardrop-flag-w-heavy-duty-pole-43724",
     "name": "Double Sided Printed Teardrop Flag W/ Heavy Duty Pole",
     "category": "Event & Signage",
     "brand": "Essentials",
-    "description": "7', 11' or 15' composite nylon and polyester double-sided teardrop flag with heavy duty pole. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "description": "7', 11' or 15' composite nylon and polyester double-sided teardrop flag with heavy duty pole. Priced at 1 unit.",
     "tiers": [[1, 173]],
     "image": "/images/merch/double-sided-printed-teardrop-flag-w-heavy-duty-pole-43724.webp",
-    "imageAlt": "Double Sided Printed Teardrop Flag W/ Heavy Duty Pole"
+    "imageAlt": "Double Sided Printed Teardrop Flag W/ Heavy Duty Pole",
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "premium-white-table-covers-and-throws-4-sided-8ft-x-2-5ft-75526",
@@ -12792,29 +12691,31 @@
     "name": "Custom Inflatable Slim Can (6' 8' 10' 15' 20')",
     "category": "Event & Signage",
     "brand": "Essentials",
-    "description": "6' 8' 10' 15' or 20' Custom Inflatable Can - Slim, Constant or Sealed Air. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "description": "6' 8' 10' 15' or 20' Custom Inflatable Can - Slim, Constant or Sealed Air. Priced at 1 unit.",
     "tiers": [[1, 983]],
     "image": "/images/merch/custom-inflatable-slim-can-6-8-10-15-20-57603.webp",
     "imageAlt": "Custom Inflatable Slim Can (6' 8' 10' 15' 20')",
-    "colors": ["Assorted"]
+    "colors": ["Assorted"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "custom-inflatable-bottle-6-8-10-15-20-58445",
     "name": "Custom Inflatable Bottle (6' 8' 10' 15' 20')",
     "category": "Event & Signage",
     "brand": "Essentials",
-    "description": "6' 8' 10' 15' or 20' Inflatable Bottle - Constant or Sealed Air. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "description": "6' 8' 10' 15' or 20' Inflatable Bottle - Constant or Sealed Air. Priced at 1 unit.",
     "tiers": [[1, 1033]],
     "image": "/images/merch/custom-inflatable-bottle-6-8-10-15-20-58445.webp",
     "imageAlt": "Custom Inflatable Bottle (6' 8' 10' 15' 20')",
-    "colors": ["Assorted"]
+    "colors": ["Assorted"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "custom-inflatable-arch-angled-08239",
     "name": "Custom Inflatable Arch - Angled",
     "category": "Event & Signage",
     "brand": "Essentials",
-    "description": "Custom Inflatable Arch Fully Printed - Angled Shape. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "description": "Custom Inflatable Arch Fully Printed - Angled Shape. Priced at 1 unit.",
     "tiers": [[1, 1012]],
     "image": "/images/merch/custom-inflatable-arch-angled-08239.webp",
     "imageAlt": "Custom Inflatable Arch - Angled",
@@ -12835,7 +12736,8 @@
       "Silver",
       "Teal",
       "Maroon"
-    ]
+    ],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "hand-clapper-noise-maker-48157",
@@ -12958,7 +12860,7 @@
   },
   {
     "id": "dye-sublimated-v-neck-tee-73702",
-    "name": "Dye-sublimated V-Neck Tee",
+    "name": "Dye-Sublimated V-Neck Tee",
     "category": "Apparel",
     "brand": "Essentials",
     "description": "Silk milk fabric V-neck t-shirt. Priced at 20 units.",
@@ -12970,7 +12872,7 @@
       [1000, 4.9]
     ],
     "image": "/images/merch/dye-sublimated-v-neck-tee-73702.webp",
-    "imageAlt": "Dye-sublimated V-Neck Tee",
+    "imageAlt": "Dye-Sublimated V-Neck Tee",
     "colors": ["Assorted"]
   },
   {
@@ -13073,7 +12975,7 @@
     "name": "Port & Company® Core Cotton T-Shirt",
     "category": "Apparel",
     "brand": "Port & Company",
-    "description": "Cotton T-Shirt. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 96 units.",
+    "description": "Cotton T-Shirt. 30 color options. Size: S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL. Price per unit drops at 144 units. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 96 units.",
     "tiers": [
       [96, 10.02],
       [144, 7.82],
@@ -13340,7 +13242,7 @@
     "name": "Youth or Kid Crew Socks (Pair)",
     "category": "Apparel",
     "brand": "Essentials",
-    "description": "Youth crew socks. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 100 units.",
+    "description": "Youth crew socks. Size: 2.95\" x 11.8\", 3.15\" x 14\". Price per unit drops at 300 units. Priced at 100 units.",
     "tiers": [
       [100, 9.49],
       [300, 6.39],
@@ -13349,7 +13251,8 @@
       [2500, 4.23]
     ],
     "image": "/images/merch/youth-or-kid-crew-socks-pair-17495.webp",
-    "imageAlt": "Youth or Kid Crew Socks (Pair)"
+    "imageAlt": "Youth or Kid Crew Socks (Pair)",
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "made-in-the-usa-full-cushion-crew-socks-with-knit-in-logo-22373",
@@ -13677,7 +13580,7 @@
   },
   {
     "id": "kan-tastic-33219",
-    "name": "Kan-Tastic",
+    "name": "Kan-Tastic Foam Beverage Holder",
     "category": "Drinkware",
     "brand": "Essentials",
     "description": "Beverage holder made of laminated open cell foam, folds flat. Priced at 250 units.",
@@ -13688,7 +13591,7 @@
       [2500, 0.7]
     ],
     "image": "/images/merch/kan-tastic-33219.webp",
-    "imageAlt": "Kan-Tastic",
+    "imageAlt": "Kan-Tastic Foam Beverage Holder",
     "colors": [
       "Black",
       "Burgundy",
@@ -13753,7 +13656,7 @@
   },
   {
     "id": "12-oz-slim-fit-kan-tastic-82875",
-    "name": "12 oz. Slim Fit Kan-Tastic",
+    "name": "12 oz. Slim Fit Kan-Tastic Can and Bottle Grip",
     "category": "Drinkware",
     "brand": "Essentials",
     "description": "12 oz. slim fit Kan-tastic for keeping your can or bottle at the right temperature and providing a grip. Priced at 250 units.",
@@ -13764,7 +13667,7 @@
       [2500, 0.95]
     ],
     "image": "/images/merch/12-oz-slim-fit-kan-tastic-82875.webp",
-    "imageAlt": "12 oz. Slim Fit Kan-Tastic",
+    "imageAlt": "12 oz. Slim Fit Kan-Tastic Can and Bottle Grip",
     "colors": ["Black", "Gray", "Green", "Navy Blue", "Orange", "Red", "Royal Blue", "Light Blue"]
   },
   {
@@ -13947,7 +13850,7 @@
   },
   {
     "id": "leather-briefcases-62864",
-    "name": "Leather briefcases",
+    "name": "Leather Briefcases",
     "category": "Bags",
     "brand": "Essentials",
     "description": "15.3\" x 2.4\" x 11\" cowhide leather messenger bag style briefcase with alloy zipper, handles and detachable shoulder strap. Priced at 100 units.",
@@ -13959,7 +13862,7 @@
       [2400, 25.417]
     ],
     "image": "/images/merch/leather-briefcases-62864.webp",
-    "imageAlt": "Leather briefcases",
+    "imageAlt": "Leather Briefcases",
     "colors": ["Black", "Brown", "Khaki"]
   },
   {
@@ -13981,7 +13884,7 @@
   },
   {
     "id": "versatile-canvas-business-computer-shoulder-messenger-bag-02734",
-    "name": "Versatile canvas business computer shoulder messenger bag",
+    "name": "Versatile Canvas Business Computer Shoulder Messenger Bag",
     "category": "Bags",
     "brand": "Essentials",
     "description": "This shoulder crossbody bag is a must-have for those who pursue fashion. It is also a good gift choice.Rush service is available. Priced at 50 units.",
@@ -13993,7 +13896,7 @@
       [1000, 23.383]
     ],
     "image": "/images/merch/versatile-canvas-business-computer-shoulder-messenger-bag-02734.webp",
-    "imageAlt": "Versatile canvas business computer shoulder messenger bag",
+    "imageAlt": "Versatile Canvas Business Computer Shoulder Messenger Bag",
     "colors": ["Black", "Gray", "Brown", "Green", "Blue", "Khaki"]
   },
   {
@@ -14015,7 +13918,7 @@
   },
   {
     "id": "large-capacity-simple-waterproof-laptop-commuter-briefcase-76407",
-    "name": "Large capacity simple waterproof laptop commuter briefcase",
+    "name": "Large Capacity Simple Waterproof Laptop Commuter Briefcase",
     "category": "Bags",
     "brand": "Essentials",
     "description": "Our minimalist waterproof laptop bag is a stylish tote that is a practical and fashionable accessory.Rush service is available. Priced at 50 units.",
@@ -14027,7 +13930,7 @@
       [1000, 23.65]
     ],
     "image": "/images/merch/large-capacity-simple-waterproof-laptop-commuter-briefcase-76407.webp",
-    "imageAlt": "Large capacity simple waterproof laptop commuter briefcase",
+    "imageAlt": "Large Capacity Simple Waterproof Laptop Commuter Briefcase",
     "colors": ["Brown", "Light Green", "Black", "Light Gray"]
   },
   {
@@ -14115,7 +14018,7 @@
     "name": "Utility Canvas Tool Pouch Zipper Bags With Carabiner",
     "category": "Bags",
     "brand": "Essentials",
-    "description": "Utility Tools Pouch. Priced at 100 units.",
+    "description": "Utility Tools Pouch. 7 color options. Size: 12.00\" x 7.00\" x 2.25\". Price per unit drops at 200 units. Priced at 100 units.",
     "tiers": [
       [100, 4.65],
       [200, 4.517],
@@ -14180,7 +14083,7 @@
   },
   {
     "id": "travel-portable-magnetic-phone-camera-grip-with-shutter-93248",
-    "name": "Travel portable magnetic phone camera grip with shutter",
+    "name": "Travel Portable Magnetic Phone Camera Grip with Shutter",
     "category": "Tech Accessories",
     "brand": "Essentials",
     "description": "This compact phone stabilizer offers a secure grip, ideal for capturing stable shots while on the go. Rush service is available. Priced at 200 units.",
@@ -14192,7 +14095,7 @@
       [5000, 12.633]
     ],
     "image": "/images/merch/travel-portable-magnetic-phone-camera-grip-with-shutter-93248.webp",
-    "imageAlt": "Travel portable magnetic phone camera grip with shutter",
+    "imageAlt": "Travel Portable Magnetic Phone Camera Grip with Shutter",
     "colors": ["Black", "Blue", "Light Purple", "Pink"]
   },
   {
@@ -14281,7 +14184,7 @@
   },
   {
     "id": "expander-adapter-180-degree-rotatable-4-port-usb-3-0-hub-67067",
-    "name": "Expander adapter 180 degree rotatable 4-port USB 3.0 Hub",
+    "name": "Expander Adapter 180 Degree Rotatable 4-Port USB 3.0 Hub",
     "category": "Tech Accessories",
     "brand": "Essentials",
     "description": "USB Port Expander provides 4 ports for computers and cars, enabling fast data transfer and charging. Rush service is available. Priced at 200 units.",
@@ -14293,7 +14196,7 @@
       [5000, 3.467]
     ],
     "image": "/images/merch/expander-adapter-180-degree-rotatable-4-port-usb-3-0-hub-67067.webp",
-    "imageAlt": "Expander adapter 180 degree rotatable 4-port USB 3.0 Hub",
+    "imageAlt": "Expander Adapter 180 Degree Rotatable 4-Port USB 3.0 Hub",
     "colors": ["Black", "Blue", "Orange"]
   },
   {
@@ -14449,10 +14352,10 @@
   },
   {
     "id": "aluminum-desk-set-engraved-plate-w-holder-60401",
-    "name": "Aluminum Desk Set Engraved plate w/holder",
+    "name": "Aluminum Desk Set Engraved Plate w/Holder",
     "category": "Office & Writing",
     "brand": "Essentials",
-    "description": "Aluminum holder with an engraved name plate. Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 3 units.",
+    "description": "Aluminum holder with an engraved name plate. Made in USA. Priced at 3 units.",
     "tiers": [
       [3, 39.5],
       [10, 35.85],
@@ -14461,8 +14364,9 @@
       [100, 32.5]
     ],
     "image": "/images/merch/aluminum-desk-set-engraved-plate-w-holder-60401.webp",
-    "imageAlt": "Aluminum Desk Set Engraved plate w/holder",
-    "colors": ["Silver", "Rose Gold", "Black"]
+    "imageAlt": "Aluminum Desk Set Engraved Plate w/Holder",
+    "colors": ["Silver", "Rose Gold", "Black"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "stratton-1-ring-binder-20502",
@@ -14482,7 +14386,7 @@
   },
   {
     "id": "office-home-planner-budget-refillable-a6-notebook-binder-35610",
-    "name": "Office home planner budget refillable a6 notebook binder",
+    "name": "Office Home Planner Budget Refillable a6 Notebook Binder",
     "category": "Office & Writing",
     "brand": "Essentials",
     "description": "This binder is versatile, ideal for students, teachers, office Staff and professionals alike. Rush service is available. Priced at 100 units.",
@@ -14494,7 +14398,7 @@
       [2000, 7.5]
     ],
     "image": "/images/merch/office-home-planner-budget-refillable-a6-notebook-binder-35610.webp",
-    "imageAlt": "Office home planner budget refillable a6 notebook binder",
+    "imageAlt": "Office Home Planner Budget Refillable a6 Notebook Binder",
     "colors": ["Purple", "Green", "Black", "Yellow", "Blue", "Pink"]
   },
   {
@@ -14656,7 +14560,7 @@
   },
   {
     "id": "cedar-creek-matrix-multi-tool-38988",
-    "name": "CEDAR CREEK® MATRIX MULTI TOOL",
+    "name": "Cedar Creek® Matrix Multi Tool",
     "category": "Knives & Tools",
     "brand": "Cedar Creek",
     "description": "4\" closed full-sized multi tool with all stainless-steel body and implements. Priced at 24 units.",
@@ -14666,7 +14570,7 @@
       [288, 34]
     ],
     "image": "/images/merch/cedar-creek-matrix-multi-tool-38988.webp",
-    "imageAlt": "CEDAR CREEK® MATRIX MULTI TOOL",
+    "imageAlt": "Cedar Creek® Matrix Multi Tool",
     "colors": ["Stainless"]
   },
   {
@@ -14736,7 +14640,7 @@
   },
   {
     "id": "cedar-creek-25-foot-tape-measure-73894",
-    "name": "CEDAR CREEK® 25 FOOT TAPE MEASURE",
+    "name": "Cedar Creek® 25 Foot Tape Measure",
     "category": "Knives & Tools",
     "brand": "Cedar Creek",
     "description": "Tape measure with self-locking mechanism, impact-resistant rubber case, with 25' of measuring tape. Priced at 24 units.",
@@ -14746,7 +14650,7 @@
       [288, 18.5]
     ],
     "image": "/images/merch/cedar-creek-25-foot-tape-measure-73894.webp",
-    "imageAlt": "CEDAR CREEK® 25 FOOT TAPE MEASURE",
+    "imageAlt": "Cedar Creek® 25 Foot Tape Measure",
     "colors": ["Gray-Silver"]
   },
   {
@@ -14784,7 +14688,7 @@
   },
   {
     "id": "mini-tape-measure-keychain-21308",
-    "name": "Mini tape measure keychain",
+    "name": "Mini Tape Measure Keychain",
     "category": "Knives & Tools",
     "brand": "Essentials",
     "description": "5 color options. Size: 1.57\" x 1.57\". Priced at 500 units.",
@@ -14796,7 +14700,7 @@
       [4000, 0.483]
     ],
     "image": "/images/merch/mini-tape-measure-keychain-21308.webp",
-    "imageAlt": "Mini tape measure keychain",
+    "imageAlt": "Mini Tape Measure Keychain",
     "colors": ["Brass Metal", "Gold Metal", "Iridescent Orange", "Medium Black", "Medium Blue"]
   },
   {
@@ -14962,7 +14866,7 @@
   },
   {
     "id": "multi-purpose-waterproof-lightweight-bright-led-headlamp-01238",
-    "name": "Multi-purpose Waterproof Lightweight Bright LED Headlamp",
+    "name": "Multi-Purpose Waterproof Lightweight Bright LED Headlamp",
     "category": "Knives & Tools",
     "brand": "Essentials",
     "description": "This multi-functional LED headlamp can free your hands and bring you sufficient lighting and convenience.Rush service is provided. Priced at 300 units.",
@@ -14974,12 +14878,856 @@
       [5000, 2.433]
     ],
     "image": "/images/merch/multi-purpose-waterproof-lightweight-bright-led-headlamp-01238.webp",
-    "imageAlt": "Multi-purpose Waterproof Lightweight Bright LED Headlamp",
+    "imageAlt": "Multi-Purpose Waterproof Lightweight Bright LED Headlamp",
+    "colors": ["Black"]
+  },
+  {
+    "id": "cedar-creek-razor-sharp-utility-knife-10337",
+    "name": "Cedar Creek® Razor Sharp Utility Knife",
+    "category": "Knives & Tools",
+    "brand": "Cedar Creek",
+    "description": "Folding utility knife with anodized aluminum handle in stainless steel construction and 10 extra blades. Priced at 48 units.",
+    "tiers": [
+      [48, 20.5],
+      [72, 19.5],
+      [288, 18.5]
+    ],
+    "image": "/images/merch/cedar-creek-razor-sharp-utility-knife-10337.webp",
+    "imageAlt": "Cedar Creek® Razor Sharp Utility Knife",
+    "colors": ["Black", "Blue"]
+  },
+  {
+    "id": "opinel-no-09-diy-folding-utility-knife-89457",
+    "name": "Opinel® NO.09 DIY Folding Utility Knife",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "The handle holds standard 1\"bits and the tail end of the handle has a magnetic hole which lets you use the knife as a screwdriver. Priced at 24 units.",
+    "tiers": [
+      [24, 46],
+      [96, 44.5],
+      [288, 43]
+    ],
+    "image": "/images/merch/opinel-no-09-diy-folding-utility-knife-89457.webp",
+    "imageAlt": "Opinel® NO.09 DIY Folding Utility Knife",
+    "colors": ["Wood"]
+  },
+  {
+    "id": "first-aid-in-zip-close-pouch-with-carabiner-16078",
+    "name": "First Aid in Zip Close Pouch with Carabiner",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "First Aid in Zip Close Pouch with Carabiner and one color imprint. Priced at 150 units.",
+    "tiers": [
+      [150, 3.47],
+      [250, 3.28],
+      [500, 3.13],
+      [1000, 2.99],
+      [1500, 2.86]
+    ],
+    "image": "/images/merch/first-aid-in-zip-close-pouch-with-carabiner-16078.webp",
+    "imageAlt": "First Aid in Zip Close Pouch with Carabiner",
+    "colors": ["Blue", "White", "Red"]
+  },
+  {
+    "id": "10-ml-spray-hand-sanitizer-97905",
+    "name": "10 ML Spray Hand Sanitizer",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "10 ml hand sanitizer spray with citrus scent and pocket clip. Priced at 250 units.",
+    "tiers": [
+      [250, 1.15],
+      [500, 1.08],
+      [1000, 1.05],
+      [2500, 0.98]
+    ],
+    "image": "/images/merch/10-ml-spray-hand-sanitizer-97905.webp",
+    "imageAlt": "10 ML Spray Hand Sanitizer",
+    "colors": ["Frost Blue", "Frost Black", "Frost Clear", "Frost Red", "Frost Pink"]
+  },
+  {
+    "id": "hand-sanitizer-antibacterial-gel-in-flip-top-bottle-with-car-42413",
+    "name": "Hand Sanitizer Antibacterial Gel in Flip-Top Bottle with Car",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Flip top bottle of 1 oz. citrus scented antibacterial sanitizer gel and a carabiner clip. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 250 units.",
+    "tiers": [
+      [250, 1.65],
+      [500, 1.22]
+    ],
+    "image": "/images/merch/hand-sanitizer-antibacterial-gel-in-flip-top-bottle-with-car-42413.webp",
+    "imageAlt": "Hand Sanitizer Antibacterial Gel in Flip-Top Bottle with Car",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "custom-sleep-mask-silk-moq-10pcs-31195",
+    "name": "Custom Sleep Mask Silk",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Silky sleep mask with adjustable elastic strap. Priced at 10 units.",
+    "tiers": [
+      [10, 11.905],
+      [100, 4.167],
+      [200, 3.295],
+      [500, 2.738],
+      [1000, 2.282]
+    ],
+    "image": "/images/merch/custom-sleep-mask-silk-moq-10pcs-31195.webp",
+    "imageAlt": "Custom Sleep Mask Silk",
+    "colors": ["Black", "Blue", "Purple", "Yellow", "Red", "Green", "Pink"]
+  },
+  {
+    "id": "sleeping-ice-pack-eye-mask-71377",
+    "name": "Sleeping Ice Pack Eye Mask",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Moisture-wicking eye mask with M-shaped nose bridge and rear opening for an ice pack. Priced at 50 units.",
+    "tiers": [
+      [50, 8.333],
+      [100, 6.667],
+      [250, 5.833],
+      [500, 5],
+      [750, 4.167]
+    ],
+    "image": "/images/merch/sleeping-ice-pack-eye-mask-71377.webp",
+    "imageAlt": "Sleeping Ice Pack Eye Mask",
+    "colors": ["Black", "Blue", "Gray", "Green", "Pink", "Purple", "Red", "Teal"]
+  },
+  {
+    "id": "popular-dark-blue-face-mask-ppe-health-protection-48891",
+    "name": "Popular Dark Blue Face Mask, PPE Health Protection",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Dark Blue Face Mask - 3 Ply Disposable Masks - Ready Inventory In New Jersey - Ships In 5+ Days. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1000 units.",
+    "tiers": [[1000, 0.1]],
+    "image": "/images/merch/popular-dark-blue-face-mask-ppe-health-protection-48891.webp",
+    "imageAlt": "Popular Dark Blue Face Mask, PPE Health Protection",
+    "colors": ["Dark Blue"]
+  },
+  {
+    "id": "spf-15-lip-balm-in-white-tube-35108",
+    "name": "SPF 15 Lip Balm in White Tube",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "SPF 15 lip balm with a beeswax base in white tube. Made in USA. Priced at 150 units.",
+    "tiers": [
+      [150, 1.19],
+      [250, 0.83],
+      [2500, 0.82]
+    ],
+    "image": "/images/merch/spf-15-lip-balm-in-white-tube-35108.webp",
+    "imageAlt": "SPF 15 Lip Balm in White Tube",
+    "colors": ["White"]
+  },
+  {
+    "id": "lip-moisturizer-all-natural-usa-made-79796",
+    "name": "Lip Moisturizer - All Natural USA Made",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Lip moisurizer. Made in USA. Priced at 250 units.",
+    "tiers": [
+      [250, 0.84],
+      [500, 0.82],
+      [1000, 0.79]
+    ],
+    "image": "/images/merch/lip-moisturizer-all-natural-usa-made-79796.webp",
+    "imageAlt": "Lip Moisturizer - All Natural USA Made",
+    "colors": [
+      "White Cap",
+      "White",
+      "Natural",
+      "Cherry",
+      "Spearmint",
+      "Tropical",
+      "Watermelon",
+      "Citrus",
+      "Vanilla",
+      "Peppermint"
+    ]
+  },
+  {
+    "id": "rabs-1-7-oz-spf-30-sunscreen-54719",
+    "name": "RABS 1.7 oz. SPF 30 Sunscreen",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "1.7 oz. bottle filled with vanilla scented, SPF 30 sunscreen. Priced at 50 units.",
+    "tiers": [
+      [50, 5.69],
+      [100, 4.95],
+      [250, 4.3],
+      [500, 3.74],
+      [1000, 3.25]
+    ],
+    "image": "/images/merch/rabs-1-7-oz-spf-30-sunscreen-54719.webp",
+    "imageAlt": "RABS 1.7 oz. SPF 30 Sunscreen",
+    "colors": ["Blue", "Lime", "Red", "White", "Yellow"]
+  },
+  {
+    "id": "spf-30-jumbo-sunstick-00861",
+    "name": "SPF 30 Jumbo Sunstick",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Jumbo tube of SPF 30 sunscreen. Priced at 100 units.",
+    "tiers": [
+      [100, 2.75],
+      [250, 2.48],
+      [500, 2.43],
+      [1000, 2.38],
+      [2500, 2.28]
+    ],
+    "image": "/images/merch/spf-30-jumbo-sunstick-00861.webp",
+    "imageAlt": "SPF 30 Jumbo Sunstick",
+    "colors": ["White"]
+  },
+  {
+    "id": "2-5-inch-round-pu-foam-stress-ball-90211",
+    "name": "2.5 Inch Round PU Foam Stress Ball",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Round PU foam stress ball, soft, durable, and ideal for stress relief, hand rehab, and custom logo branding. Priced at 100 units.",
+    "tiers": [
+      [100, 4.667],
+      [250, 3.017],
+      [500, 2.317],
+      [1000, 2.067],
+      [2000, 1.283]
+    ],
+    "image": "/images/merch/2-5-inch-round-pu-foam-stress-ball-90211.webp",
+    "imageAlt": "2.5 Inch Round PU Foam Stress Ball",
+    "colors": ["Black", "Green", "Yellow", "Blue", "Orange", "Red", "White"]
+  },
+  {
+    "id": "yoga-gym-bag-with-mat-02330",
+    "name": "Yoga Gym Bag With Mat",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Yoga Gym Bag With Mat. Priced at 300 units.",
+    "tiers": [
+      [300, 74.43],
+      [500, 36.54],
+      [1000, 36.42],
+      [3000, 36.06],
+      [5000, 35.82]
+    ],
+    "image": "/images/merch/yoga-gym-bag-with-mat-02330.webp",
+    "imageAlt": "Yoga Gym Bag With Mat",
+    "colors": ["Black-Blue", "Black-Gray", "Black-Green", "Black-Pink", "Black-Purple"]
+  },
+  {
+    "id": "tpe-exercise-yoga-mat-31919",
+    "name": "TPE Exercise Yoga Mat",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Eco-friendly TPE yoga mat with non-slip grip, double-layer comfort, and portable carry bag. Priced at 10 units.",
+    "tiers": [
+      [10, 52.982],
+      [50, 50.118],
+      [100, 49.412],
+      [300, 48.262],
+      [500, 47.908]
+    ],
+    "image": "/images/merch/tpe-exercise-yoga-mat-31919.webp",
+    "imageAlt": "TPE Exercise Yoga Mat",
+    "colors": ["Pink", "Purple", "Blue", "Black", "Green", "Violet"]
+  },
+  {
+    "id": "soft-portable-thick-yoga-mat-outdoor-for-women-and-men-77693",
+    "name": "Soft Portable Thick Yoga Mat Outdoor For Women And Men",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Let your customers become more healthy and energetic while extending your brand's reach! Priced at 25 units.",
+    "tiers": [
+      [25, 121.9],
+      [50, 101.2],
+      [500, 41.37],
+      [1000, 37.79],
+      [3000, 34.92]
+    ],
+    "image": "/images/merch/soft-portable-thick-yoga-mat-outdoor-for-women-and-men-77693.webp",
+    "imageAlt": "Soft Portable Thick Yoga Mat Outdoor For Women And Men",
+    "colors": ["Purple", "Black", "Pink", "Green", "Red"]
+  },
+  {
+    "id": "core365-27-oz-tritan-wide-mouth-water-bottle-42357",
+    "name": "CORE365 27 oz Tritan Wide Mouth Water Bottle",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "27-ounce bottle with single wall construction, lid and a wide mouth. Priced at 48 units.",
+    "tiers": [
+      [48, 8.43],
+      [96, 8.27],
+      [240, 8],
+      [480, 7.58],
+      [960, 7.21]
+    ],
+    "image": "/images/merch/core365-27-oz-tritan-wide-mouth-water-bottle-42357.webp",
+    "imageAlt": "CORE365 27 oz Tritan Wide Mouth Water Bottle",
+    "colors": [
+      "Black",
+      "Classic Navy",
+      "Classic Red",
+      "Safety Yellow",
+      "True Royal",
+      "White",
+      "Campus Purple"
+    ]
+  },
+  {
+    "id": "20-oz-wide-mouth-stainless-steel-water-bottle-45443",
+    "name": "20 oz. Wide Mouth Stainless Steel Water Bottle",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "20 oz. stainless steel water bottle with a wide mouth opening and double wall vacuum insulation. Priced at 25 units.",
+    "tiers": [
+      [25, 13.75],
+      [150, 13.45],
+      [250, 13.15],
+      [500, 12.95],
+      [1000, 12.75]
+    ],
+    "image": "/images/merch/20-oz-wide-mouth-stainless-steel-water-bottle-45443.webp",
+    "imageAlt": "20 oz. Wide Mouth Stainless Steel Water Bottle",
+    "colors": ["Black", "White", "Gray Cool 11C", "Navy", "Sea Foam"]
+  },
+  {
+    "id": "handheld-resin-muscle-relaxation-roller-massage-ball-99564",
+    "name": "Handheld Resin Muscle Relaxation Roller Massage Ball",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Our handheld massage ball is a great addition to your self-care routine to relax your body and mind. Rush service is available. Priced at 100 units.",
+    "tiers": [
+      [100, 5.35],
+      [200, 5.283],
+      [500, 5.217],
+      [1000, 4.683],
+      [2000, 4.483]
+    ],
+    "image": "/images/merch/handheld-resin-muscle-relaxation-roller-massage-ball-99564.webp",
+    "imageAlt": "Handheld Resin Muscle Relaxation Roller Massage Ball",
+    "colors": ["Orange", "Red", "Green", "Blue", "Black", "Pink", "Purple"]
+  },
+  {
+    "id": "relax-and-renew-kit-87894",
+    "name": "Relax and Renew Kit",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Relaxation set with 4-in-1 massage gun, vanilla-scented soy wax candle and bamboo wireless speaker. Priced at 50 units.",
+    "tiers": [[50, 53.99]],
+    "image": "/images/merch/relax-and-renew-kit-87894.webp",
+    "imageAlt": "Relax and Renew Kit",
+    "colors": ["White", "Gray", "Black"]
+  },
+  {
+    "id": "outdoor-thermometer-86905",
+    "name": "Outdoor Thermometer",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "7 3/4\" x 1 11/16\" plastic outdoor thermometer with customization. Priced at 150 units.",
+    "tiers": [
+      [150, 3.41],
+      [250, 3.25],
+      [500, 3.08],
+      [1000, 2.94],
+      [1500, 2.8]
+    ],
+    "image": "/images/merch/outdoor-thermometer-86905.webp",
+    "imageAlt": "Outdoor Thermometer",
+    "colors": ["White"]
+  },
+  {
+    "id": "quickcare-7-day-med-minder-pill-box-56176",
+    "name": "QuickCare 7-Day Med Minder Pill Box",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Eco 7-day med minder pill organizer box with labeled lid and imprinted graphics. Made in USA Sustainable Production. Priced at 250 units.",
+    "tiers": [
+      [250, 1.19],
+      [500, 1.12],
+      [1000, 1.06],
+      [2500, 1.01],
+      [5000, 0.99]
+    ],
+    "image": "/images/merch/quickcare-7-day-med-minder-pill-box-56176.webp",
+    "imageAlt": "QuickCare 7-Day Med Minder Pill Box",
+    "colors": [
+      "Blue",
+      "Red",
+      "Yellow",
+      "Black",
+      "White",
+      "Translucent Blue",
+      "Translucent Red",
+      "Translucent Green",
+      "Translucent Lime",
+      "Translucent Orange",
+      "Translucent Purple",
+      "Translucent Aqua",
+      "Translucent Frost"
+    ]
+  },
+  {
+    "id": "7-day-pill-box-17933",
+    "name": "7-Day Pill Box",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Plastic pill case with removable individual compartments for 7 days; case molded with days of the week. Priced at 200 units.",
+    "tiers": [
+      [200, 2.39],
+      [600, 2.19],
+      [1200, 1.99],
+      [2600, 1.79]
+    ],
+    "image": "/images/merch/7-day-pill-box-17933.webp",
+    "imageAlt": "7-Day Pill Box",
+    "colors": ["Multicolor", "White"]
+  },
+  {
+    "id": "crystal-star-trophy-with-wooden-base-56232",
+    "name": "Crystal Star Trophy with Wooden Base",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Premium optical crystal star trophy award featuring a solid wooden base and custom engraving options for corporate recognition. Priced at 100 units.",
+    "tiers": [
+      [100, 39.51],
+      [300, 21.22],
+      [500, 18.72],
+      [1000, 16.68],
+      [3000, 15.06]
+    ],
+    "image": "/images/merch/crystal-star-trophy-with-wooden-base-56232.webp",
+    "imageAlt": "Crystal Star Trophy with Wooden Base",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "avonlea-plaque-black-54665",
+    "name": "Avonlea Plaque - Black",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Wall hanging, beautiful black glass plaque. Priced at 1 unit.",
+    "tiers": [
+      [1, 59.5],
+      [7, 58.5],
+      [13, 57.5],
+      [25, 56.5],
+      [50, 55.5]
+    ],
+    "image": "/images/merch/avonlea-plaque-black-54665.webp",
+    "imageAlt": "Avonlea Plaque - Black",
+    "colors": ["Black"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "walnut-finish-plaque-w-rosettes-18020",
+    "name": "Walnut Finish Plaque w/Rosettes",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Walnut-finish wall plaque with ornamental rosettes. Priced at 1 unit.",
+    "tiers": [
+      [1, 49.5],
+      [5, 48.25],
+      [12, 46.55],
+      [25, 44.5]
+    ],
+    "image": "/images/merch/walnut-finish-plaque-w-rosettes-18020.webp",
+    "imageAlt": "Walnut Finish Plaque w/Rosettes",
+    "colors": ["Walnut", "Black"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "die-struck-soft-enamel-medals-1-5-3-92365",
+    "name": "Die Struck Soft Enamel Medals, 1.5\"-3\"",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Soft enamel round medals in three sizes and finishes. Priced at 50 units.",
+    "tiers": [
+      [50, 4.99],
+      [100, 3.91],
+      [250, 3.03],
+      [500, 2.67],
+      [1000, 2.34]
+    ],
+    "image": "/images/merch/die-struck-soft-enamel-medals-1-5-3-92365.webp",
+    "imageAlt": "Die Struck Soft Enamel Medals, 1.5\"-3\"",
+    "colors": ["Nickel", "Brass", "Black Nickel", "Copper", "Gold"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "faceted-crystal-circle-award-large-90056",
+    "name": "Faceted Crystal Circle Award - Large",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "4 1/2\" x 5 1/4\" faceted circle award made of optic crystal. Priced at 1 unit.",
+    "tiers": [
+      [1, 111],
+      [3, 104],
+      [6, 92.45]
+    ],
+    "image": "/images/merch/faceted-crystal-circle-award-large-90056.webp",
+    "imageAlt": "Faceted Crystal Circle Award - Large",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "preswick-flame-vividprint-award-35504",
+    "name": "Preswick Flame VividPrint™ Award",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Optical crystal flame shape award with thick bevels on base. Priced at 1 unit.",
+    "tiers": [
+      [1, 156.5],
+      [4, 153.5],
+      [7, 150.5],
+      [13, 147.5],
+      [25, 144.5]
+    ],
+    "image": "/images/merch/preswick-flame-vividprint-award-35504.webp",
+    "imageAlt": "Preswick Flame VividPrint™ Award",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "acrylic-paperweights-rectangle-37057",
+    "name": "Acrylic Paperweights - Rectangle",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "3\" x 4\" x 3/4\" rectangular paperweight made of clear acrylic. Made in USA. Priced at 25 units.",
+    "tiers": [
+      [25, 10.55],
+      [50, 9.65],
+      [100, 8.8],
+      [250, 8.5],
+      [500, 8.3]
+    ],
+    "image": "/images/merch/acrylic-paperweights-rectangle-37057.webp",
+    "imageAlt": "Acrylic Paperweights - Rectangle",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "acacia-certificate-holder-57691",
+    "name": "Acacia Certificate Holder",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Acacia Certificate Holder - Black 8 1/2\" x 11\". Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 6 units.",
+    "tiers": [
+      [6, 14.35],
+      [48, 13.8],
+      [144, 13.3],
+      [288, 12.8]
+    ],
+    "image": "/images/merch/acacia-certificate-holder-57691.webp",
+    "imageAlt": "Acacia Certificate Holder",
+    "colors": ["Black", "Silver"]
+  },
+  {
+    "id": "soft-enamel-iron-lapel-pins-43757",
+    "name": "Soft Enamel Iron Lapel Pins",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Soft enamel iron lapel pins have a textured look and feel because the outline of your design is raised and the soft enamel colors. Priced at 50 units.",
+    "tiers": [
+      [50, 7.83],
+      [100, 3.58],
+      [250, 1.8],
+      [500, 1.38],
+      [1000, 1.37]
+    ],
+    "image": "/images/merch/soft-enamel-iron-lapel-pins-43757.webp",
+    "imageAlt": "Soft Enamel Iron Lapel Pins",
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "lapel-pins-custom-die-struck-economy-enamel-42293",
+    "name": "Lapel Pins, Custom Die Struck Economy Enamel",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Custom die-struck, soft enamel lapel pins in assorted sizes and finishes with butterfly or rubber clutch closure. Priced at 300 units.",
+    "tiers": [
+      [300, 1.84],
+      [500, 1.56],
+      [1000, 1.12],
+      [2500, 0.94]
+    ],
+    "image": "/images/merch/lapel-pins-custom-die-struck-economy-enamel-42293.webp",
+    "imageAlt": "Lapel Pins, Custom Die Struck Economy Enamel",
+    "colors": ["Gold", "Nickel", "Copper", "Black Nickel", "Black"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "lapel-pin-die-struck-w-two-tone-bright-sandblast-background-63176",
+    "name": "Lapel Pin, Die Struck w/Two-Tone Bright Sandblast Background",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Die struck brass lapel pin with sandblast finish and military clutch attached. Priced at 100 units.",
+    "tiers": [
+      [100, 2.4],
+      [250, 2.1],
+      [500, 1.8],
+      [1000, 1.7],
+      [2500, 1.5]
+    ],
+    "image": "/images/merch/lapel-pin-die-struck-w-two-tone-bright-sandblast-background-63176.webp",
+    "imageAlt": "Lapel Pin, Die Struck w/Two-Tone Bright Sandblast Background",
+    "colors": ["Gold", "Silver", "Copper"]
+  },
+  {
+    "id": "lapel-pin-offset-aluminum-87448",
+    "name": "Lapel Pin (Offset Aluminum)",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "1\" round aluminum alloy lapel pin with offset printing. Priced at 150 units.",
+    "tiers": [
+      [150, 3.79],
+      [250, 2.74],
+      [500, 1.98],
+      [1000, 1.44],
+      [2500, 1.2]
+    ],
+    "image": "/images/merch/lapel-pin-offset-aluminum-87448.webp",
+    "imageAlt": "Lapel Pin (Offset Aluminum)",
+    "colors": ["Nickel"]
+  },
+  {
+    "id": "custom-challenge-coin-die-struck-economy-enamel-94016",
+    "name": "Custom Challenge Coin - Die Struck Economy Enamel",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Die struck iron challenge coins with one or two-sided imprints and finishes in assorted sizes. Priced at 300 units.",
+    "tiers": [
+      [300, 3.9],
+      [500, 3.45],
+      [1000, 3.15]
+    ],
+    "image": "/images/merch/custom-challenge-coin-die-struck-economy-enamel-94016.webp",
+    "imageAlt": "Custom Challenge Coin - Die Struck Economy Enamel",
+    "colors": [
+      "Gold Tone",
+      "Copper",
+      "Nickel",
+      "Antique Nickel",
+      "Antique Copper",
+      "Antique Brass",
+      "Black Nickel",
+      "Black"
+    ],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "1-5-medallion-49242",
+    "name": "1.5\" Medallion",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "1.5\", 2\", 2.5\" or 3\" die struck zinc alloy medallions with soft enamel fill. Priced at 100 units.",
+    "tiers": [
+      [100, 6.32],
+      [300, 4.96],
+      [500, 4.38],
+      [1000, 4.03]
+    ],
+    "image": "/images/merch/1-5-medallion-49242.webp",
+    "imageAlt": "1.5\" Medallion"
+  },
+  {
+    "id": "polyester-badge-reel-lanyard-combo-b-50466",
+    "name": "Polyester/Badge Reel Lanyard Combo-B",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Polyester lanyard with metal clip and attachments. Priced at 100 units.",
+    "tiers": [
+      [100, 2.717],
+      [300, 2.528],
+      [500, 2.258]
+    ],
+    "image": "/images/merch/polyester-badge-reel-lanyard-combo-b-50466.webp",
+    "imageAlt": "Polyester/Badge Reel Lanyard Combo-B",
+    "colors": [
+      "Light Green",
+      "Royal Blue",
+      "Violet",
+      "Red",
+      "Purple",
+      "Lavender",
+      "Orange",
+      "Black",
+      "Brown",
+      "Burgundy",
+      "Dark Green",
+      "Navy Blue",
+      "Light Blue",
+      "White",
+      "Pink",
+      "Athletic Gold",
+      "Red-Orange",
+      "Green",
+      "Hot Pink",
+      "Yellow",
+      "Grey",
+      "Teal"
+    ],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "lanyards-with-badge-holder-combo-clear-vinyl-40506",
+    "name": "Lanyards with Badge Holder Combo Clear Vinyl",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Flat Custom Polyester with Badge Holder combo, and choice or different badge holder size id badge lanyard. Priced at 100 units.",
+    "tiers": [
+      [100, 2.08],
+      [300, 1.69],
+      [500, 1.51],
+      [1000, 1.4],
+      [3000, 1.3]
+    ],
+    "image": "/images/merch/lanyards-with-badge-holder-combo-clear-vinyl-40506.webp",
+    "imageAlt": "Lanyards with Badge Holder Combo Clear Vinyl",
+    "colors": [
+      "Black",
+      "Royal Blue",
+      "Navy Blue",
+      "Blue",
+      "Gray Silver",
+      "White",
+      "Red",
+      "Maroon",
+      "Hot Pink",
+      "Pink",
+      "Green",
+      "Dark Forest Green",
+      "Purple",
+      "Yellow",
+      "Orange",
+      "Gold",
+      "Lime Green",
+      "Kelly Green",
+      "Teal",
+      "Dark Gray",
+      "Process Blue",
+      "Burgundy",
+      "Tan",
+      "Cardinal Red",
+      "Vegas Gold",
+      "Brown",
+      "Violet"
+    ],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "custom-name-badges-91972",
+    "name": "Custom Name Badges",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Customized high gloss laminated name badge lapel pins created with Digitek process in assorted sizes and styles. Made in USA. Priced at 250 units.",
+    "tiers": [
+      [250, 2.04],
+      [500, 1.98],
+      [1000, 1.93],
+      [2500, 1.88]
+    ],
+    "image": "/images/merch/custom-name-badges-91972.webp",
+    "imageAlt": "Custom Name Badges",
+    "colors": ["Full Color"]
+  },
+  {
+    "id": "8-x-2-moniker-full-color-name-plate-40208",
+    "name": "8\" x 2\" Moniker Full Color Name Plate",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "The Moniker Full Color Name Plate (8\" x 2\") features a reusable full color desk or wall name plates. Made in USA. Priced at 10 units.",
+    "tiers": [
+      [10, 27.78],
+      [25, 21.1],
+      [50, 17.96],
+      [100, 16.21],
+      [250, 15.28]
+    ],
+    "image": "/images/merch/8-x-2-moniker-full-color-name-plate-40208.webp",
+    "imageAlt": "8\" x 2\" Moniker Full Color Name Plate",
+    "colors": ["White"]
+  },
+  {
+    "id": "acrylic-nameplate-58046",
+    "name": "Acrylic Nameplate",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Acrylic desk nameplate. Size: 8\" x 1.2\" x 2.4\". Price per unit drops at 250 units. Priced at 100 units.",
+    "tiers": [
+      [100, 29.667],
+      [250, 28.667],
+      [500, 27.667],
+      [1000, 26.5],
+      [2500, 25.333]
+    ],
+    "image": "/images/merch/acrylic-nameplate-58046.webp",
+    "imageAlt": "Acrylic Nameplate",
+    "colors": ["White"]
+  },
+  {
+    "id": "59-x27-custom-car-windshield-sun-shade-digitally-printed-44651",
+    "name": "59\" x 27\" Custom Car Windshield Sun Shade -Digitally Printed",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Discover the ultimate guide to car windshield sunshades - shield your ride from heat, UV rays, and preserve interior quality. Priced at 1 unit.",
+    "tiers": [
+      [1, 75],
+      [10, 40],
+      [25, 33.33],
+      [50, 27.5],
+      [100, 16.67]
+    ],
+    "image": "/images/merch/59-x27-custom-car-windshield-sun-shade-digitally-printed-44651.webp",
+    "imageAlt": "59\" x 27\" Custom Car Windshield Sun Shade -Digitally Printed"
+  },
+  {
+    "id": "foldable-car-window-shades-69861",
+    "name": "Foldable Car Window Shades",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "51.19\" x 23.63\" foldable windshield sun shade. Priced at 20 units.",
+    "tiers": [
+      [20, 8.957],
+      [50, 6.595],
+      [100, 5.053],
+      [200, 4.45],
+      [500, 4.087]
+    ],
+    "image": "/images/merch/foldable-car-window-shades-69861.webp",
+    "imageAlt": "Foldable Car Window Shades",
+    "colors": ["Silver"]
+  },
+  {
+    "id": "full-color-printed-windshield-sun-shade-accordion-sunshade-22129",
+    "name": "Full Color Printed Windshield Sun Shade, Accordion Sunshade",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Hologram Foil Front Windshield Sun Shade, Double Bubble Accordion Folding Auto Sunshade for Car Truck SUV 58 x 27 Inch. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 50 units.",
+    "tiers": [
+      [50, 12.649],
+      [100, 10.765],
+      [250, 9.488],
+      [500, 9.006],
+      [1000, 8.825]
+    ],
+    "image": "/images/merch/full-color-printed-windshield-sun-shade-accordion-sunshade-22129.webp",
+    "imageAlt": "Full Color Printed Windshield Sun Shade, Accordion Sunshade",
+    "colors": ["Silver"]
+  },
+  {
+    "id": "aluminum-license-plate-frame-05523",
+    "name": "Aluminum License Plate Frame",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Aluminum license plate frame. Priced at 100 units.",
+    "tiers": [
+      [100, 6.65],
+      [250, 6.4],
+      [500, 6.15],
+      [1000, 5.9],
+      [2500, 5.65]
+    ],
+    "image": "/images/merch/aluminum-license-plate-frame-05523.webp",
+    "imageAlt": "Aluminum License Plate Frame",
     "colors": ["Black"]
   },
   {
     "id": "custom-cottonweave-tapestry-throw-blanket-usa-made-size-l-28378",
-    "name": "Custom CottonWeave™ Tapestry Throw Blanket, USA-made. Size L",
+    "name": "Custom CottonWeave™ Tapestry Throw Blanket, USA-Made. Size L",
     "category": "Home & Decor",
     "brand": "Essentials",
     "description": "Custom CottonWeave™ tapestry throw blanket, made in the USA. 52\" x 60\". Woven from high-quality 100% cotton. No set-ups. Made in USA. Priced at 25 units.",
@@ -14990,7 +15738,7 @@
       [250, 57.5]
     ],
     "image": "/images/merch/custom-cottonweave-tapestry-throw-blanket-usa-made-size-l-28378.webp",
-    "imageAlt": "Custom CottonWeave™ Tapestry Throw Blanket, USA-made. Size L",
+    "imageAlt": "Custom CottonWeave™ Tapestry Throw Blanket, USA-Made. Size L",
     "colors": [
       "Black",
       "Blue",
@@ -15014,7 +15762,7 @@
   },
   {
     "id": "custom-2-5-layer-cottonweave-throw-blanket-usa-made-l-28322",
-    "name": "Custom 2.5-Layer CottonWeave™ Throw Blanket, USA-made. L",
+    "name": "Custom 2.5-Layer CottonWeave™ Throw Blanket, USA-Made. L",
     "category": "Home & Decor",
     "brand": "Essentials",
     "description": "Custom 2.5-Layer CottonWeave™ throw blanket, made in the USA. 52\" x 60\". Woven from premium cotton-rich yarns. No set-ups. Made in USA. Priced at 25 units.",
@@ -15025,7 +15773,7 @@
       [250, 56]
     ],
     "image": "/images/merch/custom-2-5-layer-cottonweave-throw-blanket-usa-made-l-28322.webp",
-    "imageAlt": "Custom 2.5-Layer CottonWeave™ Throw Blanket, USA-made. L",
+    "imageAlt": "Custom 2.5-Layer CottonWeave™ Throw Blanket, USA-Made. L",
     "colors": [
       "Black",
       "Blue",
@@ -15049,7 +15797,7 @@
   },
   {
     "id": "textured-microfleece-blanket-25142",
-    "name": "Textured Microfleece Blanket",
+    "name": "Textured Microfleece Blanket, 50\" x 60\"",
     "category": "Home & Decor",
     "brand": "Essentials",
     "description": "50\" x 60\", 40 oz/pc. Priced at 12 units.",
@@ -15061,7 +15809,7 @@
       [300, 37.37]
     ],
     "image": "/images/merch/textured-microfleece-blanket-25142.webp",
-    "imageAlt": "Textured Microfleece Blanket",
+    "imageAlt": "Textured Microfleece Blanket, 50\" x 60\"",
     "colors": ["Ivory", "Mocha"]
   },
   {
@@ -15083,7 +15831,7 @@
   },
   {
     "id": "custom-sofa-patriotic-decor-cushion-case-throw-pillow-cover-49188",
-    "name": "Custom sofa patriotic decor cushion case throw pillow cover",
+    "name": "Custom Sofa Patriotic Decor Cushion Case Throw Pillow Cover",
     "category": "Home & Decor",
     "brand": "Essentials",
     "description": "Our throw pillow cover is customizable, offering durable and stylish designs for any home decor. Rush service is available. Priced at 50 units.",
@@ -15095,12 +15843,12 @@
       [1000, 2.983]
     ],
     "image": "/images/merch/custom-sofa-patriotic-decor-cushion-case-throw-pillow-cover-49188.webp",
-    "imageAlt": "Custom sofa patriotic decor cushion case throw pillow cover",
+    "imageAlt": "Custom Sofa Patriotic Decor Cushion Case Throw Pillow Cover",
     "colors": ["Red", "Blue", "White"]
   },
   {
     "id": "plus-throw-pillow-51713",
-    "name": "Plus Throw Pillow",
+    "name": "Plus Throw Pillow, 18\" x 18\"",
     "category": "Home & Decor",
     "brand": "Essentials",
     "description": "Customizable 18\" x 18\" polyester throw pillow with 100% polypropylene filler and edge to edge sublimation. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 12 units.",
@@ -15112,15 +15860,15 @@
       [300, 25.42]
     ],
     "image": "/images/merch/plus-throw-pillow-51713.webp",
-    "imageAlt": "Plus Throw Pillow",
+    "imageAlt": "Plus Throw Pillow, 18\" x 18\"",
     "colors": ["Multi color"]
   },
   {
     "id": "stock-uv-color-acrylic-block-frames-28211",
-    "name": "Stock UV color Acrylic Block Frames",
+    "name": "Stock UV Color Acrylic Block Frames",
     "category": "Home & Decor",
     "brand": "Essentials",
-    "description": "UV color block frame made of acrylic. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 25 units.",
+    "description": "UV color block frame made of acrylic. Priced at 25 units.",
     "tiers": [
       [25, 29.017],
       [50, 22.667],
@@ -15129,15 +15877,16 @@
       [500, 19.233]
     ],
     "image": "/images/merch/stock-uv-color-acrylic-block-frames-28211.webp",
-    "imageAlt": "Stock UV color Acrylic Block Frames",
-    "colors": ["Clear"]
+    "imageAlt": "Stock UV Color Acrylic Block Frames",
+    "colors": ["Clear"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "bremmer-frame-silver-55746",
     "name": "Bremmer Frame - Silver",
     "category": "Home & Decor",
     "brand": "Essentials",
-    "description": "Curved aluminum picture frame. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 24 units.",
+    "description": "Curved aluminum picture frame. Priced at 24 units.",
     "tiers": [
       [24, 11.25],
       [72, 10.8],
@@ -15146,7 +15895,8 @@
     ],
     "image": "/images/merch/bremmer-frame-silver-55746.webp",
     "imageAlt": "Bremmer Frame - Silver",
-    "colors": ["Silver"]
+    "colors": ["Silver"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   },
   {
     "id": "tangelo-snapshot-7-digital-photo-frame-39291",
@@ -15248,7 +15998,7 @@
   },
   {
     "id": "coir-doormat-89290",
-    "name": "Coir Doormat",
+    "name": "Coir Doormat, 15 3/4\" x 23 5/8\"",
     "category": "Home & Decor",
     "brand": "Essentials",
     "description": "Natural Coco Coir Doormat. Priced at 200 units.",
@@ -15260,7 +16010,7 @@
       [1000, 42.284]
     ],
     "image": "/images/merch/coir-doormat-89290.webp",
-    "imageAlt": "Coir Doormat",
+    "imageAlt": "Coir Doormat, 15 3/4\" x 23 5/8\"",
     "colors": ["Brown"]
   },
   {
@@ -15350,7 +16100,7 @@
   },
   {
     "id": "bedroom-wall-hanging-bag-organizer-basket-with-pockets-44822",
-    "name": "Bedroom wall hanging bag organizer basket with pockets",
+    "name": "Bedroom Wall Hanging Bag Organizer Basket with Pockets",
     "category": "Home & Decor",
     "brand": "Essentials",
     "description": "Wall Organizer optimizes storage in dorms and kitchens, ensuring organized spaces and easy access. Rush service is available. Priced at 100 units.",
@@ -15362,7 +16112,7 @@
       [2000, 6.233]
     ],
     "image": "/images/merch/bedroom-wall-hanging-bag-organizer-basket-with-pockets-44822.webp",
-    "imageAlt": "Bedroom wall hanging bag organizer basket with pockets",
+    "imageAlt": "Bedroom Wall Hanging Bag Organizer Basket with Pockets",
     "colors": ["Light Gray", "White"]
   },
   {
@@ -15381,5 +16131,1676 @@
     "image": "/images/merch/collapsible-multi-tasking-basket-93515.webp",
     "imageAlt": "Collapsible Multi-Tasking Basket",
     "colors": ["Black", "Blue", "Red", "Lime Green"]
+  },
+  {
+    "id": "multifunctional-desk-adjustable-lamp-with-wireless-charging-44334",
+    "name": "Multifunctional Desk Adjustable Lamp with Wireless Charging",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Smart Desk Lamp offers fast charging, adjustable lighting, and time management for workspaces. Rush service is available. Priced at 50 units.",
+    "tiers": [
+      [50, 26.1],
+      [100, 24.083],
+      [200, 23.067],
+      [500, 21.883],
+      [1000, 20.117]
+    ],
+    "image": "/images/merch/multifunctional-desk-adjustable-lamp-with-wireless-charging-44334.webp",
+    "imageAlt": "Multifunctional Desk Adjustable Lamp with Wireless Charging",
+    "colors": ["Black", "White"]
+  },
+  {
+    "id": "wooden-dimmable-touch-bedroom-nightstand-led-mushroom-lamp-54515",
+    "name": "Wooden Dimmable Touch Bedroom Nightstand LED Mushroom Lamp",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Our mushroom-shaped table lamp combines unique design with soft, ambient lighting for any space. Rush service is available. Priced at 50 units.",
+    "tiers": [
+      [50, 18.217],
+      [100, 17.883],
+      [200, 17.55],
+      [500, 17.383],
+      [1000, 15.733]
+    ],
+    "image": "/images/merch/wooden-dimmable-touch-bedroom-nightstand-led-mushroom-lamp-54515.webp",
+    "imageAlt": "Wooden Dimmable Touch Bedroom Nightstand LED Mushroom Lamp",
+    "colors": ["Brown"]
+  },
+  {
+    "id": "renew-nightshade-rechargeable-desk-lamp-11634",
+    "name": "ReNew Nightshade Rechargeable Desk Lamp",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Rechargeable desk lamp with three light modes. Priced at 50 units.",
+    "tiers": [
+      [50, 18.25],
+      [100, 17.84],
+      [250, 17.42],
+      [500, 16.59]
+    ],
+    "image": "/images/merch/renew-nightshade-rechargeable-desk-lamp-11634.webp",
+    "imageAlt": "ReNew Nightshade Rechargeable Desk Lamp",
+    "colors": ["Black"]
+  },
+  {
+    "id": "6-standard-table-throw-full-color-front-only-61942",
+    "name": "6' Standard Table Throw (Full-Color Front Only)",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "6' standard table throw made of polyester with 4 sides, draped corners and customization on the front only. Priced at 1 unit.",
+    "tiers": [
+      [1, 192.6],
+      [2, 184.9],
+      [6, 175.3],
+      [12, 165.6],
+      [25, 161.8]
+    ],
+    "image": "/images/merch/6-standard-table-throw-full-color-front-only-61942.webp",
+    "imageAlt": "6' Standard Table Throw (Full-Color Front Only)",
+    "colors": [
+      "Black",
+      "Blueberry",
+      "Brown",
+      "Burgundy",
+      "Charcoal",
+      "Gray",
+      "Hunter Green",
+      "Lime Green",
+      "Navy",
+      "Orange",
+      "Purple",
+      "Aquamarine",
+      "Peach",
+      "Shamrock",
+      "Emerald",
+      "Grape",
+      "Cherry",
+      "Flamingo",
+      "Cobalt",
+      "Mulberry",
+      "Mango",
+      "Hot Pink",
+      "Lemon",
+      "Hazelnut",
+      "Red",
+      "Yellow",
+      "Royal Blue"
+    ]
+  },
+  {
+    "id": "kona-groove-cutting-and-serving-board-44811",
+    "name": "Kona Groove Cutting & Serving Board",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Kona Groove bamboo cutting/serving board with contrasting border. Priced at 24 units.",
+    "tiers": [
+      [24, 31.89],
+      [48, 30.81],
+      [96, 30.06],
+      [144, 29.33]
+    ],
+    "image": "/images/merch/kona-groove-cutting-and-serving-board-44811.webp",
+    "imageAlt": "Kona Groove Cutting & Serving Board",
+    "colors": ["Brown-Natural"]
+  },
+  {
+    "id": "large-food-tray-40831",
+    "name": "Large Food Tray",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Large food tray for hamburgers, hot dogs, fries and more. Made in USA. Priced at 500 units.",
+    "tiers": [
+      [500, 1.04],
+      [1000, 0.91],
+      [2500, 0.87],
+      [5000, 0.81]
+    ],
+    "image": "/images/merch/large-food-tray-40831.webp",
+    "imageAlt": "Large Food Tray",
+    "colors": ["White"]
+  },
+  {
+    "id": "plastic-round-serving-tray-17825",
+    "name": "Plastic Round Serving Tray",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "12.6\" round plastic serving tray with raised edges. Priced at 25 units.",
+    "tiers": [
+      [25, 34.9],
+      [50, 29.767],
+      [100, 27.95],
+      [300, 21.8],
+      [500, 21.65]
+    ],
+    "image": "/images/merch/plastic-round-serving-tray-17825.webp",
+    "imageAlt": "Plastic Round Serving Tray"
+  },
+  {
+    "id": "smart-constant-temperature-usb-powered-portable-mug-warmer-49141",
+    "name": "Smart Constant Temperature USB Powered Portable Mug Warmer",
+    "category": "Gifts & Entertaining",
+    "brand": "Essentials",
+    "description": "Our cup wamer mat with simple operation ensures your coffee stays warm, perfect for home and office. Rush service is available. Priced at 50 units.",
+    "tiers": [
+      [50, 5.5],
+      [100, 5.4],
+      [200, 5.3],
+      [500, 5.25],
+      [1000, 4.75]
+    ],
+    "image": "/images/merch/smart-constant-temperature-usb-powered-portable-mug-warmer-49141.webp",
+    "imageAlt": "Smart Constant Temperature USB Powered Portable Mug Warmer",
+    "colors": ["Green", "Blue", "Pink", "Yellow"]
+  },
+  {
+    "id": "coffee-mug-set-61676",
+    "name": "Coffee Mug Set",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Gift set with two 12 oz. stainless steel insulated coffee mugs. Priced at 25 units.",
+    "tiers": [
+      [25, 27.35],
+      [50, 26.15],
+      [100, 25.35],
+      [250, 24.99],
+      [500, 24.49]
+    ],
+    "image": "/images/merch/coffee-mug-set-61676.webp",
+    "imageAlt": "Coffee Mug Set",
+    "colors": ["Black", "Blue", "White"]
+  },
+  {
+    "id": "tumbler-gift-set-22931",
+    "name": "Tumbler Gift Set",
+    "category": "Gifts & Entertaining",
+    "brand": "Essentials",
+    "description": "Tumbler Gift Set Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 12 units.",
+    "tiers": [
+      [12, 63.55],
+      [24, 61.36],
+      [48, 59.16],
+      [96, 56.97]
+    ],
+    "image": "/images/merch/tumbler-gift-set-22931.webp",
+    "imageAlt": "Tumbler Gift Set",
+    "colors": ["Brown"]
+  },
+  {
+    "id": "business-gift-set-of-4-03688",
+    "name": "Business Gift Set of 4",
+    "category": "Gifts & Entertaining",
+    "brand": "Essentials",
+    "description": "Set for holiday events, employee appreciation, client giveaways. Priced at 50 units.",
+    "tiers": [
+      [50, 65.567],
+      [100, 64.5],
+      [300, 37.3],
+      [500, 36.417],
+      [1000, 35.517]
+    ],
+    "image": "/images/merch/business-gift-set-of-4-03688.webp",
+    "imageAlt": "Business Gift Set of 4",
+    "colors": ["Red", "Blue", "Orange", "Gray", "Black"]
+  },
+  {
+    "id": "its-popn-mini-popper-gift-set-90255",
+    "name": "It's Pop'n Mini Popper Gift Set",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Think of all the Poppabilities this personal mini popper and Urban Accents Golden Kernels gift set has. Priced at 50 units.",
+    "tiers": [
+      [50, 21.29],
+      [100, 18.79],
+      [300, 15.44],
+      [500, 14.98]
+    ],
+    "image": "/images/merch/its-popn-mini-popper-gift-set-90255.webp",
+    "imageAlt": "It's Pop'n Mini Popper Gift Set",
+    "colors": ["Black"]
+  },
+  {
+    "id": "welcome-aboard-happys-gift-set-45989",
+    "name": "Welcome Aboard Happy's Gift Set",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Gift set with assorted food gifts, tin of mints, windowed gift bag, lanyard and 4\" x 6\" greeting custom card. Priced at 1 unit.",
+    "tiers": [[1, 24.99]],
+    "image": "/images/merch/welcome-aboard-happys-gift-set-45989.webp",
+    "imageAlt": "Welcome Aboard Happy's Gift Set",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "custom-printed-single-microwave-popcorn-bag-39101",
+    "name": "Custom Printed Single Microwave Popcorn Bag",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Microwave popcorn bag made of plastic. Made in USA. Priced at 1000 units.",
+    "tiers": [[1000, 1.85]],
+    "image": "/images/merch/custom-printed-single-microwave-popcorn-bag-39101.webp",
+    "imageAlt": "Custom Printed Single Microwave Popcorn Bag",
+    "colors": ["Assorted"]
+  },
+  {
+    "id": "popcorn-tin-with-trio-of-butter-cheddar-and-caramel-popcorn-23364",
+    "name": "Popcorn Tin with Trio of Butter, Cheddar and Caramel Popcorn",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Popcorn Tin with Trio of Butter, Cheddar and Caramel Popcorn Made in USA. Priced at 25 units.",
+    "tiers": [
+      [25, 46.23],
+      [50, 44.02],
+      [100, 42.75],
+      [250, 41.51]
+    ],
+    "image": "/images/merch/popcorn-tin-with-trio-of-butter-cheddar-and-caramel-popcorn-23364.webp",
+    "imageAlt": "Popcorn Tin with Trio of Butter, Cheddar and Caramel Popcorn",
+    "colors": ["Gold", "Silver", "Red", "Blue", "White"]
+  },
+  {
+    "id": "happy-trails-healthy-gourmet-kit-45047",
+    "name": "Happy Trails - Healthy Gourmet Kit",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Happy Trails - Healthy Gourmet Kit Made in USA. Priced at 10 units.",
+    "tiers": [[10, 66.44]],
+    "image": "/images/merch/happy-trails-healthy-gourmet-kit-45047.webp",
+    "imageAlt": "Happy Trails - Healthy Gourmet Kit",
+    "colors": ["Kraft Brown"]
+  },
+  {
+    "id": "large-holiday-party-tree-hanging-decor-christmas-stockings-70062",
+    "name": "Large Holiday Party Tree Hanging Decor Christmas Stockings",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "Christmas stockings feature bright colors and large capacity, perfect for holding gifts and treats. Rush service is available. Priced at 200 units.",
+    "tiers": [
+      [200, 5.35],
+      [500, 5.25],
+      [1000, 5.15],
+      [2000, 5.1],
+      [5000, 4.617]
+    ],
+    "image": "/images/merch/large-holiday-party-tree-hanging-decor-christmas-stockings-70062.webp",
+    "imageAlt": "Large Holiday Party Tree Hanging Decor Christmas Stockings",
+    "colors": ["Red", "Green"]
+  },
+  {
+    "id": "custom-chocolate-cookies-round-chocolate-cookie-94807",
+    "name": "Custom Chocolate Cookies - Round Chocolate Cookie",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Custom Chocolate Cookies - Round Chocolate Cookie Made in USA. Priced at 250 units.",
+    "tiers": [
+      [250, 2.07],
+      [500, 1.9],
+      [1000, 1.83],
+      [2500, 1.71]
+    ],
+    "image": "/images/merch/custom-chocolate-cookies-round-chocolate-cookie-94807.webp",
+    "imageAlt": "Custom Chocolate Cookies - Round Chocolate Cookie",
+    "colors": ["Assorted"]
+  },
+  {
+    "id": "cocoa-and-cookies-gift-set-36102",
+    "name": "Cocoa and Cookies Gift Set",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Cocoa and Cookies Gift Set. Priced at 48 units.",
+    "tiers": [
+      [48, 19.34],
+      [96, 18.42],
+      [192, 17.88],
+      [576, 17.37]
+    ],
+    "image": "/images/merch/cocoa-and-cookies-gift-set-36102.webp",
+    "imageAlt": "Cocoa and Cookies Gift Set",
+    "colors": ["Gray", "Red"]
+  },
+  {
+    "id": "fresh-beginnings-individually-wrapped-chocolate-chip-cookie-65227",
+    "name": "Fresh Beginnings Individually Wrapped Chocolate Chip Cookie",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Individually Wrapped Chocolate Chip Cookie Made in USA. Priced at 200 units.",
+    "tiers": [
+      [200, 1.93],
+      [1000, 1.85],
+      [2500, 1.8],
+      [5000, 1.73]
+    ],
+    "image": "/images/merch/fresh-beginnings-individually-wrapped-chocolate-chip-cookie-65227.webp",
+    "imageAlt": "Fresh Beginnings Individually Wrapped Chocolate Chip Cookie",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "popclusions-sweet-n-creamy-mix-30229",
+    "name": "Popclusions - Sweet N Creamy Mix",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Caramel popcorn with honey and milk medley mix in an acetate tube with a metal base tin. Priced at 25 units.",
+    "tiers": [
+      [25, 49.88],
+      [50, 47.49],
+      [100, 46.12],
+      [250, 44.77]
+    ],
+    "image": "/images/merch/popclusions-sweet-n-creamy-mix-30229.webp",
+    "imageAlt": "Popclusions - Sweet N Creamy Mix",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "honey-roasted-peanuts-in-a-large-round-glass-jar-with-lid-58447",
+    "name": "Honey Roasted Peanuts in a Large Round Glass Jar with Lid",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Honey Roasted Peanuts in a Large Round Glass Status Jar with Lid Made in USA. Priced at 48 units.",
+    "tiers": [
+      [48, 19.77],
+      [96, 19.62],
+      [192, 19.48],
+      [576, 19.33]
+    ],
+    "image": "/images/merch/honey-roasted-peanuts-in-a-large-round-glass-jar-with-lid-58447.webp",
+    "imageAlt": "Honey Roasted Peanuts in a Large Round Glass Jar with Lid",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "cajun-hot-sauce-40650",
+    "name": "Cajun Hot Sauce",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Cajun hot sauce sauce in glass bottle. Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 144 units.",
+    "tiers": [
+      [144, 5.86],
+      [216, 5.58],
+      [432, 5.41]
+    ],
+    "image": "/images/merch/cajun-hot-sauce-40650.webp",
+    "imageAlt": "Cajun Hot Sauce"
+  },
+  {
+    "id": "bbq-gift-tub-23398",
+    "name": "BBQ Gift Tub",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "BBQ Gift Tub Made in USA. Priced at 12 units.",
+    "tiers": [
+      [12, 116.42],
+      [24, 113.28],
+      [48, 112.48],
+      [96, 104.88]
+    ],
+    "image": "/images/merch/bbq-gift-tub-23398.webp",
+    "imageAlt": "BBQ Gift Tub",
+    "colors": ["Silver"]
+  },
+  {
+    "id": "tube-of-popcorn-23101",
+    "name": "Tube of Popcorn",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Tube of Popcorn. Made in USA. Priced at 25 units.",
+    "tiers": [
+      [25, 29.86],
+      [50, 29.62],
+      [100, 29.38],
+      [250, 29.14]
+    ],
+    "image": "/images/merch/tube-of-popcorn-23101.webp",
+    "imageAlt": "Tube of Popcorn",
+    "colors": ["Multi color"]
+  },
+  {
+    "id": "tray-with-mugs-and-honey-roasted-peanuts-60788",
+    "name": "Tray with Mugs and Honey Roasted Peanuts",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Gift tray filled with two 11 oz. white mugs, coffee, tea, two packets of hot chocolate and honey roasted peanuts. Priced at 12 units.",
+    "tiers": [
+      [12, 57.1],
+      [24, 55.44],
+      [48, 53.82],
+      [96, 52.27]
+    ],
+    "image": "/images/merch/tray-with-mugs-and-honey-roasted-peanuts-60788.webp",
+    "imageAlt": "Tray with Mugs and Honey Roasted Peanuts",
+    "colors": ["Black", "Brown", "Cream", "Red"]
+  },
+  {
+    "id": "storm-creek-mens-overachiever-sweaterfleece-vest-31689",
+    "name": "Storm Creek Men's Overachiever Sweaterfleece Vest",
+    "category": "Apparel",
+    "brand": "Storm Creek",
+    "description": "Eco Super soft sweaterfleece vest with wool look, zip pockets, and eco-friendly design-recycles 26 recycled bottles. Sustainable Production. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "tiers": [[1, 90]],
+    "image": "/images/merch/storm-creek-mens-overachiever-sweaterfleece-vest-31689.webp",
+    "imageAlt": "Storm Creek Men's Overachiever Sweaterfleece Vest",
+    "colors": ["Platinum Gray", "Navy Blue", "Black", "Cinder Gray", "Spruce Green"]
+  },
+  {
+    "id": "storm-creek-mens-warm-up-colorblock-sherpa-fleece-vest-37772",
+    "name": "Storm Creek Men's Warm Up Colorblock Sherpa Fleece Vest",
+    "category": "Apparel",
+    "brand": "Storm Creek",
+    "description": "Eco Warm, stylish, and eco-friendly-this vest blends sherpa fleece with function, recycling 25 bottles per garment. Sustainable Production. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "tiers": [[1, 80]],
+    "image": "/images/merch/storm-creek-mens-warm-up-colorblock-sherpa-fleece-vest-37772.webp",
+    "imageAlt": "Storm Creek Men's Warm Up Colorblock Sherpa Fleece Vest",
+    "colors": ["Black/Black", "Carbon Green/Black", "Navy Blue/Navy Blue"]
+  },
+  {
+    "id": "port-authority-youth-value-fleece-vest-63121",
+    "name": "Port Authority Youth Value Fleece Vest",
+    "category": "Apparel",
+    "brand": "Port Authority",
+    "description": "3 color options. Size: XS, S, M, L, XL. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 96 units.",
+    "tiers": [[96, 41.56]],
+    "image": "/images/merch/port-authority-youth-value-fleece-vest-63121.webp",
+    "imageAlt": "Port Authority Youth Value Fleece Vest",
+    "colors": ["Black", "Iron Grey", "True Navy"]
+  },
+  {
+    "id": "mens-pacific-heathered-vest-34906",
+    "name": "Men's Pacific Heathered Vest",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Men's heathered fleece vest made from 100% polyester, featuring a full-zip front and interior wind flap. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "tiers": [[1, 61]],
+    "image": "/images/merch/mens-pacific-heathered-vest-34906.webp",
+    "imageAlt": "Men's Pacific Heathered Vest",
+    "colors": ["Oatmeal Heather", "Light Grey Heather", "Charcoal Heather", "Navy Heather"]
+  },
+  {
+    "id": "womens-ultima-soft-shell-jacket-14936",
+    "name": "Women's Ultima Soft Shell Jacket",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Clearance Women's wind and water resistant with tricot lining soft shell jacket. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "tiers": [[1, 70.5]],
+    "image": "/images/merch/womens-ultima-soft-shell-jacket-14936.webp",
+    "imageAlt": "Women's Ultima Soft Shell Jacket",
+    "colors": ["Black"]
+  },
+  {
+    "id": "womens-classic-soft-shell-jacket-14812",
+    "name": "Women's Classic Soft Shell Jacket",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Women's wind and water-resistant soft shell jacket with stand up collar and fitted style. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "tiers": [[1, 79]],
+    "image": "/images/merch/womens-classic-soft-shell-jacket-14812.webp",
+    "imageAlt": "Women's Classic Soft Shell Jacket",
+    "colors": ["Navy", "Black-Vapor Grey"]
+  },
+  {
+    "id": "columbia-ascender-ii-softshell-jacket-21230",
+    "name": "Columbia Ascender II Softshell Jacket",
+    "category": "Apparel",
+    "brand": "Columbia",
+    "description": "2 color options. Size: S, M, L, XL, 2XL, 3XL. Priced at 1 unit.",
+    "tiers": [[1, 105.42]],
+    "image": "/images/merch/columbia-ascender-ii-softshell-jacket-21230.webp",
+    "imageAlt": "Columbia Ascender II Softshell Jacket",
+    "colors": ["Heathered Grill", "Heathered Azul"]
+  },
+  {
+    "id": "mens-waterproof-raincoat-jacket-67412",
+    "name": "Men's Waterproof Raincoat Jacket",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Oxford cloth men's raincoat. Priced at 50 units.",
+    "tiers": [
+      [50, 27.432],
+      [250, 13.017],
+      [500, 12.658],
+      [1000, 12.333],
+      [2500, 12.013]
+    ],
+    "image": "/images/merch/mens-waterproof-raincoat-jacket-67412.webp",
+    "imageAlt": "Men's Waterproof Raincoat Jacket",
+    "colors": ["Black"]
+  },
+  {
+    "id": "rain-slicker-in-a-bag-59526",
+    "name": "Rain Slicker-In-A-Bag",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Lightweight PEVA waterproof jacket comes packed in a 190T nylon pouch and features a hood and two side flap pockets. Priced at 50 units.",
+    "tiers": [
+      [50, 12.59],
+      [150, 12.29],
+      [300, 11.99],
+      [600, 11.69],
+      [1200, 11.39]
+    ],
+    "image": "/images/merch/rain-slicker-in-a-bag-59526.webp",
+    "imageAlt": "Rain Slicker-In-A-Bag",
+    "colors": ["Blue"]
+  },
+  {
+    "id": "mens-new-englander-rain-jacket-03889",
+    "name": "Men's New Englander® Rain Jacket",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Men's wind and waterproof rain jacket lined with grey mesh. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "tiers": [[1, 72]],
+    "image": "/images/merch/mens-new-englander-rain-jacket-03889.webp",
+    "imageAlt": "Men's New Englander® Rain Jacket",
+    "colors": [
+      "Red",
+      "True Navy/Grey",
+      "Yellow",
+      "Black",
+      "True Navy/Yellow",
+      "Maroon/Black",
+      "Grey"
+    ]
+  },
+  {
+    "id": "nike-ladies-dri-fit-micro-pique-2-0-polo-03100",
+    "name": "Nike Ladies Dri-FIT Micro Pique 2.0 Polo",
+    "category": "Apparel",
+    "brand": "Nike",
+    "description": "Ladies' polo with moisture management technology, collar, open neckline, and side vents. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 96 units.",
+    "tiers": [[96, 81.94]],
+    "image": "/images/merch/nike-ladies-dri-fit-micro-pique-2-0-polo-03100.webp",
+    "imageAlt": "Nike Ladies Dri-FIT Micro Pique 2.0 Polo",
+    "colors": [
+      "White",
+      "Black",
+      "Anthracite",
+      "Bluetint",
+      "Brillorng",
+      "Coolgrey",
+      "Courtprpl",
+      "Gameroyal",
+      "Gorgegreen",
+      "Gymblue",
+      "Lucidgreen",
+      "Mint",
+      "Navy",
+      "Teamred",
+      "Tidalblue",
+      "Unired",
+      "Urbanlilac",
+      "Valorblue",
+      "Varmaize",
+      "Vividpink"
+    ]
+  },
+  {
+    "id": "team-365-mens-zone-performance-long-sleeve-polo-91175",
+    "name": "Team 365 Men's Zone Performance Long Sleeve Polo",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Men's performance polo with long sleeves, moisture wicking and UV protection, three-button placket and integrated collar stays. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 96 units.",
+    "tiers": [
+      [96, 29.7],
+      [144, 28.7],
+      [576, 27.7],
+      [1008, 27.2]
+    ],
+    "image": "/images/merch/team-365-mens-zone-performance-long-sleeve-polo-91175.webp",
+    "imageAlt": "Team 365 Men's Zone Performance Long Sleeve Polo",
+    "colors": [
+      "Black",
+      "Sport Dark Navy",
+      "Sport Forest",
+      "Sport Graphite",
+      "Sport Red",
+      "Sport Royal"
+    ]
+  },
+  {
+    "id": "ogio-jewel-polo-71174",
+    "name": "OGIO - Jewel Polo",
+    "category": "Apparel",
+    "brand": "OGIO",
+    "description": "11 color options. Size: XS, S, M, L, XL, 2XL, 3XL, 4XL. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 96 units.",
+    "tiers": [[96, 62.42]],
+    "image": "/images/merch/ogio-jewel-polo-71174.webp",
+    "imageAlt": "OGIO - Jewel Polo",
+    "colors": [
+      "Blacktop",
+      "Bluemist",
+      "Dieselgrey",
+      "Electric Blue",
+      "Gridiron Green",
+      "Navy",
+      "Pink Crush",
+      "Rogue Grey",
+      "Signal Red",
+      "Spar Blue",
+      "Bright White"
+    ]
+  },
+  {
+    "id": "alternative-3-4-sleeve-raglan-henley-dark-colors-30026",
+    "name": "Alternative 3/4-Sleeve Raglan Henley - Dark/Colors",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "3/4-Sleeve raglan henley made of 50/38/12 poly/cotton/rayon. Priced at 12 units.",
+    "tiers": [
+      [12, 58.02],
+      [24, 53.95],
+      [48, 52.44],
+      [72, 50.69],
+      [144, 48.07]
+    ],
+    "image": "/images/merch/alternative-3-4-sleeve-raglan-henley-dark-colors-30026.webp",
+    "imageAlt": "Alternative 3/4-Sleeve Raglan Henley - Dark/Colors",
+    "colors": [
+      "Eco Black",
+      "Royal Blue-Eco Gray",
+      "Eco Green-Gray",
+      "Eco Red-Gray",
+      "Eco True Burgundy-Ivory",
+      "Oatmeal-Black"
+    ]
+  },
+  {
+    "id": "alternative-eco-jersey-3-4-sleeve-raglan-henley-30031",
+    "name": "Alternative Eco-Jersey 3/4-Sleeve Raglan Henley",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "3/4-Sleeve eco-jersey raglan henley. Priced at 12 units.",
+    "tiers": [
+      [12, 54.14],
+      [36, 43.28],
+      [72, 40.34],
+      [144, 38.84],
+      [288, 37.39]
+    ],
+    "image": "/images/merch/alternative-eco-jersey-3-4-sleeve-raglan-henley-30031.webp",
+    "imageAlt": "Alternative Eco-Jersey 3/4-Sleeve Raglan Henley",
+    "colors": ["Black", "Gray-Black", "Gray-Green", "Gray-Red", "Oatmeal-Black"]
+  },
+  {
+    "id": "hi-vis-reflective-road-work-safety-hoodie-sweatshirt-51604",
+    "name": "Hi-Vis Reflective Road Work Safety Hoodie Sweatshirt",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Ideal for Work, Road Construction, Airport, Baggage Handling, First Aid, Landscaping, Paving, Pathways iron and inspectors. Priced at 50 units.",
+    "tiers": [
+      [50, 31],
+      [100, 29.6],
+      [500, 19],
+      [1000, 18.2],
+      [3000, 17.5]
+    ],
+    "image": "/images/merch/hi-vis-reflective-road-work-safety-hoodie-sweatshirt-51604.webp",
+    "imageAlt": "Hi-Vis Reflective Road Work Safety Hoodie Sweatshirt",
+    "colors": ["Green", "Orange", "Black", "Navy Blue"]
+  },
+  {
+    "id": "signal-hi-vis-full-zip-hoodie-72607",
+    "name": "Signal Hi-Vis Full Zip Hoodie",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "The Signal Hi-Vis Full Zip Hoodie keeps you comfortable and safe with 100% polyester sweatshirt fleece and high-visibility colors. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "tiers": [[1, 59]],
+    "image": "/images/merch/signal-hi-vis-full-zip-hoodie-72607.webp",
+    "imageAlt": "Signal Hi-Vis Full Zip Hoodie",
+    "colors": ["Lime Green/Black"]
+  },
+  {
+    "id": "full-zip-hooded-sweatshirt-59886",
+    "name": "Full-Zip Hooded Sweatshirt",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Midweight hooded zip-front sweatshirt brings considerable comfort to cool-weather worksites. Priced at 10 units.",
+    "tiers": [
+      [10, 19.78],
+      [50, 15.27],
+      [100, 14.72],
+      [300, 14.4],
+      [500, 12.53]
+    ],
+    "image": "/images/merch/full-zip-hooded-sweatshirt-59886.webp",
+    "imageAlt": "Full-Zip Hooded Sweatshirt",
+    "colors": ["Black", "Gray", "White", "Navy Blue", "Green"]
+  },
+  {
+    "id": "port-and-company-youth-core-fleece-crewneck-sweatshirt-62288",
+    "name": "Port & Company Youth Core Fleece Crewneck Sweatshirt",
+    "category": "Apparel",
+    "brand": "Port & Company",
+    "description": "15 color options. Size: XS, S, M, L, XL. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 96 units.",
+    "tiers": [[96, 25.24]],
+    "image": "/images/merch/port-and-company-youth-core-fleece-crewneck-sweatshirt-62288.webp",
+    "imageAlt": "Port & Company Youth Core Fleece Crewneck Sweatshirt",
+    "colors": [
+      "White",
+      "Ash",
+      "Ath. Heather",
+      "Carolina Blue",
+      "Charcoal",
+      "Dark Green",
+      "Dark Hthr Grey",
+      "Jet Black",
+      "Kelly",
+      "Maroon",
+      "Navy",
+      "Purple",
+      "Red",
+      "Royal Blue",
+      "Sangria"
+    ]
+  },
+  {
+    "id": "sublimated-elite-short-sleeve-t-shirt-38479",
+    "name": "Sublimated Elite Short Sleeve T-Shirt",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Unisex sublimated short sleeve t-shirt with crewneck design. Priced at 10 units.",
+    "tiers": [[10, 29.929]],
+    "image": "/images/merch/sublimated-elite-short-sleeve-t-shirt-38479.webp",
+    "imageAlt": "Sublimated Elite Short Sleeve T-Shirt",
+    "colors": ["Assorted"]
+  },
+  {
+    "id": "night-sports-running-cycling-worker-safety-reflective-vest-00046",
+    "name": "Night Sports Running Cycling Worker Safety Reflective Vest",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Night running reflective vests increase visibility and ensure safety during outdoor activities. Rush service is available. Priced at 50 units.",
+    "tiers": [
+      [50, 5.5],
+      [100, 5.4],
+      [200, 5.3],
+      [500, 5.25],
+      [1000, 4.75]
+    ],
+    "image": "/images/merch/night-sports-running-cycling-worker-safety-reflective-vest-00046.webp",
+    "imageAlt": "Night Sports Running Cycling Worker Safety Reflective Vest",
+    "colors": ["Orange", "Yellow", "Pink", "Gray", "Black"]
+  },
+  {
+    "id": "unisex-durable-gardening-kitchen-cooking-server-chef-apron-99574",
+    "name": "Unisex Durable Gardening Kitchen Cooking Server Chef Apron",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Our aprons are a must-have for a variety of activities and can enhance your work or hobby experience.Rush service is available. Priced at 50 units.",
+    "tiers": [
+      [50, 9.967],
+      [100, 9.933],
+      [200, 9.9],
+      [500, 9.867],
+      [1000, 8.133]
+    ],
+    "image": "/images/merch/unisex-durable-gardening-kitchen-cooking-server-chef-apron-99574.webp",
+    "imageAlt": "Unisex Durable Gardening Kitchen Cooking Server Chef Apron",
+    "colors": ["Black", "Gray", "Green", "Blue", "White", "Teal", "Pink", "Purple", "Red", "Brown"]
+  },
+  {
+    "id": "unisex-versatile-lightweight-wide-brim-rivet-cowboy-hat-88343",
+    "name": "Unisex Versatile Lightweight Wide Brim Rivet Cowboy Hat",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "This exquisite rivet cowboy hat can fully show your personality and style and unleash your charm. Rush service is provided. Priced at 50 units.",
+    "tiers": [
+      [50, 6.767],
+      [100, 6.65],
+      [200, 6.617],
+      [500, 6.45],
+      [1000, 5.967]
+    ],
+    "image": "/images/merch/unisex-versatile-lightweight-wide-brim-rivet-cowboy-hat-88343.webp",
+    "imageAlt": "Unisex Versatile Lightweight Wide Brim Rivet Cowboy Hat",
+    "colors": ["Black", "White", "Brown", "Pink"]
+  },
+  {
+    "id": "nike-golf-ladies-tech-basic-dri-fit-sport-shirt-37847",
+    "name": "Nike Golf Ladies Tech Basic Dri-Fit Sport Shirt",
+    "category": "Apparel",
+    "brand": "Nike",
+    "description": "Ladies short sleeve golf t-shirt made of 100% polyester Dri-FIT fabric. Priced at 6 units.",
+    "tiers": [
+      [6, 133.72],
+      [12, 127.67],
+      [24, 121.25],
+      [48, 117.55],
+      [72, 113.75]
+    ],
+    "image": "/images/merch/nike-golf-ladies-tech-basic-dri-fit-sport-shirt-37847.webp",
+    "imageAlt": "Nike Golf Ladies Tech Basic Dri-Fit Sport Shirt",
+    "colors": [
+      "Black",
+      "Midnight Navy Blue",
+      "University Blue",
+      "Varsity Royal Blue",
+      "Lucky Green",
+      "Vivid Green",
+      "Blaze Orange",
+      "Flamingo Pink",
+      "Varsity Purple",
+      "Pro Red",
+      "Team Red",
+      "White"
+    ]
+  },
+  {
+    "id": "sport-tek-ladies-posicharge-racermesh-polo-dark-all-39012",
+    "name": "Sport-Tek Ladies PosiCharge RacerMesh Polo - Dark/All",
+    "category": "Apparel",
+    "brand": "Sport-Tek",
+    "description": "Ladies short sleeves polo made of 100% polyester. Priced at 12 units.",
+    "tiers": [
+      [12, 31.25],
+      [24, 30.36],
+      [48, 26.63],
+      [72, 25.25],
+      [144, 24.33]
+    ],
+    "image": "/images/merch/sport-tek-ladies-posicharge-racermesh-polo-dark-all-39012.webp",
+    "imageAlt": "Sport-Tek Ladies PosiCharge RacerMesh Polo - Dark/All",
+    "colors": [
+      "Black",
+      "Dawn Blue",
+      "True Navy Blue",
+      "True Royal Blue",
+      "Neon Green",
+      "Bright Pink",
+      "True Red",
+      "Silver",
+      "Graphite",
+      "White",
+      "Pond Blue",
+      "Gold",
+      "Forest Green",
+      "Maroon",
+      "Purple"
+    ]
+  },
+  {
+    "id": "all-seasons-adjustable-workouts-outdoor-hat-baseball-cap-49344",
+    "name": "All Seasons Adjustable Workouts Outdoor Hat Baseball Cap",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Our baseball cap suits multiple occasions, whether it's sports, casual outings or outdoor events. Rush service is available. Priced at 200 units.",
+    "tiers": [
+      [200, 1.283],
+      [500, 1.25],
+      [1000, 1.233],
+      [2000, 1.217],
+      [5000, 1.1]
+    ],
+    "image": "/images/merch/all-seasons-adjustable-workouts-outdoor-hat-baseball-cap-49344.webp",
+    "imageAlt": "All Seasons Adjustable Workouts Outdoor Hat Baseball Cap",
+    "colors": [
+      "Black",
+      "Red",
+      "Royal Blue",
+      "Yellow",
+      "White",
+      "Light Blue",
+      "Beige",
+      "Orange",
+      "Navy Blue"
+    ]
+  },
+  {
+    "id": "callaway-core-performance-polo-big-and-tall-42257",
+    "name": "Callaway Core Performance Polo Big and Tall",
+    "category": "Apparel",
+    "brand": "Callaway",
+    "description": "3 color options. Size: 2XLT, 3XLT, 4XLT, LT, XLT. Priced at 1 unit.",
+    "tiers": [[1, 47.5]],
+    "image": "/images/merch/callaway-core-performance-polo-big-and-tall-42257.webp",
+    "imageAlt": "Callaway Core Performance Polo Big and Tall",
+    "colors": ["Black", "Chili Pepper", "Peacoat Navy"]
+  },
+  {
+    "id": "the-harmony-cap-26035",
+    "name": "The Harmony Cap",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "100% cotton harmony cap. Priced at 36 units.",
+    "tiers": [
+      [36, 18.17],
+      [72, 13.15],
+      [289, 12.74],
+      [576, 12.35],
+      [1008, 11.98]
+    ],
+    "image": "/images/merch/the-harmony-cap-26035.webp",
+    "imageAlt": "The Harmony Cap",
+    "colors": ["Camouflage"]
+  },
+  {
+    "id": "outdoor-tactical-quick-drying-camouflage-baseball-cap-91231",
+    "name": "Outdoor Tactical Quick-Drying Camouflage Baseball Cap",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "This tactical camo hat blends seamlessly into nature for concealment, ideal for hiking, or hunting. Rush service is available. Priced at 100 units.",
+    "tiers": [
+      [100, 4.883],
+      [200, 4.817],
+      [500, 4.767],
+      [1000, 4.733],
+      [2000, 4.45]
+    ],
+    "image": "/images/merch/outdoor-tactical-quick-drying-camouflage-baseball-cap-91231.webp",
+    "imageAlt": "Outdoor Tactical Quick-Drying Camouflage Baseball Cap",
+    "colors": ["Green"]
+  },
+  {
+    "id": "new-era-tonal-camo-stretch-tech-mesh-cap-03449",
+    "name": "New Era® Tonal Camo Stretch Tech Mesh Cap",
+    "category": "Headwear",
+    "brand": "New Era",
+    "description": "Tonal Camo Stretch Tech Mesh Cap. Priced at 6 units.",
+    "tiers": [
+      [6, 33.63],
+      [24, 28.55],
+      [72, 24.97],
+      [288, 22.3]
+    ],
+    "image": "/images/merch/new-era-tonal-camo-stretch-tech-mesh-cap-03449.webp",
+    "imageAlt": "New Era® Tonal Camo Stretch Tech Mesh Cap",
+    "colors": ["Black Camo", "Navy Camo", "Red Camo", "Royal Camo", "Rainstorm Gray Camo-Graphite"]
+  },
+  {
+    "id": "port-authority-snapback-trucker-cap-63392",
+    "name": "Port Authority Snapback Trucker Cap",
+    "category": "Headwear",
+    "brand": "Port Authority",
+    "description": "30 color options. Price per unit drops at 144 units. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 72 units.",
+    "tiers": [
+      [72, 19.44],
+      [144, 18.44],
+      [576, 17.44],
+      [1008, 16.94]
+    ],
+    "image": "/images/merch/port-authority-snapback-trucker-cap-63392.webp",
+    "imageAlt": "Port Authority Snapback Trucker Cap",
+    "colors": [
+      "White",
+      "Black",
+      "Black/Gold",
+      "Black/Grey Stl",
+      "Black/Tan",
+      "Black/White",
+      "Carbl/Wht",
+      "Coyote Brown",
+      "Dark Green/Wht",
+      "Duckbrn/Bk",
+      "Flame Red",
+      "Flame Red/Blk",
+      "Flame Red/Wht",
+      "Frgn/White",
+      "Grey Steel",
+      "Grey Steel/Nbl",
+      "Grey Steel/Nor",
+      "Grey Steel/Npk",
+      "Grey Steel/Nyl",
+      "Grey Steel/Pur",
+      "Grey Steel/Wht",
+      "Gust Gy/Bk/Gys",
+      "Gustygrey",
+      "Gystl/Blk",
+      "Gystl/Trnv",
+      "Heather Gry/Bk",
+      "Htgy/Rcnv",
+      "Hthr Gry/Pa Bl",
+      "Hthr Gry/White",
+      "Ltkhaki/Wh"
+    ]
+  },
+  {
+    "id": "performance-golf-visor-72117",
+    "name": "Performance Golf Visor",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Athletic performance sun visor,lightweight & breathable pro mesh fabric to your face stay shielded and sweat gets wicked away. Priced at 12 units.",
+    "tiers": [
+      [12, 5.833],
+      [144, 5.75],
+      [576, 5.667],
+      [1008, 5.583]
+    ],
+    "image": "/images/merch/performance-golf-visor-72117.webp",
+    "imageAlt": "Performance Golf Visor",
+    "colors": ["Sky Blue", "Black", "Navy", "Red", "Royal", "White"]
+  },
+  {
+    "id": "fisherman-beanie-9-inch-42134",
+    "name": "Fisherman Beanie 9 Inch",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Classic Fisherman style beanie; ribbed knit construction for a comfortable wear. Warm and Stylish, great for all winter activities. Priced at 12 units.",
+    "tiers": [
+      [12, 5.917],
+      [144, 5.833],
+      [576, 5.75],
+      [1008, 5.667]
+    ],
+    "image": "/images/merch/fisherman-beanie-9-inch-42134.webp",
+    "imageAlt": "Fisherman Beanie 9 Inch",
+    "colors": ["Black", "Brown", "Gray", "Green", "Navy Blue", "Orange", "Clear", "Assorted"]
+  },
+  {
+    "id": "patch-rpet-knit-beanie-with-cuff-16678",
+    "name": "Patch rPET Knit Beanie With Cuff",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "One size fits all knit beanie with a cuff made of 100% acrylic with a cotton twill patch. Priced at 144 units.",
+    "tiers": [
+      [144, 5.99],
+      [288, 5.82],
+      [576, 5.65],
+      [1008, 5.49]
+    ],
+    "image": "/images/merch/patch-rpet-knit-beanie-with-cuff-16678.webp",
+    "imageAlt": "Patch rPET Knit Beanie With Cuff",
+    "colors": [
+      "Recycled Forest Green",
+      "Recycled Black",
+      "Recycled Navy Blue",
+      "Recycled Red",
+      "Recycled Royal Blue",
+      "Recycled Light Olive",
+      "Recycled Tan",
+      "Recycled Gray"
+    ]
+  },
+  {
+    "id": "eagle-performance-rope-cap-54650",
+    "name": "Eagle Performance Rope Cap",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Premium 5-panel rope snapback: 100% water-resistant nylon. Rope brim, structured crown, customizable patch. 120g lightweight. Priced at 200 units.",
+    "tiers": [
+      [200, 16.34],
+      [400, 15.81],
+      [800, 15.26],
+      [1600, 14.17],
+      [3200, 13.63]
+    ],
+    "image": "/images/merch/eagle-performance-rope-cap-54650.webp",
+    "imageAlt": "Eagle Performance Rope Cap",
+    "colors": ["Black", "White", "Dark Gray", "Navy Blue", "Khakhi Beige", "Light Gray"]
+  },
+  {
+    "id": "performance-perforated-safari-hat-48852",
+    "name": "Performance Perforated Safari Hat",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Made with an ultra-soft and lightweight microfiber material, performance cap, perforated safari hat. Priced at 12 units.",
+    "tiers": [
+      [12, 10],
+      [144, 9.917],
+      [576, 9.833],
+      [1008, 9.75]
+    ],
+    "image": "/images/merch/performance-perforated-safari-hat-48852.webp",
+    "imageAlt": "Performance Perforated Safari Hat",
+    "colors": ["Black", "Charcoal", "Olive", "Stone", "Khaki"]
+  },
+  {
+    "id": "baseball-cap-adjustable-size-for-running-workouts-07721",
+    "name": "Baseball Cap Adjustable Size for Running Workouts",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Classic athletic cap with a curved bill, adjustable fit, and breathable design for sports and daily wear. Priced at 100 units.",
+    "tiers": [
+      [100, 6.167],
+      [200, 5.933],
+      [500, 5.45],
+      [1000, 5.283],
+      [2000, 4.783]
+    ],
+    "image": "/images/merch/baseball-cap-adjustable-size-for-running-workouts-07721.webp",
+    "imageAlt": "Baseball Cap Adjustable Size for Running Workouts",
+    "colors": [
+      "White",
+      "Light Gray",
+      "Dark Gray",
+      "Black",
+      "Red",
+      "Orange",
+      "Pink",
+      "Rose Red",
+      "Beige",
+      "Khaki",
+      "Golden Yellow",
+      "Military Green",
+      "Fluorescent Green",
+      "Green",
+      "Sky Blue",
+      "Royal Blue",
+      "Military Green Camouflage",
+      "Coffee",
+      "Purple",
+      "Navy Blue",
+      "Light Purple",
+      "Fluorescent Yellow",
+      "Light Yellow",
+      "Peacock Blue",
+      "Burgundy"
+    ]
+  },
+  {
+    "id": "6-panels-performance-quick-dry-golf-perforated-trucker-cap-50148",
+    "name": "6 Panels Performance Quick Dry Golf Perforated Trucker Cap",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "6 Panels performance Quick Dry Golf perforated Trucker Cap, snap back. Priced at 12 units.",
+    "tiers": [
+      [12, 8.333],
+      [48, 8.25],
+      [144, 8.167],
+      [576, 8.083],
+      [1008, 8]
+    ],
+    "image": "/images/merch/6-panels-performance-quick-dry-golf-perforated-trucker-cap-50148.webp",
+    "imageAlt": "6 Panels Performance Quick Dry Golf Perforated Trucker Cap",
+    "colors": [
+      "Green",
+      "Black",
+      "Burgundy",
+      "Gray",
+      "Light Blue",
+      "Silver",
+      "Blue",
+      "Navy Blue",
+      "White",
+      "Assorted",
+      "Multi Color"
+    ]
+  },
+  {
+    "id": "performance-safari-hat-hidden-pocket-23877",
+    "name": "Performance Safari Hat/Hidden Pocket",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Performance Microfiber polyester Safari hat with water repellent UV protection and chin strap. Priced at 12 units.",
+    "tiers": [
+      [12, 9.167],
+      [144, 9.083],
+      [576, 9],
+      [1008, 8.917]
+    ],
+    "image": "/images/merch/performance-safari-hat-hidden-pocket-23877.webp",
+    "imageAlt": "Performance Safari Hat/Hidden Pocket",
+    "colors": ["Black", "Charcoal", "Gray", "Khaki", "Stone"]
+  },
+  {
+    "id": "6-panel-vintage-washed-distressed-cotton-baseball-cap-98885",
+    "name": "6 Panel Vintage Washed Distressed Cotton Baseball Cap",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Product Vintage vibes, modern comfort! Distressed washed cotton, adjustable fit, and timeless retro style for every adventure. Priced at 100 units.",
+    "tiers": [
+      [100, 5.65],
+      [300, 4.983],
+      [600, 4.767],
+      [1500, 4.317],
+      [3000, 4.1]
+    ],
+    "image": "/images/merch/6-panel-vintage-washed-distressed-cotton-baseball-cap-98885.webp",
+    "imageAlt": "6 Panel Vintage Washed Distressed Cotton Baseball Cap",
+    "colors": [
+      "Black",
+      "Red",
+      "Yellow",
+      "Khaki",
+      "Pink",
+      "Rose Red",
+      "Brown",
+      "Light Gray",
+      "Dark Gray",
+      "Dark Blue",
+      "Light Blue",
+      "Mint Blue",
+      "Orange",
+      "Green",
+      "Royal Blue"
+    ]
+  },
+  {
+    "id": "branded-bills-bare-performance-dad-hat-33942",
+    "name": "Branded Bills Bare Performance Dad Hat",
+    "category": "Headwear",
+    "brand": "Branded Bills",
+    "description": "Our Performance line is constructed with materials that are lightweight, wash easily, and stretch for added comfort. Priced at 24 units.",
+    "tiers": [
+      [24, 40.53],
+      [48, 37.74],
+      [96, 36.03],
+      [240, 34.66],
+      [480, 33.77]
+    ],
+    "image": "/images/merch/branded-bills-bare-performance-dad-hat-33942.webp",
+    "imageAlt": "Branded Bills Bare Performance Dad Hat",
+    "colors": ["Black", "Orion", "Purple", "Royal Blue", "Sky Blue"]
+  },
+  {
+    "id": "round-lightweight-fabric-portable-folding-beach-table-54388",
+    "name": "Round Lightweight Fabric Portable Folding Beach Table",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Portable round folding beach table, 28 inch, 4 cup holders, lightweight, 30lb capacity, ideal for picnics, camping, and outdoors. Priced at 50 units.",
+    "tiers": [
+      [50, 24.8],
+      [100, 24.417],
+      [200, 23.85],
+      [500, 23.283],
+      [1000, 22.9]
+    ],
+    "image": "/images/merch/round-lightweight-fabric-portable-folding-beach-table-54388.webp",
+    "imageAlt": "Round Lightweight Fabric Portable Folding Beach Table",
+    "colors": ["Blue", "Black"]
+  },
+  {
+    "id": "outdoor-travel-compact-portable-picnic-camping-folding-table-93083",
+    "name": "Outdoor Travel Compact Portable Picnic Camping Folding Table",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "This portable folding table assembles simply and quickly, and is ideal for outdoor travel and picnics. Rush service is available. Priced at 50 units.",
+    "tiers": [
+      [50, 48.717],
+      [100, 47.833],
+      [200, 46.95],
+      [500, 46.5],
+      [1000, 42.067]
+    ],
+    "image": "/images/merch/outdoor-travel-compact-portable-picnic-camping-folding-table-93083.webp",
+    "imageAlt": "Outdoor Travel Compact Portable Picnic Camping Folding Table",
+    "colors": ["Black", "Brown", "Green"]
+  },
+  {
+    "id": "economy-dry-erase-a-frame-89769",
+    "name": "Economy Dry-Erase A-Frame",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "Portable dry-erase A-frame with slide-in UV-printed panels-ideal for sidewalk, retail, and promotional signage. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "tiers": [
+      [1, 208.95],
+      [10, 202.7]
+    ],
+    "image": "/images/merch/economy-dry-erase-a-frame-89769.webp",
+    "imageAlt": "Economy Dry-Erase A-Frame",
+    "colors": ["White", "Black"]
+  },
+  {
+    "id": "a-frame-sign-poster-paper-07014",
+    "name": "A-Frame Sign Poster Paper",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "A-frame sign poster paper, offered in an assortment of sizes. Made in USA. Priced at 1 unit.",
+    "tiers": [
+      [1, 14.47],
+      [5, 9.6],
+      [10, 8.3],
+      [25, 7.23],
+      [50, 6.72]
+    ],
+    "image": "/images/merch/a-frame-sign-poster-paper-07014.webp",
+    "imageAlt": "A-Frame Sign Poster Paper",
+    "colors": ["Multi color"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "47-x-27-55-horizontal-pop-up-banner-19951",
+    "name": "47\" x 27.55\" Horizontal Pop-Up Banner",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "47\" x 27.55\" Horizontal Pop-up Banner. Priced at 1 unit.",
+    "tiers": [
+      [1, 308],
+      [3, 190.9],
+      [6, 170.5],
+      [12, 132.5],
+      [25, 118]
+    ],
+    "image": "/images/merch/47-x-27-55-horizontal-pop-up-banner-19951.webp",
+    "imageAlt": "47\" x 27.55\" Horizontal Pop-Up Banner"
+  },
+  {
+    "id": "acrylic-donation-box-37832",
+    "name": "Acrylic Donation Box",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "Product Clear acrylic donation box with large display area for fundraising events and carnivals. Priced at 50 units.",
+    "tiers": [
+      [50, 57.456],
+      [100, 55.748],
+      [300, 54.186],
+      [500, 53.625],
+      [1000, 52.354]
+    ],
+    "image": "/images/merch/acrylic-donation-box-37832.webp",
+    "imageAlt": "Acrylic Donation Box",
+    "colors": [
+      "Assorted",
+      "Black",
+      "Blue",
+      "Brown",
+      "Clear",
+      "Gray",
+      "Green",
+      "Multi Color",
+      "Orange",
+      "Pink",
+      "Purple",
+      "Red",
+      "White",
+      "Yellow",
+      "Burgundy",
+      "Gold",
+      "Light Blue",
+      "Maroon",
+      "Navy Blue",
+      "Royal Blue",
+      "Silver",
+      "Teal"
+    ]
+  },
+  {
+    "id": "retractable-belt-stanchion-99006",
+    "name": "Retractable Belt Stanchion",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "35.43 inches tall crowd guide stanchion posts and a retractable 150cm polyester rope(4.8cm). Priced at 20 units.",
+    "tiers": [
+      [20, 73.52],
+      [50, 64.142],
+      [100, 61.435],
+      [500, 60.26],
+      [5000, 36.868]
+    ],
+    "image": "/images/merch/retractable-belt-stanchion-99006.webp",
+    "imageAlt": "Retractable Belt Stanchion",
+    "colors": [
+      "Assorted",
+      "Black",
+      "Blue",
+      "Brown",
+      "Clear",
+      "Gray",
+      "Green",
+      "Multi Color",
+      "Orange",
+      "Pink",
+      "Purple",
+      "Red",
+      "White",
+      "Yellow",
+      "Burgundy",
+      "Gold",
+      "Light Blue",
+      "Maroon",
+      "Navy Blue",
+      "Royal Blue",
+      "Silver",
+      "Teal"
+    ]
+  },
+  {
+    "id": "crowd-control-stanchions-with-velvet-rope-1-04ft-x-3-28ft-71563",
+    "name": "Crowd Control Stanchions With Velvet Rope (1.04ft x 3.28ft)",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "Elevate crowd management with our stainless steel stanchions featuring luxurious red velvet ropes, perfect for events and venues. Pricing shown is for the base size or option; other sizes or options may cost more. Priced at 1 unit.",
+    "tiers": [
+      [1, 215],
+      [10, 208.6]
+    ],
+    "image": "/images/merch/crowd-control-stanchions-with-velvet-rope-1-04ft-x-3-28ft-71563.webp",
+    "imageAlt": "Crowd Control Stanchions With Velvet Rope (1.04ft x 3.28ft)",
+    "colors": ["Pole Color - Gold", "Rope Color - Red"]
+  },
+  {
+    "id": "33-25-double-sided-deluxe-pull-up-banner-stand-stand-only-00197",
+    "name": "33.25\" Double Sided Deluxe Pull-Up Banner Stand (Stand Only)",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "33.25\" double sided deluxe pull-up banner stand. Made in USA. Priced at 1 unit.",
+    "tiers": [
+      [1, 287.5],
+      [2, 257.6],
+      [5, 230],
+      [10, 204.7],
+      [25, 193.2]
+    ],
+    "image": "/images/merch/33-25-double-sided-deluxe-pull-up-banner-stand-stand-only-00197.webp",
+    "imageAlt": "33.25\" Double Sided Deluxe Pull-Up Banner Stand (Stand Only)",
+    "colors": ["White"]
+  },
+  {
+    "id": "silverstep-tabletop-36-retractable-banner-stand-with-light-23329",
+    "name": "Silverstep Tabletop 36'' Retractable Banner Stand with Light",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "Silverstep Tabletop Retractable Banner Stand deliver a sleek aluminum design with stunning graphics for impactful tabletop display. Priced at 1 unit.",
+    "tiers": [
+      [1, 292.72],
+      [10, 283.9]
+    ],
+    "image": "/images/merch/silverstep-tabletop-36-retractable-banner-stand-with-light-23329.webp",
+    "imageAlt": "Silverstep Tabletop 36'' Retractable Banner Stand with Light"
+  },
+  {
+    "id": "printed-chunky-bands-56995",
+    "name": "Printed Chunky Bands",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "1\" silicone printed chunky bands. Priced at 125 units.",
+    "tiers": [
+      [125, 2.1],
+      [250, 1.2],
+      [500, 0.97],
+      [1000, 0.85],
+      [2500, 0.79]
+    ],
+    "image": "/images/merch/printed-chunky-bands-56995.webp",
+    "imageAlt": "Printed Chunky Bands",
+    "colors": ["Assorted"]
+  },
+  {
+    "id": "ascent-sail-sign-flag-optional-base-graphic-44061",
+    "name": "Ascent Sail Sign Flag Optional Base Graphic",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "22.5' sail sign flag with carbon composite poles and foldable base. Priced at 1 unit.",
+    "tiers": [
+      [1, 110],
+      [2, 106.7],
+      [6, 103.4],
+      [12, 100.1],
+      [25, 96.8]
+    ],
+    "image": "/images/merch/ascent-sail-sign-flag-optional-base-graphic-44061.webp",
+    "imageAlt": "Ascent Sail Sign Flag Optional Base Graphic",
+    "colors": ["Full Color", "Full Bleed"]
+  },
+  {
+    "id": "metal-lawn-sign-stake-board-aluminum-yard-marker-plate-07517",
+    "name": "Metal Lawn Sign Stake Board Aluminum Yard Marker Plate",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "This durable outdoor metal yard sign provides a high-visibility, long-lasting solution for property markers and garden warnings. Priced at 100 units.",
+    "tiers": [
+      [100, 10.267],
+      [300, 9.733],
+      [500, 6.4],
+      [1000, 5.867]
+    ],
+    "image": "/images/merch/metal-lawn-sign-stake-board-aluminum-yard-marker-plate-07517.webp",
+    "imageAlt": "Metal Lawn Sign Stake Board Aluminum Yard Marker Plate",
+    "colors": ["Black", "Red", "Silver", "Blue", "Orange", "Green"]
+  },
+  {
+    "id": "spider-stake-for-yard-sign-89733",
+    "name": "Spider Stake For Yard Sign",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "Spider stake with two metal prongs. Priced at 100 units.",
+    "tiers": [[100, 4.76]],
+    "image": "/images/merch/spider-stake-for-yard-sign-89733.webp",
+    "imageAlt": "Spider Stake For Yard Sign"
+  },
+  {
+    "id": "medium-corrugated-yard-sign-full-color-2-sides-83577",
+    "name": "Medium Corrugated Yard Sign - Full Color - 2 Sides",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "24\" x 18\" 4 mil Corrugated Double Sided Yard Sign with Full Color Digital Print. Made in USA. Priced at 6 units.",
+    "tiers": [
+      [6, 15],
+      [12, 12.25],
+      [25, 12.05],
+      [50, 11.75],
+      [100, 10.25]
+    ],
+    "image": "/images/merch/medium-corrugated-yard-sign-full-color-2-sides-83577.webp",
+    "imageAlt": "Medium Corrugated Yard Sign - Full Color - 2 Sides"
+  },
+  {
+    "id": "canopy-water-weight-bag-65042",
+    "name": "Canopy Water Weight Bag",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "Canopy Water Weight Bag for Pop Up Canopy,Gazebo,Canopies. Priced at 60 units.",
+    "tiers": [
+      [60, 13.483],
+      [210, 7.767],
+      [450, 7.733],
+      [600, 7.717]
+    ],
+    "image": "/images/merch/canopy-water-weight-bag-65042.webp",
+    "imageAlt": "Canopy Water Weight Bag",
+    "colors": ["Black", "Gray", "Blue", "Green", "Khaki"]
+  },
+  {
+    "id": "420d-oxford-large-weight-sandbag-90527",
+    "name": "420D Oxford Large Weight Sandbag",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "18\" x 7.8\" 420D Oxford Heavy Weight Handle Sandbag with Zipper and Fastener Straps for Pop up Canopy Tent. Priced at 150 units.",
+    "tiers": [
+      [150, 4.117],
+      [600, 3.767],
+      [1800, 3.433],
+      [4500, 3.083],
+      [9000, 2.567]
+    ],
+    "image": "/images/merch/420d-oxford-large-weight-sandbag-90527.webp",
+    "imageAlt": "420D Oxford Large Weight Sandbag",
+    "colors": ["Black"]
+  },
+  {
+    "id": "13-oz-vinyl-banner-79321",
+    "name": "13 oz Vinyl Banner",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "13 ounce vinyl one-sided banner in assorted sizes with four grommet holes. Made in USA. Priced at 1 unit.",
+    "tiers": [
+      [1, 43.1],
+      [3, 40.28],
+      [8, 37.65],
+      [17, 35.18],
+      [50, 32.88]
+    ],
+    "image": "/images/merch/13-oz-vinyl-banner-79321.webp",
+    "imageAlt": "13 oz Vinyl Banner",
+    "colors": ["White"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "vinyl-banner-4-x-6-58263",
+    "name": "Vinyl Banner 4' x 6'",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "Our Custom 4' x 6' Banners can be used for making an eye-catching statement or advertisements! Priced at 1 unit.",
+    "tiers": [
+      [1, 96.56],
+      [5, 91.72],
+      [10, 86.9],
+      [50, 82.06]
+    ],
+    "image": "/images/merch/vinyl-banner-4-x-6-58263.webp",
+    "imageAlt": "Vinyl Banner 4' x 6'",
+    "colors": ["Gloss White"]
+  },
+  {
+    "id": "9-x-24-custom-printed-felt-pennant-46895",
+    "name": "9\" x 24\" Custom Printed Felt Pennant",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "9\" x 24\" digitally printed custom felt pennant. Priced at 25 units.",
+    "tiers": [
+      [25, 11.25],
+      [50, 8.9],
+      [100, 7.35],
+      [250, 5.95]
+    ],
+    "image": "/images/merch/9-x-24-custom-printed-felt-pennant-46895.webp",
+    "imageAlt": "9\" x 24\" Custom Printed Felt Pennant"
+  },
+  {
+    "id": "15-pvc-triangular-pennant-string-51707",
+    "name": "15' PVC Triangular Pennant String",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "PVC Triangular pennant string; 15'. Priced at 12 units.",
+    "tiers": [
+      [12, 175],
+      [25, 96.5],
+      [50, 56.2]
+    ],
+    "image": "/images/merch/15-pvc-triangular-pennant-string-51707.webp",
+    "imageAlt": "15' PVC Triangular Pennant String"
+  },
+  {
+    "id": "full-color-terry-microfiber-serged-rally-towel-42982",
+    "name": "Full Color Terry Microfiber Serged Rally Towel",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "EQP (End Quantity Pricing) Full Color Dye Sublimated Terry Microfiber Serged Rally Towel available in two sizes. Priced at 12 units.",
+    "tiers": [
+      [12, 2.49],
+      [24, 2.26],
+      [48, 2.15],
+      [100, 2.07],
+      [250, 2.01]
+    ],
+    "image": "/images/merch/full-color-terry-microfiber-serged-rally-towel-42982.webp",
+    "imageAlt": "Full Color Terry Microfiber Serged Rally Towel",
+    "colors": ["Multi Color"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "rally-towel-89917",
+    "name": "Rally Towel, 15.5\" x 13.25\"",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "15.5\" x 13.25\" rally towel made of terry cloth. Priced at 100 units.",
+    "tiers": [
+      [100, 2.65],
+      [250, 2.35],
+      [500, 2.2],
+      [1000, 2.05],
+      [2500, 1.79]
+    ],
+    "image": "/images/merch/rally-towel-89917.webp",
+    "imageAlt": "Rally Towel, 15.5\" x 13.25\"",
+    "colors": [
+      "Athletic Gold",
+      "Black",
+      "Burgundy",
+      "Gray",
+      "Hunter Green",
+      "Light Blue",
+      "Lime Green",
+      "Navy Blue",
+      "Orange",
+      "Pink",
+      "Purple",
+      "Red",
+      "Royal Blue",
+      "White"
+    ]
   }
 ]

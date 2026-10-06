@@ -982,10 +982,16 @@ describe("manual overrides", () => {
       await fs.readFile(path.join(__dirname, "../scripts/data/import-overrides.json"), "utf8")
     );
     const overrides = parseOverrides(file);
-    expect(overrides.map((o) => o.espId)).toEqual(["7273365", "552519118", "553353508"]);
+    expect(overrides.map((o) => o.espId)).toEqual([
+      "7273365",
+      "552519118",
+      "553353508",
+      "556172558",
+    ]);
     expect(overrides[0].keepEspId).toBe("556464384");
     expect(overrides[1].keepCuratedId).toBe("6panel-premium-relaxed-golf-cap");
     expect(overrides[2].keepEspId).toBe("553866344");
+    expect(overrides[3].keepEspId).toBe("552519542");
     const shippedIds = new Set(products.map((p) => p.id));
     expect(shippedIds.has("6panel-premium-relaxed-golf-cap")).toBe(true);
   });
