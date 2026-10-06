@@ -148,5 +148,37 @@
     "Bright Blue": "/images/merch/colors/legal-sized-portfolios-21311-bright-blue.webp",
     "White": "/images/merch/colors/legal-sized-portfolios-21311-white.webp",
     "Black": "/images/merch/colors/legal-sized-portfolios-21311-black.webp"
+  },
+  "two-tone-sleek-write-rubberized-pen-75268": {
+    "Black/Lt Blue": "/images/merch/colors/two-tone-sleek-write-rubberized-pen-75268-black-lt-blue.webp",
+    "Black/Blue": "/images/merch/colors/two-tone-sleek-write-rubberized-pen-75268-black-blue.webp",
+    "Black/Gray": "/images/merch/colors/two-tone-sleek-write-rubberized-pen-75268-black-gray.webp"
+  },
+  "ellipse-softy-white-barrel-pen-w-stylus-91765": {
+    "White-Green-Silver": "/images/merch/colors/ellipse-softy-white-barrel-pen-w-stylus-91765-white-green-silver.webp",
+    "White-Orange-Silver": "/images/merch/colors/ellipse-softy-white-barrel-pen-w-stylus-91765-white-orange-silver.webp",
+    "White-White-Silver": "/images/merch/colors/ellipse-softy-white-barrel-pen-w-stylus-91765-white-white-silver.webp"
+  },
+  "fold-up-flyer-with-case-95989": {
+    "Lime Green-Black": "/images/merch/colors/fold-up-flyer-with-case-95989-lime-green-black.webp",
+    "Orange-Black": "/images/merch/colors/fold-up-flyer-with-case-95989-orange-black.webp",
+    "Purple-Black": "/images/merch/colors/fold-up-flyer-with-case-95989-purple-black.webp",
+    "Red-Black": "/images/merch/colors/fold-up-flyer-with-case-95989-red-black.webp",
+    "White-Black": "/images/merch/colors/fold-up-flyer-with-case-95989-white-black.webp",
+    "Yellow-Black": "/images/merch/colors/fold-up-flyer-with-case-95989-yellow-black.webp",
+    "Blue-Black": "/images/merch/colors/fold-up-flyer-with-case-95989-blue-black.webp",
+    "Green-Black": "/images/merch/colors/fold-up-flyer-with-case-95989-green-black.webp"
+  },
+  "silicone-flyer-83610": {
+    "Blue": "/images/merch/colors/silicone-flyer-83610-blue.webp",
+    "Red": "/images/merch/colors/silicone-flyer-83610-red.webp",
+    "Purple": "/images/merch/colors/silicone-flyer-83610-purple.webp",
+    "Pink": "/images/merch/colors/silicone-flyer-83610-pink.webp",
+    "Orange": "/images/merch/colors/silicone-flyer-83610-orange.webp",
+    "Lime Green": "/images/merch/colors/silicone-flyer-83610-lime-green.webp",
+    "Green": "/images/merch/colors/silicone-flyer-83610-green.webp"
+  },
+  "stainless-steel-bottle-with-bamboo-lid-24103": {
+    "Black": "/images/merch/colors/stainless-steel-bottle-with-bamboo-lid-24103-black.webp"
   }
 }
