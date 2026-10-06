@@ -49,7 +49,19 @@ export default function OrderItemsTable({
                 key={`${item.productId ?? item.name}::${item.color ?? ""}::${index}`}
                 className="border-b border-gold/15 align-top last:border-b-0"
               >
-                <td className="py-2.5 pr-3 text-onyx">{item.name}</td>
+                <td className="py-2.5 pr-3 text-onyx">
+                  {item.name}
+                  {item.sizes && (
+                    <div className="mt-1 whitespace-pre-wrap text-xs text-onyx/70">
+                      <span className="font-semibold">Sizes and quantities:</span> {item.sizes}
+                    </div>
+                  )}
+                  {item.imprintNotes && (
+                    <div className="mt-1 whitespace-pre-wrap text-xs text-onyx/70">
+                      <span className="font-semibold">Imprint notes:</span> {item.imprintNotes}
+                    </div>
+                  )}
+                </td>
                 <td className="py-2.5 pr-3 text-onyx/80">{item.color ?? "Not specified"}</td>
                 <td className="py-2.5 pr-3 text-right tabular-nums text-onyx">
                   {item.quantity.toLocaleString("en-US")}

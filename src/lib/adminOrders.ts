@@ -352,6 +352,9 @@ export interface OrderItem {
   name: string;
   color?: string;
   quantity: number;
+  /** Customer-entered size breakdown and imprint notes; absent on orders placed before these existed. */
+  sizes?: string;
+  imprintNotes?: string;
   unitPrice?: number;
   lineTotal?: number;
   /** Backend ESP+ fields: admin only, never shown to customers. */
@@ -376,11 +379,15 @@ export function readOrderItems(data: RawData): OrderItem[] {
     const espUrl = str(item.espUrl);
     const supplier = str(item.supplier);
     const productNo = str(item.productNo);
+    const sizes = str(item.sizes);
+    const imprintNotes = str(item.imprintNotes);
     items.push({
       ...(str(item.productId) ? { productId: str(item.productId) } : {}),
       name,
       ...(str(item.color) ? { color: str(item.color) } : {}),
       quantity,
+      ...(sizes ? { sizes } : {}),
+      ...(imprintNotes ? { imprintNotes } : {}),
       ...(unitPrice !== undefined ? { unitPrice } : {}),
       ...(lineTotal !== undefined ? { lineTotal } : {}),
       ...(espUrl ? { espUrl } : {}),

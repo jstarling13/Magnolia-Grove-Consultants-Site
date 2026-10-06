@@ -71,6 +71,9 @@ interface CartLineItemDTO {
   name: string;
   // Absent on orders stored before colors were recorded.
   color?: string;
+  // Customer-entered; absent on orders stored before these existed.
+  sizes?: string;
+  imprintNotes?: string;
   quantity: number;
   unitPrice: number;
   lineTotal: number;
@@ -850,6 +853,16 @@ export default function Dashboard({
                             <p className="mt-0.5 text-xs text-onyx/60">
                               {describeLineColor(item.color)}
                             </p>
+                            {item.sizes && (
+                              <p className="mt-0.5 whitespace-pre-wrap text-xs text-onyx/60">
+                                Sizes and quantities: {item.sizes}
+                              </p>
+                            )}
+                            {item.imprintNotes && (
+                              <p className="mt-0.5 whitespace-pre-wrap text-xs text-onyx/60">
+                                Imprint notes: {item.imprintNotes}
+                              </p>
+                            )}
                             {(item.espUrl || item.supplier || item.productNo) && (
                               <p className="mt-0.5 text-xs text-onyx/60">
                                 {item.espUrl && (

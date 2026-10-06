@@ -96,6 +96,48 @@ describe("cartCheckoutSchema", () => {
   });
 });
 
+describe("cartCheckoutSchema line details", () => {
+  const line = { productId: VEST, color: "Navy", quantity: 6 };
+  const parse = (extra: Record<string, unknown>) =>
+    cartCheckoutSchema.safeParse({ ...contact, items: [{ ...line, ...extra }] });
+
+  it("accepts optional sizes and imprint notes, trimmed", () => {
+    const parsed = parse({ sizes: "  2 M, 4 L ", imprintNotes: "Left chest, white ink" });
+    expect(parsed.success).toBe(true);
+    if (parsed.success) {
+      expect(parsed.data.items[0].sizes).toBe("2 M, 4 L");
+      expect(parsed.data.items[0].imprintNotes).toBe("Left chest, white ink");
+    }
+  });
+
+  it("still accepts a line with neither", () => {
+    expect(parse({}).success).toBe(true);
+  });
+
+  it("allows exactly 300 characters and rejects 301 with a specific message", () => {
+    expect(parse({ sizes: "x".repeat(300), imprintNotes: "y".repeat(300) }).success).toBe(true);
+    const tooLongSizes = parse({ sizes: "x".repeat(301) });
+    expect(tooLongSizes.success).toBe(false);
+    if (!tooLongSizes.success) {
+      expect(tooLongSizes.error.issues[0].message).toBe(
+        "Keep sizes and quantities under 300 characters."
+      );
+    }
+    const tooLongImprint = parse({ imprintNotes: "y".repeat(301) });
+    expect(tooLongImprint.success).toBe(false);
+    if (!tooLongImprint.success) {
+      expect(tooLongImprint.error.issues[0].message).toBe(
+        "Keep imprint notes under 300 characters."
+      );
+    }
+  });
+
+  it("rejects non-text values", () => {
+    expect(parse({ sizes: 12 }).success).toBe(false);
+    expect(parse({ imprintNotes: ["a"] }).success).toBe(false);
+  });
+});
+
 describe("POST /api/merchant/cart-checkout", () => {
   beforeEach(() => {
     vi.clearAllMocks();
@@ -325,5 +367,64 @@ describe("POST /api/merchant/cart-checkout: customer confirmation", () => {
     const response = await post([{ productId: VEST, color: "Hot Pink", quantity: 6 }]);
     expect(response.status).toBe(400);
     expect(mocks.sendMerchRequestConfirmation).not.toHaveBeenCalled();
+  });
+
+  it("stores sizes and imprint notes on the line and passes them to both emails", async () => {
+    const response = await post([
+      {
+        productId: VEST,
+        color: "Navy",
+        quantity: 6,
+        sizes: " 2 M, 4 L ",
+        imprintNotes: "Left chest, white ink",
+      },
+      { productId: "plain-test-item", quantity: 10, sizes: "   ", imprintNotes: "" },
+    ]);
+    expect(response.status).toBe(200);
+
+    const items = mocks.recordSubmission.mock.calls[0][1].items as Record<string, unknown>[];
+    expect(items[0]).toMatchObject({ sizes: "2 M, 4 L", imprintNotes: "Left chest, white ink" });
+    // Blank text is not stored at all.
+    expect(items[1]).not.toHaveProperty("sizes");
+    expect(items[1]).not.toHaveProperty("imprintNotes");
+
+    const notified = mocks.sendCartOrderNotification.mock.calls[0][0].items;
+    expect(notified[0]).toMatchObject({ sizes: "2 M, 4 L", imprintNotes: "Left chest, white ink" });
+    const confirmed = mocks.sendMerchRequestConfirmation.mock.calls[0][0].items;
+    expect(confirmed[0]).toMatchObject({
+      sizes: "2 M, 4 L",
+      imprintNotes: "Left chest, white ink",
+    });
+    expect(confirmed[1]).not.toHaveProperty("sizes");
+  });
+
+  it("rejects over-long sizes with a 400 that names the field's problem", async () => {
+    const response = await post([
+      { productId: VEST, color: "Navy", quantity: 6, sizes: "x".repeat(301) },
+    ]);
+    expect(response.status).toBe(400);
+    expect(JSON.stringify((await response.json()).issues)).toContain("under 300 characters");
+    expect(mocks.recordSubmission).not.toHaveBeenCalled();
+  });
+
+  it("never prints a configuration reason: the 503 and 500 use the generic message with real contact details", async () => {
+    const generic =
+      "We couldn't send your request. Please email ben@magnoliagrovega.com or call (706) 573-1719.";
+    const errorLog = vi.spyOn(console, "error").mockImplementation(() => {});
+
+    mocks.sendCartOrderNotification.mockResolvedValue({ sent: false, reason: "not_configured" });
+    const notConfigured = await post(cart);
+    expect(notConfigured.status).toBe(503);
+    expect((await notConfigured.json()).error).toBe(generic);
+    // The real reason is kept for the server log.
+    expect(errorLog.mock.calls.flat().join(" ")).toContain("not_configured");
+
+    mocks.sendCartOrderNotification.mockRejectedValue(new Error("db password rejected"));
+    const failed = await post(cart);
+    expect(failed.status).toBe(500);
+    const body = await failed.json();
+    expect(body.error).toBe(generic);
+    expect(JSON.stringify(body)).not.toContain("password");
+    errorLog.mockRestore();
   });
 });

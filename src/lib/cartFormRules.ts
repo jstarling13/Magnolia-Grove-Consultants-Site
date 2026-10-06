@@ -11,6 +11,8 @@ export const CART_FORM_LIMITS = {
   phoneMin: 7,
   phoneMax: 30,
   notesMax: 2000,
+  /** Longest "Sizes and quantities" or "Imprint notes" text on one cart line. */
+  lineDetailMax: 300,
   /** Largest quantity the API accepts on one cart line. */
   lineQuantityMax: 100000,
   /** Distinct product/color lines the API accepts in one request. */
@@ -28,6 +30,8 @@ export const CART_FORM_MESSAGES = {
   phoneTooShort: `Enter a phone number with at least ${CART_FORM_LIMITS.phoneMin} characters.`,
   phoneTooLong: `Keep your phone number under ${CART_FORM_LIMITS.phoneMax} characters.`,
   notesTooLong: `Keep notes under ${CART_FORM_LIMITS.notesMax} characters.`,
+  sizesTooLong: `Keep sizes and quantities under ${CART_FORM_LIMITS.lineDetailMax} characters.`,
+  imprintNotesTooLong: `Keep imprint notes under ${CART_FORM_LIMITS.lineDetailMax} characters.`,
   cartEmpty: "Your cart is empty.",
   quantityMax: `The most we can take on one line is ${CART_FORM_LIMITS.lineQuantityMax.toLocaleString("en-US")} units. For larger orders, email us.`,
 } as const;
@@ -35,6 +39,27 @@ export const CART_FORM_MESSAGES = {
 /** Same practical email rule zod applies server-side, written out so the client needs no zod. */
 export const EMAIL_PATTERN =
   /^(?!\.)(?!.*\.\.)([A-Za-z0-9_'+\-.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9-]*\.)+[A-Za-z]{2,}$/;
+
+/**
+ * Product categories whose cart lines offer a "Sizes and quantities" box.
+ * Other categories carry a "base size" note on the product page instead.
+ */
+export const SIZED_CATEGORIES: readonly string[] = ["Apparel", "Headwear"];
+
+export function categoryTakesSizes(category: string | undefined): boolean {
+  return category !== undefined && SIZED_CATEGORIES.includes(category);
+}
+
+/**
+ * Normalises the free text on a cart line ("24 M, 60 L" or "Left chest, white
+ * ink"): non-strings and blank text become undefined, anything longer than the
+ * limit is cut. Used when reading a saved cart, which can hold anything.
+ */
+export function cleanLineDetail(value: unknown): string | undefined {
+  if (typeof value !== "string") return undefined;
+  const text = value.trim();
+  return text ? text.slice(0, CART_FORM_LIMITS.lineDetailMax) : undefined;
+}
 
 export const CART_CONTACT_FIELDS = ["firstName", "lastName", "email", "phone", "notes"] as const;
 export type CartContactField = (typeof CART_CONTACT_FIELDS)[number];

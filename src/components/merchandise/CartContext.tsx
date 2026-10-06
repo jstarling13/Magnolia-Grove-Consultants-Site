@@ -10,7 +10,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { CART_FORM_LIMITS } from "@/lib/cartFormRules";
+import { CART_FORM_LIMITS, cleanLineDetail } from "@/lib/cartFormRules";
 import { cartLineKey, cleanLineColor } from "@/lib/cartPricing";
 
 /**
@@ -22,6 +22,19 @@ export interface CartLineItem {
   productId: string;
   color?: string;
   quantity: number;
+  /**
+   * Optional size breakdown typed on the cart page ("24 M, 60 L, 60 XL").
+   * Saved with the line. Carts saved before this existed simply lack it.
+   */
+  sizes?: string;
+  /** Optional imprint notes typed on the cart page (location, ink color). */
+  imprintNotes?: string;
+}
+
+/** The free-text details a shopper can add to a line. */
+export interface LineDetails {
+  sizes?: string;
+  imprintNotes?: string;
 }
 
 interface CartContextValue {
@@ -39,6 +52,8 @@ interface CartContextValue {
   /** Sets the quantity of one line; zero or less removes it. */
   updateQuantity: (productId: string, quantity: number, color?: string) => void;
   removeItem: (productId: string, color?: string) => void;
+  /** Sets or clears the sizes and imprint notes on one line. Blank text clears a field. */
+  setLineDetails: (productId: string, color: string | undefined, details: LineDetails) => void;
   /** Re-colors a line (used to fix legacy lines), merging into an existing same-color line. */
   changeColor: (productId: string, fromColor: string | undefined, toColor: string) => void;
   clear: () => void;
@@ -57,9 +72,26 @@ function sameLine(item: CartLineItem, productId: string, color: string | undefin
   return item.productId === productId && cleanLineColor(item.color) === cleanLineColor(color);
 }
 
-function makeLine(productId: string, color: string | undefined, quantity: number): CartLineItem {
+function makeLine(
+  productId: string,
+  color: string | undefined,
+  quantity: number,
+  details: LineDetails = {}
+): CartLineItem {
   const cleaned = cleanLineColor(color);
-  return cleaned ? { productId, color: cleaned, quantity } : { productId, quantity };
+  const base: CartLineItem = cleaned
+    ? { productId, color: cleaned, quantity }
+    : { productId, quantity };
+  // Saved lines hold only what the shopper actually typed: no empty keys.
+  if (details.sizes) base.sizes = details.sizes;
+  if (details.imprintNotes) base.imprintNotes = details.imprintNotes;
+  return base;
+}
+
+/** Text with something in it, cut to the limit but not trimmed, so a shopper can type spaces between words. */
+function keepTyping(value: string | undefined): string | undefined {
+  if (typeof value !== "string" || value.trim() === "") return undefined;
+  return value.slice(0, CART_FORM_LIMITS.lineDetailMax);
 }
 
 /** Pure cart transitions, exported so they can be tested without React. */
@@ -100,6 +132,26 @@ export function removeLine(
   return items.filter((item) => !sameLine(item, productId, color));
 }
 
+/**
+ * Updates the sizes and/or imprint notes of one line. A field that is left out
+ * of `details` is kept as it was; blank text clears it.
+ */
+export function setLineDetails(
+  items: CartLineItem[],
+  productId: string,
+  color: string | undefined,
+  details: LineDetails
+): CartLineItem[] {
+  return items.map((item) => {
+    if (!sameLine(item, productId, color)) return item;
+    const { sizes: _sizes, imprintNotes: _imprint, ...rest } = item;
+    const sizes = "sizes" in details ? keepTyping(details.sizes) : item.sizes;
+    const imprintNotes =
+      "imprintNotes" in details ? keepTyping(details.imprintNotes) : item.imprintNotes;
+    return { ...rest, ...(sizes ? { sizes } : {}), ...(imprintNotes ? { imprintNotes } : {}) };
+  });
+}
+
 export function recolorLine(
   items: CartLineItem[],
   productId: string,
@@ -110,16 +162,24 @@ export function recolorLine(
   if (!source || sameLine(source, productId, toColor)) return items;
   const withoutSource = removeLine(items, productId, fromColor);
   if (withoutSource.some((item) => sameLine(item, productId, toColor))) {
-    // Merge into the line that already has the target color.
+    // Merge into the line that already has the target color; its own sizes and
+    // notes win, and the merged-in line's fill any gap.
     return withoutSource.map((item) =>
       sameLine(item, productId, toColor)
-        ? { ...item, quantity: item.quantity + source.quantity }
+        ? {
+            ...item,
+            quantity: item.quantity + source.quantity,
+            ...(item.sizes || !source.sizes ? {} : { sizes: source.sizes }),
+            ...(item.imprintNotes || !source.imprintNotes
+              ? {}
+              : { imprintNotes: source.imprintNotes }),
+          }
         : item
     );
   }
   // Keep the line where it was so the cart doesn't reshuffle under the shopper.
   return items.map((item) =>
-    item === source ? makeLine(productId, toColor, item.quantity) : item
+    item === source ? makeLine(productId, toColor, item.quantity, source) : item
   );
 }
 
@@ -154,18 +214,23 @@ export function parseStoredCart(raw: string | null): CartLineItem[] {
   const merged = new Map<string, CartLineItem>();
   for (const entry of parsed) {
     if (!entry || typeof entry !== "object") continue;
-    const { productId, color, quantity } = entry as Record<string, unknown>;
+    const { productId, color, quantity, sizes, imprintNotes } = entry as Record<string, unknown>;
     if (typeof productId !== "string" || !productId) continue;
     if (typeof quantity !== "number" || !Number.isFinite(quantity) || quantity < 1) continue;
     const line = makeLine(
       productId,
       typeof color === "string" ? color : undefined,
-      Math.floor(quantity)
+      Math.floor(quantity),
+      // Older carts have neither field; anything that is not text is dropped.
+      { sizes: cleanLineDetail(sizes), imprintNotes: cleanLineDetail(imprintNotes) }
     );
     const key = cartLineKey(line.productId, line.color);
     const existing = merged.get(key);
-    if (existing) existing.quantity += line.quantity;
-    else merged.set(key, line);
+    if (existing) {
+      existing.quantity += line.quantity;
+      if (!existing.sizes && line.sizes) existing.sizes = line.sizes;
+      if (!existing.imprintNotes && line.imprintNotes) existing.imprintNotes = line.imprintNotes;
+    } else merged.set(key, line);
   }
   // A real cart never exceeds what the API accepts; this also bounds how many
   // products the cart page will ask for if storage was tampered with.
@@ -239,6 +304,13 @@ export function CartProvider({ children, availableProductIds }: CartProviderProp
     []
   );
 
+  const updateLineDetails = useCallback(
+    (productId: string, color: string | undefined, details: LineDetails) => {
+      setItems((prev) => setLineDetails(prev, productId, color, details));
+    },
+    []
+  );
+
   const clear = useCallback(() => setItems([]), []);
 
   // The latest items, so removeProducts can count what it drops without
@@ -273,6 +345,7 @@ export function CartProvider({ children, availableProductIds }: CartProviderProp
         updateQuantity,
         removeItem,
         changeColor,
+        setLineDetails: updateLineDetails,
         clear,
         removeProducts,
       }}

@@ -64,6 +64,17 @@ export const cartCheckoutSchema = z.object({
           .int()
           .positive()
           .max(CART_FORM_LIMITS.lineQuantityMax, CART_FORM_MESSAGES.quantityMax),
+        // Optional free text per line, e.g. "24 M, 60 L, 60 XL" and "Left chest, white ink".
+        sizes: z
+          .string()
+          .trim()
+          .max(CART_FORM_LIMITS.lineDetailMax, CART_FORM_MESSAGES.sizesTooLong)
+          .optional(),
+        imprintNotes: z
+          .string()
+          .trim()
+          .max(CART_FORM_LIMITS.lineDetailMax, CART_FORM_MESSAGES.imprintNotesTooLong)
+          .optional(),
       })
     )
     .min(1, CART_FORM_MESSAGES.cartEmpty),
@@ -80,6 +91,10 @@ export interface PricedCartLineItem {
   /** Color the customer chose; absent for products without colors and for orders stored before colors were recorded. */
   color?: string;
   quantity: number;
+  /** Customer's size breakdown, e.g. "24 M, 60 L, 60 XL"; absent when not given and on older orders. */
+  sizes?: string;
+  /** Customer's imprint notes (location, ink color); absent when not given and on older orders. */
+  imprintNotes?: string;
   unitPrice: number;
   lineTotal: number;
   /**
