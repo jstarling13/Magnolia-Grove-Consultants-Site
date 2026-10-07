@@ -18,5 +18,15 @@
     "Evergreen": "/images/merch/colors/bella-canvas-unisex-half-sleeve-t-shirt-98208-evergreen.webp",
     "Olive": "/images/merch/colors/bella-canvas-unisex-half-sleeve-t-shirt-98208-olive.webp",
     "Red": "/images/merch/colors/bella-canvas-unisex-half-sleeve-t-shirt-98208-red.webp"
+  },
+  "bella-canvas-unisex-sponge-fleece-full-zip-hoodie-73139": {
+    "Maroon": "/images/merch/colors/bella-canvas-unisex-sponge-fleece-full-zip-hoodie-73139-maroon.webp",
+    "Red": "/images/merch/colors/bella-canvas-unisex-sponge-fleece-full-zip-hoodie-73139-red.webp",
+    "Teal": "/images/merch/colors/bella-canvas-unisex-sponge-fleece-full-zip-hoodie-73139-teal.webp"
+  },
+  "gildan-ultra-cotton-tshirt": {
+    "Cornsilk": "/images/merch/colors/gildan-ultra-cotton-tshirt-cornsilk.webp",
+    "Galapagos Blue": "/images/merch/colors/gildan-ultra-cotton-tshirt-galapagos-blue.webp",
+    "Mint Green": "/images/merch/colors/gildan-ultra-cotton-tshirt-mint-green.webp"
   }
 }
