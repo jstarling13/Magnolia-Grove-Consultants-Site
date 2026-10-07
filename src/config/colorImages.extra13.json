@@ -138,5 +138,17 @@
   "coffee-mug-set-61676": {
     "Black": "/images/merch/colors/coffee-mug-set-61676-black.webp",
     "Blue": "/images/merch/colors/coffee-mug-set-61676-blue.webp"
+  },
+  "mini-square-mint-tin-70962": {
+    "Green": "/images/merch/colors/mini-square-mint-tin-70962-green.webp",
+    "Red": "/images/merch/colors/mini-square-mint-tin-70962-red.webp",
+    "White": "/images/merch/colors/mini-square-mint-tin-70962-white.webp"
+  },
+  "carryflow-30oz-ss-mug-with-non-slip-base-79532": {
+    "Black": "/images/merch/colors/carryflow-30oz-ss-mug-with-non-slip-base-79532-black.webp"
+  },
+  "rexburg-10-oz-stack-n-sip-mug-19069": {
+    "Red": "/images/merch/colors/rexburg-10-oz-stack-n-sip-mug-19069-red.webp",
+    "White": "/images/merch/colors/rexburg-10-oz-stack-n-sip-mug-19069-white.webp"
   }
 }
