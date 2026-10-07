@@ -1,1 +1,31 @@
-{}
+{
+  "rtic-20oz-essential-tumbler-15685": {
+    "Graphite": "/images/merch/colors/rtic-20oz-essential-tumbler-15685-graphite.webp",
+    "White": "/images/merch/colors/rtic-20oz-essential-tumbler-15685-white.webp"
+  },
+  "rtic-ceramic-lined-20-oz-essential-tumbler-89721": {
+    "Pine Tree": "/images/merch/colors/rtic-ceramic-lined-20-oz-essential-tumbler-89721-pine-tree.webp"
+  },
+  "rtic-ceramic-lined-30-oz-essential-tumbler-89693": {
+    "Pine Tree": "/images/merch/colors/rtic-ceramic-lined-30-oz-essential-tumbler-89693-pine-tree.webp",
+    "Harvest": "/images/merch/colors/rtic-ceramic-lined-30-oz-essential-tumbler-89693-harvest.webp",
+    "Olive": "/images/merch/colors/rtic-ceramic-lined-30-oz-essential-tumbler-89693-olive.webp"
+  },
+  "titus-20-oz-double-wall-stainless-insulated-tumbler-01910": {
+    "Grey": "/images/merch/colors/titus-20-oz-double-wall-stainless-insulated-tumbler-01910-grey.webp",
+    "Light Blue": "/images/merch/colors/titus-20-oz-double-wall-stainless-insulated-tumbler-01910-light-blue.webp"
+  },
+  "double-wall-stainless-steel-water-bottle-40-oz-46456": {
+    "Black": "/images/merch/colors/double-wall-stainless-steel-water-bottle-40-oz-46456-black.webp"
+  },
+  "wine-tumbler-gift-set-84125": {
+    "Black": "/images/merch/colors/wine-tumbler-gift-set-84125-black.webp",
+    "Red": "/images/merch/colors/wine-tumbler-gift-set-84125-red.webp",
+    "Silver": "/images/merch/colors/wine-tumbler-gift-set-84125-silver.webp",
+    "Metallic Moss Green": "/images/merch/colors/wine-tumbler-gift-set-84125-metallic-moss-green.webp",
+    "White": "/images/merch/colors/wine-tumbler-gift-set-84125-white.webp"
+  },
+  "coffee-mug-set-61676": {
+    "White": "/images/merch/colors/coffee-mug-set-61676-white.webp"
+  }
+}
