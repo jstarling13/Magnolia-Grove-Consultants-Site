@@ -51,6 +51,8 @@ import colorImagesExtra16 from "./colorImages.extra16.json";
 import colorImagesExtra17 from "./colorImages.extra17.json";
 import colorImagesExtra18 from "./colorImages.extra18.json";
 import colorImagesExtra19 from "./colorImages.extra19.json";
+import colorImagesExtra20 from "./colorImages.extra20.json";
+import colorImagesExtra21 from "./colorImages.extra21.json";
 import importedProductsJson from "./importedProducts.json";
 import hiddenProductsJson from "./hiddenProducts.json";
 import photoReviewedJson from "./photoReviewed.json";
@@ -1585,7 +1587,9 @@ const colorImageOverrides = mergeColorImageMaps(
   colorImagesExtra16 as ColorImageMap,
   colorImagesExtra17 as ColorImageMap,
   colorImagesExtra18 as ColorImageMap,
-  colorImagesExtra19 as ColorImageMap
+  colorImagesExtra19 as ColorImageMap,
+  colorImagesExtra20 as ColorImageMap,
+  colorImagesExtra21 as ColorImageMap
 );
 
 // Replacement main photos (productId -> /images/merch/alt/...), used when the supplier's

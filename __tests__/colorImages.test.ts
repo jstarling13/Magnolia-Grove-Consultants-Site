@@ -21,6 +21,8 @@ import colorImagesExtra16 from "@/config/colorImages.extra16.json";
 import colorImagesExtra17 from "@/config/colorImages.extra17.json";
 import colorImagesExtra18 from "@/config/colorImages.extra18.json";
 import colorImagesExtra19 from "@/config/colorImages.extra19.json";
+import colorImagesExtra20 from "@/config/colorImages.extra20.json";
+import colorImagesExtra21 from "@/config/colorImages.extra21.json";
 import { allProducts as products } from "@/config/merchandiseConfig";
 
 const entries = [
@@ -44,6 +46,8 @@ const entries = [
   colorImagesExtra17,
   colorImagesExtra18,
   colorImagesExtra19,
+  colorImagesExtra20,
+  colorImagesExtra21,
 ].flatMap((map) => Object.entries(map as Record<string, Record<string, string>>));
 
 describe("per-color photo data", () => {
