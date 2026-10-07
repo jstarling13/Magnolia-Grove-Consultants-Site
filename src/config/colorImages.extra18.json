@@ -1,1 +1,197 @@
-{}
+{
+  "push-pop-ball-30004": {
+    "Red": "/images/merch/colors/push-pop-ball-30004-red.webp",
+    "Green": "/images/merch/colors/push-pop-ball-30004-green.webp",
+    "Gray": "/images/merch/colors/push-pop-ball-30004-gray.webp",
+    "Orange": "/images/merch/colors/push-pop-ball-30004-orange.webp",
+    "Pink": "/images/merch/colors/push-pop-ball-30004-pink.webp",
+    "Yellow": "/images/merch/colors/push-pop-ball-30004-yellow.webp",
+    "Teal-White": "/images/merch/colors/push-pop-ball-30004-teal-white.webp",
+    "Rainbow": "/images/merch/colors/push-pop-ball-30004-rainbow.webp"
+  },
+  "printed-wristbands-88947": {
+    "Black": "/images/merch/colors/printed-wristbands-88947-black.webp"
+  },
+  "stainless-steel-bottle-with-bamboo-lid-24103": {
+    "Green": "/images/merch/colors/stainless-steel-bottle-with-bamboo-lid-24103-green.webp"
+  },
+  "giant-foam-fingers-hand-34166": {
+    "Blue": "/images/merch/colors/giant-foam-fingers-hand-34166-blue.webp"
+  },
+  "popular-therapeutic-squeezable-stress-balls-23728": {
+    "Purple": "/images/merch/colors/popular-therapeutic-squeezable-stress-balls-23728-purple.webp",
+    "Pink": "/images/merch/colors/popular-therapeutic-squeezable-stress-balls-23728-pink.webp",
+    "Gray": "/images/merch/colors/popular-therapeutic-squeezable-stress-balls-23728-gray.webp",
+    "Neon Green Lighter": "/images/merch/colors/popular-therapeutic-squeezable-stress-balls-23728-neon-green-lighter.webp"
+  },
+  "deluxe-presentation-folder-with-10-pockets-56881": {
+    "White": "/images/merch/colors/deluxe-presentation-folder-with-10-pockets-56881-white.webp",
+    "Black": "/images/merch/colors/deluxe-presentation-folder-with-10-pockets-56881-black.webp",
+    "Red": "/images/merch/colors/deluxe-presentation-folder-with-10-pockets-56881-red.webp",
+    "Green": "/images/merch/colors/deluxe-presentation-folder-with-10-pockets-56881-green.webp",
+    "Burgundy": "/images/merch/colors/deluxe-presentation-folder-with-10-pockets-56881-burgundy.webp",
+    "Navy Blue": "/images/merch/colors/deluxe-presentation-folder-with-10-pockets-56881-navy-blue.webp",
+    "Royal Blue": "/images/merch/colors/deluxe-presentation-folder-with-10-pockets-56881-royal-blue.webp"
+  },
+  "jotter-with-pen-67099": {
+    "Black-Kraft Brown": "/images/merch/colors/jotter-with-pen-67099-black-kraft-brown.webp",
+    "Blue-Kraft Brown": "/images/merch/colors/jotter-with-pen-67099-blue-kraft-brown.webp",
+    "Red-Kraft Brown": "/images/merch/colors/jotter-with-pen-67099-red-kraft-brown.webp",
+    "Green-Kraft Brown": "/images/merch/colors/jotter-with-pen-67099-green-kraft-brown.webp",
+    "Green-Black": "/images/merch/colors/jotter-with-pen-67099-green-black.webp",
+    "Purple-Kraft Brown": "/images/merch/colors/jotter-with-pen-67099-purple-kraft-brown.webp",
+    "Orange-Kraft Brown": "/images/merch/colors/jotter-with-pen-67099-orange-kraft-brown.webp"
+  },
+  "micro-sticky-book-11428": {
+    "White": "/images/merch/colors/micro-sticky-book-11428-white.webp",
+    "Blue": "/images/merch/colors/micro-sticky-book-11428-blue.webp",
+    "Black": "/images/merch/colors/micro-sticky-book-11428-black.webp",
+    "Silver": "/images/merch/colors/micro-sticky-book-11428-silver.webp",
+    "Natural": "/images/merch/colors/micro-sticky-book-11428-natural.webp",
+    "Blue-Navy": "/images/merch/colors/micro-sticky-book-11428-blue-navy.webp"
+  },
+  "sticky-book-59282": {
+    "Red": "/images/merch/colors/sticky-book-59282-red.webp",
+    "Black": "/images/merch/colors/sticky-book-59282-black.webp",
+    "Green": "/images/merch/colors/sticky-book-59282-green.webp",
+    "Orange": "/images/merch/colors/sticky-book-59282-orange.webp",
+    "Purple": "/images/merch/colors/sticky-book-59282-purple.webp",
+    "Natural": "/images/merch/colors/sticky-book-59282-natural.webp",
+    "Green-Lime": "/images/merch/colors/sticky-book-59282-green-lime.webp"
+  },
+  "mini-windproof-sun-and-rain-pocket-umbrella-with-case-68729": {
+    "Metallic Black": "/images/merch/colors/mini-windproof-sun-and-rain-pocket-umbrella-with-case-68729-metallic-black.webp",
+    "Metallic Yellow": "/images/merch/colors/mini-windproof-sun-and-rain-pocket-umbrella-with-case-68729-metallic-yellow.webp"
+  },
+  "aluminum-alloy-automatic-pop-up-card-holder-98856": {
+    "Gold": "/images/merch/colors/aluminum-alloy-automatic-pop-up-card-holder-98856-gold.webp",
+    "Blue": "/images/merch/colors/aluminum-alloy-automatic-pop-up-card-holder-98856-blue.webp",
+    "Black": "/images/merch/colors/aluminum-alloy-automatic-pop-up-card-holder-98856-black.webp",
+    "Red": "/images/merch/colors/aluminum-alloy-automatic-pop-up-card-holder-98856-red.webp"
+  },
+  "recycled-frame-malibu-sunglasses-56735": {
+    "Translucent Black/ Blue": "/images/merch/colors/recycled-frame-malibu-sunglasses-56735-translucent-black-blue.webp",
+    "Translucent Black/ Green": "/images/merch/colors/recycled-frame-malibu-sunglasses-56735-translucent-black-green.webp",
+    "Translucent Black/ Purple": "/images/merch/colors/recycled-frame-malibu-sunglasses-56735-translucent-black-purple.webp",
+    "Translucent Black/ Silver": "/images/merch/colors/recycled-frame-malibu-sunglasses-56735-translucent-black-silver.webp",
+    "Translucent Black/ Yellow": "/images/merch/colors/recycled-frame-malibu-sunglasses-56735-translucent-black-yellow.webp"
+  },
+  "genuine-leather-magnetic-bookmark-pen-holder-65919": {
+    "Red": "/images/merch/colors/genuine-leather-magnetic-bookmark-pen-holder-65919-red.webp",
+    "Brown": "/images/merch/colors/genuine-leather-magnetic-bookmark-pen-holder-65919-brown.webp",
+    "Green": "/images/merch/colors/genuine-leather-magnetic-bookmark-pen-holder-65919-green.webp"
+  },
+  "luxury-beach-towel-04581": {
+    "Royal": "/images/merch/colors/luxury-beach-towel-04581-royal.webp",
+    "Ocean Blue": "/images/merch/colors/luxury-beach-towel-04581-ocean-blue.webp",
+    "Orange": "/images/merch/colors/luxury-beach-towel-04581-orange.webp",
+    "Black": "/images/merch/colors/luxury-beach-towel-04581-black.webp"
+  },
+  "mod-luggage-tag-88376": {
+    "Silver/Black": "/images/merch/colors/mod-luggage-tag-88376-silver-black.webp",
+    "Silver/Lime": "/images/merch/colors/mod-luggage-tag-88376-silver-lime.webp",
+    "Silver/Orange": "/images/merch/colors/mod-luggage-tag-88376-silver-orange.webp",
+    "Silver/Red": "/images/merch/colors/mod-luggage-tag-88376-silver-red.webp",
+    "Silver/Royal Blue": "/images/merch/colors/mod-luggage-tag-88376-silver-royal-blue.webp"
+  },
+  "stress-ball-22719": {
+    "Brown": "/images/merch/colors/stress-ball-22719-brown.webp",
+    "Light Blue": "/images/merch/colors/stress-ball-22719-light-blue.webp",
+    "Green": "/images/merch/colors/stress-ball-22719-green.webp",
+    "Gold": "/images/merch/colors/stress-ball-22719-gold.webp"
+  },
+  "folding-outdoor-camping-chair-with-carry-bag-and-cup-holder-47559": {
+    "Blue": "/images/merch/colors/folding-outdoor-camping-chair-with-carry-bag-and-cup-holder-47559-blue.webp"
+  },
+  "steal-umbrella-1-imprint-63089": {
+    "Pumpkin/White": "/images/merch/colors/steal-umbrella-1-imprint-63089-pumpkin-white.webp",
+    "Crimson/White": "/images/merch/colors/steal-umbrella-1-imprint-63089-crimson-white.webp",
+    "Purple/White": "/images/merch/colors/steal-umbrella-1-imprint-63089-purple-white.webp"
+  },
+  "storm-2-umbrella-1-imprint-63179": {
+    "Indigo": "/images/merch/colors/storm-2-umbrella-1-imprint-63179-indigo.webp",
+    "Gray": "/images/merch/colors/storm-2-umbrella-1-imprint-63179-gray.webp",
+    "Crimson": "/images/merch/colors/storm-2-umbrella-1-imprint-63179-crimson.webp",
+    "Azure": "/images/merch/colors/storm-2-umbrella-1-imprint-63179-azure.webp"
+  },
+  "womens-odyssey-waterproof-parka-45314": {
+    "Winter White": "/images/merch/colors/womens-odyssey-waterproof-parka-45314-winter-white.webp",
+    "Navy": "/images/merch/colors/womens-odyssey-waterproof-parka-45314-navy.webp",
+    "Black": "/images/merch/colors/womens-odyssey-waterproof-parka-45314-black.webp",
+    "Burgundy": "/images/merch/colors/womens-odyssey-waterproof-parka-45314-burgundy.webp"
+  },
+  "mini-sticky-book-with-ruler-30915": {
+    "Blue": "/images/merch/colors/mini-sticky-book-with-ruler-30915-blue.webp",
+    "Red": "/images/merch/colors/mini-sticky-book-with-ruler-30915-red.webp",
+    "White": "/images/merch/colors/mini-sticky-book-with-ruler-30915-white.webp",
+    "Natural": "/images/merch/colors/mini-sticky-book-with-ruler-30915-natural.webp"
+  },
+  "playing-cards-in-case-93447": {
+    "Black": "/images/merch/colors/playing-cards-in-case-93447-black.webp",
+    "Blue": "/images/merch/colors/playing-cards-in-case-93447-blue.webp",
+    "Green": "/images/merch/colors/playing-cards-in-case-93447-green.webp",
+    "Red": "/images/merch/colors/playing-cards-in-case-93447-red.webp"
+  },
+  "travel-luggage-tag-56596": {
+    "Black": "/images/merch/colors/travel-luggage-tag-56596-black.webp",
+    "Blue": "/images/merch/colors/travel-luggage-tag-56596-blue.webp",
+    "Lime Green": "/images/merch/colors/travel-luggage-tag-56596-lime-green.webp",
+    "Red": "/images/merch/colors/travel-luggage-tag-56596-red.webp"
+  },
+  "led-buttons-badge-glowing-pin-66811": {
+    "Pink": "/images/merch/colors/led-buttons-badge-glowing-pin-66811-pink.webp",
+    "White": "/images/merch/colors/led-buttons-badge-glowing-pin-66811-white.webp",
+    "Blue": "/images/merch/colors/led-buttons-badge-glowing-pin-66811-blue.webp"
+  },
+  "game-day-stadium-blanket-17842": {
+    "Orange": "/images/merch/colors/game-day-stadium-blanket-17842-orange.webp"
+  },
+  "portable-folding-camping-chair-with-pillow-25763": {
+    "Black": "/images/merch/colors/portable-folding-camping-chair-with-pillow-25763-black.webp",
+    "Blue": "/images/merch/colors/portable-folding-camping-chair-with-pillow-25763-blue.webp",
+    "Gray": "/images/merch/colors/portable-folding-camping-chair-with-pillow-25763-gray.webp"
+  },
+  "foldable-nylon-fan-printed-in-usa-rush-78346": {
+    "Blue": "/images/merch/colors/foldable-nylon-fan-printed-in-usa-rush-78346-blue.webp",
+    "Red": "/images/merch/colors/foldable-nylon-fan-printed-in-usa-rush-78346-red.webp",
+    "White": "/images/merch/colors/foldable-nylon-fan-printed-in-usa-rush-78346-white.webp"
+  },
+  "handheld-portable-fan-49379": {
+    "White": "/images/merch/colors/handheld-portable-fan-49379-white.webp"
+  },
+  "large-capacity-portable-camping-picnic-organizer-backpack-82420": {
+    "Brown": "/images/merch/colors/large-capacity-portable-camping-picnic-organizer-backpack-82420-brown.webp"
+  },
+  "mink-ever-soft-recycled-polyester-throw-blanket-62113": {
+    "Mocha": "/images/merch/colors/mink-ever-soft-recycled-polyester-throw-blanket-62113-mocha.webp",
+    "Black": "/images/merch/colors/mink-ever-soft-recycled-polyester-throw-blanket-62113-black.webp"
+  },
+  "round-lightweight-fabric-portable-folding-beach-table-54388": {
+    "Blue": "/images/merch/colors/round-lightweight-fabric-portable-folding-beach-table-54388-blue.webp"
+  },
+  "mini-pop-stress-ball-29058": {
+    "Purple": "/images/merch/colors/mini-pop-stress-ball-29058-purple.webp"
+  },
+  "collapsible-large-car-trunk-organizer-bag-with-handles-41878": {
+    "Black": "/images/merch/colors/collapsible-large-car-trunk-organizer-bag-with-handles-41878-black.webp"
+  },
+  "9-inch-tongs-66079": {
+    "Stainless Steel - Green": "/images/merch/colors/9-inch-tongs-66079-stainless-steel-green.webp",
+    "Stainless Steel - Royal Blue": "/images/merch/colors/9-inch-tongs-66079-stainless-steel-royal-blue.webp"
+  },
+  "hand-warmers-29853": {
+    "Blue": "/images/merch/colors/hand-warmers-29853-blue.webp"
+  },
+  "retro-sunglasses-26142": {
+    "White": "/images/merch/colors/retro-sunglasses-26142-white.webp"
+  },
+  "waffle-teddy-fleece-throw-blanket-32323": {
+    "Navy": "/images/merch/colors/waffle-teddy-fleece-throw-blanket-32323-navy.webp"
+  },
+  "zippo-heatbank-9-hour-rechargeable-hand-warmer-82018": {
+    "Silver": "/images/merch/colors/zippo-heatbank-9-hour-rechargeable-hand-warmer-82018-silver.webp"
+  },
+  "nfc-metal-business-card-23232": {
+    "White": "/images/merch/colors/nfc-metal-business-card-23232-white.webp"
+  }
+}
