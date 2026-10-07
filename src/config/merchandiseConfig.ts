@@ -67,6 +67,22 @@ import colorImagesExtra32 from "./colorImages.extra32.json";
 import colorImagesExtra33 from "./colorImages.extra33.json";
 import colorImagesExtra34 from "./colorImages.extra34.json";
 import colorImagesExtra35 from "./colorImages.extra35.json";
+import colorImagesExtra36 from "./colorImages.extra36.json";
+import colorImagesExtra37 from "./colorImages.extra37.json";
+import colorImagesExtra38 from "./colorImages.extra38.json";
+import colorImagesExtra39 from "./colorImages.extra39.json";
+import colorImagesExtra40 from "./colorImages.extra40.json";
+import colorImagesExtra41 from "./colorImages.extra41.json";
+import colorImagesExtra42 from "./colorImages.extra42.json";
+import colorImagesExtra43 from "./colorImages.extra43.json";
+import colorImagesExtra44 from "./colorImages.extra44.json";
+import colorImagesExtra45 from "./colorImages.extra45.json";
+import colorImagesExtra46 from "./colorImages.extra46.json";
+import colorImagesExtra47 from "./colorImages.extra47.json";
+import colorImagesExtra48 from "./colorImages.extra48.json";
+import colorImagesExtra49 from "./colorImages.extra49.json";
+import colorImagesExtra50 from "./colorImages.extra50.json";
+import colorImagesExtra51 from "./colorImages.extra51.json";
 import importedProductsJson from "./importedProducts.json";
 import hiddenProductsJson from "./hiddenProducts.json";
 import photoReviewedJson from "./photoReviewed.json";
@@ -1617,7 +1633,23 @@ const colorImageOverrides = mergeColorImageMaps(
   colorImagesExtra32 as ColorImageMap,
   colorImagesExtra33 as ColorImageMap,
   colorImagesExtra34 as ColorImageMap,
-  colorImagesExtra35 as ColorImageMap
+  colorImagesExtra35 as ColorImageMap,
+  colorImagesExtra36 as ColorImageMap,
+  colorImagesExtra37 as ColorImageMap,
+  colorImagesExtra38 as ColorImageMap,
+  colorImagesExtra39 as ColorImageMap,
+  colorImagesExtra40 as ColorImageMap,
+  colorImagesExtra41 as ColorImageMap,
+  colorImagesExtra42 as ColorImageMap,
+  colorImagesExtra43 as ColorImageMap,
+  colorImagesExtra44 as ColorImageMap,
+  colorImagesExtra45 as ColorImageMap,
+  colorImagesExtra46 as ColorImageMap,
+  colorImagesExtra47 as ColorImageMap,
+  colorImagesExtra48 as ColorImageMap,
+  colorImagesExtra49 as ColorImageMap,
+  colorImagesExtra50 as ColorImageMap,
+  colorImagesExtra51 as ColorImageMap
 );
 
 // Replacement main photos (productId -> /images/merch/alt/...), used when the supplier's

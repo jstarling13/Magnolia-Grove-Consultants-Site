@@ -37,6 +37,22 @@ import colorImagesExtra32 from "@/config/colorImages.extra32.json";
 import colorImagesExtra33 from "@/config/colorImages.extra33.json";
 import colorImagesExtra34 from "@/config/colorImages.extra34.json";
 import colorImagesExtra35 from "@/config/colorImages.extra35.json";
+import colorImagesExtra36 from "@/config/colorImages.extra36.json";
+import colorImagesExtra37 from "@/config/colorImages.extra37.json";
+import colorImagesExtra38 from "@/config/colorImages.extra38.json";
+import colorImagesExtra39 from "@/config/colorImages.extra39.json";
+import colorImagesExtra40 from "@/config/colorImages.extra40.json";
+import colorImagesExtra41 from "@/config/colorImages.extra41.json";
+import colorImagesExtra42 from "@/config/colorImages.extra42.json";
+import colorImagesExtra43 from "@/config/colorImages.extra43.json";
+import colorImagesExtra44 from "@/config/colorImages.extra44.json";
+import colorImagesExtra45 from "@/config/colorImages.extra45.json";
+import colorImagesExtra46 from "@/config/colorImages.extra46.json";
+import colorImagesExtra47 from "@/config/colorImages.extra47.json";
+import colorImagesExtra48 from "@/config/colorImages.extra48.json";
+import colorImagesExtra49 from "@/config/colorImages.extra49.json";
+import colorImagesExtra50 from "@/config/colorImages.extra50.json";
+import colorImagesExtra51 from "@/config/colorImages.extra51.json";
 import { allProducts as products } from "@/config/merchandiseConfig";
 
 const entries = [
@@ -76,6 +92,22 @@ const entries = [
   colorImagesExtra33,
   colorImagesExtra34,
   colorImagesExtra35,
+  colorImagesExtra36,
+  colorImagesExtra37,
+  colorImagesExtra38,
+  colorImagesExtra39,
+  colorImagesExtra40,
+  colorImagesExtra41,
+  colorImagesExtra42,
+  colorImagesExtra43,
+  colorImagesExtra44,
+  colorImagesExtra45,
+  colorImagesExtra46,
+  colorImagesExtra47,
+  colorImagesExtra48,
+  colorImagesExtra49,
+  colorImagesExtra50,
+  colorImagesExtra51,
 ].flatMap((map) => Object.entries(map as Record<string, Record<string, string>>));
 
 describe("per-color photo data", () => {
