@@ -1,1 +1,13 @@
-{}
+{
+  "domed-tin-with-micromints-07079": {
+    "White": "/images/merch/colors/domed-tin-with-micromints-07079-white.webp",
+    "Black": "/images/merch/colors/domed-tin-with-micromints-07079-black.webp",
+    "Silver": "/images/merch/colors/domed-tin-with-micromints-07079-silver.webp"
+  },
+  "canopy-water-weight-bag-65042": {
+    "Blue": "/images/merch/colors/canopy-water-weight-bag-65042-blue.webp",
+    "Black": "/images/merch/colors/canopy-water-weight-bag-65042-black.webp",
+    "Khaki": "/images/merch/colors/canopy-water-weight-bag-65042-khaki.webp",
+    "Gray": "/images/merch/colors/canopy-water-weight-bag-65042-gray.webp"
+  }
+}
