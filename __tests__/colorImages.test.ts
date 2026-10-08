@@ -53,6 +53,20 @@ import colorImagesExtra48 from "@/config/colorImages.extra48.json";
 import colorImagesExtra49 from "@/config/colorImages.extra49.json";
 import colorImagesExtra50 from "@/config/colorImages.extra50.json";
 import colorImagesExtra51 from "@/config/colorImages.extra51.json";
+import colorImagesExtra52 from "@/config/colorImages.extra52.json";
+import colorImagesExtra53 from "@/config/colorImages.extra53.json";
+import colorImagesExtra54 from "@/config/colorImages.extra54.json";
+import colorImagesExtra55 from "@/config/colorImages.extra55.json";
+import colorImagesExtra56 from "@/config/colorImages.extra56.json";
+import colorImagesExtra57 from "@/config/colorImages.extra57.json";
+import colorImagesExtra58 from "@/config/colorImages.extra58.json";
+import colorImagesExtra59 from "@/config/colorImages.extra59.json";
+import colorImagesExtra60 from "@/config/colorImages.extra60.json";
+import colorImagesExtra61 from "@/config/colorImages.extra61.json";
+import colorImagesExtra62 from "@/config/colorImages.extra62.json";
+import colorImagesExtra63 from "@/config/colorImages.extra63.json";
+import colorImagesExtra64 from "@/config/colorImages.extra64.json";
+import colorImagesExtra65 from "@/config/colorImages.extra65.json";
 import { allProducts as products } from "@/config/merchandiseConfig";
 
 const entries = [
@@ -108,6 +122,20 @@ const entries = [
   colorImagesExtra49,
   colorImagesExtra50,
   colorImagesExtra51,
+  colorImagesExtra52,
+  colorImagesExtra53,
+  colorImagesExtra54,
+  colorImagesExtra55,
+  colorImagesExtra56,
+  colorImagesExtra57,
+  colorImagesExtra58,
+  colorImagesExtra59,
+  colorImagesExtra60,
+  colorImagesExtra61,
+  colorImagesExtra62,
+  colorImagesExtra63,
+  colorImagesExtra64,
+  colorImagesExtra65,
 ].flatMap((map) => Object.entries(map as Record<string, Record<string, string>>));
 
 describe("per-color photo data", () => {
