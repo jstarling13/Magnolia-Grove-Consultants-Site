@@ -1,1 +1,31 @@
-{}
+{
+  "budget-can-cooler-holder-12956": {
+    "White": "/images/merch/colors/budget-can-cooler-holder-12956-white.webp",
+    "Burgundy": "/images/merch/colors/budget-can-cooler-holder-12956-burgundy.webp",
+    "Camel": "/images/merch/colors/budget-can-cooler-holder-12956-camel.webp",
+    "Camo": "/images/merch/colors/budget-can-cooler-holder-12956-camo.webp",
+    "Camo Pink": "/images/merch/colors/budget-can-cooler-holder-12956-camo-pink.webp",
+    "Charcoal": "/images/merch/colors/budget-can-cooler-holder-12956-charcoal.webp",
+    "Fuschia": "/images/merch/colors/budget-can-cooler-holder-12956-fuschia.webp",
+    "Gray": "/images/merch/colors/budget-can-cooler-holder-12956-gray.webp",
+    "Hunter Green": "/images/merch/colors/budget-can-cooler-holder-12956-hunter-green.webp",
+    "Kelly Green": "/images/merch/colors/budget-can-cooler-holder-12956-kelly-green.webp",
+    "Mint": "/images/merch/colors/budget-can-cooler-holder-12956-mint.webp",
+    "Navy Blue": "/images/merch/colors/budget-can-cooler-holder-12956-navy-blue.webp"
+  },
+  "maddox-20-oz-stainless-steel-vacuum-insulated-tumbler-47195": {
+    "Black": "/images/merch/colors/maddox-20-oz-stainless-steel-vacuum-insulated-tumbler-47195-black.webp",
+    "Blue": "/images/merch/colors/maddox-20-oz-stainless-steel-vacuum-insulated-tumbler-47195-blue.webp",
+    "Gray": "/images/merch/colors/maddox-20-oz-stainless-steel-vacuum-insulated-tumbler-47195-gray.webp",
+    "Green": "/images/merch/colors/maddox-20-oz-stainless-steel-vacuum-insulated-tumbler-47195-green.webp",
+    "Red": "/images/merch/colors/maddox-20-oz-stainless-steel-vacuum-insulated-tumbler-47195-red.webp",
+    "White": "/images/merch/colors/maddox-20-oz-stainless-steel-vacuum-insulated-tumbler-47195-white.webp"
+  },
+  "water-bottle-with-magnetic-phone-mount-and-sip-straw-lid-ins-99081": {
+    "Black": "/images/merch/colors/water-bottle-with-magnetic-phone-mount-and-sip-straw-lid-ins-99081-black.webp",
+    "White": "/images/merch/colors/water-bottle-with-magnetic-phone-mount-and-sip-straw-lid-ins-99081-white.webp",
+    "Pink": "/images/merch/colors/water-bottle-with-magnetic-phone-mount-and-sip-straw-lid-ins-99081-pink.webp",
+    "Light Blue": "/images/merch/colors/water-bottle-with-magnetic-phone-mount-and-sip-straw-lid-ins-99081-light-blue.webp",
+    "Purple": "/images/merch/colors/water-bottle-with-magnetic-phone-mount-and-sip-straw-lid-ins-99081-purple.webp"
+  }
+}
