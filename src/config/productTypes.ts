@@ -263,6 +263,7 @@ export const PRODUCT_TYPES: Record<string, Taxonomy> = {
       "Sublimated Lanyards",
       "Standard Lanyards",
       "Event Wristbands",
+      "Card & Passport Holders",
     ],
     rules: [
       r("Name Badges", /name badge/),
@@ -270,7 +271,8 @@ export const PRODUCT_TYPES: Record<string, Taxonomy> = {
       rf("Breakaway Lanyards", /breakaway/),
       r("Sublimated Lanyards", /sublimat|full[- ]color/),
       r("Standard Lanyards", /lanyard/),
-      r("Event Wristbands", /wristband/),
+      r("Event Wristbands", /wristband|bracelet|band bracelets/),
+      r("Card & Passport Holders", /id\/card|card holder|passport|id holder/),
     ],
   },
 
@@ -574,8 +576,14 @@ export const PRODUCT_TYPES: Record<string, Taxonomy> = {
       "Stress Balls & Relievers",
       "Wristbands",
       "Noisemakers & Spirit Gear",
+      "Tape Measures",
+      "Clips & Magnets",
+      "Mirrors",
     ],
     rules: [
+      r("Tape Measures", /tape measure|measuring tape/),
+      r("Mirrors", /mirror/),
+      r("Clips & Magnets", /\bclip\b|\bclips\b|clip it/),
       r("Buttons", /button|badge/),
       r("Stress Balls & Relievers", /stress|push pop|pop ball|fidget/),
       r("Hand Fans", /\bfans?\b/),
