@@ -29448,5 +29448,890 @@
     "image": "/images/merch/4-piece-mini-screwdriver-set-39463.webp",
     "imageAlt": "4- Piece Mini Screwdriver Set",
     "colors": ["Black", "Blue", "White"]
+  },
+  {
+    "id": "skittles-filled-imprinted-label-goody-bag-56270",
+    "name": "Skittles® Filled Imprinted Label Goody Bag",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Goody bag filled with candy. Made in USA.",
+    "tiers": [
+      [500, 2.1],
+      [1000, 1.96],
+      [2500, 1.88],
+      [5000, 1.81]
+    ],
+    "image": "/images/merch/skittles-filled-imprinted-label-goody-bag-56270.webp",
+    "imageAlt": "Skittles® Filled Imprinted Label Goody Bag",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "tootsie-pop-w-flag-83997",
+    "name": "Tootsie Pop w/ Flag",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Tootsie Pops with custom flag. Made in USA.",
+    "tiers": [
+      [500, 0.78],
+      [750, 0.74],
+      [1000, 0.69]
+    ],
+    "image": "/images/merch/tootsie-pop-w-flag-83997.webp",
+    "imageAlt": "Tootsie Pop w/ Flag",
+    "colors": ["White"]
+  },
+  {
+    "id": "ad-pop-40629",
+    "name": "Ad Pop",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Ad lollipop. Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [500, 0.601],
+      [1000, 0.449]
+    ],
+    "image": "/images/merch/ad-pop-40629.webp",
+    "imageAlt": "Ad Pop",
+    "colors": ["Assorted", "Lime", "Orange", "Cherry", "Grape", "Blue Raspberry", "Lemon"]
+  },
+  {
+    "id": "small-candy-cane-with-clear-label-40388",
+    "name": "Small Candy Cane with Clear Label",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Small candy cane with a clear label. Made in USA.",
+    "tiers": [
+      [500, 0.508],
+      [1000, 0.484],
+      [2500, 0.47]
+    ],
+    "image": "/images/merch/small-candy-cane-with-clear-label-40388.webp",
+    "imageAlt": "Small Candy Cane with Clear Label",
+    "colors": ["White-Red"]
+  },
+  {
+    "id": "chocolate-dipped-salted-caramels-39059",
+    "name": "Chocolate Dipped Salted Caramels",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Made in the USA. Size: 0.5\" x 3.125\" x 2.25\", 2.8\" x 2.8\" x 3.88\", 2.8\" x 2.8\" x 2..",
+    "tiers": [
+      [50, 2.39],
+      [100, 2.19],
+      [500, 2.14],
+      [1000, 2.09],
+      [5000, 1.99]
+    ],
+    "image": "/images/merch/chocolate-dipped-salted-caramels-39059.webp",
+    "imageAlt": "Chocolate Dipped Salted Caramels",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "peppermint-gum-in-blister-pack-and-sleeve-sugar-free-57960",
+    "name": "Peppermint Gum in Blister Pack and Sleeve- Sugar Free",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Sugar Free Peppermint Gum in Blister Pack and Sleeve Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [250, 1.67],
+      [500, 1.6],
+      [1000, 1.54]
+    ],
+    "image": "/images/merch/peppermint-gum-in-blister-pack-and-sleeve-sugar-free-57960.webp",
+    "imageAlt": "Peppermint Gum in Blister Pack and Sleeve- Sugar Free"
+  },
+  {
+    "id": "12-piece-billboard-gum-pack-00098",
+    "name": "12-Piece Billboard Gum Pack",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "12-piece blister pack of sugar-free peppermint chewing gum.",
+    "tiers": [
+      [250, 1.55],
+      [500, 1.5],
+      [1000, 1.45]
+    ],
+    "image": "/images/merch/12-piece-billboard-gum-pack-00098.webp",
+    "imageAlt": "12-Piece Billboard Gum Pack",
+    "colors": ["White"]
+  },
+  {
+    "id": "holiday-premier-chocolate-pretzel-deluxe-gift-box-16589",
+    "name": "Holiday Premier Chocolate Pretzel Deluxe Gift Box",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Chocolate Pretzel Deluxe Gift Box.",
+    "tiers": [
+      [25, 35.84],
+      [50, 34.14],
+      [100, 33.15],
+      [250, 32.17]
+    ],
+    "image": "/images/merch/holiday-premier-chocolate-pretzel-deluxe-gift-box-16589.webp",
+    "imageAlt": "Holiday Premier Chocolate Pretzel Deluxe Gift Box",
+    "colors": ["Gold", "Silver", "Black"]
+  },
+  {
+    "id": "mini-flip-top-tube-with-micromints-69180",
+    "name": "Mini Flip-Top Tube with MicroMints®",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Mini Flip-Top Tube with mints. Made in USA.",
+    "tiers": [
+      [100, 2.7],
+      [250, 2.58],
+      [500, 2.49],
+      [1000, 2.42]
+    ],
+    "image": "/images/merch/mini-flip-top-tube-with-micromints-69180.webp",
+    "imageAlt": "Mini Flip-Top Tube with MicroMints®",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "m-and-ms-plain-taster-packet-93240",
+    "name": "M&M'S® Plain: Taster Packet",
+    "category": "Food & Treats",
+    "brand": "M&M's",
+    "description": "Milk chocolate M&M's® candy in an individual 1.3 oz taster packet. Made in USA.",
+    "tiers": [
+      [50, 2.15],
+      [100, 1.97],
+      [500, 1.92],
+      [1000, 1.88],
+      [5000, 1.79]
+    ],
+    "image": "/images/merch/m-and-ms-plain-taster-packet-93240.webp",
+    "imageAlt": "M&M'S® Plain: Taster Packet",
+    "colors": ["Clear-White"]
+  },
+  {
+    "id": "mini-tin-39104",
+    "name": "Mini Tin",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Mini hinged tin with your choice of filler. Made in USA.",
+    "tiers": [
+      [250, 1.35],
+      [500, 1.3],
+      [1000, 1.25]
+    ],
+    "image": "/images/merch/mini-tin-39104.webp",
+    "imageAlt": "Mini Tin",
+    "colors": ["White"]
+  },
+  {
+    "id": "book-window-box-peachy-hearts-40523",
+    "name": "Book Window Box - Peachy Hearts",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Window box of peach heart gummies. Made in USA.",
+    "tiers": [
+      [250, 4.68],
+      [500, 4.45],
+      [1000, 4.32]
+    ],
+    "image": "/images/merch/book-window-box-peachy-hearts-40523.webp",
+    "imageAlt": "Book Window Box - Peachy Hearts",
+    "colors": ["White"]
+  },
+  {
+    "id": "single-serve-pack-large-hot-cocoa-mix-40502",
+    "name": "Single Serve Pack - Large Hot Cocoa Mix",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Large single serving of hot cocoa in a white pack. Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [500, 1.93],
+      [1000, 1.7],
+      [2500, 1.62]
+    ],
+    "image": "/images/merch/single-serve-pack-large-hot-cocoa-mix-40502.webp",
+    "imageAlt": "Single Serve Pack - Large Hot Cocoa Mix",
+    "colors": ["White"]
+  },
+  {
+    "id": "smores-single-serve-stuffer-63796",
+    "name": "S'mores Single Serve Stuffer",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "S'mores kit with a graham cracker sheet, chocolate bar and marshmallow.",
+    "tiers": [
+      [50, 6.98],
+      [100, 6.07],
+      [250, 5.28],
+      [500, 4.59]
+    ],
+    "image": "/images/merch/smores-single-serve-stuffer-63796.webp",
+    "imageAlt": "S'mores Single Serve Stuffer",
+    "colors": ["Clear", "Pink", "Red"]
+  },
+  {
+    "id": "custom-miniature-hershey-chocolates-14886",
+    "name": "Custom Miniature Hershey Chocolates",
+    "category": "Food & Treats",
+    "brand": "Hershey",
+    "description": "Size: 1.5\" x 3.1\".",
+    "tiers": [
+      [500, 0.79],
+      [750, 0.76],
+      [1000, 0.73]
+    ],
+    "image": "/images/merch/custom-miniature-hershey-chocolates-14886.webp",
+    "imageAlt": "Custom Miniature Hershey Chocolates",
+    "colors": ["White"]
+  },
+  {
+    "id": "the-beverly-hills-grade-a-nuts-and-chocolate-almonds-10212",
+    "name": "The Beverly Hills - Grade A Nuts & Chocolate Almonds",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Tower of gourmet delights with a gift box and gold rush tray with a variety of nut treats Made in USA.",
+    "tiers": [
+      [15, 49.95],
+      [24, 49.65],
+      [48, 49.55]
+    ],
+    "image": "/images/merch/the-beverly-hills-grade-a-nuts-and-chocolate-almonds-10212.webp",
+    "imageAlt": "The Beverly Hills - Grade A Nuts & Chocolate Almonds",
+    "colors": ["Red", "Black", "Burgundy", "Silver"]
+  },
+  {
+    "id": "advent-calendar-69320",
+    "name": "Advent Calendar",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Advent calendar with 24 doors that open to reveal foil-wrapped chocolate. Made in USA.",
+    "tiers": [
+      [50, 21.87],
+      [100, 21.23],
+      [250, 20.61],
+      [500, 20.01]
+    ],
+    "image": "/images/merch/advent-calendar-69320.webp",
+    "imageAlt": "Advent Calendar",
+    "colors": ["Green"]
+  },
+  {
+    "id": "dark-chocolatey-mint-thins-06910",
+    "name": "Dark Chocolatey Mint Thins",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Dark Chocolatey Mint Thins Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [500, 0.591],
+      [1000, 0.531],
+      [2500, 0.49]
+    ],
+    "image": "/images/merch/dark-chocolatey-mint-thins-06910.webp",
+    "imageAlt": "Dark Chocolatey Mint Thins",
+    "colors": ["Green", "Gold"]
+  },
+  {
+    "id": "hot-chocolate-packet-48830",
+    "name": "Hot Chocolate Packet",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Individually sealed hot chocolate packet for delicious treat.",
+    "tiers": [
+      [240, 1.46],
+      [480, 1.41],
+      [960, 1.36]
+    ],
+    "image": "/images/merch/hot-chocolate-packet-48830.webp",
+    "imageAlt": "Hot Chocolate Packet",
+    "colors": ["Silver"]
+  },
+  {
+    "id": "small-heart-tin-50622",
+    "name": "Small Heart Tin",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "1 5/8\" x 1 3/4\" x 3/4\" tin that's shaped like a heart and filled with your choice of mints, candy or gum. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [250, 1.18],
+      [500, 1],
+      [1000, 0.92]
+    ],
+    "image": "/images/merch/small-heart-tin-50622.webp",
+    "imageAlt": "Small Heart Tin",
+    "colors": ["White"]
+  },
+  {
+    "id": "instant-hot-chocolate-57800",
+    "name": "Instant Hot Chocolate",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Instant Hot Chocolate with full color label on a silver single serve pack. Made in USA.",
+    "tiers": [
+      [500, 1.97],
+      [1000, 1.73],
+      [2500, 1.65]
+    ],
+    "image": "/images/merch/instant-hot-chocolate-57800.webp",
+    "imageAlt": "Instant Hot Chocolate",
+    "colors": ["Silver"]
+  },
+  {
+    "id": "custom-chocolate-specials-gift-box-6-oz-43301",
+    "name": "Custom Chocolate Specials Gift Box (6 oz.)",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Size: 7 3/4\" x 7\".",
+    "tiers": [
+      [50, 27.25],
+      [100, 27],
+      [250, 26.75],
+      [500, 26.5]
+    ],
+    "image": "/images/merch/custom-chocolate-specials-gift-box-6-oz-43301.webp",
+    "imageAlt": "Custom Chocolate Specials Gift Box (6 oz.)",
+    "colors": ["Gold", "Silver"]
+  },
+  {
+    "id": "medium-gourmet-candy-box-69144",
+    "name": "Medium Gourmet Candy Box",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Medium Gourmet Candy Box Made in USA.",
+    "tiers": [
+      [50, 21.53],
+      [100, 21.32],
+      [250, 21.16],
+      [500, 20.97]
+    ],
+    "image": "/images/merch/medium-gourmet-candy-box-69144.webp",
+    "imageAlt": "Medium Gourmet Candy Box",
+    "colors": ["Black"]
+  },
+  {
+    "id": "sugarfina-sea-salt-caramels-candy-cube-gift-bag-05077",
+    "name": "Sugarfina Sea Salt Caramels Candy Cube® Gift Bag",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Indulgent caramels dipped in fine dark chocolate, with a kiss of sea salt.",
+    "tiers": [
+      [50, 16.37],
+      [100, 14.45],
+      [300, 12.86],
+      [500, 12.48]
+    ],
+    "image": "/images/merch/sugarfina-sea-salt-caramels-candy-cube-gift-bag-05077.webp",
+    "imageAlt": "Sugarfina Sea Salt Caramels Candy Cube® Gift Bag",
+    "colors": ["Natural"]
+  },
+  {
+    "id": "hot-cocoa-on-a-spoon-69127",
+    "name": "Hot Cocoa on a Spoon",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Cocoa on a Spoon Made in USA.",
+    "tiers": [
+      [250, 5.08],
+      [500, 4.95],
+      [1000, 4.81],
+      [2500, 4.67]
+    ],
+    "image": "/images/merch/hot-cocoa-on-a-spoon-69127.webp",
+    "imageAlt": "Hot Cocoa on a Spoon",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "presidential-sweet-nine-tier-tower-23430",
+    "name": "Presidential Sweet Nine-Tier Tower",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Presidential sweet nine-tier tower with everything from chocolate covered pretzels to fancy mixed nuts. Made in USA.",
+    "tiers": [
+      [1, 58.99],
+      [50, 57.99],
+      [100, 56.99]
+    ],
+    "image": "/images/merch/presidential-sweet-nine-tier-tower-23430.webp",
+    "imageAlt": "Presidential Sweet Nine-Tier Tower",
+    "colors": ["Red", "Black", "Forest Green", "Gold", "Green", "Silver", "White"]
+  },
+  {
+    "id": "heather-gray-sweatshirt-blanket-43331",
+    "name": "Heather Gray Sweatshirt Blanket",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "50\" x 60\" sweatshirt blanket. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [12, 35.09],
+      [36, 33.3],
+      [72, 32.1],
+      [144, 31],
+      [300, 29.99]
+    ],
+    "image": "/images/merch/heather-gray-sweatshirt-blanket-43331.webp",
+    "imageAlt": "Heather Gray Sweatshirt Blanket",
+    "colors": ["Heather Gray"]
+  },
+  {
+    "id": "everlasting-recycled-polyester-throw-blanket-99209",
+    "name": "Everlasting Recycled Polyester Throw Blanket",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "A stylish and personal gift.",
+    "tiers": [
+      [12, 48.59],
+      [25, 41.67],
+      [50, 36.38],
+      [100, 34.98]
+    ],
+    "image": "/images/merch/everlasting-recycled-polyester-throw-blanket-99209.webp",
+    "imageAlt": "Everlasting Recycled Polyester Throw Blanket",
+    "colors": ["Black", "Cream", "Navy Blue", "Fawn Herringbone", "Soft Grey Herringbone"]
+  },
+  {
+    "id": "custom-full-color-imprint-flannel-fleece-blanket-40-x-50-04009",
+    "name": "Custom Full Color Imprint Flannel Fleece Blanket 40\" x 50\"",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Custom Soft Plush Microfiber Sublimation Full Color Imprint Flannel Fleece Blanket 40\" x 50\".",
+    "tiers": [
+      [25, 21.78],
+      [50, 16.33],
+      [100, 14.83],
+      [300, 14.11],
+      [500, 13.57]
+    ],
+    "image": "/images/merch/custom-full-color-imprint-flannel-fleece-blanket-40-x-50-04009.webp",
+    "imageAlt": "Custom Full Color Imprint Flannel Fleece Blanket 40\" x 50\"",
+    "colors": ["Assorted"]
+  },
+  {
+    "id": "hazelnut-chunky-fur-blanket-12101",
+    "name": "Hazelnut Chunky Fur Blanket",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Hazelnut Chunky Fur Blanket.",
+    "tiers": [
+      [12, 90.8],
+      [36, 87],
+      [72, 83.55],
+      [144, 80.39],
+      [300, 77.52]
+    ],
+    "image": "/images/merch/hazelnut-chunky-fur-blanket-12101.webp",
+    "imageAlt": "Hazelnut Chunky Fur Blanket",
+    "colors": ["Tan"]
+  },
+  {
+    "id": "recycled-roll-up-blanket-58838",
+    "name": "Recycled Roll-Up Blanket, 6\" x 12\"",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Roll up blanket. Size: 6\" x 12\".",
+    "tiers": [
+      [25, 11.65],
+      [50, 11.31],
+      [100, 10.98],
+      [250, 10.66],
+      [500, 10.35]
+    ],
+    "image": "/images/merch/recycled-roll-up-blanket-58838.webp",
+    "imageAlt": "Recycled Roll-Up Blanket, 6\" x 12\"",
+    "colors": [
+      "Recycled Dark Blue",
+      "Recycled Black",
+      "Recycled Charcoal",
+      "Recycled Hunter Green",
+      "Recycled Purple",
+      "Recycled Red",
+      "Recycled Royal Blue",
+      "Recycled Maroon",
+      "Recycled Light Blue"
+    ]
+  },
+  {
+    "id": "en-route-rpet-travel-blanket-with-trolley-pillow-pouch-53291",
+    "name": "En Route rPET Travel Blanket With Trolley Pillow Pouch",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "40\" x 60\" rPET fleece blanket with zippered pouch and trolley sleeve.",
+    "tiers": [
+      [25, 29.72],
+      [50, 25.84],
+      [100, 22.47],
+      [250, 19.54],
+      [500, 16.99]
+    ],
+    "image": "/images/merch/en-route-rpet-travel-blanket-with-trolley-pillow-pouch-53291.webp",
+    "imageAlt": "En Route rPET Travel Blanket With Trolley Pillow Pouch",
+    "colors": ["Black", "Cream", "Gray", "Navy Blue"]
+  },
+  {
+    "id": "thick-flannel-lamb-wool-blanket-31735",
+    "name": "Thick Flannel Lamb Wool Blanket",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "63\" x 51.2\" lamb velvet fabric blanket.",
+    "tiers": [
+      [20, 36.667],
+      [100, 29.333],
+      [500, 25],
+      [1000, 18.333],
+      [2000, 13.5]
+    ],
+    "image": "/images/merch/thick-flannel-lamb-wool-blanket-31735.webp",
+    "imageAlt": "Thick Flannel Lamb Wool Blanket",
+    "colors": ["Brown", "Gray", "Coffee", "Dark Blue"]
+  },
+  {
+    "id": "ruched-faux-fur-recycled-polyester-blanket-98117",
+    "name": "Ruched Faux Fur Recycled Polyester Blanket",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "The Blanket Everyone Wants.",
+    "tiers": [
+      [8, 83.32],
+      [25, 71.46],
+      [50, 62.38],
+      [100, 59.98]
+    ],
+    "image": "/images/merch/ruched-faux-fur-recycled-polyester-blanket-98117.webp",
+    "imageAlt": "Ruched Faux Fur Recycled Polyester Blanket",
+    "colors": ["Mocha Frost", "Ivory Frost"]
+  },
+  {
+    "id": "mink-sherpa-blanket-99207",
+    "name": "Mink Sherpa Blanket, 60\" x 50\"",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "A Memorable and Purposeful Gift.",
+    "tiers": [
+      [12, 55.54],
+      [25, 47.63],
+      [50, 41.58],
+      [100, 39.98]
+    ],
+    "image": "/images/merch/mink-sherpa-blanket-99207.webp",
+    "imageAlt": "Mink Sherpa Blanket, 60\" x 50\"",
+    "colors": ["Iced Coffee", "Navy", "Charcoal"]
+  },
+  {
+    "id": "city-bonfires-the-chair-blanket-98231",
+    "name": "City Bonfires The Chair Blanket™",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "53\" x 26\" reversible blanket with cozy fleece side and waterproof side for moisture protection on chairs.",
+    "tiers": [
+      [8, 97.79],
+      [25, 83.87],
+      [50, 67.58],
+      [100, 64.98]
+    ],
+    "image": "/images/merch/city-bonfires-the-chair-blanket-98231.webp",
+    "imageAlt": "City Bonfires The Chair Blanket™",
+    "colors": ["Black", "Grey Plaid", "Buffalo Plaid", "Blue Plaid", "Green Plaid"]
+  },
+  {
+    "id": "custom-full-color-imprint-flannel-fleece-blanket-60-x-80-04057",
+    "name": "Custom Full Color Imprint Flannel Fleece Blanket 60\" x 80\"",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Custom Soft Plush Microfiber Sublimation Full Color Imprint Flannel Fleece Blanket 60\" x 80\".",
+    "tiers": [
+      [20, 30.33],
+      [50, 27.66],
+      [100, 26.5],
+      [300, 26.02],
+      [500, 25.36]
+    ],
+    "image": "/images/merch/custom-full-color-imprint-flannel-fleece-blanket-60-x-80-04057.webp",
+    "imageAlt": "Custom Full Color Imprint Flannel Fleece Blanket 60\" x 80\"",
+    "colors": ["Assorted"]
+  },
+  {
+    "id": "snuggle-up-soft-textured-blanket-67985",
+    "name": "Snuggle Up Soft-Textured Blanket",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Soft-Textured Blanket. Size: 60\" x 55\" x 0.5\".",
+    "tiers": [
+      [25, 15.67],
+      [100, 14.58],
+      [250, 13.97],
+      [500, 13.37],
+      [1000, 12.8]
+    ],
+    "image": "/images/merch/snuggle-up-soft-textured-blanket-67985.webp",
+    "imageAlt": "Snuggle Up Soft-Textured Blanket",
+    "colors": ["Medium Black", "Medium Cream", "Medium Navy Blue", "Khaki", "Light Gray", "Sage"]
+  },
+  {
+    "id": "leeman-cable-knit-sherpa-throw-30703",
+    "name": "Leeman Cable Knit Sherpa Throw",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Sherpa throw with a PU patch and Sherpa backing.",
+    "tiers": [[10, 49.98]],
+    "image": "/images/merch/leeman-cable-knit-sherpa-throw-30703.webp",
+    "imageAlt": "Leeman Cable Knit Sherpa Throw",
+    "colors": ["Cream", "Gray", "Blue-Navy"]
+  },
+  {
+    "id": "rpet-sherpa-fleece-blanket-17516",
+    "name": "RPET Sherpa Fleece Blanket",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Promo Code Special 47\" x 65\" recycled sherpa fleece blanket with customizable rectangle patch.",
+    "tiers": [
+      [50, 18.95],
+      [100, 18.55],
+      [250, 18.35],
+      [500, 18.15],
+      [1000, 17.95]
+    ],
+    "image": "/images/merch/rpet-sherpa-fleece-blanket-17516.webp",
+    "imageAlt": "RPET Sherpa Fleece Blanket",
+    "colors": ["Black", "Blue", "Cream", "Gray"]
+  },
+  {
+    "id": "soothescents-mini-soy-candle-in-a-glass-jar-74775",
+    "name": "SootheScents Mini Soy Candle in a Glass Jar",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Soy wax candle in a glass jar with a bamboo lid. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [150, 5.1],
+      [250, 4.94],
+      [500, 4.79],
+      [1000, 4.64],
+      [2500, 4.49]
+    ],
+    "image": "/images/merch/soothescents-mini-soy-candle-in-a-glass-jar-74775.webp",
+    "imageAlt": "SootheScents Mini Soy Candle in a Glass Jar",
+    "colors": ["White"]
+  },
+  {
+    "id": "aura-3-oz-concrete-candle-25032",
+    "name": "Aura 3 oz. Concrete Candle",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "3 oz. concrete candle with laser engraving.",
+    "tiers": [
+      [10, 16.87],
+      [25, 14.14],
+      [50, 13.33],
+      [100, 12.82],
+      [250, 12.37]
+    ],
+    "image": "/images/merch/aura-3-oz-concrete-candle-25032.webp",
+    "imageAlt": "Aura 3 oz. Concrete Candle",
+    "colors": ["Gray-Copper"]
+  },
+  {
+    "id": "3-oz-lemon-verbena-votive-candle-in-a-cardboard-gift-box-76276",
+    "name": "3 oz. Lemon Verbena Votive Candle in a Cardboard Gift Box",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "3 oz. lemon verbena votive candle in a cardboard gift box.",
+    "tiers": [
+      [50, 6.6],
+      [100, 6.1],
+      [250, 5.9],
+      [500, 5.7],
+      [1000, 5.48]
+    ],
+    "image": "/images/merch/3-oz-lemon-verbena-votive-candle-in-a-cardboard-gift-box-76276.webp",
+    "imageAlt": "3 oz. Lemon Verbena Votive Candle in a Cardboard Gift Box",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "custom-3-oz-scented-votive-candle-in-a-cardboard-gift-box-06392",
+    "name": "Custom 3 oz. Scented Votive Candle in a Cardboard Gift Box",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Three ounce scented votive candle and holder. Made in USA.",
+    "tiers": [
+      [50, 7.23],
+      [100, 6.72],
+      [250, 6.51],
+      [500, 6.31],
+      [1000, 5.98]
+    ],
+    "image": "/images/merch/custom-3-oz-scented-votive-candle-in-a-cardboard-gift-box-06392.webp",
+    "imageAlt": "Custom 3 oz. Scented Votive Candle in a Cardboard Gift Box",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "pillow-spun-polyester-36582",
+    "name": "Pillow - Spun Polyester",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Spun polyester pillow. Made in USA.",
+    "tiers": [
+      [1, 22.55],
+      [10, 19.89],
+      [26, 18.04],
+      [100, 16.91]
+    ],
+    "image": "/images/merch/pillow-spun-polyester-36582.webp",
+    "imageAlt": "Pillow - Spun Polyester",
+    "colors": ["Multi Color"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "18-x-18-sublimated-short-plush-throw-pillow-75449",
+    "name": "18\" x 18\" Sublimated Short Plush Throw Pillow",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Size: 18\" x 18\".",
+    "tiers": [
+      [24, 33.82],
+      [48, 32.58],
+      [96, 27.6],
+      [192, 27.12],
+      [384, 26.29]
+    ],
+    "image": "/images/merch/18-x-18-sublimated-short-plush-throw-pillow-75449.webp",
+    "imageAlt": "18\" x 18\" Sublimated Short Plush Throw Pillow",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "small-full-color-throw-pillow-10148",
+    "name": "Small Full Color Throw Pillow",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "16\" x 16\" polyester throw pillow. Made in USA. Made in USA.",
+    "tiers": [
+      [36, 45.29],
+      [72, 39.38],
+      [144, 34.24],
+      [288, 29.77],
+      [576, 25.89]
+    ],
+    "image": "/images/merch/small-full-color-throw-pillow-10148.webp",
+    "imageAlt": "Small Full Color Throw Pillow",
+    "colors": ["White"]
+  },
+  {
+    "id": "medium-full-color-throw-pillow-10145",
+    "name": "Medium Full Color Throw Pillow",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "18\" x 18\" polyester medium size throw pillow. Made in USA. Made in USA.",
+    "tiers": [
+      [36, 52.45],
+      [72, 45.61],
+      [144, 39.66],
+      [288, 34.49],
+      [576, 29.99]
+    ],
+    "image": "/images/merch/medium-full-color-throw-pillow-10145.webp",
+    "imageAlt": "Medium Full Color Throw Pillow",
+    "colors": ["White"]
+  },
+  {
+    "id": "pillowcase-throw-pillows-21870",
+    "name": "Pillowcase Throw Pillows, 15.7\" x 15.7\"",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "A throw pillow with a soft feel, a brilliant fabric, shiny colors, and a strong three-dimensional pattern. Can customize the logo.",
+    "tiers": [
+      [50, 20.91],
+      [100, 20.24],
+      [500, 6.12],
+      [1000, 6.06],
+      [3000, 5.72]
+    ],
+    "image": "/images/merch/pillowcase-throw-pillows-21870.webp",
+    "imageAlt": "Pillowcase Throw Pillows, 15.7\" x 15.7\"",
+    "colors": ["White"]
+  },
+  {
+    "id": "soft-corduroy-square-throw-pillow-covers-24071",
+    "name": "Soft Corduroy Square Throw Pillow Covers",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Size: 17.72\" x 17.72\".",
+    "tiers": [
+      [100, 5.367],
+      [300, 4.433],
+      [500, 4.35],
+      [1000, 4.1],
+      [2000, 4.083]
+    ],
+    "image": "/images/merch/soft-corduroy-square-throw-pillow-covers-24071.webp",
+    "imageAlt": "Soft Corduroy Square Throw Pillow Covers",
+    "colors": [
+      "Dark White",
+      "Medium Purple",
+      "Light Green",
+      "Camouflage Orange",
+      "Iridescent Green",
+      "Bright Red",
+      "Medium Brown",
+      "Bright Yellow"
+    ]
+  },
+  {
+    "id": "cushion-cover-49855",
+    "name": "Cushion Cover",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Decorative Throw Pillow Case Cushion Cover.",
+    "tiers": [
+      [100, 3.35],
+      [500, 2.73],
+      [1000, 2.7],
+      [5000, 2.62],
+      [10000, 2.43]
+    ],
+    "image": "/images/merch/cushion-cover-49855.webp",
+    "imageAlt": "Cushion Cover",
+    "colors": ["White", "Black", "Gray", "Red"]
+  },
+  {
+    "id": "16-x-16-multicolored-indoor-soft-throw-pillow-41661",
+    "name": "16\" x 16\" Multicolored Indoor Soft Throw Pillow",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Soft pillows make you feel more comfortable when you are sitting or lying down!",
+    "tiers": [
+      [50, 19.92],
+      [105, 19.27],
+      [140, 18.85],
+      [245, 13.13],
+      [375, 6.51]
+    ],
+    "image": "/images/merch/16-x-16-multicolored-indoor-soft-throw-pillow-41661.webp",
+    "imageAlt": "16\" x 16\" Multicolored Indoor Soft Throw Pillow",
+    "colors": ["Assorted"]
+  },
+  {
+    "id": "flower-cushion-is-comfortable-and-beautiful-27210",
+    "name": "Flower Cushion is Comfortable and Beautiful",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Constructed from soft fabric, the pillow's ultra-plush microfiber material is luxurious to the touch. Delicate plush fabric.",
+    "tiers": [
+      [100, 11.2],
+      [300, 11.033],
+      [500, 10.867],
+      [1000, 10.7],
+      [3000, 10.533]
+    ],
+    "image": "/images/merch/flower-cushion-is-comfortable-and-beautiful-27210.webp",
+    "imageAlt": "Flower Cushion is Comfortable and Beautiful"
+  },
+  {
+    "id": "2-in1-velvet-and-sherpa-blanket-throw-pillow-37277",
+    "name": "2 In1 Velvet & Sherpa Blanket Throw Pillow",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Velvet and sherpa throw pillow and blanket.",
+    "tiers": [
+      [30, 44.667],
+      [80, 40.833],
+      [160, 23.5],
+      [360, 23.167],
+      [500, 22.667]
+    ],
+    "image": "/images/merch/2-in1-velvet-and-sherpa-blanket-throw-pillow-37277.webp",
+    "imageAlt": "2 In1 Velvet & Sherpa Blanket Throw Pillow",
+    "colors": ["Brown", "Burgundy", "Gray", "Purple", "Teal", "Dark Blue"]
   }
 ]

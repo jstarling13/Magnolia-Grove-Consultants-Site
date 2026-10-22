@@ -419,6 +419,7 @@ export const PRODUCT_TYPES: Record<string, Taxonomy> = {
     order: [
       "Mints & Tins",
       "Candy & Chocolate",
+      "Hot Cocoa",
       "Popcorn",
       "Cookies & Baked Goods",
       "Snacks & Sauces",
@@ -430,9 +431,10 @@ export const PRODUCT_TYPES: Record<string, Taxonomy> = {
       rf("Cookies & Baked Goods", /cookie/),
       r("Coffee", /coffee|\bbrew\b/),
       r("Mints & Tins", /\bmints?\b|micromint|\btins?\b/),
+      r("Hot Cocoa", /cocoa|hot chocolate/),
       r(
         "Candy & Chocolate",
-        /candy|chocolate|m&m|hershey|snickers|payday|mike and ike|wrapper bars|mini tube/
+        /candy|chocolate|m&m|hershey|snickers|payday|mike and ike|wrapper bars|mini tube|gummy|gummies|skittles|jelly belly|tootsie|\bpops?\b|\bgum\b|window box/
       ),
       r("Snacks & Sauces", /snack|peanut|sauce|\bjar\b/),
       r("Gift Sets & Boards", /gift|\bkit\b|charcuterie|\btub\b|tray/),
