@@ -40480,5 +40480,563 @@
     "image": "/images/merch/bowie-mechanical-pencil-88483.webp",
     "imageAlt": "Bowie Mechanical Pencil",
     "colors": ["Black-Silver", "Process Blue-Silver", "Gray-Silver", "Red-Silver"]
+  },
+  {
+    "id": "tyneside-award-clear-49347",
+    "name": "Tyneside Award - Clear",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "From wide base to narrow peak, the Tyneside tower stands proudly with a large imprinting area made to honor excellence.",
+    "tiers": [
+      [1, 41.5],
+      [7, 40.75],
+      [13, 40],
+      [25, 39.25],
+      [50, 38.5]
+    ],
+    "image": "/images/merch/tyneside-award-clear-49347.webp",
+    "imageAlt": "Tyneside Award - Clear",
+    "colors": ["Clear"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "laser-cut-acrylic-contour-up-to-47-square-inches-overall-40826",
+    "name": "Laser-Cut Acrylic Contour Up To 47 Square Inches Overall",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Custom laser-cut acrylic award in full color, up to 47 square inches. Made in USA.",
+    "tiers": [
+      [12, 71.7],
+      [25, 60.5],
+      [50, 52.5]
+    ],
+    "image": "/images/merch/laser-cut-acrylic-contour-up-to-47-square-inches-overall-40826.webp",
+    "imageAlt": "Laser-Cut Acrylic Contour Up To 47 Square Inches Overall",
+    "colors": ["Multi color"]
+  },
+  {
+    "id": "ibiza-vividprint-award-94700",
+    "name": "Ibiza VividPrint™ Award",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "The exceptional Ibiza VividPrint™ Award made of Starfire Crystal is skillfully cut with profound bevels to amplify its radiance.",
+    "tiers": [
+      [1, 118.5],
+      [4, 116],
+      [7, 113.5],
+      [13, 111],
+      [25, 108.5]
+    ],
+    "image": "/images/merch/ibiza-vividprint-award-94700.webp",
+    "imageAlt": "Ibiza VividPrint™ Award",
+    "colors": ["Blue"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "galileo-award-on-novita-base-56674",
+    "name": "Galileo Award on Novita Base",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Experience the stunning spectrum of colors in the Galileo Art Glass Award! Complete with a complimenting Optical Colverstone Base.",
+    "tiers": [
+      [1, 109.5],
+      [4, 107.5],
+      [7, 105.5],
+      [13, 103.5],
+      [25, 101.5]
+    ],
+    "image": "/images/merch/galileo-award-on-novita-base-56674.webp",
+    "imageAlt": "Galileo Award on Novita Base",
+    "colors": ["Clear"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "small-flagstick-award-27234",
+    "name": "Small Flagstick Award",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "6.25\" x 5\" x 2.75\" golf themed award made of glass. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [[1, 89.39]],
+    "image": "/images/merch/small-flagstick-award-27234.webp",
+    "imageAlt": "Small Flagstick Award",
+    "colors": ["Clear / Green"]
+  },
+  {
+    "id": "jupiter-award-on-granby-base-47192",
+    "name": "Jupiter Award on Granby Base",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Size: 4\" x 6.375\", 4\" x 8.125\", 6\" x 10\".",
+    "tiers": [
+      [1, 109.5],
+      [7, 107.5],
+      [13, 105.5],
+      [25, 103.5],
+      [50, 101.5]
+    ],
+    "image": "/images/merch/jupiter-award-on-granby-base-47192.webp",
+    "imageAlt": "Jupiter Award on Granby Base",
+    "colors": ["Clear"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "flame-crystal-awards-01711",
+    "name": "Flame Crystal Awards",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Flame Crystal Awards. Size: 5.4\" x 7.75\" x .5\". Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [20, 55.55],
+      [50, 53.55],
+      [100, 52.65],
+      [250, 44.2]
+    ],
+    "image": "/images/merch/flame-crystal-awards-01711.webp",
+    "imageAlt": "Flame Crystal Awards",
+    "colors": ["Black-Clear"]
+  },
+  {
+    "id": "blue-sail-award-with-clear-panel-on-mirrored-and-black-base-22583",
+    "name": "Blue Sail Award with Clear Panel on Mirrored and Black Base",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Blue sail glass award with clear panel on mirror and a black base.",
+    "tiers": [[1, 85.8]],
+    "image": "/images/merch/blue-sail-award-with-clear-panel-on-mirrored-and-black-base-22583.webp",
+    "imageAlt": "Blue Sail Award with Clear Panel on Mirrored and Black Base",
+    "colors": ["Blue-Clear"]
+  },
+  {
+    "id": "medium-inclination-award-24754",
+    "name": "Medium Inclination Award",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "9.5\" x 5.13\" x 3\" optically perfect glass award with angled blue accents, a large imprint area and steady clear base. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [1, 155.7],
+      [6, 152.9],
+      [10, 150.1],
+      [25, 147.28]
+    ],
+    "image": "/images/merch/medium-inclination-award-24754.webp",
+    "imageAlt": "Medium Inclination Award",
+    "colors": ["Clear / Blue"]
+  },
+  {
+    "id": "asserto-award-54422",
+    "name": "Asserto Award",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Hand blown 16 1/2\" high art glass award with figure shape on a optical base.",
+    "tiers": [
+      [1, 235],
+      [4, 230],
+      [7, 225],
+      [13, 220],
+      [25, 215]
+    ],
+    "image": "/images/merch/asserto-award-54422.webp",
+    "imageAlt": "Asserto Award"
+  },
+  {
+    "id": "oakleigh-warden-plaque-black-finish-39389",
+    "name": "Oakleigh/Warden Plaque - Black Finish",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Black wall plaque with mirror engraving on a silver satin plate.",
+    "tiers": [
+      [1, 76.5],
+      [4, 75],
+      [7, 73.5],
+      [13, 72],
+      [25, 70.5]
+    ],
+    "image": "/images/merch/oakleigh-warden-plaque-black-finish-39389.webp",
+    "imageAlt": "Oakleigh/Warden Plaque - Black Finish",
+    "colors": ["Black"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "oakleigh-warden-plaque-rosewood-finish-39388",
+    "name": "Oakleigh/Warden Plaque - Rosewood Finish",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Rosewood wall plaque with mirror engraving on a gold satin plate.",
+    "tiers": [
+      [1, 76.5],
+      [4, 75],
+      [7, 73.5],
+      [13, 72],
+      [25, 70.5]
+    ],
+    "image": "/images/merch/oakleigh-warden-plaque-rosewood-finish-39388.webp",
+    "imageAlt": "Oakleigh/Warden Plaque - Rosewood Finish",
+    "colors": ["Rosewood"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "heidelberg-gemini-award-92155",
+    "name": "Heidelberg/Gemini Award",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "The Heidelberg features an ebony finished wood frame with a deep burgundy double matte.",
+    "tiers": [
+      [1, 110],
+      [4, 108],
+      [7, 106],
+      [13, 104],
+      [25, 102]
+    ],
+    "image": "/images/merch/heidelberg-gemini-award-92155.webp",
+    "imageAlt": "Heidelberg/Gemini Award",
+    "colors": ["Black", "Burgundy"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "bamboo-engraved-plaque-07341",
+    "name": "Bamboo Engraved Plaque",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Let the natural elegance of the Bamboo Engraved Plaque capture your memories and achievements.",
+    "tiers": [
+      [1, 54.5],
+      [4, 53.5],
+      [7, 52.5],
+      [13, 51.5],
+      [25, 50.5]
+    ],
+    "image": "/images/merch/bamboo-engraved-plaque-07341.webp",
+    "imageAlt": "Bamboo Engraved Plaque",
+    "colors": ["Bamboo"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "regency-perpetual-plaque-18052",
+    "name": "Regency Perpetual Plaque",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Rosewood piano finish perpetual plaque, 9\" x 12\".",
+    "tiers": [
+      [1, 192.5],
+      [5, 187.7],
+      [12, 181.1],
+      [25, 172.95]
+    ],
+    "image": "/images/merch/regency-perpetual-plaque-18052.webp",
+    "imageAlt": "Regency Perpetual Plaque",
+    "colors": ["Rosewood"]
+  },
+  {
+    "id": "bamboo-vividprint-plaque-07402",
+    "name": "Bamboo VividPrint™ Plaque",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Let the natural elegance of the Bamboo VividPrint™ Plaque capture your memories and achievements.",
+    "tiers": [
+      [1, 48.5],
+      [4, 47.5],
+      [7, 46.5],
+      [13, 45.5],
+      [25, 44.5]
+    ],
+    "image": "/images/merch/bamboo-vividprint-plaque-07402.webp",
+    "imageAlt": "Bamboo VividPrint™ Plaque",
+    "colors": ["Bamboo"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "square-crystal-trophy-56196",
+    "name": "Square Crystal Trophy",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Premium optical crystal square plaque trophy featuring a geometric wooden base and custom engraving options.",
+    "tiers": [
+      [100, 19.67],
+      [300, 11.88],
+      [500, 11.31],
+      [1000, 10.42],
+      [3000, 9.83]
+    ],
+    "image": "/images/merch/square-crystal-trophy-56196.webp",
+    "imageAlt": "Square Crystal Trophy",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "crystal-trophy-award-plaque-73725",
+    "name": "Crystal Trophy Award Plaque",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "These beautiful blue and clear prize holders can be customized with laser engraving or ordered blank.",
+    "tiers": [
+      [100, 19.84],
+      [300, 19.29],
+      [500, 18.69],
+      [1000, 17.51],
+      [3000, 16.91]
+    ],
+    "image": "/images/merch/crystal-trophy-award-plaque-73725.webp",
+    "imageAlt": "Crystal Trophy Award Plaque",
+    "colors": ["Blue", "Orange"]
+  },
+  {
+    "id": "elegant-clear-crystal-paperweight-70136",
+    "name": "Elegant Clear Crystal Paperweight",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Premium clear crystal paperweight ideal for corporate gifts, or recognition. Durable, elegant, and multifunctional.",
+    "tiers": [
+      [20, 8.839],
+      [50, 6.719],
+      [100, 5.519],
+      [200, 4],
+      [500, 3.68]
+    ],
+    "image": "/images/merch/elegant-clear-crystal-paperweight-70136.webp",
+    "imageAlt": "Elegant Clear Crystal Paperweight",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "maple-wood-plaque-award-21791",
+    "name": "Maple Wood Plaque Award",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Maple Wood Plaque Award.",
+    "tiers": [
+      [10, 76.287],
+      [20, 60.842],
+      [30, 51.801],
+      [50, 49.674],
+      [100, 48.397]
+    ],
+    "image": "/images/merch/maple-wood-plaque-award-21791.webp",
+    "imageAlt": "Maple Wood Plaque Award",
+    "colors": ["Black", "Brown"]
+  },
+  {
+    "id": "1-round-gold-foil-label-stickers-roll-10190",
+    "name": "1\" Round Gold Foil Label Stickers Roll",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "1\" Round Gold Foil Embossed Stickers add a classy touch to invitations, certificates, and awards with a shiny metallic finish.",
+    "tiers": [
+      [100, 5.833],
+      [500, 4.833],
+      [1000, 3.333],
+      [5000, 1.6],
+      [50000, 1.2]
+    ],
+    "image": "/images/merch/1-round-gold-foil-label-stickers-roll-10190.webp",
+    "imageAlt": "1\" Round Gold Foil Label Stickers Roll",
+    "colors": ["Gold", "Silver", "Red", "Pink", "Blue"]
+  },
+  {
+    "id": "11-4-x9-3-plastic-double-pocket-folder-22197",
+    "name": "11.4\" x 9.3\" Plastic Double Pocket Folder",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "This 2-pocket document folders is made of durable PP material, size is 11.4\" x 9.3\", fit A4 paper, silkscreen custom logo.",
+    "tiers": [
+      [200, 1.317],
+      [1000, 0.683],
+      [3000, 0.65],
+      [5000, 0.6],
+      [8000, 0.583]
+    ],
+    "image": "/images/merch/11-4-x9-3-plastic-double-pocket-folder-22197.webp",
+    "imageAlt": "11.4\" x 9.3\" Plastic Double Pocket Folder",
+    "colors": [
+      "Nickel Metal",
+      "Camouflage Gray",
+      "Camouflage Pink",
+      "Camouflage Yellow",
+      "Metallic Orange",
+      "Metallic Purple",
+      "Metallic White"
+    ]
+  },
+  {
+    "id": "pocket-folder-82751",
+    "name": "Pocket Folder",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Digital print pocket folder, holds 8.5\" x 11\" handouts. Made in USA.",
+    "tiers": [
+      [12, 10.98],
+      [25, 10.39],
+      [50, 5.25],
+      [100, 3.98],
+      [500, 3.77]
+    ],
+    "image": "/images/merch/pocket-folder-82751.webp",
+    "imageAlt": "Pocket Folder",
+    "colors": ["White"]
+  },
+  {
+    "id": "custom-plastic-folder-with-pockets-and-durable-document-stor-14591",
+    "name": "Custom Plastic Folder with Pockets& Durable Document Storage",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Custom Plastic Folder with Pockets for organized document storage,professional branding, presentations,schools& promotional events.",
+    "tiers": [
+      [200, 1.65],
+      [300, 1.583],
+      [1000, 1.417],
+      [2000, 1.25],
+      [5000, 0.983]
+    ],
+    "image": "/images/merch/custom-plastic-folder-with-pockets-and-durable-document-stor-14591.webp",
+    "imageAlt": "Custom Plastic Folder with Pockets& Durable Document Storage",
+    "colors": ["Black", "Purple", "Red", "Orange", "Green", "Yellow", "Blue"]
+  },
+  {
+    "id": "plastic-folders-with-pockets-for-office-school-27108",
+    "name": "Plastic Folders With Pockets For Office School",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "7 Different Colored Folders Can Effectively Help You Categorize Your Files And Keep Your Work Organized.",
+    "tiers": [
+      [100, 1.967],
+      [300, 1.7],
+      [500, 1.417],
+      [1000, 1.133],
+      [5000, 0.983]
+    ],
+    "image": "/images/merch/plastic-folders-with-pockets-for-office-school-27108.webp",
+    "imageAlt": "Plastic Folders With Pockets For Office School",
+    "colors": ["Blue", "Purple", "Yellow", "Red", "Green", "Orange", "Black"]
+  },
+  {
+    "id": "poly-folders-with-business-card-slot-durable-plastic-16651",
+    "name": "Poly Folders with Business Card Slot Durable Plastic",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Durable pocket plastic folders with a business card slot for school, office, and promotional use.",
+    "tiers": [
+      [300, 1.6],
+      [500, 1.5],
+      [800, 1.4],
+      [1500, 1.317],
+      [3000, 1.283]
+    ],
+    "image": "/images/merch/poly-folders-with-business-card-slot-durable-plastic-16651.webp",
+    "imageAlt": "Poly Folders with Business Card Slot Durable Plastic",
+    "colors": ["Black", "Blue", "Green", "Purple", "Orange", "Red", "Yellow"]
+  },
+  {
+    "id": "9-x-12-expandable-w-1-4-gusset-folder-w-fold-up-pockets-43809",
+    "name": "9\" x 12\" Expandable w/1/4\" Gusset Folder w/Fold Up Pockets",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Customized folder Made in USA.",
+    "tiers": [
+      [100, 2.68],
+      [250, 2.23],
+      [500, 1.79],
+      [1000, 1.58],
+      [2500, 1.36]
+    ],
+    "image": "/images/merch/9-x-12-expandable-w-1-4-gusset-folder-w-fold-up-pockets-43809.webp",
+    "imageAlt": "9\" x 12\" Expandable w/1/4\" Gusset Folder w/Fold Up Pockets",
+    "colors": ["White"]
+  },
+  {
+    "id": "magnetic-snap-pu-document-holder-with-bill-clip-72261",
+    "name": "Magnetic Snap PU Document Holder with Bill Clip",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Premium PU document holder with magnetic snap and bill clip. Multi-pocket design, water-resistant.",
+    "tiers": [
+      [50, 6.169],
+      [100, 4.97],
+      [300, 3.78],
+      [500, 3.63],
+      [1000, 3.15]
+    ],
+    "image": "/images/merch/magnetic-snap-pu-document-holder-with-bill-clip-72261.webp",
+    "imageAlt": "Magnetic Snap PU Document Holder with Bill Clip",
+    "colors": ["Black", "Pink", "Blue", "Green", "Orange", "Red", "Purple"]
+  },
+  {
+    "id": "plain-door-hanger-custom-printed-6-3-4-x3-1-2-14171",
+    "name": "Plain Door Hanger Custom Printed 6 3/4\" x 3 1/2\"",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Size: 6.75\" x 3.5\".",
+    "tiers": [
+      [100, 2.53],
+      [250, 1.46],
+      [500, 0.84],
+      [1000, 0.42],
+      [2500, 0.24]
+    ],
+    "image": "/images/merch/plain-door-hanger-custom-printed-6-3-4-x3-1-2-14171.webp",
+    "imageAlt": "Plain Door Hanger Custom Printed 6 3/4\" x 3 1/2\""
+  },
+  {
+    "id": "plastic-bookmark-10-mil-94050",
+    "name": "Plastic Bookmark - 10 Mil",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Plastic bookmark. Made in USA.",
+    "tiers": [
+      [250, 0.884],
+      [500, 0.603],
+      [1000, 0.478],
+      [2500, 0.374],
+      [5000, 0.343]
+    ],
+    "image": "/images/merch/plastic-bookmark-10-mil-94050.webp",
+    "imageAlt": "Plastic Bookmark - 10 Mil",
+    "colors": ["10K Thickness White"]
+  },
+  {
+    "id": "acrylic-bookmark-with-tassel-24306",
+    "name": "Acrylic Bookmark With Tassel",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Acrylic bookmark with polyester tassel and full color, edge-to-edge graphics.",
+    "tiers": [
+      [250, 1.65],
+      [500, 1.6],
+      [1000, 1.55],
+      [2500, 1.5]
+    ],
+    "image": "/images/merch/acrylic-bookmark-with-tassel-24306.webp",
+    "imageAlt": "Acrylic Bookmark With Tassel",
+    "colors": ["White", "Black"]
+  },
+  {
+    "id": "2-x-7-25-bookmark-89090",
+    "name": "2\" x 7.25\" Bookmark",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "2\" x 7.25\" bookmark with imprint options.",
+    "tiers": [
+      [100, 0.54],
+      [150, 0.42],
+      [250, 0.4],
+      [500, 0.28],
+      [1000, 0.14]
+    ],
+    "image": "/images/merch/2-x-7-25-bookmark-89090.webp",
+    "imageAlt": "2\" x 7.25\" Bookmark",
+    "colors": ["White"]
+  },
+  {
+    "id": "2-5-x-8-5-bookmark-89092",
+    "name": "2.5\" x 8.5\" Bookmark",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Bookmark with imprint options.",
+    "tiers": [
+      [96, 0.94],
+      [144, 0.78],
+      [240, 0.5],
+      [500, 0.28],
+      [1000, 0.2]
+    ],
+    "image": "/images/merch/2-5-x-8-5-bookmark-89092.webp",
+    "imageAlt": "2.5\" x 8.5\" Bookmark",
+    "colors": ["White"]
   }
 ]
