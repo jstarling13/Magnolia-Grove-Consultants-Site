@@ -31174,5 +31174,829 @@
       "Black Nickel"
     ],
     "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "2500mah-power-bank-w-built-in-cable-99943",
+    "name": "2500mAh Power Bank w/Built In Cable",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Size: 3.78\" x 2.44\" x 0.28\".",
+    "tiers": [
+      [100, 8.98],
+      [250, 8.83],
+      [500, 8.7],
+      [1000, 8.42],
+      [3000, 8.29]
+    ],
+    "image": "/images/merch/2500mah-power-bank-w-built-in-cable-99943.webp",
+    "imageAlt": "2500mAh Power Bank w/Built In Cable",
+    "colors": ["Bright White"]
+  },
+  {
+    "id": "4500-mah-mag-max-power-bank-with-selfie-shutter-42795",
+    "name": "4500 mAh Mag Max Power Bank With Selfie Shutter",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "4500 mAh power bank with selfie shutter.",
+    "tiers": [
+      [15, 52.45],
+      [30, 45.61],
+      [90, 39.66],
+      [150, 34.49],
+      [300, 29.99]
+    ],
+    "image": "/images/merch/4500-mah-mag-max-power-bank-with-selfie-shutter-42795.webp",
+    "imageAlt": "4500 mAh Mag Max Power Bank With Selfie Shutter",
+    "colors": ["Black", "White"]
+  },
+  {
+    "id": "65w-fast-charge-20-000-mah-laptop-power-bank-10040",
+    "name": "65W Fast Charge 20,000 mAh Laptop Power Bank",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "20,000mAh laptop power bank.",
+    "tiers": [
+      [10, 174.89],
+      [20, 152.08],
+      [50, 132.24],
+      [100, 114.99],
+      [250, 99.99]
+    ],
+    "image": "/images/merch/65w-fast-charge-20-000-mah-laptop-power-bank-10040.webp",
+    "imageAlt": "65W Fast Charge 20,000 mAh Laptop Power Bank",
+    "colors": ["Black"]
+  },
+  {
+    "id": "waterproof-compass-solar-power-bank-8000mah-18179",
+    "name": "Waterproof Compass Solar Power Bank 8000mah",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Size: 5.47\" x 3\" x 0.79\".",
+    "tiers": [
+      [100, 28.59],
+      [250, 25.68],
+      [500, 24.65],
+      [1000, 23.46],
+      [3000, 21.71]
+    ],
+    "image": "/images/merch/waterproof-compass-solar-power-bank-8000mah-18179.webp",
+    "imageAlt": "Waterproof Compass Solar Power Bank 8000mah",
+    "colors": ["Medium Black", "Bright Orange", "Bright Blue", "Bright Green"]
+  },
+  {
+    "id": "bamboo-usb-wireless-magnetic-charging-power-bank-45568",
+    "name": "Bamboo USB Wireless Magnetic Charging Power Bank",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Designed to support any smartphone without wireless technology through the power bank capabilities.",
+    "tiers": [
+      [100, 15.967],
+      [300, 15.633],
+      [1000, 14.9],
+      [3000, 14.367],
+      [10000, 13.85]
+    ],
+    "image": "/images/merch/bamboo-usb-wireless-magnetic-charging-power-bank-45568.webp",
+    "imageAlt": "Bamboo USB Wireless Magnetic Charging Power Bank",
+    "colors": ["Black", "White"]
+  },
+  {
+    "id": "10000-mah-power-bank-w-4-built-in-cable-and-wireless-charger-18215",
+    "name": "10000 Mah Power Bank W/ 4 Built-in Cable & Wireless Charger",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Size: 5.83\" x 2.67\" x 0.79\".",
+    "tiers": [
+      [100, 20.27],
+      [250, 19.94],
+      [500, 19.62],
+      [1000, 18.99],
+      [3000, 18.7]
+    ],
+    "image": "/images/merch/10000-mah-power-bank-w-4-built-in-cable-and-wireless-charger-18215.webp",
+    "imageAlt": "10000 Mah Power Bank W/ 4 Built-in Cable & Wireless Charger",
+    "colors": ["Medium Black", "Bright White", "Bright Green", "Bright Purple"]
+  },
+  {
+    "id": "5000mah-branded-thin-metal-portable-charger-trade-show-85028",
+    "name": "5000mAh Branded Thin Metal Portable Charger Trade Show",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Custom thin metal power bank for business giveaways.",
+    "tiers": [
+      [50, 7.283],
+      [200, 6.8],
+      [500, 6.467],
+      [1000, 5.9],
+      [2500, 5.45]
+    ],
+    "image": "/images/merch/5000mah-branded-thin-metal-portable-charger-trade-show-85028.webp",
+    "imageAlt": "5000mAh Branded Thin Metal Portable Charger Trade Show",
+    "colors": ["Silver", "Blue", "Pink", "Brown"]
+  },
+  {
+    "id": "4-in-1-5-000-mah-slim-power-bank-with-built-in-cable-06808",
+    "name": "4-in-1 5,000 mAh Slim Power Bank with Built in Cable",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "4-in- 1 Ultra Compact 5000mAh Slim Power Bank with Built in Cable Small Fast Charging USB C Travel External Battery.",
+    "tiers": [
+      [100, 14.967],
+      [400, 14.067],
+      [1200, 13.25],
+      [2500, 12.35],
+      [5000, 10.3]
+    ],
+    "image": "/images/merch/4-in-1-5-000-mah-slim-power-bank-with-built-in-cable-06808.webp",
+    "imageAlt": "4-in-1 5,000 mAh Slim Power Bank with Built in Cable",
+    "colors": ["White", "Black"]
+  },
+  {
+    "id": "ul-listed-2-200-mah-on-the-go-power-bank-2-0-17716",
+    "name": "UL Listed 2,200 mAh On-The-Go Power Bank 2.0",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "UL-listed, 2,200mAh power bank.",
+    "tiers": [
+      [50, 16.63],
+      [100, 14.46],
+      [250, 12.57],
+      [500, 10.93],
+      [1000, 9.5]
+    ],
+    "image": "/images/merch/ul-listed-2-200-mah-on-the-go-power-bank-2-0-17716.webp",
+    "imageAlt": "UL Listed 2,200 mAh On-The-Go Power Bank 2.0",
+    "colors": ["Black", "Blue", "Purple", "Red", "Silver"]
+  },
+  {
+    "id": "hodges-quickcharge-power-bank-20000-10230",
+    "name": "Hodges QuickCharge Power Bank 20000",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "High-end Power Bank with Solid aluminum case, 22.5W 2000mAh high capacity, 2 USB-A output, and 1 USB-C quick charge port.",
+    "tiers": [
+      [10, 57.43],
+      [25, 52.71],
+      [50, 50.11],
+      [100, 46.18],
+      [250, 45.03]
+    ],
+    "image": "/images/merch/hodges-quickcharge-power-bank-20000-10230.webp",
+    "imageAlt": "Hodges QuickCharge Power Bank 20000",
+    "colors": ["Medium Black - Black C"]
+  },
+  {
+    "id": "15w-magsafe-magnetic-wireless-power-bank-63659",
+    "name": "15W MagSafe Magnetic Wireless Power Bank",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "15W MagSafe magnetic wireless power bank plus 1 color silkscreen imprint on 1 location plus standard shipping to 1 US location. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [50, 24.883],
+      [100, 23],
+      [200, 20.75],
+      [300, 20.45],
+      [500, 20.05]
+    ],
+    "image": "/images/merch/15w-magsafe-magnetic-wireless-power-bank-63659.webp",
+    "imageAlt": "15W MagSafe Magnetic Wireless Power Bank",
+    "colors": ["Black", "Gray", "Silver"]
+  },
+  {
+    "id": "fast-charging-magnetic-wireless-power-bank-5000-mah-42932",
+    "name": "Fast Charging Magnetic Wireless Power Bank - 5000 mAh",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "20W PD Fast charging magnetic wireless power bank - 5000 mAh plus 1c1p silkscreen imprint plus shipping to 1 US location.",
+    "tiers": [
+      [100, 21.233],
+      [200, 18.833],
+      [300, 18.617],
+      [500, 17.967],
+      [1000, 16.617]
+    ],
+    "image": "/images/merch/fast-charging-magnetic-wireless-power-bank-5000-mah-42932.webp",
+    "imageAlt": "Fast Charging Magnetic Wireless Power Bank - 5000 mAh",
+    "colors": ["Gold-Black", "Gray-Black"]
+  },
+  {
+    "id": "anker-maggo-power-bank-10k-slim-24905",
+    "name": "Anker® MagGo Power Bank (10K, Slim)",
+    "category": "Tech Accessories",
+    "brand": "Anker",
+    "description": "Portable power bank with slim profile.",
+    "tiers": [
+      [8, 137.72],
+      [25, 118.11],
+      [50, 88.39],
+      [100, 84.99]
+    ],
+    "image": "/images/merch/anker-maggo-power-bank-10k-slim-24905.webp",
+    "imageAlt": "Anker® MagGo Power Bank (10K, Slim)",
+    "colors": ["Black"]
+  },
+  {
+    "id": "10000mah-solar-power-bank-portable-charger-built-in-cables-95534",
+    "name": "10000Mah Solar Power Bank Portable Charger Built-In Cables",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Portable, solar powered 10,000 mAh power bank with built in cables.",
+    "tiers": [
+      [50, 18.517],
+      [200, 16.833],
+      [500, 14.367],
+      [2000, 13.267],
+      [5000, 11.8]
+    ],
+    "image": "/images/merch/10000mah-solar-power-bank-portable-charger-built-in-cables-95534.webp",
+    "imageAlt": "10000Mah Solar Power Bank Portable Charger Built-In Cables",
+    "colors": [
+      "Black",
+      "Blue",
+      "Gray",
+      "Green",
+      "Orange",
+      "Pink",
+      "Purple",
+      "Red",
+      "White",
+      "Yellow"
+    ]
+  },
+  {
+    "id": "tri-fold-wireless-multi-charger-91665",
+    "name": "Tri-Fold Wireless Multi-Charger",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Wireless charger with foldable design.",
+    "tiers": [
+      [20, 43.71],
+      [50, 38.01],
+      [100, 33.05],
+      [250, 28.74],
+      [500, 24.99]
+    ],
+    "image": "/images/merch/tri-fold-wireless-multi-charger-91665.webp",
+    "imageAlt": "Tri-Fold Wireless Multi-Charger",
+    "colors": ["Black", "White"]
+  },
+  {
+    "id": "foldable-rabs-magnetic-wireless-charger-70773",
+    "name": "Foldable rABS Magnetic Wireless Charger",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "rABS foldable and magnetic wireless charger.",
+    "tiers": [
+      [10, 52.45],
+      [20, 45.61],
+      [50, 39.66],
+      [100, 34.49],
+      [250, 29.99]
+    ],
+    "image": "/images/merch/foldable-rabs-magnetic-wireless-charger-70773.webp",
+    "imageAlt": "Foldable rABS Magnetic Wireless Charger",
+    "colors": ["Black"]
+  },
+  {
+    "id": "2-in-1-magnetic-wireless-charger-with-stand-50042",
+    "name": "2 in 1 Magnetic Wireless Charger with Stand",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Size: 2.36\" x 2.36\" x 0.31\".",
+    "tiers": [
+      [50, 15.183],
+      [200, 13.6],
+      [500, 13.433],
+      [1000, 12.433],
+      [5000, 11.2]
+    ],
+    "image": "/images/merch/2-in-1-magnetic-wireless-charger-with-stand-50042.webp",
+    "imageAlt": "2 in 1 Magnetic Wireless Charger with Stand",
+    "colors": ["Black", "White"]
+  },
+  {
+    "id": "terratone-powerbank-and-wireless-charger-47856",
+    "name": "TerraTone™ Powerbank & Wireless Charger",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "An eco-friendly 5000 mAh power bank & wireless charger.",
+    "tiers": [
+      [1, 51.54],
+      [10, 41.23],
+      [25, 40.3],
+      [50, 39.35],
+      [100, 37.48]
+    ],
+    "image": "/images/merch/terratone-powerbank-and-wireless-charger-47856.webp",
+    "imageAlt": "TerraTone™ Powerbank & Wireless Charger",
+    "colors": ["White-Brown"]
+  },
+  {
+    "id": "3-in-1-foldable-magnetic-charger-stand-06237",
+    "name": "3-In-1 Foldable Magnetic Charger Stand",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Foldable Magnetic Wireless Charger,Built-In Night Light,Offering Safe And Efficient Charging.",
+    "tiers": [
+      [100, 23.6],
+      [300, 22.1],
+      [500, 20.317],
+      [1000, 19.3],
+      [5000, 16.717]
+    ],
+    "image": "/images/merch/3-in-1-foldable-magnetic-charger-stand-06237.webp",
+    "imageAlt": "3-In-1 Foldable Magnetic Charger Stand",
+    "colors": ["Black", "White", "Brown"]
+  },
+  {
+    "id": "wireless-charging-mouse-pad-31271",
+    "name": "Wireless Charging Mouse Pad",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "11\" x 8\" wireless charging mouse pad in assorted color options.",
+    "tiers": [
+      [100, 19.5],
+      [300, 17.667],
+      [500, 17],
+      [1000, 16.3],
+      [3000, 15.417]
+    ],
+    "image": "/images/merch/wireless-charging-mouse-pad-31271.webp",
+    "imageAlt": "Wireless Charging Mouse Pad",
+    "colors": ["Black", "Brown", "Gray"]
+  },
+  {
+    "id": "wireless-charging-constant-temperature-coaster-set-27143",
+    "name": "Wireless Charging Constant Temperature Coaster Set",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Our special ceramic mugs and wireless chargers keep your beverages at 100-132 degrees Fahrenheit (40-55 degrees Celsius).",
+    "tiers": [
+      [10, 47.01],
+      [20, 39.48],
+      [50, 32.92],
+      [100, 31.9],
+      [200, 29.55]
+    ],
+    "image": "/images/merch/wireless-charging-constant-temperature-coaster-set-27143.webp",
+    "imageAlt": "Wireless Charging Constant Temperature Coaster Set",
+    "colors": ["Black", "White"]
+  },
+  {
+    "id": "ultra-sound-speaker-and-wireless-charger-2-0-92283",
+    "name": "Ultra Sound Speaker & Wireless Charger 2.0",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Bluetooth speaker with LED light and wireless charger for QI-enabled devices.",
+    "tiers": [
+      [20, 35.05],
+      [50, 34.03],
+      [100, 33.04],
+      [250, 32.08],
+      [500, 31.15]
+    ],
+    "image": "/images/merch/ultra-sound-speaker-and-wireless-charger-2-0-92283.webp",
+    "imageAlt": "Ultra Sound Speaker & Wireless Charger 2.0",
+    "colors": ["Black", "Gray", "Forest Green", "Navy Blue", "Red", "Royal Blue", "Seafoam Green"]
+  },
+  {
+    "id": "led-magnetic-wireless-pad-48151",
+    "name": "LED Magnetic Wireless Pad",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Magnetic Wireless Apple Mag-Safe Charger for iPhone 15/14/13/12 Series, AirPods 3/2/Pro LED Magnet Pad With Charging Ports.",
+    "tiers": [
+      [50, 7.867],
+      [200, 6.317],
+      [1000, 5.4],
+      [5000, 4.433],
+      [10000, 4.05]
+    ],
+    "image": "/images/merch/led-magnetic-wireless-pad-48151.webp",
+    "imageAlt": "LED Magnetic Wireless Pad",
+    "colors": ["Black", "Black-Red Base", "White-Gold Base", "White-Silver Base"]
+  },
+  {
+    "id": "magnetic-wireless-charger-50021",
+    "name": "Magnetic Wireless Charger",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Magnetic Wireless Charger for iPhone 15W Fast Mag Safe Charger Pad for iPhone and AirPods.",
+    "tiers": [
+      [50, 13.45],
+      [200, 11.883],
+      [500, 11.7],
+      [1000, 10.817],
+      [5000, 9.583]
+    ],
+    "image": "/images/merch/magnetic-wireless-charger-50021.webp",
+    "imageAlt": "Magnetic Wireless Charger",
+    "colors": ["Black", "White"]
+  },
+  {
+    "id": "vintage-leather-padfolio-with-6-ring-binder-notebook-89531",
+    "name": "Vintage Leather Padfolio with 6-Ring Binder Notebook",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Vintage full grain leather A5 padfolio with 6-ring binder, zipper pocket, card slots, and tablet holder for business use.",
+    "tiers": [
+      [25, 63.2],
+      [50, 59.45],
+      [100, 57.95],
+      [300, 55.933],
+      [500, 53.233]
+    ],
+    "image": "/images/merch/vintage-leather-padfolio-with-6-ring-binder-notebook-89531.webp",
+    "imageAlt": "Vintage Leather Padfolio with 6-Ring Binder Notebook",
+    "colors": ["Coffee"]
+  },
+  {
+    "id": "morgan-executive-zippered-padfolio-29472",
+    "name": "Morgan Executive Zippered Padfolio",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Vegan leather full size A4 padfolio with FSC certified paper pad, interior organization, and elastic pen loop.",
+    "tiers": [
+      [25, 33.32],
+      [50, 28.58],
+      [100, 24.95],
+      [300, 23.98]
+    ],
+    "image": "/images/merch/morgan-executive-zippered-padfolio-29472.webp",
+    "imageAlt": "Morgan Executive Zippered Padfolio",
+    "colors": ["Black", "Greystone"]
+  },
+  {
+    "id": "monroe-padholder-stylish-padfolio-58900",
+    "name": "Monroe Padholder - Stylish Padfolio",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Clean lines and on trend accents give this padholder a sharp appearance. The Monroe Padfolio has stylish contrasting stitching.",
+    "tiers": [
+      [20, 16.43],
+      [50, 15.95],
+      [100, 15.34]
+    ],
+    "image": "/images/merch/monroe-padholder-stylish-padfolio-58900.webp",
+    "imageAlt": "Monroe Padholder - Stylish Padfolio",
+    "colors": ["Black", "Navy Blue", "Tan", "Green"]
+  },
+  {
+    "id": "executive-trio-tumbler-pen-and-journal-35199",
+    "name": "Executive Trio: Tumbler, Pen & Journal",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Executive Trio: Tumbler, Pen & Journal.",
+    "tiers": [
+      [10, 83.399],
+      [20, 72.159],
+      [30, 71.742],
+      [50, 71.533],
+      [100, 69.772]
+    ],
+    "image": "/images/merch/executive-trio-tumbler-pen-and-journal-35199.webp",
+    "imageAlt": "Executive Trio: Tumbler, Pen & Journal",
+    "colors": ["Black", "Blue", "Red", "Silver", "Gold"]
+  },
+  {
+    "id": "executive-full-grain-leather-rfid-laptop-padfolio-59548",
+    "name": "Executive Full-Grain Leather RFID Laptop Padfolio",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Full-grain leather 14 inch laptop padfolio with RFID protection and tracker slot.",
+    "tiers": [
+      [20, 178.517],
+      [50, 169.783],
+      [100, 166.35],
+      [300, 163.15],
+      [500, 157.367]
+    ],
+    "image": "/images/merch/executive-full-grain-leather-rfid-laptop-padfolio-59548.webp",
+    "imageAlt": "Executive Full-Grain Leather RFID Laptop Padfolio",
+    "colors": ["Coffee"]
+  },
+  {
+    "id": "leeman-tuscany-duo-textured-padfolio-81616",
+    "name": "Leeman Tuscany Duo-Textured Padfolio",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "PU leather padfolio with 30-page 8.5\" x 11\" ruled notepad, document pockets and pen loop.",
+    "tiers": [
+      [25, 30.99],
+      [75, 29.99],
+      [150, 28.99],
+      [300, 27.99],
+      [600, 26.99]
+    ],
+    "image": "/images/merch/leeman-tuscany-duo-textured-padfolio-81616.webp",
+    "imageAlt": "Leeman Tuscany Duo-Textured Padfolio",
+    "colors": ["Black", "Tan", "Blue-Navy"]
+  },
+  {
+    "id": "hamilton-zippered-3-ring-binder-padfolio-4-colors-17794",
+    "name": "Hamilton Zippered 3-Ring Binder -Padfolio (4 Colors)",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Hamilton Zippered 3-Ring Binder Padfolio with gusseted file pocket and pen holder. A Top Notch Padfolio for any organization.",
+    "tiers": [
+      [20, 26.74],
+      [50, 25.96],
+      [100, 24.96]
+    ],
+    "image": "/images/merch/hamilton-zippered-3-ring-binder-padfolio-4-colors-17794.webp",
+    "imageAlt": "Hamilton Zippered 3-Ring Binder -Padfolio (4 Colors)",
+    "colors": ["Black", "Navy Blue", "Tan", "Green"]
+  },
+  {
+    "id": "carbon-fiber-zippered-techfolio-26487",
+    "name": "Carbon Fiber Zippered TechFolio",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Carbon fiber zippered TechFolio measuring 13.5\"H x 10.48\"W x 1.25\"D. with multiple pockets, cord loops, and a pen loop.",
+    "tiers": [
+      [50, 43.96],
+      [100, 42.18],
+      [250, 39.14],
+      [500, 36.87]
+    ],
+    "image": "/images/merch/carbon-fiber-zippered-techfolio-26487.webp",
+    "imageAlt": "Carbon Fiber Zippered TechFolio",
+    "colors": ["Black"]
+  },
+  {
+    "id": "leather-business-portfolio-binder-w-zipper-closure-and-handl-22096",
+    "name": "Leather Business Portfolio Binder W/ Zipper Closure & Handle",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "This PU leather portfolio folder size 10\" x 13.6\", w/ binder & file folder & muti pockets, for business, silkscreen custom logo.",
+    "tiers": [
+      [100, 19],
+      [300, 18.817],
+      [500, 18.8],
+      [1000, 17.267],
+      [3000, 17.117]
+    ],
+    "image": "/images/merch/leather-business-portfolio-binder-w-zipper-closure-and-handl-22096.webp",
+    "imageAlt": "Leather Business Portfolio Binder W/ Zipper Closure & Handle",
+    "colors": [
+      "Nickel Metal",
+      "Medium Red",
+      "Pewter Metal",
+      "Titanium Metal",
+      "Camouflage Purple",
+      "Bright Purple",
+      "Clear Brown"
+    ]
+  },
+  {
+    "id": "full-grain-leather-a5-6-ring-refillable-padfolio-72999",
+    "name": "Full-Grain Leather A5 6-Ring Refillable Padfolio",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Full-grain leather A5 organizer with a 6-ring refill system, included paper, storage pockets and a pen loop.",
+    "tiers": [
+      [30, 50.367],
+      [60, 48.567],
+      [100, 46.083],
+      [200, 43.617],
+      [500, 39.083]
+    ],
+    "image": "/images/merch/full-grain-leather-a5-6-ring-refillable-padfolio-72999.webp",
+    "imageAlt": "Full-Grain Leather A5 6-Ring Refillable Padfolio",
+    "colors": ["Coffee"]
+  },
+  {
+    "id": "cambridge-wireless-charging-portfolio-03090",
+    "name": "Cambridge Wireless Charging Portfolio",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Cambridge wireless charging portfolio with removable powerbank, notepad, organization panel and more.",
+    "tiers": [
+      [10, 84.72],
+      [25, 81.18],
+      [50, 79.24],
+      [100, 77.82],
+      [250, 74.99]
+    ],
+    "image": "/images/merch/cambridge-wireless-charging-portfolio-03090.webp",
+    "imageAlt": "Cambridge Wireless Charging Portfolio",
+    "colors": ["Charcoal"]
+  },
+  {
+    "id": "morgan-junior-magnetic-padfolio-29438",
+    "name": "Morgan Junior Magnetic Padfolio",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Vegan leather junior padfolio with FSC certified paper pad, interior storage, and elastic pen loop.",
+    "tiers": [
+      [30, 24.99],
+      [50, 21.43],
+      [100, 18.71],
+      [300, 17.98]
+    ],
+    "image": "/images/merch/morgan-junior-magnetic-padfolio-29438.webp",
+    "imageAlt": "Morgan Junior Magnetic Padfolio",
+    "colors": ["Black", "Greystone"]
+  },
+  {
+    "id": "widder-ocean-plastic-recycled-journal-80963",
+    "name": "Widder Ocean Plastic Recycled Journal",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Size: 5.75\" x 8.25\".",
+    "tiers": [
+      [50, 4.99],
+      [100, 4.74],
+      [250, 4.49],
+      [500, 4.24]
+    ],
+    "image": "/images/merch/widder-ocean-plastic-recycled-journal-80963.webp",
+    "imageAlt": "Widder Ocean Plastic Recycled Journal",
+    "colors": ["Black", "Blue", "White", "Brown", "Green", "Grey", "Orange", "Pink", "Red"]
+  },
+  {
+    "id": "recycled-flip-up-notepad-pen-75280",
+    "name": "Recycled Flip-up Notepad/Pen",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Recycled notebook and pen combo 3\" wide x 5\" high with recycled paper pen and elastic closure.",
+    "tiers": [[100, 2.95]],
+    "image": "/images/merch/recycled-flip-up-notepad-pen-75280.webp",
+    "imageAlt": "Recycled Flip-up Notepad/Pen",
+    "colors": ["Black", "Blue", "Green", "Red"]
+  },
+  {
+    "id": "wireo-chia-medio-white-lined-pg-journal-28673",
+    "name": "WireO Chia Medio White Lined Pg Journal",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "5 1/2\" x 8\" journal with a polyurethane cover and 160 pages. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [50, 9.1],
+      [250, 8.84],
+      [500, 8.42],
+      [1000, 8.24]
+    ],
+    "image": "/images/merch/wireo-chia-medio-white-lined-pg-journal-28673.webp",
+    "imageAlt": "WireO Chia Medio White Lined Pg Journal",
+    "colors": ["Black", "Orange", "Red", "Sand", "Walnut", "China Blue", "Sky Blue", "Light Gray"]
+  },
+  {
+    "id": "a7-pu-leather-notebook-with-pen-loop-and-elastic-closure-21512",
+    "name": "A7 PU Leather Notebook With Pen Loop And Elastic Closure",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "A7 PU leather notebook with pen loop, elastic page - marking band & ruled pages.",
+    "tiers": [
+      [50, 2.82],
+      [100, 2.58],
+      [300, 2.37],
+      [500, 2.17],
+      [1500, 1.88]
+    ],
+    "image": "/images/merch/a7-pu-leather-notebook-with-pen-loop-and-elastic-closure-21512.webp",
+    "imageAlt": "A7 PU Leather Notebook With Pen Loop And Elastic Closure",
+    "colors": ["Green", "Blue", "Pink", "Black", "Gray"]
+  },
+  {
+    "id": "soft-touch-rpet-ultrahyde-notebook-35568",
+    "name": "Soft-Touch rPET UltraHyde Notebook",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Combines a polished, professional appearance with recycled materials for an elevated everyday writing essential. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [150, 4.83],
+      [250, 4.69],
+      [500, 4.55],
+      [1000, 4.42],
+      [2500, 4.29]
+    ],
+    "image": "/images/merch/soft-touch-rpet-ultrahyde-notebook-35568.webp",
+    "imageAlt": "Soft-Touch rPET UltraHyde Notebook",
+    "colors": ["Black", "Blue", "Gray", "Navy", "Red"]
+  },
+  {
+    "id": "eccolo-techno-journal-m-82805",
+    "name": "Eccolo® Techno Journal (M)",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Our Techno journals are the top choice to get the most impact for your budget.",
+    "tiers": [
+      [50, 12.59],
+      [100, 12.34],
+      [250, 12.09],
+      [500, 11.84]
+    ],
+    "image": "/images/merch/eccolo-techno-journal-m-82805.webp",
+    "imageAlt": "Eccolo® Techno Journal (M)",
+    "colors": ["Black", "Gray", "Green", "Navy"]
+  },
+  {
+    "id": "kraft-paper-notebook-and-sticky-notes-set-with-pen-45954",
+    "name": "Kraft Paper Notebook And Sticky Notes Set With Pen",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Kraft Paper Notebook And Sticky Notes Set With Pen, 60 Pages Notepad With Pen.",
+    "tiers": [
+      [10, 4.53],
+      [50, 3.166],
+      [100, 2.874],
+      [300, 2.665],
+      [500, 2.601]
+    ],
+    "image": "/images/merch/kraft-paper-notebook-and-sticky-notes-set-with-pen-45954.webp",
+    "imageAlt": "Kraft Paper Notebook And Sticky Notes Set With Pen",
+    "colors": ["Brown", "Red", "Black", "White", "Blue"]
+  },
+  {
+    "id": "tactile-eco-inspired-soft-cover-notepad-jotter-26844",
+    "name": "Tactile Eco-Inspired Soft Cover Notepad Jotter",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "5\" x 7\" notebook with 70 sheets of lined paper, elastic ribbon closure, bookmark and pen loop holder.",
+    "tiers": [
+      [100, 3.03],
+      [250, 2.7],
+      [500, 2.59],
+      [1000, 2.48]
+    ],
+    "image": "/images/merch/tactile-eco-inspired-soft-cover-notepad-jotter-26844.webp",
+    "imageAlt": "Tactile Eco-Inspired Soft Cover Notepad Jotter",
+    "colors": ["Natural - Red", "Natural - Black", "Natural - Blue"]
+  },
+  {
+    "id": "kraft-papernotes-combination-72579",
+    "name": "Kraft PaperNotes Combination",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Size: 6.1\" x 4.13\".",
+    "tiers": [
+      [50, 5.35],
+      [200, 4.217],
+      [1000, 4.033],
+      [10000, 2.1],
+      [50000, 2.033]
+    ],
+    "image": "/images/merch/kraft-papernotes-combination-72579.webp",
+    "imageAlt": "Kraft PaperNotes Combination",
+    "colors": ["Brown"]
+  },
+  {
+    "id": "a5-office-stationery-notebook-00194",
+    "name": "A5 Office Stationery Notebook",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Notebook for business meetings, schools and daily use.",
+    "tiers": [
+      [100, 6.867],
+      [500, 6.65],
+      [1000, 6.517],
+      [3000, 3.383]
+    ],
+    "image": "/images/merch/a5-office-stationery-notebook-00194.webp",
+    "imageAlt": "A5 Office Stationery Notebook",
+    "colors": ["Navy Blue", "Purple", "Black", "Gray", "Dark Green", "Pink", "Orange"]
+  },
+  {
+    "id": "pu-business-notebook-62729",
+    "name": "PU Business Notebook",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Premium vegan leather makes durable and sturdy covers to keep your journal safe for years and create comfortable touch in hands.",
+    "tiers": [
+      [50, 10.3],
+      [100, 8.54],
+      [300, 7.79],
+      [500, 6.56],
+      [1000, 3.58]
+    ],
+    "image": "/images/merch/pu-business-notebook-62729.webp",
+    "imageAlt": "PU Business Notebook",
+    "colors": ["Black", "Red", "Blue", "Purple", "Gray", "Brown", "Orange"]
+  },
+  {
+    "id": "3-x-4-mini-spiral-notebook-49714",
+    "name": "3\" x 4\" Mini Spiral Notebook",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Mini spiral 60 page lined notebook.",
+    "tiers": [
+      [100, 1.93],
+      [250, 1.68],
+      [500, 1.46],
+      [1000, 1.27],
+      [2500, 1.1]
+    ],
+    "image": "/images/merch/3-x-4-mini-spiral-notebook-49714.webp",
+    "imageAlt": "3\" x 4\" Mini Spiral Notebook",
+    "colors": [
+      "Frost Blk",
+      "Frost Blue",
+      "Frost Orange",
+      "Frost Purple",
+      "Frost Red",
+      "Frost White",
+      "Frost/Lime"
+    ]
   }
 ]
