@@ -311,9 +311,13 @@ export const PRODUCT_TYPES: Record<string, Taxonomy> = {
       "Bottle Openers",
       "Journals & Stationery",
       "Outdoor & Golf",
+      "Luggage Tags",
+      "Desk & Phone Accessories",
+      "Ornaments",
     ],
     rules: [
       r("Bottle Openers", /bottle opener|\bopener\b/),
+      r("Luggage Tags", /luggage tag/),
       r("Keychains & Key Tags", /key ?chain|key tag|key holder/),
       r(
         "Cutting Boards & Kitchen",
@@ -323,6 +327,11 @@ export const PRODUCT_TYPES: Record<string, Taxonomy> = {
       r("Gift Sets & Kits", /gift set|\bkit\b|\bset\b/),
       r("Journals & Stationery", /journal|notebook|stationery/),
       r("Outdoor & Golf", /picnic|blanket|rain gauge|divot|\bgolf\b/),
+      r("Ornaments", /ornament/),
+      r(
+        "Desk & Phone Accessories",
+        /phone stand|photo frame|message board|sand timer|hourglass|mug warmer|desk/
+      ),
     ],
   },
 
