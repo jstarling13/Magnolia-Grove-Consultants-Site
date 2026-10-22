@@ -11356,5 +11356,251 @@
     "supplier": "High Caliber Line USA",
     "asi": "asi/43442",
     "productNo": "T193"
+  },
+  "flat-bill-fitted-cap-19160": {
+    "espId": "552519160",
+    "supplier": "Direct Caps",
+    "asi": "asi/48015",
+    "productNo": "8608"
+  },
+  "cotton-twill-baseball-cap-35384": {
+    "espId": "553635384",
+    "supplier": "Top Line Promos Inc",
+    "asi": "asi/91484",
+    "productNo": "CC417"
+  },
+  "structured-stretch-fitted-cap-65114": {
+    "espId": "551965114",
+    "supplier": "Prime Line",
+    "asi": "asi/79530",
+    "productNo": "AP130"
+  },
+  "yupoong-flexfit-premium-fitted-cap-27036": {
+    "espId": "552227036",
+    "supplier": "WBPromotion",
+    "asi": "asi/98409",
+    "productNo": "CB98409-CB185"
+  },
+  "branded-bills-flexfit-fitted-caps-38771": {
+    "espId": "555838771",
+    "supplier": "Active Life Promo",
+    "asi": "asi/72657",
+    "productNo": "V3293H-400"
+  },
+  "6-panel-stretch-fit-trucker-cap-85013": {
+    "espId": "553785013",
+    "supplier": "Direct Caps",
+    "asi": "asi/48015",
+    "productNo": "6636F"
+  },
+  "outdoor-baseball-cap-35395": {
+    "espId": "553635395",
+    "supplier": "Top Line Promos Inc",
+    "asi": "asi/91484",
+    "productNo": "CC419"
+  },
+  "quick-dry-sports-trucker-hat-25497": {
+    "espId": "555325497",
+    "supplier": "Core Gifts Promo",
+    "asi": "asi/46671",
+    "productNo": "OH3640"
+  },
+  "best-fit-cool-mesh-fitted-cap-20174": {
+    "espId": "552220174",
+    "supplier": "WBPromotion",
+    "asi": "asi/98409",
+    "productNo": "CB98409-CB162"
+  },
+  "flexfit-wooly-combed-cap-08921": {
+    "espId": "556208921",
+    "supplier": "Promoful/PMGOA",
+    "asi": "asi/79982",
+    "productNo": "AA-8C7A9"
+  },
+  "yupoong-flexfit-cool-and-dry-pique-mesh-cap-dark-all-27029": {
+    "espId": "552227029",
+    "supplier": "WBPromotion",
+    "asi": "asi/98409",
+    "productNo": "CB98409-CB234"
+  },
+  "port-authority-flexfit-c946-melange-unipanel-cap-04593": {
+    "espId": "556004593",
+    "supplier": "Active Life Promo",
+    "asi": "asi/72657",
+    "productNo": "V3474H-C946"
+  },
+  "richardson-550-umpire-surge-2-3-4-8-stitch-fitted-cap-76083": {
+    "espId": "555276083",
+    "supplier": "Active Life Promo",
+    "asi": "asi/72657",
+    "productNo": "V3137H-550"
+  },
+  "richardson-540-umpire-surge-2-1-2-6-stitch-fitted-cap-76071": {
+    "espId": "555276071",
+    "supplier": "Active Life Promo",
+    "asi": "asi/72657",
+    "productNo": "V3137H-540"
+  },
+  "richardson-530-umpire-surge-2-4-stitch-fitted-cap-75202": {
+    "espId": "555275202",
+    "supplier": "Active Life Promo",
+    "asi": "asi/72657",
+    "productNo": "V3137H-530"
+  },
+  "baseball-cap-54576": {
+    "espId": "555554576",
+    "supplier": "Top Line Promos Inc",
+    "asi": "asi/91484",
+    "productNo": "SM578"
+  },
+  "adult-athletic-baseball-fitted-cap-78538": {
+    "espId": "553878538",
+    "supplier": "Logo Story Inc",
+    "asi": "asi/49310",
+    "productNo": "LSKJ204"
+  },
+  "flexfit-wooly-combed-youth-fitted-cap-54753": {
+    "espId": "556354753",
+    "supplier": "Active Life Promo",
+    "asi": "asi/72657",
+    "productNo": "V3411H-6277Y"
+  },
+  "flexfit-cool-and-dry-sport-fitted-cap-47017": {
+    "espId": "556347017",
+    "supplier": "Active Life Promo",
+    "asi": "asi/72657",
+    "productNo": "V3411H-6597"
+  },
+  "suede-cowboy-hat-98139": {
+    "espId": "553798139",
+    "supplier": "Core Gifts Promo",
+    "asi": "asi/46671",
+    "productNo": "DM5233"
+  },
+  "western-cowboy-straw-hat-78506": {
+    "espId": "553778506",
+    "supplier": "Active Life Promo",
+    "asi": "asi/72657",
+    "productNo": "R1970M"
+  },
+  "western-cowboy-wool-hat-17816": {
+    "espId": "555717816",
+    "supplier": "Prime Gifts Inc",
+    "asi": "asi/79539",
+    "productNo": "RI2992"
+  },
+  "unisex-classic-western-cowboy-men-felt-wide-brim-hats-39682": {
+    "espId": "555139682",
+    "supplier": "Core Gifts Promo",
+    "asi": "asi/46671",
+    "productNo": "OP5250"
+  },
+  "deluxe-school-pouch-63352": {
+    "espId": "552263352",
+    "supplier": "Tempo Industries Inc",
+    "asi": "asi/90859",
+    "productNo": "TI-SP02-I"
+  },
+  "custom-school-backpack-with-front-pocket-69456": {
+    "espId": "556469456",
+    "supplier": "Logoworking Inc",
+    "asi": "asi/67885",
+    "productNo": "ZK113"
+  },
+  "custom-students-backpack-46746": {
+    "espId": "554646746",
+    "supplier": "ANYTIME PROMO INC",
+    "asi": "asi/79380",
+    "productNo": "ATJJ0048"
+  },
+  "plush-yak-toy-24374": {
+    "espId": "555924374",
+    "supplier": "Bollen Promos Inc",
+    "asi": "asi/40793",
+    "productNo": "YGN2140"
+  },
+  "7-plush-bear-with-t-shirt-48758": {
+    "espId": "551848758",
+    "supplier": "Prime Line",
+    "asi": "asi/79530",
+    "productNo": "TY6020"
+  },
+  "large-8-plush-teddy-bear-with-choice-of-t-shirt-color-73788": {
+    "espId": "554873788",
+    "supplier": "Innovation Line",
+    "asi": "asi/62660",
+    "productNo": "TB8T"
+  },
+  "6-lana-llama-24451": {
+    "espId": "552424451",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "1275"
+  },
+  "6-ole-time-rag-bear-81596": {
+    "espId": "550681596",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "1265"
+  },
+  "10-soft-plush-friend-elephant-05739": {
+    "espId": "7005739",
+    "supplier": "Curto Toy Mfg Co LTD",
+    "asi": "asi/47897",
+    "productNo": "10\"Elephant"
+  },
+  "teddy-bear-stuffed-anima-48618": {
+    "espId": "554148618",
+    "supplier": "Bollen Promos Inc",
+    "asi": "asi/40793",
+    "productNo": "TYF349"
+  },
+  "wooden-puzzle-childrens-educational-toys-43696": {
+    "espId": "555143696",
+    "supplier": "I Promotion Pro Inc",
+    "asi": "asi/62098",
+    "productNo": "IPNL346A"
+  },
+  "5-x-5-mandala-wooden-puzzle-85753": {
+    "espId": "555485753",
+    "supplier": "Goldentop Gifts Corp",
+    "asi": "asi/79532",
+    "productNo": "GZD5481"
+  },
+  "wooden-puzzle-magic-ball-96920": {
+    "espId": "553296920",
+    "supplier": "Credible Promo",
+    "asi": "asi/47207",
+    "productNo": "CPCW0277"
+  },
+  "electronic-memory-handheld-game-45339": {
+    "espId": "556045339",
+    "supplier": "Promo Gifts House Inc",
+    "asi": "asi/80106",
+    "productNo": "PGCR418"
+  },
+  "wooden-cube-puzzle-18906": {
+    "espId": "556218906",
+    "supplier": "Core Gifts Promo",
+    "asi": "asi/46671",
+    "productNo": "EQ3322"
+  },
+  "colorful-jump-rope-82330": {
+    "espId": "7382330",
+    "supplier": "Jornik Manufacturing",
+    "asi": "asi/63549",
+    "productNo": "JK-8090"
+  },
+  "quick-speed-jump-rope-83686": {
+    "espId": "550283686",
+    "supplier": "Ariel Premium Supply Inc",
+    "asi": "asi/36730",
+    "productNo": "WHF-QS15"
+  },
+  "aerobic-exercise-adjustable-bearing-training-jump-rope-02100": {
+    "espId": "555302100",
+    "supplier": "Core Gifts Promo",
+    "asi": "asi/46671",
+    "productNo": "OF4301"
   }
 }

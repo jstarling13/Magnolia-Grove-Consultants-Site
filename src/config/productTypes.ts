@@ -505,6 +505,7 @@ export const PRODUCT_TYPES: Record<string, Taxonomy> = {
       "Plush Toys",
       "Stickers & Tattoos",
       "Puzzles & Toys",
+      "School Bags & Pouches",
     ],
     rules: [
       r("Coloring & Activity Books", /coloring|activity book|word search|\bbooks?\b/),
@@ -514,7 +515,11 @@ export const PRODUCT_TYPES: Record<string, Taxonomy> = {
       r("Flying Discs", /flying disc|\bflyer\b|\bdisk\b/),
       r("Plush Toys", /\b(bear|dog|moose|plush|stuffed)\b/),
       r("Stickers & Tattoos", /tattoo|sticker/),
-      r("Puzzles & Toys", /puzzle|playing cards|yo-?yo|\btoy\b|jump rope|spring thing|bracelet/),
+      r("School Bags & Pouches", /school (bag|pouch|backpack)|students? backpack|school backpack/),
+      r(
+        "Puzzles & Toys",
+        /puzzle|playing cards|yo-?yo|yo yo|\btoy\b|\bgame\b|jump rope|spring thing|bracelet|tag-stix|creations kit/
+      ),
     ],
   },
 
