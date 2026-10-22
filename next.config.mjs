@@ -96,6 +96,10 @@ const securityHeaders = [
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // Product photos are already compressed WebP files (at most 900 px wide) in /public.
+  // Vercel's Hobby plan includes only 5,000 image transformations a month and returns an
+  // error for new images once that is used up, so the images are served as-is from the CDN.
+  images: { unoptimized: true },
   // Don't advertise the framework in an X-Powered-By header.
   poweredByHeader: false,
   outputFileTracingRoot: __dirname,
