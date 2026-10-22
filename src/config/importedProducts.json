@@ -41038,5 +41038,372 @@
     "image": "/images/merch/2-5-x-8-5-bookmark-89092.webp",
     "imageAlt": "2.5\" x 8.5\" Bookmark",
     "colors": ["White"]
+  },
+  {
+    "id": "red-kap-shirts-mens-short-sleeve-industrial-work-88600",
+    "name": "Red Kap Shirts - Men's Short Sleeve Industrial Work",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Red Kap Industrial Solid Short Sleeve Work Shirt.",
+    "tiers": [[1, 29.99]],
+    "image": "/images/merch/red-kap-shirts-mens-short-sleeve-industrial-work-88600.webp",
+    "imageAlt": "Red Kap Shirts - Men's Short Sleeve Industrial Work",
+    "colors": [
+      "White",
+      "Red",
+      "Light Tan",
+      "Grey/Blue Stripe",
+      "Chocolate Brown",
+      "Postman Blue",
+      "Orange",
+      "Spruce Green",
+      "Burgundy",
+      "Silver Grey",
+      "Light Blue",
+      "Petrol Blue",
+      "Black",
+      "Grey",
+      "Light Green",
+      "Charcoal",
+      "Blue/Charcoal Microcheck",
+      "Navy/Red/Light Grey",
+      "Denim Blue Microcheck",
+      "Navy",
+      "Khaki",
+      "Light Grey",
+      "Royal Blue",
+      "Dark Blue",
+      "Charcoal Red",
+      "Navy - Nl",
+      "Light Grey/Yellow/Green Visibility Trim",
+      "Navy/Yellow/Green Visibility Trim",
+      "Grey/Black/Red/White",
+      "Navy/Orange Visibility Trim"
+    ]
+  },
+  {
+    "id": "hi-vis-reflective-two-tone-mesh-safety-work-shirt-w-pocket-26077",
+    "name": "Hi Vis Reflective Two Tone Mesh Safety Work Shirt w/ Pocket",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Hi-visibility 120gsm bird eye mesh T-shirt; ANSI/ISEA 107-2015 Type R Class 3; Moisture wicking, breathable, durable.",
+    "tiers": [
+      [50, 16.37],
+      [100, 15.27],
+      [300, 15.12],
+      [500, 15],
+      [1000, 14.39]
+    ],
+    "image": "/images/merch/hi-vis-reflective-two-tone-mesh-safety-work-shirt-w-pocket-26077.webp",
+    "imageAlt": "Hi Vis Reflective Two Tone Mesh Safety Work Shirt w/ Pocket",
+    "colors": ["Safety Black", "Safety Blue"]
+  },
+  {
+    "id": "hi-vis-reflective-safety-vest-w-pockets-37195",
+    "name": "Hi Vis Reflective Safety Vest W/ Pockets",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Polyester safety vest with reflective strip, pockets, D ring, and clear ID badge holder, sizes S to XL, silkscreen custom logo.",
+    "tiers": [
+      [100, 3.617],
+      [500, 3.267],
+      [2000, 3.217],
+      [3000, 3.2],
+      [5000, 3.15]
+    ],
+    "image": "/images/merch/hi-vis-reflective-safety-vest-w-pockets-37195.webp",
+    "imageAlt": "Hi Vis Reflective Safety Vest W/ Pockets",
+    "colors": ["Medium Red", "Iridescent Blue", "Metallic Gray", "Light White", "Iridescent Purple"]
+  },
+  {
+    "id": "class-2-safety-vest-with-extra-pockets-74473",
+    "name": "Class 2 Safety Vest With Extra Pockets",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Polyester and mesh safety vest with reflective strips, pockets, zipper closure, and ID badge holder.",
+    "tiers": [
+      [100, 5.828],
+      [200, 5.57],
+      [300, 5.412],
+      [500, 4.672],
+      [1000, 4.485]
+    ],
+    "image": "/images/merch/class-2-safety-vest-with-extra-pockets-74473.webp",
+    "imageAlt": "Class 2 Safety Vest With Extra Pockets",
+    "colors": ["Green", "Navy Blue", "Orange", "Pink", "Red", "Teal", "White", "Yellow"]
+  },
+  {
+    "id": "high-viz-reflective-piping-x-back-safety-mesh-zipper-vest-22003",
+    "name": "High Viz Reflective Piping-X Back Safety Mesh Zipper Vest",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Hi-vis 130 GSM Mesh safety vest; ANSI/ISEA 107-2015 Type R Class 2; Zip Closure, Reflective X Back, Multiple Pockets, Lightweight!",
+    "tiers": [
+      [50, 19.34],
+      [100, 19.16],
+      [300, 18.15],
+      [500, 18.05],
+      [1000, 17.09]
+    ],
+    "image": "/images/merch/high-viz-reflective-piping-x-back-safety-mesh-zipper-vest-22003.webp",
+    "imageAlt": "High Viz Reflective Piping-X Back Safety Mesh Zipper Vest",
+    "colors": ["Safety Yellow", "Safety Orange"]
+  },
+  {
+    "id": "womens-transparent-raincoat-with-hood-66292",
+    "name": "Women's Transparent Raincoat with Hood",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Women's Transparent Raincoat Waterproof Rain Jacket with Hood.",
+    "tiers": [
+      [500, 12.98],
+      [1000, 10.53],
+      [2000, 8.97],
+      [5000, 7.84],
+      [10000, 7.26]
+    ],
+    "image": "/images/merch/womens-transparent-raincoat-with-hood-66292.webp",
+    "imageAlt": "Women's Transparent Raincoat with Hood",
+    "colors": ["Black", "Purple", "Pink"]
+  },
+  {
+    "id": "hiking-travel-lightweight-waterproof-raincoat-hooded-jacket-68008",
+    "name": "Hiking Travel Lightweight Waterproof Raincoat Hooded Jacket",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Our hooded jacket offers reliable weather protection and comes in both men and women styles.",
+    "tiers": [
+      [50, 18.35],
+      [100, 18.017],
+      [200, 17.683],
+      [500, 17.517],
+      [1000, 15.85]
+    ],
+    "image": "/images/merch/hiking-travel-lightweight-waterproof-raincoat-hooded-jacket-68008.webp",
+    "imageAlt": "Hiking Travel Lightweight Waterproof Raincoat Hooded Jacket",
+    "colors": [
+      "Black",
+      "Red",
+      "Brown",
+      "Blue",
+      "Dark Blue",
+      "Dark Gray",
+      "Orange",
+      "Purple",
+      "Pink",
+      "Light Green",
+      "Light Blue"
+    ]
+  },
+  {
+    "id": "womens-hooded-lightweight-eva-raincoat-66270",
+    "name": "Women's Hooded Lightweight EVA Raincoat",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Women's Hooded Lightweight EVA Raincoat Waterproof Frosted Transparent with Wrapped Edge.",
+    "tiers": [
+      [500, 14.67],
+      [1000, 12.39],
+      [2000, 11],
+      [3000, 10.03],
+      [5000, 9.62]
+    ],
+    "image": "/images/merch/womens-hooded-lightweight-eva-raincoat-66270.webp",
+    "imageAlt": "Women's Hooded Lightweight EVA Raincoat",
+    "colors": ["Black", "Blue", "Pink", "Green"]
+  },
+  {
+    "id": "adult-hooded-slicker-poncho-81599",
+    "name": "Adult Hooded Slicker Poncho",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Reusable High-quality Adult Hooded Slicker Poncho With Anti-light Strip.",
+    "tiers": [
+      [100, 24.55],
+      [300, 11.3],
+      [500, 10.88],
+      [1000, 10.19],
+      [2000, 9.66]
+    ],
+    "image": "/images/merch/adult-hooded-slicker-poncho-81599.webp",
+    "imageAlt": "Adult Hooded Slicker Poncho",
+    "colors": ["Navy Blue"]
+  },
+  {
+    "id": "3-in-1-multi-use-waterproof-rain-poncho-35571",
+    "name": "3 in 1 Multi-Use Waterproof Rain Poncho",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Waterproof Rain Poncho Lightweight Reusable Hiking Hooded Coat Jacket for Outdoor Activities.",
+    "tiers": [
+      [200, 14.983],
+      [400, 13.533],
+      [600, 12.65],
+      [1000, 10.8],
+      [3000, 7.367]
+    ],
+    "image": "/images/merch/3-in-1-multi-use-waterproof-rain-poncho-35571.webp",
+    "imageAlt": "3 in 1 Multi-Use Waterproof Rain Poncho",
+    "colors": ["Black", "Green", "Navy Blue", "Orange"]
+  },
+  {
+    "id": "3-in-1-reusable-waterproof-rain-poncho-with-4-ground-nails-29803",
+    "name": "3 in 1 Reusable Waterproof Rain Poncho With 4 Ground Nails",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Rain Coat comes with a rope adjuster and hook and loop fasteners on the side to ensure a perfect fit.",
+    "tiers": [
+      [50, 14.483],
+      [100, 13.883],
+      [300, 12.967],
+      [500, 12.567],
+      [1000, 9.883]
+    ],
+    "image": "/images/merch/3-in-1-reusable-waterproof-rain-poncho-with-4-ground-nails-29803.webp",
+    "imageAlt": "3 in 1 Reusable Waterproof Rain Poncho With 4 Ground Nails",
+    "colors": ["Black", "Green", "Blue", "Orange", "Yellow", "Brown", "Gray"]
+  },
+  {
+    "id": "womens-skyline-pack-n-go-full-zip-reflective-jacket-25077",
+    "name": "Women's Skyline Pack-N-Go® Full Zip Reflective Jacket",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Our lightweight Skyline Pack-N-Go® Full Zip Reflective Jacket is wind and water-resistant with reflective details for visibility.",
+    "tiers": [[1, 49]],
+    "image": "/images/merch/womens-skyline-pack-n-go-full-zip-reflective-jacket-25077.webp",
+    "imageAlt": "Women's Skyline Pack-N-Go® Full Zip Reflective Jacket",
+    "colors": ["Black", "Navy", "Royal"]
+  },
+  {
+    "id": "the-north-face-dryvent-rain-jacket-jacket-dark-all-48268",
+    "name": "The North Face DryVent Rain Jacket Jacket- Dark/All",
+    "category": "Apparel",
+    "brand": "The North Face",
+    "description": "Waterproof rain jacket with breathable seam-sealed DryVent Shell and fully adjustable hood.",
+    "tiers": [
+      [3, 288.53],
+      [6, 275.88],
+      [12, 271.92],
+      [24, 268.11],
+      [48, 260.82]
+    ],
+    "image": "/images/merch/the-north-face-dryvent-rain-jacket-jacket-dark-all-48268.webp",
+    "imageAlt": "The North Face DryVent Rain Jacket Jacket- Dark/All",
+    "colors": ["Black", "Dark Heather Gray"]
+  },
+  {
+    "id": "rains-jacket-54453",
+    "name": "Rains® Jacket",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "An ever-contemporary unisex rain jacket. Characterized by a minimal silhouette with high functionality. Waterproof protection.",
+    "tiers": [
+      [10, 133],
+      [20, 131.35]
+    ],
+    "image": "/images/merch/rains-jacket-54453.webp",
+    "imageAlt": "Rains® Jacket",
+    "colors": ["Black", "Green", "Navy Blue"]
+  },
+  {
+    "id": "devon-and-jones-unisex-new-classics-prescott-rain-jacket-90723",
+    "name": "Devon & Jones Unisex New Classics™ Prescott Rain Jacket",
+    "category": "Apparel",
+    "brand": "Devon & Jones",
+    "description": "Unisex rain jacket with water resistance, zipper, pockets, and cuffs. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [96, 51.15],
+      [144, 50.15],
+      [576, 49.15],
+      [1008, 48.65]
+    ],
+    "image": "/images/merch/devon-and-jones-unisex-new-classics-prescott-rain-jacket-90723.webp",
+    "imageAlt": "Devon & Jones Unisex New Classics™ Prescott Rain Jacket",
+    "colors": ["Black", "Graphite", "Navy", "Yellow"]
+  },
+  {
+    "id": "mens-skyline-pack-n-go-full-zip-reflective-jacket-25139",
+    "name": "Men's Skyline Pack-N-Go® Full Zip Reflective Jacket",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Clearance Our lightweight Skyline Pack-N-Go® Full Zip Reflective Jacket is wind and water-resistant with reflective details for visibility. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [[1, 49]],
+    "image": "/images/merch/mens-skyline-pack-n-go-full-zip-reflective-jacket-25139.webp",
+    "imageAlt": "Men's Skyline Pack-N-Go® Full Zip Reflective Jacket",
+    "colors": ["Navy", "Royal"]
+  },
+  {
+    "id": "women-waterproof-rain-jacket-33565",
+    "name": "Women Waterproof Rain Jacket",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Put a customized jacket on your list of promotional must-haves!",
+    "tiers": [
+      [100, 29.917],
+      [300, 28.2],
+      [500, 26.683],
+      [1000, 24.25],
+      [3000, 21.267]
+    ],
+    "image": "/images/merch/women-waterproof-rain-jacket-33565.webp",
+    "imageAlt": "Women Waterproof Rain Jacket",
+    "colors": ["Black", "Navy Blue", "Gray", "Green"]
+  },
+  {
+    "id": "custom-sublimated-elite-rain-jackets-55548",
+    "name": "Custom Sublimated Elite Rain Jackets",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Custom Sublimated Full-Zip Rain Jacket (Woven Polyester with Inner Mesh layer)",
+    "tiers": [[10, 57.072]],
+    "image": "/images/merch/custom-sublimated-elite-rain-jackets-55548.webp",
+    "imageAlt": "Custom Sublimated Elite Rain Jackets",
+    "colors": [
+      "Navy Blue",
+      "Green",
+      "Maroon",
+      "Silver",
+      "Gold",
+      "Black",
+      "Orange",
+      "Red",
+      "Royal Blue",
+      "Teal",
+      "Yellow"
+    ]
+  },
+  {
+    "id": "foldable-waterproof-sunscreen-jacket-35716",
+    "name": "Foldable Waterproof Sunscreen Jacket",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Waterproof polyester foldable long sleeve rain jacket with hood and adjustable toggle cord.",
+    "tiers": [
+      [50, 15.15],
+      [300, 14.683],
+      [1000, 13.7],
+      [5000, 11.533],
+      [10000, 9.983]
+    ],
+    "image": "/images/merch/foldable-waterproof-sunscreen-jacket-35716.webp",
+    "imageAlt": "Foldable Waterproof Sunscreen Jacket",
+    "colors": ["Black", "Blue", "Green", "Orange", "Pink", "Yellow"]
+  },
+  {
+    "id": "3-in-1-multifunctional-rain-poncho-65233",
+    "name": "3 in 1 Multifunctional Rain Poncho",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Hooded Rain Poncho Waterproof Raincoat Jacket for Men Women Adults, Military Poncho for Outdoor Activities Camping Fishing.",
+    "tiers": [
+      [100, 16.317],
+      [300, 15.333],
+      [500, 14.45],
+      [1000, 13.667],
+      [3000, 10.683]
+    ],
+    "image": "/images/merch/3-in-1-multifunctional-rain-poncho-65233.webp",
+    "imageAlt": "3 in 1 Multifunctional Rain Poncho",
+    "colors": ["Black", "Gray", "Yellow", "Orange", "Brown", "Dark Brown", "Military Green"]
   }
 ]
