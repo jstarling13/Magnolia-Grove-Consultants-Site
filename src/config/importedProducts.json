@@ -39150,5 +39150,761 @@
     "image": "/images/merch/trail-mix-in-a-large-round-glass-jar-with-lid-58646.webp",
     "imageAlt": "Trail Mix in a Large Round Glass Jar with Lid",
     "colors": ["Clear"]
+  },
+  {
+    "id": "wooden-nautical-ship-wheel-wall-decoration-16396",
+    "name": "Wooden Nautical Ship Wheel Wall Decoration",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "11\" x 11\" x 0.6\" wood steering wheel wall decor with a fishing net attached.",
+    "tiers": [
+      [100, 16.675],
+      [200, 15.718],
+      [400, 13.052],
+      [800, 11.797],
+      [1000, 11.46]
+    ],
+    "image": "/images/merch/wooden-nautical-ship-wheel-wall-decoration-16396.webp",
+    "imageAlt": "Wooden Nautical Ship Wheel Wall Decoration",
+    "colors": [
+      "Blue",
+      "White",
+      "Light Blue",
+      "Navy Blue",
+      "Dark Blue",
+      "Yellow",
+      "Red",
+      "White/Black"
+    ]
+  },
+  {
+    "id": "custom-canvas-wall-art-41922",
+    "name": "Custom Canvas Wall Art",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Premium Photo Prints with Solid Pine Wood Frame (Multiple Sizes) Made in USA.",
+    "tiers": [
+      [1, 29.167],
+      [10, 28.167],
+      [50, 26.833],
+      [100, 26.117],
+      [500, 25.383]
+    ],
+    "image": "/images/merch/custom-canvas-wall-art-41922.webp",
+    "imageAlt": "Custom Canvas Wall Art"
+  },
+  {
+    "id": "8-x-8-custom-gallery-wrapped-canvas-print-wall-art-87515",
+    "name": "8\" x 8\" Custom Gallery Wrapped Canvas Print Wall Art",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "HD printing, waterproof, high-quality thick canvas, friendly environment ink jet, high-quality wood and hook canvas print 8*10.",
+    "tiers": [
+      [50, 4.5],
+      [100, 3.5],
+      [500, 2.8],
+      [1000, 2],
+      [5000, 1.45]
+    ],
+    "image": "/images/merch/8-x-8-custom-gallery-wrapped-canvas-print-wall-art-87515.webp",
+    "imageAlt": "8\" x 8\" Custom Gallery Wrapped Canvas Print Wall Art",
+    "colors": [
+      "Burgundy",
+      "Gold",
+      "Light Blue",
+      "Maroon",
+      "Navy Blue",
+      "Royal Blue",
+      "Teal",
+      "Blue",
+      "Gray",
+      "Black",
+      "Red",
+      "Orange",
+      "Pink",
+      "Purple",
+      "Yellow",
+      "White",
+      "Multi color"
+    ]
+  },
+  {
+    "id": "arched-vintage-floral-wooden-wall-art-63353",
+    "name": "Arched Vintage Floral Wooden Wall Art",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Distressed arched wood frame art, HD UV floral prints, tabletop or wall hanging decor with multiple patterns.",
+    "tiers": [
+      [100, 7.983],
+      [200, 7.783],
+      [500, 7.65],
+      [1000, 7.167],
+      [2000, 4.5]
+    ],
+    "image": "/images/merch/arched-vintage-floral-wooden-wall-art-63353.webp",
+    "imageAlt": "Arched Vintage Floral Wooden Wall Art",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "u-s-state-shaped-bamboo-cutting-and-serving-boards-88427",
+    "name": "U.S. State Shaped Bamboo Cutting and Serving Boards",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "American state-shaped cutting/serving board made of bamboo.",
+    "tiers": [
+      [48, 27.85],
+      [96, 26.91],
+      [144, 26.26],
+      [192, 26],
+      [240, 25.37]
+    ],
+    "image": "/images/merch/u-s-state-shaped-bamboo-cutting-and-serving-boards-88427.webp",
+    "imageAlt": "U.S. State Shaped Bamboo Cutting and Serving Boards",
+    "colors": ["Natural"]
+  },
+  {
+    "id": "rock-and-branch-florida-state-shaped-wood-serving-board-02037",
+    "name": "Rock & Branch® Florida State Shaped Wood Serving Board",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "This beautifully crafted acacia wood cutting board is shaped in the unmistakable outline of Florida.",
+    "tiers": [
+      [12, 38.18],
+      [24, 36.89],
+      [48, 35.64],
+      [96, 34.77]
+    ],
+    "image": "/images/merch/rock-and-branch-florida-state-shaped-wood-serving-board-02037.webp",
+    "imageAlt": "Rock & Branch® Florida State Shaped Wood Serving Board",
+    "colors": ["Brown"]
+  },
+  {
+    "id": "california-state-shaped-cutting-and-serving-board-90959",
+    "name": "California State Shaped Cutting & Serving Board",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Origins Series California State Shaped Cutting & Serving Board.",
+    "tiers": [
+      [12, 38.18],
+      [24, 36.89],
+      [48, 35.64],
+      [96, 34.77]
+    ],
+    "image": "/images/merch/california-state-shaped-cutting-and-serving-board-90959.webp",
+    "imageAlt": "California State Shaped Cutting & Serving Board",
+    "colors": ["Brown"]
+  },
+  {
+    "id": "pvc-collapsible-vase-22821",
+    "name": "PVC Collapsible Vase",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Create a romantic atmosphere anywhere you go with this curvy foldable vase.",
+    "tiers": [
+      [100, 2.188],
+      [300, 1.706],
+      [500, 1.381],
+      [700, 1.113],
+      [1000, 1.013]
+    ],
+    "image": "/images/merch/pvc-collapsible-vase-22821.webp",
+    "imageAlt": "PVC Collapsible Vase",
+    "colors": ["Red", "Yellow", "Blue", "Green", "Purple"]
+  },
+  {
+    "id": "conestoga-vase-18817",
+    "name": "Conestoga Vase",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Showcase florals or decorative arrangements with the uniquely styled Conestoga vase.",
+    "tiers": [
+      [1, 39.95],
+      [12, 39.25],
+      [25, 38.55],
+      [50, 37.85],
+      [100, 37.15]
+    ],
+    "image": "/images/merch/conestoga-vase-18817.webp",
+    "imageAlt": "Conestoga Vase",
+    "colors": ["Clear"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "folding-dimmable-led-light-table-lamp-flashlight-spotlight-54102",
+    "name": "Folding Dimmable LED Light Table Lamp Flashlight Spotlight",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Outdoors Folding Portable Led Flashlight Table Lamp Rechargeable for Camping Emergencies Handheld Spotlight 1200mAh.",
+    "tiers": [
+      [150, 18.333],
+      [300, 18],
+      [500, 17.5],
+      [1000, 17.167],
+      [3000, 16.667]
+    ],
+    "image": "/images/merch/folding-dimmable-led-light-table-lamp-flashlight-spotlight-54102.webp",
+    "imageAlt": "Folding Dimmable LED Light Table Lamp Flashlight Spotlight",
+    "colors": ["Black", "Blue", "Green", "Pink", "White"]
+  },
+  {
+    "id": "pyramid-rechargeable-led-table-lamp-30624",
+    "name": "Pyramid Rechargeable LED Table Lamp",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "The Pyramid LED Table Lamp has a slim profile, rechargeable and is portable!",
+    "tiers": [[25, 41.98]],
+    "image": "/images/merch/pyramid-rechargeable-led-table-lamp-30624.webp",
+    "imageAlt": "Pyramid Rechargeable LED Table Lamp",
+    "colors": ["Black"]
+  },
+  {
+    "id": "led-eye-caring-table-lamp-with-built-in-wireless-charger-30280",
+    "name": "LED Eye-Caring Table Lamp with Built-in Wireless Charger",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Desk light with 15W wireless charger.",
+    "tiers": [
+      [100, 8.8],
+      [300, 7.95],
+      [1000, 6.983],
+      [3000, 5.867],
+      [5000, 4.8]
+    ],
+    "image": "/images/merch/led-eye-caring-table-lamp-with-built-in-wireless-charger-30280.webp",
+    "imageAlt": "LED Eye-Caring Table Lamp with Built-in Wireless Charger",
+    "colors": ["Black"]
+  },
+  {
+    "id": "the-rechargeable-lighthouse-shaped-table-lamp-17257",
+    "name": "The Rechargeable Lighthouse-Shaped Table Lamp",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "2.83\" x 9.53\" ABS plastic USB rechargeable lighthouse-shaped LED lamp timer and night light modes.",
+    "tiers": [
+      [10, 29.167],
+      [50, 25],
+      [200, 24.167],
+      [500, 23.333],
+      [1000, 22.5]
+    ],
+    "image": "/images/merch/the-rechargeable-lighthouse-shaped-table-lamp-17257.webp",
+    "imageAlt": "The Rechargeable Lighthouse-Shaped Table Lamp",
+    "colors": ["White"]
+  },
+  {
+    "id": "smart-wireless-charging-desk-lamp-with-bluetooth-speaker-clo-28402",
+    "name": "Smart Wireless Charging Desk Lamp with Bluetooth Speaker",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Music Player, Desktop Calendar, and Eye-Caring Light- an all-in-one solution that goes beyond the traditional table lamp.",
+    "tiers": [
+      [50, 27.267],
+      [100, 25.433],
+      [200, 22.817],
+      [500, 18.967],
+      [1000, 15.25]
+    ],
+    "image": "/images/merch/smart-wireless-charging-desk-lamp-with-bluetooth-speaker-clo-28402.webp",
+    "imageAlt": "Smart Wireless Charging Desk Lamp with Bluetooth Speaker",
+    "colors": ["Black"]
+  },
+  {
+    "id": "motion-sensor-plug-in-night-light-08343",
+    "name": "Motion Sensor Plug-in Night Light",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Plug-In Night Light With Motion Sensor Function,Home Sensor Eye Protection Lamp,Suitable For Bedroom,Bathroom,and Living Room.",
+    "tiers": [
+      [100, 8.1],
+      [300, 7.367],
+      [500, 6.083],
+      [1000, 4.967],
+      [5000, 4.2]
+    ],
+    "image": "/images/merch/motion-sensor-plug-in-night-light-08343.webp",
+    "imageAlt": "Motion Sensor Plug-in Night Light",
+    "colors": ["White"]
+  },
+  {
+    "id": "ambient-table-light-09613",
+    "name": "Ambient Table Light",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "LED Cube Luminous Lamp Square Decorative Table Lamps Outdoor Mesa Atmosphere Light Lawn Lamp,Ambient Table Light.",
+    "tiers": [
+      [40, 26.35],
+      [100, 23.983],
+      [500, 21.883],
+      [1000, 17.15],
+      [2000, 16.017]
+    ],
+    "image": "/images/merch/ambient-table-light-09613.webp",
+    "imageAlt": "Ambient Table Light",
+    "colors": ["White"]
+  },
+  {
+    "id": "led-desk-lamp-with-mobile-phone-holder-71488",
+    "name": "LED Desk Lamp With Mobile Phone Holder",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "The led desk light has Brightness can be adjusted at will.",
+    "tiers": [
+      [50, 18.79],
+      [100, 18],
+      [300, 13.27],
+      [500, 7.79],
+      [1000, 7.73]
+    ],
+    "image": "/images/merch/led-desk-lamp-with-mobile-phone-holder-71488.webp",
+    "imageAlt": "LED Desk Lamp With Mobile Phone Holder",
+    "colors": ["White"]
+  },
+  {
+    "id": "10-round-wall-clock-13659",
+    "name": "10\" Round Wall Clock",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "10\" Round Wall Clock. Available in Black, Blue and Red.",
+    "tiers": [
+      [30, 16.91],
+      [50, 15.78],
+      [100, 14.66],
+      [250, 14.17],
+      [500, 13.76]
+    ],
+    "image": "/images/merch/10-round-wall-clock-13659.webp",
+    "imageAlt": "10\" Round Wall Clock",
+    "colors": ["Black", "Blue", "Red"]
+  },
+  {
+    "id": "12-inch-cd-record-wall-clock-05452",
+    "name": "12 inch CD Record Wall Clock",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "12-inch record wall clock made of vinyl.",
+    "tiers": [
+      [50, 14.833],
+      [200, 14.083],
+      [500, 13.167],
+      [1000, 12.5],
+      [2500, 12.367]
+    ],
+    "image": "/images/merch/12-inch-cd-record-wall-clock-05452.webp",
+    "imageAlt": "12 inch CD Record Wall Clock",
+    "colors": ["Black"]
+  },
+  {
+    "id": "weather-station-wall-clock-13658",
+    "name": "Weather Station Wall Clock",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Size: 10.75\" x 12.75\" x 1\".",
+    "tiers": [
+      [30, 21.74],
+      [50, 20.13],
+      [100, 19.08],
+      [250, 18.2],
+      [500, 17.63]
+    ],
+    "image": "/images/merch/weather-station-wall-clock-13658.webp",
+    "imageAlt": "Weather Station Wall Clock",
+    "colors": ["Silver"]
+  },
+  {
+    "id": "fashion-home-wall-clock-79059",
+    "name": "Fashion Home Wall Clock",
+    "category": "Home & Decor",
+    "brand": "Essentials",
+    "description": "Classic 12-inch analog wall clock featuring easy-to-read hour and minute hands.",
+    "tiers": [
+      [10, 20.7],
+      [100, 17.583],
+      [500, 15.867],
+      [1000, 14.483],
+      [3000, 8.117]
+    ],
+    "image": "/images/merch/fashion-home-wall-clock-79059.webp",
+    "imageAlt": "Fashion Home Wall Clock",
+    "colors": ["Black", "Blue", "Brown", "Gray", "Green", "Red", "White"]
+  },
+  {
+    "id": "nirvana-gift-set-36118",
+    "name": "Nirvana Gift Set",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Nirvana Gift Set with three lemon verbena scented ZEN luxury spa products in a wooden gift box.",
+    "tiers": [
+      [25, 43.94],
+      [50, 40.61],
+      [100, 39.56],
+      [250, 38.52],
+      [500, 36.75]
+    ],
+    "image": "/images/merch/nirvana-gift-set-36118.webp",
+    "imageAlt": "Nirvana Gift Set",
+    "colors": ["Brown"]
+  },
+  {
+    "id": "luxe-plus-gift-set-18150",
+    "name": "Luxe Plus Gift Set",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Gift set with an 86 mL diffuser, color-changing LED light and 15 mL essential oil.",
+    "tiers": [
+      [10, 55.53],
+      [25, 51.9],
+      [50, 50.88],
+      [100, 47.92],
+      [250, 44.98]
+    ],
+    "image": "/images/merch/luxe-plus-gift-set-18150.webp",
+    "imageAlt": "Luxe Plus Gift Set",
+    "colors": ["Gray"]
+  },
+  {
+    "id": "serene-house-relaxation-kit-79654",
+    "name": "Serene House Relaxation Kit",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Serene House gift set with USB aroma diffuser and 15ml essential oil packet in 13\" imprinted gift box.",
+    "tiers": [[12, 41.9]],
+    "image": "/images/merch/serene-house-relaxation-kit-79654.webp",
+    "imageAlt": "Serene House Relaxation Kit",
+    "colors": ["White"]
+  },
+  {
+    "id": "serene-house-spa-kit-79691",
+    "name": "Serene House Spa Kit",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Serene House spa gift set with ultrasonic humidifier and three 15ml bottles of assorted oils in 11\" x 6.5\" x 2.75\" gift box.",
+    "tiers": [[12, 61.2]],
+    "image": "/images/merch/serene-house-spa-kit-79691.webp",
+    "imageAlt": "Serene House Spa Kit",
+    "colors": ["White"]
+  },
+  {
+    "id": "10ml-essential-oil-roller-bottle-17394",
+    "name": "10ml Essential Oil Roller Bottle",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "10ml bottle of essential oil with full color label option. Made in USA.",
+    "tiers": [
+      [25, 9.33],
+      [50, 8.65],
+      [100, 8.45],
+      [250, 8.25],
+      [500, 7.88]
+    ],
+    "image": "/images/merch/10ml-essential-oil-roller-bottle-17394.webp",
+    "imageAlt": "10ml Essential Oil Roller Bottle",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "serene-house-ranger-white-usb-ultrasonic-aroma-diffuser-55840",
+    "name": "Serene House Ranger White USB Ultrasonic Aroma Diffuser",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "USB powered aroma diffuser. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [[12, 27.95]],
+    "image": "/images/merch/serene-house-ranger-white-usb-ultrasonic-aroma-diffuser-55840.webp",
+    "imageAlt": "Serene House Ranger White USB Ultrasonic Aroma Diffuser",
+    "colors": ["White"]
+  },
+  {
+    "id": "illuminated-essential-oil-wall-diffuser-50905",
+    "name": "Illuminated Essential Oil Wall Diffuser",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Essential oil wall diffuser.",
+    "tiers": [
+      [10, 37.8],
+      [25, 34.99],
+      [50, 32.84],
+      [100, 31.93],
+      [250, 30.7]
+    ],
+    "image": "/images/merch/illuminated-essential-oil-wall-diffuser-50905.webp",
+    "imageAlt": "Illuminated Essential Oil Wall Diffuser",
+    "colors": ["White"]
+  },
+  {
+    "id": "5ml-amber-bottle-essential-oil-98178",
+    "name": "5mL Amber Bottle Essential Oil",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "5mL amber colored dropper bottle with essential oil. Made in USA.",
+    "tiers": [
+      [25, 6.81],
+      [50, 6.31],
+      [100, 6.1],
+      [250, 5.9],
+      [500, 5.58]
+    ],
+    "image": "/images/merch/5ml-amber-bottle-essential-oil-98178.webp",
+    "imageAlt": "5mL Amber Bottle Essential Oil",
+    "colors": ["Clear Label", "Amber Bottle", "Black Cap"]
+  },
+  {
+    "id": "bouquet-scented-satin-sleep-mask-66959",
+    "name": "Bouquet Scented Satin Sleep Mask",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Scented Satin Sleep Mask.",
+    "tiers": [
+      [150, 3.05],
+      [500, 2.87],
+      [1000, 2.75],
+      [2500, 2.65],
+      [5000, 2.55]
+    ],
+    "image": "/images/merch/bouquet-scented-satin-sleep-mask-66959.webp",
+    "imageAlt": "Bouquet Scented Satin Sleep Mask",
+    "colors": ["Medium Gray", "Dark Blue", "Medium Pink"]
+  },
+  {
+    "id": "1-oz-lemon-verbena-room-spray-99117",
+    "name": "1 oz. Lemon Verbena Room Spray",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "1 oz. bottle of essential oil blend room spray. Made in USA.",
+    "tiers": [
+      [100, 2.73],
+      [250, 2.22],
+      [500, 2.06],
+      [1000, 1.96],
+      [2500, 1.86]
+    ],
+    "image": "/images/merch/1-oz-lemon-verbena-room-spray-99117.webp",
+    "imageAlt": "1 oz. Lemon Verbena Room Spray",
+    "colors": ["Clear-Black"]
+  },
+  {
+    "id": "luxe-faux-marble-diffuser-81757",
+    "name": "Luxe-Faux Marble Diffuser",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "5.75\" x 3.75\" marble diffuser with 86mL reservoir.",
+    "tiers": [
+      [10, 47.11],
+      [25, 44.91],
+      [50, 44.1],
+      [100, 43.32],
+      [250, 41.7]
+    ],
+    "image": "/images/merch/luxe-faux-marble-diffuser-81757.webp",
+    "imageAlt": "Luxe-Faux Marble Diffuser",
+    "colors": ["Gray"]
+  },
+  {
+    "id": "fitness-silicone-massage-ball-44645",
+    "name": "Fitness Silicone Massage Ball",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "2.49\" silicone massage ball.",
+    "tiers": [
+      [100, 4.515],
+      [200, 3.793],
+      [300, 3.783],
+      [500, 3.707],
+      [800, 2.33]
+    ],
+    "image": "/images/merch/fitness-silicone-massage-ball-44645.webp",
+    "imageAlt": "Fitness Silicone Massage Ball",
+    "colors": [
+      "Yellow",
+      "Black",
+      "Red",
+      "Royal Blue",
+      "Blue",
+      "Purple",
+      "Pink",
+      "Gray",
+      "Green",
+      "Rose Red",
+      "Orange"
+    ]
+  },
+  {
+    "id": "total-comfort-spa-kit-35273",
+    "name": "Total Comfort Spa Kit",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Spa Kit. Size: 8.75\" x 1.5\" x 3\".",
+    "tiers": [
+      [50, 7.95],
+      [200, 7.47],
+      [500, 7.18],
+      [1000, 6.92],
+      [2000, 6.65]
+    ],
+    "image": "/images/merch/total-comfort-spa-kit-35273.webp",
+    "imageAlt": "Total Comfort Spa Kit",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "spike-massage-ball-74233",
+    "name": "Spike Massage Ball",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Massage Ball. Size: 2.375\" x 2.375\" x 2.25\".",
+    "tiers": [
+      [200, 1.98],
+      [500, 1.87],
+      [1000, 1.8],
+      [3000, 1.73],
+      [5000, 1.67]
+    ],
+    "image": "/images/merch/spike-massage-ball-74233.webp",
+    "imageAlt": "Spike Massage Ball",
+    "colors": ["Medium Blue", "Medium Red", "Medium White"]
+  },
+  {
+    "id": "massage-ball-set-81341",
+    "name": "Massage Ball Set",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Massage ball set (2) in a polyester drawstring bag.",
+    "tiers": [
+      [72, 8.3],
+      [144, 7.22],
+      [288, 6.28],
+      [576, 5.46],
+      [1008, 4.75]
+    ],
+    "image": "/images/merch/massage-ball-set-81341.webp",
+    "imageAlt": "Massage Ball Set",
+    "colors": ["Black"]
+  },
+  {
+    "id": "pro-golf-ball-massager-26020",
+    "name": "Pro Golf Ball Massager",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Roll muscle tension away with the Pro Golf Ball Massager - perfect for golfers, athletes, or anyone needing a massage.",
+    "tiers": [
+      [250, 2.19],
+      [500, 2.14],
+      [1000, 2.1],
+      [2500, 1.99]
+    ],
+    "image": "/images/merch/pro-golf-ball-massager-26020.webp",
+    "imageAlt": "Pro Golf Ball Massager",
+    "colors": ["White"]
+  },
+  {
+    "id": "econscious-cork-massage-ball-35879",
+    "name": "Econscious Cork Massage Ball",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Cork massage ball with a linen pouch.",
+    "tiers": [
+      [100, 8.19],
+      [300, 7.89],
+      [500, 7.59],
+      [700, 7.29],
+      [1000, 6.99]
+    ],
+    "image": "/images/merch/econscious-cork-massage-ball-35879.webp",
+    "imageAlt": "Econscious Cork Massage Ball",
+    "colors": ["Natural"]
+  },
+  {
+    "id": "tpr-physical-massage-therapy-ball-36604",
+    "name": "TPR Physical Massage Therapy Ball",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "They Are Not Children's Toys Or Bouncy Balls But Are Intended For Physical Therapy,Great For Acupressure Point Relief.",
+    "tiers": [
+      [200, 5.033],
+      [500, 4.417],
+      [1000, 3.6],
+      [3000, 3.133],
+      [5000, 2.55]
+    ],
+    "image": "/images/merch/tpr-physical-massage-therapy-ball-36604.webp",
+    "imageAlt": "TPR Physical Massage Therapy Ball",
+    "colors": ["Purple", "Blue", "Pink", "Orange", "Gray", "Black", "Dark Blue"]
+  },
+  {
+    "id": "travel-pill-organizer-11165",
+    "name": "Travel Pill Organizer",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Travel pill organizer with case fits into a purse, backpack or pocket.",
+    "tiers": [
+      [150, 3.75],
+      [250, 3.65],
+      [500, 3.55],
+      [1000, 3.45],
+      [2500, 3.35]
+    ],
+    "image": "/images/merch/travel-pill-organizer-11165.webp",
+    "imageAlt": "Travel Pill Organizer",
+    "colors": ["Black", "Heather Blue", "Heather Gray"]
+  },
+  {
+    "id": "7-day-am-pm-med-minder-pill-organizer-60892",
+    "name": "7-Day AM/PM Med Minder Pill Organizer",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "7 day AM/PM medicine reminder is the perfect weekly pill organizer. Made in USA.",
+    "tiers": [
+      [250, 3.15],
+      [500, 3.05],
+      [1000, 2.97],
+      [2500, 2.9],
+      [5000, 2.85]
+    ],
+    "image": "/images/merch/7-day-am-pm-med-minder-pill-organizer-60892.webp",
+    "imageAlt": "7-Day AM/PM Med Minder Pill Organizer",
+    "colors": [
+      "Blue",
+      "Red",
+      "Yellow",
+      "Black",
+      "White",
+      "Translucent Blue",
+      "Translucent Red",
+      "Translucent Green",
+      "Translucent Lime",
+      "Translucent Orange",
+      "Translucent Purple",
+      "Translucent Aqua",
+      "Translucent Frost"
+    ]
+  },
+  {
+    "id": "remedy-am-pm-pillbox-01645",
+    "name": "Remedy Am/Pm Pillbox",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "7-day AM/PM pill box.",
+    "tiers": [
+      [100, 2.99],
+      [250, 2.73],
+      [500, 2.67],
+      [1000, 2.61],
+      [2500, 2.49]
+    ],
+    "image": "/images/merch/remedy-am-pm-pillbox-01645.webp",
+    "imageAlt": "Remedy Am/Pm Pillbox",
+    "colors": ["Blue-Purple"]
+  },
+  {
+    "id": "medi-fey-7-day-round-pill-box-43620",
+    "name": "Medi-Fey™ 7 Day Round Pill Box",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Digital full color imprinted, USA made, round pill box with 7 compartments, rotating bottom, and a sliding clear door on top. Made in USA.",
+    "tiers": [
+      [250, 3.15],
+      [500, 2.99],
+      [1000, 2.8],
+      [2500, 2.63]
+    ],
+    "image": "/images/merch/medi-fey-7-day-round-pill-box-43620.webp",
+    "imageAlt": "Medi-Fey™ 7 Day Round Pill Box",
+    "colors": ["Process Blue", "White", "Red", "Green", "Purple", "Pink"]
   }
 ]

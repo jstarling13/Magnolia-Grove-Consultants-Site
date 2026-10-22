@@ -12340,5 +12340,263 @@
     "supplier": "NC Custom (CI/Lanco)",
     "asi": "asi/44900",
     "productNo": "SG700-021-E"
+  },
+  "wooden-nautical-ship-wheel-wall-decoration-16396": {
+    "espId": "556016396",
+    "supplier": "Topromos Inc",
+    "asi": "asi/91271",
+    "productNo": "TPJC414A"
+  },
+  "custom-canvas-wall-art-41922": {
+    "espId": "555841922",
+    "supplier": "Everprint Inc",
+    "asi": "asi/52884",
+    "productNo": "HD 1013"
+  },
+  "8-x-8-custom-gallery-wrapped-canvas-print-wall-art-87515": {
+    "espId": "553187515",
+    "supplier": "More Imprint Inc",
+    "asi": "asi/72244",
+    "productNo": "MI005MD"
+  },
+  "arched-vintage-floral-wooden-wall-art-63353": {
+    "espId": "556763353",
+    "supplier": "Kite Promotion Inc",
+    "asi": "asi/64951",
+    "productNo": "KTFX079"
+  },
+  "u-s-state-shaped-bamboo-cutting-and-serving-boards-88427": {
+    "espId": "556188427",
+    "supplier": "SnugZ USA",
+    "asi": "asi/88060",
+    "productNo": "TTBSTATE"
+  },
+  "rock-and-branch-florida-state-shaped-wood-serving-board-02037": {
+    "espId": "554202037",
+    "supplier": "Totally Bamboo",
+    "asi": "asi/91565",
+    "productNo": "20-8171"
+  },
+  "california-state-shaped-cutting-and-serving-board-90959": {
+    "espId": "554990959",
+    "supplier": "Totally Bamboo",
+    "asi": "asi/91565",
+    "productNo": "20-8169"
+  },
+  "pvc-collapsible-vase-22821": {
+    "espId": "551222821",
+    "supplier": "DP Marketing Service",
+    "asi": "asi/48037",
+    "productNo": "DP0202N"
+  },
+  "conestoga-vase-18817": {
+    "espId": "556518817",
+    "supplier": "SRG",
+    "asi": "asi/84592",
+    "productNo": "AWARD VSE296"
+  },
+  "folding-dimmable-led-light-table-lamp-flashlight-spotlight-54102": {
+    "espId": "555154102",
+    "supplier": "Goldentop Gifts Corp",
+    "asi": "asi/79532",
+    "productNo": "GOV9944"
+  },
+  "pyramid-rechargeable-led-table-lamp-30624": {
+    "espId": "555130624",
+    "supplier": "Gemline",
+    "asi": "asi/56070",
+    "productNo": "101764"
+  },
+  "led-eye-caring-table-lamp-with-built-in-wireless-charger-30280": {
+    "espId": "555130280",
+    "supplier": "Core Gifts Promo",
+    "asi": "asi/46671",
+    "productNo": "CF6318"
+  },
+  "the-rechargeable-lighthouse-shaped-table-lamp-17257": {
+    "espId": "555817257",
+    "supplier": "7Star Promos Inc",
+    "asi": "asi/86557",
+    "productNo": "218212"
+  },
+  "smart-wireless-charging-desk-lamp-with-bluetooth-speaker-clo-28402": {
+    "espId": "555128402",
+    "supplier": "Core Gifts Promo",
+    "asi": "asi/46671",
+    "productNo": "CF6316"
+  },
+  "motion-sensor-plug-in-night-light-08343": {
+    "espId": "555808343",
+    "supplier": "Prime Gifts Inc",
+    "asi": "asi/79539",
+    "productNo": "OP1094"
+  },
+  "ambient-table-light-09613": {
+    "espId": "555809613",
+    "supplier": "Marketing Gifts Inc",
+    "asi": "asi/68835",
+    "productNo": "WZ166"
+  },
+  "led-desk-lamp-with-mobile-phone-holder-71488": {
+    "espId": "555071488",
+    "supplier": "ANYTIME PROMO INC",
+    "asi": "asi/79380",
+    "productNo": "ATJR0099"
+  },
+  "10-round-wall-clock-13659": {
+    "espId": "556213659",
+    "supplier": "Promoful/PMGOA",
+    "asi": "asi/79982",
+    "productNo": "AG-3R-878"
+  },
+  "12-inch-cd-record-wall-clock-05452": {
+    "espId": "553505452",
+    "supplier": "Topromos Inc",
+    "asi": "asi/91271",
+    "productNo": "TPLL097"
+  },
+  "weather-station-wall-clock-13658": {
+    "espId": "556213658",
+    "supplier": "Promoful/PMGOA",
+    "asi": "asi/79982",
+    "productNo": "AG-3R-87EZ"
+  },
+  "fashion-home-wall-clock-79059": {
+    "espId": "555979059",
+    "supplier": "Branding Your Brand Inc",
+    "asi": "asi/90200",
+    "productNo": "CN048"
+  },
+  "nirvana-gift-set-36118": {
+    "espId": "553636118",
+    "supplier": "SnugZ USA",
+    "asi": "asi/88060",
+    "productNo": "NGSNIRVANA"
+  },
+  "luxe-plus-gift-set-18150": {
+    "espId": "554818150",
+    "supplier": "SnugZ USA",
+    "asi": "asi/88060",
+    "productNo": "ngsluxeplus"
+  },
+  "serene-house-relaxation-kit-79654": {
+    "espId": "553579654",
+    "supplier": "HIRSCH",
+    "asi": "asi/61005",
+    "productNo": "HGS-1320"
+  },
+  "serene-house-spa-kit-79691": {
+    "espId": "553579691",
+    "supplier": "HIRSCH",
+    "asi": "asi/61005",
+    "productNo": "HGS-1330"
+  },
+  "10ml-essential-oil-roller-bottle-17394": {
+    "espId": "550317394",
+    "supplier": "SnugZ USA",
+    "asi": "asi/88060",
+    "productNo": "NEORB10"
+  },
+  "serene-house-ranger-white-usb-ultrasonic-aroma-diffuser-55840": {
+    "espId": "553555840",
+    "supplier": "HIRSCH",
+    "asi": "asi/61005",
+    "productNo": "SER-RANGERW"
+  },
+  "illuminated-essential-oil-wall-diffuser-50905": {
+    "espId": "555250905",
+    "supplier": "SnugZ USA",
+    "asi": "asi/88060",
+    "productNo": "NEDW15"
+  },
+  "5ml-amber-bottle-essential-oil-98178": {
+    "espId": "550698178",
+    "supplier": "SnugZ USA",
+    "asi": "asi/88060",
+    "productNo": "NEODB05"
+  },
+  "bouquet-scented-satin-sleep-mask-66959": {
+    "espId": "553866959",
+    "supplier": "Ariel Premium Supply Inc",
+    "asi": "asi/36730",
+    "productNo": "WHF-BQ22"
+  },
+  "1-oz-lemon-verbena-room-spray-99117": {
+    "espId": "550699117",
+    "supplier": "SnugZ USA",
+    "asi": "asi/88060",
+    "productNo": "NRS10S"
+  },
+  "luxe-faux-marble-diffuser-81757": {
+    "espId": "554781757",
+    "supplier": "SnugZ USA",
+    "asi": "asi/88060",
+    "productNo": "ned86"
+  },
+  "fitness-silicone-massage-ball-44645": {
+    "espId": "556044645",
+    "supplier": "Brand It Inc",
+    "asi": "asi/41579",
+    "productNo": "PEATL0041"
+  },
+  "total-comfort-spa-kit-35273": {
+    "espId": "550635273",
+    "supplier": "Ariel Premium Supply Inc",
+    "asi": "asi/36730",
+    "productNo": "WHF-SK01"
+  },
+  "spike-massage-ball-74233": {
+    "espId": "556074233",
+    "supplier": "Ariel Premium Supply Inc",
+    "asi": "asi/36730",
+    "productNo": "WGA-SP25"
+  },
+  "massage-ball-set-81341": {
+    "espId": "555481341",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "7870"
+  },
+  "pro-golf-ball-massager-26020": {
+    "espId": "555126020",
+    "supplier": "HPG",
+    "asi": "asi/61966",
+    "productNo": "SR06GB"
+  },
+  "econscious-cork-massage-ball-35879": {
+    "espId": "554935879",
+    "supplier": "Prime Line",
+    "asi": "asi/79530",
+    "productNo": "EC9982"
+  },
+  "tpr-physical-massage-therapy-ball-36604": {
+    "espId": "555636604",
+    "supplier": "Uniprint Inc.",
+    "asi": "asi/92491",
+    "productNo": "SY1071"
+  },
+  "travel-pill-organizer-11165": {
+    "espId": "553511165",
+    "supplier": "Evans Manufacturing, LLC",
+    "asi": "asi/52840",
+    "productNo": "3565"
+  },
+  "7-day-am-pm-med-minder-pill-organizer-60892": {
+    "espId": "550660892",
+    "supplier": "Evans Manufacturing, LLC",
+    "asi": "asi/52840",
+    "productNo": "3562"
+  },
+  "remedy-am-pm-pillbox-01645": {
+    "espId": "555401645",
+    "supplier": "HPG",
+    "asi": "asi/61966",
+    "productNo": "PC25PB"
+  },
+  "medi-fey-7-day-round-pill-box-43620": {
+    "espId": "556043620",
+    "supplier": "Fey Promo",
+    "asi": "asi/54040",
+    "productNo": "F1460"
   }
 }
