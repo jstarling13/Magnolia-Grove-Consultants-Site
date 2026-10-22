@@ -286,10 +286,13 @@ export const PRODUCT_TYPES: Record<string, Taxonomy> = {
       "Carabiners",
     ],
     rules: [
-      r("Multi-Tools", /multi[- ]?tool|leatherman|handyman/),
+      r(
+        "Multi-Tools",
+        /multi[- ]?tool|leatherman|handyman|multi[- ]?function|pocket tool|money clip tool|tool w\/ key ring|\b6[- ]in[- ]1\b/
+      ),
       r(
         "Flashlights & Lanterns",
-        /flashlight|torch|headlamp|keylight|maglite|neck light|work light|lantern/
+        /flashlight|torch|headlamp|keylight|maglite|neck light|work light|lantern|light key chain/
       ),
       r("Pocket Knives", /knife|knives|opinel|kershaw|\bbuck\b|victorinox/),
       r(
@@ -298,7 +301,7 @@ export const PRODUCT_TYPES: Record<string, Taxonomy> = {
       ),
       r(
         "Screwdrivers & Tool Sets",
-        /screwdriver|driver set|tool set|tool kit|wrench|hammer|\btools\b|pliers/
+        /screwdriver|driver set|tool set|tool kit|keychain kit|tool bag|wrench|hammer|\btools\b|pliers/
       ),
       r("Carabiners", /carabiner/),
     ],
@@ -350,9 +353,13 @@ export const PRODUCT_TYPES: Record<string, Taxonomy> = {
       "Hand Warmers & Fans",
       "Sports & Games",
       "Water Bottles",
+      "Yoga & Fitness",
+      "Stadium Seats",
     ],
     rules: [
       r(OTHER_TYPE, /pleated full fan|bunting|flagpole/),
+      r("Yoga & Fitness", /yoga/),
+      r("Stadium Seats", /stadium|butt seat|seat cushion|plain stadium/),
       r("Umbrellas", /umbrella/),
       r("Golf Gear", /\bgolf\b|titleist|pro v1|twin golf/),
       r("Rainwear", /raincoat|parka|poncho|rain jacket/),
@@ -364,7 +371,7 @@ export const PRODUCT_TYPES: Record<string, Taxonomy> = {
       r("Blankets & Throws", /blanket|\bthrow\b/),
       r("Sunglasses", /sunglasses/),
       r("Hand Warmers & Fans", /hand warmer|\bfans?\b/),
-      r("Sports & Games", /pickleball|flyer|flying|\bdisc\b/),
+      r("Sports & Games", /pickleball|flyer|flying|\bdisc\b|bean bag|cornhole/),
       r("Towels & Sun Care", /towel|sunscreen|insect|\bspf\b|sun hat|lifeguard hat/),
       r("Water Bottles", /bottle/),
     ],

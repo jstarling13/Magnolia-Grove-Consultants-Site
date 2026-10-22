@@ -37669,5 +37669,844 @@
     "image": "/images/merch/valentine-heart-stress-reliever-11997.webp",
     "imageAlt": "Valentine Heart Stress Reliever",
     "colors": ["Grey", "Orange", "Pink", "Purple", "Yellow", "Red", "Blue", "Green", "White"]
+  },
+  {
+    "id": "leatherman-micra-pocket-tool-63288",
+    "name": "Leatherman® Micra® Pocket Tool",
+    "category": "Knives & Tools",
+    "brand": "Leatherman",
+    "description": "The Leatherman Micra is Leatherman's most popular keychain tool, famous for the best spring-action scissors on a multi tool. Made in USA.",
+    "tiers": [
+      [12, 68.5],
+      [24, 67],
+      [144, 65.5]
+    ],
+    "image": "/images/merch/leatherman-micra-pocket-tool-63288.webp",
+    "imageAlt": "Leatherman® Micra® Pocket Tool",
+    "colors": [
+      "Stainless",
+      "Black",
+      "Teal-Blue",
+      "Brown",
+      "Gray-Silver",
+      "Green-Green",
+      "Red",
+      "Teal",
+      "Green"
+    ]
+  },
+  {
+    "id": "the-sequoia-15-function-pocket-tool-42424",
+    "name": "The Sequoia 15-Function Pocket Tool",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "The Sequoia 15-Function Pocket Tool. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [100, 9.62],
+      [250, 9.32],
+      [500, 9.04],
+      [1000, 8.76],
+      [2500, 8.49]
+    ],
+    "image": "/images/merch/the-sequoia-15-function-pocket-tool-42424.webp",
+    "imageAlt": "The Sequoia 15-Function Pocket Tool",
+    "colors": ["Silver"]
+  },
+  {
+    "id": "20-in-1-key-shaped-multitools-60131",
+    "name": "20 IN 1 Key Shaped Multitools",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "20 IN 1 Key Shaped Multitools, Key Shaped Pocket Tool, Stainless Steel Utility Gadget,Bottle Opener, Screw Driver.",
+    "tiers": [
+      [100, 4.783],
+      [200, 4.533],
+      [500, 4.283],
+      [1000, 4.183],
+      [5000, 3.683]
+    ],
+    "image": "/images/merch/20-in-1-key-shaped-multitools-60131.webp",
+    "imageAlt": "20 IN 1 Key Shaped Multitools",
+    "colors": ["Silver"]
+  },
+  {
+    "id": "gerber-dime-mini-multi-tool-black-74613",
+    "name": "Gerber Dime Mini Multi-Tool - Black",
+    "category": "Knives & Tools",
+    "brand": "Gerber",
+    "description": "Multi-tool with pliers, wire cutters, fine blade, spring-loaded scissors, screwdriver, crosshead driver, tweezers and file.",
+    "tiers": [
+      [12, 43.99],
+      [24, 42.99],
+      [48, 41.99]
+    ],
+    "image": "/images/merch/gerber-dime-mini-multi-tool-black-74613.webp",
+    "imageAlt": "Gerber Dime Mini Multi-Tool - Black",
+    "colors": ["Black"]
+  },
+  {
+    "id": "steelmate-money-clip-tool-59590",
+    "name": "SteelMate Money Clip Tool",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "Multi-tool card with bottle opener, wrench and more. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [100, 6.74],
+      [250, 6.55],
+      [500, 6.35],
+      [1000, 6.17],
+      [2500, 5.99]
+    ],
+    "image": "/images/merch/steelmate-money-clip-tool-59590.webp",
+    "imageAlt": "SteelMate Money Clip Tool",
+    "colors": ["Black"]
+  },
+  {
+    "id": "geber-vise-mini-multi-tool-black-74637",
+    "name": "Geber Vise Mini Multi-Tool - Black",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "Keychain compatible bottle opener with mini pliers, serrated knife, and fine blade.",
+    "tiers": [
+      [12, 45.95],
+      [24, 44.95],
+      [48, 43.95]
+    ],
+    "image": "/images/merch/geber-vise-mini-multi-tool-black-74637.webp",
+    "imageAlt": "Geber Vise Mini Multi-Tool - Black",
+    "colors": ["Black"]
+  },
+  {
+    "id": "multi-functional-tool-w-key-ring-97437",
+    "name": "Multi-Functional Tool w/ Key Ring",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "Multi-functional Tool. Size: 2 1/2\" x 1 3/8\" x 3/8\".",
+    "tiers": [
+      [100, 2.39],
+      [250, 2.32],
+      [500, 2.27],
+      [1000, 2.2],
+      [2500, 2.13]
+    ],
+    "image": "/images/merch/multi-functional-tool-w-key-ring-97437.webp",
+    "imageAlt": "Multi-Functional Tool w/ Key Ring",
+    "colors": ["Blue", "Green", "Red", "Black"]
+  },
+  {
+    "id": "6-in-1-screwdriver-bottle-opener-39656",
+    "name": "6-in-1 Screwdriver Bottle Opener",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "6-in-1 Keychain Pocket Tool for Bottle Opener, Screwdriver, Ruler, Wrench, Bit Driver.",
+    "tiers": [
+      [100, 1.38],
+      [250, 1.32],
+      [500, 1.14],
+      [1000, 1.05],
+      [2500, 0.99]
+    ],
+    "image": "/images/merch/6-in-1-screwdriver-bottle-opener-39656.webp",
+    "imageAlt": "6-in-1 Screwdriver Bottle Opener",
+    "colors": ["Black", "Silver"]
+  },
+  {
+    "id": "multi-pocket-tool-camping-47336",
+    "name": "Multi Pocket Tool Camping",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "Multitool Pliers Pocket Knife Camping Tool Gifts for Men 14 in 1 Multi Tool Durable Sheath Perfect for Camping Survival Hiking.",
+    "tiers": [
+      [100, 14.602],
+      [300, 14.022],
+      [500, 13.452],
+      [800, 10.788],
+      [1500, 8.45]
+    ],
+    "image": "/images/merch/multi-pocket-tool-camping-47336.webp",
+    "imageAlt": "Multi Pocket Tool Camping",
+    "colors": ["Black", "Blue", "Gray", "Red"]
+  },
+  {
+    "id": "multi-purpose-tool-bag-44710",
+    "name": "Multi-Purpose Tool Bag",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "Tool Belt Multi-Purpose Tool Bag Professional Multi Pocket Hardware Tools Pouch Roll UP Portable Small Tools Organizer Bag.",
+    "tiers": [
+      [10, 34.983],
+      [100, 29.983],
+      [500, 24.983],
+      [1000, 19.983],
+      [2000, 17.483]
+    ],
+    "image": "/images/merch/multi-purpose-tool-bag-44710.webp",
+    "imageAlt": "Multi-Purpose Tool Bag",
+    "colors": ["Black", "Green", "Red"]
+  },
+  {
+    "id": "cedar-creek-woodland-multi-function-tool-11983",
+    "name": "Cedar Creek® Woodland Multi-Function Tool",
+    "category": "Knives & Tools",
+    "brand": "Cedar Creek",
+    "description": "Full-sized folding multi-tool featuring wood handles for a classic laser-engraved look for your logo.",
+    "tiers": [
+      [24, 28],
+      [72, 27],
+      [144, 26.5],
+      [300, 25]
+    ],
+    "image": "/images/merch/cedar-creek-woodland-multi-function-tool-11983.webp",
+    "imageAlt": "Cedar Creek® Woodland Multi-Function Tool",
+    "colors": ["Wood"]
+  },
+  {
+    "id": "mini-4-bit-screwdriver-tool-kit-81936",
+    "name": "Mini 4 Bit Screwdriver Tool Kit",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "Promotional Pocket Hand Mini Tool 4 in 1 Screw Driver Screwdriver Bit Kit Set with Hook Loop.",
+    "tiers": [
+      [200, 2.5],
+      [500, 2.333],
+      [1000, 2.167],
+      [5000, 2],
+      [10000, 1.833]
+    ],
+    "image": "/images/merch/mini-4-bit-screwdriver-tool-kit-81936.webp",
+    "imageAlt": "Mini 4 Bit Screwdriver Tool Kit",
+    "colors": ["Black", "Green", "Red", "Blue", "Orange", "White"]
+  },
+  {
+    "id": "4in1-led-torchlight-screwdriver-multi-tool-set-pocket-size-74937",
+    "name": "4In1 LED Torchlight Screwdriver Multi Tool Set Pocket-Size",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "Compact 4-in-1 pocket tool with screwdrivers, tape, LED light & level. Ideal on-the-go promo.",
+    "tiers": [
+      [100, 4.417],
+      [200, 4.335],
+      [500, 4.215],
+      [1000, 4.045],
+      [5000, 3.798]
+    ],
+    "image": "/images/merch/4in1-led-torchlight-screwdriver-multi-tool-set-pocket-size-74937.webp",
+    "imageAlt": "4In1 LED Torchlight Screwdriver Multi Tool Set Pocket-Size",
+    "colors": ["Blue", "Red", "Grey"]
+  },
+  {
+    "id": "6-in-1-multi-function-bottle-opener-with-key-ring-84918",
+    "name": "6-in-1 Multi-Function Bottle Opener with Key Ring",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "Compact 6-in-1 multifunction pocket tool kit with durable aluminum case and customizable engraving for travel and outdoor use.",
+    "tiers": [
+      [100, 2.11],
+      [300, 2.01],
+      [500, 1.98],
+      [1000, 1.84],
+      [2500, 1.72]
+    ],
+    "image": "/images/merch/6-in-1-multi-function-bottle-opener-with-key-ring-84918.webp",
+    "imageAlt": "6-in-1 Multi-Function Bottle Opener with Key Ring",
+    "colors": [
+      "Black",
+      "Blue",
+      "Green",
+      "Gray",
+      "Orange",
+      "Pink",
+      "Yellow",
+      "White",
+      "Gold",
+      "Purple",
+      "Brown",
+      "Red"
+    ]
+  },
+  {
+    "id": "keyring-tape-measure-spirit-level-tool-57200",
+    "name": "Keyring Tape Measure Spirit Level Tool",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "Portable 3-in-1 keychain featuring a retractable tape measure and integrated spirit level. Durable, compact, and highly functional.",
+    "tiers": [
+      [200, 0.763],
+      [800, 0.62],
+      [1500, 0.513],
+      [5000, 0.495],
+      [10000, 0.292]
+    ],
+    "image": "/images/merch/keyring-tape-measure-spirit-level-tool-57200.webp",
+    "imageAlt": "Keyring Tape Measure Spirit Level Tool",
+    "colors": ["Silver", "Black", "Blue", "Red", "Yellow"]
+  },
+  {
+    "id": "6-in-1-multi-tool-with-led-light-11403",
+    "name": "6-In-1 Multi Tool with LED Light",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "Multi tool with LED light.",
+    "tiers": [
+      [50, 13.55],
+      [100, 11.79],
+      [250, 10.25],
+      [500, 8.91],
+      [1000, 8.37]
+    ],
+    "image": "/images/merch/6-in-1-multi-tool-with-led-light-11403.webp",
+    "imageAlt": "6-In-1 Multi Tool with LED Light",
+    "colors": ["Gray-Black", "Gray-Red", "Gray-Royal Blue", "Gray-Lime Green"]
+  },
+  {
+    "id": "9-in1-multitool-pen-83121",
+    "name": "9 in1 Multitool Pen",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "This multitool pen is a great item for office, emergency, and writing use.",
+    "tiers": [
+      [100, 5.317],
+      [300, 5.25],
+      [500, 5.217],
+      [1000, 5],
+      [3000, 4.633]
+    ],
+    "image": "/images/merch/9-in1-multitool-pen-83121.webp",
+    "imageAlt": "9 in1 Multitool Pen",
+    "colors": ["Black"]
+  },
+  {
+    "id": "6-in-1-multitool-tech-tool-key-ring-screwdriver-pen-46826",
+    "name": "6 In 1 Multitool Tech Tool Key Ring Screwdriver Pen",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "The tool pens are beautiful and elegant that you can use them as the keychain or pendant decoration.",
+    "tiers": [
+      [500, 2.67],
+      [1000, 2.48],
+      [2000, 2.3],
+      [4000, 2.15],
+      [8000, 1.7]
+    ],
+    "image": "/images/merch/6-in-1-multitool-tech-tool-key-ring-screwdriver-pen-46826.webp",
+    "imageAlt": "6 In 1 Multitool Tech Tool Key Ring Screwdriver Pen",
+    "colors": ["Black", "Blue", "Gray", "Red", "Yellow"]
+  },
+  {
+    "id": "cinchcare-first-aid-kit-46269",
+    "name": "CinchCare First Aid Kit",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "A small but handy first aid kit stored in a cinch bag that's easy to grab and go. Perfect for minor bumps, cuts and scrapes.",
+    "tiers": [
+      [50, 4.4],
+      [500, 4.25],
+      [1000, 4],
+      [2500, 3.88]
+    ],
+    "image": "/images/merch/cinchcare-first-aid-kit-46269.webp",
+    "imageAlt": "CinchCare First Aid Kit",
+    "colors": ["Pink", "Orange", "Black", "Skyblue", "Deep Indigo"]
+  },
+  {
+    "id": "dualbeam-rechargeable-flashlight-35655",
+    "name": "DualBeam Rechargeable Flashlight",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "Features an adjustable zoom, integrated COB work light for hands-free work. Powered by a rechargeable 18650 battery. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [100, 5.62],
+      [250, 5.45],
+      [500, 5.29],
+      [1000, 5.14],
+      [2500, 4.99]
+    ],
+    "image": "/images/merch/dualbeam-rechargeable-flashlight-35655.webp",
+    "imageAlt": "DualBeam Rechargeable Flashlight",
+    "colors": ["Black", "Navy", "White"]
+  },
+  {
+    "id": "torch-rechargeable-flashlight-06827",
+    "name": "Torch Rechargeable Flashlight",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "Rechargeable flashlight with bright white LED light.",
+    "tiers": [
+      [100, 8.73],
+      [250, 7.59],
+      [500, 6.6],
+      [1000, 5.74],
+      [2500, 4.99]
+    ],
+    "image": "/images/merch/torch-rechargeable-flashlight-06827.webp",
+    "imageAlt": "Torch Rechargeable Flashlight",
+    "colors": ["Black"]
+  },
+  {
+    "id": "freeport-focus-flashlight-70555",
+    "name": "Freeport Focus Flashlight",
+    "category": "Knives & Tools",
+    "brand": "Essentials",
+    "description": "Freeport focus flashlight/work light for finding your way in dark areas.",
+    "tiers": [
+      [50, 10.48],
+      [100, 9.11],
+      [250, 7.92],
+      [500, 6.89],
+      [1000, 5.99]
+    ],
+    "image": "/images/merch/freeport-focus-flashlight-70555.webp",
+    "imageAlt": "Freeport Focus Flashlight",
+    "colors": ["Black", "Blue", "Gun Metal"]
+  },
+  {
+    "id": "pickleball-set-in-mesh-bag-57691",
+    "name": "Pickleball Set in Mesh Bag",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Pickleball set with two paddles, one ball and a mesh pouch with drawstring closure.",
+    "tiers": [
+      [25, 15.23],
+      [75, 14.79],
+      [150, 14.36],
+      [250, 13.94],
+      [500, 13.53]
+    ],
+    "image": "/images/merch/pickleball-set-in-mesh-bag-57691.webp",
+    "imageAlt": "Pickleball Set in Mesh Bag",
+    "colors": ["Green/Black", "Blue/Black", "Red/Black", "Black"]
+  },
+  {
+    "id": "pickleball-paddle-cover-16118",
+    "name": "Pickleball Paddle Cover",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Pickleball paddle cover made of neoprene.",
+    "tiers": [
+      [100, 10.48],
+      [250, 9.11],
+      [500, 7.92],
+      [1000, 6.89],
+      [2500, 5.99]
+    ],
+    "image": "/images/merch/pickleball-paddle-cover-16118.webp",
+    "imageAlt": "Pickleball Paddle Cover",
+    "colors": ["Black", "White/Black"]
+  },
+  {
+    "id": "40-hole-outdoor-seamless-pickleball-98945",
+    "name": "40 Hole Outdoor Seamless Pickleball",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "2 7/8\" pickleball with 40 holes and one-piece construction.",
+    "tiers": [
+      [150, 3.61],
+      [250, 3.51],
+      [500, 3.39],
+      [1000, 3.29],
+      [1500, 3.2]
+    ],
+    "image": "/images/merch/40-hole-outdoor-seamless-pickleball-98945.webp",
+    "imageAlt": "40 Hole Outdoor Seamless Pickleball",
+    "colors": ["Green"]
+  },
+  {
+    "id": "26-hole-indoor-pickleball-84311",
+    "name": "26 Hole Indoor Pickleball",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Plastic indoor pickleball with 26 holes.",
+    "tiers": [
+      [150, 1.72],
+      [250, 1.66],
+      [500, 1.59],
+      [1000, 1.54],
+      [1500, 1.48]
+    ],
+    "image": "/images/merch/26-hole-indoor-pickleball-84311.webp",
+    "imageAlt": "26 Hole Indoor Pickleball",
+    "colors": ["Green", "Blue"]
+  },
+  {
+    "id": "pickleball-outdoor-ball-set-53328",
+    "name": "Pickleball Outdoor Ball Set",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Pickleball set with three, 40-hole balls and a polyester drawstring pouch.",
+    "tiers": [
+      [150, 5.23],
+      [250, 4.55],
+      [500, 3.96],
+      [1000, 3.44],
+      [2500, 2.99]
+    ],
+    "image": "/images/merch/pickleball-outdoor-ball-set-53328.webp",
+    "imageAlt": "Pickleball Outdoor Ball Set",
+    "colors": ["Black/Lime"]
+  },
+  {
+    "id": "the-grip-n-hit-pickleball-set-41015",
+    "name": "The Grip-N-Hit Pickleball Set",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "The Grip-N-Hit Pickleball Set is a game changer! Set comes with 2 plywood paddles, 1 yellow balls and 1 mesh bag with imprint.",
+    "tiers": [
+      [25, 25.39],
+      [50, 23.83],
+      [100, 23.03],
+      [250, 22.54]
+    ],
+    "image": "/images/merch/the-grip-n-hit-pickleball-set-41015.webp",
+    "imageAlt": "The Grip-N-Hit Pickleball Set",
+    "colors": ["Black"]
+  },
+  {
+    "id": "carbon-fiber-pickleball-paddle-93588",
+    "name": "Carbon Fiber Pickleball Paddle",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Carbon fiber pickleball paddle.",
+    "tiers": [
+      [24, 33.25],
+      [50, 32.29],
+      [100, 31.35],
+      [250, 30.44],
+      [350, 29.55]
+    ],
+    "image": "/images/merch/carbon-fiber-pickleball-paddle-93588.webp",
+    "imageAlt": "Carbon Fiber Pickleball Paddle"
+  },
+  {
+    "id": "pickleball-paddles-set-23571",
+    "name": "Pickleball Paddles Set",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Pickleball racket made of high-quality wood with cushioned grip, reduces stress on elbow/shoulder, comes with bag and 4 balls.",
+    "tiers": [
+      [100, 26.483],
+      [300, 25.317],
+      [500, 23.983],
+      [1000, 23.15],
+      [3000, 22.417]
+    ],
+    "image": "/images/merch/pickleball-paddles-set-23571.webp",
+    "imageAlt": "Pickleball Paddles Set",
+    "colors": ["Black", "Red", "Dark Green", "Green", "Blue", "Gray", "Navy Blue", "Rose"]
+  },
+  {
+    "id": "sublimated-yoga-mat-66188",
+    "name": "Sublimated Yoga Mat, 24\" x 68\"",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "24\" x 68\" yoga mat with sheared microfiber polyester face, natural rubber padding and edge to edge sublimation printing.",
+    "tiers": [
+      [12, 57.14],
+      [36, 54.94],
+      [72, 52.95],
+      [144, 51.15],
+      [300, 49.49]
+    ],
+    "image": "/images/merch/sublimated-yoga-mat-66188.webp",
+    "imageAlt": "Sublimated Yoga Mat, 24\" x 68\"",
+    "colors": ["Multi color"]
+  },
+  {
+    "id": "lightweight-yoga-mat-15954",
+    "name": "Lightweight Yoga Mat, 24\" x 68\"",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "24\" x 68\" lightweight yoga mat made of skid resistant PVC with a 3mm thickness.",
+    "tiers": [
+      [12, 28.42],
+      [36, 27.2],
+      [72, 26.09],
+      [144, 25.07],
+      [300, 24.12]
+    ],
+    "image": "/images/merch/lightweight-yoga-mat-15954.webp",
+    "imageAlt": "Lightweight Yoga Mat, 24\" x 68\"",
+    "colors": ["Aqua", "Gray", "Black"]
+  },
+  {
+    "id": "professional-yoga-mat-15949",
+    "name": "Professional Yoga Mat, 26\" x 72\"",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "26\" x 72\" professional yoga mat with polyurethane face, natural rubber base and anti-skid surface.",
+    "tiers": [
+      [12, 80.5],
+      [36, 76.97],
+      [72, 73.75],
+      [144, 70.87],
+      [300, 68.22]
+    ],
+    "image": "/images/merch/professional-yoga-mat-15949.webp",
+    "imageAlt": "Professional Yoga Mat, 26\" x 72\"",
+    "colors": ["Aqua", "Blue", "Gray", "Mauve"]
+  },
+  {
+    "id": "non-slip-yoga-mat-60749",
+    "name": "Non Slip Yoga Mat",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "The non-slip yoga mat offers the most comfortable experience for all levels.",
+    "tiers": [
+      [35, 24.95],
+      [140, 21.51],
+      [350, 9.06],
+      [700, 8.63],
+      [1050, 8.29]
+    ],
+    "image": "/images/merch/non-slip-yoga-mat-60749.webp",
+    "imageAlt": "Non Slip Yoga Mat",
+    "colors": ["Red", "Green", "Purple", "Blue", "Black", "Pink"]
+  },
+  {
+    "id": "on-the-go-yoga-mat-48121",
+    "name": "On-The-Go Yoga Mat",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "68\"L x 24\"W PVC yoga mat with polyester/mesh carrying case and an 28\" adjustable strap for carrying.",
+    "tiers": [
+      [25, 22.14],
+      [75, 20.98],
+      [150, 19.81],
+      [300, 18.65]
+    ],
+    "image": "/images/merch/on-the-go-yoga-mat-48121.webp",
+    "imageAlt": "On-The-Go Yoga Mat",
+    "colors": ["Blue", "Lime Green"]
+  },
+  {
+    "id": "restore-6mm-yoga-mat-38914",
+    "name": "Restore 6mm Yoga Mat",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "A durable and functional yoga mat for your yoga and wellness needs.",
+    "tiers": [
+      [20, 41.65],
+      [50, 35.72],
+      [100, 31.18],
+      [300, 29.98]
+    ],
+    "image": "/images/merch/restore-6mm-yoga-mat-38914.webp",
+    "imageAlt": "Restore 6mm Yoga Mat",
+    "colors": ["Dove Grey"]
+  },
+  {
+    "id": "quick-dry-yoga-mat-towel-39120",
+    "name": "Quick Dry Yoga Mat Towel",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "24\" x 68\" quick dry yoga mat towel made of 100% microfiber polyester.",
+    "tiers": [
+      [12, 24.49],
+      [36, 23.79],
+      [72, 23.14],
+      [144, 22.52],
+      [300, 21.94]
+    ],
+    "image": "/images/merch/quick-dry-yoga-mat-towel-39120.webp",
+    "imageAlt": "Quick Dry Yoga Mat Towel",
+    "colors": ["White"]
+  },
+  {
+    "id": "table-top-bean-bag-toss-08109",
+    "name": "Table Top Bean Bag Toss",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Table top bean bag toss game with 2 game boards, 4 red and 4 blue mini bean bags.",
+    "tiers": [
+      [24, 22.76],
+      [48, 21.8],
+      [96, 20.95],
+      [288, 20.17],
+      [576, 19.42]
+    ],
+    "image": "/images/merch/table-top-bean-bag-toss-08109.webp",
+    "imageAlt": "Table Top Bean Bag Toss",
+    "colors": ["Multi color", "Blue"]
+  },
+  {
+    "id": "portable-cornhole-4-black-and-red-bean-bags-66977",
+    "name": "Portable Cornhole, 4 Black & Red Bean Bags",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Portable cornhole set with two boards, carry case and eight unimprinted bean bags; 4 black, 4 red.",
+    "tiers": [
+      [1, 84.35],
+      [2, 82.2],
+      [6, 80.55],
+      [12, 78.7],
+      [25, 77.6]
+    ],
+    "image": "/images/merch/portable-cornhole-4-black-and-red-bean-bags-66977.webp",
+    "imageAlt": "Portable Cornhole, 4 Black & Red Bean Bags",
+    "colors": ["Crimson", "Azure"]
+  },
+  {
+    "id": "non-woven-stadium-cushion-48291",
+    "name": "Non-Woven Stadium Cushion",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Non-woven, water-resistant stadium cushion with front pocket and carry handle.",
+    "tiers": [
+      [150, 3.15],
+      [300, 3.03],
+      [600, 2.9],
+      [1200, 2.79],
+      [2600, 2.67]
+    ],
+    "image": "/images/merch/non-woven-stadium-cushion-48291.webp",
+    "imageAlt": "Non-Woven Stadium Cushion",
+    "colors": ["Red", "Black", "Blue-Reflex"]
+  },
+  {
+    "id": "butt-seat-low-foam-eva-stadium-cushion-school-playground-70711",
+    "name": "Butt Seat Low Foam EVA Stadium Cushion School Playground",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Size: 12.60\" x 12.60\" x 0.39\".",
+    "tiers": [
+      [50, 6.167],
+      [200, 5.967],
+      [500, 5.6],
+      [1000, 5.267],
+      [2500, 4.6]
+    ],
+    "image": "/images/merch/butt-seat-low-foam-eva-stadium-cushion-school-playground-70711.webp",
+    "imageAlt": "Butt Seat Low Foam EVA Stadium Cushion School Playground",
+    "colors": ["Lemon Yellow", "Black", "Red", "Gray", "Purple", "Blue", "Orange", "Green"]
+  },
+  {
+    "id": "portable-eva-stadium-seat-cushion-with-handle-33940",
+    "name": "Portable EVA Stadium Seat Cushion With Handle",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "This stadium seat cushion is made of EVA material with a cut-in handle. size 12.59\" x 12.59\" x 0.39\". Silkscreen custom logo.",
+    "tiers": [
+      [100, 2.833],
+      [500, 2.5],
+      [1000, 2.483],
+      [2000, 2.467],
+      [3000, 2.45]
+    ],
+    "image": "/images/merch/portable-eva-stadium-seat-cushion-with-handle-33940.webp",
+    "imageAlt": "Portable EVA Stadium Seat Cushion With Handle",
+    "colors": [
+      "Camouflage Blue",
+      "Dark Yellow",
+      "Platinum Metal",
+      "Silver Metal",
+      "Bright Gray",
+      "Camouflage White",
+      "Chrome Metal",
+      "Metallic White"
+    ]
+  },
+  {
+    "id": "plain-stadium-cushion-13994",
+    "name": "Plain Stadium Cushion",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Plain stadium cushion. Size: 121/4\" x 121/4\" x 1\".",
+    "tiers": [
+      [100, 4.07],
+      [250, 3.54],
+      [500, 3.07],
+      [1000, 2.67],
+      [2500, 2.5]
+    ],
+    "image": "/images/merch/plain-stadium-cushion-13994.webp",
+    "imageAlt": "Plain Stadium Cushion",
+    "colors": ["Black", "Royal Blue", "Navy Blue"]
+  },
+  {
+    "id": "thick-and-soft-foldable-stadium-cushion-w-handle-47651",
+    "name": "Thick and Soft Foldable Stadium Cushion W/ Handle",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Create a helpful promotion with this stadium cushion that will have your competition watching from the sidelines!",
+    "tiers": [
+      [1000, 2.6],
+      [2000, 2.567],
+      [3000, 2.533],
+      [4000, 2.483],
+      [5000, 2.433]
+    ],
+    "image": "/images/merch/thick-and-soft-foldable-stadium-cushion-w-handle-47651.webp",
+    "imageAlt": "Thick and Soft Foldable Stadium Cushion W/ Handle",
+    "colors": [
+      "Black",
+      "Blue",
+      "Brown",
+      "Green",
+      "Gray",
+      "Orange",
+      "Pink",
+      "Purple",
+      "Yellow",
+      "White",
+      "Red",
+      "Burgundy",
+      "Gold",
+      "Royal Blue",
+      "Navy Blue",
+      "Light Blue",
+      "Maroon",
+      "Teal"
+    ]
+  },
+  {
+    "id": "full-bleed-custom-memory-foam-stadium-seat-w-handle-47669",
+    "name": "Full Bleed Custom Memory Foam Stadium Seat W/ Handle",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Custom stadium seat cushion with carrying handle.",
+    "tiers": [
+      [500, 10.65],
+      [750, 10.267],
+      [1000, 9.85],
+      [1500, 8.6],
+      [2000, 6.817]
+    ],
+    "image": "/images/merch/full-bleed-custom-memory-foam-stadium-seat-w-handle-47669.webp",
+    "imageAlt": "Full Bleed Custom Memory Foam Stadium Seat W/ Handle",
+    "colors": [
+      "Black",
+      "Blue",
+      "Brown",
+      "Gray",
+      "Green",
+      "Orange",
+      "Pink",
+      "Purple",
+      "Yellow",
+      "White",
+      "Red",
+      "Burgundy",
+      "Navy Blue",
+      "Royal Blue",
+      "Gold",
+      "Maroon",
+      "Teal"
+    ]
+  },
+  {
+    "id": "portable-heated-seat-cushion-stadium-33799",
+    "name": "Portable Heated Seat Cushion Stadium",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Size: 15.7\" x 15.7\".",
+    "tiers": [
+      [150, 32.9],
+      [300, 30.6],
+      [600, 28.533],
+      [1200, 26.54],
+      [3000, 25.317]
+    ],
+    "image": "/images/merch/portable-heated-seat-cushion-stadium-33799.webp",
+    "imageAlt": "Portable Heated Seat Cushion Stadium",
+    "colors": ["Black", "Brown", "Gray"]
   }
 ]
