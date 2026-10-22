@@ -27749,5 +27749,938 @@
     "image": "/images/merch/glass-desk-whiteboard-with-storage-21829.webp",
     "imageAlt": "Glass Desk Whiteboard with Storage",
     "colors": ["White", "Black+White", "Light Grey", "Dark Grey", "Pink+White", "Black", "Pink"]
+  },
+  {
+    "id": "c-shape-handle-double-layer-inverted-self-standing-umbrella-41736",
+    "name": "C-Shape Handle Double Layer Inverted Self-Standing Umbrella",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Double-layer inverted reverse umbrella with C-shaped hands-free handle, drip-free folding, and custom logo area.",
+    "tiers": [
+      [200, 9.97],
+      [500, 9.32],
+      [1000, 7.95],
+      [3000, 6.08],
+      [5000, 5.37]
+    ],
+    "image": "/images/merch/c-shape-handle-double-layer-inverted-self-standing-umbrella-41736.webp",
+    "imageAlt": "C-Shape Handle Double Layer Inverted Self-Standing Umbrella",
+    "colors": ["Blue", "Orange", "Purple", "Black", "Red"]
+  },
+  {
+    "id": "42-arc-budget-recycled-telescopic-umbrella-23108",
+    "name": "42\" Arc Budget Recycled Telescopic Umbrella",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "42\" arc umbrella with matching sleeve and metal shaft.",
+    "tiers": [
+      [50, 8.45],
+      [100, 8.2],
+      [250, 7.96],
+      [500, 7.73],
+      [1000, 7.5]
+    ],
+    "image": "/images/merch/42-arc-budget-recycled-telescopic-umbrella-23108.webp",
+    "imageAlt": "42\" Arc Budget Recycled Telescopic Umbrella",
+    "colors": [
+      "Recycled Black",
+      "Recycled Forest Green",
+      "Recycled Lime",
+      "Recycled Maroon",
+      "Recycled Navy Blue",
+      "Recycled Orange",
+      "Recycled Red",
+      "Recycled Royal Blue",
+      "Recycled White",
+      "Recycled Black/White",
+      "Recycled Red/Black",
+      "Recycled Red/White",
+      "Recycled Royal Blue/Black",
+      "Recycled Royal/White"
+    ]
+  },
+  {
+    "id": "mini-capsule-pocket-umbrella-32986",
+    "name": "Mini Capsule Pocket Umbrella",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Compact 18 cm five-fold UV umbrella featuring vinyl coating fabric, capsule storage case, optimal branding surface area.",
+    "tiers": [
+      [200, 11.592],
+      [500, 11.13],
+      [1000, 10.663],
+      [3000, 10.208],
+      [5000, 9.898]
+    ],
+    "image": "/images/merch/mini-capsule-pocket-umbrella-32986.webp",
+    "imageAlt": "Mini Capsule Pocket Umbrella",
+    "colors": ["Yellow", "Pink", "Light Blue", "Wine Red"]
+  },
+  {
+    "id": "compact-windproof-folding-umbrella-black-travel-rain-gift-06310",
+    "name": "Compact Windproof Folding Umbrella Black Travel Rain Gift",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Compact windproof folding umbrella with wrist strap for rain protection, commuting, travel, events, and custom giveaways.",
+    "tiers": [
+      [50, 14.95],
+      [250, 13.65],
+      [1000, 12.95],
+      [3000, 12.467],
+      [6000, 12.15]
+    ],
+    "image": "/images/merch/compact-windproof-folding-umbrella-black-travel-rain-gift-06310.webp",
+    "imageAlt": "Compact Windproof Folding Umbrella Black Travel Rain Gift",
+    "colors": ["Dark Green", "Black", "Navy Blue", "Burgundy"]
+  },
+  {
+    "id": "60-arc-golf-umbrella-21607",
+    "name": "60\" Arc Golf Umbrella",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Automatic Open Umbrella Extra Large Oversize Double Canopy Vented Windproof Waterproof Stick Umbrellas.",
+    "tiers": [
+      [100, 17.3],
+      [300, 12.5],
+      [500, 11.1],
+      [1000, 8.5],
+      [2500, 7.1]
+    ],
+    "image": "/images/merch/60-arc-golf-umbrella-21607.webp",
+    "imageAlt": "60\" Arc Golf Umbrella",
+    "colors": ["Black", "Red", "Orange", "Yellow", "Green"]
+  },
+  {
+    "id": "oversize-60-inch-arc-dual-canopy-windproof-golf-umbrella-77784",
+    "name": "Oversize 60 Inch Arc Dual Canopy Windproof Golf Umbrella",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Premium 60 inch arc golf umbrella with a vented dual canopy, offering superior wind resistance.",
+    "tiers": [
+      [50, 11.183],
+      [100, 10.25],
+      [250, 9.767],
+      [1000, 8.817]
+    ],
+    "image": "/images/merch/oversize-60-inch-arc-dual-canopy-windproof-golf-umbrella-77784.webp",
+    "imageAlt": "Oversize 60 Inch Arc Dual Canopy Windproof Golf Umbrella",
+    "colors": ["Red", "Blue", "Black", "White"]
+  },
+  {
+    "id": "challenger-ii-umbrella-1-imprint-63215",
+    "name": "Challenger II Umbrella",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Manual-open golf umbrella with 62\" arc, 8-panel construction, wind vent technology and an anti-slip rubber handle.",
+    "tiers": [
+      [12, 27.51],
+      [25, 26.68],
+      [50, 25.86],
+      [75, 25.31],
+      [100, 24.21]
+    ],
+    "image": "/images/merch/challenger-ii-umbrella-1-imprint-63215.webp",
+    "imageAlt": "Challenger II Umbrella",
+    "colors": [
+      "Ruby/White",
+      "Spruce/White",
+      "Indigo/White",
+      "Crimson/White",
+      "Azure/White",
+      "Ruby",
+      "Indigo",
+      "Crimson"
+    ]
+  },
+  {
+    "id": "portable-sun-umbrella-89787",
+    "name": "Portable Sun Umbrella",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "11.02\" x 1.97\" x 1.97\" metal and tear-resistant fabric 8-rib umbrella with 38\" canopy and UPF50 sun protection.",
+    "tiers": [
+      [50, 11],
+      [200, 9.467],
+      [500, 8.833],
+      [2000, 5.35],
+      [5000, 5]
+    ],
+    "image": "/images/merch/portable-sun-umbrella-89787.webp",
+    "imageAlt": "Portable Sun Umbrella",
+    "colors": [
+      "Black",
+      "Blue",
+      "Brown",
+      "Green",
+      "Light Blue",
+      "Pink",
+      "Red",
+      "White",
+      "Yellow",
+      "Dark Blue"
+    ]
+  },
+  {
+    "id": "prowaffle-16x16-rpet-golf-towel-41957",
+    "name": "ProWaffle 16x16 rPET Golf Towel",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "16\" x 16\" waffle textured golf towel with pocket and buckle for attachment. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [200, 3.38],
+      [500, 3.28],
+      [1000, 3.18],
+      [2500, 3.09]
+    ],
+    "image": "/images/merch/prowaffle-16x16-rpet-golf-towel-41957.webp",
+    "imageAlt": "ProWaffle 16x16 rPET Golf Towel",
+    "colors": ["White", "Blue", "Black", "Gray"]
+  },
+  {
+    "id": "microfiber-golf-towel-with-grommet-and-hook-37362",
+    "name": "Microfiber Golf Towel With Grommet And Hook",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "A 100% polyester microfiber golf towel with metal grommet and hook.",
+    "tiers": [
+      [150, 2.51],
+      [300, 2.4],
+      [600, 2.28],
+      [1200, 2.16],
+      [2600, 1.93]
+    ],
+    "image": "/images/merch/microfiber-golf-towel-with-grommet-and-hook-37362.webp",
+    "imageAlt": "Microfiber Golf Towel With Grommet And Hook",
+    "colors": ["Black", "Green", "Red", "White", "Blue-Reflex"]
+  },
+  {
+    "id": "two-sided-microfiber-golf-towel-w-full-color-sublimation-03945",
+    "name": "Two-Sided Microfiber Golf Towel w/ Full Color Sublimation",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "12.25\" x 12.25\" two sided microfiber golf towel with hook. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [100, 4.35],
+      [250, 4.25],
+      [500, 4.15],
+      [1000, 4.05],
+      [2500, 3.95]
+    ],
+    "image": "/images/merch/two-sided-microfiber-golf-towel-w-full-color-sublimation-03945.webp",
+    "imageAlt": "Two-Sided Microfiber Golf Towel w/ Full Color Sublimation",
+    "colors": ["White"]
+  },
+  {
+    "id": "hemmed-cotton-rally-towel-48569",
+    "name": "Hemmed Cotton Rally Towel",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Rally towel with hemmed edges that measures 15\" x 18\" and can be customized with various imprint methods.",
+    "tiers": [
+      [150, 3.35],
+      [300, 3.15],
+      [600, 3.03],
+      [1200, 2.9],
+      [2600, 2.75]
+    ],
+    "image": "/images/merch/hemmed-cotton-rally-towel-48569.webp",
+    "imageAlt": "Hemmed Cotton Rally Towel",
+    "colors": ["Red", "White", "Black", "Blue-Reflex", "Gold-Athletic", "Green-Hunter"]
+  },
+  {
+    "id": "the-waffle-microfiber-golf-and-cleaning-towel-27204",
+    "name": "The Waffle Microfiber Golf and Cleaning Towel",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "16\" x 24\" microfiber golf towel with waffle texture. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [150, 4.38],
+      [250, 4.25],
+      [500, 4.13],
+      [1000, 4.01],
+      [2500, 3.89]
+    ],
+    "image": "/images/merch/the-waffle-microfiber-golf-and-cleaning-towel-27204.webp",
+    "imageAlt": "The Waffle Microfiber Golf and Cleaning Towel",
+    "colors": ["Gray", "Royal Blue", "Navy Blue", "Red", "Green", "Black"]
+  },
+  {
+    "id": "microfiber-velour-golf-towel-upper-left-hook-and-grommet-79426",
+    "name": "Microfiber Velour Golf Towel (Upper Left Hook & Grommet)",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "11\" x 18\" microfiber velour sublimation sports towel.",
+    "tiers": [
+      [36, 5.69],
+      [72, 5.54],
+      [144, 5.4],
+      [300, 5.27],
+      [600, 5.15]
+    ],
+    "image": "/images/merch/microfiber-velour-golf-towel-upper-left-hook-and-grommet-79426.webp",
+    "imageAlt": "Microfiber Velour Golf Towel (Upper Left Hook & Grommet)",
+    "colors": ["Multi color"]
+  },
+  {
+    "id": "voxel-tritan-bottle-w-locking-handle-lid-24oz-06820",
+    "name": "Voxel Tritan Bottle w/Locking Handle Lid - 24oz",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Stay hydrated on the go with the Voxel Tritan Bottle, designed for durability and everyday convenience.",
+    "tiers": [
+      [35, 10.48],
+      [100, 9.56],
+      [250, 9.01],
+      [500, 8.69]
+    ],
+    "image": "/images/merch/voxel-tritan-bottle-w-locking-handle-lid-24oz-06820.webp",
+    "imageAlt": "Voxel Tritan Bottle w/Locking Handle Lid - 24oz",
+    "colors": ["Black", "Blue", "Green", "White"]
+  },
+  {
+    "id": "40-oz-stainless-steel-double-wall-water-bottle-27887",
+    "name": "40 oz. Stainless Steel Double Wall Water Bottle",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Eco 40 oz. Stainless Steel Double Wall Water Bottle Sustainable Production. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [25, 26.42],
+      [100, 25.65],
+      [300, 24.9],
+      [500, 24.17],
+      [1000, 23.47]
+    ],
+    "image": "/images/merch/40-oz-stainless-steel-double-wall-water-bottle-27887.webp",
+    "imageAlt": "40 oz. Stainless Steel Double Wall Water Bottle",
+    "colors": ["Black", "Chrome-Black", "White-Black"]
+  },
+  {
+    "id": "18oz-travel-stainless-insulated-bottle-w-lid-straw-and-handl-55509",
+    "name": "18oz.Travel Stainless Insulated Bottle w/ Lid,Straw & Handle",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "18 ounce stainless steel double-wall vacuum insulated water bottle with pull-up straw lid and handle. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [72, 13.63],
+      [108, 13.42],
+      [216, 13.16],
+      [504, 12.89],
+      [1008, 12.58]
+    ],
+    "image": "/images/merch/18oz-travel-stainless-insulated-bottle-w-lid-straw-and-handl-55509.webp",
+    "imageAlt": "18oz.Travel Stainless Insulated Bottle w/ Lid,Straw & Handle",
+    "colors": ["Black", "Blue", "Red", "White"]
+  },
+  {
+    "id": "two-toned-27oz-stainless-steel-pop-straw-bottle-27537",
+    "name": "Two-Toned 27oz. Stainless Steel Pop Straw Bottle",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "27 oz. insulating stainless steel bottle with lid, handle and integrated straw. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [50, 14.68],
+      [100, 14.24],
+      [250, 13.81],
+      [500, 13.39],
+      [1000, 12.99]
+    ],
+    "image": "/images/merch/two-toned-27oz-stainless-steel-pop-straw-bottle-27537.webp",
+    "imageAlt": "Two-Toned 27oz. Stainless Steel Pop Straw Bottle",
+    "colors": [
+      "Black",
+      "White",
+      "Navy Blue",
+      "Red",
+      "Green",
+      "Orange",
+      "Pink",
+      "Blue",
+      "Gray",
+      "Two-Tone Navy"
+    ]
+  },
+  {
+    "id": "heavy-duty-folding-camping-chair-94810",
+    "name": "Heavy Duty Folding Camping Chair",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Oversized Fully Padded Camping Chair Heavy Duty Quad Fold Arm Chair Support 350 LBS with Cup Holder, Collapsible Back Chair.",
+    "tiers": [
+      [50, 45.967],
+      [100, 43.75],
+      [200, 42.35],
+      [500, 40.717],
+      [1000, 38.433]
+    ],
+    "image": "/images/merch/heavy-duty-folding-camping-chair-94810.webp",
+    "imageAlt": "Heavy Duty Folding Camping Chair",
+    "colors": ["Multi Color", "Black", "Green", "Gray", "Blue"]
+  },
+  {
+    "id": "custom-portable-sturdy-durable-folding-camping-chair-42570",
+    "name": "Custom Portable Sturdy Durable Folding Camping Chair",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Portable sturdy durable folding camping chair with a carrying bag and a cup holder is easy to set up and fold in seconds.",
+    "tiers": [
+      [10, 47.783],
+      [20, 46.867],
+      [40, 46.033],
+      [80, 45.2],
+      [160, 43.55]
+    ],
+    "image": "/images/merch/custom-portable-sturdy-durable-folding-camping-chair-42570.webp",
+    "imageAlt": "Custom Portable Sturdy Durable Folding Camping Chair",
+    "colors": ["Green", "Blue", "Gray"]
+  },
+  {
+    "id": "dri-duck-compact-folding-field-camping-chair-42333",
+    "name": "Dri Duck Compact Folding Field Camping Chair",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "19.7\" x 48.8\" x 22\" field chair with a highback seat, 260-pound capacity, and zippered pouch.",
+    "tiers": [
+      [6, 75.99],
+      [12, 72.99],
+      [24, 69.99],
+      [48, 66.99]
+    ],
+    "image": "/images/merch/dri-duck-compact-folding-field-camping-chair-42333.webp",
+    "imageAlt": "Dri Duck Compact Folding Field Camping Chair",
+    "colors": ["Charcoal"]
+  },
+  {
+    "id": "hampton-xl-folding-outdoor-camping-chair-42468",
+    "name": "Hampton XL Folding Outdoor Camping Chair",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "28\" x 42.9\" x 22.8\" outdoor chair with a cup holder, carrying pouch, 300-pound weight capacity, and padded seating.",
+    "tiers": [
+      [12, 77.95],
+      [24, 76.16],
+      [96, 73.62],
+      [144, 69.75],
+      [240, 66.25]
+    ],
+    "image": "/images/merch/hampton-xl-folding-outdoor-camping-chair-42468.webp",
+    "imageAlt": "Hampton XL Folding Outdoor Camping Chair",
+    "colors": ["Black", "Cabana Red", "Marine Blue"]
+  },
+  {
+    "id": "ultralight-backpacking-folding-portable-camping-beach-chair-39514",
+    "name": "Ultralight Backpacking Folding Portable Camping Beach Chair",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "13\" x 13\" x 26.7\" steel and 600 Denier Oxford cloth folding camping chair with drawstring storage bag.",
+    "tiers": [
+      [25, 30],
+      [50, 28.333],
+      [100, 25.833],
+      [250, 25],
+      [500, 24.167]
+    ],
+    "image": "/images/merch/ultralight-backpacking-folding-portable-camping-beach-chair-39514.webp",
+    "imageAlt": "Ultralight Backpacking Folding Portable Camping Beach Chair",
+    "colors": ["Black", "Blue", "Gray", "White"]
+  },
+  {
+    "id": "portable-insulated-folding-cooler-stool-holds-225lbs-84055",
+    "name": "Portable Insulated Folding Cooler Stool, Holds 225lbs",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Folding cooler chair that holds up to 12 cans.",
+    "tiers": [
+      [50, 11.95],
+      [100, 11.5],
+      [200, 11.2],
+      [500, 10.95]
+    ],
+    "image": "/images/merch/portable-insulated-folding-cooler-stool-holds-225lbs-84055.webp",
+    "imageAlt": "Portable Insulated Folding Cooler Stool, Holds 225lbs",
+    "colors": ["Royal Blue", "Black"]
+  },
+  {
+    "id": "aviana-mini-backpack-cooler-98779",
+    "name": "Aviana™ Mini Backpack Cooler",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "The Aviana™ Cooler Collection features quilted details, satin nickel accents, and soft nylon fabric.",
+    "tiers": [
+      [25, 34.71],
+      [50, 29.77],
+      [100, 25.99],
+      [300, 24.98]
+    ],
+    "image": "/images/merch/aviana-mini-backpack-cooler-98779.webp",
+    "imageAlt": "Aviana™ Mini Backpack Cooler",
+    "colors": ["Black", "Navy"]
+  },
+  {
+    "id": "cooler-or-toiletry-bag-65100",
+    "name": "Cooler or Toiletry Bag",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Modern, lightweight cooler bag with dual zippers, front & side pockets. Keeps food fresh for hours.",
+    "tiers": [
+      [50, 11.254],
+      [100, 10.492],
+      [300, 9.77],
+      [500, 7.683],
+      [1000, 7.644]
+    ],
+    "image": "/images/merch/cooler-or-toiletry-bag-65100.webp",
+    "imageAlt": "Cooler or Toiletry Bag",
+    "colors": ["Black", "Blue", "Brown"]
+  },
+  {
+    "id": "lightweight-adult-eva-poncho-for-outdoor-event-65077",
+    "name": "Lightweight Adult EVA Poncho for Outdoor Event",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Adult Long Hooded Disposable EVA Rain Poncho is a good gift to promote your brand.",
+    "tiers": [
+      [500, 4.541],
+      [1000, 4.325],
+      [5000, 4.109],
+      [10000, 3.894],
+      [50000, 3.452]
+    ],
+    "image": "/images/merch/lightweight-adult-eva-poncho-for-outdoor-event-65077.webp",
+    "imageAlt": "Lightweight Adult EVA Poncho for Outdoor Event",
+    "colors": ["Purple", "Yellow", "Blue", "Pink", "White"]
+  },
+  {
+    "id": "custom-reusable-translucent-peva-poncho-or-rain-57575",
+    "name": "Custom Reusable Translucent PEVA Poncho Or Rain",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Custom Reusable Durable ECO Friendly Lightweight Translucent PEVA Poncho Or Raincoat With Drawstring Hood.",
+    "tiers": [
+      [200, 6.66],
+      [500, 5.42],
+      [1000, 5.03],
+      [3000, 2.87],
+      [5000, 2.83]
+    ],
+    "image": "/images/merch/custom-reusable-translucent-peva-poncho-or-rain-57575.webp",
+    "imageAlt": "Custom Reusable Translucent PEVA Poncho Or Rain",
+    "colors": ["Blue", "Yellow", "Purple", "Pink", "White", "Black"]
+  },
+  {
+    "id": "fleece-roll-up-blanket-96764",
+    "name": "Fleece Roll-Up Blanket, 50\" x 60\"",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "48\" x 54\" (measurements may vary) roll up fleece blanket with carry handle.",
+    "tiers": [
+      [75, 10.49],
+      [150, 10.19],
+      [250, 9.99],
+      [500, 9.79],
+      [1000, 9.59]
+    ],
+    "image": "/images/merch/fleece-roll-up-blanket-96764.webp",
+    "imageAlt": "Fleece Roll-Up Blanket, 50\" x 60\"",
+    "colors": ["Red", "Black", "Gray", "Navy Blue", "Royal Blue"]
+  },
+  {
+    "id": "hampton-outdoor-picnic-blanket-42473",
+    "name": "Hampton Outdoor Picnic Blanket",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "59\" x 79\" outdoor picnic blanket with a water-repellent base and carry strap.",
+    "tiers": [
+      [16, 41.99],
+      [32, 39.99],
+      [96, 37.99],
+      [160, 35.99],
+      [240, 33.99]
+    ],
+    "image": "/images/merch/hampton-outdoor-picnic-blanket-42473.webp",
+    "imageAlt": "Hampton Outdoor Picnic Blanket",
+    "colors": ["Black", "Marine Blue"]
+  },
+  {
+    "id": "hand-warmers-with-custom-label-06156",
+    "name": "Hand Warmers with Custom Label",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Hand warmers. Made in USA.",
+    "tiers": [
+      [150, 2.09],
+      [500, 1.93],
+      [1000, 1.77],
+      [2500, 1.65]
+    ],
+    "image": "/images/merch/hand-warmers-with-custom-label-06156.webp",
+    "imageAlt": "Hand Warmers with Custom Label",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "electric-reusable-hand-warmer-power-bank-75946",
+    "name": "Electric Reusable Hand Warmer Power Bank",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "Hand warmer and power bank with LED display screen.",
+    "tiers": [
+      [50, 16.917],
+      [250, 15.6],
+      [500, 13.367],
+      [2000, 12.783],
+      [6000, 11.933]
+    ],
+    "image": "/images/merch/electric-reusable-hand-warmer-power-bank-75946.webp",
+    "imageAlt": "Electric Reusable Hand Warmer Power Bank",
+    "colors": ["Brown", "Green", "Pink"]
+  },
+  {
+    "id": "snow-brush-and-ice-scrapers-15158",
+    "name": "Snow Brush And Ice Scrapers",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "This customizable, durable snow brush is perfect for clearing snow and ice.",
+    "tiers": [
+      [200, 10.283],
+      [600, 8.583],
+      [1000, 4.417],
+      [2000, 4.083],
+      [5000, 3.9]
+    ],
+    "image": "/images/merch/snow-brush-and-ice-scrapers-15158.webp",
+    "imageAlt": "Snow Brush And Ice Scrapers",
+    "colors": ["Blue", "Red", "Yellow"]
+  },
+  {
+    "id": "vivid-air-vent-stick-67424",
+    "name": "Vivid™ Air Vent Stick",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Long-lasting scent air freshener.",
+    "tiers": [
+      [100, 2.6],
+      [250, 2.49],
+      [500, 2.39],
+      [1000, 2.25]
+    ],
+    "image": "/images/merch/vivid-air-vent-stick-67424.webp",
+    "imageAlt": "Vivid™ Air Vent Stick",
+    "colors": [
+      "Citrus Blossom Orange",
+      "Creamy Vanilla Tan",
+      "Juicy Cherry Red",
+      "New Car Dark Blue",
+      "Fresh Linen Teal"
+    ]
+  },
+  {
+    "id": "digital-air-compressor-for-car-auto-pump-69234",
+    "name": "Digital Air Compressor For Car Auto Pump",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "7.87\" x 6.3\" x 2.36\" digital air compressor with a tire gauge, 10' power cord, and four adapters.",
+    "tiers": [
+      [100, 34.75],
+      [300, 33.75],
+      [600, 32.917],
+      [2000, 30.083],
+      [5000, 21.25]
+    ],
+    "image": "/images/merch/digital-air-compressor-for-car-auto-pump-69234.webp",
+    "imageAlt": "Digital Air Compressor For Car Auto Pump",
+    "colors": ["Black"]
+  },
+  {
+    "id": "mini-portable-handheld-wireless-charging-car-air-pump-62636",
+    "name": "Mini Portable Handheld Wireless Charging Car Air Pump",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Portable wireless car tire air pump with fast digital inflation capability.",
+    "tiers": [
+      [10, 27.533],
+      [50, 21.733],
+      [100, 20.283],
+      [200, 18.995],
+      [400, 17.707]
+    ],
+    "image": "/images/merch/mini-portable-handheld-wireless-charging-car-air-pump-62636.webp",
+    "imageAlt": "Mini Portable Handheld Wireless Charging Car Air Pump",
+    "colors": ["Black"]
+  },
+  {
+    "id": "metallic-head-digital-tire-pressure-gauge-with-backlight-lcd-79750",
+    "name": "Metallic Head Digital Tire Pressure Gauge With Backlight LCD",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Support Printing. Size: 4.33\" x 0.67\" x 0.67\".",
+    "tiers": [
+      [50, 8.167],
+      [200, 8.1],
+      [500, 8.033],
+      [1000, 7.967],
+      [2500, 7.767]
+    ],
+    "image": "/images/merch/metallic-head-digital-tire-pressure-gauge-with-backlight-lcd-79750.webp",
+    "imageAlt": "Metallic Head Digital Tire Pressure Gauge With Backlight LCD",
+    "colors": ["Black"]
+  },
+  {
+    "id": "full-color-patented-single-loop-fabric-sunshade-20049",
+    "name": "Full Color Patented Single Loop Fabric Sunshade",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Full Color Imprint Program FCI on our Patented Single Loop Fabric Shade, with added winglets design.",
+    "tiers": [
+      [50, 22.97],
+      [100, 21.38],
+      [250, 20.57],
+      [500, 19.65],
+      [750, 17.95]
+    ],
+    "image": "/images/merch/full-color-patented-single-loop-fabric-sunshade-20049.webp",
+    "imageAlt": "Full Color Patented Single Loop Fabric Sunshade",
+    "colors": ["Multi color", "Silver"]
+  },
+  {
+    "id": "accordion-auto-sun-shade-23658",
+    "name": "Accordion Auto Sun Shade",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "23.5\" x 51\" accordion-style car sun shade.",
+    "tiers": [
+      [100, 9.63],
+      [250, 8.37],
+      [500, 7.28],
+      [1000, 6.33],
+      [2500, 5.5]
+    ],
+    "image": "/images/merch/accordion-auto-sun-shade-23658.webp",
+    "imageAlt": "Accordion Auto Sun Shade",
+    "colors": ["Black", "Gray", "Blue"]
+  },
+  {
+    "id": "foldable-car-windshield-sun-shade-59-x27-5-33098",
+    "name": "Foldable Car Windshield Sun Shade 59\" x 27.5\"",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "This windshield sunshade 170T polyester w/ silver coated for sun protection, 59\" x 27.5\", foldable design, silkscreen custom logo.",
+    "tiers": [
+      [100, 3.667],
+      [500, 2.617],
+      [1000, 2.433],
+      [2000, 2.317],
+      [10000, 2.183]
+    ],
+    "image": "/images/merch/foldable-car-windshield-sun-shade-59-x27-5-33098.webp",
+    "imageAlt": "Foldable Car Windshield Sun Shade 59\" x 27.5\"",
+    "colors": [
+      "White/Light Green",
+      "Sky Blue",
+      "Blue/Khaki",
+      "Mint Green",
+      "Black/White",
+      "Giraffe Print Camo",
+      "Iridescent Orange"
+    ]
+  },
+  {
+    "id": "auto-vent-phone-holder-24265",
+    "name": "Auto Vent Phone Holder",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Auto Vent Phone Holder. Holder Clips onto your Vehicles Air Conditioning Vents. Space for Phone can be Adjusted to 3 1/2\" W.",
+    "tiers": [
+      [250, 3.14],
+      [500, 2.73],
+      [1000, 2.37],
+      [2500, 2.06],
+      [5000, 1.79]
+    ],
+    "image": "/images/merch/auto-vent-phone-holder-24265.webp",
+    "imageAlt": "Auto Vent Phone Holder",
+    "colors": ["Black"]
+  },
+  {
+    "id": "full-adjustable-magnetic-car-phone-holder-35441",
+    "name": "Full Adjustable Magnetic Car Phone Holder",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "360 Degrees Rotateble Adjustable Strong Magnetic Car Phone Mount with Vacuum Suction for Most Surface.",
+    "tiers": [
+      [200, 6.8],
+      [700, 6.567],
+      [2000, 6.35],
+      [5000, 6.133],
+      [10000, 4.567]
+    ],
+    "image": "/images/merch/full-adjustable-magnetic-car-phone-holder-35441.webp",
+    "imageAlt": "Full Adjustable Magnetic Car Phone Holder",
+    "colors": ["Black", "White"]
+  },
+  {
+    "id": "vacgrip-360-magnetic-phone-holder-04573",
+    "name": "VacGrip 360 Magnetic Phone Holder",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Phone holder with TPU suction base, strong magnet and fully-rotatable 360-degree design. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [100, 7.87],
+      [250, 7.64],
+      [500, 7.42],
+      [1000, 7.2],
+      [2500, 6.99]
+    ],
+    "image": "/images/merch/vacgrip-360-magnetic-phone-holder-04573.webp",
+    "imageAlt": "VacGrip 360 Magnetic Phone Holder",
+    "colors": ["Black"]
+  },
+  {
+    "id": "custom-47mil-aluminum-license-plate-frame-12-x-6-60049",
+    "name": "Custom 47mil Aluminum License Plate Frame 12\" x 6\"",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Custom Personalized License Plate Frame, Customized Design Aluminum Metal Car License Plate Frame with Text, 12 inch x6 inch.",
+    "tiers": [
+      [100, 4.8],
+      [200, 4.5],
+      [500, 4.1],
+      [1000, 3.6],
+      [2000, 3.35]
+    ],
+    "image": "/images/merch/custom-47mil-aluminum-license-plate-frame-12-x-6-60049.webp",
+    "imageAlt": "Custom 47mil Aluminum License Plate Frame 12\" x 6\"",
+    "colors": ["Black", "Blue", "Orange", "Purple", "Red", "Silver"]
+  },
+  {
+    "id": "aluminum-alloy-license-frame-with-2-holes-30193",
+    "name": "Aluminum Alloy License Frame With 2 Holes",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Choose our aluminum alloy license plate frame to enhance the appearance of your car and keep your license plate in good condition.",
+    "tiers": [
+      [100, 3.49],
+      [300, 2.88],
+      [500, 2.78],
+      [1000, 2.35],
+      [2000, 2.12]
+    ],
+    "image": "/images/merch/aluminum-alloy-license-frame-with-2-holes-30193.webp",
+    "imageAlt": "Aluminum Alloy License Frame With 2 Holes",
+    "colors": ["Black", "Silver"]
+  },
+  {
+    "id": "custom-stainless-steel-car-license-plate-frame-50979",
+    "name": "Custom Stainless Steel Car License Plate Frame",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Stainless steel made license plate frame can provide long-lasting protection from corroding, rusting and aging.",
+    "tiers": [
+      [50, 6.46],
+      [100, 5.91],
+      [500, 5.07],
+      [1000, 4.42],
+      [3000, 2.77]
+    ],
+    "image": "/images/merch/custom-stainless-steel-car-license-plate-frame-50979.webp",
+    "imageAlt": "Custom Stainless Steel Car License Plate Frame",
+    "colors": ["Black", "Silver"]
+  },
+  {
+    "id": "6000a-jump-starter-power-bank-with-tire-inflator-77253",
+    "name": "6000A Jump Starter Power Bank with Tire Inflator",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "5-in-1 Multi-functional Emergency Start Power Supply with Air Pump, 150PSL Portable Car Battery Starter, Digital Tire Inflator.",
+    "tiers": [
+      [100, 55.3],
+      [200, 49.85],
+      [500, 48.617],
+      [1000, 35.7],
+      [2000, 34.383]
+    ],
+    "image": "/images/merch/6000a-jump-starter-power-bank-with-tire-inflator-77253.webp",
+    "imageAlt": "6000A Jump Starter Power Bank with Tire Inflator",
+    "colors": ["Green", "Black"]
+  },
+  {
+    "id": "car-jump-starter-with-air-compressor-12875",
+    "name": "Car Jump Starter With Air Compressor",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Portable Car Jump Starter with Air Compressor, 12V Jump Box Car Battery Jumper Starter Portable with LCD Display, Lights.",
+    "tiers": [
+      [20, 88.8],
+      [50, 82.1],
+      [100, 77.083],
+      [200, 74.883],
+      [500, 69.85]
+    ],
+    "image": "/images/merch/car-jump-starter-with-air-compressor-12875.webp",
+    "imageAlt": "Car Jump Starter With Air Compressor",
+    "colors": ["Black"]
+  },
+  {
+    "id": "scosche-powerup-600-portable-car-jump-starter-76625",
+    "name": "Scosche PowerUp 600 Portable Car Jump Starter",
+    "category": "Automotive",
+    "brand": "Scosche",
+    "description": "Introducing the Scosche PowerUp, a reliable jump starter designed to get you back on the road with ease.",
+    "tiers": [
+      [6, 103],
+      [12, 101],
+      [24, 99]
+    ],
+    "image": "/images/merch/scosche-powerup-600-portable-car-jump-starter-76625.webp",
+    "imageAlt": "Scosche PowerUp 600 Portable Car Jump Starter",
+    "colors": ["Black"]
+  },
+  {
+    "id": "structure-recycled-rpet-backseat-bunker-organizer-29522",
+    "name": "Structure Recycled rPET Backseat Bunker Organizer",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Backseat organizer with pockets and multiple compartments.",
+    "tiers": [
+      [25, 31.93],
+      [50, 27.39],
+      [100, 23.91],
+      [300, 22.98]
+    ],
+    "image": "/images/merch/structure-recycled-rpet-backseat-bunker-organizer-29522.webp",
+    "imageAlt": "Structure Recycled rPET Backseat Bunker Organizer",
+    "colors": ["Black"]
+  },
+  {
+    "id": "rpet-car-organizer-28291",
+    "name": "RPET Car Organizer",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "12\" x 16\" x 2\" auto organizer with spacious main compartment, interior pockets, mesh pocket and adjustable strap.",
+    "tiers": [
+      [25, 27.97],
+      [50, 24.32],
+      [100, 21.15],
+      [250, 18.39],
+      [500, 15.99]
+    ],
+    "image": "/images/merch/rpet-car-organizer-28291.webp",
+    "imageAlt": "RPET Car Organizer",
+    "colors": ["Black"]
+  },
+  {
+    "id": "car-visor-organizer-holder-28150",
+    "name": "Car Visor Organizer Holder",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "High Road Car Visor Organizer With Clear Registration And Insurance Pocket And Sunglass Holder.",
+    "tiers": [
+      [50, 5.683],
+      [200, 4.383],
+      [1000, 4.217],
+      [5000, 4.05],
+      [10000, 2.867]
+    ],
+    "image": "/images/merch/car-visor-organizer-holder-28150.webp",
+    "imageAlt": "Car Visor Organizer Holder",
+    "colors": ["Black", "Beige", "Gray", "Pink", "Blue", "Red"]
   }
 ]
