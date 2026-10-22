@@ -30333,5 +30333,846 @@
     "image": "/images/merch/2-in1-velvet-and-sherpa-blanket-throw-pillow-37277.webp",
     "imageAlt": "2 In1 Velvet & Sherpa Blanket Throw Pillow",
     "colors": ["Brown", "Burgundy", "Gray", "Purple", "Teal", "Dark Blue"]
+  },
+  {
+    "id": "110pc-osha-compliant-first-aid-kit-in-easy-carry-eva-zipper-12444",
+    "name": "110pc OSHA Compliant First Aid Kit in Easy Carry EVA Zipper",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "110pc OSHA compliant first aid kit w/ adhesive bandages, antiseptic wipes, gauze pads, medical tape, scissors, tweezers, and more. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [50, 26.5],
+      [100, 25.71],
+      [250, 24.95],
+      [500, 24.21],
+      [1000, 23.49]
+    ],
+    "image": "/images/merch/110pc-osha-compliant-first-aid-kit-in-easy-carry-eva-zipper-12444.webp",
+    "imageAlt": "110pc OSHA Compliant First Aid Kit in Easy Carry EVA Zipper",
+    "colors": ["Red", "Black", "Royal Blue"]
+  },
+  {
+    "id": "medi-fey-first-aid-kit-15147",
+    "name": "Medi-Fey™ First Aid Kit",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Full color imprinted USA made First Aid Kit with Hand Sanitizers, Antimicrobial Towelette, Burn Creams, and Plastic bandages. Made in USA.",
+    "tiers": [
+      [250, 4.04],
+      [500, 3.72],
+      [1000, 3.51],
+      [2500, 3.46]
+    ],
+    "image": "/images/merch/medi-fey-first-aid-kit-15147.webp",
+    "imageAlt": "Medi-Fey™ First Aid Kit",
+    "colors": ["Process Blue", "White", "Red", "Green", "Purple", "Pink"]
+  },
+  {
+    "id": "first-aid-kit-w-10-components-zipper-polyester-pouch-paris-72134",
+    "name": "First-Aid Kit w/ 10 Components Zipper Polyester Pouch Paris",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "10 pc. first aid kit with zipper pouch, sunscreen packets, lip balm, bandages, moist towelettes, antiseptic towelette and guide.",
+    "tiers": [
+      [150, 3.69],
+      [250, 3.52],
+      [500, 3.41],
+      [1000, 3.29],
+      [2500, 3.25]
+    ],
+    "image": "/images/merch/first-aid-kit-w-10-components-zipper-polyester-pouch-paris-72134.webp",
+    "imageAlt": "First-Aid Kit w/ 10 Components Zipper Polyester Pouch Paris",
+    "colors": ["Red", "Blue", "White", "Orange", "Black", "Lime Green", "Clear", "Purple"]
+  },
+  {
+    "id": "essentials-first-aid-kit-52309",
+    "name": "Essentials First Aid Kit",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "First aid kit. Size: 4\" x 2.5\". Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [150, 1.57],
+      [250, 1.47],
+      [500, 1.37],
+      [1000, 1.28],
+      [2500, 1.2]
+    ],
+    "image": "/images/merch/essentials-first-aid-kit-52309.webp",
+    "imageAlt": "Essentials First Aid Kit",
+    "colors": ["Translucent Clear", "Translucent Blue", "Translucent Black", "Translucent Red"]
+  },
+  {
+    "id": "12pcs-compact-hard-case-first-aid-kit-71125",
+    "name": "12pcs Compact Hard Case First Aid Kit",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "12 piece first aid kit with hard case. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [250, 2.28],
+      [500, 2.22],
+      [1000, 2.15],
+      [2500, 2.09]
+    ],
+    "image": "/images/merch/12pcs-compact-hard-case-first-aid-kit-71125.webp",
+    "imageAlt": "12pcs Compact Hard Case First Aid Kit",
+    "colors": ["Red", "Blue", "White"]
+  },
+  {
+    "id": "deluxe-first-aid-event-kit-49316",
+    "name": "Deluxe First Aid Event Kit",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Deluxe mini first aid kit with clip has lip balm, ibuprofen, bandages, BZK towelettes, first aid cream, sanitizer and adhesive pad.",
+    "tiers": [
+      [100, 4.65],
+      [250, 4.55],
+      [500, 4.45],
+      [1000, 4.35],
+      [2500, 4.25]
+    ],
+    "image": "/images/merch/deluxe-first-aid-event-kit-49316.webp",
+    "imageAlt": "Deluxe First Aid Event Kit",
+    "colors": ["Red", "Lime", "Black", "Orange", "Purple", "Royal Blue"]
+  },
+  {
+    "id": "portable-first-aid-kit-10041",
+    "name": "Portable First Aid Kit",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Portable first aid kit with bandages, hand sanitizer, cleansing pad, towelette, sting relief pad, lip balm and more.",
+    "tiers": [
+      [150, 5.05],
+      [250, 4.39],
+      [500, 3.82],
+      [1000, 3.32],
+      [2500, 2.89]
+    ],
+    "image": "/images/merch/portable-first-aid-kit-10041.webp",
+    "imageAlt": "Portable First Aid Kit",
+    "colors": ["Clear", "Translucent Black", "Translucent Blue", "Translucent Red"]
+  },
+  {
+    "id": "heal-on-the-go-7-piece-economy-first-aid-kit-40269",
+    "name": "HEAL-ON-THE-GO 7 Piece Economy First Aid Kit",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "7 piece first aid kit with a vinyl pouch, bandages, cleaning towelette, antiseptic towelette and healthy guidelines insert.",
+    "tiers": [
+      [250, 1.86],
+      [500, 1.71],
+      [1000, 1.64],
+      [2500, 1.54]
+    ],
+    "image": "/images/merch/heal-on-the-go-7-piece-economy-first-aid-kit-40269.webp",
+    "imageAlt": "HEAL-ON-THE-GO 7 Piece Economy First Aid Kit",
+    "colors": [
+      "Trans Red",
+      "Trans Blue",
+      "White",
+      "Lime Green",
+      "Trans Purple",
+      "Trans Orange",
+      "Trans Black",
+      "Clear"
+    ]
+  },
+  {
+    "id": "the-mio-12-pc-first-aid-kit-28092",
+    "name": "The Mio 12 pc First Aid Kit",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "12 piece first aid kit with a zippered pouch and J-hook carabiner clip. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [250, 2.5],
+      [500, 2.43],
+      [1000, 2.36],
+      [2500, 2.29]
+    ],
+    "image": "/images/merch/the-mio-12-pc-first-aid-kit-28092.webp",
+    "imageAlt": "The Mio 12 pc First Aid Kit",
+    "colors": ["Gray", "Red", "Blue", "Orange", "Green", "Clear"]
+  },
+  {
+    "id": "first-aid-in-plastic-container-16048",
+    "name": "First Aid in Plastic Container",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Portable plastic first aid container.",
+    "tiers": [
+      [150, 2.07],
+      [250, 1.96],
+      [500, 1.86],
+      [1000, 1.78],
+      [1500, 1.72]
+    ],
+    "image": "/images/merch/first-aid-in-plastic-container-16048.webp",
+    "imageAlt": "First Aid in Plastic Container",
+    "colors": ["Red", "Blue", "White"]
+  },
+  {
+    "id": "outdoor-first-aid-kit-94231",
+    "name": "Outdoor First Aid Kit",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Outdoor first aid kit with latex free bandages, first aid cream packets, adhesive pad, antibacterial wipes, antacid, sunscreen. Made in USA.",
+    "tiers": [
+      [150, 4.45],
+      [250, 4.35],
+      [500, 4.25],
+      [1000, 4.15],
+      [2500, 4.05]
+    ],
+    "image": "/images/merch/outdoor-first-aid-kit-94231.webp",
+    "imageAlt": "Outdoor First Aid Kit",
+    "colors": [
+      "Translucent Red",
+      "Translucent Green",
+      "Translucent Blue",
+      "Translucent Purple",
+      "Frost",
+      "Translucent Orange",
+      "Red",
+      "Blue",
+      "White",
+      "Dark Blue"
+    ]
+  },
+  {
+    "id": "heathered-mini-first-aid-kit-05755",
+    "name": "Heathered Mini First Aid Kit",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Mini first aid kit with colored accent and split-ring holds latex free bandages, pads, burn cream and Ibuprofen packets.",
+    "tiers": [
+      [150, 3.99],
+      [250, 3.89],
+      [500, 3.79],
+      [1000, 3.69],
+      [2500, 3.59]
+    ],
+    "image": "/images/merch/heathered-mini-first-aid-kit-05755.webp",
+    "imageAlt": "Heathered Mini First Aid Kit",
+    "colors": ["Red", "Orange", "Blue", "Black", "Lime"]
+  },
+  {
+    "id": "medi-fey-outdoor-aid-kit-48141",
+    "name": "Medi-Fey™ Outdoor Aid Kit",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Full color imprinted USA made Outdoor Aid Kit with Hand Sanitizers, Antimicrobial wipe, Burn Cream, Sting Relief wipes & bandages. Made in USA.",
+    "tiers": [
+      [250, 4.32],
+      [500, 3.97],
+      [1000, 3.78],
+      [2500, 3.69]
+    ],
+    "image": "/images/merch/medi-fey-outdoor-aid-kit-48141.webp",
+    "imageAlt": "Medi-Fey™ Outdoor Aid Kit",
+    "colors": ["Process Blue", "White", "Red", "Green", "Purple", "Pink"]
+  },
+  {
+    "id": "aylin-18-piece-first-aid-kit-in-stylish-heathered-pouch-17318",
+    "name": "Aylin 18 Piece First Aid Kit in Stylish Heathered Pouch",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "18-piece first aid kit with zippered pouch and split ring.",
+    "tiers": [
+      [100, 4.02],
+      [250, 3.84],
+      [500, 3.73],
+      [1000, 3.62],
+      [2500, 3.51]
+    ],
+    "image": "/images/merch/aylin-18-piece-first-aid-kit-in-stylish-heathered-pouch-17318.webp",
+    "imageAlt": "Aylin 18 Piece First Aid Kit in Stylish Heathered Pouch",
+    "colors": ["Gray-Blue", "Gray-Red", "Gray-Black"]
+  },
+  {
+    "id": "2-oz-tottle-antibacterial-hand-sanitizer-gel-45567",
+    "name": "2 oz. Tottle Antibacterial Hand Sanitizer Gel",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Tottle bottle antibacterial hand sanitizer gel, 2 oz/59 ml. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [150, 2.36],
+      [250, 2.21],
+      [500, 2.07],
+      [1000, 1.93],
+      [2500, 1.8]
+    ],
+    "image": "/images/merch/2-oz-tottle-antibacterial-hand-sanitizer-gel-45567.webp",
+    "imageAlt": "2 oz. Tottle Antibacterial Hand Sanitizer Gel",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "0-66-oz-card-shape-hand-sanitizer-39096",
+    "name": "0.66 oz. Card Shape Hand Sanitizer",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "0.66 oz. Card Shape Hand Sanitizer. Lightly Scented.",
+    "tiers": [
+      [250, 1.41],
+      [500, 1.37],
+      [1000, 1.33],
+      [2500, 1.29],
+      [5000, 1.25]
+    ],
+    "image": "/images/merch/0-66-oz-card-shape-hand-sanitizer-39096.webp",
+    "imageAlt": "0.66 oz. Card Shape Hand Sanitizer",
+    "colors": ["Frost Blue", "Frost Red", "White", "Frost Clear"]
+  },
+  {
+    "id": "1-oz-clear-gel-hand-sanitizer-in-round-bottle-34885",
+    "name": "1 oz. Clear Gel Hand Sanitizer in Round Bottle",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "1 oz. clear gel hand sanitizer in a round bottle. Made in USA.",
+    "tiers": [
+      [100, 1.56],
+      [250, 1.33],
+      [500, 1.28],
+      [1000, 1.22],
+      [2500, 1.15]
+    ],
+    "image": "/images/merch/1-oz-clear-gel-hand-sanitizer-in-round-bottle-34885.webp",
+    "imageAlt": "1 oz. Clear Gel Hand Sanitizer in Round Bottle",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "10-ml-cleanz-pen-hand-sanitizer-35081",
+    "name": "10 mL. CleanZ Pen Hand Sanitizer",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "10mL hand sanitizer with unique pen design. Made in USA.",
+    "tiers": [
+      [100, 1.65],
+      [250, 1.41],
+      [500, 1.36],
+      [1000, 1.31],
+      [2500, 1.23]
+    ],
+    "image": "/images/merch/10-ml-cleanz-pen-hand-sanitizer-35081.webp",
+    "imageAlt": "10 mL. CleanZ Pen Hand Sanitizer",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "lip-balm-and-holder-kit-81776",
+    "name": "Lip Balm And Holder Kit",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Lip moisturizer with lip balm holder/keychain. Made in USA.",
+    "tiers": [
+      [250, 5.23],
+      [500, 4.55],
+      [1000, 3.96],
+      [2500, 3.44],
+      [5000, 2.99]
+    ],
+    "image": "/images/merch/lip-balm-and-holder-kit-81776.webp",
+    "imageAlt": "Lip Balm And Holder Kit",
+    "colors": ["Black", "Cream", "White Cap"]
+  },
+  {
+    "id": "1-9-oz-clear-gel-hand-sanitizer-and-spf-15-lip-balm-36253",
+    "name": "1.9 oz. Clear Gel Hand Sanitizer & SPF 15 Lip Balm",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "1.9 oz. bottle of gel hand sanitizer with a carabiner and SPF 15 lip balm. Made in USA.",
+    "tiers": [
+      [100, 4.88],
+      [250, 4.47],
+      [500, 4.4],
+      [1000, 4.34],
+      [2500, 4.2]
+    ],
+    "image": "/images/merch/1-9-oz-clear-gel-hand-sanitizer-and-spf-15-lip-balm-36253.webp",
+    "imageAlt": "1.9 oz. Clear Gel Hand Sanitizer & SPF 15 Lip Balm",
+    "colors": ["Black", "Blue", "Green", "Purple", "Red", "Silver"]
+  },
+  {
+    "id": "natural-beeswax-lip-balm-moisturizer-73067",
+    "name": "Natural Beeswax Lip Balm Moisturizer",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "Natural beeswax lip moisturizer with aloe Made in USA.",
+    "tiers": [
+      [250, 0.86],
+      [500, 0.78],
+      [1000, 0.71],
+      [2500, 0.66],
+      [5000, 0.63]
+    ],
+    "image": "/images/merch/natural-beeswax-lip-balm-moisturizer-73067.webp",
+    "imageAlt": "Natural Beeswax Lip Balm Moisturizer",
+    "colors": ["White"]
+  },
+  {
+    "id": "1-oz-spf-30-sunscreen-in-clear-round-bottle-13520",
+    "name": "1 oz. SPF 30 Sunscreen in Clear Round Bottle",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "1 oz. clear round bottle of SPF30 sunscreen with a full color label.",
+    "tiers": [
+      [100, 2.21],
+      [250, 1.92],
+      [500, 1.87],
+      [1000, 1.82],
+      [2500, 1.73]
+    ],
+    "image": "/images/merch/1-oz-spf-30-sunscreen-in-clear-round-bottle-13520.webp",
+    "imageAlt": "1 oz. SPF 30 Sunscreen in Clear Round Bottle",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "1-8-oz-sunscreen-with-carabiner-80209",
+    "name": "1.8 oz Sunscreen with Carabiner",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "1.8 oz. white tottle of SPF 30 broad spectrum sunscreen with a carabiner.",
+    "tiers": [
+      [100, 2.65],
+      [250, 2.6],
+      [500, 2.55],
+      [1000, 2.45],
+      [2500, 2.4]
+    ],
+    "image": "/images/merch/1-8-oz-sunscreen-with-carabiner-80209.webp",
+    "imageAlt": "1.8 oz Sunscreen with Carabiner",
+    "colors": ["White"]
+  },
+  {
+    "id": "sunscreen-spray-79083",
+    "name": "Sunscreen Spray",
+    "category": "Health & Wellness",
+    "brand": "Essentials",
+    "description": "USA-made, PABA-free, 1 oz. coconut-scented SPF 30 sunscreen spray for easy application. Made in USA.",
+    "tiers": [
+      [100, 4.03],
+      [250, 3.68],
+      [500, 3.4],
+      [1000, 3.17],
+      [2500, 2.99]
+    ],
+    "image": "/images/merch/sunscreen-spray-79083.webp",
+    "imageAlt": "Sunscreen Spray",
+    "colors": ["White"]
+  },
+  {
+    "id": "flame-shape-crystal-award-trophy-29301",
+    "name": "Flame Shape Crystal Award Trophy",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "The Crystal Artisan Recognition Award features an optic crystal flame with black, or red crystal side accent.",
+    "tiers": [
+      [5, 77.15],
+      [10, 65.71],
+      [50, 40.33],
+      [100, 38.58],
+      [250, 37.7]
+    ],
+    "image": "/images/merch/flame-shape-crystal-award-trophy-29301.webp",
+    "imageAlt": "Flame Shape Crystal Award Trophy",
+    "colors": ["Black", "Red"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "metal-trophy-cup-medium-17571",
+    "name": "Metal Trophy Cup - Medium",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "11.75\" polished silver metal cup on a genuine marble base.",
+    "tiers": [
+      [1, 297],
+      [3, 280],
+      [6, 249]
+    ],
+    "image": "/images/merch/metal-trophy-cup-medium-17571.webp",
+    "imageAlt": "Metal Trophy Cup - Medium",
+    "colors": ["Silver"]
+  },
+  {
+    "id": "8-fusion-diamond-impress-acrylic-w-black-base-09271",
+    "name": "8\" Fusion Diamond Impress Acrylic w/ Black Base",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Promo Code Special 5\" x 1 3/4\" x 8\" acrylic diamond-shaped faceted trophy on pedestal base in blue, gold or silver.",
+    "tiers": [
+      [6, 102.96],
+      [12, 97.5],
+      [66, 91.76],
+      [108, 84.67]
+    ],
+    "image": "/images/merch/8-fusion-diamond-impress-acrylic-w-black-base-09271.webp",
+    "imageAlt": "8\" Fusion Diamond Impress Acrylic w/ Black Base",
+    "colors": ["Gold", "Silver", "Blue"]
+  },
+  {
+    "id": "silver-metal-fluted-cup-medium-17578",
+    "name": "Silver Metal Fluted Cup - Medium",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "14.5\" polished silver metal fluted cup on a genuine marble base.",
+    "tiers": [
+      [1, 200],
+      [3, 188],
+      [6, 168]
+    ],
+    "image": "/images/merch/silver-metal-fluted-cup-medium-17578.webp",
+    "imageAlt": "Silver Metal Fluted Cup - Medium",
+    "colors": ["Silver"]
+  },
+  {
+    "id": "choice-of-digi-color-plate-on-economy-board-55191",
+    "name": "Choice of Digi-Color Plate on Economy Board",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "9\" x 12\" recognition plaque with full color graphics and your choice of plate.",
+    "tiers": [
+      [6, 73.55],
+      [25, 65.5],
+      [50, 58.4]
+    ],
+    "image": "/images/merch/choice-of-digi-color-plate-on-economy-board-55191.webp",
+    "imageAlt": "Choice of Digi-Color Plate on Economy Board",
+    "colors": [
+      "Walnut Brown/Satin Silver",
+      "Walnut Brown/Satin Gold",
+      "Walnut Brown/Black",
+      "Walnut Brown/White"
+    ]
+  },
+  {
+    "id": "swirled-excellence-metal-and-lucite-series-master-plaque-18948",
+    "name": "Swirled Excellence Metal & Lucite Series - Master Plaque",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Metal and acrylic plaque with header plate and 12 individual plates. Made in USA.",
+    "tiers": [
+      [1, 742.85],
+      [6, 620.2]
+    ],
+    "image": "/images/merch/swirled-excellence-metal-and-lucite-series-master-plaque-18948.webp",
+    "imageAlt": "Swirled Excellence Metal & Lucite Series - Master Plaque",
+    "colors": ["Silver-Black"]
+  },
+  {
+    "id": "clear-desk-plaque-full-color-with-slotted-base-23973",
+    "name": "Clear Desk Plaque- Full Color- with Slotted Base",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Clear acrylic desk plaque with slotted base. Made in USA.",
+    "tiers": [
+      [25, 6.8],
+      [50, 5.317],
+      [100, 4.867],
+      [250, 4.467],
+      [500, 4.3]
+    ],
+    "image": "/images/merch/clear-desk-plaque-full-color-with-slotted-base-23973.webp",
+    "imageAlt": "Clear Desk Plaque- Full Color- with Slotted Base",
+    "colors": ["Clear"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "1-4-thick-lucite-wall-plaque-with-custom-digi-color-18913",
+    "name": "1/4\" Thick Lucite Wall Plaque with Custom Digi-Color",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "8\" x 10\" acrylic wall plaque with Digi-Color printing. Made in USA.",
+    "tiers": [
+      [6, 80.05],
+      [25, 71.7],
+      [50, 64.3]
+    ],
+    "image": "/images/merch/1-4-thick-lucite-wall-plaque-with-custom-digi-color-18913.webp",
+    "imageAlt": "1/4\" Thick Lucite Wall Plaque with Custom Digi-Color",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "oakleigh-finch-plaque-rosewood-black-69078",
+    "name": "Oakleigh/Finch Plaque - Rosewood/Black",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "High gloss rosewood piano finished plaque with a black plate.",
+    "tiers": [
+      [1, 76.5],
+      [4, 75],
+      [7, 73.5],
+      [13, 72],
+      [25, 70.5]
+    ],
+    "image": "/images/merch/oakleigh-finch-plaque-rosewood-black-69078.webp",
+    "imageAlt": "Oakleigh/Finch Plaque - Rosewood/Black",
+    "colors": ["Black"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "carson-black-satin-silver-54967",
+    "name": "Carson - Black/Satin Silver",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "The Carson plaque features artwork permanently printed and heat-fused to an aluminum sublimation plate.",
+    "tiers": [
+      [1, 44.5],
+      [7, 43.5],
+      [13, 42.5],
+      [25, 41.5],
+      [50, 40.5]
+    ],
+    "image": "/images/merch/carson-black-satin-silver-54967.webp",
+    "imageAlt": "Carson - Black/Satin Silver",
+    "colors": ["Black", "Silver"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "7-x-9-bamboo-plaque-70504",
+    "name": "7\" x 9\" Bamboo Plaque",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Promo Code Special 7\" x 9\" rectangle plaque made of eco-friendly bamboo with keyhole for hanging on the wall.",
+    "tiers": [
+      [1, 22.4],
+      [10, 19.77],
+      [50, 18.41],
+      [100, 15.72]
+    ],
+    "image": "/images/merch/7-x-9-bamboo-plaque-70504.webp",
+    "imageAlt": "7\" x 9\" Bamboo Plaque",
+    "colors": ["Bamboo"]
+  },
+  {
+    "id": "uv-printed-5k-medals-78564",
+    "name": "UV Printed 5K Medals",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Custom 5K running medals with UV printing and optional epoxy coating for scratch-resistant, vibrant finisher awards.",
+    "tiers": [
+      [50, 5.48],
+      [100, 4.91],
+      [300, 4.31],
+      [500, 4.15],
+      [1000, 4.07]
+    ],
+    "image": "/images/merch/uv-printed-5k-medals-78564.webp",
+    "imageAlt": "UV Printed 5K Medals",
+    "colors": [
+      "Shiny Gold",
+      "Shiny Silver",
+      "Shiny Copper",
+      "Antique Gold",
+      "Antique Silver",
+      "Antique Copper"
+    ],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "custom-gold-award-medals-21144",
+    "name": "Custom Gold Award Medals",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Use these medals for awards ceremonies, tournaments, dance competitions, spelling bees, relay races, and food competitions.",
+    "tiers": [
+      [10, 5.51],
+      [50, 1.79],
+      [100, 1.41],
+      [500, 1.01],
+      [1000, 0.83]
+    ],
+    "image": "/images/merch/custom-gold-award-medals-21144.webp",
+    "imageAlt": "Custom Gold Award Medals",
+    "colors": ["Silver", "Gold", "Brown"]
+  },
+  {
+    "id": "express-usa-made-custom-shape-acrylic-medal-18561",
+    "name": "Express Custom Shape Acrylic Medal",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Express USA Made Custom Shape Acrylic Medal. Made in USA.",
+    "tiers": [
+      [50, 6.64],
+      [250, 6.02],
+      [500, 5.46],
+      [1000, 4.96]
+    ],
+    "image": "/images/merch/express-usa-made-custom-shape-acrylic-medal-18561.webp",
+    "imageAlt": "Express Custom Shape Acrylic Medal",
+    "colors": ["Clear", "Gold", "Silver"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "custom-antique-medals-10786",
+    "name": "Custom Antique Medals",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Custom shape die struck antique medals for recognizing the champions in sports, work, and life.",
+    "tiers": [
+      [50, 4.46],
+      [100, 3.2],
+      [250, 2.43],
+      [500, 2.14],
+      [1000, 1.72]
+    ],
+    "image": "/images/merch/custom-antique-medals-10786.webp",
+    "imageAlt": "Custom Antique Medals",
+    "colors": ["Antique Brass", "Antique Nickel", "Antique Copper", "Antique Black Nickel"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "bristol-certificate-holder-68697",
+    "name": "Bristol Certificate Holder",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "The Bristol Certificate Holder is an elegant solution for displaying your 8.5\" x 11\" certificates with style. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [6, 16.75],
+      [48, 16.1],
+      [144, 15.5],
+      [288, 14.95]
+    ],
+    "image": "/images/merch/bristol-certificate-holder-68697.webp",
+    "imageAlt": "Bristol Certificate Holder",
+    "colors": ["Black", "Blue"]
+  },
+  {
+    "id": "recycled-wood-picture-frame-43103",
+    "name": "Recycled Wood Picture Frame",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Picture frame made of recycled wood.",
+    "tiers": [
+      [25, 16.85],
+      [50, 13.167],
+      [100, 12.083],
+      [250, 11.6],
+      [500, 11.167]
+    ],
+    "image": "/images/merch/recycled-wood-picture-frame-43103.webp",
+    "imageAlt": "Recycled Wood Picture Frame",
+    "colors": ["Multi Color"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "diploma-holder-deluxe-portrait-75147",
+    "name": "Diploma Holder Deluxe Portrait",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Padded vinyl diploma holder with decorative metal accents; holds an 8.5\" x 11\" certificate. Made in USA.",
+    "tiers": [
+      [50, 31.17],
+      [100, 29.13],
+      [250, 27.22],
+      [500, 25.44]
+    ],
+    "image": "/images/merch/diploma-holder-deluxe-portrait-75147.webp",
+    "imageAlt": "Diploma Holder Deluxe Portrait",
+    "colors": [
+      "Castillian Black",
+      "Castillian Burgundy",
+      "Castillian Green",
+      "Castillian Navy Blue"
+    ]
+  },
+  {
+    "id": "hard-enamel-lapel-pin-90912",
+    "name": "Hard Enamel Lapel Pin",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Lapel pin made from hard enamel.",
+    "tiers": [
+      [50, 2.99],
+      [100, 1.99],
+      [200, 1.49],
+      [300, 1.29],
+      [500, 1.15]
+    ],
+    "image": "/images/merch/hard-enamel-lapel-pin-90912.webp",
+    "imageAlt": "Hard Enamel Lapel Pin",
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "3-4-hard-enamel-pricebuster-lapel-pin-81728",
+    "name": "3/4\" Hard Enamel Lapel Pin",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "3/4\"die-struck hard enamel lapel pins.",
+    "tiers": [
+      [50, 4.46],
+      [100, 2.91],
+      [200, 2.09],
+      [300, 1.95],
+      [500, 1.8]
+    ],
+    "image": "/images/merch/3-4-hard-enamel-pricebuster-lapel-pin-81728.webp",
+    "imageAlt": "3/4\" Hard Enamel Lapel Pin"
+  },
+  {
+    "id": "custom-lapel-pins-photo-etched-86330",
+    "name": "Custom Lapel Pins - Photo Etched",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Customized Premium Photo Etched Lapel Pins; FLAT Shipping Charges apply.",
+    "tiers": [
+      [100, 2.66],
+      [300, 1.55],
+      [500, 1.16],
+      [1000, 0.98],
+      [3000, 0.79]
+    ],
+    "image": "/images/merch/custom-lapel-pins-photo-etched-86330.webp",
+    "imageAlt": "Custom Lapel Pins - Photo Etched",
+    "colors": [
+      "Gold Plating",
+      "Silver Plating",
+      "Copper Plating",
+      "Matte Gold Plating",
+      "Antique Brass Plating",
+      "Antique Silver Plating",
+      "Antique Copper Plating",
+      "Matte Silver Plating"
+    ],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "soft-enamel-challenge-coins-1-5-3-45860",
+    "name": "Soft Enamel Challenge Coins, 1.5\"-3\"",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Soft enamel challenge coins with single side or dual sided customization.",
+    "tiers": [
+      [100, 5.16],
+      [250, 4.96],
+      [500, 4.54],
+      [1000, 4.32],
+      [3000, 4.22]
+    ],
+    "image": "/images/merch/soft-enamel-challenge-coins-1-5-3-45860.webp",
+    "imageAlt": "Soft Enamel Challenge Coins, 1.5\"-3\"",
+    "colors": ["Shiny Gold", "Nickel", "Black Nickel", "Copper"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "qualicast-double-sided-coins-54083",
+    "name": "Qualicast® Double Sided Coins",
+    "category": "Awards & Recognition",
+    "brand": "Essentials",
+    "description": "Double-sided commemorative coin with handmade 2D and 3D molds of custom artwork.",
+    "tiers": [
+      [200, 12.84],
+      [500, 11.66],
+      [1000, 10.6],
+      [1500, 9.62]
+    ],
+    "image": "/images/merch/qualicast-double-sided-coins-54083.webp",
+    "imageAlt": "Qualicast® Double Sided Coins",
+    "colors": [
+      "Bright Gold",
+      "Antique Gold",
+      "Bright Silver",
+      "Antique Silver",
+      "Bright Bronze",
+      "Antique Bronze",
+      "Black Nickel"
+    ],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   }
 ]
