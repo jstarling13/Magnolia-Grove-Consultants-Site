@@ -38508,5 +38508,647 @@
     "image": "/images/merch/portable-heated-seat-cushion-stadium-33799.webp",
     "imageAlt": "Portable Heated Seat Cushion Stadium",
     "colors": ["Black", "Brown", "Gray"]
+  },
+  {
+    "id": "3-round-shaped-air-fresheners-38801",
+    "name": "3\" Round Shaped Air Fresheners",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "3\" round air freshener with a string and bag. Made in USA.",
+    "tiers": [
+      [125, 1.98],
+      [250, 1.94],
+      [500, 1.9],
+      [1000, 1.86],
+      [1500, 1.82]
+    ],
+    "image": "/images/merch/3-round-shaped-air-fresheners-38801.webp",
+    "imageAlt": "3\" Round Shaped Air Fresheners",
+    "colors": ["White"]
+  },
+  {
+    "id": "house-shaped-air-fresheners-38749",
+    "name": "House Shaped Air Fresheners",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "House-shaped air freshener with a string and bag. Made in USA.",
+    "tiers": [
+      [125, 1.98],
+      [250, 1.94],
+      [500, 1.9],
+      [1000, 1.86],
+      [1500, 1.82]
+    ],
+    "image": "/images/merch/house-shaped-air-fresheners-38749.webp",
+    "imageAlt": "House Shaped Air Fresheners",
+    "colors": ["White"]
+  },
+  {
+    "id": "tek-scents-air-freshener-car-80575",
+    "name": "Tek-Scents Air Freshener - Car",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Car-shaped air freshener with elastic hanging loop, 2-sided, full-color printing multiple fragrance choices.",
+    "tiers": [
+      [250, 1.74],
+      [500, 1.62],
+      [750, 1.52],
+      [1000, 1.42]
+    ],
+    "image": "/images/merch/tek-scents-air-freshener-car-80575.webp",
+    "imageAlt": "Tek-Scents Air Freshener - Car"
+  },
+  {
+    "id": "horizontal-oval-shaped-air-fresheners-38811",
+    "name": "Horizontal Oval Shaped Air Fresheners",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Oval-shaped air freshener with a string and bag. Made in USA.",
+    "tiers": [
+      [125, 1.98],
+      [250, 1.94],
+      [500, 1.9],
+      [1000, 1.86],
+      [1500, 1.82]
+    ],
+    "image": "/images/merch/horizontal-oval-shaped-air-fresheners-38811.webp",
+    "imageAlt": "Horizontal Oval Shaped Air Fresheners",
+    "colors": ["White"]
+  },
+  {
+    "id": "car-air-freshener-hanging-93825",
+    "name": "Car Air Freshener Hanging",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "2.28\" x 2.87\" paper automobile air freshener with hanging string.",
+    "tiers": [
+      [500, 0.9],
+      [1000, 0.833],
+      [2000, 0.783],
+      [5000, 0.367],
+      [10000, 0.35]
+    ],
+    "image": "/images/merch/car-air-freshener-hanging-93825.webp",
+    "imageAlt": "Car Air Freshener Hanging",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "car-fuel-door-cover-24688",
+    "name": "Car Fuel Door Cover",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Stretch Polyester Car Fuel Door Cover Made in USA.",
+    "tiers": [
+      [100, 6.55],
+      [200, 4.6],
+      [300, 3.75],
+      [400, 3.35],
+      [500, 3.05]
+    ],
+    "image": "/images/merch/car-fuel-door-cover-24688.webp",
+    "imageAlt": "Car Fuel Door Cover"
+  },
+  {
+    "id": "car-mirror-covers-for-large-vehicles-24670",
+    "name": "Car Mirror Covers for Large Vehicles",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Stretch Polyester Car Mirror Covers for Large Vehicles Made in USA.",
+    "tiers": [
+      [100, 9],
+      [200, 6.8],
+      [300, 6.45],
+      [400, 5.65],
+      [500, 5.35]
+    ],
+    "image": "/images/merch/car-mirror-covers-for-large-vehicles-24670.webp",
+    "imageAlt": "Car Mirror Covers for Large Vehicles"
+  },
+  {
+    "id": "car-mirror-covers-for-small-vehicles-24654",
+    "name": "Car Mirror Covers for Small Vehicles",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Stretch Polyester Car Mirror Covers for Small Vehicles Made in USA.",
+    "tiers": [
+      [100, 8.5],
+      [200, 6.6],
+      [300, 6],
+      [400, 5.1],
+      [500, 4.7]
+    ],
+    "image": "/images/merch/car-mirror-covers-for-small-vehicles-24654.webp",
+    "imageAlt": "Car Mirror Covers for Small Vehicles"
+  },
+  {
+    "id": "waterproof-sweat-towel-car-cover-seats-protector-59427",
+    "name": "Waterproof Sweat Towel Car Cover Seats Protector",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Waterproof Seat Cover Towel,Premium Sweat Carseat Protector, Perfect for Universal Anti-Slip Car Truck SUV Seat,SEAT CUSHIONS.",
+    "tiers": [
+      [50, 17.5],
+      [100, 17.167],
+      [200, 16.833],
+      [300, 16.5],
+      [500, 16]
+    ],
+    "image": "/images/merch/waterproof-sweat-towel-car-cover-seats-protector-59427.webp",
+    "imageAlt": "Waterproof Sweat Towel Car Cover Seats Protector",
+    "colors": ["Black", "Blue", "Brown", "Red", "Gray"]
+  },
+  {
+    "id": "machine-washable-black-waterproof-sweat-towel-car-seat-cover-25490",
+    "name": "Machine Washable Black Waterproof Sweat Towel Car Seat Cover",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Machine washable waterproof car seat cover.",
+    "tiers": [
+      [20, 38.667],
+      [40, 36.5],
+      [80, 29.333],
+      [160, 21.667],
+      [320, 20.333]
+    ],
+    "image": "/images/merch/machine-washable-black-waterproof-sweat-towel-car-seat-cover-25490.webp",
+    "imageAlt": "Machine Washable Black Waterproof Sweat Towel Car Seat Cover",
+    "colors": ["Black"]
+  },
+  {
+    "id": "dog-car-seat-cover-100-waterproof-hammock-for-vehicles-67637",
+    "name": "Dog Car Seat Cover: 100% Waterproof Hammock for Vehicles",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Dog hammock with flaps: protects seats/doors, convertible (54\"Wx58\"L), waterproof, anti-slip-easy to use.",
+    "tiers": [
+      [10, 70.867],
+      [20, 65.483],
+      [100, 61.083],
+      [200, 60.717],
+      [1000, 60.3]
+    ],
+    "image": "/images/merch/dog-car-seat-cover-100-waterproof-hammock-for-vehicles-67637.webp",
+    "imageAlt": "Dog Car Seat Cover: 100% Waterproof Hammock for Vehicles",
+    "colors": ["Black"]
+  },
+  {
+    "id": "car-disposable-universal-plastic-seat-covers-67114",
+    "name": "Car Disposable Universal Plastic Seat Covers",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Car Disposable Universal Plastic Seat Covers Universal Transparent Seat Protective Covers for Vehicles Cars.",
+    "tiers": [
+      [1000, 0.45],
+      [2000, 0.37],
+      [5000, 0.34],
+      [10000, 0.3],
+      [20000, 0.18]
+    ],
+    "image": "/images/merch/car-disposable-universal-plastic-seat-covers-67114.webp",
+    "imageAlt": "Car Disposable Universal Plastic Seat Covers",
+    "colors": ["White"]
+  },
+  {
+    "id": "cleaning-glove-microfiber-wash-mitt-07212",
+    "name": "Cleaning Glove Microfiber Wash Mitt",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Constructed of 100% reusable and washable microfiber materials, it is great for cleaning computer monitors, keyboards, telephones.",
+    "tiers": [
+      [300, 5.483],
+      [500, 4.883],
+      [1000, 4.6],
+      [3000, 4.3],
+      [5000, 2.767]
+    ],
+    "image": "/images/merch/cleaning-glove-microfiber-wash-mitt-07212.webp",
+    "imageAlt": "Cleaning Glove Microfiber Wash Mitt",
+    "colors": ["Orange", "Pink", "Purple", "White", "Yellow"]
+  },
+  {
+    "id": "car-wash-tool-set-83579",
+    "name": "Car Wash Tool Set",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Car Wash Tool Set for home car washes.",
+    "tiers": [
+      [50, 64.133],
+      [100, 63.917],
+      [300, 35],
+      [500, 33.983],
+      [1000, 32.967]
+    ],
+    "image": "/images/merch/car-wash-tool-set-83579.webp",
+    "imageAlt": "Car Wash Tool Set",
+    "colors": ["Blue"]
+  },
+  {
+    "id": "wholesale-microfiber-soft-car-wash-mitt-77419",
+    "name": "Wholesale Microfiber Soft Car Wash Mitt",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Keep your car, motorcycle, bike or other vehicle looking clean and pristine when you detail with this super soft car washing mitt.",
+    "tiers": [
+      [100, 1.617],
+      [150, 1.533],
+      [500, 1.433],
+      [1500, 1.25],
+      [3000, 1.183]
+    ],
+    "image": "/images/merch/wholesale-microfiber-soft-car-wash-mitt-77419.webp",
+    "imageAlt": "Wholesale Microfiber Soft Car Wash Mitt",
+    "colors": ["Purple", "Blue", "Orange", "Red"]
+  },
+  {
+    "id": "chenille-premium-scratch-free-microfiber-wash-mitt-44762",
+    "name": "Chenille Premium Scratch-Free Microfiber Wash Mitt",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Chenille Premium Scratch-Free Microfiber Wash Mit Can Custom Logo.",
+    "tiers": [
+      [500, 1.058],
+      [1500, 1.005],
+      [3000, 0.952],
+      [5000, 0.9],
+      [10000, 0.873]
+    ],
+    "image": "/images/merch/chenille-premium-scratch-free-microfiber-wash-mitt-44762.webp",
+    "imageAlt": "Chenille Premium Scratch-Free Microfiber Wash Mitt",
+    "colors": ["Blue", "Green", "Light Blue", "Orange", "Pink", "Purple", "Red"]
+  },
+  {
+    "id": "5-finger-microfiber-wash-mitts-76548",
+    "name": "5-Finger Microfiber Wash Mitts",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Car Wash Mitt Scratch Free, 5-Finger Microfiber Wash Mitts, Car Interior Exterior Cleaning Gloves, Auto Chenille Washing Sponge Ki.",
+    "tiers": [
+      [100, 4.833],
+      [500, 3.333],
+      [1000, 3.167],
+      [2500, 3],
+      [5000, 2.833]
+    ],
+    "image": "/images/merch/5-finger-microfiber-wash-mitts-76548.webp",
+    "imageAlt": "5-Finger Microfiber Wash Mitts",
+    "colors": ["Green"]
+  },
+  {
+    "id": "full-color-durable-microfiber-car-wash-mitt-45754",
+    "name": "Full Color Durable Microfiber Car Wash Mitt",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "7.85\" L x 5.45\" W Durable Microfiber Car Wash Mitt.",
+    "tiers": [
+      [50, 1.95],
+      [100, 1.42],
+      [300, 1.05],
+      [500, 1.02],
+      [1000, 0.94]
+    ],
+    "image": "/images/merch/full-color-durable-microfiber-car-wash-mitt-45754.webp",
+    "imageAlt": "Full Color Durable Microfiber Car Wash Mitt",
+    "colors": ["Blue", "Green", "Orange", "Red", "Royal Blue", "Purple", "Brown"]
+  },
+  {
+    "id": "premium-automotive-kit-55577",
+    "name": "Premium Automotive Kit",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Automotive kit with a bag.",
+    "tiers": [
+      [25, 50.2],
+      [150, 49.25],
+      [500, 47.4],
+      [1000, 45.65]
+    ],
+    "image": "/images/merch/premium-automotive-kit-55577.webp",
+    "imageAlt": "Premium Automotive Kit",
+    "colors": ["Red", "Blue", "Black"]
+  },
+  {
+    "id": "led-road-flare-12209",
+    "name": "LED Road Flare",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "LED road flares with five lighting modes, swivel hook, and magnet.",
+    "tiers": [
+      [50, 17.3],
+      [250, 16.7],
+      [500, 16.1],
+      [1000, 15.6]
+    ],
+    "image": "/images/merch/led-road-flare-12209.webp",
+    "imageAlt": "LED Road Flare",
+    "colors": ["Orange"]
+  },
+  {
+    "id": "multi-functional-solar-hand-crank-led-flashlight-emergency-16713",
+    "name": "Multi-Functional Solar Hand Crank LED Flashlight Emergency",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Eco-friendly solar hand crank flashlight with LED lights ideal for emergencies outdoor.",
+    "tiers": [
+      [100, 6.183],
+      [300, 5.983],
+      [500, 5.783],
+      [1000, 5.6],
+      [2000, 5.417]
+    ],
+    "image": "/images/merch/multi-functional-solar-hand-crank-led-flashlight-emergency-16713.webp",
+    "imageAlt": "Multi-Functional Solar Hand Crank LED Flashlight Emergency",
+    "colors": ["Blue", "Red", "Black", "Yellow", "Green", "Orange", "Pink"]
+  },
+  {
+    "id": "hi-vis-auto-kit-98490",
+    "name": "Hi-Vis Auto Kit",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "Auto kit with an LED safety flare, magnetic base, first aid pack, COB light, tire pressure gauge, accident sheet, and more.",
+    "tiers": [
+      [25, 35.95],
+      [250, 34.55],
+      [500, 33.25],
+      [1000, 30.95]
+    ],
+    "image": "/images/merch/hi-vis-auto-kit-98490.webp",
+    "imageAlt": "Hi-Vis Auto Kit",
+    "colors": ["Red", "Black", "Blue"]
+  },
+  {
+    "id": "emergency-roadside-kit-30733",
+    "name": "Emergency Roadside Kit",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "This emergency rescue kit is light and compact, and can be placed in the back seat, trunk or even the spare tire compartment to ha.",
+    "tiers": [
+      [500, 38.148],
+      [1000, 38.122],
+      [3000, 37.508],
+      [5000, 36.913],
+      [10000, 35.723]
+    ],
+    "image": "/images/merch/emergency-roadside-kit-30733.webp",
+    "imageAlt": "Emergency Roadside Kit",
+    "colors": ["Black"]
+  },
+  {
+    "id": "30pcs-12-emergency-roadside-auto-kit-car-accessories-70332",
+    "name": "30pcs 12\" Emergency Roadside Auto Kit Car Accessories",
+    "category": "Automotive",
+    "brand": "Essentials",
+    "description": "This emergency rescue kit is light and compact, and can be placed in the back seat, or even the spare tire compartment.",
+    "tiers": [
+      [300, 14.375],
+      [500, 13.75],
+      [800, 13],
+      [1000, 12.25],
+      [5000, 11.625]
+    ],
+    "image": "/images/merch/30pcs-12-emergency-roadside-auto-kit-car-accessories-70332.webp",
+    "imageAlt": "30pcs 12\" Emergency Roadside Auto Kit Car Accessories",
+    "colors": ["Gray", "Black"]
+  },
+  {
+    "id": "6-piece-cookie-and-confection-gift-box-with-sea-salt-caramel-02107",
+    "name": "6 Piece Cookie and Confection Gift Box with Sea Salt Caramel",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "6 Piece Cookie and Confection Gift Box with Sea Salt Caramels Made in USA.",
+    "tiers": [
+      [25, 46.54],
+      [50, 44.32],
+      [100, 43.03],
+      [250, 41.78]
+    ],
+    "image": "/images/merch/6-piece-cookie-and-confection-gift-box-with-sea-salt-caramel-02107.webp",
+    "imageAlt": "6 Piece Cookie and Confection Gift Box with Sea Salt Caramel",
+    "colors": ["Gold", "Silver"]
+  },
+  {
+    "id": "peppermint-delight-cookies-in-tote-box-35109",
+    "name": "Peppermint Delight Cookies in Tote Box",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Size: 3\" x 3\" x 6\".",
+    "tiers": [
+      [48, 12.18],
+      [72, 11.6],
+      [144, 11.27],
+      [288, 10.94]
+    ],
+    "image": "/images/merch/peppermint-delight-cookies-in-tote-box-35109.webp",
+    "imageAlt": "Peppermint Delight Cookies in Tote Box",
+    "colors": ["White"]
+  },
+  {
+    "id": "fresh-beginnings-sweet-and-salty-chocolate-explosion-large-30394",
+    "name": "Fresh Beginnings Sweet & Salty Chocolate Explosion (Large)",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Fresh Beginnings snack tin filled with sweet & salty chocolate explosion assortment. Made in USA.",
+    "tiers": [
+      [24, 97.41],
+      [144, 92.77],
+      [288, 90.07],
+      [500, 87.43]
+    ],
+    "image": "/images/merch/fresh-beginnings-sweet-and-salty-chocolate-explosion-large-30394.webp",
+    "imageAlt": "Fresh Beginnings Sweet & Salty Chocolate Explosion (Large)",
+    "colors": ["White"]
+  },
+  {
+    "id": "one-gallon-popcorn-tin-trio-popcorn-43274",
+    "name": "One Gallon Popcorn Tin - Trio Popcorn",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Tres Popcorn Tin. Size: 6 5/8\" x 7 1/4\".",
+    "tiers": [
+      [25, 33.39],
+      [50, 33.29],
+      [100, 33],
+      [250, 32.89]
+    ],
+    "image": "/images/merch/one-gallon-popcorn-tin-trio-popcorn-43274.webp",
+    "imageAlt": "One Gallon Popcorn Tin - Trio Popcorn",
+    "colors": ["White"]
+  },
+  {
+    "id": "coffee-packs-57803",
+    "name": "Coffee Packs",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Coffee Packs Made in USA.",
+    "tiers": [
+      [150, 4.19],
+      [240, 3.99],
+      [480, 3.87]
+    ],
+    "image": "/images/merch/coffee-packs-57803.webp",
+    "imageAlt": "Coffee Packs",
+    "colors": ["Silver", "Gold"]
+  },
+  {
+    "id": "morning-walk-gift-set-64166",
+    "name": "Morning Walk Gift Set",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Morning Walk gift set with 2 ounce packet of Dawn Patrol coffee, 16 ounce Thermos® Stainless King™ tumbler and 4\" x 6\" card. Made in USA.",
+    "tiers": [
+      [12, 67.76],
+      [48, 57.58],
+      [144, 56.17],
+      [300, 55.11],
+      [600, 53.25]
+    ],
+    "image": "/images/merch/morning-walk-gift-set-64166.webp",
+    "imageAlt": "Morning Walk Gift Set",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "craft-coffee-gift-kit-with-stainless-steel-mug-52082",
+    "name": "Craft Coffee Gift Kit with Stainless Steel Mug",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Polar Camel Insulated Mug 15 oz with 2 bags of Roasted Craft Coffee Gift set Made in USA.",
+    "tiers": [
+      [5, 57.909],
+      [10, 45.804],
+      [25, 42.838],
+      [50, 39.859],
+      [100, 35.671]
+    ],
+    "image": "/images/merch/craft-coffee-gift-kit-with-stainless-steel-mug-52082.webp",
+    "imageAlt": "Craft Coffee Gift Kit with Stainless Steel Mug",
+    "colors": ["Matte Black", "Silver", "Gold", "Burlap", "Purple"]
+  },
+  {
+    "id": "tray-with-mugs-and-chocolate-chip-cookies-60789",
+    "name": "Tray with Mugs and Chocolate Chip Cookies",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Gift tray filled with two 11 oz. white mugs, coffee, tea, two packets of hot chocolate and chocolate chip cookies.",
+    "tiers": [
+      [12, 48.29],
+      [24, 46.88],
+      [48, 45.5],
+      [96, 44.19]
+    ],
+    "image": "/images/merch/tray-with-mugs-and-chocolate-chip-cookies-60789.webp",
+    "imageAlt": "Tray with Mugs and Chocolate Chip Cookies",
+    "colors": ["Black", "Brown", "Cream", "Red"]
+  },
+  {
+    "id": "vienna-coffee-gift-box-set-50553",
+    "name": "Vienna Coffee Gift Box Set",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Coffee tote with 24 oz. vacuum flask, insulated double-wall cups and creamer, spoons and a napkin.",
+    "tiers": [
+      [12, 54.49],
+      [50, 51.35],
+      [100, 49.44],
+      [300, 46.84],
+      [500, 44.5]
+    ],
+    "image": "/images/merch/vienna-coffee-gift-box-set-50553.webp",
+    "imageAlt": "Vienna Coffee Gift Box Set",
+    "colors": ["Black"]
+  },
+  {
+    "id": "premier-chocolate-covered-pretzels-in-gift-box-00383",
+    "name": "Premier Chocolate Covered Pretzels in Gift Box",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Premier Pretzel Gift Box filled with a selection of delectably fresh chocolate and candy covered pretzels. Made in USA.",
+    "tiers": [
+      [25, 39.59],
+      [50, 37.71],
+      [100, 36.61],
+      [250, 35.55]
+    ],
+    "image": "/images/merch/premier-chocolate-covered-pretzels-in-gift-box-00383.webp",
+    "imageAlt": "Premier Chocolate Covered Pretzels in Gift Box",
+    "colors": ["Gold", "Silver"]
+  },
+  {
+    "id": "sweet-boxes-with-milk-chocolate-pretzels-70985",
+    "name": "Sweet Boxes with Milk Chocolate Pretzels",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Sweet boxes made of acrylic with a clear cube shape filled with milk chocolate pretzels. Made in USA.",
+    "tiers": [
+      [100, 7.78],
+      [250, 7.41],
+      [500, 7.19],
+      [1000, 6.98]
+    ],
+    "image": "/images/merch/sweet-boxes-with-milk-chocolate-pretzels-70985.webp",
+    "imageAlt": "Sweet Boxes with Milk Chocolate Pretzels",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "holiday-premier-chocolate-pretzels-gift-box-w-full-color-lid-30201",
+    "name": "Holiday Premier Chocolate Pretzels Gift Box w/Full Color Lid",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Holiday Premier Pretzel Gift Box with Full Color Lid includes eight delectably fresh chocolate and candy covered pretzels. Made in USA.",
+    "tiers": [
+      [25, 32.12],
+      [50, 30.6],
+      [100, 29.7],
+      [250, 28.83]
+    ],
+    "image": "/images/merch/holiday-premier-chocolate-pretzels-gift-box-w-full-color-lid-30201.webp",
+    "imageAlt": "Holiday Premier Chocolate Pretzels Gift Box w/Full Color Lid",
+    "colors": ["Black"]
+  },
+  {
+    "id": "pistachio-delight-mini-pretzels-2oz-digibag-18483",
+    "name": "Pistachio Delight Mini Pretzels 2oz. Digibag",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "2 oz. DigiBag of crispy mini pretzels coated in milk confection and finished with a pistachio drizzle. Made in USA.",
+    "tiers": [
+      [500, 1.67],
+      [1000, 1.59],
+      [2500, 1.55],
+      [5000, 1.5]
+    ],
+    "image": "/images/merch/pistachio-delight-mini-pretzels-2oz-digibag-18483.webp",
+    "imageAlt": "Pistachio Delight Mini Pretzels 2oz. Digibag",
+    "colors": ["White"]
+  },
+  {
+    "id": "2-oz-handfuls-snack-mix-40146",
+    "name": "2 oz. Handfuls- Snack Mix",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "2 oz. Handfuls- Snack Mix Made in USA.",
+    "tiers": [
+      [500, 2.12],
+      [1000, 2.03],
+      [2500, 1.96],
+      [5000, 1.91]
+    ],
+    "image": "/images/merch/2-oz-handfuls-snack-mix-40146.webp",
+    "imageAlt": "2 oz. Handfuls- Snack Mix",
+    "colors": ["White"]
+  },
+  {
+    "id": "trail-mix-in-a-large-round-glass-jar-with-lid-58646",
+    "name": "Trail Mix in a Large Round Glass Jar with Lid",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Trail Mix in a Large Round Glass Status Jar with Lid Made in USA.",
+    "tiers": [
+      [48, 20.54],
+      [96, 20.39],
+      [192, 20.25],
+      [576, 20.1]
+    ],
+    "image": "/images/merch/trail-mix-in-a-large-round-glass-jar-with-lid-58646.webp",
+    "imageAlt": "Trail Mix in a Large Round Glass Jar with Lid",
+    "colors": ["Clear"]
   }
 ]

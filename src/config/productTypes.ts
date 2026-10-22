@@ -461,13 +461,17 @@ export const PRODUCT_TYPES: Record<string, Taxonomy> = {
       "Floor Mats & Covers",
       "Phone Holders",
       "Emergency & Roadside",
+      "Seat Covers",
+      "Car Wash & Care",
       "Organizers & Accessories",
     ],
     rules: [
       r(
         "Emergency & Roadside",
-        /jump starter|tire pressure|pressure gauge|first aid|survival|disaster|escape|rescue|air pump|dry ?bag/
+        /jump starter|tire pressure|pressure gauge|first aid|survival|disaster|escape|rescue|air pump|dry ?bag|road flare|roadside|automotive kit|auto kit|hand crank|emergency/
       ),
+      r("Seat Covers", /seat cover|car cover seats|seat protector/),
+      r("Car Wash & Care", /wash mitt|wash tool|car wash|cleaning glove|mirror cover|fuel door/),
       r("Sun Shades", /sun ?shade|window shade|windshield/),
       r("License Plate Frames", /license plate/),
       r("Bumper Stickers", /bumper sticker/),
