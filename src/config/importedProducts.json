@@ -25560,5 +25560,1172 @@
     "imageAlt": "1/4\" Custom Recycled Wood Magnets",
     "colors": ["Multi color"],
     "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "3-25-clear-round-glass-ornament-with-silver-string-50823",
+    "name": "3.25\" Clear Round Glass Ornament with Silver String",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "Glass Ornament with String.",
+    "tiers": [
+      [25, 23.34],
+      [50, 22.84],
+      [100, 22.44],
+      [250, 22.04],
+      [500, 21.64]
+    ],
+    "image": "/images/merch/3-25-clear-round-glass-ornament-with-silver-string-50823.webp",
+    "imageAlt": "3.25\" Clear Round Glass Ornament with Silver String",
+    "colors": ["Clear-Silver"]
+  },
+  {
+    "id": "3-1-4-usa-made-round-glossy-shatterproof-ornament-04642",
+    "name": "3 1/4\" USA-Made Round Glossy Shatterproof Ornament",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "3 1/4\" USA-made round glossy shatterproof ornament Made in USA.",
+    "tiers": [
+      [100, 6.43],
+      [250, 6.31],
+      [500, 6.18],
+      [1000, 6.06],
+      [1500, 5.94]
+    ],
+    "image": "/images/merch/3-1-4-usa-made-round-glossy-shatterproof-ornament-04642.webp",
+    "imageAlt": "3 1/4\" USA-Made Round Glossy Shatterproof Ornament",
+    "colors": [
+      "Black",
+      "Blue",
+      "Gold",
+      "Green",
+      "Maroon",
+      "Orange",
+      "Pink",
+      "Purple",
+      "Red",
+      "Silver",
+      "Translucent Blue",
+      "Translucent Gold",
+      "Translucent Green",
+      "Translucent Purple",
+      "Translucent Red",
+      "White",
+      "Light Blue"
+    ]
+  },
+  {
+    "id": "wooden-gnome-ornament-75043",
+    "name": "Wooden Gnome Ornament",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "5\" wooden gnome ornament.",
+    "tiers": [
+      [150, 1.04],
+      [250, 1.01],
+      [500, 0.99],
+      [1000, 0.97],
+      [1500, 0.95]
+    ],
+    "image": "/images/merch/wooden-gnome-ornament-75043.webp",
+    "imageAlt": "Wooden Gnome Ornament",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "christmas-gift-socks-decoration-ornament-candy-stuffer-bag-72053",
+    "name": "Christmas Gift Socks Decoration Ornament Candy Stuffer Bag",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "Christmas gift candy bag, Snowflake decoration ornament, Flexible to display, Holiday gifts for kids.",
+    "tiers": [
+      [50, 1.1],
+      [250, 1.067],
+      [500, 1.05],
+      [1000, 1.033],
+      [2500, 1]
+    ],
+    "image": "/images/merch/christmas-gift-socks-decoration-ornament-candy-stuffer-bag-72053.webp",
+    "imageAlt": "Christmas Gift Socks Decoration Ornament Candy Stuffer Bag",
+    "colors": ["White", "Red"]
+  },
+  {
+    "id": "christmas-hanging-ornament-59739",
+    "name": "Christmas Hanging Ornament",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "The hanging wooden Christmas ornaments offer a sufficient choice and adorable designs. Both delicate and sturdy!",
+    "tiers": [
+      [100, 4.107],
+      [500, 2.727],
+      [1000, 2.062],
+      [2000, 1.843],
+      [5000, 1.512]
+    ],
+    "image": "/images/merch/christmas-hanging-ornament-59739.webp",
+    "imageAlt": "Christmas Hanging Ornament",
+    "colors": ["Assorted"]
+  },
+  {
+    "id": "diy-crafting-home-christmas-decor-blanks-hanging-ornament-90231",
+    "name": "DIY Crafting Home Christmas Decor Blanks Hanging Ornament",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "Our Christmas ornaments let you DIY with family or friends for fun while adding a festive atmosphere.",
+    "tiers": [
+      [200, 1.033],
+      [500, 1.017],
+      [1000, 1],
+      [2000, 0.983],
+      [5000, 0.9]
+    ],
+    "image": "/images/merch/diy-crafting-home-christmas-decor-blanks-hanging-ornament-90231.webp",
+    "imageAlt": "DIY Crafting Home Christmas Decor Blanks Hanging Ornament",
+    "colors": ["White"]
+  },
+  {
+    "id": "christmas-stockings-large-medium-small-05347",
+    "name": "Christmas Stockings Large Medium Small",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "These versatile Christmas decorations enhance your holiday and make perfect with space for small surprises.",
+    "tiers": [
+      [30, 3.45],
+      [300, 1.433],
+      [1000, 1.15],
+      [3000, 0.85],
+      [10000, 0.717]
+    ],
+    "image": "/images/merch/christmas-stockings-large-medium-small-05347.webp",
+    "imageAlt": "Christmas Stockings Large Medium Small",
+    "colors": ["Assorted"]
+  },
+  {
+    "id": "small-round-mdf-christmas-ornament-85849",
+    "name": "Small Round MDF Christmas Ornament",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "Size: 2.28\" x 1.97\" x 0.12\".",
+    "tiers": [
+      [100, 3.033],
+      [200, 2.55],
+      [300, 2.267],
+      [500, 1.933],
+      [1000, 1.883]
+    ],
+    "image": "/images/merch/small-round-mdf-christmas-ornament-85849.webp",
+    "imageAlt": "Small Round MDF Christmas Ornament",
+    "colors": ["White"]
+  },
+  {
+    "id": "3-christmas-ceramic-ornaments-with-string-91388",
+    "name": "3\" Christmas Ceramic Ornaments With String",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "Size: 3\" x 3\".",
+    "tiers": [
+      [200, 1.317],
+      [500, 1.133],
+      [1000, 1.05],
+      [2000, 1],
+      [5000, 0.967]
+    ],
+    "image": "/images/merch/3-christmas-ceramic-ornaments-with-string-91388.webp",
+    "imageAlt": "3\" Christmas Ceramic Ornaments With String",
+    "colors": [
+      "Brass Metal",
+      "Camouflage Orange",
+      "Light Pink",
+      "Metallic Blue",
+      "Metallic Brown",
+      "Metallic Yellow"
+    ]
+  },
+  {
+    "id": "joy-holiday-ornament-w-full-color-imprint-10475",
+    "name": "Joy Holiday Ornament w/Full Color Imprint",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "2.75\" x 1.5\" zinc alloy metal Joy Christmas ornament with metallic string and decorative gift envelope.",
+    "tiers": [
+      [100, 3.85],
+      [300, 3.65],
+      [500, 3.5]
+    ],
+    "image": "/images/merch/joy-holiday-ornament-w-full-color-imprint-10475.webp",
+    "imageAlt": "Joy Holiday Ornament w/Full Color Imprint",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "frame-aluminum-double-sided-christmas-ornament-71039",
+    "name": "Frame Aluminum Double-Sided Christmas Ornament",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "Frame Aluminum Double-Sided Christmas plus full color imprint on both sides plus shipping to 1 continental US commercial location.",
+    "tiers": [
+      [100, 4.45],
+      [200, 4.2],
+      [300, 3.733],
+      [500, 3.417],
+      [1000, 3.233]
+    ],
+    "image": "/images/merch/frame-aluminum-double-sided-christmas-ornament-71039.webp",
+    "imageAlt": "Frame Aluminum Double-Sided Christmas Ornament"
+  },
+  {
+    "id": "round-clear-pc-christmas-ornament-18028",
+    "name": "Round Clear PC Christmas Ornament",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "Size: 1.65\".",
+    "tiers": [
+      [100, 3.217],
+      [200, 2.817],
+      [300, 2.583],
+      [500, 2.467],
+      [1000, 2.45]
+    ],
+    "image": "/images/merch/round-clear-pc-christmas-ornament-18028.webp",
+    "imageAlt": "Round Clear PC Christmas Ornament",
+    "colors": ["Transparent"]
+  },
+  {
+    "id": "shatter-proof-christmas-ornament-set-13222",
+    "name": "Shatter Proof Christmas Ornament Set",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "Size: 1\" x 1\".",
+    "tiers": [
+      [150, 4.13],
+      [250, 4.02],
+      [500, 3.96],
+      [1000, 3.85]
+    ],
+    "image": "/images/merch/shatter-proof-christmas-ornament-set-13222.webp",
+    "imageAlt": "Shatter Proof Christmas Ornament Set",
+    "colors": ["Blue/Green/Red", "Gold/Silver/Green", "Silver/Gold"]
+  },
+  {
+    "id": "christian-holiday-decoration-pendants-05375",
+    "name": "Christian/Holiday Decoration Pendants",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "Nativity Ornaments for Christmas Tree, Car Ornaments, Necklaces, Pendants, Home Decor.",
+    "tiers": [
+      [200, 3.243],
+      [400, 2.79],
+      [800, 2.287],
+      [1000, 1.725],
+      [2000, 1.375]
+    ],
+    "image": "/images/merch/christian-holiday-decoration-pendants-05375.webp",
+    "imageAlt": "Christian/Holiday Decoration Pendants",
+    "colors": ["White"]
+  },
+  {
+    "id": "clear-fillable-ornaments-ball-24619",
+    "name": "Clear Fillable Ornaments Ball",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "Clear Fillable Ornaments Ball made of heavy-duty polystyrene.",
+    "tiers": [
+      [100, 5.65],
+      [500, 4.02],
+      [1000, 3.57],
+      [5000, 1.45],
+      [10000, 1.35]
+    ],
+    "image": "/images/merch/clear-fillable-ornaments-ball-24619.webp",
+    "imageAlt": "Clear Fillable Ornaments Ball",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "shatterproof-christmas-ornament-91060",
+    "name": "Shatterproof Christmas Ornament",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "Bring a little holiday cheer to your customers and employees with this Christmas ornament.",
+    "tiers": [
+      [500, 0.89],
+      [1000, 0.84],
+      [2000, 0.77],
+      [5000, 0.72],
+      [10000, 0.39]
+    ],
+    "image": "/images/merch/shatterproof-christmas-ornament-91060.webp",
+    "imageAlt": "Shatterproof Christmas Ornament",
+    "colors": [
+      "Blue",
+      "Brown",
+      "Gray",
+      "Green",
+      "Orange",
+      "Pink",
+      "Purple",
+      "Red",
+      "White",
+      "Yellow"
+    ]
+  },
+  {
+    "id": "christmas-ornaments-money-holder-30119",
+    "name": "Christmas Ornaments Money Holder",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "This Christmas tree can be assembled by hand with change in your purse, which makes a great gift for winter and all year.",
+    "tiers": [
+      [20, 5.867],
+      [100, 3.783],
+      [500, 3.317],
+      [3000, 2.967],
+      [5000, 2.1]
+    ],
+    "image": "/images/merch/christmas-ornaments-money-holder-30119.webp",
+    "imageAlt": "Christmas Ornaments Money Holder",
+    "colors": ["Black", "Blue", "Clear", "Green", "Pink", "Red", "White", "Yellow"]
+  },
+  {
+    "id": "custom-acrylic-ornament-59706",
+    "name": "Custom Acrylic Ornament",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "Elevate your holiday decor with custom American-made ornaments manufactured to your requirements! Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [25, 10.26],
+      [50, 9.36],
+      [100, 8.37],
+      [250, 7.74],
+      [500, 7.38]
+    ],
+    "image": "/images/merch/custom-acrylic-ornament-59706.webp",
+    "imageAlt": "Custom Acrylic Ornament",
+    "colors": ["Clear", "White", "Black"]
+  },
+  {
+    "id": "star-wooden-ornaments-24455",
+    "name": "Star Wooden Ornaments",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "Star shaped Christmas ornaments made of wood.",
+    "tiers": [
+      [150, 1.87],
+      [250, 1.83],
+      [500, 1.79],
+      [1000, 1.75],
+      [1500, 1.71]
+    ],
+    "image": "/images/merch/star-wooden-ornaments-24455.webp",
+    "imageAlt": "Star Wooden Ornaments",
+    "colors": ["Brown"]
+  },
+  {
+    "id": "two-bell-mdf-christmas-ornament-81450",
+    "name": "Two-Bell MDF Christmas Ornament",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "Two-bell MDF christmas ornament, plus full color imprint on both sides plus shipping to 1 US location.",
+    "tiers": [
+      [100, 2.65],
+      [200, 2.3],
+      [300, 2.067],
+      [500, 2],
+      [1000, 1.933]
+    ],
+    "image": "/images/merch/two-bell-mdf-christmas-ornament-81450.webp",
+    "imageAlt": "Two-Bell MDF Christmas Ornament",
+    "colors": ["White"]
+  },
+  {
+    "id": "led-light-up-christmas-pendant-95328",
+    "name": "Led Light Up Christmas Pendant",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "Led Light Up Christmas Pendant is a good gift to promote your brand.",
+    "tiers": [
+      [200, 6.402],
+      [600, 5.553],
+      [1200, 5.003],
+      [3000, 4.49],
+      [10000, 4.258]
+    ],
+    "image": "/images/merch/led-light-up-christmas-pendant-95328.webp",
+    "imageAlt": "Led Light Up Christmas Pendant",
+    "colors": ["Hats", "Sock"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "custom-die-cast-ornaments-02726",
+    "name": "Custom Die-Cast Ornaments",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "Custom Die-Cast Ornaments.",
+    "tiers": [
+      [100, 4.56],
+      [300, 3.94],
+      [500, 3.72],
+      [1000, 3.6],
+      [2000, 3.52]
+    ],
+    "image": "/images/merch/custom-die-cast-ornaments-02726.webp",
+    "imageAlt": "Custom Die-Cast Ornaments",
+    "colors": ["Plating"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "classic-merry-everything-greeting-card-47112",
+    "name": "Classic Merry Everything Greeting Card",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "5\" x 7\" Holiday Greeting Cards in over 100 stock designs, 32 stock sentiments plus your logo/message and free deluxe envelopes. Made in USA.",
+    "tiers": [
+      [50, 3.13],
+      [75, 2.82],
+      [100, 2.58],
+      [500, 2.49],
+      [1000, 2.38]
+    ],
+    "image": "/images/merch/classic-merry-everything-greeting-card-47112.webp",
+    "imageAlt": "Classic Merry Everything Greeting Card",
+    "colors": ["Green-White"]
+  },
+  {
+    "id": "premium-brushstroke-tree-greeting-card-47061",
+    "name": "Premium Brushstroke Tree Greeting Card",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "5\" x 7\" Classic Holiday Greeting Cards in over 100 stock designs, 20 stock sentiments plus your logo/message and envelopes. Made in USA.",
+    "tiers": [
+      [50, 3.54],
+      [75, 3.19],
+      [100, 3.01],
+      [500, 2.88],
+      [1000, 2.77]
+    ],
+    "image": "/images/merch/premium-brushstroke-tree-greeting-card-47061.webp",
+    "imageAlt": "Premium Brushstroke Tree Greeting Card",
+    "colors": ["Ivory"]
+  },
+  {
+    "id": "premium-embossed-ornaments-greeting-card-23220",
+    "name": "Premium Embossed Ornaments Greeting Card",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "5\" x 7\" Classic Holiday Greeting Cards in over 100 stock designs, 20 stock sentiments plus your logo/message and envelopes. Made in USA.",
+    "tiers": [
+      [50, 3.54],
+      [75, 3.19],
+      [100, 3.01],
+      [500, 2.88],
+      [1000, 2.77]
+    ],
+    "image": "/images/merch/premium-embossed-ornaments-greeting-card-23220.webp",
+    "imageAlt": "Premium Embossed Ornaments Greeting Card",
+    "colors": ["Ivory"]
+  },
+  {
+    "id": "classic-peace-and-joy-ornaments-holiday-greeting-card-11421",
+    "name": "Classic Peace & Joy Ornaments Holiday Greeting Card",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "5\" x 7\" Classic Holiday Greeting Cards in over 100 stock designs, 20 stock sentiments plus your logo/message and envelopes. Made in USA.",
+    "tiers": [
+      [50, 3.13],
+      [75, 2.82],
+      [100, 2.58],
+      [500, 2.49],
+      [1000, 2.38]
+    ],
+    "image": "/images/merch/classic-peace-and-joy-ornaments-holiday-greeting-card-11421.webp",
+    "imageAlt": "Classic Peace & Joy Ornaments Holiday Greeting Card"
+  },
+  {
+    "id": "old-fashioned-christmas-card-49007",
+    "name": "Old Fashioned Christmas Card",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "White stock, designed greeting card with gold foil accents and \"Season's Greetings\" on front. Made in USA.",
+    "tiers": [
+      [100, 3.99],
+      [200, 3.62],
+      [500, 2.35],
+      [1000, 1.93]
+    ],
+    "image": "/images/merch/old-fashioned-christmas-card-49007.webp",
+    "imageAlt": "Old Fashioned Christmas Card",
+    "colors": ["Multi color"]
+  },
+  {
+    "id": "premium-customizable-festive-text-holiday-greeting-cards-80478",
+    "name": "Premium Customizable Festive Text Holiday Greeting Cards",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "This customizable holiday card with templates lets you send personalized wishes for any festivity.",
+    "tiers": [
+      [500, 2.183],
+      [1000, 2.15],
+      [2000, 2.117],
+      [5000, 2.083],
+      [10000, 1.883]
+    ],
+    "image": "/images/merch/premium-customizable-festive-text-holiday-greeting-cards-80478.webp",
+    "imageAlt": "Premium Customizable Festive Text Holiday Greeting Cards",
+    "colors": ["White"]
+  },
+  {
+    "id": "premium-watercolor-peace-and-joy-holiday-greeting-card-11430",
+    "name": "Premium Watercolor Peace & Joy Holiday Greeting Card",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "5\" x 7\" Premium Classic & Holiday Greeting Cards, over 100 stock designs, 20 stock sentiments, your imprint, envelopes. Made in USA.",
+    "tiers": [
+      [50, 3.54],
+      [75, 3.19],
+      [100, 3.01],
+      [500, 2.88],
+      [1000, 2.77]
+    ],
+    "image": "/images/merch/premium-watercolor-peace-and-joy-holiday-greeting-card-11430.webp",
+    "imageAlt": "Premium Watercolor Peace & Joy Holiday Greeting Card",
+    "colors": ["Green-Gold"]
+  },
+  {
+    "id": "kids-stock-camo-polyester-6-panel-baseball-cap-32907",
+    "name": "Kids' Stock Camo Polyester 6-Panel Baseball Cap",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Kids' Stock Camo Polyester 6-Panel Baseball Cap. Available in Camo1, Camo2 and Camo3.",
+    "tiers": [
+      [12, 12.27],
+      [24, 9.97],
+      [50, 8.18],
+      [100, 6.87],
+      [300, 6.63]
+    ],
+    "image": "/images/merch/kids-stock-camo-polyester-6-panel-baseball-cap-32907.webp",
+    "imageAlt": "Kids' Stock Camo Polyester 6-Panel Baseball Cap",
+    "colors": ["Camo1", "Camo2", "Camo3"]
+  },
+  {
+    "id": "premium-sublimation-6-panel-mesh-back-trucker-cap-43721",
+    "name": "Premium Sublimation 6 Panel Mesh Back Trucker Cap",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Premium Performance Poly 6 Panel Mesh Back Cap with Full Sublimation and Crown Options.",
+    "tiers": [
+      [25, 22.05],
+      [50, 13.13],
+      [100, 12.18],
+      [200, 11.05],
+      [300, 10.77]
+    ],
+    "image": "/images/merch/premium-sublimation-6-panel-mesh-back-trucker-cap-43721.webp",
+    "imageAlt": "Premium Sublimation 6 Panel Mesh Back Trucker Cap"
+  },
+  {
+    "id": "branded-bills-545-05r-curved-5-panel-rope-cap-545-05r-53579",
+    "name": "Branded Bills 545-05R Curved 5 Panel Rope Cap 545-05R",
+    "category": "Headwear",
+    "brand": "Branded Bills",
+    "description": "We recreated the classic rope golf hat in our lightest fabric and a variety of colorways,High crown with a curved brim.",
+    "tiers": [
+      [24, 40.53],
+      [48, 37.74],
+      [96, 36.03],
+      [240, 34.66],
+      [480, 33.77]
+    ],
+    "image": "/images/merch/branded-bills-545-05r-curved-5-panel-rope-cap-545-05r-53579.webp",
+    "imageAlt": "Branded Bills 545-05R Curved 5 Panel Rope Cap 545-05R",
+    "colors": [
+      "Desert/Desert Camo",
+      "Heather Gray",
+      "Black",
+      "Desert/Orion",
+      "White/Orion",
+      "Blaze Orange Camo",
+      "White",
+      "Sky Blue",
+      "White Rwb",
+      "Desert",
+      "Loden",
+      "Maroon",
+      "Kelly Green",
+      "Purple",
+      "Red",
+      "White-Black",
+      "Orion",
+      "Royal"
+    ]
+  },
+  {
+    "id": "premium-sublimation-6-panel-cap-performance-polyester-43707",
+    "name": "Premium Sublimation 6 Panel Cap - Performance Polyester",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Premium Performance Poly 6 Panel Cap with Full Sublimation and Crown Options.",
+    "tiers": [
+      [25, 25.6],
+      [50, 15.12],
+      [100, 13.65],
+      [300, 10.37],
+      [500, 9.93]
+    ],
+    "image": "/images/merch/premium-sublimation-6-panel-cap-performance-polyester-43707.webp",
+    "imageAlt": "Premium Sublimation 6 Panel Cap - Performance Polyester"
+  },
+  {
+    "id": "branded-bills-525-01x-bare-curved-performance-cotton-canv-84833",
+    "name": "Branded Bills 525-01X Bare Curved Performance Cotton Canv",
+    "category": "Headwear",
+    "brand": "Branded Bills",
+    "description": "Branded Bills 525-01X Bare Curved Performance Cotton Canv.",
+    "tiers": [
+      [48, 35.06],
+      [96, 34.04],
+      [144, 33.05],
+      [288, 32.09],
+      [576, 31.16]
+    ],
+    "image": "/images/merch/branded-bills-525-01x-bare-curved-performance-cotton-canv-84833.webp",
+    "imageAlt": "Branded Bills 525-01X Bare Curved Performance Cotton Canv",
+    "colors": ["Beige", "Black", "Navy Blue", "Beige/Black", "Beige/Navy"]
+  },
+  {
+    "id": "7-panels-golf-trucker-cap-w-laser-cut-mesh-back-76086",
+    "name": "7 Panels Golf Trucker Cap w/ Laser Cut Mesh Back",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Cotton camper hat with mesh back, stitched visor and snapback adjustable closure, melin alternative.",
+    "tiers": [
+      [12, 7.5],
+      [144, 7.417],
+      [576, 7.333],
+      [1008, 7.25]
+    ],
+    "image": "/images/merch/7-panels-golf-trucker-cap-w-laser-cut-mesh-back-76086.webp",
+    "imageAlt": "7 Panels Golf Trucker Cap w/ Laser Cut Mesh Back",
+    "colors": [
+      "Heather Dark Green",
+      "Heather",
+      "Heather Black",
+      "Heather Navy",
+      "Heather Royal",
+      "White"
+    ]
+  },
+  {
+    "id": "premium-full-mesh-6-panel-trucker-cap-71483",
+    "name": "Premium Full Mesh 6 Panel Trucker Cap",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Full Mesh, Snapback Closure, Breathable Comfort.",
+    "tiers": [
+      [25, 26.45],
+      [50, 16.93],
+      [100, 14.27],
+      [300, 11.77],
+      [500, 10.92]
+    ],
+    "image": "/images/merch/premium-full-mesh-6-panel-trucker-cap-71483.webp",
+    "imageAlt": "Premium Full Mesh 6 Panel Trucker Cap"
+  },
+  {
+    "id": "ahead-stratus-performance-cap-30051",
+    "name": "Ahead Stratus Performance Cap",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Performance cap with 4-way stretch fabric, pre-curved visor and hook and loop fasteners.",
+    "tiers": [
+      [25, 30.08],
+      [50, 25.8],
+      [100, 20.79],
+      [300, 19.98]
+    ],
+    "image": "/images/merch/ahead-stratus-performance-cap-30051.webp",
+    "imageAlt": "Ahead Stratus Performance Cap",
+    "colors": [
+      "Slate Blue",
+      "Graphite",
+      "Light Grey",
+      "White",
+      "Navy",
+      "University Tour Blue",
+      "Black",
+      "University Hunter Green"
+    ]
+  },
+  {
+    "id": "5-panel-two-tone-mesh-back-trucker-cap-17159",
+    "name": "5 Panel Two Tone Mesh Back Trucker Cap",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Truck cap made of polyester and sponge, with mesh back, hat circumference about 22.8\", curved brim, heat transfer custom logo.",
+    "tiers": [
+      [100, 2.05],
+      [200, 1.717],
+      [300, 1.7],
+      [500, 1.65],
+      [800, 1.633]
+    ],
+    "image": "/images/merch/5-panel-two-tone-mesh-back-trucker-cap-17159.webp",
+    "imageAlt": "5 Panel Two Tone Mesh Back Trucker Cap",
+    "colors": [
+      "Light Blue",
+      "Assorted",
+      "Clear Orange",
+      "Camouflage Gray",
+      "Camouflage Red",
+      "Bright Pink",
+      "Iridescent Purple",
+      "Dark Pink"
+    ]
+  },
+  {
+    "id": "moq100-cotton-breathable-mesh-baseball-caps-trucker-hat-60525",
+    "name": "Cotton Breathable Mesh Baseball Caps Trucker Hat",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Breathable cotton mesh trucker hat with an adjustable hook and loop fastener.",
+    "tiers": [
+      [100, 3.382],
+      [200, 2.982],
+      [300, 2.873],
+      [500, 2.762],
+      [1000, 2.398]
+    ],
+    "image": "/images/merch/moq100-cotton-breathable-mesh-baseball-caps-trucker-hat-60525.webp",
+    "imageAlt": "Cotton Breathable Mesh Baseball Caps Trucker Hat",
+    "colors": ["Red", "Light Blue", "Royal Blue", "Navy Blue", "Blue", "Black", "White", "Yellow"]
+  },
+  {
+    "id": "trucker-hat-with-full-color-imprint-front-panel-mid-profile-17513",
+    "name": "Trucker Hat with Full Color Imprint Front Panel Mid Profile",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Trucker hat with full color imprint.",
+    "tiers": [
+      [50, 13.862],
+      [100, 12.822],
+      [250, 11.912],
+      [500, 10.508],
+      [1000, 9.309]
+    ],
+    "image": "/images/merch/trucker-hat-with-full-color-imprint-front-panel-mid-profile-17513.webp",
+    "imageAlt": "Trucker Hat with Full Color Imprint Front Panel Mid Profile"
+  },
+  {
+    "id": "merrimack-hat-co-austin-vintage-trucker-62077",
+    "name": "Merrimack Hat Co.® Austin Vintage Trucker",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "6 panel, vintage-wash trucker cap with soft mesh back panels and plastic snapback closure.",
+    "tiers": [[25, 11.83]],
+    "image": "/images/merch/merrimack-hat-co-austin-vintage-trucker-62077.webp",
+    "imageAlt": "Merrimack Hat Co.® Austin Vintage Trucker",
+    "colors": [
+      "Cardinal-Tan",
+      "Citrus-Tan",
+      "Orange-Tan",
+      "Azul-Tan",
+      "Olive-Tan",
+      "Kelly Green-Tan",
+      "Sky Blue-Tan",
+      "Red-Tan",
+      "Royal-Tan",
+      "Black-Tan",
+      "Rust-Tan",
+      "Navy-Tan",
+      "Washed Orange-Tan"
+    ]
+  },
+  {
+    "id": "richardson-112-trucker-hat-with-usa-made-sublimated-patch-88636",
+    "name": "Richardson 112 Trucker Hat with USA Made Sublimated Patch",
+    "category": "Headwear",
+    "brand": "Richardson",
+    "description": "Made in the USA. Richardson 112 Trucker Hat with Sublimated Patch.",
+    "tiers": [
+      [24, 27.583],
+      [48, 24.6],
+      [72, 22.033],
+      [144, 19.108],
+      [288, 17.343]
+    ],
+    "image": "/images/merch/richardson-112-trucker-hat-with-usa-made-sublimated-patch-88636.webp",
+    "imageAlt": "Richardson 112 Trucker Hat with USA Made Sublimated Patch",
+    "colors": [
+      "Black",
+      "Cardinal",
+      "Columbia Blue",
+      "Dark Green",
+      "Loden",
+      "Navy",
+      "Orange",
+      "Purple",
+      "Quarry",
+      "Red",
+      "Royal",
+      "White",
+      "Biscuit/True Blue",
+      "Black/Charcoal",
+      "Black/Gold",
+      "Black/Vegas Gold",
+      "Black/White",
+      "Black/Yellow",
+      "Brown/Khaki",
+      "Caramel/Black",
+      "Cardinal/Black",
+      "Cardinal/White",
+      "Charcoal/Black",
+      "Charcoal/Columbia Blue",
+      "Charcoal/Kelly",
+      "Charcoal/Navy",
+      "Charcoal/Neon Blue",
+      "Charcoal/Neon Green",
+      "Charcoal/Neon Orange",
+      "Charcoal/Neon Pink"
+    ]
+  },
+  {
+    "id": "pom-beanie-with-direct-embroidery-42120",
+    "name": "Pom Beanie with Direct Embroidery",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "100% acrylic beanie with a pom pom design, classic rolled cuff.",
+    "tiers": [
+      [48, 14.72],
+      [72, 13.25],
+      [120, 12.25],
+      [250, 11.42],
+      [500, 10.92]
+    ],
+    "image": "/images/merch/pom-beanie-with-direct-embroidery-42120.webp",
+    "imageAlt": "Pom Beanie with Direct Embroidery",
+    "colors": [
+      "Black",
+      "Black-Gold",
+      "Black-Red",
+      "Dark Heather Gray",
+      "Dark Heather Gray-Black",
+      "Navy",
+      "Red",
+      "Royal"
+    ]
+  },
+  {
+    "id": "premium-knit-beanie-without-cuff-73067",
+    "name": "Premium Knit Beanie Without Cuff",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "8\" x 8\" acrylic-lycra blend knit beanie cap without cuff.",
+    "tiers": [
+      [25, 15.41],
+      [50, 12.97],
+      [100, 11.01],
+      [250, 10.77],
+      [500, 10.68]
+    ],
+    "image": "/images/merch/premium-knit-beanie-without-cuff-73067.webp",
+    "imageAlt": "Premium Knit Beanie Without Cuff",
+    "colors": [
+      "Black",
+      "Bleach",
+      "Natural",
+      "Stone",
+      "Gold",
+      "Burgundy",
+      "Berry",
+      "Red",
+      "Hot Orange",
+      "Purple",
+      "Brown",
+      "Hunter Green",
+      "Forest Green",
+      "Olive",
+      "Kelly",
+      "Sandstone",
+      "Light Pink",
+      "Chocolate Brown",
+      "Chive",
+      "Summer Plum",
+      "Tile",
+      "Rust",
+      "Mulberry Purple",
+      "Safety Yellow",
+      "Heather Gray",
+      "Teal Heather",
+      "Alabaster Heather",
+      "Denim Heather",
+      "Olive Heather",
+      "Oatmeal Heather"
+    ]
+  },
+  {
+    "id": "leeman-trellis-knit-beanie-28047",
+    "name": "Leeman Trellis Knit Beanie",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Knit beanie with a faux leather thermo patch.",
+    "tiers": [
+      [25, 15.19],
+      [100, 14.29],
+      [300, 13.59],
+      [600, 12.89]
+    ],
+    "image": "/images/merch/leeman-trellis-knit-beanie-28047.webp",
+    "imageAlt": "Leeman Trellis Knit Beanie",
+    "colors": ["Heather Navy", "Oatmeal", "Charcoal Heather"]
+  },
+  {
+    "id": "knitted-beanie-short-style-knit-only-87385",
+    "name": "Knitted Beanie Short Style, Knit Only",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "6\" x 5\" beanie-style cap made of 100% knit acrylic.",
+    "tiers": [
+      [100, 9.35],
+      [250, 7.28],
+      [500, 6.4],
+      [1000, 5.6],
+      [2500, 5.31]
+    ],
+    "image": "/images/merch/knitted-beanie-short-style-knit-only-87385.webp",
+    "imageAlt": "Knitted Beanie Short Style, Knit Only",
+    "colors": [
+      "White",
+      "Beige",
+      "Yellow",
+      "Athletic Gold",
+      "Light Blue",
+      "Blue",
+      "Reflex Blue",
+      "Purple",
+      "Green",
+      "Kelly Green",
+      "Olive Green",
+      "Brown",
+      "Gold",
+      "Dark Gray",
+      "Light Heather Gray",
+      "Medium Heather Gray",
+      "Dark Heather Grey",
+      "Black",
+      "Pink",
+      "Red",
+      "Maroon",
+      "Burgundy",
+      "Medium Gray"
+    ]
+  },
+  {
+    "id": "polyester-twill-full-sublimation-reversible-bucket-hat-70528",
+    "name": "Polyester Twill Full Sublimation Reversible Bucket Hat",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Reversible bucket hat with full dye sublimation.",
+    "tiers": [
+      [25, 16.77],
+      [50, 11.28],
+      [100, 8.65],
+      [300, 6.98],
+      [500, 6.8]
+    ],
+    "image": "/images/merch/polyester-twill-full-sublimation-reversible-bucket-hat-70528.webp",
+    "imageAlt": "Polyester Twill Full Sublimation Reversible Bucket Hat"
+  },
+  {
+    "id": "full-color-imprint-cotton-bucket-hat-40204",
+    "name": "Full Color Imprint Cotton Bucket Hat",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "11\" x 8\" x 2.2\" unisex bucket hat made of 100% lightweight cotton with breathable eyelets.",
+    "tiers": [
+      [25, 12.25],
+      [50, 11.75],
+      [100, 11.5],
+      [250, 11.25],
+      [500, 10.95]
+    ],
+    "image": "/images/merch/full-color-imprint-cotton-bucket-hat-40204.webp",
+    "imageAlt": "Full Color Imprint Cotton Bucket Hat",
+    "colors": ["Black", "White", "Navy Blue", "Burgundy"]
+  },
+  {
+    "id": "unisex-wide-brim-cotton-sun-bucket-hat-36649",
+    "name": "Unisex Wide Brim Cotton Sun Bucket Hat",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Bucket hat made of polyester cotton blend, head circumference 22\"-22.8\", ideal for outdoor and summer, heat transfer custom logo.",
+    "tiers": [
+      [100, 2.85],
+      [200, 2.6],
+      [300, 2.5],
+      [500, 2.25],
+      [800, 2.183]
+    ],
+    "image": "/images/merch/unisex-wide-brim-cotton-sun-bucket-hat-36649.webp",
+    "imageAlt": "Unisex Wide Brim Cotton Sun Bucket Hat",
+    "colors": [
+      "Multi Color",
+      "Dark Yellow",
+      "Camouflage Yellow",
+      "Iridescent Orange",
+      "Dark Gray",
+      "Metallic White"
+    ]
+  },
+  {
+    "id": "safari-sun-blocker-hat-54062",
+    "name": "Safari Sun Blocker Hat",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Safari Sun Blocker cotton Boonie style hat in assorted colors with chin strap.",
+    "tiers": [
+      [12, 15.017],
+      [144, 14.933],
+      [576, 14.85],
+      [1008, 14.767]
+    ],
+    "image": "/images/merch/safari-sun-blocker-hat-54062.webp",
+    "imageAlt": "Safari Sun Blocker Hat",
+    "colors": ["Charcoal", "White", "Khaki"]
+  },
+  {
+    "id": "no-top-visor-38219",
+    "name": "No Top Visor",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Polyester visor with flexible clip-on style.",
+    "tiers": [
+      [30, 4.167],
+      [100, 3.133],
+      [500, 2.3],
+      [2000, 2.067],
+      [10000, 1.667]
+    ],
+    "image": "/images/merch/no-top-visor-38219.webp",
+    "imageAlt": "No Top Visor",
+    "colors": ["Black", "Gray", "Green", "Pink", "Purple", "Red", "White"]
+  },
+  {
+    "id": "unisex-pvc-sun-visor-hats-90370",
+    "name": "Unisex PVC Sun Visor Hats",
+    "category": "Headwear",
+    "brand": "Essentials",
+    "description": "Size: Adjustable.",
+    "tiers": [
+      [100, 7.96],
+      [500, 6.33],
+      [1000, 5.98],
+      [2000, 5.32],
+      [5000, 4.47]
+    ],
+    "image": "/images/merch/unisex-pvc-sun-visor-hats-90370.webp",
+    "imageAlt": "Unisex PVC Sun Visor Hats",
+    "colors": [
+      "Red",
+      "Lime Green",
+      "Green",
+      "Blue",
+      "Purple",
+      "Balck",
+      "White",
+      "Pink",
+      "Orange",
+      "Rose Pink",
+      "Brown"
+    ]
+  },
+  {
+    "id": "richardson-160-r-active-visor-17420",
+    "name": "Richardson 160 R Active Visor",
+    "category": "Headwear",
+    "brand": "Richardson",
+    "description": "Promo Code Special This visor uses our most lightweight performance fabric with R-ACTIVE tech. It will shield your eyes and wick away sweat.",
+    "tiers": [
+      [24, 26.53],
+      [72, 25.47],
+      [144, 24.4],
+      [288, 23.33]
+    ],
+    "image": "/images/merch/richardson-160-r-active-visor-17420.webp",
+    "imageAlt": "Richardson 160 R Active Visor",
+    "colors": [
+      "Black",
+      "Gray",
+      "White",
+      "Blue",
+      "Green",
+      "Purple",
+      "Red",
+      "Light Blue",
+      "Navy Blue",
+      "Royal Blue"
+    ]
+  },
+  {
+    "id": "moptoppers-patriotic-screen-cleaner-with-stylus-pen-72102",
+    "name": "MopToppers Patriotic Screen Cleaner With Stylus Pen",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "Patriotic stylus pen with mop-top hair that can be used as a screen cleaner.",
+    "tiers": [
+      [250, 2.54],
+      [1200, 2.37],
+      [2600, 2.26],
+      [5200, 2.14]
+    ],
+    "image": "/images/merch/moptoppers-patriotic-screen-cleaner-with-stylus-pen-72102.webp",
+    "imageAlt": "MopToppers Patriotic Screen Cleaner With Stylus Pen",
+    "colors": ["Blue", "Red"]
+  },
+  {
+    "id": "stars-and-stripes-patriotic-round-stress-ball-48143",
+    "name": "Stars and Stripes Patriotic Round Stress Ball",
+    "category": "Promo Giveaways",
+    "brand": "Essentials",
+    "description": "USA-themed round stress ball made of polyurethane foam; customization included.",
+    "tiers": [
+      [150, 2.14],
+      [300, 2.07],
+      [600, 1.97],
+      [1200, 1.87],
+      [2600, 1.78]
+    ],
+    "image": "/images/merch/stars-and-stripes-patriotic-round-stress-ball-48143.webp",
+    "imageAlt": "Stars and Stripes Patriotic Round Stress Ball",
+    "colors": ["White"]
+  },
+  {
+    "id": "patriotic-fold-up-flyer-with-case-99400",
+    "name": "Patriotic Fold Up Flyer with Case",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "Polyester flying disc with foldable design, patriotic pattern and storage pouch.",
+    "tiers": [
+      [125, 1.17],
+      [250, 1.12],
+      [500, 1.07],
+      [1000, 1.02],
+      [2500, 0.98]
+    ],
+    "image": "/images/merch/patriotic-fold-up-flyer-with-case-99400.webp",
+    "imageAlt": "Patriotic Fold Up Flyer with Case",
+    "colors": ["Multi Color - Red", "White And Blue"]
+  },
+  {
+    "id": "patriotic-collapsible-fan-72199",
+    "name": "Patriotic Collapsible Fan",
+    "category": "Seasonal & Holiday",
+    "brand": "Essentials",
+    "description": "7\" collapsible hand fan with handle and patriotic design.",
+    "tiers": [
+      [125, 1.29],
+      [250, 1.19],
+      [500, 1.14],
+      [1000, 1.09],
+      [2500, 1.05]
+    ],
+    "image": "/images/merch/patriotic-collapsible-fan-72199.webp",
+    "imageAlt": "Patriotic Collapsible Fan",
+    "colors": ["White-Red-Blue"]
   }
 ]
