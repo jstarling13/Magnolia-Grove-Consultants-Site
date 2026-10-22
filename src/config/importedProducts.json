@@ -31998,5 +31998,2131 @@
       "Frost White",
       "Frost/Lime"
     ]
+  },
+  {
+    "id": "adidas-mens-performance-polo-a230-48258",
+    "name": "Adidas Men's Performance Polo - A230",
+    "category": "Apparel",
+    "brand": "Adidas",
+    "description": "Size: XS, S, M, L, XL, 2XL, 3XL, 4XL. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [96, 56.35],
+      [144, 55.35],
+      [576, 54.35],
+      [1008, 53.85]
+    ],
+    "image": "/images/merch/adidas-mens-performance-polo-a230-48258.webp",
+    "imageAlt": "Adidas Men's Performance Polo - A230",
+    "colors": [
+      "White",
+      "Black",
+      "Bliss Pink",
+      "Clear Mint",
+      "Collegiate Gold",
+      "Collegiate Green",
+      "Collegiate Purple",
+      "Collegiate Red",
+      "Collegiate Royal",
+      "Grey Three",
+      "Maroon",
+      "Navy",
+      "Orange"
+    ]
+  },
+  {
+    "id": "custom-sublimated-elite-polo-62171",
+    "name": "Custom Sublimated Elite Polo",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Custom Polo in Adult and Youth Sizes!",
+    "tiers": [[10, 31.357]],
+    "image": "/images/merch/custom-sublimated-elite-polo-62171.webp",
+    "imageAlt": "Custom Sublimated Elite Polo",
+    "colors": ["Assorted"]
+  },
+  {
+    "id": "sport-tek-posicharge-active-textured-colorblock-polo-62687",
+    "name": "Sport-Tek PosiCharge Active Textured Colorblock Polo",
+    "category": "Apparel",
+    "brand": "Sport-Tek",
+    "description": "Size: XS, S, M, L, XL, 2XL, 3XL, 4XL. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [96, 30.532],
+      [144, 29.532],
+      [576, 28.76]
+    ],
+    "image": "/images/merch/sport-tek-posicharge-active-textured-colorblock-polo-62687.webp",
+    "imageAlt": "Sport-Tek PosiCharge Active Textured Colorblock Polo",
+    "colors": [
+      "Black/Grey",
+      "Black/Tr Red",
+      "Forest Grn/Gry",
+      "Maroon/Grey",
+      "Purple/Grey",
+      "Tr Red/Grey",
+      "Tr Royal/Grey",
+      "White/Grey"
+    ]
+  },
+  {
+    "id": "port-authority-heavyweight-cotton-pique-polo-63341",
+    "name": "Port Authority Heavyweight Cotton Pique Polo",
+    "category": "Apparel",
+    "brand": "Port Authority",
+    "description": "Size: XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [96, 39.944],
+      [144, 38.944],
+      [576, 37.944],
+      [1008, 37.444]
+    ],
+    "image": "/images/merch/port-authority-heavyweight-cotton-pique-polo-63341.webp",
+    "imageAlt": "Port Authority Heavyweight Cotton Pique Polo",
+    "colors": [
+      "Black",
+      "Blueberry",
+      "Burgundy",
+      "Classic Navy",
+      "Dark Green",
+      "Faded Blue",
+      "Faded Olive",
+      "Khaki Heather",
+      "Light Blue",
+      "Navy",
+      "Orange",
+      "Oxford",
+      "Pistachio",
+      "Red",
+      "Royal",
+      "Seafoam",
+      "Steel Grey",
+      "Stone",
+      "Yellow",
+      "White"
+    ]
+  },
+  {
+    "id": "callaway-birdseye-polo-50497",
+    "name": "Callaway Birdseye Polo",
+    "category": "Apparel",
+    "brand": "Callaway",
+    "description": "Callaway Birdseye Polo. Size: S, M, L, XL, 2XL, 3XL, 4XL.",
+    "tiers": [[1, 35]],
+    "image": "/images/merch/callaway-birdseye-polo-50497.webp",
+    "imageAlt": "Callaway Birdseye Polo",
+    "colors": [
+      "Black",
+      "Blue Atoll",
+      "Bright White Silver",
+      "Magnetic Blue",
+      "Parachute Purple",
+      "Peacoat Navy",
+      "Quiet Shade",
+      "Salsa Red"
+    ]
+  },
+  {
+    "id": "allpro-mens-pro-lock-performance-polo-41800-54875",
+    "name": "AllPro Men's Pro-Lock Performance Polo - 41800",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Size: XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [96, 25.8],
+      [144, 24.8],
+      [576, 23.8],
+      [1008, 23.3]
+    ],
+    "image": "/images/merch/allpro-mens-pro-lock-performance-polo-41800-54875.webp",
+    "imageAlt": "AllPro Men's Pro-Lock Performance Polo - 41800",
+    "colors": [
+      "White",
+      "Black",
+      "Atlantic Blue",
+      "Bright Pink",
+      "Carolina Blue",
+      "Charcoal",
+      "Cigar",
+      "Forest Green",
+      "Greystone",
+      "Heather Navy",
+      "Heather Steel",
+      "Lime",
+      "Maroon",
+      "Navy",
+      "Neon Orange",
+      "Neon Yellow",
+      "Pacific Blue",
+      "Purple",
+      "Red",
+      "Royal",
+      "Sand",
+      "Smoke"
+    ]
+  },
+  {
+    "id": "custom-sublimated-premium-polo-50731",
+    "name": "Custom Sublimated Premium Polo",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Custom Polo in Adult and Youth Sizes!",
+    "tiers": [[10, 37.071]],
+    "image": "/images/merch/custom-sublimated-premium-polo-50731.webp",
+    "imageAlt": "Custom Sublimated Premium Polo",
+    "colors": ["Assorted"]
+  },
+  {
+    "id": "mercer-mettle-womens-everyday-performance-polo-62816",
+    "name": "Mercer+Mettle Women's Everyday Performance Polo",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Size: XS, S, M, L, XL, 2XL, 3XL, 4XL. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [96, 33.574],
+      [144, 32.574],
+      [576, 31.574],
+      [1008, 31.074]
+    ],
+    "image": "/images/merch/mercer-mettle-womens-everyday-performance-polo-62816.webp",
+    "imageAlt": "Mercer+Mettle Women's Everyday Performance Polo",
+    "colors": [
+      "White",
+      "Celestialb",
+      "Deepblack",
+      "Nightnavy",
+      "Purpleash",
+      "Stormgrey",
+      "Trueblue"
+    ]
+  },
+  {
+    "id": "custom-sublimated-traditional-polo-shirt-61689",
+    "name": "Custom Sublimated Traditional Polo Shirt",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Custom Sublimated Polo Shirt (180 GSM Swiss Pique)",
+    "tiers": [[10, 27.072]],
+    "image": "/images/merch/custom-sublimated-traditional-polo-shirt-61689.webp",
+    "imageAlt": "Custom Sublimated Traditional Polo Shirt",
+    "colors": ["Assorted"]
+  },
+  {
+    "id": "custom-full-color-sublimation-long-sleeve-t-shirt-55256",
+    "name": "Custom Full Color Sublimation Long Sleeve T-Shirt",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Short-sleeve hoodie with loose fit for spring and summer wear.",
+    "tiers": [
+      [20, 12.703],
+      [50, 11.322],
+      [100, 9.063],
+      [300, 8.95],
+      [500, 5.977]
+    ],
+    "image": "/images/merch/custom-full-color-sublimation-long-sleeve-t-shirt-55256.webp",
+    "imageAlt": "Custom Full Color Sublimation Long Sleeve T-Shirt"
+  },
+  {
+    "id": "gildan-6-1-oz-100-preshrunk-cotton-t-shirt-w-custom-logo-65882",
+    "name": "Gildan 6.1 oz 100% Preshrunk Cotton T Shirt w/ Custom Logo",
+    "category": "Apparel",
+    "brand": "Gildan",
+    "description": "6.1 oz 100% Preshrunk Cotton T-shirt w/ Custom Imprint; Printed in USA. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [36, 10.13],
+      [72, 9.75],
+      [144, 8.9],
+      [288, 8.39],
+      [576, 7.73]
+    ],
+    "image": "/images/merch/gildan-6-1-oz-100-preshrunk-cotton-t-shirt-w-custom-logo-65882.webp",
+    "imageAlt": "Gildan 6.1 oz 100% Preshrunk Cotton T Shirt w/ Custom Logo",
+    "colors": [
+      "Antique Cherry Red",
+      "Antique Irish Green",
+      "Antique Royal",
+      "Ash Grey",
+      "Azalea",
+      "Black",
+      "Blue Dusk",
+      "Cardinal Red",
+      "Carolina Blue",
+      "Charcoal",
+      "Cherry Red",
+      "Cornsilk",
+      "Daisy",
+      "Dark Chocolate",
+      "Dark Heather",
+      "Forest Green",
+      "Galapagos Blue",
+      "Gold",
+      "Heather Cardinal",
+      "Heather Indigo",
+      "Heather Navy",
+      "Heather Sapphire",
+      "Heliconia",
+      "Ice Grey",
+      "Indigo Blue",
+      "Iris",
+      "Irish Green",
+      "Jade Dome",
+      "Kelly Green",
+      "Kiwi"
+    ]
+  },
+  {
+    "id": "unisex-and-kids-sublimation-160g-milk-silk-short-sleeve-t-sh-07556",
+    "name": "Unisex & Kids Sublimation 160G Milk Silk Short Sleeve T-Shir",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Unisex brushed milk short sleeve t-shirt with dye sublimation printing. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [12, 20.97],
+      [24, 17.28],
+      [50, 15.8],
+      [100, 15.18],
+      [300, 14.85]
+    ],
+    "image": "/images/merch/unisex-and-kids-sublimation-160g-milk-silk-short-sleeve-t-sh-07556.webp",
+    "imageAlt": "Unisex & Kids Sublimation 160G Milk Silk Short Sleeve T-Shir"
+  },
+  {
+    "id": "custom-full-color-dye-sublimation-short-sleeve-t-shirt-96201",
+    "name": "Custom Full Color Dye Sublimation Short Sleeve T-Shirt",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Stand out from the crowd with eye-catching custom printed graphics full color that are are sure to turn heads! Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [10, 9.99],
+      [50, 8.89],
+      [100, 7.19],
+      [250, 6.8],
+      [500, 6.3]
+    ],
+    "image": "/images/merch/custom-full-color-dye-sublimation-short-sleeve-t-shirt-96201.webp",
+    "imageAlt": "Custom Full Color Dye Sublimation Short Sleeve T-Shirt"
+  },
+  {
+    "id": "120gsm-milk-silk-short-sleeve-crew-neck-full-dye-sublimatio-98869",
+    "name": "120GSM Milk Silk Short Sleeve Crew Neck Full Dye Sublimatio",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "100% polyester, 120gsm 3.54oz milk silk moisture wicking fabric.",
+    "tiers": [
+      [1, 41.67],
+      [10, 40.83],
+      [26, 40],
+      [51, 38.33],
+      [100, 36.67]
+    ],
+    "image": "/images/merch/120gsm-milk-silk-short-sleeve-crew-neck-full-dye-sublimatio-98869.webp",
+    "imageAlt": "120GSM Milk Silk Short Sleeve Crew Neck Full Dye Sublimatio",
+    "colors": ["Assorted"]
+  },
+  {
+    "id": "160-gsm-brushed-milk-silk-mens-t-shirt-w-full-sublimation-96877",
+    "name": "160 GSM Brushed Milk Silk Men's T-Shirt W/ Full Sublimation",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "160 GSM Brushed Milk Silk performance grade full color sublimation short sleeve t shirt; soft, moisture absorption & breathable.",
+    "tiers": [
+      [12, 22.17],
+      [36, 18.85],
+      [72, 16.77],
+      [100, 15.77],
+      [250, 15.43]
+    ],
+    "image": "/images/merch/160-gsm-brushed-milk-silk-mens-t-shirt-w-full-sublimation-96877.webp",
+    "imageAlt": "160 GSM Brushed Milk Silk Men's T-Shirt W/ Full Sublimation"
+  },
+  {
+    "id": "sublimation-upf-drifit-soccer-jersey-m-w-k-03957",
+    "name": "Sublimation UPF DriFit Soccer Jersey - M/W/K",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Sublimation UPF DriFit Soccer Jersey - Men Women Kids. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [25, 22.5],
+      [50, 21.67],
+      [100, 19.2],
+      [200, 18.6],
+      [300, 18.3]
+    ],
+    "image": "/images/merch/sublimation-upf-drifit-soccer-jersey-m-w-k-03957.webp",
+    "imageAlt": "Sublimation UPF DriFit Soccer Jersey - M/W/K"
+  },
+  {
+    "id": "unisex-140-gsm-sublimation-short-sleeve-polo-shirt-27780",
+    "name": "Unisex 140 GSM Sublimation Short Sleeve Polo Shirt",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Breathable Unisex Short Sleeve Button Polo, fits various body types, practical and decent.",
+    "tiers": [
+      [10, 15.333],
+      [30, 12.297],
+      [50, 11.557],
+      [100, 9.778],
+      [300, 9.648]
+    ],
+    "image": "/images/merch/unisex-140-gsm-sublimation-short-sleeve-polo-shirt-27780.webp",
+    "imageAlt": "Unisex 140 GSM Sublimation Short Sleeve Polo Shirt"
+  },
+  {
+    "id": "gildan-softstyle-4-5-oz-t-shirt-89504",
+    "name": "Gildan Softstyle® 4.5 oz. T-Shirt",
+    "category": "Apparel",
+    "brand": "Gildan",
+    "description": "T-shirt with imprint options. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [96, 12.124],
+      [144, 11.124],
+      [576, 10.124],
+      [1008, 9.624]
+    ],
+    "image": "/images/merch/gildan-softstyle-4-5-oz-t-shirt-89504.webp",
+    "imageAlt": "Gildan Softstyle® 4.5 oz. T-Shirt",
+    "colors": [
+      "White",
+      "Black",
+      "Antique Heliconia",
+      "Cardinal Red",
+      "Charcoal",
+      "Cherry Red",
+      "Dark Chocolate",
+      "Dark Heather",
+      "Heather Irish Green",
+      "Heather Navy",
+      "Heather Orange",
+      "Heather Purple",
+      "Heather Royal",
+      "Indigo Blue",
+      "Irish Green",
+      "Kiwi",
+      "Light Blue",
+      "Military Green",
+      "Navy",
+      "Orange",
+      "Purple",
+      "Red",
+      "Royal",
+      "Sand",
+      "Sport Grey",
+      "Antique Cherry Red",
+      "Antique Sapphire",
+      "Azalea",
+      "Carolina Blue",
+      "Coral Silk"
+    ]
+  },
+  {
+    "id": "gildan-unisex-heavy-cotton-t-shirt-34247",
+    "name": "Gildan Unisex Heavy Cotton T-Shirt",
+    "category": "Apparel",
+    "brand": "Gildan",
+    "description": "Unisex heavy cotton T-shirt with taped neck and shoulders. Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [72, 9.96],
+      [144, 7.99],
+      [288, 7.57],
+      [576, 7.29],
+      [1008, 7.06]
+    ],
+    "image": "/images/merch/gildan-unisex-heavy-cotton-t-shirt-34247.webp",
+    "imageAlt": "Gildan Unisex Heavy Cotton T-Shirt",
+    "colors": [
+      "Ash",
+      "Azalea",
+      "Black",
+      "Brown Savana",
+      "Cardinal Red",
+      "Carolina Blue",
+      "Charcoal",
+      "Cobalt",
+      "Cornsilk",
+      "Daisy",
+      "Dark Chocolate",
+      "Dark Heather",
+      "Electric Green",
+      "Forest",
+      "Gold",
+      "Graphite Heather",
+      "Gravel",
+      "Heather Military Green",
+      "Heather Navy",
+      "Heather Radiant Orchid",
+      "Ice Grey",
+      "Indigo Blue",
+      "Kiwi",
+      "Lilac",
+      "Lime",
+      "Lt Blue",
+      "Lt Pink",
+      "Maroon",
+      "Mint Green",
+      "Natural"
+    ]
+  },
+  {
+    "id": "gildan-dryblend-5-6-oz-50-50-cotton-polyester-t-shirts-68375",
+    "name": "Gildan Dryblend 5.6 oz 50:50 Cotton/ Polyester T-Shirts",
+    "category": "Apparel",
+    "brand": "Gildan",
+    "description": "Gildan Dryblend 5.6 oz 50/50 Cotton/ Polyester T-shirt w/ Moisture-wicking; Printed in USA. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [36, 9.3],
+      [72, 9.23],
+      [144, 8.56],
+      [288, 7.97],
+      [576, 7.1]
+    ],
+    "image": "/images/merch/gildan-dryblend-5-6-oz-50-50-cotton-polyester-t-shirts-68375.webp",
+    "imageAlt": "Gildan Dryblend 5.6 oz 50:50 Cotton/ Polyester T-Shirts",
+    "colors": [
+      "Gold",
+      "Light Blue",
+      "Royal Blue",
+      "White",
+      "Black",
+      "Maroon",
+      "Navy Blue",
+      "Orange",
+      "Purple",
+      "Red",
+      "Ash Grey",
+      "Azalea",
+      "Carolina Blue",
+      "Daisy",
+      "Dark Heather",
+      "Electric Green",
+      "Forest Green",
+      "Graphite Heather",
+      "Gravel",
+      "Heather Sport",
+      "Dark Navy",
+      "Heather Sport Royal",
+      "Heather Sport Scarlet Red",
+      "Heliconia",
+      "Irish Green",
+      "Jade Dome",
+      "Kelly Green",
+      "Light Pink",
+      "Lime",
+      "Orchid"
+    ]
+  },
+  {
+    "id": "tultex-unisex-fine-jersey-t-shirt-202-69924",
+    "name": "Tultex Unisex Fine Jersey T-Shirt - 202",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Size: XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [96, 11.994],
+      [144, 10.994],
+      [576, 9.994],
+      [1008, 9.494]
+    ],
+    "image": "/images/merch/tultex-unisex-fine-jersey-t-shirt-202-69924.webp",
+    "imageAlt": "Tultex Unisex Fine Jersey T-Shirt - 202",
+    "colors": [
+      "White",
+      "Black",
+      "Aqua",
+      "Baby Blue",
+      "Bright Coral",
+      "Brown",
+      "Burgundy",
+      "Cantaloupe",
+      "Cardinal",
+      "Carolina Blue",
+      "Cassis",
+      "Charcoal",
+      "Coal",
+      "Coral",
+      "Deep Blue",
+      "Desert Brown",
+      "Forest Green",
+      "Fuchsia",
+      "Ginger",
+      "Gold",
+      "Heather Aqua Blue",
+      "Heather Burgundy",
+      "Heather Cantaloupe",
+      "Heather Cardinal",
+      "Heather Cassis",
+      "Heather Charcoal",
+      "Heather Denim",
+      "Heather Graphite",
+      "Heather Grey",
+      "Heather Indigo Blue"
+    ]
+  },
+  {
+    "id": "cornerstone-a107-class-3-heavy-duty-fleece-full-zip-hoodie-03279",
+    "name": "CornerStone A107 Class 3 Heavy-Duty Fleece Full-Zip Hoodie",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Jacket with a full-zip, hood, cuffs, reflective tape, drawcord closure, and pockets. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [[96, 89.38]],
+    "image": "/images/merch/cornerstone-a107-class-3-heavy-duty-fleece-full-zip-hoodie-03279.webp",
+    "imageAlt": "CornerStone A107 Class 3 Heavy-Duty Fleece Full-Zip Hoodie",
+    "colors": ["Sftyorg", "Sftyyellow"]
+  },
+  {
+    "id": "district-v-i-t-super-heavyweight-fleece-hoodie-62005",
+    "name": "District V.I.T. Super Heavyweight Fleece Hoodie",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Size: XS, S, M, L, XL, 2XL, 3XL, 4XL. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [[96, 66.2]],
+    "image": "/images/merch/district-v-i-t-super-heavyweight-fleece-hoodie-62005.webp",
+    "imageAlt": "District V.I.T. Super Heavyweight Fleece Hoodie",
+    "colors": ["Black", "Deeproyal", "Htdchar", "Lthtgry", "Navyhthr", "Newnavy", "Oaththr"]
+  },
+  {
+    "id": "pullover-hoodie-85787",
+    "name": "Pullover Hoodie",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Polyester and fleece sweatshirt with a hood.",
+    "tiers": [
+      [100, 18.4],
+      [200, 17.55],
+      [500, 13.4],
+      [1000, 13.083],
+      [2500, 12.883]
+    ],
+    "image": "/images/merch/pullover-hoodie-85787.webp",
+    "imageAlt": "Pullover Hoodie",
+    "colors": [
+      "Black",
+      "Burgundy",
+      "Green",
+      "Pink",
+      "Red",
+      "White",
+      "Yellow",
+      "Dark Gray",
+      "Light Gray",
+      "Dark Blue"
+    ]
+  },
+  {
+    "id": "adult-full-zip-vantage-heather-hoodie-embroidery-19421",
+    "name": "Adult Full Zip Vantage Heather Hoodie - Embroidery",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Full zip design which makes it easy to put on and take off, providing convenience and flexibility.",
+    "tiers": [
+      [48, 26.16],
+      [72, 23.08],
+      [144, 22.17]
+    ],
+    "image": "/images/merch/adult-full-zip-vantage-heather-hoodie-embroidery-19421.webp",
+    "imageAlt": "Adult Full Zip Vantage Heather Hoodie - Embroidery",
+    "colors": ["Turquoise", "Charcoal", "Fuschia", "Burgundy", "Olive", "Purple"]
+  },
+  {
+    "id": "womens-sublimation-250g-lightweight-kangaroo-hoodie-07572",
+    "name": "Women's Sublimation 250G Lightweight Kangaroo Hoodie",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Women's sublimation hoodie with kangaroo pocket, long sleeves and a semi-fitted design. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [12, 40.32],
+      [24, 35.58],
+      [50, 34.35],
+      [100, 32.87],
+      [300, 31.3]
+    ],
+    "image": "/images/merch/womens-sublimation-250g-lightweight-kangaroo-hoodie-07572.webp",
+    "imageAlt": "Women's Sublimation 250G Lightweight Kangaroo Hoodie"
+  },
+  {
+    "id": "nike-tech-fleece-full-zip-hoodie-62735",
+    "name": "Nike Tech Fleece Full-Zip Hoodie",
+    "category": "Apparel",
+    "brand": "Nike",
+    "description": "Size: XS, S, M, L, XL, 2XL, 3XL, 4XL. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [[96, 260.82]],
+    "image": "/images/merch/nike-tech-fleece-full-zip-hoodie-62735.webp",
+    "imageAlt": "Nike Tech Fleece Full-Zip Hoodie",
+    "colors": ["Black", "Anthrctht", "Dkgyhthr"]
+  },
+  {
+    "id": "nike-club-fleece-pullover-hoodie-83670",
+    "name": "Nike Club Fleece Pullover Hoodie",
+    "category": "Apparel",
+    "brand": "Nike",
+    "description": "Club Fleece Pullover Hoodie 8.2 oz.; 80/20 cotton/polyester with a 100% cotton hood lining. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [36, 89.24],
+      [72, 84.9],
+      [144, 81.56],
+      [288, 78.35],
+      [576, 75.5]
+    ],
+    "image": "/images/merch/nike-club-fleece-pullover-hoodie-83670.webp",
+    "imageAlt": "Nike Club Fleece Pullover Hoodie",
+    "colors": [
+      "Anthracite",
+      "Black",
+      "Dark Green",
+      "Dark Maroon",
+      "Navy",
+      "Royal",
+      "Dark Gray Heather",
+      "White"
+    ]
+  },
+  {
+    "id": "unisex-basic-pullover-hoodies-89134",
+    "name": "Unisex Basic Pullover Hoodies",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Pullover hoodie with pull resistance, double-lined hood, drawcords, ribbed cuffs, and front pouch pockets. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [96, 28.92],
+      [144, 27.92],
+      [576, 26.92],
+      [1008, 26.42]
+    ],
+    "image": "/images/merch/unisex-basic-pullover-hoodies-89134.webp",
+    "imageAlt": "Unisex Basic Pullover Hoodies",
+    "colors": [
+      "Black",
+      "Antique Sapphire",
+      "Antque Cherry Red",
+      "Ash",
+      "Azalea",
+      "Cardinal Red",
+      "Carolina Blue",
+      "Charcoal",
+      "Cherry Red",
+      "Dark Chocolate",
+      "Dark Heather",
+      "Forest Green",
+      "Garnet",
+      "Gold",
+      "Heather Sport Dark Green",
+      "Heather Sport Dark Maroon",
+      "Heather Sport Dark Navy",
+      "Heather Sport Royal",
+      "Heather Sport Scarlet Red",
+      "Heliconia",
+      "Indigo Blue",
+      "Irish Green",
+      "Light Blue",
+      "Light Pink",
+      "Maroon",
+      "Military Green",
+      "Mint Green",
+      "Navy",
+      "Old Gold",
+      "Orange"
+    ]
+  },
+  {
+    "id": "unisex-280-gsm-spandex-interlock-fleece-zipper-hoodie-16065",
+    "name": "Unisex 280 GSM Spandex Interlock Fleece Zipper Hoodie",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Unisex fleece zipper hoodie.",
+    "tiers": [
+      [12, 44.52],
+      [36, 43.5],
+      [72, 43.02],
+      [100, 42.99],
+      [250, 41.31]
+    ],
+    "image": "/images/merch/unisex-280-gsm-spandex-interlock-fleece-zipper-hoodie-16065.webp",
+    "imageAlt": "Unisex 280 GSM Spandex Interlock Fleece Zipper Hoodie",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "unisex-250-gsm-comfort-fleece-sublimation-pullover-hoodies-27576",
+    "name": "Unisex 250 GSM Comfort Fleece Sublimation Pullover Hoodies",
+    "category": "Apparel",
+    "brand": "Essentials",
+    "description": "Made to order Unisex 250 GSM Comfort Fleece Elastic fitting and Warmth Sublimation Pullover Hoodies With Kangaroo Pocket.",
+    "tiers": [
+      [12, 39.35],
+      [36, 37.7],
+      [72, 35.82],
+      [250, 35.08]
+    ],
+    "image": "/images/merch/unisex-250-gsm-comfort-fleece-sublimation-pullover-hoodies-27576.webp",
+    "imageAlt": "Unisex 250 GSM Comfort Fleece Sublimation Pullover Hoodies",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "clear-tpu-tote-with-zipper-57293",
+    "name": "Clear TPU Tote with Zipper",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "18\" x 14\" x 4.25\" clear TPU tote bag with 26\" handles and zipper.",
+    "tiers": [
+      [50, 9.47],
+      [150, 8.85],
+      [250, 8.27],
+      [500, 7.73]
+    ],
+    "image": "/images/merch/clear-tpu-tote-with-zipper-57293.webp",
+    "imageAlt": "Clear TPU Tote with Zipper",
+    "colors": ["Clear-Black"]
+  },
+  {
+    "id": "13-w-x-15-h-with-a-10-gusset-shopping-tote-02655",
+    "name": "13\"w x 15\"h with a 10\" Gusset Shopping Tote",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "13\" x 15\" 80 GSM non-woven polypropylene shopping tote with 10\" gusset and 22\" handles. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [150, 2.52],
+      [250, 2.36],
+      [500, 2.2],
+      [1000, 2.06],
+      [2500, 1.93]
+    ],
+    "image": "/images/merch/13-w-x-15-h-with-a-10-gusset-shopping-tote-02655.webp",
+    "imageAlt": "13\"w x 15\"h with a 10\" Gusset Shopping Tote",
+    "colors": [
+      "Black",
+      "Gray",
+      "Kelly Green",
+      "Navy",
+      "Royal Blue",
+      "Red",
+      "Teal",
+      "White",
+      "Yellow",
+      "Cream",
+      "Tan"
+    ]
+  },
+  {
+    "id": "heat-sealed-non-woven-shopping-bag-58642",
+    "name": "Heat Sealed Non Woven Shopping Bag",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "Heat seal seam handles with a large main compartment with a 4\" bottom, no sides.",
+    "tiers": [
+      [50, 0.582],
+      [100, 0.576],
+      [250, 0.563],
+      [500, 0.554]
+    ],
+    "image": "/images/merch/heat-sealed-non-woven-shopping-bag-58642.webp",
+    "imageAlt": "Heat Sealed Non Woven Shopping Bag",
+    "colors": ["Assorted", "Black", "Blue", "Green", "Orange", "Yellow", "White", "Red", "Purple"]
+  },
+  {
+    "id": "non-woven-value-tote-bag-33305",
+    "name": "Non-Woven Value Tote Bag",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "14\" x 13.25\" non-woven tote bag with handles.",
+    "tiers": [
+      [250, 1.48],
+      [500, 1.36],
+      [1000, 1.26],
+      [2500, 1.22],
+      [5000, 1.18]
+    ],
+    "image": "/images/merch/non-woven-value-tote-bag-33305.webp",
+    "imageAlt": "Non-Woven Value Tote Bag",
+    "colors": ["Red", "Lime", "Hunter Green", "Royal Blue", "Sky Blue", "Purple", "Gray", "Orange"]
+  },
+  {
+    "id": "non-woven-insulated-recycled-tote-bag-91134",
+    "name": "Non Woven Insulated Recycled Tote Bag",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "Non-woven reusable insulated tote bag made of 80 GSM.",
+    "tiers": [
+      [100, 4.44],
+      [250, 4.34],
+      [500, 4.24],
+      [1000, 4.04],
+      [2500, 3.78]
+    ],
+    "image": "/images/merch/non-woven-insulated-recycled-tote-bag-91134.webp",
+    "imageAlt": "Non Woven Insulated Recycled Tote Bag",
+    "colors": ["Black", "Hunter Green", "Lime Green", "Navy Blue", "Red", "Blue", "Teal", "White"]
+  },
+  {
+    "id": "13-w-x-16-5-h-drawstring-non-woven-bag-4-color-91490",
+    "name": "13\"w x 16.5\"h Drawstring Non-Woven Bag- 4 Color",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "13.5\" x 16.5\" 80 gram non-woven polypropylene drawstring backpack.",
+    "tiers": [
+      [150, 4.97],
+      [250, 4.65],
+      [500, 4.34],
+      [1000, 4.06],
+      [2500, 3.8]
+    ],
+    "image": "/images/merch/13-w-x-16-5-h-drawstring-non-woven-bag-4-color-91490.webp",
+    "imageAlt": "13\"w x 16.5\"h Drawstring Non-Woven Bag- 4 Color",
+    "colors": [
+      "Black",
+      "Gray",
+      "Lime",
+      "Navy",
+      "Orange",
+      "Purple",
+      "Royal Blue",
+      "Red",
+      "Teal",
+      "Yellow"
+    ]
+  },
+  {
+    "id": "small-starboard-recycled-cotton-canvas-tote-53301",
+    "name": "Small Starboard Recycled Cotton Canvas Tote",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "Compact tote crafted with this recycled cotton-poly canvas and an added front pocket.",
+    "tiers": [
+      [100, 7.06],
+      [250, 6.07],
+      [500, 5.23],
+      [1000, 4.5],
+      [2500, 3.87]
+    ],
+    "image": "/images/merch/small-starboard-recycled-cotton-canvas-tote-53301.webp",
+    "imageAlt": "Small Starboard Recycled Cotton Canvas Tote",
+    "colors": [
+      "Natural/Black",
+      "Natural/Red",
+      "Natural/Navy",
+      "Natural/Yellow",
+      "Natural/Forest Green"
+    ]
+  },
+  {
+    "id": "custom-cotton-grocery-tote-bags-58176",
+    "name": "Custom Cotton Grocery Tote Bags",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "Grocery tote bag with reinforced 22\" handles.",
+    "tiers": [
+      [100, 6.16],
+      [150, 6.06],
+      [200, 5.78],
+      [250, 5.72],
+      [300, 5.56]
+    ],
+    "image": "/images/merch/custom-cotton-grocery-tote-bags-58176.webp",
+    "imageAlt": "Custom Cotton Grocery Tote Bags",
+    "colors": ["Natural", "Navy Blue", "Red", "Black", "Royal Blue"]
+  },
+  {
+    "id": "eco-non-woven-shopping-tote-22997",
+    "name": "Eco Non-Woven Shopping Tote",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "20\" x 13\" non-woven, water-resistant shopping tote with handles. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [150, 1.83],
+      [250, 1.71],
+      [500, 1.6],
+      [1000, 1.49],
+      [2500, 1.4]
+    ],
+    "image": "/images/merch/eco-non-woven-shopping-tote-22997.webp",
+    "imageAlt": "Eco Non-Woven Shopping Tote",
+    "colors": [
+      "Black",
+      "Forest Green",
+      "Gray",
+      "Lime Green",
+      "Navy Blue",
+      "Orange",
+      "Pink",
+      "Purple",
+      "Red",
+      "Royal Blue",
+      "White",
+      "Yellow"
+    ]
+  },
+  {
+    "id": "the-madelyn-cotton-canvas-tote-bag-57437",
+    "name": "The Madelyn Cotton Canvas Tote Bag",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "Boat tote bag made of cotton canvas with an open main compartment and 20\" handles.",
+    "tiers": [
+      [10, 34.97],
+      [20, 30.41],
+      [50, 26.44],
+      [100, 22.99],
+      [250, 19.99]
+    ],
+    "image": "/images/merch/the-madelyn-cotton-canvas-tote-bag-57437.webp",
+    "imageAlt": "The Madelyn Cotton Canvas Tote Bag",
+    "colors": [
+      "Natural/Black",
+      "Natural/Forest Green",
+      "Natural/Navy",
+      "Natural/Red",
+      "Natural/Royal Blue"
+    ]
+  },
+  {
+    "id": "belgrade-cotton-canvas-tote-bags-59321",
+    "name": "Belgrade Cotton Canvas Tote Bags",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "12 oz. cotton canvas tote bag with 22\" webbed color handles. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [100, 1.99],
+      [250, 1.79],
+      [500, 1.59],
+      [1000, 1.49],
+      [2500, 1.39]
+    ],
+    "image": "/images/merch/belgrade-cotton-canvas-tote-bags-59321.webp",
+    "imageAlt": "Belgrade Cotton Canvas Tote Bags",
+    "colors": ["Natural-Fuchsia"]
+  },
+  {
+    "id": "penny-wise-cotton-canvas-tote-bag-41852",
+    "name": "Penny Wise Cotton Canvas Tote Bag",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "Penny Wise tote bag for carrying your essential items from place to place.",
+    "tiers": [
+      [100, 2.35],
+      [250, 2.28],
+      [500, 2.21],
+      [1000, 2.15],
+      [2500, 2.09]
+    ],
+    "image": "/images/merch/penny-wise-cotton-canvas-tote-bag-41852.webp",
+    "imageAlt": "Penny Wise Cotton Canvas Tote Bag",
+    "colors": [
+      "Natural/Black",
+      "Natural/Green",
+      "Natural/Navy",
+      "Natural/Orange",
+      "Natural/Red",
+      "Natural/Royal Blue",
+      "Natural/Purple",
+      "Natural/Teal"
+    ]
+  },
+  {
+    "id": "charlie-cotton-tote-bag-27845",
+    "name": "Charlie Cotton Tote Bag",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "Charlie tote bag made of 10 oz. cotton canvas with 26\" handles for comfort while carrying.",
+    "tiers": [
+      [100, 9.35],
+      [250, 8.13],
+      [500, 7.07],
+      [1000, 6.15],
+      [2500, 5.35]
+    ],
+    "image": "/images/merch/charlie-cotton-tote-bag-27845.webp",
+    "imageAlt": "Charlie Cotton Tote Bag",
+    "colors": ["Hunter Green", "Black/Natural", "Navy/Natural", "Red/Natural"]
+  },
+  {
+    "id": "small-starboard-recycled-10oz-cotton-tote-bag-78674",
+    "name": "Small Starboard Recycled 10oz Cotton Tote Bag",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "13\" x 11\" x 6\" recycled cotton canvas tote bag with outside pocket and 18\" handles.",
+    "tiers": [
+      [100, 6.65],
+      [250, 5.81],
+      [500, 5.05],
+      [1000, 4.4],
+      [2500, 3.82]
+    ],
+    "image": "/images/merch/small-starboard-recycled-10oz-cotton-tote-bag-78674.webp",
+    "imageAlt": "Small Starboard Recycled 10oz Cotton Tote Bag",
+    "colors": [
+      "Natural-Black",
+      "Natural-Navy Blue",
+      "Natural-Green",
+      "Natural-Purple",
+      "Natural-Orange",
+      "Natural-Red"
+    ]
+  },
+  {
+    "id": "oxford-cloth-insulated-portable-lunch-bag-01633",
+    "name": "Oxford Cloth Insulated Portable Lunch Bag",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "Durable Oxford cloth lunch bag. Insulated, waterproof, and tear-resistant for commutes, hiking, and fresh meals.",
+    "tiers": [
+      [100, 3.78],
+      [200, 3.75],
+      [500, 3.6],
+      [1000, 3.39],
+      [5000, 1.51]
+    ],
+    "image": "/images/merch/oxford-cloth-insulated-portable-lunch-bag-01633.webp",
+    "imageAlt": "Oxford Cloth Insulated Portable Lunch Bag",
+    "colors": ["Black", "Gray", "Pink", "Red"]
+  },
+  {
+    "id": "liberty-bags-carmel-classic-xl-cotton-canvas-resort-tote-90521",
+    "name": "Liberty Bags Carmel Classic XL Cotton Canvas Resort Tote",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "Liberty Bags Carmel Classic XL Cotton Canvas Boat Tote. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [96, 51.618],
+      [144, 50.618],
+      [576, 49.618],
+      [1008, 49.118]
+    ],
+    "image": "/images/merch/liberty-bags-carmel-classic-xl-cotton-canvas-resort-tote-90521.webp",
+    "imageAlt": "Liberty Bags Carmel Classic XL Cotton Canvas Resort Tote",
+    "colors": [
+      "Natural/Black",
+      "Natural/Navy",
+      "Natural/Red",
+      "Natural/Royal",
+      "Black",
+      "Natural/Forest"
+    ]
+  },
+  {
+    "id": "reusable-grocery-tote-bags-89106",
+    "name": "Reusable Grocery Tote Bags",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "Grocery tote bag with water resistance, storage compartment, and handles.",
+    "tiers": [
+      [100, 3.7],
+      [200, 3.52],
+      [300, 3.1],
+      [500, 2.62],
+      [1000, 2.56]
+    ],
+    "image": "/images/merch/reusable-grocery-tote-bags-89106.webp",
+    "imageAlt": "Reusable Grocery Tote Bags",
+    "colors": [
+      "Black",
+      "Burgundy",
+      "Forest Green",
+      "Khaki",
+      "Lime Green",
+      "Navy Blue",
+      "Orange",
+      "Pink",
+      "Purple",
+      "Red",
+      "Royal Blue",
+      "Yellow",
+      "White"
+    ]
+  },
+  {
+    "id": "q-tees-34-6l-large-canvas-deluxe-tote-q1500-82960",
+    "name": "Q-Tees 34.6L Large Canvas Deluxe Tote - Q1500",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "Q-Tees 34.6L Large Canvas Deluxe Tote - Q1500. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [96, 23.85],
+      [144, 22.85],
+      [576, 21.85],
+      [1008, 21.35]
+    ],
+    "image": "/images/merch/q-tees-34-6l-large-canvas-deluxe-tote-q1500-82960.webp",
+    "imageAlt": "Q-Tees 34.6L Large Canvas Deluxe Tote - Q1500",
+    "colors": [
+      "Natural/Black",
+      "Natural/Light Pink",
+      "Natural/Lime",
+      "Natural/Maroon",
+      "Natural",
+      "Natural/Navy",
+      "Natural/Purple",
+      "Natural/Red",
+      "Natural/Royal"
+    ]
+  },
+  {
+    "id": "medium-24-oz-recycled-cotton-canvas-bag-37418",
+    "name": "Medium 24 oz. Recycled Cotton Canvas Bag",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "24 oz. Cotton canvas tote bag with outside pocket and 30\" handles.",
+    "tiers": [
+      [25, 14.18],
+      [50, 13.76],
+      [100, 13.35],
+      [250, 12.96],
+      [500, 12.59]
+    ],
+    "image": "/images/merch/medium-24-oz-recycled-cotton-canvas-bag-37418.webp",
+    "imageAlt": "Medium 24 oz. Recycled Cotton Canvas Bag",
+    "colors": [
+      "Natural-Black",
+      "Natural-Green",
+      "Natural-Navy Blue",
+      "Natural-Purple",
+      "Natural-Red"
+    ]
+  },
+  {
+    "id": "12-oz-heavyweight-cotton-canvas-tote-bag-15-x-16-11508",
+    "name": "12 oz. Heavyweight Cotton Canvas Tote Bag (15\" x 16\")",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "Heavyweight 12 0z. Cotton Canvas Tote Bag; 15\" x 16. Printed in the USA for faster production and delivery! Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [100, 5.41],
+      [250, 5.3],
+      [500, 5.19],
+      [1000, 5.03],
+      [2500, 4.88]
+    ],
+    "image": "/images/merch/12-oz-heavyweight-cotton-canvas-tote-bag-15-x-16-11508.webp",
+    "imageAlt": "12 oz. Heavyweight Cotton Canvas Tote Bag (15\" x 16\")",
+    "colors": [
+      "Forest-Green",
+      "Yellow",
+      "Royal Blue",
+      "White",
+      "Black",
+      "Hot-Pink",
+      "Natural",
+      "Gray",
+      "Gold",
+      "Lime-Green",
+      "Light-Pink",
+      "Orange",
+      "Lavender",
+      "Navy Blue",
+      "Red",
+      "Texas-Orange",
+      "Kelly-Green",
+      "Karoline/Blue",
+      "Chocolate",
+      "Turquoise",
+      "Sapphire",
+      "Azalea",
+      "Army-Green",
+      "Purple",
+      "Maroon"
+    ]
+  },
+  {
+    "id": "saturn-jumbo-non-woven-grocery-tote-bag-48013",
+    "name": "Saturn Jumbo Non-Woven Grocery Tote Bag",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "Lightweight and eco-friendly grocery tote bag with spacious open main compartment, 10\" gusset and 20\" long reinforced handles.",
+    "tiers": [[150, 1.85]],
+    "image": "/images/merch/saturn-jumbo-non-woven-grocery-tote-bag-48013.webp",
+    "imageAlt": "Saturn Jumbo Non-Woven Grocery Tote Bag",
+    "colors": [
+      "Black",
+      "Burgundy",
+      "Orange",
+      "Purple",
+      "Red",
+      "Teal",
+      "White",
+      "Yellow",
+      "Blue-Carolina",
+      "Blue-Navy",
+      "Blue-Reflex",
+      "Green-Hunter",
+      "Green-Lime"
+    ]
+  },
+  {
+    "id": "natural-cotton-canvas-recycled-grocery-tote-bag-37293",
+    "name": "Natural Cotton Canvas Recycled Grocery Tote Bag",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "Grocery tote bag made of natural cotton canvas material.",
+    "tiers": [
+      [100, 2.75],
+      [250, 2.5],
+      [500, 2.2],
+      [1000, 1.99],
+      [2500, 1.9]
+    ],
+    "image": "/images/merch/natural-cotton-canvas-recycled-grocery-tote-bag-37293.webp",
+    "imageAlt": "Natural Cotton Canvas Recycled Grocery Tote Bag",
+    "colors": ["Natural-Black", "Natural-Blue", "Natural-Green", "Natural-Red"]
+  },
+  {
+    "id": "clearpath-eva-stadium-tote-bag-10206",
+    "name": "ClearPath EVA Stadium Tote Bag",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "12\" x 10\" x 5\" clear EVA stadium bag with reinforced handles. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [150, 4.49],
+      [250, 4.36],
+      [500, 4.23],
+      [1000, 4.11],
+      [2500, 3.99]
+    ],
+    "image": "/images/merch/clearpath-eva-stadium-tote-bag-10206.webp",
+    "imageAlt": "ClearPath EVA Stadium Tote Bag",
+    "colors": ["Blue", "Black", "Navy"]
+  },
+  {
+    "id": "trevor-rpet-backpack-08758",
+    "name": "Trevor rPET Backpack",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "Size: 5.25\" x 16.25\" x 10.75\".",
+    "tiers": [
+      [30, 12.37],
+      [120, 12.01],
+      [240, 11.66],
+      [480, 11.32],
+      [1080, 10.99]
+    ],
+    "image": "/images/merch/trevor-rpet-backpack-08758.webp",
+    "imageAlt": "Trevor rPET Backpack",
+    "colors": ["Black", "Gray/Black", "Royal Blue/Black"]
+  },
+  {
+    "id": "multi-purpose-leisure-backpack-80398",
+    "name": "Multi Purpose Leisure Backpack",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "12.5\" x 16\" x 6\" multipurpose backpack with padded, adjustable shoulder straps and top grab handle. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [50, 16.34],
+      [100, 14.32],
+      [200, 14.3],
+      [500, 10.24],
+      [1000, 9.74]
+    ],
+    "image": "/images/merch/multi-purpose-leisure-backpack-80398.webp",
+    "imageAlt": "Multi Purpose Leisure Backpack",
+    "colors": ["Red", "Green", "Gray"]
+  },
+  {
+    "id": "minimalist-vegan-leather-travel-laptop-backpack-65870",
+    "name": "Minimalist Vegan Leather Travel Laptop Backpack",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "Water resistant vegan leather backpack with 15.6 in laptop storage, organized pockets, and a luggage strap for easy travel.",
+    "tiers": [
+      [30, 55.1],
+      [100, 53.533],
+      [200, 51.5],
+      [500, 50],
+      [1000, 47.45]
+    ],
+    "image": "/images/merch/minimalist-vegan-leather-travel-laptop-backpack-65870.webp",
+    "imageAlt": "Minimalist Vegan Leather Travel Laptop Backpack",
+    "colors": ["Black", "White", "Coffee", "Brown", "Dark Brown"]
+  },
+  {
+    "id": "rolltop-backpack-66453",
+    "name": "Rolltop Backpack",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "10.63\" x 16.93\" x 6.10\" rolltop backpack with padded straps.",
+    "tiers": [
+      [20, 55.46],
+      [40, 54.2],
+      [80, 52.34],
+      [120, 49.52],
+      [240, 47]
+    ],
+    "image": "/images/merch/rolltop-backpack-66453.webp",
+    "imageAlt": "Rolltop Backpack",
+    "colors": ["Black", "Beehive", "Olive", "Pacific Blue"]
+  },
+  {
+    "id": "28-can-backpack-cooler-16530",
+    "name": "28-Can Backpack Cooler",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "17.33\" x 11.82\" x 5.91\" (H x L x W), Weight: 1.34 pounds / 610g, can hold at least 28 cans, about 25L.",
+    "tiers": [
+      [50, 21.183],
+      [100, 20.45],
+      [300, 12.467],
+      [500, 11.967],
+      [1000, 11.083]
+    ],
+    "image": "/images/merch/28-can-backpack-cooler-16530.webp",
+    "imageAlt": "28-Can Backpack Cooler",
+    "colors": ["Black", "Gray", "Orange & Grey", "Navy Blue"]
+  },
+  {
+    "id": "samsonite-cablewood-laptop-backpack-29835",
+    "name": "Samsonite Cablewood Laptop Backpack",
+    "category": "Bags",
+    "brand": "Samsonite",
+    "description": "Laptop backpack with padded laptop compartment that fits up to a 15.6\" laptop.",
+    "tiers": [
+      [6, 135.41],
+      [25, 116.13],
+      [50, 93.58],
+      [100, 89.98]
+    ],
+    "image": "/images/merch/samsonite-cablewood-laptop-backpack-29835.webp",
+    "imageAlt": "Samsonite Cablewood Laptop Backpack",
+    "colors": ["Charcoal Heather"]
+  },
+  {
+    "id": "osprey-arcane-small-day-66110",
+    "name": "Osprey Arcane™ Small Day",
+    "category": "Bags",
+    "brand": "Osprey",
+    "description": "10.6\"L x 15.4\"H x 6.7\"W backpack with J-zip front panel to access the main compartment.",
+    "tiers": [[6, 76.98]],
+    "image": "/images/merch/osprey-arcane-small-day-66110.webp",
+    "imageAlt": "Osprey Arcane™ Small Day",
+    "colors": ["Black"]
+  },
+  {
+    "id": "water-resistant-laptop-backpack-with-usb-charging-port-88615",
+    "name": "Water Resistant Laptop Backpack With USB Charging Port",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "The laptop usb backpack for daily necessities and tech electronics accessories, make your items organized and easier to find.",
+    "tiers": [
+      [30, 17.69],
+      [200, 14.16],
+      [500, 7.54],
+      [1000, 7.19],
+      [3000, 6.98]
+    ],
+    "image": "/images/merch/water-resistant-laptop-backpack-with-usb-charging-port-88615.webp",
+    "imageAlt": "Water Resistant Laptop Backpack With USB Charging Port",
+    "colors": ["Red", "Blue", "Black", "Gray"]
+  },
+  {
+    "id": "samsonite-better-than-basic-laptop-backpack-29605",
+    "name": "Samsonite Better Than Basic Laptop Backpack",
+    "category": "Bags",
+    "brand": "Samsonite",
+    "description": "Laptop backpack with adjustable shoulder straps and dedicated laptop compartment.",
+    "tiers": [[6, 84.98]],
+    "image": "/images/merch/samsonite-better-than-basic-laptop-backpack-29605.webp",
+    "imageAlt": "Samsonite Better Than Basic Laptop Backpack",
+    "colors": ["Limestone", "Black"]
+  },
+  {
+    "id": "timbuk2-city-compass-recycled-polyester-core-pack-04893",
+    "name": "Timbuk2 City Compass Recycled Polyester Core Pack",
+    "category": "Bags",
+    "brand": "Timbuk2",
+    "description": "Backpack with 15\" laptop sleeve and organization throughout.",
+    "tiers": [
+      [8, 105.31],
+      [25, 90.32],
+      [50, 72.78],
+      [100, 69.98]
+    ],
+    "image": "/images/merch/timbuk2-city-compass-recycled-polyester-core-pack-04893.webp",
+    "imageAlt": "Timbuk2 City Compass Recycled Polyester Core Pack",
+    "colors": ["Nautical", "Jet Black"]
+  },
+  {
+    "id": "swissdigital-arbon-rfid-travel-business-backpack-77676",
+    "name": "SwissDigital® ARBON RFID Travel Business Backpack",
+    "category": "Bags",
+    "brand": "Essentials",
+    "description": "USB port, RFID pocket, Add-A-Bag strap, fits laptops/tablets up to 16\", plus pockets for power bank, water bottle & more! Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [12, 43.5],
+      [72, 43],
+      [144, 42],
+      [288, 40.5],
+      [576, 39.5]
+    ],
+    "image": "/images/merch/swissdigital-arbon-rfid-travel-business-backpack-77676.webp",
+    "imageAlt": "SwissDigital® ARBON RFID Travel Business Backpack",
+    "colors": ["Black", "Dark Blue"]
+  },
+  {
+    "id": "20-oz-ribbed-borosilicate-glass-can-with-bamboo-lid-01037",
+    "name": "20 oz. Ribbed Borosilicate Glass Can with Bamboo Lid",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "20 oz. ribbed borosilicate glass can with bamboo lid and 9\" straw.",
+    "tiers": [
+      [48, 10.48],
+      [96, 9.11],
+      [144, 7.92],
+      [288, 6.89],
+      [576, 5.99]
+    ],
+    "image": "/images/merch/20-oz-ribbed-borosilicate-glass-can-with-bamboo-lid-01037.webp",
+    "imageAlt": "20 oz. Ribbed Borosilicate Glass Can with Bamboo Lid",
+    "colors": ["Clear", "Translucent Blue", "Translucent Charcoal"]
+  },
+  {
+    "id": "17-oz-soda-lime-glass-can-with-bamboo-lid-04819",
+    "name": "17 oz. Soda Lime Glass Can With Bamboo Lid",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "17 oz. soda lime glass with bamboo lid and 8\" straw.",
+    "tiers": [
+      [48, 8.73],
+      [96, 7.59],
+      [144, 6.6],
+      [288, 5.74],
+      [576, 4.99]
+    ],
+    "image": "/images/merch/17-oz-soda-lime-glass-can-with-bamboo-lid-04819.webp",
+    "imageAlt": "17 oz. Soda Lime Glass Can With Bamboo Lid",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "22-oz-tumbler-with-cork-bottom-45381",
+    "name": "22 oz. Tumbler with Cork Bottom",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "22 oz. powder coated stainless steel tumbler with double wall insulation and a cork bottom.",
+    "tiers": [
+      [25, 12.9],
+      [150, 12.6],
+      [250, 12.3],
+      [500, 12.1],
+      [1000, 11.9]
+    ],
+    "image": "/images/merch/22-oz-tumbler-with-cork-bottom-45381.webp",
+    "imageAlt": "22 oz. Tumbler with Cork Bottom",
+    "colors": ["Black", "Gray Warm 5C", "Navy", "White"]
+  },
+  {
+    "id": "40-oz-hydrapeak-voyager-tumbler-lifetime-warranty-94527",
+    "name": "40 oz Hydrapeak Voyager Tumbler LIFETIME WARRANTY",
+    "category": "Drinkware",
+    "brand": "Hydrapeak",
+    "description": "It's a cup! It's a bottle! Wait! It's both. Features a glossy, light-catching opalescent finish that's out of this world.",
+    "tiers": [
+      [1, 43.99],
+      [12, 31.99],
+      [24, 29.99],
+      [72, 28.99],
+      [120, 27.99]
+    ],
+    "image": "/images/merch/40-oz-hydrapeak-voyager-tumbler-lifetime-warranty-94527.webp",
+    "imageAlt": "40 oz Hydrapeak Voyager Tumbler LIFETIME WARRANTY",
+    "colors": [
+      "Alpine Green",
+      "Belize Blue",
+      "Black",
+      "Blush",
+      "Bubble Gum Pink",
+      "Iceberg Blue",
+      "Iris Blue",
+      "Lavender Purple",
+      "Lemon Yellow",
+      "Mauve Purple",
+      "Modern Blue",
+      "Modern Cream",
+      "Navy Blue",
+      "Pale Sage Green",
+      "Peony",
+      "Powder Blue",
+      "Sage Green",
+      "Aegean Green",
+      "Gray",
+      "Apricot Orange",
+      "Cotton Pink",
+      "French Blue",
+      "Gingerbread Red",
+      "Midnight Plum Purple",
+      "Rosewood",
+      "Sage Leaf Green",
+      "Stone Gray",
+      "Thyme"
+    ]
+  },
+  {
+    "id": "20-oz-stanley-stainless-steel-insulated-quencher-tumbler-56656",
+    "name": "20 oz Stanley® Stainless Steel Insulated Quencher Tumbler",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "Stanley 20 oz Quencher Tumbler, 18/8 Stainless Steel, Double-wall vacuum insulation, Splash-proof design with reusable straw!",
+    "tiers": [
+      [48, 40],
+      [192, 38.9],
+      [384, 37.46],
+      [1536, 36.02],
+      [3072, 34.58]
+    ],
+    "image": "/images/merch/20-oz-stanley-stainless-steel-insulated-quencher-tumbler-56656.webp",
+    "imageAlt": "20 oz Stanley® Stainless Steel Insulated Quencher Tumbler",
+    "colors": ["Black", "Frost White"]
+  },
+  {
+    "id": "perfect-temp-30-oz-stainless-steel-vacuum-tumbler-80843",
+    "name": "Perfect Temp 30 oz. Stainless Steel Vacuum Tumbler",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "30 oz. stainless steel double walled vacuum insulated tumbler with slide function lid. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [48, 31.08],
+      [96, 28.29],
+      [144, 25.17],
+      [288, 22.41],
+      [576, 19.94]
+    ],
+    "image": "/images/merch/perfect-temp-30-oz-stainless-steel-vacuum-tumbler-80843.webp",
+    "imageAlt": "Perfect Temp 30 oz. Stainless Steel Vacuum Tumbler",
+    "colors": ["Black", "Blue", "Copper", "Gun Metal", "Red", "Silver", "White"]
+  },
+  {
+    "id": "oasis-i-20-oz-stainless-steel-travel-tumbler-double-walled-00898",
+    "name": "Oasis-I 20 oz Stainless Steel Travel Tumbler (Double Walled)",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "20 oz double wall stainless steel tumbler that keeps drinks hot for 10 hours and cold for 18 hours.",
+    "tiers": [
+      [36, 11.9],
+      [144, 11.75],
+      [288, 11.6],
+      [576, 11.45],
+      [1152, 11.3]
+    ],
+    "image": "/images/merch/oasis-i-20-oz-stainless-steel-travel-tumbler-double-walled-00898.webp",
+    "imageAlt": "Oasis-I 20 oz Stainless Steel Travel Tumbler (Double Walled)",
+    "colors": ["Black", "White", "Blue", "Red", "Silver"]
+  },
+  {
+    "id": "30-oz-double-wall-stainless-steel-tumbler-w-carrier-74545",
+    "name": "30 oz. Double Wall Stainless Steel Tumbler w/ Carrier",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "Size: 30 oz.",
+    "tiers": [
+      [50, 10.25],
+      [100, 9.85],
+      [200, 9.55],
+      [500, 9.35]
+    ],
+    "image": "/images/merch/30-oz-double-wall-stainless-steel-tumbler-w-carrier-74545.webp",
+    "imageAlt": "30 oz. Double Wall Stainless Steel Tumbler w/ Carrier",
+    "colors": ["Black", "White", "Navy Blue", "Red", "Gray", "Green", "Purple", "Pink", "Orange"]
+  },
+  {
+    "id": "20-oz-travel-stainless-vacuum-insulated-coffee-mug-keep-hot-55606",
+    "name": "20 oz. Travel Stainless Vacuum Insulated Coffee Mug Keep Hot",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "The Walk in the Park. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [48, 12.53],
+      [96, 12.26],
+      [216, 12],
+      [504, 11.68]
+    ],
+    "image": "/images/merch/20-oz-travel-stainless-vacuum-insulated-coffee-mug-keep-hot-55606.webp",
+    "imageAlt": "20 oz. Travel Stainless Vacuum Insulated Coffee Mug Keep Hot",
+    "colors": ["Black", "Blue", "Red", "White", "Light Blue", "Green", "Pink", "Purple", "Brown"]
+  },
+  {
+    "id": "himalayan-wake-up-tumbler-07383",
+    "name": "Himalayan Wake-up Tumbler",
+    "category": "Drinkware",
+    "brand": "Himalayan",
+    "description": "Himalayan Tumbler with three single-serve coffee cups.",
+    "tiers": [
+      [1, 16.23],
+      [144, 15.76],
+      [288, 15.3],
+      [576, 14.85]
+    ],
+    "image": "/images/merch/himalayan-wake-up-tumbler-07383.webp",
+    "imageAlt": "Himalayan Wake-up Tumbler",
+    "colors": [
+      "Silver With Clear",
+      "Matte Gray",
+      "Metallic Blue",
+      "Metallic Green",
+      "Metallic Orange",
+      "Metallic Purple",
+      "Metallic Red",
+      "Metallic Teal",
+      "Maroon"
+    ]
+  },
+  {
+    "id": "senso-nile-duoflow-30-oz-eco-friendly-vacuum-insulated-tum-65280",
+    "name": "SENSO® Nile Duoflow 30 oz Eco-Friendly Vacuum Insulated",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "Duoflow 30 oz Eco-Friendly Vacuum Insulated Tumbler.",
+    "tiers": [
+      [25, 16.7],
+      [100, 15.47],
+      [250, 14.84],
+      [500, 14.37],
+      [1000, 13.95]
+    ],
+    "image": "/images/merch/senso-nile-duoflow-30-oz-eco-friendly-vacuum-insulated-tum-65280.webp",
+    "imageAlt": "SENSO® Nile Duoflow 30 oz Eco-Friendly Vacuum Insulated",
+    "colors": ["Medium Black", "Dark Green", "Light Blue", "Medium Navy Blue", "Medium White"]
+  },
+  {
+    "id": "20-oz-himalayan-tumbler-gift-set-02257",
+    "name": "20 oz. Himalayan Tumbler Gift Set",
+    "category": "Drinkware",
+    "brand": "Himalayan",
+    "description": "Gift set of two 20 oz. Himalayan tumblers.",
+    "tiers": [
+      [18, 67.65],
+      [36, 58.83],
+      [72, 51.16],
+      [108, 44.49]
+    ],
+    "image": "/images/merch/20-oz-himalayan-tumbler-gift-set-02257.webp",
+    "imageAlt": "20 oz. Himalayan Tumbler Gift Set",
+    "colors": [
+      "Matte Black",
+      "Metallic Blue",
+      "Metallic Green",
+      "Metallic Orange",
+      "Metallic Purple",
+      "Metallic Red",
+      "Metallic Teal",
+      "White",
+      "Navy Blue",
+      "Maroon",
+      "Gold",
+      "Blue",
+      "Charcoal",
+      "Clear",
+      "Green",
+      "Red",
+      "Black",
+      "Gray",
+      "Natural"
+    ]
+  },
+  {
+    "id": "20-oz-sleek-stainless-steel-tumbler-73232",
+    "name": "20 oz Sleek Stainless Steel Tumbler",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "Premium stainless steel, double-walled, & vacuum-sealed 20 oz tumbler with a powder coating, & spill-proof flip-top lid with straw.",
+    "tiers": [
+      [50, 19.6],
+      [100, 19.24],
+      [250, 18.88],
+      [500, 18.51],
+      [1000, 18.15]
+    ],
+    "image": "/images/merch/20-oz-sleek-stainless-steel-tumbler-73232.webp",
+    "imageAlt": "20 oz Sleek Stainless Steel Tumbler",
+    "colors": ["Black", "White"]
+  },
+  {
+    "id": "norris-20-oz-recycled-acrylic-straw-tumbler-59168",
+    "name": "Norris 20 oz Recycled Acrylic Straw Tumbler",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "20 oz Recycled Acrylic Straw Tumbler.",
+    "tiers": [
+      [50, 4.5],
+      [100, 4.15],
+      [250, 4],
+      [500, 3.85],
+      [1000, 3.75]
+    ],
+    "image": "/images/merch/norris-20-oz-recycled-acrylic-straw-tumbler-59168.webp",
+    "imageAlt": "Norris 20 oz Recycled Acrylic Straw Tumbler",
+    "colors": [
+      "Medium Black",
+      "Medium Blue",
+      "Medium Green",
+      "Medium Orange",
+      "Medium Red",
+      "Medium White"
+    ]
+  },
+  {
+    "id": "16-oz-cork-bottom-travel-tumbler-45659",
+    "name": "16 oz. Cork Bottom Travel Tumbler",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "16 ounce stainless steel travel tumbler with cork bottom, powder finish and double wall vacuum insulation. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [100, 24.35],
+      [250, 23.69],
+      [500, 23.09],
+      [1000, 22.69],
+      [2500, 13.17]
+    ],
+    "image": "/images/merch/16-oz-cork-bottom-travel-tumbler-45659.webp",
+    "imageAlt": "16 oz. Cork Bottom Travel Tumbler",
+    "colors": ["Grey", "Black", "White"]
+  },
+  {
+    "id": "24-oz-colma-basics-tumbler-34177",
+    "name": "24 oz. Colma Basics Tumbler",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "22 oz. tumbler made of stainless steel with double-wall vacuum insulation, flip top lid and non-slip bottom.",
+    "tiers": [
+      [36, 21.42],
+      [72, 18.63],
+      [144, 16.2],
+      [288, 14.09],
+      [576, 12.25]
+    ],
+    "image": "/images/merch/24-oz-colma-basics-tumbler-34177.webp",
+    "imageAlt": "24 oz. Colma Basics Tumbler",
+    "colors": [
+      "Black",
+      "White",
+      "Black Straw",
+      "Blue Straw",
+      "Fuchsia Straw",
+      "Orange Straw",
+      "Red Straw",
+      "Teal Straw",
+      "White Straw"
+    ]
+  },
+  {
+    "id": "12-oz-double-wall-ceramic-tumbler-45487",
+    "name": "12 oz. Double Wall Ceramic Tumbler",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "12 oz. double wall ceramic tumbler.",
+    "tiers": [
+      [25, 10.65],
+      [150, 10.35],
+      [250, 10.05],
+      [500, 9.85],
+      [1000, 9.65]
+    ],
+    "image": "/images/merch/12-oz-double-wall-ceramic-tumbler-45487.webp",
+    "imageAlt": "12 oz. Double Wall Ceramic Tumbler",
+    "colors": ["Black-Gray", "White-Gray"]
+  },
+  {
+    "id": "aviana-journey-glass-tumbler-with-straw-20-oz-74931",
+    "name": "Aviana™ Journey Glass Tumbler with Straw - 20 oz",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "Size: 9\".",
+    "tiers": [[25, 11.98]],
+    "image": "/images/merch/aviana-journey-glass-tumbler-with-straw-20-oz-74931.webp",
+    "imageAlt": "Aviana™ Journey Glass Tumbler with Straw - 20 oz",
+    "colors": ["Dove Grey", "White", "Confetti"]
+  },
+  {
+    "id": "30-oz-economy-tapered-stainless-steel-tumbler-95453",
+    "name": "30 oz Economy Tapered Stainless Steel Tumbler",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "30 oz. economy tapered stainless steel tumbler with a plastic PP liner and double wall construction. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [25, 12.24],
+      [50, 11.44],
+      [100, 10.69],
+      [250, 9.99],
+      [500, 9.34]
+    ],
+    "image": "/images/merch/30-oz-economy-tapered-stainless-steel-tumbler-95453.webp",
+    "imageAlt": "30 oz Economy Tapered Stainless Steel Tumbler",
+    "colors": ["Black", "Blue", "Red", "Silver", "Titanium", "White"]
+  },
+  {
+    "id": "echelon-22-oz-polypropylene-tumbler-95659",
+    "name": "Echelon 22 oz Polypropylene Tumbler",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "22 oz Polypropylene Tumbler Made in USA.",
+    "tiers": [
+      [60, 5.25],
+      [180, 4.95],
+      [540, 4.65],
+      [1200, 4.45],
+      [2400, 4.25]
+    ],
+    "image": "/images/merch/echelon-22-oz-polypropylene-tumbler-95659.webp",
+    "imageAlt": "Echelon 22 oz Polypropylene Tumbler",
+    "colors": ["Medium Blue", "Frosted Clear", "Medium Red", "Medium White"]
+  },
+  {
+    "id": "20-oz-glacier-plastic-tumblers-84680",
+    "name": "20 oz. Glacier Plastic Tumblers",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "Tumblers made of double wall plastic that holds up to 20 oz. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [100, 9.35],
+      [250, 8.65],
+      [500, 8.49],
+      [1000, 8.47],
+      [2500, 6.8]
+    ],
+    "image": "/images/merch/20-oz-glacier-plastic-tumblers-84680.webp",
+    "imageAlt": "20 oz. Glacier Plastic Tumblers",
+    "colors": ["Black", "Silver", "White", "Blue", "Red", "Rustic Grey", "Wood"]
+  },
+  {
+    "id": "usa-made-16-oz-double-wall-tumbler-48318",
+    "name": "16 oz Double-Wall Tumbler",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "Made in the USA. 16 oz. double-wall plastic tumbler with matching color rigid straw, plastic topper and a snap-on lid.",
+    "tiers": [
+      [120, 3.28],
+      [240, 3.15],
+      [480, 3.03],
+      [1200, 2.9],
+      [2400, 2.79]
+    ],
+    "image": "/images/merch/usa-made-16-oz-double-wall-tumbler-48318.webp",
+    "imageAlt": "16 oz Double-Wall Tumbler",
+    "colors": ["Clear", "Translucent Red", "Translucent Blue", "Translucent Smoke"]
+  },
+  {
+    "id": "24-oz-gemini-series-laser-etched-92088",
+    "name": "24 oz. Gemini Series - Laser Etched",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "24 oz. travel tumbler made of stainless steel and copper vacuum insulation. Dual function lid with a retractable sipper straw.",
+    "tiers": [
+      [24, 16.2],
+      [72, 15.45],
+      [144, 14.25],
+      [288, 13.65],
+      [576, 12.9]
+    ],
+    "image": "/images/merch/24-oz-gemini-series-laser-etched-92088.webp",
+    "imageAlt": "24 oz. Gemini Series - Laser Etched",
+    "colors": ["Black", "White"]
+  },
+  {
+    "id": "12-oz-camper-stainless-insulated-travel-coffee-mug-tumbler-72549",
+    "name": "12 oz Camper Stainless Insulated Travel Coffee Mug/Tumbler",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "12 oz double wall stainless steel thermal mug with copper vacuum insulation and a clear push-on lid.",
+    "tiers": [
+      [48, 18.49],
+      [72, 17.49],
+      [144, 16.49]
+    ],
+    "image": "/images/merch/12-oz-camper-stainless-insulated-travel-coffee-mug-tumbler-72549.webp",
+    "imageAlt": "12 oz Camper Stainless Insulated Travel Coffee Mug/Tumbler",
+    "colors": [
+      "Matte White",
+      "Matte Red",
+      "Matte Orange",
+      "Matte Aqua",
+      "Matte Navy",
+      "Matte Gray",
+      "Matte Black"
+    ]
+  },
+  {
+    "id": "40-oz-double-wall-tumbler-with-handle-and-straw-78916",
+    "name": "40 oz. Double Wall Tumbler With Handle and Straw",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "40-ounce tumbler with double-walled vacuum insulation, ergonomic handle, lid, straw and straw opening.",
+    "tiers": [
+      [20, 23.39],
+      [60, 21.86],
+      [160, 20.43],
+      [240, 19.09],
+      [500, 17.84]
+    ],
+    "image": "/images/merch/40-oz-double-wall-tumbler-with-handle-and-straw-78916.webp",
+    "imageAlt": "40 oz. Double Wall Tumbler With Handle and Straw",
+    "colors": [
+      "Black",
+      "Navy Blue",
+      "Gray",
+      "White",
+      "Lime Green",
+      "Teal",
+      "Red",
+      "Purple",
+      "Heather",
+      "Lapis",
+      "Magenta",
+      "Mint",
+      "Oat Milk",
+      "Orange",
+      "Pine Green",
+      "Soft Pink",
+      "Yellow",
+      "Royal Blue"
+    ]
+  },
+  {
+    "id": "14-oz-cork-base-ceramic-mug-40653",
+    "name": "14 oz. Cork Base Ceramic Mug",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "14 oz. mug with cork base that protects hands and surfaces from heat.",
+    "tiers": [
+      [72, 8.99],
+      [144, 8.73],
+      [288, 8.48],
+      [576, 8.23],
+      [1008, 7.99]
+    ],
+    "image": "/images/merch/14-oz-cork-base-ceramic-mug-40653.webp",
+    "imageAlt": "14 oz. Cork Base Ceramic Mug",
+    "colors": [
+      "Black",
+      "White",
+      "Gray",
+      "Orange",
+      "Red",
+      "Navy Blue",
+      "Lime",
+      "Cobalt Lid",
+      "Lime Lid",
+      "Orange Lid",
+      "Red Lid"
+    ]
+  },
+  {
+    "id": "oasis-ii-20-oz-vacuum-sealed-tumbler-with-matte-coating-00907",
+    "name": "Oasis-II 20 oz Vacuum Sealed Tumbler with Matte Coating",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "20 oz vacuum sealed tumbler with matte coating that keeps your drink hot for 2-3 hours.",
+    "tiers": [
+      [36, 8.8],
+      [144, 8.75],
+      [288, 8.7],
+      [576, 8.65],
+      [1152, 8.6]
+    ],
+    "image": "/images/merch/oasis-ii-20-oz-vacuum-sealed-tumbler-with-matte-coating-00907.webp",
+    "imageAlt": "Oasis-II 20 oz Vacuum Sealed Tumbler with Matte Coating",
+    "colors": ["Black", "White", "Blue", "Red", "Silver"]
+  },
+  {
+    "id": "30oz-stainless-steel-insulated-travel-mug-51099",
+    "name": "30oz. Stainless Steel Insulated Travel Mug",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "30 oz. Stainless Steel Insulated Travel Mug w/ Handle & Locking Flip Lid.",
+    "tiers": [
+      [50, 16.26],
+      [100, 15.4],
+      [200, 15.09],
+      [500, 14.63]
+    ],
+    "image": "/images/merch/30oz-stainless-steel-insulated-travel-mug-51099.webp",
+    "imageAlt": "30oz. Stainless Steel Insulated Travel Mug",
+    "colors": ["Black", "White", "Green", "Purple", "Royal Blue"]
+  },
+  {
+    "id": "yeti-rambler-20-oz-travel-straw-mug-74765",
+    "name": "YETI Rambler 20 oz Travel Straw Mug",
+    "category": "Drinkware",
+    "brand": "YETI",
+    "description": "YETI® Rambler® 20 oz Travel Straw Mug.",
+    "tiers": [
+      [8, 52],
+      [16, 50],
+      [32, 48],
+      [64, 46]
+    ],
+    "image": "/images/merch/yeti-rambler-20-oz-travel-straw-mug-74765.webp",
+    "imageAlt": "YETI Rambler 20 oz Travel Straw Mug",
+    "colors": ["Black", "Blue-Navy", "Blue-Royal", "Cape Taupe", "Red-Rescue", "White"]
+  },
+  {
+    "id": "30-oz-reynolds-stainless-steel-tumbler-with-silicone-lid-19494",
+    "name": "30 oz. Reynolds Stainless Steel Tumbler With Silicone Lid",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "30 oz. stainless steel tumbler with double wall construction and snap-on silicone lid.",
+    "tiers": [
+      [25, 25.37],
+      [50, 22.06],
+      [100, 19.18],
+      [250, 16.68],
+      [500, 14.5]
+    ],
+    "image": "/images/merch/30-oz-reynolds-stainless-steel-tumbler-with-silicone-lid-19494.webp",
+    "imageAlt": "30 oz. Reynolds Stainless Steel Tumbler With Silicone Lid",
+    "colors": [
+      "Black",
+      "Navy Blue",
+      "Orange",
+      "Red",
+      "White",
+      "Recycled Black",
+      "Recycled Navy Blue",
+      "Recycled Orange"
+    ]
+  },
+  {
+    "id": "40-oz-denali-stainless-steel-insulated-travel-mug-w-straw-89458",
+    "name": "40 oz Denali Stainless Steel Insulated Travel Mug w/Straw",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "40 oz double wall powder coated stainless steel thermal mug with copper vacuum insulation, push-on lid and wide silicone straw.",
+    "tiers": [
+      [48, 22.99],
+      [72, 21.99],
+      [144, 20.99]
+    ],
+    "image": "/images/merch/40-oz-denali-stainless-steel-insulated-travel-mug-w-straw-89458.webp",
+    "imageAlt": "40 oz Denali Stainless Steel Insulated Travel Mug w/Straw",
+    "colors": [
+      "Matte White",
+      "Matte Forage",
+      "Matte Landfall",
+      "Matte Constellation",
+      "Matte Slate",
+      "Matte Black"
+    ]
+  },
+  {
+    "id": "16-oz-stainless-steel-slide-action-travel-mug-88462",
+    "name": "16 oz. Stainless Steel Slide Action Travel Mug",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "Stainless steel travel mug with slide action lid and plastic inner liner, 16 oz.",
+    "tiers": [
+      [36, 9.53],
+      [72, 8.29],
+      [144, 7.21],
+      [288, 6.27],
+      [576, 5.45]
+    ],
+    "image": "/images/merch/16-oz-stainless-steel-slide-action-travel-mug-88462.webp",
+    "imageAlt": "16 oz. Stainless Steel Slide Action Travel Mug",
+    "colors": ["Silver"]
+  },
+  {
+    "id": "12-oz-travel-stainless-steel-insulated-cup-w-lid-keeps-hot-12606",
+    "name": "12 oz. Travel Stainless Steel Insulated Cup w/ Lid Keeps Hot",
+    "category": "Drinkware",
+    "brand": "Essentials",
+    "description": "12 oz. Stainless Steel Espresso Tumbler.",
+    "tiers": [
+      [50, 8.5],
+      [100, 8.25],
+      [200, 7.95],
+      [500, 7.8]
+    ],
+    "image": "/images/merch/12-oz-travel-stainless-steel-insulated-cup-w-lid-keeps-hot-12606.webp",
+    "imageAlt": "12 oz. Travel Stainless Steel Insulated Cup w/ Lid Keeps Hot",
+    "colors": ["Black"]
   }
 ]

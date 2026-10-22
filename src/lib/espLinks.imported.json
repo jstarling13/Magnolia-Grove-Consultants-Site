@@ -10138,5 +10138,593 @@
     "supplier": "Hit Promotional Products",
     "asi": "asi/61125",
     "productNo": "6971"
+  },
+  "adidas-mens-performance-polo-a230-48258": {
+    "espId": "556348258",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "SSA230"
+  },
+  "custom-sublimated-elite-polo-62171": {
+    "espId": "555462171",
+    "supplier": "The Sublimation Store",
+    "asi": "asi/89376",
+    "productNo": "SUB-POLOSHIRT"
+  },
+  "sport-tek-posicharge-active-textured-colorblock-polo-62687": {
+    "espId": "555862687",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "SMST695"
+  },
+  "port-authority-heavyweight-cotton-pique-polo-63341": {
+    "espId": "555863341",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "SMK420"
+  },
+  "callaway-birdseye-polo-50497": {
+    "espId": "556550497",
+    "supplier": "Pro Golf Premiums Inc",
+    "asi": "asi/79680",
+    "productNo": "CGM692"
+  },
+  "allpro-mens-pro-lock-performance-polo-41800-54875": {
+    "espId": "556354875",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "SS41800"
+  },
+  "custom-sublimated-premium-polo-50731": {
+    "espId": "553250731",
+    "supplier": "The Sublimation Store",
+    "asi": "asi/89376",
+    "productNo": "SUB-POLO"
+  },
+  "mercer-mettle-womens-everyday-performance-polo-62816": {
+    "espId": "556362816",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "SMMM1031"
+  },
+  "custom-sublimated-traditional-polo-shirt-61689": {
+    "espId": "553261689",
+    "supplier": "The Sublimation Store",
+    "asi": "asi/89376",
+    "productNo": "TRAD-POLO"
+  },
+  "custom-full-color-sublimation-long-sleeve-t-shirt-55256": {
+    "espId": "556455256",
+    "supplier": "Starshine Brands Inc",
+    "asi": "asi/89160",
+    "productNo": "SSNBE0432"
+  },
+  "gildan-6-1-oz-100-preshrunk-cotton-t-shirt-w-custom-logo-65882": {
+    "espId": "553265882",
+    "supplier": "imprintID",
+    "asi": "asi/73651",
+    "productNo": "TSB038"
+  },
+  "unisex-and-kids-sublimation-160g-milk-silk-short-sleeve-t-sh-07556": {
+    "espId": "553207556",
+    "supplier": "Northeastern Promotions",
+    "asi": "asi/74258",
+    "productNo": "TOP-PYT-01MLK"
+  },
+  "custom-full-color-dye-sublimation-short-sleeve-t-shirt-96201": {
+    "espId": "554696201",
+    "supplier": "Rivers Garment Inc",
+    "asi": "asi/82571",
+    "productNo": "203151"
+  },
+  "120gsm-milk-silk-short-sleeve-crew-neck-full-dye-sublimatio-98869": {
+    "espId": "555998869",
+    "supplier": "Soardist Displays and Apparel",
+    "asi": "asi/88083",
+    "productNo": "USA500040"
+  },
+  "160-gsm-brushed-milk-silk-mens-t-shirt-w-full-sublimation-96877": {
+    "espId": "554696877",
+    "supplier": "imprintID",
+    "asi": "asi/73651",
+    "productNo": "TSHMS317"
+  },
+  "sublimation-upf-drifit-soccer-jersey-m-w-k-03957": {
+    "espId": "556103957",
+    "supplier": "Northeastern Promotions",
+    "asi": "asi/74258",
+    "productNo": "SCR-11-ASDRI"
+  },
+  "unisex-140-gsm-sublimation-short-sleeve-polo-shirt-27780": {
+    "espId": "556427780",
+    "supplier": "Starshine Brands Inc",
+    "asi": "asi/89160",
+    "productNo": "SSNBE0415"
+  },
+  "gildan-softstyle-4-5-oz-t-shirt-89504": {
+    "espId": "555089504",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "BAG640"
+  },
+  "gildan-unisex-heavy-cotton-t-shirt-34247": {
+    "espId": "555634247",
+    "supplier": "BEL Promo",
+    "asi": "asi/39552",
+    "productNo": "AG5000"
+  },
+  "gildan-dryblend-5-6-oz-50-50-cotton-polyester-t-shirts-68375": {
+    "espId": "553268375",
+    "supplier": "imprintID",
+    "asi": "asi/73651",
+    "productNo": "TSB023"
+  },
+  "tultex-unisex-fine-jersey-t-shirt-202-69924": {
+    "espId": "556469924",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "SS202"
+  },
+  "cornerstone-a107-class-3-heavy-duty-fleece-full-zip-hoodie-03279": {
+    "espId": "555203279",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "SMCSF300"
+  },
+  "district-v-i-t-super-heavyweight-fleece-hoodie-62005": {
+    "espId": "555862005",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "SMDT6600"
+  },
+  "pullover-hoodie-85787": {
+    "espId": "554285787",
+    "supplier": "I Promotion Pro Inc",
+    "asi": "asi/62098",
+    "productNo": "IPSM566A"
+  },
+  "adult-full-zip-vantage-heather-hoodie-embroidery-19421": {
+    "espId": "555919421",
+    "supplier": "ADG Promotional Products",
+    "asi": "asi/97270",
+    "productNo": "WM401630E"
+  },
+  "womens-sublimation-250g-lightweight-kangaroo-hoodie-07572": {
+    "espId": "553207572",
+    "supplier": "Northeastern Promotions",
+    "asi": "asi/74258",
+    "productNo": "TOP-PYHS-007"
+  },
+  "nike-tech-fleece-full-zip-hoodie-62735": {
+    "espId": "556362735",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "SMNKFQ4762"
+  },
+  "nike-club-fleece-pullover-hoodie-83670": {
+    "espId": "553483670",
+    "supplier": "imprintID",
+    "asi": "asi/73651",
+    "productNo": "HCJ1611"
+  },
+  "unisex-basic-pullover-hoodies-89134": {
+    "espId": "555089134",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "CT07"
+  },
+  "unisex-280-gsm-spandex-interlock-fleece-zipper-hoodie-16065": {
+    "espId": "554316065",
+    "supplier": "imprintID",
+    "asi": "asi/73651",
+    "productNo": "HDWJ235"
+  },
+  "unisex-250-gsm-comfort-fleece-sublimation-pullover-hoodies-27576": {
+    "espId": "553527576",
+    "supplier": "imprintID",
+    "asi": "asi/73651",
+    "productNo": "HZM167"
+  },
+  "clear-tpu-tote-with-zipper-57293": {
+    "espId": "555157293",
+    "supplier": "Tekweld",
+    "asi": "asi/90807",
+    "productNo": "TPU106"
+  },
+  "13-w-x-15-h-with-a-10-gusset-shopping-tote-02655": {
+    "espId": "553302655",
+    "supplier": "Tekweld",
+    "asi": "asi/90807",
+    "productNo": "BAG200"
+  },
+  "heat-sealed-non-woven-shopping-bag-58642": {
+    "espId": "556058642",
+    "supplier": "LUCKY STAR PROMOTIONS INC.",
+    "asi": "asi/68155",
+    "productNo": "LU574"
+  },
+  "non-woven-value-tote-bag-33305": {
+    "espId": "553333305",
+    "supplier": "WBPromotion",
+    "asi": "asi/98409",
+    "productNo": "TT984-NWVT"
+  },
+  "non-woven-insulated-recycled-tote-bag-91134": {
+    "espId": "555391134",
+    "supplier": "Jornik Manufacturing",
+    "asi": "asi/63549",
+    "productNo": "JK-9906"
+  },
+  "13-w-x-16-5-h-drawstring-non-woven-bag-4-color-91490": {
+    "espId": "553291490",
+    "supplier": "Tekweld",
+    "asi": "asi/90807",
+    "productNo": "BAG100-4CP"
+  },
+  "small-starboard-recycled-cotton-canvas-tote-53301": {
+    "espId": "556153301",
+    "supplier": "LUCKY STAR PROMOTIONS INC.",
+    "asi": "asi/68155",
+    "productNo": "LUH241"
+  },
+  "custom-cotton-grocery-tote-bags-58176": {
+    "espId": "553758176",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "IMPTOT20"
+  },
+  "eco-non-woven-shopping-tote-22997": {
+    "espId": "554822997",
+    "supplier": "Tekweld",
+    "asi": "asi/90807",
+    "productNo": "BAG204"
+  },
+  "the-madelyn-cotton-canvas-tote-bag-57437": {
+    "espId": "553957437",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "30052"
+  },
+  "belgrade-cotton-canvas-tote-bags-59321": {
+    "espId": "555959321",
+    "supplier": "BEL Promo",
+    "asi": "asi/39552",
+    "productNo": "ATOT3790"
+  },
+  "penny-wise-cotton-canvas-tote-bag-41852": {
+    "espId": "552541852",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "3212"
+  },
+  "charlie-cotton-tote-bag-27845": {
+    "espId": "552027845",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "3766"
+  },
+  "small-starboard-recycled-10oz-cotton-tote-bag-78674": {
+    "espId": "556278674",
+    "supplier": "Jornik Manufacturing",
+    "asi": "asi/63549",
+    "productNo": "JK-9215"
+  },
+  "oxford-cloth-insulated-portable-lunch-bag-01633": {
+    "espId": "556401633",
+    "supplier": "Sailfull Promo Inc",
+    "asi": "asi/84303",
+    "productNo": "SFALRA148"
+  },
+  "liberty-bags-carmel-classic-xl-cotton-canvas-resort-tote-90521": {
+    "espId": "555090521",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "BA8872"
+  },
+  "reusable-grocery-tote-bags-89106": {
+    "espId": "555089106",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "IMPTOT11"
+  },
+  "q-tees-34-6l-large-canvas-deluxe-tote-q1500-82960": {
+    "espId": "556382960",
+    "supplier": "Rush Service",
+    "asi": "asi/92433",
+    "productNo": "SSQ1500"
+  },
+  "medium-24-oz-recycled-cotton-canvas-bag-37418": {
+    "espId": "555237418",
+    "supplier": "Jornik Manufacturing",
+    "asi": "asi/63549",
+    "productNo": "JK-9207"
+  },
+  "12-oz-heavyweight-cotton-canvas-tote-bag-15-x-16-11508": {
+    "espId": "552511508",
+    "supplier": "imprintID",
+    "asi": "asi/73651",
+    "productNo": "TBUSB800"
+  },
+  "saturn-jumbo-non-woven-grocery-tote-bag-48013": {
+    "espId": "551848013",
+    "supplier": "Prime Line",
+    "asi": "asi/79530",
+    "productNo": "BG80"
+  },
+  "natural-cotton-canvas-recycled-grocery-tote-bag-37293": {
+    "espId": "555237293",
+    "supplier": "Jornik Manufacturing",
+    "asi": "asi/63549",
+    "productNo": "JK-9212"
+  },
+  "clearpath-eva-stadium-tote-bag-10206": {
+    "espId": "556010206",
+    "supplier": "High Caliber Line USA",
+    "asi": "asi/43442",
+    "productNo": "B770"
+  },
+  "trevor-rpet-backpack-08758": {
+    "espId": "556608758",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "35198"
+  },
+  "multi-purpose-leisure-backpack-80398": {
+    "espId": "555480398",
+    "supplier": "WBPromotion",
+    "asi": "asi/98409",
+    "productNo": "TB984-MLB"
+  },
+  "minimalist-vegan-leather-travel-laptop-backpack-65870": {
+    "espId": "556365870",
+    "supplier": "Spready Promo Inc",
+    "asi": "asi/88900",
+    "productNo": "SPS220"
+  },
+  "rolltop-backpack-66453": {
+    "espId": "555466453",
+    "supplier": "WBPromotion",
+    "asi": "asi/98409",
+    "productNo": "TT984-RTBP"
+  },
+  "28-can-backpack-cooler-16530": {
+    "espId": "555116530",
+    "supplier": "Logoworking Inc",
+    "asi": "asi/67885",
+    "productNo": "ANLR053"
+  },
+  "samsonite-cablewood-laptop-backpack-29835": {
+    "espId": "555729835",
+    "supplier": "Gemline",
+    "asi": "asi/56070",
+    "productNo": "102442"
+  },
+  "osprey-arcane-small-day-66110": {
+    "espId": "555866110",
+    "supplier": "Gemline",
+    "asi": "asi/56070",
+    "productNo": "102504"
+  },
+  "water-resistant-laptop-backpack-with-usb-charging-port-88615": {
+    "espId": "554288615",
+    "supplier": "ANYTIME PROMO INC",
+    "asi": "asi/79380",
+    "productNo": "ATTZ3143"
+  },
+  "samsonite-better-than-basic-laptop-backpack-29605": {
+    "espId": "555729605",
+    "supplier": "Gemline",
+    "asi": "asi/56070",
+    "productNo": "102224"
+  },
+  "timbuk2-city-compass-recycled-polyester-core-pack-04893": {
+    "espId": "556004893",
+    "supplier": "Gemline",
+    "asi": "asi/56070",
+    "productNo": "102586"
+  },
+  "swissdigital-arbon-rfid-travel-business-backpack-77676": {
+    "espId": "555977676",
+    "supplier": "imprintID",
+    "asi": "asi/73651",
+    "productNo": "SDB110"
+  },
+  "20-oz-ribbed-borosilicate-glass-can-with-bamboo-lid-01037": {
+    "espId": "556101037",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "50167"
+  },
+  "17-oz-soda-lime-glass-can-with-bamboo-lid-04819": {
+    "espId": "555404819",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "50166"
+  },
+  "22-oz-tumbler-with-cork-bottom-45381": {
+    "espId": "554745381",
+    "supplier": "Tekweld",
+    "asi": "asi/90807",
+    "productNo": "BTL627"
+  },
+  "40-oz-hydrapeak-voyager-tumbler-lifetime-warranty-94527": {
+    "espId": "554494527",
+    "supplier": "Custom Engraving Studio LLC",
+    "asi": "asi/47959",
+    "productNo": "HPVYGR40"
+  },
+  "20-oz-stanley-stainless-steel-insulated-quencher-tumbler-56656": {
+    "espId": "555456656",
+    "supplier": "imprintID",
+    "asi": "asi/73651",
+    "productNo": "STAN20Q"
+  },
+  "perfect-temp-30-oz-stainless-steel-vacuum-tumbler-80843": {
+    "espId": "551080843",
+    "supplier": "The Magnet Group",
+    "asi": "asi/68507",
+    "productNo": "DT27"
+  },
+  "oasis-i-20-oz-stainless-steel-travel-tumbler-double-walled-00898": {
+    "espId": "553400898",
+    "supplier": "Lungsal",
+    "asi": "asi/68190",
+    "productNo": "OA-1"
+  },
+  "30-oz-double-wall-stainless-steel-tumbler-w-carrier-74545": {
+    "espId": "555774545",
+    "supplier": "Opusline (Benmex)",
+    "asi": "asi/39820",
+    "productNo": "MSTAR68P"
+  },
+  "20-oz-travel-stainless-vacuum-insulated-coffee-mug-keep-hot-55606": {
+    "espId": "552355606",
+    "supplier": "Opusline (Benmex)",
+    "asi": "asi/39820",
+    "productNo": "MSTAR17"
+  },
+  "himalayan-wake-up-tumbler-07383": {
+    "espId": "552307383",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "5790COFF"
+  },
+  "senso-nile-duoflow-30-oz-eco-friendly-vacuum-insulated-tum-65280": {
+    "espId": "556665280",
+    "supplier": "Ariel Premium Supply Inc",
+    "asi": "asi/36730",
+    "productNo": "DSB-NL26"
+  },
+  "20-oz-himalayan-tumbler-gift-set-02257": {
+    "espId": "552402257",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "9870"
+  },
+  "20-oz-sleek-stainless-steel-tumbler-73232": {
+    "espId": "553973232",
+    "supplier": "HPG",
+    "asi": "asi/61966",
+    "productNo": "BC20S"
+  },
+  "norris-20-oz-recycled-acrylic-straw-tumbler-59168": {
+    "espId": "556459168",
+    "supplier": "Ariel Premium Supply Inc",
+    "asi": "asi/36730",
+    "productNo": "DTM-NS26"
+  },
+  "16-oz-cork-bottom-travel-tumbler-45659": {
+    "espId": "552045659",
+    "supplier": "BEL Promo",
+    "asi": "asi/39552",
+    "productNo": "ATM361"
+  },
+  "24-oz-colma-basics-tumbler-34177": {
+    "espId": "552234177",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "5806"
+  },
+  "12-oz-double-wall-ceramic-tumbler-45487": {
+    "espId": "554745487",
+    "supplier": "Tekweld",
+    "asi": "asi/90807",
+    "productNo": "BTL637"
+  },
+  "aviana-journey-glass-tumbler-with-straw-20-oz-74931": {
+    "espId": "554674931",
+    "supplier": "Gemline",
+    "asi": "asi/56070",
+    "productNo": "101543"
+  },
+  "30-oz-economy-tapered-stainless-steel-tumbler-95453": {
+    "espId": "551795453",
+    "supplier": "Tekweld",
+    "asi": "asi/90807",
+    "productNo": "BTL202"
+  },
+  "echelon-22-oz-polypropylene-tumbler-95659": {
+    "espId": "556095659",
+    "supplier": "Ariel Premium Supply Inc",
+    "asi": "asi/36730",
+    "productNo": "DWP-EC25"
+  },
+  "20-oz-glacier-plastic-tumblers-84680": {
+    "espId": "551684680",
+    "supplier": "BEL Promo",
+    "asi": "asi/39552",
+    "productNo": "ATM335"
+  },
+  "usa-made-16-oz-double-wall-tumbler-48318": {
+    "espId": "551848318",
+    "supplier": "Prime Line",
+    "asi": "asi/79530",
+    "productNo": "MG206"
+  },
+  "24-oz-gemini-series-laser-etched-92088": {
+    "espId": "555692088",
+    "supplier": "Moderne Glass Company Inc",
+    "asi": "asi/71920",
+    "productNo": "B822LE"
+  },
+  "12-oz-camper-stainless-insulated-travel-coffee-mug-tumbler-72549": {
+    "espId": "551872549",
+    "supplier": "ETS Express, LLC",
+    "asi": "asi/51197",
+    "productNo": "997515-G"
+  },
+  "40-oz-double-wall-tumbler-with-handle-and-straw-78916": {
+    "espId": "554878916",
+    "supplier": "Tekweld",
+    "asi": "asi/90807",
+    "productNo": "BTL127"
+  },
+  "14-oz-cork-base-ceramic-mug-40653": {
+    "espId": "551040653",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "7146"
+  },
+  "oasis-ii-20-oz-vacuum-sealed-tumbler-with-matte-coating-00907": {
+    "espId": "553400907",
+    "supplier": "Lungsal",
+    "asi": "asi/68190",
+    "productNo": "OA-2"
+  },
+  "30oz-stainless-steel-insulated-travel-mug-51099": {
+    "espId": "556551099",
+    "supplier": "Opusline (Benmex)",
+    "asi": "asi/39820",
+    "productNo": "MS30"
+  },
+  "yeti-rambler-20-oz-travel-straw-mug-74765": {
+    "espId": "556474765",
+    "supplier": "Prime Line",
+    "asi": "asi/79530",
+    "productNo": "YTR20TSM"
+  },
+  "30-oz-reynolds-stainless-steel-tumbler-with-silicone-lid-19494": {
+    "espId": "555819494",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "50303"
+  },
+  "40-oz-denali-stainless-steel-insulated-travel-mug-w-straw-89458": {
+    "espId": "554489458",
+    "supplier": "ETS Express, LLC",
+    "asi": "asi/51197",
+    "productNo": "945212-G"
+  },
+  "16-oz-stainless-steel-slide-action-travel-mug-88462": {
+    "espId": "4888462",
+    "supplier": "Hit Promotional Products",
+    "asi": "asi/61125",
+    "productNo": "5841"
+  },
+  "12-oz-travel-stainless-steel-insulated-cup-w-lid-keeps-hot-12606": {
+    "espId": "553812606",
+    "supplier": "Opusline (Benmex)",
+    "asi": "asi/39820",
+    "productNo": "MSTAR12"
   }
 }
