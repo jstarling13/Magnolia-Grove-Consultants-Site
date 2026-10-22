@@ -34124,5 +34124,1036 @@
     "image": "/images/merch/12-oz-travel-stainless-steel-insulated-cup-w-lid-keeps-hot-12606.webp",
     "imageAlt": "12 oz. Travel Stainless Steel Insulated Cup w/ Lid Keeps Hot",
     "colors": ["Black"]
+  },
+  {
+    "id": "fold-over-brochure-card-holder-69601",
+    "name": "Fold Over Brochure/Card Holder",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Brochure/Card Holder, backer board 10\" x 7\", Holders 4 1/4\" x 1 1/2\" x 1 1/4\". Made in USA.",
+    "tiers": [
+      [250, 1.32],
+      [500, 0.87],
+      [1000, 0.7],
+      [2500, 0.67],
+      [5000, 0.64]
+    ],
+    "image": "/images/merch/fold-over-brochure-card-holder-69601.webp",
+    "imageAlt": "Fold Over Brochure/Card Holder",
+    "colors": ["White"]
+  },
+  {
+    "id": "acrylic-brochure-holder-40251",
+    "name": "Acrylic Brochure Holder",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Size: 11\" x 8 1/2\".",
+    "tiers": [
+      [100, 54.488],
+      [250, 51.415],
+      [500, 48.248],
+      [1000, 45.915],
+      [2500, 14.995]
+    ],
+    "image": "/images/merch/acrylic-brochure-holder-40251.webp",
+    "imageAlt": "Acrylic Brochure Holder",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "custom-wood-sticker-between-4-9-sq-inches-40090",
+    "name": "Custom Wood Sticker Between 4-9 sq Inches",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Custom Laser engraved wood stickers have a 3M backing and are flexible so they can be applied to travel mugs, laptops, cell phones.",
+    "tiers": [
+      [250, 3.69],
+      [500, 3.6],
+      [750, 3.52],
+      [1000, 3.35]
+    ],
+    "image": "/images/merch/custom-wood-sticker-between-4-9-sq-inches-40090.webp",
+    "imageAlt": "Custom Wood Sticker Between 4-9 sq Inches",
+    "colors": ["Wood"]
+  },
+  {
+    "id": "info-mag-68526",
+    "name": "Info-Mag",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Informational magnets with 4 color process imprinting. Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [250, 1.01],
+      [500, 0.74],
+      [1000, 0.46],
+      [2500, 0.34],
+      [5000, 0.28]
+    ],
+    "image": "/images/merch/info-mag-68526.webp",
+    "imageAlt": "Info-Mag",
+    "colors": [
+      "Custom Imprint",
+      "Frequently Called Numbers",
+      "Emergency Cpr",
+      "Heart Attach Symptoms",
+      "Be Sun Smart"
+    ]
+  },
+  {
+    "id": "custom-ultra-vivid-bamboo-magnets-96045",
+    "name": "Custom Ultra Vivid Bamboo Magnets",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Customizable bamboo magnet with full color UV graphic. Made in USA.",
+    "tiers": [
+      [100, 2.567],
+      [250, 2.35],
+      [500, 2.15],
+      [1000, 2.067]
+    ],
+    "image": "/images/merch/custom-ultra-vivid-bamboo-magnets-96045.webp",
+    "imageAlt": "Custom Ultra Vivid Bamboo Magnets",
+    "colors": ["Brown"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "rectangle-power-clip-66975",
+    "name": "Rectangle Power Clip",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Rectangle power clip with strong magnetic backing and large imprint area. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [250, 2.32],
+      [500, 2.18],
+      [1000, 2.05],
+      [2500, 1.89],
+      [5000, 1.75]
+    ],
+    "image": "/images/merch/rectangle-power-clip-66975.webp",
+    "imageAlt": "Rectangle Power Clip",
+    "colors": ["Translucent Blue", "Translucent Red", "White"]
+  },
+  {
+    "id": "1-4-acrylic-ticket-event-magnets-made-in-usa-86153",
+    "name": "1/4\" Acrylic Ticket / Event Magnets",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Ticket shaped acrylic magnets with 1/4\" thickness and full color imprinting. Made in USA.",
+    "tiers": [
+      [100, 4.433],
+      [250, 4.067],
+      [500, 3.733],
+      [1000, 3.6]
+    ],
+    "image": "/images/merch/1-4-acrylic-ticket-event-magnets-made-in-usa-86153.webp",
+    "imageAlt": "1/4\" Acrylic Ticket / Event Magnets",
+    "colors": ["Clear"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "5-x-7-round-corners-magnets-20307",
+    "name": "5 x 7 Round Corners Magnets",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "5 x 7 Round Corners Magnets Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [50, 2.53],
+      [100, 1.59],
+      [250, 1.25],
+      [500, 1.21],
+      [1000, 1.152]
+    ],
+    "image": "/images/merch/5-x-7-round-corners-magnets-20307.webp",
+    "imageAlt": "5 x 7 Round Corners Magnets",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "calendar-desk-pad-87376",
+    "name": "Calendar Desk Pad",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "21 3/4\" x 17\" Black calendar desk pad with one or two color imprint. Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [100, 10.98],
+      [250, 8.18],
+      [500, 6.56],
+      [1000, 6.35]
+    ],
+    "image": "/images/merch/calendar-desk-pad-87376.webp",
+    "imageAlt": "Calendar Desk Pad",
+    "colors": ["Black"]
+  },
+  {
+    "id": "custom-photo-wave-calendar-79790",
+    "name": "Custom Photo Wave Calendar",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Award winning \"WAVE 3-D Calendars\" printed on smooth white cardstock and available in 7 stock designs or completely custom Made in USA.",
+    "tiers": [
+      [50, 3.99],
+      [75, 3.15],
+      [100, 2.73],
+      [250, 1.99],
+      [500, 1.69]
+    ],
+    "image": "/images/merch/custom-photo-wave-calendar-79790.webp",
+    "imageAlt": "Custom Photo Wave Calendar",
+    "colors": ["White"]
+  },
+  {
+    "id": "calendar-punch-out-picture-frame-66187",
+    "name": "Calendar Punch Out Picture Frame",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "5.25\" x 6.75\" x 0.01\" picture frame with a magnetic punch-out calendar magnet. Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [250, 1.425],
+      [500, 1.092],
+      [1000, 0.832],
+      [2500, 0.655],
+      [5000, 0.634]
+    ],
+    "image": "/images/merch/calendar-punch-out-picture-frame-66187.webp",
+    "imageAlt": "Calendar Punch Out Picture Frame",
+    "colors": ["Custom Imprint", "Calendar"]
+  },
+  {
+    "id": "xxl-magnetic-calendars-24161",
+    "name": "XXL Magnetic Calendars",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "8.5\" x 10.5\" magnetic calendar with 20 Mil thickness and square corners. Made in USA.",
+    "tiers": [
+      [125, 3.26],
+      [250, 2.3],
+      [500, 1.9],
+      [1000, 1.67],
+      [2500, 1.56]
+    ],
+    "image": "/images/merch/xxl-magnetic-calendars-24161.webp",
+    "imageAlt": "XXL Magnetic Calendars",
+    "colors": ["White"]
+  },
+  {
+    "id": "adhesive-peel-n-stick-calendar-rectangle-15389",
+    "name": "Adhesive Peel-N-Stick® Calendar - Rectangle",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Promo Code Special 4\"H x 3\"W Peel-N-Stick® vinyl 12-month calendars with full-color digital imprint on white vinyl. Made in USA.",
+    "tiers": [
+      [150, 1.03],
+      [250, 0.97],
+      [500, 0.94],
+      [1000, 0.78],
+      [2500, 0.71]
+    ],
+    "image": "/images/merch/adhesive-peel-n-stick-calendar-rectangle-15389.webp",
+    "imageAlt": "Adhesive Peel-N-Stick® Calendar - Rectangle",
+    "colors": ["White"]
+  },
+  {
+    "id": "tent-calendars-serene-sunsets-98491",
+    "name": "Tent Calendars - Serene Sunsets",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "12 month tent desk calendar featuring photos of beautiful sunsets. Made in USA.",
+    "tiers": [
+      [100, 3.82],
+      [250, 3.33],
+      [500, 3.09],
+      [1000, 2.81]
+    ],
+    "image": "/images/merch/tent-calendars-serene-sunsets-98491.webp",
+    "imageAlt": "Tent Calendars - Serene Sunsets",
+    "colors": ["Multi color"]
+  },
+  {
+    "id": "laser-etched-notepad-holder-44600",
+    "name": "Laser Etched Notepad Holder",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Laser etched acrylic note pad holder (fits a 3\" x 3\" pad). Made in USA.",
+    "tiers": [
+      [100, 13],
+      [250, 11.933],
+      [500, 10.933],
+      [1000, 10.517]
+    ],
+    "image": "/images/merch/laser-etched-notepad-holder-44600.webp",
+    "imageAlt": "Laser Etched Notepad Holder",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "usa-made-color-notebook-66151",
+    "name": "Color Notebook",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "3\" x 5\" colorful journal with 40 pages and your choice of graph, lined or dotted pages. Made in USA.",
+    "tiers": [
+      [250, 1.56],
+      [500, 1.48],
+      [1000, 1.37],
+      [2500, 1.21]
+    ],
+    "image": "/images/merch/usa-made-color-notebook-66151.webp",
+    "imageAlt": "Color Notebook",
+    "colors": ["Green", "Orange", "Red", "Black", "Navy Blue", "White"]
+  },
+  {
+    "id": "econo-pocket-coil-notebook-95074",
+    "name": "Econo Pocket Coil Notebook",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Top coil bound pocket notebook with 50 sheets. Made in USA.",
+    "tiers": [
+      [250, 2.94],
+      [500, 2.11],
+      [1000, 1.82],
+      [2500, 1.54]
+    ],
+    "image": "/images/merch/econo-pocket-coil-notebook-95074.webp",
+    "imageAlt": "Econo Pocket Coil Notebook",
+    "colors": ["White"]
+  },
+  {
+    "id": "econo-legal-pad-95109",
+    "name": "Econo Legal Pad",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Economy legal pad with 30 perforated sheets of 18 lb. white tablet bond. Made in USA.",
+    "tiers": [
+      [250, 3.13],
+      [500, 2.82],
+      [1000, 2.57],
+      [2000, 2.52]
+    ],
+    "image": "/images/merch/econo-legal-pad-95109.webp",
+    "imageAlt": "Econo Legal Pad",
+    "colors": ["White", "Gold", "Silver"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "ultra-vivid-color-notepad-holders-40759",
+    "name": "Ultra Vivid Color Notepad Holders",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Notepad holder with rubber feet; can fit a 3\" x 3\" note pad. Made in USA.",
+    "tiers": [
+      [25, 11.267],
+      [50, 8.8],
+      [100, 8.083],
+      [250, 7.4],
+      [500, 7.15]
+    ],
+    "image": "/images/merch/ultra-vivid-color-notepad-holders-40759.webp",
+    "imageAlt": "Ultra Vivid Color Notepad Holders",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "note-pad-holder-69694",
+    "name": "Note Pad Holder",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Note Pad Holder - 3.5\" x 3.5\". Includes full color process on note holder and 25 individual sheets. Made in USA.",
+    "tiers": [
+      [150, 4.69],
+      [250, 4.39],
+      [1000, 4.1],
+      [2500, 3.83],
+      [5000, 3.58]
+    ],
+    "image": "/images/merch/note-pad-holder-69694.webp",
+    "imageAlt": "Note Pad Holder",
+    "colors": ["Blue"]
+  },
+  {
+    "id": "mini-pp-cover-spiral-note-and-pen-set-11879",
+    "name": "Mini PP Cover Spiral Note & Pen Set",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Size: 4.92\" x 2.99\".",
+    "tiers": [
+      [100, 1.9],
+      [250, 1.567],
+      [500, 1.283],
+      [1000, 1.183],
+      [2500, 1.133]
+    ],
+    "image": "/images/merch/mini-pp-cover-spiral-note-and-pen-set-11879.webp",
+    "imageAlt": "Mini PP Cover Spiral Note & Pen Set",
+    "colors": [
+      "Nickel Metal",
+      "Medium White",
+      "Medium Yellow",
+      "Iridescent Blue",
+      "Camouflage Yellow",
+      "Bright Pink",
+      "Metallic Red"
+    ]
+  },
+  {
+    "id": "a5-two-tone-pu-leather-notebook-87689",
+    "name": "A5 Two Tone PU Leather Notebook",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "A5 Two Tone Pu Leather Bound Notebook With Elastic Strap For Business Daily Use.",
+    "tiers": [
+      [100, 7.966],
+      [300, 7.567],
+      [500, 7.353],
+      [800, 7.322],
+      [1000, 3.768]
+    ],
+    "image": "/images/merch/a5-two-tone-pu-leather-notebook-87689.webp",
+    "imageAlt": "A5 Two Tone PU Leather Notebook",
+    "colors": [
+      "Gray",
+      "Red",
+      "Green",
+      "Blue",
+      "White",
+      "Royal Blue",
+      "Black",
+      "Navy Blue",
+      "Orange"
+    ]
+  },
+  {
+    "id": "eco-friendly-complete-set-notepad-87551",
+    "name": "Eco-Friendly Complete Set Notepad",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Multifunctional pad with tape flags and two size self-stick notes.",
+    "tiers": [
+      [50, 4.52],
+      [100, 3.94],
+      [200, 3.46],
+      [500, 2.55],
+      [1000, 2.23]
+    ],
+    "image": "/images/merch/eco-friendly-complete-set-notepad-87551.webp",
+    "imageAlt": "Eco-Friendly Complete Set Notepad",
+    "colors": ["Brown", "White"]
+  },
+  {
+    "id": "postit-note-holder-jade-09278",
+    "name": "PostIt Note Holder - Jade",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Clear Jade glass self-adhering note holder.",
+    "tiers": [
+      [1, 44],
+      [12, 43],
+      [25, 42],
+      [50, 41],
+      [100, 40]
+    ],
+    "image": "/images/merch/postit-note-holder-jade-09278.webp",
+    "imageAlt": "PostIt Note Holder - Jade",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "vintage-clipboard-hanging-memo-board-26801",
+    "name": "Vintage Clipboard Hanging Memo Board",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Vintage memo board with refillable paper roll.",
+    "tiers": [
+      [40, 23.833],
+      [80, 22],
+      [160, 20.167],
+      [320, 18.333],
+      [800, 16.5]
+    ],
+    "image": "/images/merch/vintage-clipboard-hanging-memo-board-26801.webp",
+    "imageAlt": "Vintage Clipboard Hanging Memo Board",
+    "colors": ["Green", "Brown"]
+  },
+  {
+    "id": "sticky-note-notebook-with-pen-28805",
+    "name": "Sticky Note Notebook with Pen",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Compact Sticky Note Notebook with smooth paper, strong adhesive, pen included, perfect for office, school, or travel.",
+    "tiers": [
+      [300, 2.87],
+      [500, 2.72],
+      [1000, 2.59],
+      [5000, 1.17],
+      [10000, 1.13]
+    ],
+    "image": "/images/merch/sticky-note-notebook-with-pen-28805.webp",
+    "imageAlt": "Sticky Note Notebook with Pen",
+    "colors": ["Blue", "Black", "Red", "Khaki"]
+  },
+  {
+    "id": "sticky-note-pen-box-square-78905",
+    "name": "Sticky Note Pen Box Square",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Size: 4\" x 4\" x 3.4\".",
+    "tiers": [
+      [1000, 4.133],
+      [1250, 3.983],
+      [1500, 3.883],
+      [2000, 3.817],
+      [2500, 3.667]
+    ],
+    "image": "/images/merch/sticky-note-pen-box-square-78905.webp",
+    "imageAlt": "Sticky Note Pen Box Square",
+    "colors": [
+      "Medium Pink",
+      "Light Blue",
+      "Clear Green",
+      "Light Pink",
+      "Bright Gray",
+      "Bright Red"
+    ]
+  },
+  {
+    "id": "four-in-one-sticky-note-box-92811",
+    "name": "Four-In-One Sticky Note Box",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "This stationery set includes reusable stickers, label stickers, a notepad organizer and a daily planner.",
+    "tiers": [
+      [100, 5.15],
+      [500, 4.55],
+      [1000, 3.99],
+      [5000, 3.39],
+      [10000, 2.84]
+    ],
+    "image": "/images/merch/four-in-one-sticky-note-box-92811.webp",
+    "imageAlt": "Four-In-One Sticky Note Box",
+    "colors": ["Navy Blue", "Brown", "Purple", "White", "Red", "Green", "Black"]
+  },
+  {
+    "id": "sticky-notes-cube-box-with-pen-holder-47691",
+    "name": "Sticky Notes Cube Box with Pen Holder",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Foldable cube desk organizer, sticky notepads & pen holder for clutter-free workspaces.",
+    "tiers": [
+      [100, 5.81],
+      [200, 5.31],
+      [500, 4.53],
+      [1000, 4.46],
+      [3000, 4.38]
+    ],
+    "image": "/images/merch/sticky-notes-cube-box-with-pen-holder-47691.webp",
+    "imageAlt": "Sticky Notes Cube Box with Pen Holder",
+    "colors": [
+      "Clear Green",
+      "Aluminum",
+      "Medium Red",
+      "Iridescent Brown",
+      "Metallic Brown",
+      "Bright Purple",
+      "Medium Green"
+    ]
+  },
+  {
+    "id": "portable-sticky-notes-organizer-built-in-140-sheets-w-cover-30487",
+    "name": "Portable Sticky Notes Organizer Built-in 140 Sheets w/ Cover",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "This sticky notes organizer features a PU leather cover, 140 built-in notes, and a durable plastic container with rounded corners.",
+    "tiers": [
+      [30, 6.95],
+      [60, 6.417],
+      [120, 5.883],
+      [300, 5.317],
+      [500, 4.8]
+    ],
+    "image": "/images/merch/portable-sticky-notes-organizer-built-in-140-sheets-w-cover-30487.webp",
+    "imageAlt": "Portable Sticky Notes Organizer Built-in 140 Sheets w/ Cover",
+    "colors": ["Black", "Dark Brown", "Brown", "Red", "Orange"]
+  },
+  {
+    "id": "desk-square-sticky-memo-note-cube-organizer-71321",
+    "name": "Desk Square Sticky Memo Note Cube Organizer",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Organizing cube for sticky notes.",
+    "tiers": [
+      [50, 10.8],
+      [300, 8.167],
+      [600, 7.833],
+      [1200, 7.5],
+      [2400, 7]
+    ],
+    "image": "/images/merch/desk-square-sticky-memo-note-cube-organizer-71321.webp",
+    "imageAlt": "Desk Square Sticky Memo Note Cube Organizer"
+  },
+  {
+    "id": "spiral-notebook-33780",
+    "name": "Spiral Notebook",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Custom logo spiral notebook with insertable plastic cover, lined pages, durable binding, multi-color for office and school.",
+    "tiers": [
+      [50, 8.404],
+      [500, 5.79],
+      [1000, 2.895],
+      [3000, 2.556],
+      [10000, 2.088]
+    ],
+    "image": "/images/merch/spiral-notebook-33780.webp",
+    "imageAlt": "Spiral Notebook",
+    "colors": ["Purple", "Green", "Light Green", "Orange", "Red", "Blue", "Black"]
+  },
+  {
+    "id": "pocket-aluminum-memo-pad-holder-with-ballpoint-pen-69234",
+    "name": "Pocket Aluminum Memo Pad Holder With Ballpoint Pen",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "These metal pocket notebooks with pen and refillable paper is decorated with exquisite shell.",
+    "tiers": [
+      [150, 5.433],
+      [300, 4.217],
+      [500, 4.083],
+      [1000, 3.933],
+      [5000, 2.917]
+    ],
+    "image": "/images/merch/pocket-aluminum-memo-pad-holder-with-ballpoint-pen-69234.webp",
+    "imageAlt": "Pocket Aluminum Memo Pad Holder With Ballpoint Pen",
+    "colors": ["Black", "Blue", "Purple", "Red", "Silver"]
+  },
+  {
+    "id": "clear-acrylic-sticky-note-pad-holder-03522",
+    "name": "Clear Acrylic Sticky Note Pad Holder",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "This acrylic sticky note holder stores notes and office items, stylish and practical, an ideal office desk organizer.",
+    "tiers": [
+      [100, 7.46],
+      [300, 6.92],
+      [500, 6.8],
+      [1000, 6.42],
+      [3000, 4.38]
+    ],
+    "image": "/images/merch/clear-acrylic-sticky-note-pad-holder-03522.webp",
+    "imageAlt": "Clear Acrylic Sticky Note Pad Holder",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "stretch-table-cover-3-sided-6-x-2-5-41294",
+    "name": "Stretch Table Cover - 3 Sided (6' x 2.5')",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "High-definition, vibrant designs on flexible fabric for professional presentations and events.",
+    "tiers": [
+      [1, 137.03],
+      [10, 132.9]
+    ],
+    "image": "/images/merch/stretch-table-cover-3-sided-6-x-2-5-41294.webp",
+    "imageAlt": "Stretch Table Cover - 3 Sided (6' x 2.5')"
+  },
+  {
+    "id": "6-customized-throw-style-table-cover-33133",
+    "name": "6' Customized Throw Style Table Cover",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "6' Fully Customized Throw Style Table Cover Made in USA.",
+    "tiers": [
+      [1, 255],
+      [3, 230],
+      [6, 200.5],
+      [12, 175],
+      [25, 140]
+    ],
+    "image": "/images/merch/6-customized-throw-style-table-cover-33133.webp",
+    "imageAlt": "6' Customized Throw Style Table Cover"
+  },
+  {
+    "id": "fitted-style-zippered-back-table-cover-65041",
+    "name": "Fitted Style - Zippered Back - Table Cover",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "Fitted table cover made of wrinkle-resistant poly poplin with zippered back.",
+    "tiers": [
+      [1, 242],
+      [5, 190],
+      [10, 160],
+      [25, 131.35],
+      [50, 128.1]
+    ],
+    "image": "/images/merch/fitted-style-zippered-back-table-cover-65041.webp",
+    "imageAlt": "Fitted Style - Zippered Back - Table Cover",
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "table-runners-1ft-x-1ft-49900",
+    "name": "Table Runners (1ft x 1ft)",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "Table runners are decorative pieces of fabric used to enhance and protect dining tables.",
+    "tiers": [
+      [1, 2.68],
+      [10, 2.6]
+    ],
+    "image": "/images/merch/table-runners-1ft-x-1ft-49900.webp",
+    "imageAlt": "Table Runners (1ft x 1ft)"
+  },
+  {
+    "id": "all-over-full-color-table-cover-fitted-poly-3-sided-6-71902",
+    "name": "All Over Full Color Table Cover - Fitted Poly 3-Sided, 6'",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "6' rPET polyester table cover. Made in USA.",
+    "tiers": [[1, 181.5]],
+    "image": "/images/merch/all-over-full-color-table-cover-fitted-poly-3-sided-6-71902.webp",
+    "imageAlt": "All Over Full Color Table Cover - Fitted Poly 3-Sided, 6'",
+    "colors": ["Medium White"]
+  },
+  {
+    "id": "fitted-table-cover-3-sided-for-8-table-71915",
+    "name": "Fitted Table Cover 3-Sided for 8' Table",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "Fitted 3-sided 8' rPET polyester table cover. Made in USA.",
+    "tiers": [[1, 191.4]],
+    "image": "/images/merch/fitted-table-cover-3-sided-for-8-table-71915.webp",
+    "imageAlt": "Fitted Table Cover 3-Sided for 8' Table",
+    "colors": ["Medium White"]
+  },
+  {
+    "id": "6-customized-open-back-stretch-style-table-cover-12035",
+    "name": "6' Customized Open Back Stretch Style Table Cover",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "6' Fully Customized Open Back Stretch Style Table Cover.",
+    "tiers": [
+      [1, 255],
+      [3, 230],
+      [6, 200.5],
+      [12, 175],
+      [25, 140]
+    ],
+    "image": "/images/merch/6-customized-open-back-stretch-style-table-cover-12035.webp",
+    "imageAlt": "6' Customized Open Back Stretch Style Table Cover"
+  },
+  {
+    "id": "budget-polyester-table-cover-4-sided-8-foot-77071",
+    "name": "Polyester Table Cover, 4 Sided, 8 Foot",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "152 x 88\" polyester table cover with rolled hem, double stitching and rear seam. Fits 8' table. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [[1, 37.13]],
+    "image": "/images/merch/budget-polyester-table-cover-4-sided-8-foot-77071.webp",
+    "imageAlt": "Polyester Table Cover, 4 Sided, 8 Foot",
+    "colors": ["White"]
+  },
+  {
+    "id": "backdrop-banner-2-sided-vinyl-hardware-optional-02889",
+    "name": "Backdrop Banner - 2 Sided Vinyl (Hardware Optional)",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "2-sided vinyl backdrop banner, offered in an assortment of sizes. Made in USA.",
+    "tiers": [
+      [1, 92],
+      [2, 76.48],
+      [5, 60.95],
+      [10, 52.9],
+      [25, 46]
+    ],
+    "image": "/images/merch/backdrop-banner-2-sided-vinyl-hardware-optional-02889.webp",
+    "imageAlt": "Backdrop Banner - 2 Sided Vinyl (Hardware Optional)",
+    "colors": ["Multi color"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "quick-set-up-event-package-91222",
+    "name": "Quick Set up Event Package",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "Portable event kit with 2 X-banner stands and a polyester table cover-easy setup, durable, and perfect for trade shows.",
+    "tiers": [
+      [1, 250],
+      [10, 242.5]
+    ],
+    "image": "/images/merch/quick-set-up-event-package-91222.webp",
+    "imageAlt": "Quick Set up Event Package"
+  },
+  {
+    "id": "23-x-65-display-stand-with-premium-polyester-banner-01232",
+    "name": "23\" x 65\" Display Stand with Premium Polyester Banner",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "23\" x 65\" Display Stand with Knit Polyester Banner.",
+    "tiers": [
+      [1, 145],
+      [3, 110],
+      [6, 90],
+      [12, 78.25],
+      [25, 71.65]
+    ],
+    "image": "/images/merch/23-x-65-display-stand-with-premium-polyester-banner-01232.webp",
+    "imageAlt": "23\" x 65\" Display Stand with Premium Polyester Banner"
+  },
+  {
+    "id": "24-liteway-stratus-retractor-kit-no-curl-hybrid-37086",
+    "name": "24\" LiteWay Stratus Retractor Kit No-Curl Hybrid",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "The Stratus Retractor comes in a durable, white PVC option. Making it a reliable and budget-friendly display solution.",
+    "tiers": [
+      [1, 260.74],
+      [2, 245.01],
+      [6, 234.6],
+      [12, 218.88],
+      [25, 208.51]
+    ],
+    "image": "/images/merch/24-liteway-stratus-retractor-kit-no-curl-hybrid-37086.webp",
+    "imageAlt": "24\" LiteWay Stratus Retractor Kit No-Curl Hybrid",
+    "colors": ["Full Color", "Full Bleed"]
+  },
+  {
+    "id": "8-27-x-11-69-table-retractable-banner-kit-78687",
+    "name": "8.27\" x 11.69\" Table Retractable Banner Kit",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "Table banner kit with an aluminum retractable stand and 8.27\" x 11.69\" polyester banner. Made in USA.",
+    "tiers": [
+      [1, 86.67],
+      [5, 57.67],
+      [10, 51.33],
+      [25, 44.53],
+      [50, 40.6]
+    ],
+    "image": "/images/merch/8-27-x-11-69-table-retractable-banner-kit-78687.webp",
+    "imageAlt": "8.27\" x 11.69\" Table Retractable Banner Kit",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "10-x-10-adjustable-step-and-repeat-backdrop-banner-stand-20721",
+    "name": "10' x 10' Adjustable Step And Repeat Backdrop Banner Stand",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "Size: 10' x 10'.",
+    "tiers": [
+      [2, 517.6],
+      [12, 385.48],
+      [24, 362.49],
+      [48, 345.27],
+      [96, 332.49]
+    ],
+    "image": "/images/merch/10-x-10-adjustable-step-and-repeat-backdrop-banner-stand-20721.webp",
+    "imageAlt": "10' x 10' Adjustable Step And Repeat Backdrop Banner Stand",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "high-quality-retractable-stand-30-x-78-55021",
+    "name": "High Quality Retractable Stand (30\" x 78\")",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "30\" x 78\" retractable banner stand with aluminum base, PP graphic, UV printing, and carry bag for easy transport.",
+    "tiers": [
+      [1, 181.67],
+      [10, 176.2]
+    ],
+    "image": "/images/merch/high-quality-retractable-stand-30-x-78-55021.webp",
+    "imageAlt": "High Quality Retractable Stand (30\" x 78\")"
+  },
+  {
+    "id": "5-jumbo-wide-retractor-13-oz-smooth-scrim-vinyl-kit-90647",
+    "name": "5' Jumbo Wide Retractor 13 oz. Smooth Scrim Vinyl Kit",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "5' jumbo wide retractor, smooth scrim vinyl kit.",
+    "tiers": [
+      [1, 783.5],
+      [2, 736.5],
+      [6, 705],
+      [12, 658],
+      [25, 619]
+    ],
+    "image": "/images/merch/5-jumbo-wide-retractor-13-oz-smooth-scrim-vinyl-kit-90647.webp",
+    "imageAlt": "5' Jumbo Wide Retractor 13 oz. Smooth Scrim Vinyl Kit",
+    "colors": ["Full Color", "Full Bleed"]
+  },
+  {
+    "id": "instastand-13929",
+    "name": "InstaStand",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "Auto rise table stand, stretch polyester banner and hardware.",
+    "tiers": [
+      [1, 540],
+      [3, 486],
+      [6, 460],
+      [12, 442.5],
+      [25, 415]
+    ],
+    "image": "/images/merch/instastand-13929.webp",
+    "imageAlt": "InstaStand"
+  },
+  {
+    "id": "light-up-flash-poster-with-roll-up-banner-42376",
+    "name": "Light Up Flash Poster with Roll Up Banner",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "Custom Full Color Retractable Banner Stand (33.5\" x 78\") with Light Up Flashing Poster (8.25\" x 11.75\"). ONLY Available here. Made in USA.",
+    "tiers": [
+      [1, 285.71],
+      [5, 260],
+      [10, 234.29],
+      [25, 196.3],
+      [50, 179.76]
+    ],
+    "image": "/images/merch/light-up-flash-poster-with-roll-up-banner-42376.webp",
+    "imageAlt": "Light Up Flash Poster with Roll Up Banner",
+    "colors": ["Multi color"]
+  },
+  {
+    "id": "10-giant-flagpole-kit-03359",
+    "name": "10' Giant Flagpole Kit",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "Giant flagpole kit including a single reverse 38\" x 120\" flag.",
+    "tiers": [
+      [1, 449.54],
+      [3, 392.35],
+      [6, 295.12],
+      [12, 277.09],
+      [25, 253.46]
+    ],
+    "image": "/images/merch/10-giant-flagpole-kit-03359.webp",
+    "imageAlt": "10' Giant Flagpole Kit"
+  },
+  {
+    "id": "step-and-repeat-backdrop-single-sided-package-10ft-x-8ft-55179",
+    "name": "Step and Repeat Backdrop, Single Sided Package (10ft x 8ft)",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "Backdrop with vibrant polyester fabric, ideal for indoor and outdoor events, showcasing dynamic full-color printing. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [1, 333],
+      [10, 323]
+    ],
+    "image": "/images/merch/step-and-repeat-backdrop-single-sided-package-10ft-x-8ft-55179.webp",
+    "imageAlt": "Step and Repeat Backdrop, Single Sided Package (10ft x 8ft)"
+  },
+  {
+    "id": "economy-roll-up-stands-package-33-x-81-01420",
+    "name": "Economy Roll Up Stands Package (33\" x 81\")",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "The Economy Roll Up Stands Package provides budget-friendly, portable advertising solutions for diverse display needs.",
+    "tiers": [
+      [1, 99.333],
+      [10, 96.353]
+    ],
+    "image": "/images/merch/economy-roll-up-stands-package-33-x-81-01420.webp",
+    "imageAlt": "Economy Roll Up Stands Package (33\" x 81\")"
+  },
+  {
+    "id": "8-x-8-adjustable-step-and-repeat-backdrop-banner-stand-20594",
+    "name": "8' x 8' Adjustable Step And Repeat Backdrop Banner Stand",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "Size: 8' x 8'.",
+    "tiers": [
+      [2, 438.32],
+      [12, 317.57],
+      [24, 290.79],
+      [48, 274.66],
+      [96, 265.71]
+    ],
+    "image": "/images/merch/8-x-8-adjustable-step-and-repeat-backdrop-banner-stand-20594.webp",
+    "imageAlt": "8' x 8' Adjustable Step And Repeat Backdrop Banner Stand",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "silverstep-36-retractable-banner-stand-package-36-x-72-33325",
+    "name": "Silverstep 36\" Retractable Banner Stand Package (36\" x 72\")",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "Portable display with an anodized aluminum frame and vibrant full-color graphics, perfect for showcasing branding at events. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [1, 221.666],
+      [10, 215.016],
+      [100, 210.583]
+    ],
+    "image": "/images/merch/silverstep-36-retractable-banner-stand-package-36-x-72-33325.webp",
+    "imageAlt": "Silverstep 36\" Retractable Banner Stand Package (36\" x 72\")"
+  },
+  {
+    "id": "badge-holder-blank-inserts-3-x4-60637",
+    "name": "Badge Holder Blank Inserts (3\" x 4\")",
+    "category": "Lanyards & Badges",
+    "brand": "Essentials",
+    "description": "3\" x 4\" badge holder with a blank inserts.",
+    "tiers": [[100, 0.84]],
+    "image": "/images/merch/badge-holder-blank-inserts-3-x4-60637.webp",
+    "imageAlt": "Badge Holder Blank Inserts (3\" x 4\")",
+    "colors": ["White"]
+  },
+  {
+    "id": "badge-holder-w-slot-2-x3-1-2-60415",
+    "name": "Badge Holder w/Slot (2\" x 3 1/2\")",
+    "category": "Lanyards & Badges",
+    "brand": "Essentials",
+    "description": "2\" x 3\" badge holder with a blank insert.",
+    "tiers": [
+      [100, 0.64],
+      [250, 0.53],
+      [500, 0.5],
+      [1000, 0.47],
+      [2500, 0.44]
+    ],
+    "image": "/images/merch/badge-holder-w-slot-2-x3-1-2-60415.webp",
+    "imageAlt": "Badge Holder w/Slot (2\" x 3 1/2\")",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "retractable-id-badge-holder-with-breakaway-lanyard-63915",
+    "name": "Retractable ID Badge Holder with Breakaway Lanyard",
+    "category": "Lanyards & Badges",
+    "brand": "Essentials",
+    "description": "Includs lanyard, carabiner badge reels and hard badge covers. This set will meet all your needs in work and life application.",
+    "tiers": [
+      [500, 3.5],
+      [1000, 2.333],
+      [5000, 2.167],
+      [10000, 2.133],
+      [50000, 2.117]
+    ],
+    "image": "/images/merch/retractable-id-badge-holder-with-breakaway-lanyard-63915.webp",
+    "imageAlt": "Retractable ID Badge Holder with Breakaway Lanyard",
+    "colors": ["Black"]
+  },
+  {
+    "id": "id-badge-holder-with-lanyard-06377",
+    "name": "ID Badge Holder with Lanyard",
+    "category": "Lanyards & Badges",
+    "brand": "Essentials",
+    "description": "Retractable Badge Reels: Hold All Your Essentials for Work or Sports, Great for Various Professions and Activities.",
+    "tiers": [
+      [50, 3.317],
+      [200, 1.95],
+      [1000, 1.333],
+      [5000, 1.283],
+      [10000, 0.983]
+    ],
+    "image": "/images/merch/id-badge-holder-with-lanyard-06377.webp",
+    "imageAlt": "ID Badge Holder with Lanyard",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "portable-retractable-lanyard-pu-leather-name-tag-23844",
+    "name": "Portable Retractable Lanyard Pu Leather Name Tag",
+    "category": "Lanyards & Badges",
+    "brand": "Essentials",
+    "description": "Our badge lanyard protects your card of loss and helps you maintain a professional image.",
+    "tiers": [
+      [100, 4.9],
+      [300, 4.117],
+      [500, 3.85],
+      [1000, 3.583],
+      [5000, 2.767]
+    ],
+    "image": "/images/merch/portable-retractable-lanyard-pu-leather-name-tag-23844.webp",
+    "imageAlt": "Portable Retractable Lanyard Pu Leather Name Tag",
+    "colors": ["Green", "Yellow", "Black", "Red", "Blue", "Brown"]
   }
 ]
