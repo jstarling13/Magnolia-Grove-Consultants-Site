@@ -39906,5 +39906,579 @@
     "image": "/images/merch/medi-fey-7-day-round-pill-box-43620.webp",
     "imageAlt": "Medi-Fey™ 7 Day Round Pill Box",
     "colors": ["Process Blue", "White", "Red", "Green", "Purple", "Pink"]
+  },
+  {
+    "id": "custom-die-cut-yard-signs-1-5ft-x-1ft-63237",
+    "name": "Custom Die-Cut Yard Signs (1.5ft x 1ft)",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "Custom-shaped, 5mm thick Corflute with vibrant full-color UV printing, perfect for outdoor displays. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [1, 8.98],
+      [10, 8.7]
+    ],
+    "image": "/images/merch/custom-die-cut-yard-signs-1-5ft-x-1ft-63237.webp",
+    "imageAlt": "Custom Die-Cut Yard Signs (1.5ft x 1ft)"
+  },
+  {
+    "id": "10-5-value-blade-sail-sign-flag-kit-single-sided-spike-base-92601",
+    "name": "10.5' Value Blade Sail Sign Flag Kit Single-Sided Spike Base",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "10.5' value blade sail sign with ground spike and single-sided, dye sublimated graphics.",
+    "tiers": [
+      [1, 174.5],
+      [2, 169.3],
+      [6, 164],
+      [12, 158.8],
+      [25, 153.6]
+    ],
+    "image": "/images/merch/10-5-value-blade-sail-sign-flag-kit-single-sided-spike-base-92601.webp",
+    "imageAlt": "10.5' Value Blade Sail Sign Flag Kit Single-Sided Spike Base"
+  },
+  {
+    "id": "9-5-value-teardrop-sail-sign-flag-2-sided-with-spike-03439",
+    "name": "9.5' Value Teardrop Sail Sign Flag - 2-Sided with Spike",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "9.5' teardrop shaped sail sign with galvanized steel ground spike and double-sided, dye sublimated graphics.",
+    "tiers": [
+      [1, 274],
+      [2, 265.75],
+      [6, 257.5],
+      [12, 249.3],
+      [25, 241.1]
+    ],
+    "image": "/images/merch/9-5-value-teardrop-sail-sign-flag-2-sided-with-spike-03439.webp",
+    "imageAlt": "9.5' Value Teardrop Sail Sign Flag - 2-Sided with Spike"
+  },
+  {
+    "id": "single-sided-printed-banner-flag-w-heavy-duty-pole-80173",
+    "name": "Single Sided Printed Banner Flag w/ Heavy Duty Pole",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "7', 10' or 13' single-sided banner flags with heavy duty pole.",
+    "tiers": [
+      [1, 187],
+      [3, 178],
+      [6, 168],
+      [12, 159],
+      [25, 150]
+    ],
+    "image": "/images/merch/single-sided-printed-banner-flag-w-heavy-duty-pole-80173.webp",
+    "imageAlt": "Single Sided Printed Banner Flag w/ Heavy Duty Pole",
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "12-double-sided-feather-flag-39501",
+    "name": "12' Double Sided Feather Flag",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "12' feather flag with double-sided graphics, pole hardware, ground stake and compartment carry bag.",
+    "tiers": [
+      [1, 215.92],
+      [2, 211.68],
+      [5, 207.53],
+      [12, 203.47],
+      [20, 199.48]
+    ],
+    "image": "/images/merch/12-double-sided-feather-flag-39501.webp",
+    "imageAlt": "12' Double Sided Feather Flag",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "feather-flags-for-advertising-graphic-only-1-5-x-5-5-65361",
+    "name": "Feather Flags for Advertising (Graphic Only) 1.5' x 5.5'",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "Vibrant replacement graphics for feather flags, printed on durable polyester with vivid, full-color dye-sublimation. Made in USA.",
+    "tiers": [
+      [1, 23.383],
+      [10, 22.682]
+    ],
+    "image": "/images/merch/feather-flags-for-advertising-graphic-only-1-5-x-5-5-65361.webp",
+    "imageAlt": "Feather Flags for Advertising (Graphic Only) 1.5' x 5.5'",
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "12-single-sided-feather-flag-39492",
+    "name": "12' Single Sided Feather Flag",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "12' feather flag with single-sided graphics, pole hardware, ground stake and compartment carry bag.",
+    "tiers": [
+      [1, 167.88],
+      [2, 164.58],
+      [5, 161.35],
+      [12, 158.18],
+      [20, 155.08]
+    ],
+    "image": "/images/merch/12-single-sided-feather-flag-39492.webp",
+    "imageAlt": "12' Single Sided Feather Flag",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "single-sided-teardrop-flag-w-unique-heavy-duty-pole-47278",
+    "name": "Single Sided TearDrop Flag W/ Unique Heavy Duty Pole",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "Single sided composite polyester teardrop-shaped flags with heavy duty pole in 7', 11' and 15' sizes.",
+    "tiers": [
+      [1, 187],
+      [3, 178],
+      [6, 168],
+      [12, 159],
+      [25, 150]
+    ],
+    "image": "/images/merch/single-sided-teardrop-flag-w-unique-heavy-duty-pole-47278.webp",
+    "imageAlt": "Single Sided TearDrop Flag W/ Unique Heavy Duty Pole",
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "premium-full-color-table-covers-and-throws-4-sided-6ft-x-2-5-39294",
+    "name": "Premium Full Color Table Covers & Throws-4 Sided 6ft x 2.5ft",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "4-sided premium full color table cover for 6' tables with dye-sublimation printing and optional fire-retardant fabric. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [1, 205.97],
+      [10, 199.8]
+    ],
+    "image": "/images/merch/premium-full-color-table-covers-and-throws-4-sided-6ft-x-2-5-39294.webp",
+    "imageAlt": "Premium Full Color Table Covers & Throws-4 Sided 6ft x 2.5ft"
+  },
+  {
+    "id": "6-ft-full-color-throws-stretch-fitted-table-covers-72741",
+    "name": "6 ft Full Color Throws Stretch Fitted Table Covers",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "5.3 oz 180gsm Polyester/Spandex Table Covers, 131\"L x 88\"W, tailored for a professional fit, Customizable imprint with vivid logo!",
+    "tiers": [
+      [1, 174.34],
+      [3, 122.84],
+      [5, 109.77],
+      [10, 100.13],
+      [25, 94.26]
+    ],
+    "image": "/images/merch/6-ft-full-color-throws-stretch-fitted-table-covers-72741.webp",
+    "imageAlt": "6 ft Full Color Throws Stretch Fitted Table Covers",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "stretch-table-cover-4-sided-with-zipper-back-6-x-2-5-41559",
+    "name": "Stretch Table Cover - 4 Sided with Zipper Back (6' x 2.5')",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "4-sided stretch table cover with zipper back for 6' tables, featuring wrinkle-free fit and full-color dye-sublimation printing.",
+    "tiers": [
+      [1, 210],
+      [10, 203.7]
+    ],
+    "image": "/images/merch/stretch-table-cover-4-sided-with-zipper-back-6-x-2-5-41559.webp",
+    "imageAlt": "Stretch Table Cover - 4 Sided with Zipper Back (6' x 2.5')"
+  },
+  {
+    "id": "8-stain-resistant-pro-4-sided-throw-full-color-imprint-82603",
+    "name": "8' Stain Resistant Pro 4-Sided Throw Full-Color Imprint",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "8-foot, 4-sided table cover made of stain-resistant polyester poplin with draped corners.",
+    "tiers": [
+      [1, 307.5],
+      [2, 267.5],
+      [6, 252.25],
+      [12, 230.6],
+      [25, 215.3]
+    ],
+    "image": "/images/merch/8-stain-resistant-pro-4-sided-throw-full-color-imprint-82603.webp",
+    "imageAlt": "8' Stain Resistant Pro 4-Sided Throw Full-Color Imprint",
+    "colors": ["Royal Blue", "Red", "Navy", "Hunter Green", "Gray"]
+  },
+  {
+    "id": "10x10-pro-package-with-printed-top-and-wall-09105",
+    "name": "10' x 10' Pro Package with Printed Top and Wall",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "10' x 10' 600 Denier polyester display tent and wall with dye sublimated imprint Made in USA.",
+    "tiers": [[1, 1165]],
+    "image": "/images/merch/10x10-pro-package-with-printed-top-and-wall-09105.webp",
+    "imageAlt": "10' x 10' Pro Package with Printed Top and Wall"
+  },
+  {
+    "id": "10-custom-printed-pop-up-tent-kit-w-steel-frame-61116",
+    "name": "10' Custom Printed Pop Up Tent Kit w/ Steel Frame",
+    "category": "Event & Signage",
+    "brand": "Essentials",
+    "description": "10x10ft water-resistant canopy with custom print, adjustable steel legs and wheeled bag-durable and portable for any event.",
+    "tiers": [
+      [1, 347.25],
+      [5, 339.6],
+      [10, 327.7],
+      [25, 314.58],
+      [50, 303.55]
+    ],
+    "image": "/images/merch/10-custom-printed-pop-up-tent-kit-w-steel-frame-61116.webp",
+    "imageAlt": "10' Custom Printed Pop Up Tent Kit w/ Steel Frame"
+  },
+  {
+    "id": "deluxe-double-pen-set-with-danish-ballpoint-and-rollerball-44474",
+    "name": "Deluxe Double Pen Set with Danish Ballpoint & Rollerball",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Deluxe double pen box with Danish rollerball and ballpoint pens.",
+    "tiers": [
+      [50, 18.6],
+      [100, 17.4],
+      [250, 16.7],
+      [500, 15.95],
+      [1000, 15.35]
+    ],
+    "image": "/images/merch/deluxe-double-pen-set-with-danish-ballpoint-and-rollerball-44474.webp",
+    "imageAlt": "Deluxe Double Pen Set with Danish Ballpoint & Rollerball",
+    "colors": ["Gunmetal", "Nickel", "Blue", "Black", "Red", "Green", "White"]
+  },
+  {
+    "id": "moleskine-pocket-notebook-and-go-pen-gift-set-89613",
+    "name": "Moleskine® Pocket Notebook and GO Pen Gift Set",
+    "category": "Office & Writing",
+    "brand": "Moleskine",
+    "description": "Elevate your gifting experience with the Legendary Notebook and GO Pen packaged in a two-piece gift box.",
+    "tiers": [
+      [25, 60.93],
+      [50, 52.26],
+      [100, 42.11],
+      [300, 40.49]
+    ],
+    "image": "/images/merch/moleskine-pocket-notebook-and-go-pen-gift-set-89613.webp",
+    "imageAlt": "Moleskine® Pocket Notebook and GO Pen Gift Set",
+    "colors": ["Black", "Sapphire Blue-White", "Scarlet Red", "Sapphire Blue - Sapphire Blue"]
+  },
+  {
+    "id": "eden-recycled-rpet-wireless-charging-desk-organizer-04372",
+    "name": "Eden Recycled rPET Wireless Charging Desk Organizer",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Desk organizer with wireless charging.",
+    "tiers": [
+      [8, 90.26],
+      [25, 77.41],
+      [50, 67.58],
+      [100, 64.98]
+    ],
+    "image": "/images/merch/eden-recycled-rpet-wireless-charging-desk-organizer-04372.webp",
+    "imageAlt": "Eden Recycled rPET Wireless Charging Desk Organizer",
+    "colors": ["Charcoal Heather"]
+  },
+  {
+    "id": "terratone-organize-and-energize-kit-16752",
+    "name": "TerraTone™ Organize & Energize Kit",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Keep tidy & charged with the TerraTone Organize & Energize Kit: desk organizer & 3-in-1 charging cable in sleek modular packaging.",
+    "tiers": [
+      [1, 34.39],
+      [10, 27.84],
+      [25, 27.44],
+      [50, 26.53],
+      [100, 25.21]
+    ],
+    "image": "/images/merch/terratone-organize-and-energize-kit-16752.webp",
+    "imageAlt": "TerraTone™ Organize & Energize Kit",
+    "colors": ["White-Brown"]
+  },
+  {
+    "id": "terratone-desk-organizer-52536",
+    "name": "TerraTone™ Desk Organizer",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "An eco-friendly desk organizer with two storage compartments.",
+    "tiers": [
+      [1, 15.05],
+      [10, 12.05],
+      [25, 11.78],
+      [50, 11.5],
+      [100, 10.95]
+    ],
+    "image": "/images/merch/terratone-desk-organizer-52536.webp",
+    "imageAlt": "TerraTone™ Desk Organizer",
+    "colors": ["White-Brown"]
+  },
+  {
+    "id": "wooden-clipboard-with-clip-82443",
+    "name": "Wooden Clipboard with Clip",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "12\" x 9\" Letter wooden clipboards with low profile clip.",
+    "tiers": [
+      [100, 3.304],
+      [300, 3.22],
+      [500, 2.951],
+      [1000, 2.84],
+      [2000, 2.663]
+    ],
+    "image": "/images/merch/wooden-clipboard-with-clip-82443.webp",
+    "imageAlt": "Wooden Clipboard with Clip",
+    "colors": ["Brown"]
+  },
+  {
+    "id": "high-capacity-clipboard-with-storage-23482",
+    "name": "High Capacity Clipboard with Storage",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Nursing Clipboard with Pen Holder, Heavy Duty Plastic Clipboard, Teacher Must Haves School Office Supplies.",
+    "tiers": [
+      [120, 19.667],
+      [360, 16],
+      [720, 13.083],
+      [1440, 7.633],
+      [2880, 7.35]
+    ],
+    "image": "/images/merch/high-capacity-clipboard-with-storage-23482.webp",
+    "imageAlt": "High Capacity Clipboard with Storage",
+    "colors": [
+      "Black",
+      "Purple",
+      "Light Blue",
+      "Teal",
+      "Red",
+      "Light Purple",
+      "Dark Blue",
+      "Navy",
+      "Hot Pink",
+      "Light Pink",
+      "Sky Blue",
+      "Grass Green",
+      "Light Green"
+    ]
+  },
+  {
+    "id": "hucary-storage-clipboard-71498",
+    "name": "Hucary Storage Clipboard",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Storage clipboard with clasp closure.",
+    "tiers": [
+      [12, 17.63],
+      [24, 15.08],
+      [48, 14.41],
+      [144, 14.15],
+      [288, 13.89]
+    ],
+    "image": "/images/merch/hucary-storage-clipboard-71498.webp",
+    "imageAlt": "Hucary Storage Clipboard",
+    "colors": ["Black"]
+  },
+  {
+    "id": "zesh-storage-clipboard-71428",
+    "name": "Zesh Storage Clipboard",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Storage clipboard with integrated steel clip.",
+    "tiers": [
+      [10, 37.61],
+      [30, 35.26],
+      [60, 34.4],
+      [120, 33.78],
+      [250, 33.19]
+    ],
+    "image": "/images/merch/zesh-storage-clipboard-71428.webp",
+    "imageAlt": "Zesh Storage Clipboard",
+    "colors": ["Silver"]
+  },
+  {
+    "id": "monthly-pocket-planers-34247",
+    "name": "Monthly Pocket Planers",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "6.75\"H x 3.62\"W 14-month pocket planner with vinyl cover. Made in USA.",
+    "tiers": [
+      [100, 2.55],
+      [250, 2.42],
+      [500, 2.31],
+      [1000, 2.16]
+    ],
+    "image": "/images/merch/monthly-pocket-planers-34247.webp",
+    "imageAlt": "Monthly Pocket Planers",
+    "colors": [
+      "White",
+      "Black",
+      "Gray",
+      "Orange",
+      "Red",
+      "Bright Blue",
+      "Green",
+      "Burgundy",
+      "Navy Blue",
+      "Royal Blue"
+    ]
+  },
+  {
+    "id": "weekly-desk-appointment-planner-leatherette-06779",
+    "name": "Weekly Desk Appointment Planner - Leatherette",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Wire-bound, weekly desk appointment planner with leatherette cover.",
+    "tiers": [
+      [100, 12.27],
+      [250, 12.14],
+      [500, 10.9],
+      [1000, 10.76],
+      [2500, 9.77]
+    ],
+    "image": "/images/merch/weekly-desk-appointment-planner-leatherette-06779.webp",
+    "imageAlt": "Weekly Desk Appointment Planner - Leatherette",
+    "colors": [
+      "Green",
+      "Teal Green",
+      "Black",
+      "Burgundy Red",
+      "Red",
+      "White",
+      "Navy Blue",
+      "Purple"
+    ]
+  },
+  {
+    "id": "native-union-fold-laptop-stand-91509",
+    "name": "Native Union Fold Laptop Stand",
+    "category": "Office & Writing",
+    "brand": "Native Union",
+    "description": "Foldable aluminum laptop stand with carry pouch.",
+    "tiers": [
+      [8, 72.9],
+      [25, 62.52],
+      [50, 46.79],
+      [100, 44.99]
+    ],
+    "image": "/images/merch/native-union-fold-laptop-stand-91509.webp",
+    "imageAlt": "Native Union Fold Laptop Stand",
+    "colors": ["Black"]
+  },
+  {
+    "id": "adjustable-wood-laptop-stand-20561",
+    "name": "Adjustable Wood Laptop Stand",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Ergonomic adjustable wood laptop stand with aluminum alloy support, foldable for easy storage, fits laptops, tablets, and phones.",
+    "tiers": [
+      [50, 53.333],
+      [150, 51.333],
+      [300, 49.333],
+      [600, 47.333],
+      [1000, 42.5]
+    ],
+    "image": "/images/merch/adjustable-wood-laptop-stand-20561.webp",
+    "imageAlt": "Adjustable Wood Laptop Stand",
+    "colors": ["Brown"]
+  },
+  {
+    "id": "laptop-stand-for-desk-94000",
+    "name": "Laptop Stand for Desk",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Laptop Stand for Desk, Adjustable Laptop Riser ABS Silicone Foldable Portable Laptop Holder, Ventilated Cooling Notebook Stand.",
+    "tiers": [
+      [50, 9.65],
+      [200, 9],
+      [1000, 8.917],
+      [5000, 6.783],
+      [10000, 6.617]
+    ],
+    "image": "/images/merch/laptop-stand-for-desk-94000.webp",
+    "imageAlt": "Laptop Stand for Desk",
+    "colors": ["Silver", "Black", "Gray"]
+  },
+  {
+    "id": "foldable-abs-ergonomic-computer-stand-6-heights-of-laptop-s-17421",
+    "name": "Foldable ABS Ergonomic Computer Stand 6 Heights of Laptop",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "11.42\" x 3.54\" x 1.38\" ABS plastic adjustable laptop stand with protective hooks and bottom stability pads.",
+    "tiers": [
+      [100, 9.65],
+      [500, 8.617],
+      [2000, 7.583],
+      [5000, 6.55],
+      [10000, 4.283]
+    ],
+    "image": "/images/merch/foldable-abs-ergonomic-computer-stand-6-heights-of-laptop-s-17421.webp",
+    "imageAlt": "Foldable ABS Ergonomic Computer Stand 6 Heights of Laptop",
+    "colors": ["Black", "White", "Pink"]
+  },
+  {
+    "id": "moon-retractable-mechanical-pencil-41615",
+    "name": "Moon Retractable Mechanical Pencil",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Retractable mechanical pencil with metallic finish.",
+    "tiers": [
+      [300, 0.54],
+      [500, 0.51],
+      [1000, 0.5],
+      [2500, 0.49],
+      [5000, 0.48]
+    ],
+    "image": "/images/merch/moon-retractable-mechanical-pencil-41615.webp",
+    "imageAlt": "Moon Retractable Mechanical Pencil",
+    "colors": ["Black", "Green", "Blue", "Burgundy"]
+  },
+  {
+    "id": "mechanical-pencil-with-gripper-68587",
+    "name": "Mechanical Pencil With Gripper",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "ABS plastic click-action mechanical pencil with 0.7mm lead, gripper and pocket clip.",
+    "tiers": [
+      [300, 1],
+      [500, 0.95],
+      [1000, 0.9],
+      [2500, 0.85],
+      [5000, 0.75]
+    ],
+    "image": "/images/merch/mechanical-pencil-with-gripper-68587.webp",
+    "imageAlt": "Mechanical Pencil With Gripper",
+    "colors": ["Black", "Blue", "Green", "Maroon"]
+  },
+  {
+    "id": "delane-pen-and-pencil-gift-set-46576",
+    "name": "Delane® Pen & Pencil Gift Set",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Retractable ballpoint pen with mechanical pencil gift set.",
+    "tiers": [
+      [25, 6.57],
+      [50, 6.24],
+      [100, 5.91],
+      [250, 5.53]
+    ],
+    "image": "/images/merch/delane-pen-and-pencil-gift-set-46576.webp",
+    "imageAlt": "Delane® Pen & Pencil Gift Set",
+    "colors": [
+      "Black",
+      "Gold",
+      "Cranberry Red",
+      "Emerald Green",
+      "Graphite Gray",
+      "Sapphire Blue",
+      "Pink",
+      "Sky Blue"
+    ]
+  },
+  {
+    "id": "bowie-mechanical-pencil-88483",
+    "name": "Bowie Mechanical Pencil",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Eco The Bowie Mechanical pencil includes dispenses No. 2 lead and comes with two lead refills. Sustainable Production. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [100, 1.66],
+      [500, 1.61],
+      [1000, 1.56],
+      [2500, 1.51],
+      [5000, 1.47]
+    ],
+    "image": "/images/merch/bowie-mechanical-pencil-88483.webp",
+    "imageAlt": "Bowie Mechanical Pencil",
+    "colors": ["Black-Silver", "Process Blue-Silver", "Gray-Silver", "Red-Silver"]
   }
 ]
