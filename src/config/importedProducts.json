@@ -25078,5 +25078,487 @@
     "image": "/images/merch/6-in-1-tool-pen-43291.webp",
     "imageAlt": "6 In 1 Tool Pen",
     "colors": ["Black", "Silver", "Yellow", "Red", "Blue"]
+  },
+  {
+    "id": "rally-towel-dye-sublimated-07323",
+    "name": "Rally Towel Dye Sublimated",
+    "category": "Promo Giveaways",
+    "brand": "Essentials",
+    "description": "Full color dye sublimated towel for giveaways, promotions or any athletic or sporting event.",
+    "tiers": [
+      [100, 3.49],
+      [200, 3.19],
+      [400, 3.09],
+      [600, 2.99]
+    ],
+    "image": "/images/merch/rally-towel-dye-sublimated-07323.webp",
+    "imageAlt": "Rally Towel Dye Sublimated",
+    "colors": ["Assorted Colors"]
+  },
+  {
+    "id": "plastic-stylus-pen-33889",
+    "name": "Plastic Stylus Pen",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Plastic stylus pen available in a number of vibrant colors, Measures 6\" L x 0.6\" W. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [100, 2.12],
+      [250, 1.08],
+      [500, 1.06],
+      [1000, 1.03],
+      [2500, 1]
+    ],
+    "image": "/images/merch/plastic-stylus-pen-33889.webp",
+    "imageAlt": "Plastic Stylus Pen",
+    "colors": ["Black", "Green", "Blue", "Purple", "Red", "Silver", "Teal"]
+  },
+  {
+    "id": "kael-small-rectangular-hinged-tin-sugar-free-mints-42023",
+    "name": "Kael Small Rectangular Hinged Tin Sugar Free Mints",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Kael Small Rectangular Hinged Tin Sugar Free Mints is sugar-free and gluten-free, working effectively to freshen breath. Made in USA.",
+    "tiers": [
+      [100, 2.26],
+      [250, 2.16],
+      [500, 2.12],
+      [1000, 2.11]
+    ],
+    "image": "/images/merch/kael-small-rectangular-hinged-tin-sugar-free-mints-42023.webp",
+    "imageAlt": "Kael Small Rectangular Hinged Tin Sugar Free Mints",
+    "colors": ["Black", "Silver", "White Color"]
+  },
+  {
+    "id": "1-oz-tube-bubble-dispenser-15212",
+    "name": "1 oz. Tube Bubble Dispenser",
+    "category": "Kids & Toys",
+    "brand": "Essentials",
+    "description": "Size: 5\" x 11/4\".",
+    "tiers": [
+      [250, 1.8],
+      [500, 1.57],
+      [1000, 1.36],
+      [2500, 1.19],
+      [5000, 1.16]
+    ],
+    "image": "/images/merch/1-oz-tube-bubble-dispenser-15212.webp",
+    "imageAlt": "1 oz. Tube Bubble Dispenser",
+    "colors": ["Lime", "Pink", "Purple", "White", "Red", "Blue", "Orange"]
+  },
+  {
+    "id": "customizable-chocolate-coins-14037",
+    "name": "Customizable Chocolate Coins",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "Customizable Chocolate Coins.",
+    "tiers": [
+      [500, 0.67],
+      [1000, 0.65],
+      [2000, 0.64]
+    ],
+    "image": "/images/merch/customizable-chocolate-coins-14037.webp",
+    "imageAlt": "Customizable Chocolate Coins",
+    "colors": ["Gold"]
+  },
+  {
+    "id": "basketball-stress-reliever-balls-11630",
+    "name": "Basketball Stress Reliever Balls",
+    "category": "Promo Giveaways",
+    "brand": "Essentials",
+    "description": "Basketball Stress Reliever Balls.",
+    "tiers": [
+      [150, 1.89],
+      [300, 1.85],
+      [600, 1.8],
+      [1200, 1.76],
+      [2600, 1.73]
+    ],
+    "image": "/images/merch/basketball-stress-reliever-balls-11630.webp",
+    "imageAlt": "Basketball Stress Reliever Balls",
+    "colors": [
+      "Orange",
+      "Red",
+      "Blue-Carolina",
+      "Dark Green",
+      "Lime Green",
+      "Navy",
+      "Yellow",
+      "Purple"
+    ]
+  },
+  {
+    "id": "football-stress-reliever-22685",
+    "name": "Football Stress Reliever",
+    "category": "Promo Giveaways",
+    "brand": "Essentials",
+    "description": "Football shaped stress reliever.",
+    "tiers": [
+      [150, 1.65],
+      [250, 1.55],
+      [500, 1.42],
+      [1000, 1.33],
+      [2500, 1.24]
+    ],
+    "image": "/images/merch/football-stress-reliever-22685.webp",
+    "imageAlt": "Football Stress Reliever",
+    "colors": [
+      "White",
+      "Black",
+      "Red",
+      "Blue",
+      "Brown",
+      "Pink",
+      "Orange",
+      "Silver",
+      "Yellow",
+      "Green",
+      "Gold",
+      "Purple",
+      "Tourquoise/Teal",
+      "Burgundy"
+    ]
+  },
+  {
+    "id": "birdie-bamboo-golf-tee-set-81114",
+    "name": "Birdie Bamboo Golf Tee Set",
+    "category": "Outdoor & Sports",
+    "brand": "Essentials",
+    "description": "12-piece bamboo golf tee set with a metal carabiner.",
+    "tiers": [
+      [100, 3.96],
+      [250, 3.63],
+      [500, 3.55],
+      [1000, 3.47],
+      [2500, 3.3]
+    ],
+    "image": "/images/merch/birdie-bamboo-golf-tee-set-81114.webp",
+    "imageAlt": "Birdie Bamboo Golf Tee Set",
+    "colors": ["Natural Bamboo"]
+  },
+  {
+    "id": "jelly-belly-sour-pucker-lips-taster-packet-84360",
+    "name": "Jelly Belly Sour Pucker Lips: Taster Packet",
+    "category": "Food & Treats",
+    "brand": "Essentials",
+    "description": "1.3 oz taster pack of sweet-and-sour gummy lips Made in USA.",
+    "tiers": [
+      [50, 2.15],
+      [100, 1.97],
+      [500, 1.92],
+      [1000, 1.88],
+      [5000, 1.79]
+    ],
+    "image": "/images/merch/jelly-belly-sour-pucker-lips-taster-packet-84360.webp",
+    "imageAlt": "Jelly Belly Sour Pucker Lips: Taster Packet",
+    "colors": ["Clear"]
+  },
+  {
+    "id": "3-4-dye-sublimated-lanyard-with-badge-reel-combo-63045",
+    "name": "3/4\" Dye Sublimated Lanyard with Badge Reel Combo",
+    "category": "Lanyards & Badges",
+    "brand": "Essentials",
+    "description": "Polyester-made, dye sublimated lanyard with retractable badge reel.",
+    "tiers": [
+      [50, 7.8],
+      [100, 5.84],
+      [250, 3.52],
+      [500, 2.82],
+      [1000, 2.28]
+    ],
+    "image": "/images/merch/3-4-dye-sublimated-lanyard-with-badge-reel-combo-63045.webp",
+    "imageAlt": "3/4\" Dye Sublimated Lanyard with Badge Reel Combo"
+  },
+  {
+    "id": "imprinted-polyester-lanyards-84401",
+    "name": "Imprinted Polyester Lanyards",
+    "category": "Lanyards & Badges",
+    "brand": "Essentials",
+    "description": "Polyester lanyards. Size: 36\" x 1/2\", 36\" x 5/8\", 36\" x 3/4\", 36\" x 1\".",
+    "tiers": [
+      [100, 2.87],
+      [250, 1.55],
+      [500, 1.02],
+      [1000, 0.88],
+      [3000, 0.75]
+    ],
+    "image": "/images/merch/imprinted-polyester-lanyards-84401.webp",
+    "imageAlt": "Imprinted Polyester Lanyards",
+    "colors": [
+      "Black",
+      "Navy Blue",
+      "Light Blue",
+      "Royal Blue",
+      "White",
+      "Orange",
+      "Yellow",
+      "Gold",
+      "Purple",
+      "Burgundy",
+      "Pink",
+      "Gray",
+      "Brown",
+      "Green",
+      "Red"
+    ],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "standcharge-4-in-1-power-bank-72484",
+    "name": "StandCharge 4-in-1 Power Bank",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "4-in-1, 10000mAh power bank with LED flashlight, silicone lanyard and built-in phone stand. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [[50, 15.29]],
+    "image": "/images/merch/standcharge-4-in-1-power-bank-72484.webp",
+    "imageAlt": "StandCharge 4-in-1 Power Bank",
+    "colors": ["White"]
+  },
+  {
+    "id": "3-4-dye-sublimated-lanyard-with-metal-crimp-and-bulld-87598",
+    "name": "3/4\" Dye-Sublimated Lanyard with Metal Crimp and Bulld",
+    "category": "Lanyards & Badges",
+    "brand": "Essentials",
+    "description": "16\" x 3/4\" dye-sublimated lanyard with metal crimp and metal bulldog clip.",
+    "tiers": [
+      [100, 3.33],
+      [250, 2.82],
+      [500, 2.74],
+      [1000, 2.65],
+      [2500, 2.52]
+    ],
+    "image": "/images/merch/3-4-dye-sublimated-lanyard-with-metal-crimp-and-bulld-87598.webp",
+    "imageAlt": "3/4\" Dye-Sublimated Lanyard with Metal Crimp and Bulld",
+    "colors": ["Multi Color"]
+  },
+  {
+    "id": "sewn-polyester-value-lanyard-60294",
+    "name": "Sewn Polyester Value Lanyard",
+    "category": "Lanyards & Badges",
+    "brand": "Essentials",
+    "description": "Polyester lanyard with screen printed imprint and \"O\" ring that measures 3/4\" x 36\".",
+    "tiers": [
+      [1, 1.5],
+      [500, 1.45],
+      [1000, 1.4],
+      [2500, 1.37]
+    ],
+    "image": "/images/merch/sewn-polyester-value-lanyard-60294.webp",
+    "imageAlt": "Sewn Polyester Value Lanyard",
+    "colors": [
+      "Black/J-Hook Swivel/Bulldog Swivel/Lobster Claw/Split Ring",
+      "Navy/J-Hook Swivel/Bulldog Swivel/Lobster Claw/Split Ring",
+      "Red/J-Hook Swivel/Bulldog Swivel/Lobster Claw/Split Ring",
+      "J-Hook Swivel/Bulldog Swivel/Lobster Claw/Split Ring",
+      "Silver/J-Hook Swivel/Bulldog Swivel/Lobster Claw/Split Ring",
+      "Bulldog Swivel/J-Hook Swivel/Lobster Claw/Split Ring"
+    ]
+  },
+  {
+    "id": "rabs-lanyard-fan-45241",
+    "name": "RABS Lanyard Fan",
+    "category": "Promo Giveaways",
+    "brand": "Essentials",
+    "description": "Battery powered cooling fan with lanyard.",
+    "tiers": [
+      [100, 10.94],
+      [250, 9.51],
+      [500, 8.27],
+      [1000, 7.19],
+      [2500, 6.25]
+    ],
+    "image": "/images/merch/rabs-lanyard-fan-45241.webp",
+    "imageAlt": "RABS Lanyard Fan",
+    "colors": ["Black", "Red", "White"]
+  },
+  {
+    "id": "color-filled-silicone-wristbands-h-67546",
+    "name": "Color Filled Silicone Wristbands-H",
+    "category": "Promo Giveaways",
+    "brand": "Essentials",
+    "description": "High quality latex free awareness bracelets! PMS match available!",
+    "tiers": [
+      [100, 0.89],
+      [300, 0.534],
+      [500, 0.474],
+      [1000, 0.37]
+    ],
+    "image": "/images/merch/color-filled-silicone-wristbands-h-67546.webp",
+    "imageAlt": "Color Filled Silicone Wristbands-H",
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
+  },
+  {
+    "id": "tyvek-wristbands-88957",
+    "name": "Tyvek Wristbands",
+    "category": "Lanyards & Badges",
+    "brand": "Essentials",
+    "description": "Wristband with a variety of color options.",
+    "tiers": [
+      [100, 0.56],
+      [200, 0.3],
+      [300, 0.26],
+      [400, 0.2],
+      [500, 0.16]
+    ],
+    "image": "/images/merch/tyvek-wristbands-88957.webp",
+    "imageAlt": "Tyvek Wristbands",
+    "colors": [
+      "Aqua",
+      "Berry",
+      "Coral Red",
+      "Kelly Green",
+      "Metallic Gold",
+      "Metallic Silver",
+      "Neon Blue",
+      "Neon Green",
+      "Neon Orange",
+      "Neon Pink",
+      "Neon Red",
+      "Neon Yellow",
+      "Purple",
+      "Sky Blue",
+      "Violet",
+      "White",
+      "Yellow"
+    ]
+  },
+  {
+    "id": "cloth-wristbands-89686",
+    "name": "Cloth Wristbands",
+    "category": "Lanyards & Badges",
+    "brand": "Essentials",
+    "description": "Wristband with a one-way lock closure and stretch resistance.",
+    "tiers": [
+      [100, 2.44],
+      [200, 1.66],
+      [300, 1.4],
+      [500, 1.1],
+      [1000, 0.9]
+    ],
+    "image": "/images/merch/cloth-wristbands-89686.webp",
+    "imageAlt": "Cloth Wristbands",
+    "colors": [
+      "Aztec",
+      "Bird Floral",
+      "Blue Line",
+      "Cheetah",
+      "Cross Hatch",
+      "Rainbow Gradient",
+      "Rainbow Pastel",
+      "Red Line",
+      "Retro",
+      "Tiger",
+      "Zebra"
+    ]
+  },
+  {
+    "id": "best-buddy-tools-phone-hand-strap-01401",
+    "name": "Best Buddy Tools® Phone Hand Strap",
+    "category": "Tech Accessories",
+    "brand": "Essentials",
+    "description": "Phone Hand Strap. Size: 7.5\" x 0.25\" x 0.75\".",
+    "tiers": [
+      [100, 3.15],
+      [250, 2.95],
+      [500, 2.83],
+      [1000, 2.72],
+      [2500, 2.62]
+    ],
+    "image": "/images/merch/best-buddy-tools-phone-hand-strap-01401.webp",
+    "imageAlt": "Best Buddy Tools® Phone Hand Strap",
+    "colors": [
+      "Medium Black",
+      "Medium Blue",
+      "Medium Gray",
+      "Medium Navy Blue",
+      "Medium Purple",
+      "Medium Red",
+      "Medium White",
+      "Medium Green"
+    ]
+  },
+  {
+    "id": "sticky-flags-in-pocket-case-48866",
+    "name": "Sticky Flags In Pocket Case",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Sticky flags in pocket case.",
+    "tiers": [
+      [250, 0.86],
+      [500, 0.75],
+      [1000, 0.65],
+      [2500, 0.56],
+      [5000, 0.49]
+    ],
+    "image": "/images/merch/sticky-flags-in-pocket-case-48866.webp",
+    "imageAlt": "Sticky Flags In Pocket Case",
+    "colors": ["Black", "Blue", "Natural", "Red", "Silver", "White"]
+  },
+  {
+    "id": "3-x-3-sticky-note-47561",
+    "name": "3\" x 3\" Sticky Note",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "A popular choice for virtually anyone, you can customize your brand logo on this book to show your brand.",
+    "tiers": [
+      [300, 1.02],
+      [500, 0.75],
+      [1000, 0.63],
+      [3000, 0.61],
+      [5000, 0.57]
+    ],
+    "image": "/images/merch/3-x-3-sticky-note-47561.webp",
+    "imageAlt": "3\" x 3\" Sticky Note",
+    "colors": ["Blue", "Yellow", "Bright Yellow", "Pink", "Green", "Purple"]
+  },
+  {
+    "id": "sticky-notebook-with-ruler-61593",
+    "name": "Sticky Notebook with Ruler",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "4.25\" x 5\" x 0.625\" spiral bound notebook with assorted file flags, sticky memos, unruled paper and 4.5\" ruler.",
+    "tiers": [
+      [150, 3.27],
+      [250, 3.17],
+      [500, 2.97],
+      [1000, 2.62],
+      [2500, 2.19]
+    ],
+    "image": "/images/merch/sticky-notebook-with-ruler-61593.webp",
+    "imageAlt": "Sticky Notebook with Ruler",
+    "colors": ["Blue", "Natural", "Red", "White"]
+  },
+  {
+    "id": "square-magnet-w-8-message-magnets-52532",
+    "name": "Square Magnet w/ 8 Message Magnets",
+    "category": "Office & Writing",
+    "brand": "Essentials",
+    "description": "Square magnet with 8 message magnets. Made in USA. Pricing shown is for the base size or option; other sizes or options may cost more.",
+    "tiers": [
+      [250, 1.425],
+      [500, 1.092],
+      [1000, 0.832],
+      [2500, 0.655],
+      [5000, 0.634]
+    ],
+    "image": "/images/merch/square-magnet-w-8-message-magnets-52532.webp",
+    "imageAlt": "Square Magnet w/ 8 Message Magnets",
+    "colors": ["020 Thickness White", "030 Thickness White"]
+  },
+  {
+    "id": "1-4-custom-recycled-wood-magnets-made-in-usa-62797",
+    "name": "1/4\" Custom Recycled Wood Magnets",
+    "category": "Print & Collateral",
+    "brand": "Essentials",
+    "description": "Wooden magnet with ultra vivid graphics. Made in USA.",
+    "tiers": [
+      [100, 2.05],
+      [250, 1.883],
+      [500, 1.717],
+      [1000, 1.65]
+    ],
+    "image": "/images/merch/1-4-custom-recycled-wood-magnets-made-in-usa-62797.webp",
+    "imageAlt": "1/4\" Custom Recycled Wood Magnets",
+    "colors": ["Multi color"],
+    "priceNote": "Priced for the standard size; other sizes quoted on request."
   }
 ]

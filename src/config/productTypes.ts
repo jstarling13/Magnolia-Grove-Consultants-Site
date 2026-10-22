@@ -262,6 +262,7 @@ export const PRODUCT_TYPES: Record<string, Taxonomy> = {
       "Breakaway Lanyards",
       "Sublimated Lanyards",
       "Standard Lanyards",
+      "Event Wristbands",
     ],
     rules: [
       r("Name Badges", /name badge/),
@@ -269,6 +270,7 @@ export const PRODUCT_TYPES: Record<string, Taxonomy> = {
       rf("Breakaway Lanyards", /breakaway/),
       r("Sublimated Lanyards", /sublimat|full[- ]color/),
       r("Standard Lanyards", /lanyard/),
+      r("Event Wristbands", /wristband/),
     ],
   },
 
