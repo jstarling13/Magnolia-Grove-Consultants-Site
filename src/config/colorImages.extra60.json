@@ -1,1 +1,29 @@
-{}
+{
+  "chaz-carabiner-bottle-opener-64186": {
+    "Purple": "/images/merch/colors/chaz-carabiner-bottle-opener-64186-purple.webp",
+    "Red": "/images/merch/colors/chaz-carabiner-bottle-opener-64186-red.webp",
+    "Silver": "/images/merch/colors/chaz-carabiner-bottle-opener-64186-silver.webp"
+  },
+  "door-mat-22209": {
+    "Bright Gray": "/images/merch/colors/door-mat-22209-bright-gray.webp"
+  },
+  "deco-led-flashlight-with-keychain-48055": {
+    "Orange": "/images/merch/colors/deco-led-flashlight-with-keychain-48055-orange.webp",
+    "Red": "/images/merch/colors/deco-led-flashlight-with-keychain-48055-red.webp"
+  },
+  "mini-tape-measure-keychain-21308": {
+    "Iridescent Orange": "/images/merch/colors/mini-tape-measure-keychain-21308-iridescent-orange.webp"
+  },
+  "rechargeable-rubberized-torch-light-2-0-18961": {
+    "Royal Blue": "/images/merch/colors/rechargeable-rubberized-torch-light-2-0-18961-royal-blue.webp",
+    "Yellow": "/images/merch/colors/rechargeable-rubberized-torch-light-2-0-18961-yellow.webp"
+  },
+  "victorinox-classic-10178": {
+    "Pink": "/images/merch/colors/victorinox-classic-10178-pink.webp"
+  },
+  "3-4-silkscreen-lanyard-with-breakaway-safety-release-22949": {
+    "Royal": "/images/merch/colors/3-4-silkscreen-lanyard-with-breakaway-safety-release-22949-royal.webp",
+    "White": "/images/merch/colors/3-4-silkscreen-lanyard-with-breakaway-safety-release-22949-white.webp",
+    "Yellow": "/images/merch/colors/3-4-silkscreen-lanyard-with-breakaway-safety-release-22949-yellow.webp"
+  }
+}
