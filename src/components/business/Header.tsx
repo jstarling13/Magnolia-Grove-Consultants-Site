@@ -6,6 +6,7 @@ import Link from "next/link";
 import { FocusTrap } from "focus-trap-react";
 import { Menu, X } from "lucide-react";
 import { businessBrand, businessNav, businessNavLinks } from "@/config/businessConfig";
+import VerticalSwitch from "@/components/VerticalSwitch";
 
 export default function BusinessHeader() {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,9 +30,7 @@ export default function BusinessHeader() {
   return (
     <header
       className={`sticky top-0 z-50 w-full border-b transition-all duration-300 motion-reduce:transition-none ${
-        isScrolled
-          ? "border-gold/20 bg-onyx"
-          : "border-transparent bg-onyx"
+        isScrolled ? "border-gold/20 bg-onyx" : "border-transparent bg-onyx"
       }`}
     >
       <div className="container-grove flex items-center justify-between px-6 py-4 sm:px-8 lg:px-12">
@@ -59,6 +58,10 @@ export default function BusinessHeader() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
+          <VerticalSwitch
+            to="political"
+            className="inline-flex items-center whitespace-nowrap px-2 font-heading text-sm font-medium text-muted-light transition-colors hover:text-gold-bright motion-reduce:transition-none"
+          />
           <Link
             href={businessNav.primaryCtaHref}
             className="inline-flex items-center rounded-md bg-gold px-5 py-2.5 font-heading text-sm font-semibold text-onyx transition-all hover:bg-gold-bright motion-reduce:transition-none lg:px-6 lg:py-3"
@@ -105,6 +108,11 @@ export default function BusinessHeader() {
                 {link.label}
               </Link>
             ))}
+            <VerticalSwitch
+              to="political"
+              onNavigate={() => setIsOpen(false)}
+              className="rounded-md px-3 py-3 font-heading text-base font-medium text-gold-bright transition-colors hover:bg-white/5 motion-reduce:transition-none"
+            />
             <Link
               href={businessNav.primaryCtaHref}
               onClick={() => setIsOpen(false)}

@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { products } from "@/config/merchandiseConfig";
 import { pillars } from "@/config/pillarsConfig";
+import { businessPillars } from "@/config/businessPillarsConfig";
 import { buildMerchSitemapEntries, resolveLastModified } from "@/lib/merchSeo";
 import { getStorefrontCategories } from "@/lib/merchStorefront";
 import { getSiteUrl } from "@/lib/siteUrl";
@@ -15,6 +16,10 @@ const staticRoutes = [
   "/pillars",
   "/case-studies",
   "/booking",
+  "/business",
+  "/business/pillars",
+  "/business/about",
+  "/business/contact",
 ];
 
 /**
@@ -44,6 +49,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  const businessPillarEntries: MetadataRoute.Sitemap = businessPillars.map((pillar) => ({
+    url: `${siteUrl}/business/pillars/${pillar.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
   const merchEntries = buildMerchSitemapEntries(
     siteUrl,
     getStorefrontCategories(),
@@ -51,5 +63,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     now
   );
 
-  return [...staticEntries, ...pillarEntries, ...merchEntries];
+  return [...staticEntries, ...pillarEntries, ...businessPillarEntries, ...merchEntries];
 }

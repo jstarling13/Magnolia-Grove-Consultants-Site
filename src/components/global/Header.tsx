@@ -8,6 +8,7 @@ import { FocusTrap } from "focus-trap-react";
 import { Menu, X, User } from "lucide-react";
 import { brand, nav, navLinks } from "@/config/siteConfig";
 import { FOCUS_RING_ON_DARK } from "@/components/global/focusRing";
+import VerticalSwitch from "@/components/VerticalSwitch";
 
 const MOBILE_MENU_ID = "mobile-menu";
 
@@ -82,6 +83,10 @@ export default function Header() {
           </nav>
 
           <div className="hidden items-center gap-3 md:flex">
+            <VerticalSwitch
+              to="business"
+              className={`inline-flex min-h-11 items-center whitespace-nowrap rounded-md px-2 font-heading text-sm font-medium text-muted-light transition-colors hover:text-gold-bright motion-reduce:transition-none ${FOCUS_RING_ON_DARK}`}
+            />
             <Link
               href="/login"
               aria-label="Log In"
@@ -144,6 +149,11 @@ export default function Header() {
                   {link.label}
                 </Link>
               ))}
+              <VerticalSwitch
+                to="business"
+                onNavigate={() => setIsOpen(false)}
+                className={`min-h-11 rounded-md px-3 py-3 font-heading text-base font-medium text-gold-bright transition-colors hover:bg-white/5 motion-reduce:transition-none ${FOCUS_RING_ON_DARK}`}
+              />
               <Link
                 href="/login"
                 onClick={() => setIsOpen(false)}

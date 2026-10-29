@@ -3,13 +3,13 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-
-const STORAGE_KEY = "mg-vertical-choice";
+import { readVertical, saveVertical } from "@/lib/verticalChoice";
 
 // Shown once, on first visit, so a new visitor can self-select the
-// political or business track before landing on either one. Never blocks
-// direct/return visits, and never shows once inside /business — that
-// section already knows what it is.
+// political or business track before landing on either one. A returning
+// visitor who chose business is sent from the home page to /business.
+// Never shows once inside /business — that section already knows what it is.
+// Either side's header has a switch to the other side (VerticalSwitch).
 export default function VerticalGate() {
   const pathname = usePathname();
   const router = useRouter();
@@ -24,22 +24,18 @@ export default function VerticalGate() {
     // Same for the order status link in a customer's email.
     if (pathname?.startsWith("/orders")) return;
 
-    let alreadyChosen = true;
-    try {
-      alreadyChosen = Boolean(window.localStorage.getItem(STORAGE_KEY));
-    } catch {
-      alreadyChosen = true;
+    const chosen = readVertical();
+    // A returning visitor who picked the business side lands there, not on
+    // the campaign home page.
+    if (chosen === "business") {
+      if (pathname === "/") router.replace("/business");
+      return;
     }
-
-    if (!alreadyChosen) setVisible(true);
-  }, [pathname]);
+    if (!chosen) setVisible(true);
+  }, [pathname, router]);
 
   const choose = (value: "political" | "business") => {
-    try {
-      window.localStorage.setItem(STORAGE_KEY, value);
-    } catch {
-      // Private browsing or storage disabled — fine, it'll just ask again next visit.
-    }
+    saveVertical(value);
     setVisible(false);
     if (value === "business") router.push("/business");
   };
